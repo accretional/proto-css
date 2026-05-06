@@ -1,5 +1,7 @@
 # CSS Properties Docs - w3schools
 
+# NOTE: see mdnproperties-reference.md for MDN (mostly better) documentation/enumeration of CSS properties
+
 Each of these links has good reference material for CSS properties including actual structured syntax, eg "vertical-align: baseline | ... "
 
 (The syntax rules can be found in the <div><div> ... </div></div> after the <h2>CSS Syntax</h2> on each page)
