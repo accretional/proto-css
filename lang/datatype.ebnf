@@ -1,11 +1,16 @@
+(* <number> CSS type: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/number *)
+number_type = fraction , [ e , integer_type ] ;
+fraction = integer_type , [ period , whole_number ] ;
+
+(* <integer> CSS type: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/integer*)
+integer_type = [ plus | minus ], whole_number ;
+
 (* <percentage> CSS type: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/percentage *)
-
-
+percentage_type = number_type , percentage ;
 
 (* <length> CSS type: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/length *)
-(* Special case: the unit may be omitted when the numeric value is 0. *)
-length = zero | length_number ;
-length_number = number , length_unit ;
+length_type = zero | length_number ;
+length_number = number_type , length_unit ;
 
 length_unit = font_relative_length_unit
             | root_font_relative_length_unit
@@ -13,10 +18,8 @@ length_unit = font_relative_length_unit
             | container_query_length_unit
             | absolute_length_unit ;
 
-(* Font of the current element *)
 font_relative_length_unit = "cap" | "ch" | "em" | "ex" | "ic" | "lh" ;
 
-(* Font of the root element *)
 root_font_relative_length_unit = "rcap" | "rch" | "rem" | "rex" | "ric" | "rlh" ;
 
 viewport_length_unit = default_viewport_length_unit
@@ -26,19 +29,463 @@ viewport_length_unit = default_viewport_length_unit
 
 viewport_length_suffix = "h" | "w" | "max" | "min" | "b" | "i" ;
 
-(* Default viewport: currently equivalent to large viewport *)
 default_viewport_length_unit = "v"  , viewport_length_suffix ;
 
-(* Small viewport: sized assuming all dynamic browser UI is shown *)
 small_viewport_length_unit   = "sv" , viewport_length_suffix ;
 
-(* Large viewport: sized assuming all dynamic browser UI is hidden *)
 large_viewport_length_unit   = "lv" , viewport_length_suffix ;
 
-(* Dynamic viewport: resizes as browser UI shows/hides *)
 dynamic_viewport_length_unit = "dv" , viewport_length_suffix ;
 
-(* Relative to nearest container query container *)
 container_query_length_unit = "cqw" | "cqh" | "cqi" | "cqb" | "cqmin" | "cqmax" ;
 
 absolute_length_unit = "px" | "cm" | "mm" | "Q" | "in" | "pc" | "pt" ;
+
+(* <time> CSS type: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/time *)
+time_type = number_type , time_unit ;
+time_unit = s | ms ;
+
+(* <absolute-size> CSS type: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/absolute-size *)
+absolute_size_type = xx_small | x_small | small | medium | large | x_large | xx_large | xxx_large ;
+
+(* <alpha-value> *)
+alpha_value_type = number_type | percentage_type ;
+
+(* <angle-percentage> *)
+angle_percentage_type = angle_type | percentage_type ;
+
+(* <axis> *)
+axis_type = block | inline | x | y ;
+
+(* <blend-mode> *)
+blend_mode_type = normal | darken | multiply | color_burn | lighten | screen | color_dodge | overlay | soft_light | hard_light | difference | exclusion | hue_type | saturation | color_type | luminosity ;
+
+(* <color> *)
+color_type = color_base_type | currentcolor | system_color_type | contrast_color_fn | device_cmyk_fn | light_dark_color_type ;
+
+(* <color-base> *)
+color_base_type = hex_color_type | color_function_type | named_color_type | color_mix_fn | transparent ;
+
+(* <system-color> *)
+system_color_type = accentcolor | accentcolortext | activetext | buttonborder | buttonface | buttontext | canvas | canvastext | field | fieldtext | graytext | highlight | highlighttext | linktext | mark | marktext | selecteditem | selecteditemtext | visitedtext | deprecated_color_type ;
+
+(* <light-dark-color> *)
+light_dark_color_type = light_dark , "(" , color_type , "," , color_type , ")" ;
+
+(* <color-function> *)
+color_function_type = rgb_fn | rgba_fn | hsl_fn | hsla_fn | hwb_fn | lab_fn | lch_fn | oklab_fn | oklch_fn | ictcp_fn | jzazbz_fn | jzczhz_fn | alpha_fn | color_fn | hdr_color_fn ;
+
+(* <named-color> *)
+named_color_type = "aliceblue" | "antiquewhite" | aqua | "aquamarine" | "azure" | "beige" | "bisque" | black | "blanchedalmond" | blue | "blueviolet" | "brown" | "burlywood" | "cadetblue" | "chartreuse" | "chocolate" | "coral" | "cornflowerblue" | "cornsilk" | "crimson" | "cyan" | "darkblue" | "darkcyan" | "darkgoldenrod" | "darkgray" | "darkgreen" | "darkgrey" | "darkkhaki" | "darkmagenta" | "darkolivegreen" | "darkorange" | "darkorchid" | "darkred" | "darksalmon" | "darkseagreen" | "darkslateblue" | "darkslategray" | "darkslategrey" | "darkturquoise" | "darkviolet" | "deeppink" | "deepskyblue" | "dimgray" | "dimgrey" | "dodgerblue" | "firebrick" | "floralwhite" | "forestgreen" | fuchsia | "gainsboro" | "ghostwhite" | "gold" | "goldenrod" | gray | green | "greenyellow" | grey | "honeydew" | "hotpink" | "indianred" | "indigo" | "ivory" | "khaki" | "lavender" | "lavenderblush" | "lawngreen" | "lemonchiffon" | "lightblue" | "lightcoral" | "lightcyan" | "lightgoldenrodyellow" | "lightgray" | "lightgreen" | "lightgrey" | "lightpink" | "lightsalmon" | "lightseagreen" | "lightskyblue" | "lightslategray" | "lightslategrey" | "lightsteelblue" | "lightyellow" | lime | "limegreen" | "linen" | "magenta" | maroon | "mediumaquamarine" | "mediumblue" | "mediumorchid" | "mediumpurple" | "mediumseagreen" | "mediumslateblue" | "mediumspringgreen" | "mediumturquoise" | "mediumvioletred" | "midnightblue" | "mintcream" | "mistyrose" | "moccasin" | "navajowhite" | navy | "oldlace" | olive | "olivedrab" | orange | "orangered" | "orchid" | "palegoldenrod" | "palegreen" | "paleturquoise" | "palevioletred" | "papayawhip" | "peachpuff" | "peru" | "pink" | "plum" | "powderblue" | purple | "rebeccapurple" | red | "rosybrown" | "royalblue" | "saddlebrown" | "salmon" | "sandybrown" | "seagreen" | "seashell" | "sienna" | silver | "skyblue" | "slateblue" | "slategray" | "slategrey" | "snow" | "springgreen" | "steelblue" | "tan" | teal | "thistle" | "tomato" | "turquoise" | "violet" | "wheat" | white | "whitesmoke" | yellow | "yellowgreen" | transparent ;
+color_mix_fn_item = ( color_type , [ percentage_type ] ) ;
+
+(* <deprecated-color> *)
+deprecated_color_type = activeborder | activecaption | appworkspace | background | buttonhighlight | buttonshadow | captiontext | inactiveborder | inactivecaption | inactivecaptiontext | infobackground | infotext | menu | menutext | scrollbar | threeddarkshadow | threedface | threedhighlight | threedlightshadow | threedshadow | window | windowframe | windowtext ;
+
+(* <target-contrast> *)
+target_contrast_type = wcag2_type ;
+
+(* <legacy-device-cmyk-syntax> *)
+legacy_device_cmyk_syntax_type = "device-cmyk" , "(" , number_type , "," , number_type , "," , number_type , "," , number_type , ")" ;
+
+(* <modern-device-cmyk-syntax> *)
+modern_device_cmyk_syntax_type = "device-cmyk" , "(" , cmyk_component_type , cmyk_component_type , cmyk_component_type , cmyk_component_type , [ "/" , ( alpha_value_type | none ) ] , ")" ;
+hdr_color_fn_item = ( color_type , [ number_type ] ) ;
+
+(* <color-interpolation-method> *)
+color_interpolation_method_type = in , ( rectangular_color_space_type | polar_color_space_type , [ hue_interpolation_method_type ] | custom_color_space_type ) ;
+
+(* <wcag2> *)
+wcag2_type = "wcag2" | "wcag2" , "(" , ( number_type | ( "aa" | "aaa" ) , [ large ] ) , ")" ;
+
+(* <cmyk-component> *)
+cmyk_component_type = number_type | percentage_type | none ;
+
+(* <legacy-rgb-syntax> *)
+legacy_rgb_syntax_type = rgb , "(" , percentage_type , "," , percentage_type , "," , percentage_type , "," , [ alpha_value_type ] , ")" | rgb , "(" , number_type , "," , number_type , "," , number_type , "," , [ alpha_value_type ] , ")" ;
+
+(* <modern-rgb-syntax> *)
+modern_rgb_syntax_type = rgb , "(" , [ from , color_type ] , modern_rgb_syntax_item , modern_rgb_syntax_item , modern_rgb_syntax_item , [ "/" , ( alpha_value_type | none ) ] , ")" ;
+modern_rgb_syntax_item = ( number_type | percentage_type | none ) ;
+
+(* <legacy-rgba-syntax> *)
+legacy_rgba_syntax_type = rgba , "(" , percentage_type , "," , percentage_type , "," , percentage_type , "," , [ alpha_value_type ] , ")" | rgba , "(" , number_type , "," , number_type , "," , number_type , "," , [ alpha_value_type ] , ")" ;
+
+(* <modern-rgba-syntax> *)
+modern_rgba_syntax_type = rgba , "(" , [ from , color_type ] , modern_rgba_syntax_item , modern_rgba_syntax_item , modern_rgba_syntax_item , [ "/" , ( alpha_value_type | none ) ] , ")" ;
+modern_rgba_syntax_item = ( number_type | percentage_type | none ) ;
+
+(* <legacy-hsl-syntax> *)
+legacy_hsl_syntax_type = hsl , "(" , hue_type , "," , percentage_type , "," , percentage_type , "," , [ alpha_value_type ] , ")" ;
+
+(* <modern-hsl-syntax> *)
+modern_hsl_syntax_type = hsl , "(" , [ from , color_type ] , ( hue_type | none ) , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , [ "/" , ( alpha_value_type | none ) ] , ")" ;
+
+(* <legacy-hsla-syntax> *)
+legacy_hsla_syntax_type = hsla , "(" , hue_type , "," , percentage_type , "," , percentage_type , "," , [ alpha_value_type ] , ")" ;
+
+(* <modern-hsla-syntax> *)
+modern_hsla_syntax_type = hsla , "(" , [ from , color_type ] , ( hue_type | none ) , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , [ "/" , ( alpha_value_type | none ) ] , ")" ;
+
+(* <hue> *)
+hue_type = number_type | angle_type ;
+
+(* <colorspace-params> *)
+colorspace_params_type = custom_params_type | predefined_rgb_params_type | xyz_params_type ;
+
+(* <rectangular-color-space> *)
+rectangular_color_space_type = sRGB | srgb_linear | display_p3 | display_p3_linear | a98_rgb | prophoto_rgb | rec2020 | lab | oklab | xyz_space_type ;
+
+(* <polar-color-space> *)
+polar_color_space_type = hsl | hwb | lch | oklch ;
+
+(* <hue-interpolation-method> *)
+hue_interpolation_method_type = ( shorter | longer | increasing | decreasing ) , hue_type ;
+
+(* <custom-color-space> *)
+custom_color_space_type = dashed_ident_type ;
+
+(* <custom-params> *)
+custom_params_type = dashed_ident_type , custom_params_item , { custom_params_item } ;
+custom_params_item = ( number_type | percentage_type | none ) ;
+
+(* <predefined-rgb-params> *)
+predefined_rgb_params_type = predefined_rgb_type , predefined_rgb_params_item , predefined_rgb_params_item , predefined_rgb_params_item ;
+predefined_rgb_params_item = ( number_type | percentage_type | none ) ;
+
+(* <xyz-params> *)
+xyz_params_type = xyz_space_type , xyz_params_item , xyz_params_item , xyz_params_item ;
+xyz_params_item = ( number_type | percentage_type | none ) ;
+
+(* <xyz-space> *)
+xyz_space_type = xyz | xyz_d50 | xyz_d65 ;
+
+(* <predefined-rgb> *)
+predefined_rgb_type = sRGB | srgb_linear | display_p3 | display_p3_linear | a98_rgb | prophoto_rgb | rec2020 | "rec2100-pq" | "rec2100-hlg" | "rec2100-linear" ;
+
+(* <corner-shape-value> *)
+corner_shape_value_type = round | scoop | "bevel" | notch | square | squircle | superellipse_fn ;
+
+(* <display-box> *)
+display_box_type = contents | none ;
+
+(* <display-inside> *)
+display_inside_type = flow | flow_root | table | flex | grid | ruby ;
+
+(* <display-internal> *)
+display_internal_type = table_row_group | table_header_group | table_footer_group | table_row | table_cell | table_column_group | table_column | table_caption | ruby_base | ruby_text | "ruby-base-container" | "ruby-text-container" ;
+
+(* <display-legacy> *)
+display_legacy_type = inline_block | inline_table | inline_flex | inline_grid ;
+
+(* <display-listitem> *)
+display_listitem_type = [ display_outside_type ] , [ ( flow | flow_root ) ] , list_item ;
+
+(* <display-outside> *)
+display_outside_type = block | inline | "run-in" ;
+
+(* <easing-function> *)
+easing_function_type = linear_easing_function_type | cubic_bezier_easing_function_type | step_easing_function_type ;
+
+(* <linear-easing-function> *)
+linear_easing_function_type = linear | linear_fn ;
+
+(* <cubic-bezier-easing-function> *)
+cubic_bezier_easing_function_type = ease | ease_in | ease_out | ease_in_out | cubic_bezier_fn ;
+
+(* <step-easing-function> *)
+step_easing_function_type = step_start | step_end | steps_fn ;
+linear_fn_item = ( number_type , [ percentage_type ] , [ percentage_type ] ) ;
+cubic_bezier_fn_item = number_type , "," , number_type ;
+
+(* <step-position> *)
+step_position_type = jump_start | jump_end | jump_none | jump_both | start | end ;
+
+(* <filter-function> *)
+filter_function_type = blur_fn | brightness_fn | contrast_fn | drop_shadow_fn | grayscale_fn | hue_rotate_fn | invert_fn | opacity_fn | sepia_fn | saturate_fn ;
+
+(* <frequency-percentage> *)
+frequency_percentage_type = frequency_type | percentage_type ;
+
+(* <generic-family> *)
+generic_family_type = serif | sans_serif | monospace | cursive | fantasy | system_ui | "ui-serif" | "ui-sans-serif" | "ui-monospace" | "ui-rounded" | math | "fangsong" ;
+
+(* <gradient> *)
+gradient_type = linear_gradient_fn | repeating_linear_gradient_fn | radial_gradient_fn | repeating_radial_gradient_fn | conic_gradient_fn | repeating_conic_gradient_fn ;
+
+(* <linear-gradient-syntax> *)
+linear_gradient_syntax_type = [ ( [ ( angle_type | zero | to , side_or_corner_type ) ] , [ color_interpolation_method_type ] ) ] , "," , color_stop_list_type ;
+
+(* <radial-gradient-syntax> *)
+radial_gradient_syntax_type = [ ( [ [ ( [ radial_shape_type ] , [ radial_size_type ] ) ] , [ at , position_type ] ] , [ color_interpolation_method_type ] ) ] , "," , color_stop_list_type ;
+
+(* <conic-gradient-syntax> *)
+conic_gradient_syntax_type = [ ( [ [ from , ( angle_type | zero ) ] , [ at , position_type ] ] , [ color_interpolation_method_type ] ) ] , "," , angular_color_stop_list_type ;
+
+(* <side-or-corner> *)
+side_or_corner_type = [ ( left | right ) ] , [ ( top | bottom ) ] ;
+
+(* <color-stop-list> *)
+color_stop_list_type = linear_color_stop_type , "," , [ color_stop_list_item , { "," , color_stop_list_item } ] ;
+color_stop_list_item = [ linear_color_hint_type ] , "," , linear_color_stop_type ;
+
+(* <radial-shape> *)
+radial_shape_type = circle | ellipse ;
+
+(* <radial-size> *)
+radial_size_type = radial_extent_type | length_type | length_percentage_type , length_percentage_type ;
+
+(* <position> *)
+position_type = position_one_type | position_two_type | position_four_type ;
+
+(* <angular-color-stop-list> *)
+angular_color_stop_list_type = angular_color_stop_type , "," , [ angular_color_stop_list_item , { "," , angular_color_stop_list_item } ] ;
+angular_color_stop_list_item = [ angular_color_hint_type ] , "," , angular_color_stop_type ;
+
+(* <linear-color-stop> *)
+linear_color_stop_type = color_type , [ color_stop_length_type ] ;
+
+(* <linear-color-hint> *)
+linear_color_hint_type = length_percentage_type ;
+
+(* <radial-extent> *)
+radial_extent_type = closest_corner | closest_side | farthest_corner | farthest_side ;
+
+(* <length-percentage> *)
+length_percentage_type = length_type | percentage_type ;
+
+(* <position-one> *)
+position_one_type = left | center | right | top | bottom | x_start | x_end | y_start | y_end | block_start | block_end | inline_start | inline_end | length_percentage_type ;
+
+(* <position-two> *)
+position_two_type = ( left | center | right | x_start | x_end ) , ( top | center | bottom | y_start | y_end ) | ( left | center | right | x_start | x_end | length_percentage_type ) , ( top | center | bottom | y_start | y_end | length_percentage_type ) | ( block_start | center | block_end ) , ( inline_start | center | inline_end ) | position_two_item , position_two_item ;
+position_two_item = ( start | center | end ) ;
+
+(* <position-four> *)
+position_four_type = ( left | right | x_start | x_end ) , length_percentage_type , ( top | bottom | y_start | y_end ) , length_percentage_type | ( block_start | block_end ) , length_percentage_type , ( inline_start | inline_end ) , length_percentage_type | position_four_item , position_four_item ;
+position_four_item = ( start | end ) , length_percentage_type ;
+
+(* <angular-color-stop> *)
+angular_color_stop_type = color_type , [ color_stop_angle_type ] ;
+
+(* <angular-color-hint> *)
+angular_color_hint_type = angle_percentage_type | zero ;
+
+(* <color-stop-length> *)
+color_stop_length_type = length_percentage_type , [ length_percentage_type ] ;
+
+(* <color-stop-angle> *)
+color_stop_angle_type = color_stop_angle_item , [ color_stop_angle_item ] ;
+color_stop_angle_item = ( angle_percentage_type | zero ) ;
+
+(* <image> *)
+image_type = url | image_fn | image_set_fn | cross_fade_fn | element_fn | gradient_type ;
+
+(* <image-tags> *)
+image_tags_type = ltr | rtl ;
+
+(* <image-src> *)
+image_src_type = url | string_type ;
+
+(* <image-set-option> *)
+image_set_option_type = ( image_type | string_type ) , [ ( [ resolution_type ] , [ type , "(" , string_type , ")" ] ) ] ;
+
+(* <cf-image> *)
+cf_image_type = ( image_type | color_type ) , [ percentage_type ] ;
+
+(* <id-selector> *)
+id_selector_type = hash_token ;
+
+(* <line-style> *)
+line_style_type = none | hidden | dotted | dashed | solid | double | groove | ridge | inset | outset ;
+
+(* <ratio> *)
+ratio_type = number_type , [ "/" , number_type ] ;
+
+(* <text-edge> *)
+text_edge_type = ( text | "ideographic" | ideographic_ink ) | ( text | "ideographic" | ideographic_ink | cap | ex ) , ( text | "ideographic" | ideographic_ink | alphabetic ) ;
+
+(* <timeline-range-name> *)
+timeline_range_name_type = cover | contain | entry | exit | entry_crossing | exit_crossing | scroll ;
+
+(* <time-percentage> *)
+time_percentage_type = time_type | percentage_type ;
+
+(* <baseline-position> — [ first | last ]? && baseline *)
+baseline_position_type = [ ( first | last ) ] , baseline ;
+
+(* <content-distribution> — space-between | space-around | space-evenly | stretch *)
+content_distribution_type = space_between | space_around | space_evenly | stretch ;
+
+(* <content-position> — center | start | end | flex-start | flex-end *)
+content_position_type = center | start | end | flex_start | flex_end ;
+
+(* <overflow-position> — unsafe | safe *)
+overflow_position_type = unsafe | safe ;
+
+(* <overflow> — visible | hidden | clip | scroll | auto *)
+overflow_type = visible | hidden | clip | scroll | auto ;
+
+(* <relative-size> — smaller | larger *)
+relative_size_type = smaller | larger ;
+
+(* <self-position> — center | start | end | self-start | self-end | flex-start | flex-end *)
+self_position_type = center | start | end | self_start | self_end | flex_start | flex_end ;
+
+(* <url> — url( <string> ) *)
+url_type = url , "(" , [ string_type ] , ")" ;
+visual_box_type   = content_box | padding_box | border_box ;
+shape_box_type    = visual_box_type | margin_box ;
+layout_box_type   = shape_box_type ;
+paint_box_type    = visual_box_type | fill_box | stroke_box ;
+coord_box_type    = paint_box_type | view_box ;
+geometry_box_type = shape_box_type | fill_box | stroke_box | view_box ;
+box_edge_type     = geometry_box_type | coord_box_type ;
+position_area_type =
+    [ position_area_x ] , [ position_area_y ]
+  | [ position_area_block_kw ] , [ position_area_inline_kw ]
+  | [ position_area_self_block_kw ] , [ position_area_self_inline_kw ] ;
+
+position_area_x =
+  left | center | right | span_left | span_right
+  | x_start | x_end | span_x_start | span_x_end
+  | self_x_start | self_x_end | span_self_x_start | span_self_x_end
+  | span_all ;
+
+position_area_y =
+  top | center | bottom | span_top | span_bottom
+  | y_start | y_end | span_y_start | span_y_end
+  | self_y_start | self_y_end | span_self_y_start | span_self_y_end
+  | span_all ;
+
+position_area_block_kw =
+  block_start | center | block_end | span_block_start | span_block_end | span_all ;
+
+position_area_inline_kw =
+  inline_start | center | inline_end | span_inline_start | span_inline_end | span_all ;
+
+position_area_self_block_kw =
+  self_block_start | self_block_end | span_self_block_start | span_self_block_end | span_all ;
+
+position_area_self_inline_kw =
+  self_inline_start | self_inline_end | span_self_inline_start | span_self_inline_end | span_all ;
+
+(* <angle> — <number> + angle unit; zero is valid without unit *)
+angle_type      = zero | angle_value ;
+angle_value = number_type , angle_unit ;
+angle_unit = "deg" | "grad" | "rad" | "turn" ;
+
+(* <dimension> — <number> immediately followed by a unit identifier (generic) *)
+dimension_type      = number_type , dimension_unit ;
+dimension_unit = ident_type ;
+
+(* <flex> — <number> fr *)
+flex_type = number_type , "fr" ;
+
+(* <frequency> — <number> + Hz or kHz *)
+frequency_type      = number_type , frequency_unit ;
+frequency_unit = hz | khz ;
+
+(* <resolution> — strictly positive <number> + unit *)
+resolution_type      = number_type , resolution_unit ;
+resolution_unit = "dpi" | "dpcm" | "dppx" | x ;
+
+(* <calc-keyword> — numeric constants usable in CSS math functions *)
+calc_keyword_type = e | pi | infinity | _infinity | NaN ;
+ident_type          = ident_start , { ident_continue } ;
+ident_start    = letter | "_" ;
+ident_continue = letter | digit | "_" | "-" ;
+
+(* <custom-ident> — user-defined, case-sensitive identifier (structurally same as ident) *)
+custom_ident_type = ident_type ;
+
+(* <dashed-ident> — custom property name: two dashes followed by an identifier *)
+dashed_ident_type = "--" , ident_type ;
+
+(* <hex-color> — # followed by 3, 4, 6, or 8 hex digits (longest match first) *)
+hex_color_type   = "#" , ( hex_color_8 | hex_color_6 | hex_color_4 | hex_color_3 ) ;
+hex_color_3 = hex_digit , hex_digit , hex_digit ;
+hex_color_4 = hex_digit , hex_digit , hex_digit , hex_digit ;
+hex_color_6 = hex_digit , hex_digit , hex_digit , hex_digit , hex_digit , hex_digit ;
+hex_color_8 = hex_digit , hex_digit , hex_digit , hex_digit
+            , hex_digit , hex_digit , hex_digit , hex_digit ;
+
+(* <string> — CSS quoted string; lexer-level primitive. *)
+string_type = string_literal ;
+
+(* <calc-sum> = <calc-product> [ [ '+' | '-' ] <calc-product> ]* *)
+calc_sum_type = calc_product_type , { ( plus | minus ) , calc_product_type } ;
+
+(* <calc-product> = <calc-value> [ [ '*' | '/' ] <calc-value> ]* *)
+calc_product_type = calc_value_type , { ( "*" | "/" ) , calc_value_type } ;
+
+(* <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | ( <calc-sum> ) *)
+calc_value_type = number_type | dimension_type | percentage_type | calc_keyword_type | ( "(" , calc_sum_type , ")" ) ;
+
+(* <transform-list> *)
+transform_list_type = transform_function_type , { transform_function_type } ;
+
+(* <transform-function> *)
+transform_function_type =
+    scale3d_fn | scale_fn | scaleX_fn | scaleY_fn | scaleZ_fn
+  | translate3d_fn | translate_fn | translateX_fn | translateY_fn | translateZ_fn
+  | rotate3d_fn | rotate_fn | rotateX_fn | rotateY_fn | rotateZ_fn
+  | skew_fn | skewX_fn | skewY_fn
+  | matrix3d_fn | matrix_fn
+  | perspective_fn ;
+
+(* <basic-shape> *)
+basic_shape_type =
+    inset_fn | circle_fn | ellipse_fn | polygon_fn
+  | path_fn | shape_fn | rect_fn | xywh_fn ;
+
+(* Shared: fill-rule and border-radius *)
+fill_rule_type = nonzero | evenodd ;
+
+(* <border-radius> = <length-percentage [0,∞]>{1,4} [ / <length-percentage [0,∞]>{1,4} ]? *)
+border_radius_type =
+    length_percentage_type , [ length_percentage_type ] , [ length_percentage_type ] , [ length_percentage_type ]
+  , [ "/" , length_percentage_type , [ length_percentage_type ] , [ length_percentage_type ] , [ length_percentage_type ] ] ;
+
+(* <shape-command> *)
+shape_command_type =
+    move_command_type | line_command_type | close
+  | horizontal_line_command_type | vertical_line_command_type
+  | curve_command_type | smooth_command_type | arc_command_type ;
+
+(* move <command-end-point> *)
+move_command_type = move , command_end_point_type ;
+
+(* line <command-end-point> *)
+line_command_type = line , command_end_point_type ;
+
+(* <command-end-point> = to <position> | by <coordinate-pair> *)
+command_end_point_type = ( to , position_type ) | ( by , coordinate_pair_type ) ;
+coordinate_pair_type    = length_percentage_type , length_percentage_type ;
+
+(* hline [ to [ <length-percentage> | left | center | right | x-start | x-end ] | by <length-percentage> ] *)
+horizontal_line_command_type = hline , (
+    ( to , ( length_percentage_type | left | center | right | x_start | x_end ) )
+  | ( by , length_percentage_type ) ) ;
+
+(* vline [ to [ <length-percentage> | top | center | bottom | y-start | y-end ] | by <length-percentage> ] *)
+vertical_line_command_type = vline , (
+    ( to , ( length_percentage_type | top | center | bottom | y_start | y_end ) )
+  | ( by , length_percentage_type ) ) ;
+relative_control_point_type = coordinate_pair_type , [ from , ( start | end | origin ) ] ;
+control_point_type          = position_type | relative_control_point_type ;
+curve_command_type = curve , (
+    ( to , position_type , with , control_point_type , [ "/" , control_point_type ] )
+  | ( by , coordinate_pair_type , with , relative_control_point_type , [ "/" , relative_control_point_type ] ) ) ;
+smooth_command_type = smooth , (
+    ( to , position_type , [ with , control_point_type ] )
+  | ( by , coordinate_pair_type , [ with , relative_control_point_type ] ) ) ;
+arc_sweep_type = cw | ccw ;
+arc_size_type  = large | small ;
+
+arc_command_type = arc , command_end_point_type ,
+  [ [ of , length_percentage_type , [ length_percentage_type ] ] ,
+    [ arc_sweep_type ] ,
+    [ arc_size_type ] ,
+    [ rotate , angle_type ] ] ;
+

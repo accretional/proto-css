@@ -1,0 +1,499 @@
+(* CSS Function definitions
+   Generated / hand-authored from docs/syntax/functions.txt and docs/syntax/datatypes.txt.
+   See docs/GUIDE_TO_EBNF_TRANSFORMATION.md for transformation rationale.
+
+   Functions already defined here were originally in datatype.ebnf; moved here
+   so datatypes.ebnf can reference them. Cross-file references are resolved at
+   compile time by the gluon compiler.
+*)
+
+
+(* <contrast-color()> *)
+contrast_color_fn = contrast_color , "(" , color_type , ")" ;
+
+(* <sibling-count()> — takes no parameters; returns sibling count as integer *)
+sibling_count_fn = sibling_count , "(" , ")" ;
+
+(* <sibling-index()> — takes no parameters; returns element's 1-based sibling position *)
+sibling_index_fn = sibling_index , "(" , ")" ;
+
+(* <device-cmyk()> *)
+device_cmyk_fn = legacy_device_cmyk_syntax_type | modern_device_cmyk_syntax_type ;
+
+(* <color-mix()> *)
+color_mix_fn = color_mix , "(" , [ color_interpolation_method_type ] , "," , color_mix_fn_item , { "," , color_mix_fn_item } , ")" ;
+
+(* <rgb()> *)
+rgb_fn = legacy_rgb_syntax_type | modern_rgb_syntax_type ;
+
+(* <rgba()> *)
+rgba_fn = legacy_rgba_syntax_type | modern_rgba_syntax_type ;
+
+(* <hsl()> *)
+hsl_fn = legacy_hsl_syntax_type | modern_hsl_syntax_type ;
+
+(* <hsla()> *)
+hsla_fn = legacy_hsla_syntax_type | modern_hsla_syntax_type ;
+
+(* <hwb()> *)
+hwb_fn = hwb , "(" , [ from , color_type ] , ( hue_type | none ) , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , [ "/" , ( alpha_value_type | none ) ] , ")" ;
+
+(* <lab()> *)
+lab_fn = lab , "(" , [ from , color_type ] , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , [ "/" , ( alpha_value_type | none ) ] , ")" ;
+
+(* <lch()> *)
+lch_fn = lch , "(" , [ from , color_type ] , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , ( hue_type | none ) , [ "/" , ( alpha_value_type | none ) ] , ")" ;
+
+(* <oklab()> *)
+oklab_fn = oklab , "(" , [ from , color_type ] , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , [ "/" , ( alpha_value_type | none ) ] , ")" ;
+
+(* <oklch()> *)
+oklch_fn = oklch , "(" , [ from , color_type ] , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , ( hue_type | none ) , [ "/" , ( alpha_value_type | none ) ] , ")" ;
+
+(* <ictcp()> *)
+ictcp_fn = "ictcp" , "(" , [ from , color_type ] , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , [ "/" , ( alpha_value_type | none ) ] , ")" ;
+
+(* <jzazbz()> *)
+jzazbz_fn = "jzazbz" , "(" , [ from , color_type ] , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , [ "/" , ( alpha_value_type | none ) ] , ")" ;
+
+(* <jzczhz()> *)
+jzczhz_fn = "jzczhz" , "(" , [ from , color_type ] , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , ( hue_type | none ) , [ "/" , ( alpha_value_type | none ) ] , ")" ;
+
+(* <alpha()> *)
+alpha_fn = alpha , "(" , from , color_type , [ "/" , ( alpha_value_type | none ) ] , ")" ;
+
+(* <color()> *)
+color_fn = color , "(" , [ from , color_type ] , colorspace_params_type , [ "/" , ( alpha_value_type | none ) ] , ")" ;
+
+(* <hdr-color()> *)
+hdr_color_fn = "color-hdr" , "(" , hdr_color_fn_item , "," , hdr_color_fn_item , ")" ;
+
+(* <superellipse()> *)
+superellipse_fn = superellipse , "(" , ( number_type | infinity | _infinity ) , ")" ;
+
+(* <linear()> *)
+linear_fn = linear , "(" , linear_fn_item , { "," , linear_fn_item } , ")" ;
+
+(* <cubic-bezier()> *)
+cubic_bezier_fn = cubic_bezier , "(" , cubic_bezier_fn_item , "," , cubic_bezier_fn_item , ")" ;
+
+(* <steps()> *)
+steps_fn = steps , "(" , integer_type , "," , [ step_position_type ] , ")" ;
+
+(* <blur()> *)
+blur_fn = blur , "(" , [ length_type ] , ")" ;
+
+(* <brightness()> *)
+brightness_fn = brightness , "(" , [ ( number_type | percentage_type ) ] , ")" ;
+
+(* <contrast()> *)
+contrast_fn = contrast , "(" , [ ( number_type | percentage_type ) ] , ")" ;
+
+(* <drop-shadow()> *)
+drop_shadow_fn = drop_shadow , "(" , ( [ color_type ] , length_type , length_type , [ length_type ] ) , ")" ;
+
+(* <grayscale()> *)
+grayscale_fn = grayscale , "(" , [ ( number_type | percentage_type ) ] , ")" ;
+
+(* <hue-rotate()> *)
+hue_rotate_fn = hue_rotate , "(" , [ ( angle_type | zero ) ] , ")" ;
+
+(* <invert()> *)
+invert_fn = invert , "(" , [ ( number_type | percentage_type ) ] , ")" ;
+
+(* <opacity()> *)
+opacity_fn = opacity , "(" , [ ( number_type | percentage_type ) ] , ")" ;
+
+(* <sepia()> *)
+sepia_fn = sepia , "(" , [ ( number_type | percentage_type ) ] , ")" ;
+
+(* <saturate()> *)
+saturate_fn = saturate , "(" , [ ( number_type | percentage_type ) ] , ")" ;
+
+(* <linear-gradient()> *)
+linear_gradient_fn = linear_gradient , "(" , linear_gradient_syntax_type , ")" ;
+
+(* <repeating-linear-gradient()> *)
+repeating_linear_gradient_fn = repeating_linear_gradient , "(" , linear_gradient_syntax_type , ")" ;
+
+(* <radial-gradient()> *)
+radial_gradient_fn = radial_gradient , "(" , radial_gradient_syntax_type , ")" ;
+
+(* <repeating-radial-gradient()> *)
+repeating_radial_gradient_fn = repeating_radial_gradient , "(" , radial_gradient_syntax_type , ")" ;
+
+(* <conic-gradient()> *)
+conic_gradient_fn = conic_gradient , "(" , conic_gradient_syntax_type , ")" ;
+
+(* <repeating-conic-gradient()> *)
+repeating_conic_gradient_fn = repeating_conic_gradient , "(" , conic_gradient_syntax_type , ")" ;
+
+(* <image()> *)
+image_fn = "image" , "(" , [ image_tags_type ] , (* ! at-least-one *) [ image_src_type ] , "," , [ color_type ] , ")" ;
+
+(* <image-set()> *)
+image_set_fn = image_set , "(" , image_set_option_type , { "," , image_set_option_type } , ")" ;
+
+(* <cross-fade()> *)
+cross_fade_fn = cross_fade , "(" , cf_image_type , { "," , cf_image_type } , ")" ;
+
+(* <element()> *)
+element_fn = element , "(" , id_selector_type , ")" ;
+
+(* scale3d( [ <number> | <percentage> ]#{3} ) *)
+scale3d_fn =
+  scale3d , "(" ,
+    ( number_type | percentage_type ) , "," ,
+    ( number_type | percentage_type ) , "," ,
+    ( number_type | percentage_type ) ,
+  ")" ;
+
+(* scale( <number> , <number>? ) *)
+scale_fn = scale , "(" , number_type , [ "," , number_type ] , ")" ;
+
+(* scaleX( <number> ) *)
+scaleX_fn = scaleX , "(" , number_type , ")" ;
+
+(* scaleY( <number> ) *)
+scaleY_fn = scaleY , "(" , number_type , ")" ;
+
+(* scaleZ( [ <number> | <percentage> ] ) *)
+scaleZ_fn = scaleZ , "(" , ( number_type | percentage_type ) , ")" ;
+
+(* translate3d( <length-percentage> , <length-percentage> , <length> ) *)
+translate3d_fn =
+  translate3d , "(" ,
+    length_percentage_type , "," ,
+    length_percentage_type , "," ,
+    length_type ,
+  ")" ;
+
+(* translate( <length-percentage> , <length-percentage>? ) *)
+translate_fn = translate , "(" , length_percentage_type , [ "," , length_percentage_type ] , ")" ;
+
+(* translateX( <length-percentage> ) *)
+translateX_fn = translateX , "(" , length_percentage_type , ")" ;
+
+(* translateY( <length-percentage> ) *)
+translateY_fn = translateY , "(" , length_percentage_type , ")" ;
+
+(* translateZ( <length> ) *)
+translateZ_fn = translateZ , "(" , length_type , ")" ;
+
+(* rotate3d( <number> , <number> , <number> , [ <angle> | <zero> ] ) *)
+rotate3d_fn =
+  rotate3d , "(" ,
+    number_type , "," , number_type , "," , number_type , "," ,
+    ( angle_type | zero ) ,
+  ")" ;
+
+(* rotate( [ <angle> | <zero> ] ) *)
+rotate_fn = rotate , "(" , ( angle_type | zero ) , ")" ;
+
+(* rotateX( [ <angle> | <zero> ] ) *)
+rotateX_fn = rotateX , "(" , ( angle_type | zero ) , ")" ;
+
+(* rotateY( [ <angle> | <zero> ] ) *)
+rotateY_fn = rotateY , "(" , ( angle_type | zero ) , ")" ;
+
+(* rotateZ( [ <angle> | <zero> ] ) *)
+rotateZ_fn = rotateZ , "(" , ( angle_type | zero ) , ")" ;
+
+(* skew( [ <angle> | <zero> ] , [ <angle> | <zero> ]? ) *)
+skew_fn = skew , "(" , ( angle_type | zero ) , [ "," , ( angle_type | zero ) ] , ")" ;
+
+(* skewX( [ <angle> | <zero> ] ) *)
+skewX_fn = skewX , "(" , ( angle_type | zero ) , ")" ;
+
+(* skewY( [ <angle> | <zero> ] ) *)
+skewY_fn = skewY , "(" , ( angle_type | zero ) , ")" ;
+
+(* matrix3d( <number>#{16} ) — 4×4 homogeneous matrix, 16 comma-separated numbers *)
+matrix3d_fn =
+  matrix3d , "(" ,
+    number_type , "," , number_type , "," , number_type , "," , number_type , "," ,
+    number_type , "," , number_type , "," , number_type , "," , number_type , "," ,
+    number_type , "," , number_type , "," , number_type , "," , number_type , "," ,
+    number_type , "," , number_type , "," , number_type , "," , number_type ,
+  ")" ;
+
+(* matrix( <number>#{6} ) — 2D homogeneous matrix, 6 comma-separated numbers *)
+matrix_fn =
+  matrix , "(" ,
+    number_type , "," , number_type , "," ,
+    number_type , "," , number_type , "," ,
+    number_type , "," , number_type ,
+  ")" ;
+
+(* perspective( [ <length [0,∞]> | none ] ) *)
+perspective_fn = perspective , "(" , ( length_type | none ) , ")" ;
+
+(* inset( <length-percentage>{1,4} [ round <border-radius> ]? ) *)
+inset_fn = inset , "(" ,
+    length_percentage_type , [ length_percentage_type ] , [ length_percentage_type ] , [ length_percentage_type ] ,
+    [ round , border_radius_type ] ,
+  ")" ;
+
+(* circle( <radial-size>? [ at <position> ]? ) *)
+circle_fn = circle , "(" , [ radial_size_type ] , [ at , position_type ] , ")" ;
+
+(* ellipse( <radial-size>? [ at <position> ]? ) *)
+ellipse_fn = ellipse , "(" , [ radial_size_type ] , [ at , position_type ] , ")" ;
+
+(* polygon( <fill-rule>? [ round <length> ]? , [ <length-percentage> <length-percentage> ]# ) *)
+polygon_fn = polygon , "(" ,
+    [ fill_rule_type ] , [ round , length_type ] , "," ,
+    length_percentage_type , length_percentage_type , { "," , length_percentage_type , length_percentage_type } ,
+  ")" ;
+
+(* path( <fill-rule>? , <string> )  — comma only present when fill-rule given *)
+path_fn = path , "(" , [ fill_rule_type , "," ] , string_type , ")" ;
+
+(* rect( [ <length-percentage> | auto ]{4} [ round <border-radius> ]? ) *)
+rect_fn = rect , "(" ,
+    ( length_percentage_type | auto ) , ( length_percentage_type | auto ) ,
+    ( length_percentage_type | auto ) , ( length_percentage_type | auto ) ,
+    [ round , border_radius_type ] ,
+  ")" ;
+
+(* xywh( <length-percentage>{2} <length-percentage>{2} [ round <border-radius> ]? ) *)
+xywh_fn = xywh , "(" ,
+    length_percentage_type , length_percentage_type ,
+    length_percentage_type , length_percentage_type ,
+    [ round , border_radius_type ] ,
+  ")" ;
+
+(* ── shape() ─────────────────────────────────────────────────────────────── *)
+
+(* shape( <fill-rule>? from <position> , <shape-command># ) *)
+shape_fn = shape , "(" ,
+    [ fill_rule_type ] , from , position_type , "," ,
+    shape_command_type , { "," , shape_command_type } ,
+  ")" ;
+
+
+(* ── Math functions ─────────────────────────────────────────────────────── *)
+
+(* abs( <calc-sum> ) *)
+abs_fn = abs , "(" , calc_sum_type , ")" ;
+
+(* acos( <calc-sum> ) *)
+acos_fn = acos , "(" , calc_sum_type , ")" ;
+
+(* asin( <calc-sum> ) *)
+asin_fn = asin , "(" , calc_sum_type , ")" ;
+
+(* atan( <calc-sum> ) *)
+atan_fn = atan , "(" , calc_sum_type , ")" ;
+
+(* atan2( <calc-sum> , <calc-sum> ) *)
+atan2_fn = atan2 , "(" , calc_sum_type , "," , calc_sum_type , ")" ;
+
+(* calc( <calc-sum> ) *)
+calc_fn = calc , "(" , calc_sum_type , ")" ;
+
+(* clamp( [ <calc-sum> | none ] , <calc-sum> , [ <calc-sum> | none ] ) *)
+clamp_fn = clamp , "(" , ( calc_sum_type | none ) , "," , calc_sum_type , "," , ( calc_sum_type | none ) , ")" ;
+
+(* cos( <calc-sum> ) *)
+cos_fn = cos , "(" , calc_sum_type , ")" ;
+
+(* exp( <calc-sum> ) *)
+exp_fn = exp , "(" , calc_sum_type , ")" ;
+
+(* hypot( <calc-sum># ) *)
+hypot_fn = hypot , "(" , calc_sum_type , { "," , calc_sum_type } , ")" ;
+
+(* log( <calc-sum> , <calc-sum>? ) *)
+log_fn = log , "(" , calc_sum_type , [ "," , calc_sum_type ] , ")" ;
+
+(* max( <calc-sum># ) *)
+max_fn = max , "(" , calc_sum_type , { "," , calc_sum_type } , ")" ;
+
+(* min( <calc-sum># ) *)
+min_fn = min , "(" , calc_sum_type , { "," , calc_sum_type } , ")" ;
+
+(* mod( <calc-sum> , <calc-sum> ) *)
+mod_fn = mod , "(" , calc_sum_type , "," , calc_sum_type , ")" ;
+
+(* pow( <calc-sum> , <calc-sum> ) *)
+pow_fn = pow , "(" , calc_sum_type , "," , calc_sum_type , ")" ;
+
+(* progress( <calc-sum> , <calc-sum> , <calc-sum> ) *)
+progress_fn = progress , "(" , calc_sum_type , "," , calc_sum_type , "," , calc_sum_type , ")" ;
+
+(* rem( <calc-sum> , <calc-sum> ) *)
+rem_fn = rem , "(" , calc_sum_type , "," , calc_sum_type , ")" ;
+
+(* round( <rounding-strategy>? , <calc-sum> , <calc-sum>? )
+   <rounding-strategy> = nearest | up | down | to-zero | line-width *)
+rounding_strategy_type = nearest | up | down | to_zero | "line-width" ;
+round_fn = round , "(" , [ rounding_strategy_type , "," ] , calc_sum_type , [ "," , calc_sum_type ] , ")" ;
+
+(* sign( <calc-sum> ) *)
+sign_fn = sign , "(" , calc_sum_type , ")" ;
+
+(* sin( <calc-sum> ) *)
+sin_fn = sin , "(" , calc_sum_type , ")" ;
+
+(* sqrt( <calc-sum> ) *)
+sqrt_fn = sqrt , "(" , calc_sum_type , ")" ;
+
+(* tan( <calc-sum> ) *)
+tan_fn = "tan" , "(" , calc_sum_type , ")" ;
+
+
+(* ── Sizing / layout functions ──────────────────────────────────────────── *)
+
+(* anchor( <anchor-name>? && <anchor-side> , <length-percentage>? )
+   <anchor-name> = <dashed-ident>
+   <anchor-side> = inside | outside | top | left | right | bottom | start | end
+                 | self-start | self-end | <percentage> | center
+   Note: && allows any order; grammar places optional anchor-name before anchor-side *)
+anchor_side_type = inside | outside | top | left | right | bottom | start | end
+                 | self_start | self_end | percentage_type | center ;
+anchor_fn = anchor , "(" , [ dashed_ident_type ] , anchor_side_type , [ "," , length_percentage_type ] , ")" ;
+
+(* anchor-size( [ <anchor-name> || <anchor-size-dimension> ]? , <length-percentage>? )
+   <anchor-size-dimension> = width | height | block | inline | self-block | self-inline
+   Note: || means one or both in any order; grammar places anchor-name before dimension *)
+anchor_dim_type = width | height | block | inline | self_block | self_inline ;
+anchor_size_fn = anchor_size , "(" , [ dashed_ident_type ] , [ anchor_dim_type ] , [ "," , length_percentage_type ] , ")" ;
+
+(* calc-size( <calc-size-basis> , <calc-sum> )
+   <calc-size-basis> = <size-keyword> | <calc-size()> | any | <calc-sum>
+   <size-keyword>    = auto | min-content | max-content | fit-content | contain | stretch *)
+size_keyword_type = auto | min_content | max_content | fit_content | contain | stretch ;
+calc_size_basis_type = size_keyword_type | calc_size_fn | "any" | calc_sum_type ;
+calc_size_fn = "calc-size" , "(" , calc_size_basis_type , "," , calc_sum_type , ")" ;
+
+(* env( <custom-ident> <integer [0,∞]>* , <declaration-value>? )
+   <declaration-value>: any sequence of CSS tokens — approximated as string_literal *)
+declaration_value_type = string_literal ;
+env_fn = env , "(" , custom_ident_type , { integer_type } , [ "," , declaration_value_type ] , ")" ;
+
+(* fit-content( <length-percentage> ) *)
+fit_content_fn = fit_content , "(" , length_percentage_type , ")" ;
+
+(* minmax( <inflexible-breadth> , <track-breadth> )
+   <track-breadth>      = <length-percentage> | <flex> | min-content | max-content | auto
+   <inflexible-breadth> = <length-percentage> | min-content | max-content | auto
+   <fixed-breadth>      = <length-percentage> *)
+track_breadth_type = length_percentage_type | flex_value_type | min_content | max_content | auto ;
+inflexible_breadth_type = length_percentage_type | min_content | max_content | auto ;
+fixed_breadth_type = length_percentage_type ;
+minmax_fn = minmax , "(" , ( inflexible_breadth_type | fixed_breadth_type ) , "," , track_breadth_type , ")" ;
+
+(* repeat( ... ) — three forms for CSS Grid track lists
+   track-repeat: repeat( <integer [1,∞]> , [ <line-names>? <track-size> ]+ <line-names>? )
+   auto-repeat:  repeat( auto-fill | auto-fit , [ <line-names>? <track-size> ]+ <line-names>? )
+   name-repeat:  repeat( <integer [1,∞]> | auto-fill , <line-names>+ )
+   <track-size>  = <track-breadth> | minmax(...) | fit-content(...)
+   <line-names>  = '[' <custom-ident>* ']' *)
+track_size_type = track_breadth_type | minmax_fn | fit_content_fn ;
+line_names_type = "[" , { custom_ident_type } , "]" ;
+track_repeat_fn = repeat , "(" , integer_type , "," ,
+    { line_names_type } , track_size_type , { line_names_type , track_size_type } , { line_names_type } , ")" ;
+auto_repeat_fn = repeat , "(" , ( auto_fill | auto_fit ) , "," ,
+    { line_names_type } , track_size_type , { line_names_type , track_size_type } , { line_names_type } , ")" ;
+name_repeat_fn = repeat , "(" , ( integer_type | auto_fill ) , "," , line_names_type , { line_names_type } , ")" ;
+repeat_fn = track_repeat_fn | auto_repeat_fn | name_repeat_fn ;
+
+(* scroll( [ <scroller> || <axis> ]? )
+   <scroller> = root | nearest | self
+   Note: || means one or both in any order *)
+scroller_type = root | nearest | self ;
+scroll_fn = scroll , "(" , [ scroller_type ] , [ axis_type ] , ")" ;
+
+(* view( [ <axis> || <view-timeline-inset> ]? )
+   <view-timeline-inset> = [ auto | <length-percentage> ]{1,2}
+   Note: || means one or both in any order *)
+view_timeline_inset_type = ( auto | length_percentage_type ) , [ auto | length_percentage_type ] ;
+view_fn = view , "(" , [ axis_type ] , [ view_timeline_inset_type ] , ")" ;
+
+
+(* ── Color functions ─────────────────────────────────────────────────────── *)
+
+(* dynamic-range-limit-mix( [ <'dynamic-range-limit'> && <percentage [0,100]> ]#{2,} )
+   <dynamic-range-limit> = standard | no-limit | constrained | <dynamic-range-limit-mix()> *)
+dynamic_range_limit_type = standard | no_limit | constrained | dynamic_range_limit_mix_fn ;
+dynamic_range_limit_mix_item = dynamic_range_limit_type , percentage_type ;
+dynamic_range_limit_mix_fn = dynamic_range_limit_mix , "(" ,
+    dynamic_range_limit_mix_item , "," , dynamic_range_limit_mix_item ,
+    { "," , dynamic_range_limit_mix_item } ,
+  ")" ;
+
+(* light-dark( <color> , <color> )            — color variant
+   light-dark( [ <image> | none ] , [ <image> | none ] ) — image variant *)
+light_dark_fn = light_dark , "(" , ( color_type | image_type | none ) , "," , ( color_type | image_type | none ) , ")" ;
+
+(* palette-mix( <color-interpolation-method> , [ palette-entry && <percentage [0,100]>? ]#{2} )
+   palette-entry = normal | light | dark | <palette-identifier> | <palette-mix()>
+   <palette-identifier> = <dashed-ident>
+   Note: && allows any order; grammar places entry before percentage *)
+palette_entry_type = normal | light | dark | dashed_ident_type | palette_mix_fn ;
+palette_mix_item = palette_entry_type , [ percentage_type ] ;
+palette_mix_fn = "palette-mix" , "(" , color_interpolation_method_type , "," ,
+    palette_mix_item , "," , palette_mix_item ,
+  ")" ;
+
+
+(* ── Content / value functions ───────────────────────────────────────────── *)
+
+(* attr( <attr-name> <attr-type>? , <declaration-value>? )
+   <attr-name>  = [ <ident> '|' ]? <ident>
+   <attr-type>  = type( <syntax> ) | raw-string | number | <custom-ident>
+   <syntax>     = complex typed-OM syntax string; approximated as string_literal *)
+attr_name_type = [ ident_type , "|" ] , ident_type ;
+attr_type_type = ( "type" , "(" , string_literal , ")" ) | "raw-string" | "number" | custom_ident_type ;
+attr_fn = attr , "(" , attr_name_type , [ attr_type_type ] , [ "," , declaration_value_type ] , ")" ;
+
+(* counter( <counter-name> , <counter-style>? )
+   <counter-name>        = <custom-ident>
+   <counter-style>       = <counter-style-name> | <symbols()>
+   <counter-style-name>  = <custom-ident> *)
+counter_style_type = custom_ident_type | symbols_fn ;
+counter_fn = counter , "(" , custom_ident_type , [ "," , counter_style_type ] , ")" ;
+
+(* counters( <counter-name> , <string> , <counter-style>? ) *)
+counters_fn = counters , "(" , custom_ident_type , "," , string_type , [ "," , counter_style_type ] , ")" ;
+
+(* layer( <layer-name> )
+   <layer-name> = <ident> [ '.' <ident> ]* *)
+layer_name_type = ident_type , { "." , ident_type } ;
+layer_fn = "layer" , "(" , layer_name_type , ")" ;
+
+(* paint( <ident> , <declaration-value>? ) *)
+paint_fn = paint , "(" , ident_type , [ "," , declaration_value_type ] , ")" ;
+
+(* symbols( <symbols-type>? [ <string> | <image> ]+ )
+   <symbols-type> = cyclic | numeric | alphabetic | symbolic | fixed *)
+symbols_fn = "symbols" , "(" , [ cyclic | numeric | alphabetic | symbolic | fixed ] , ( string_type | image_type ) , { string_type | image_type } , ")" ;
+
+(* type( <string> ) *)
+type_fn = type , "(" , string_type , ")" ;
+
+(* url( <string> <url-modifier>* ) | <url-token>
+   url-modifier and url-token are low-level CSS token forms; simplified to string argument *)
+url_fn = url , "(" , string_type , ")" ;
+
+(* var( <custom-property-name> , <declaration-value>? )
+   <custom-property-name> = --<ident>  (same form as <dashed-ident>) *)
+var_fn = var , "(" , dashed_ident_type , [ "," , declaration_value_type ] , ")" ;
+
+
+(* ── Animation / motion functions ────────────────────────────────────────── *)
+
+(* random( <random-key>? , <calc-sum> , <calc-sum> , <calc-sum>? )
+   <random-key>       = auto | <random-cache-key> | fixed <number [0,1]>
+   <random-cache-key> = <dashed-ident> || element-scoped
+                      || [ property-scoped | property-index-scoped | <custom-ident> ] *)
+random_cache_key_type = dashed_ident_type | element_scoped | "property-scoped" | "property-index-scoped" | custom_ident_type ;
+random_key_type = auto | random_cache_key_type | ( fixed , number_type ) ;
+random_fn = random , "(" , [ random_key_type , "," ] , calc_sum_type , "," , calc_sum_type , [ "," , calc_sum_type ] , ")" ;
+
+(* ray( <angle> && <ray-size>? && contain? && [ at <position> ]? )
+   <ray-size> = <radial-extent> | sides
+   Note: && allows any order; grammar approximates angle-first canonical order *)
+ray_size_type = radial_extent_type | sides ;
+ray_fn = ray , "(" , angle_type , [ ray_size_type ] , [ contain ] , [ at , position_type ] , ")" ;

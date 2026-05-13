@@ -343,7 +343,7 @@
   <percentage>  |
   none
 
-<alpha-value> =
+<alpha-value> =  (* [done] *)
   <number>      |
   <percentage>
 
@@ -432,10 +432,10 @@
   rec2100-hlg        |
   rec2100-linear
 
-<color-interpolation-method> =
+<color-interpolation-method> =  (* [done] *)
   in [ <rectangular-color-space> | <polar-color-space> <hue-interpolation-method>? | <custom-color-space> ]
 
-<rectangular-color-space> =
+<rectangular-color-space> =  (* [done] *)
   srgb               |
   srgb-linear        |
   display-p3         |
@@ -447,19 +447,19 @@
   oklab              |
   <xyz-space>
 
-<polar-color-space> =
+<polar-color-space> =  (* [done] *)
   hsl    |
   hwb    |
   lch    |
   oklch
 
-<hue-interpolation-method> =
+<hue-interpolation-method> =  (* [done] *)
   [ shorter | longer | increasing | decreasing ] hue
 
-<custom-color-space> =
+<custom-color-space> =  (* [done] *)
   <dashed-ident>
 
-<xyz-space> =
+<xyz-space> =  (* [done] *)
   xyz      |
   xyz-d50  |
   xyz-d65
@@ -520,7 +520,7 @@
   inline  |
   run-in
 
-<display-outside> =
+<display-outside> =  (* [done] *)
   block   |
   inline  |
   run-in
@@ -555,7 +555,7 @@
 <steps()> =
   steps( <integer> , <step-position>? )
 
-<integer> =
+<integer> =  (* [done] *)
   <number-token>
 
 <step-position> =
@@ -665,7 +665,7 @@
   [ left | right ]  ||
   [ top | bottom ]
 
-<color-interpolation-method> =
+<color-interpolation-method> =  (* [done] *)
   in [ <rectangular-color-space> | <polar-color-space> <hue-interpolation-method>? | <custom-color-space> ]
 
 <color-stop-list> =
@@ -688,7 +688,7 @@
 <angular-color-stop-list> =
   <angular-color-stop> , [ <angular-color-hint>? , <angular-color-stop> ]#?
 
-<rectangular-color-space> =
+<rectangular-color-space> =  (* [done] *)
   srgb               |
   srgb-linear        |
   display-p3         |
@@ -700,16 +700,16 @@
   oklab              |
   <xyz-space>
 
-<polar-color-space> =
+<polar-color-space> =  (* [done] *)
   hsl    |
   hwb    |
   lch    |
   oklch
 
-<hue-interpolation-method> =
+<hue-interpolation-method> =  (* [done] *)
   [ shorter | longer | increasing | decreasing ] hue
 
-<custom-color-space> =
+<custom-color-space> =  (* [done] *)
   <dashed-ident>
 
 <linear-color-stop> =
@@ -762,7 +762,7 @@
   <angle-percentage>  |
   <zero>
 
-<xyz-space> =
+<xyz-space> =  (* [done] *)
   xyz      |
   xyz-d50  |
   xyz-d65
@@ -773,15 +773,15 @@
 <color-stop-angle> =
   [ <angle-percentage> | <zero> ]{1,2}
 
-<angle-percentage> =
+<angle-percentage> =  (* [done] *)
   <angle>       |
   <percentage>
 
-<hue> =
+<hue> =  (* [done] *)
   <number>  |
   <angle>
 
-<hue-interpolation-method> =
+<hue-interpolation-method> =  (* [done] *)
   [ shorter | longer | increasing | decreasing ] hue
 
 <image> =
@@ -822,7 +822,7 @@
 <id-selector> =
   <hash-token>
 
-<length-percentage> =
+<length-percentage> =  (* [done] *)
   <length>      |
   <percentage>
 
@@ -838,12 +838,12 @@
   inset   |
   outset
 
-<position> =
+<position> =  (* [done] *)
   <position-one>   |
   <position-two>   |
   <position-four>
 
-<position-one> =
+<position-one> =  (* [done] *)
   left                 |
   center               |
   right                |
@@ -859,18 +859,18 @@
   inline-end           |
   <length-percentage>
 
-<position-two> =
+<position-two> =  (* [done] *)
   [ left | center | right | x-start | x-end ] && [ top | center | bottom | y-start | y-end ]  |
   [ left | center | right | x-start | x-end | <length-percentage> ] [ top | center | bottom | y-start | y-end | <length-percentage> ]  |
   [ block-start | center | block-end ] && [ inline-start | center | inline-end ]  |
   [ start | center | end ]{2}
 
-<position-four> =
+<position-four> =  (* [done] *)
   [ [ left | right | x-start | x-end ] <length-percentage> ] && [ [ top | bottom | y-start | y-end ] <length-percentage> ]  |
   [ [ block-start | block-end ] <length-percentage> ] && [ [ inline-start | inline-end ] <length-percentage> ]  |
   [ [ start | end ] <length-percentage> ]{2}
 
-<length-percentage> =
+<length-percentage> =  (* [done] *)
   <length>      |
   <percentage>
 
@@ -893,3 +893,23 @@
 <time-percentage> =
   <time>        |
   <percentage>
+
+<calc-sum> = 
+  <calc-product> [ [ '+' | '-' ] <calc-product> ]*  
+
+<calc-product> = 
+  <calc-value> [ [ '*' | / ] <calc-value> ]*  
+
+<calc-value> = 
+  <number>        |
+  <dimension>     |
+  <percentage>    |
+  <calc-keyword>  |
+  ( <calc-sum> )  
+
+<calc-keyword> = 
+  e          |
+  pi         |
+  infinity   |
+  -infinity  |
+  NaN   
