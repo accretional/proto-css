@@ -1,0 +1,44 @@
+(* <percentage> CSS type: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/percentage *)
+
+
+
+(* <length> CSS type: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/length *)
+(* Special case: the unit may be omitted when the numeric value is 0. *)
+length = zero | length_number ;
+length_number = number , length_unit ;
+
+length_unit = font_relative_length_unit
+            | root_font_relative_length_unit
+            | viewport_length_unit
+            | container_query_length_unit
+            | absolute_length_unit ;
+
+(* Font of the current element *)
+font_relative_length_unit = "cap" | "ch" | "em" | "ex" | "ic" | "lh" ;
+
+(* Font of the root element *)
+root_font_relative_length_unit = "rcap" | "rch" | "rem" | "rex" | "ric" | "rlh" ;
+
+viewport_length_unit = default_viewport_length_unit
+                     | small_viewport_length_unit
+                     | large_viewport_length_unit
+                     | dynamic_viewport_length_unit ;
+
+viewport_length_suffix = "h" | "w" | "max" | "min" | "b" | "i" ;
+
+(* Default viewport: currently equivalent to large viewport *)
+default_viewport_length_unit = "v"  , viewport_length_suffix ;
+
+(* Small viewport: sized assuming all dynamic browser UI is shown *)
+small_viewport_length_unit   = "sv" , viewport_length_suffix ;
+
+(* Large viewport: sized assuming all dynamic browser UI is hidden *)
+large_viewport_length_unit   = "lv" , viewport_length_suffix ;
+
+(* Dynamic viewport: resizes as browser UI shows/hides *)
+dynamic_viewport_length_unit = "dv" , viewport_length_suffix ;
+
+(* Relative to nearest container query container *)
+container_query_length_unit = "cqw" | "cqh" | "cqi" | "cqb" | "cqmin" | "cqmax" ;
+
+absolute_length_unit = "px" | "cm" | "mm" | "Q" | "in" | "pc" | "pt" ;

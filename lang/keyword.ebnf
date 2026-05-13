@@ -1,1160 +1,1160 @@
 (* CSS value keywords — generated from WebKit CSSValueKeywords.in *)
-(* Each keyword string maps one-to-one to a CSSValueID enum entry.  *)
+(* Each keyword is its own named production so other EBNF files    *)
+(* can reference it by name rather than repeating the string.      *)
 
-keyword =
-    "inherit"
-    | "initial"
-    | "unset"
-    | "revert"
-    | "revert-layer"
-    | "revert-rule"
-    | "none"
-    | "hidden"
-    | "inset"
-    | "groove"
-    | "outset"
-    | "ridge"
-    | "dotted"
-    | "dashed"
-    | "solid"
-    | "double"
-    | "caption"
-    | "icon"
-    | "menu"
-    | "message-box"
-    | "small-caption"
-    | "-webkit-mini-control"
-    | "-webkit-small-control"
-    | "-webkit-control"
-    | "-apple-system-headline"
-    | "-apple-system-body"
-    | "-apple-system-subheadline"
-    | "-apple-system-footnote"
-    | "-apple-system-caption1"
-    | "-apple-system-caption2"
-    | "-apple-system-short-headline"
-    | "-apple-system-short-body"
-    | "-apple-system-short-subheadline"
-    | "-apple-system-short-footnote"
-    | "-apple-system-short-caption1"
-    | "-apple-system-tall-body"
-    | "-apple-system-title0"
-    | "-apple-system-title1"
-    | "-apple-system-title2"
-    | "-apple-system-title3"
-    | "-apple-system-title4"
-    | "status-bar"
-    | "ex-height"
-    | "cap-height"
-    | "ch-width"
-    | "ic-width"
-    | "ic-height"
-    | "italic"
-    | "oblique"
-    | "all"
-    | "small-caps"
-    | "common-ligatures"
-    | "no-common-ligatures"
-    | "discretionary-ligatures"
-    | "no-discretionary-ligatures"
-    | "historical-ligatures"
-    | "no-historical-ligatures"
-    | "contextual"
-    | "no-contextual"
-    | "all-small-caps"
-    | "petite-caps"
-    | "all-petite-caps"
-    | "unicase"
-    | "titling-caps"
-    | "lining-nums"
-    | "oldstyle-nums"
-    | "proportional-nums"
-    | "tabular-nums"
-    | "diagonal-fractions"
-    | "stacked-fractions"
-    | "ordinal"
-    | "slashed-zero"
-    | "historical-forms"
-    | "stylistic"
-    | "styleset"
-    | "character-variant"
-    | "swash"
-    | "ornaments"
-    | "annotation"
-    | "jis78"
-    | "jis83"
-    | "jis90"
-    | "jis04"
-    | "simplified"
-    | "traditional"
-    | "full-width"
-    | "proportional-width"
-    | "ruby"
-    | "emoji"
-    | "unicode"
-    | "normal"
-    | "bold"
-    | "bolder"
-    | "lighter"
-    | "xx-small"
-    | "x-small"
-    | "small"
-    | "medium"
-    | "large"
-    | "x-large"
-    | "xx-large"
-    | "xxx-large"
-    | "-webkit-ruby-text"
-    | "smaller"
-    | "larger"
-    | "-webkit-xxx-large"
-    | "wider"
-    | "narrower"
-    | "ultra-condensed"
-    | "extra-condensed"
-    | "condensed"
-    | "semi-condensed"
-    | "semi-expanded"
-    | "expanded"
-    | "extra-expanded"
-    | "ultra-expanded"
-    | "serif"
-    | "sans-serif"
-    | "cursive"
-    | "fantasy"
-    | "monospace"
-    | "-webkit-body"
-    | "-webkit-pictograph"
-    | "system-ui"
-    | "math"
-    | "currentcolor"
-    | "transparent"
-    | "alpha"
-    | "aqua"
-    | "black"
-    | "blue"
-    | "fuchsia"
-    | "gray"
-    | "green"
-    | "lime"
-    | "maroon"
-    | "navy"
-    | "olive"
-    | "orange"
-    | "purple"
-    | "red"
-    | "silver"
-    | "teal"
-    | "white"
-    | "yellow"
-    | "grey"
-    | "activeborder"
-    | "activecaption"
-    | "appworkspace"
-    | "background"
-    | "buttonhighlight"
-    | "buttonshadow"
-    | "captiontext"
-    | "inactiveborder"
-    | "inactivecaption"
-    | "inactivecaptiontext"
-    | "infobackground"
-    | "infotext"
-    | "menutext"
-    | "scrollbar"
-    | "threeddarkshadow"
-    | "threedface"
-    | "threedhighlight"
-    | "threedlightshadow"
-    | "threedshadow"
-    | "window"
-    | "windowframe"
-    | "windowtext"
-    | "canvas"
-    | "canvastext"
-    | "linktext"
-    | "visitedtext"
-    | "activetext"
-    | "buttonface"
-    | "buttontext"
-    | "buttonborder"
-    | "field"
-    | "fieldtext"
-    | "highlight"
-    | "highlighttext"
-    | "selecteditem"
-    | "selecteditemtext"
-    | "mark"
-    | "marktext"
-    | "graytext"
-    | "accentcolor"
-    | "accentcolortext"
-    | "-apple-system-header-text"
-    | "-apple-system-text-background"
-    | "-apple-system-control-background"
-    | "-apple-system-placeholder-text"
-    | "-apple-system-label"
-    | "-apple-system-secondary-label"
-    | "-apple-system-tertiary-label"
-    | "-apple-system-tertiary-fill"
-    | "-apple-system-quaternary-label"
-    | "-apple-system-quinary-label"
-    | "-apple-system-grid"
-    | "-apple-system-separator"
-    | "-apple-system-container-border"
-    | "-apple-system-background"
-    | "-apple-system-secondary-background"
-    | "-apple-system-tertiary-background"
-    | "-apple-system-grouped-background"
-    | "-apple-system-secondary-grouped-background"
-    | "-apple-system-tertiary-grouped-background"
-    | "-apple-system-selected-content-background"
-    | "-apple-system-unemphasized-selected-content-background"
-    | "-apple-wireless-playback-target-active"
-    | "-apple-system-blue"
-    | "-apple-system-brown"
-    | "-apple-system-gray"
-    | "-apple-system-green"
-    | "-apple-system-orange"
-    | "-apple-system-pink"
-    | "-apple-system-purple"
-    | "-apple-system-red"
-    | "-apple-system-yellow"
-    | "-apple-system-app-highlight-background"
-    | "-apple-system-alternate-selected-text"
-    | "-apple-system-control-accent"
-    | "-apple-system-even-alternating-content-background"
-    | "-apple-system-odd-alternating-content-background"
-    | "-apple-system-selected-text"
-    | "-apple-system-unemphasized-selected-text"
-    | "-apple-system-selected-text-background"
-    | "-apple-system-unemphasized-selected-text-background"
-    | "-apple-system-find-highlight-background"
-    | "-apple-system-indigo"
-    | "-apple-system-teal"
-    | "-apple-system-opaque-fill"
-    | "-apple-system-opaque-secondary-fill"
-    | "-apple-system-opaque-secondary-fill-disabled"
-    | "-apple-system-opaque-tertiary-fill"
-    | "-apple-system-quaternary-fill"
-    | "-apple-system-opaque-separator"
-    | "-webkit-control-background"
-    | "activebuttontext"
-    | "-webkit-activelink"
-    | "-webkit-link"
-    | "-webkit-focus-ring-color"
-    | "-internal-document-text-color"
-    | "repeat"
-    | "repeat-x"
-    | "repeat-y"
-    | "no-repeat"
-    | "clear"
-    | "copy"
-    | "source-over"
-    | "source-in"
-    | "source-out"
-    | "source-atop"
-    | "destination-over"
-    | "destination-in"
-    | "destination-out"
-    | "destination-atop"
-    | "xor"
-    | "plus-darker"
-    | "plus-lighter"
-    | "baseline"
-    | "middle"
-    | "sub"
-    | "super"
-    | "text-top"
-    | "text-bottom"
-    | "top"
-    | "bottom"
-    | "-webkit-baseline-middle"
-    | "-webkit-auto"
-    | "left"
-    | "right"
-    | "center"
-    | "justify"
-    | "-webkit-left"
-    | "-webkit-right"
-    | "-webkit-center"
-    | "match-parent"
-    | "-webkit-match-parent"
-    | "-internal-th-center"
-    | "inter-word"
-    | "distribute"
-    | "outside"
-    | "inside"
-    | "disc"
-    | "circle"
-    | "square"
-    | "decimal"
-    | "decimal-leading-zero"
-    | "arabic-indic"
-    | "binary"
-    | "bengali"
-    | "cambodian"
-    | "khmer"
-    | "devanagari"
-    | "gujarati"
-    | "gurmukhi"
-    | "kannada"
-    | "lower-hexadecimal"
-    | "lao"
-    | "malayalam"
-    | "mongolian"
-    | "myanmar"
-    | "octal"
-    | "oriya"
-    | "persian"
-    | "urdu"
-    | "telugu"
-    | "tibetan"
-    | "thai"
-    | "upper-hexadecimal"
-    | "lower-roman"
-    | "upper-roman"
-    | "lower-greek"
-    | "lower-alpha"
-    | "lower-latin"
-    | "upper-alpha"
-    | "upper-latin"
-    | "afar"
-    | "ethiopic-halehame-aa-et"
-    | "ethiopic-halehame-aa-er"
-    | "amharic"
-    | "ethiopic-halehame-am-et"
-    | "amharic-abegede"
-    | "ethiopic-abegede-am-et"
-    | "cjk-earthly-branch"
-    | "cjk-heavenly-stem"
-    | "ethiopic"
-    | "ethiopic-halehame-gez"
-    | "ethiopic-abegede"
-    | "ethiopic-abegede-gez"
-    | "hangul-consonant"
-    | "hangul"
-    | "lower-norwegian"
-    | "oromo"
-    | "ethiopic-halehame-om-et"
-    | "sidama"
-    | "ethiopic-halehame-sid-et"
-    | "somali"
-    | "ethiopic-halehame-so-et"
-    | "tigre"
-    | "ethiopic-halehame-tig"
-    | "tigrinya-er"
-    | "ethiopic-halehame-ti-er"
-    | "tigrinya-er-abegede"
-    | "ethiopic-abegede-ti-er"
-    | "tigrinya-et"
-    | "ethiopic-halehame-ti-et"
-    | "tigrinya-et-abegede"
-    | "ethiopic-abegede-ti-et"
-    | "upper-greek"
-    | "upper-norwegian"
-    | "asterisks"
-    | "footnotes"
-    | "hebrew"
-    | "armenian"
-    | "lower-armenian"
-    | "upper-armenian"
-    | "georgian"
-    | "cjk-ideographic"
-    | "hiragana"
-    | "katakana"
-    | "hiragana-iroha"
-    | "katakana-iroha"
-    | "cjk-decimal"
-    | "tamil"
-    | "disclosure-open"
-    | "disclosure-closed"
-    | "japanese-informal"
-    | "japanese-formal"
-    | "korean-hangul-formal"
-    | "korean-hanja-informal"
-    | "korean-hanja-formal"
-    | "simp-chinese-informal"
-    | "simp-chinese-formal"
-    | "trad-chinese-informal"
-    | "trad-chinese-formal"
-    | "ethiopic-numeric"
-    | "inline"
-    | "block"
-    | "list-item"
-    | "inline-block"
-    | "table"
-    | "inline-table"
-    | "table-row-group"
-    | "table-header-group"
-    | "table-footer-group"
-    | "table-row"
-    | "table-column-group"
-    | "table-column"
-    | "table-cell"
-    | "table-caption"
-    | "-webkit-box"
-    | "-webkit-inline-box"
-    | "flex"
-    | "inline-flex"
-    | "contents"
-    | "grid"
-    | "inline-grid"
-    | "grid-lanes"
-    | "inline-grid-lanes"
-    | "flow-root"
-    | "flow"
-    | "-webkit-inline-flex"
-    | "-webkit-flex"
-    | "ruby-base"
-    | "ruby-text"
-    | "auto"
-    | "default"
-    | "context-menu"
-    | "help"
-    | "pointer"
-    | "progress"
-    | "wait"
-    | "cell"
-    | "crosshair"
-    | "text"
-    | "vertical-text"
-    | "alias"
-    | "move"
-    | "no-drop"
-    | "not-allowed"
-    | "grab"
-    | "grabbing"
-    | "e-resize"
-    | "n-resize"
-    | "ne-resize"
-    | "nw-resize"
-    | "s-resize"
-    | "se-resize"
-    | "sw-resize"
-    | "w-resize"
-    | "ew-resize"
-    | "ns-resize"
-    | "nesw-resize"
-    | "nwse-resize"
-    | "col-resize"
-    | "row-resize"
-    | "all-scroll"
-    | "zoom-in"
-    | "zoom-out"
-    | "-webkit-grab"
-    | "-webkit-grabbing"
-    | "-webkit-zoom-in"
-    | "-webkit-zoom-out"
-    | "auto-hide"
-    | "ltr"
-    | "rtl"
-    | "capitalize"
-    | "uppercase"
-    | "lowercase"
-    | "full-size-kana"
-    | "math-auto"
-    | "visible"
-    | "collapse"
-    | "a3"
-    | "a4"
-    | "a5"
-    | "b4"
-    | "b5"
-    | "jis-b4"
-    | "jis-b5"
-    | "landscape"
-    | "ledger"
-    | "legal"
-    | "letter"
-    | "above"
-    | "absolute"
-    | "always"
-    | "avoid"
-    | "below"
-    | "bidi-override"
-    | "blink"
-    | "both"
-    | "close-quote"
-    | "crop"
-    | "cross"
-    | "embed"
-    | "fixed"
-    | "hand"
-    | "hide"
-    | "higher"
-    | "invert"
-    | "inverted"
-    | "isolate-override"
-    | "plaintext"
-    | "-webkit-isolate"
-    | "-webkit-isolate-override"
-    | "-webkit-plaintext"
-    | "level"
-    | "line-through"
-    | "local"
-    | "loud"
-    | "lower"
-    | "mix"
-    | "no-close-quote"
-    | "no-open-quote"
-    | "nowrap"
-    | "open-quote"
-    | "overline"
-    | "portrait"
-    | "pre"
-    | "pre-line"
-    | "pre-wrap"
-    | "relative"
-    | "scroll"
-    | "separate"
-    | "show"
-    | "static"
-    | "thick"
-    | "thin"
-    | "underline"
-    | "wavy"
-    | "ink"
-    | "objects"
-    | "stretch"
-    | "start"
-    | "end"
-    | "clone"
-    | "slice"
-    | "reverse"
-    | "horizontal"
-    | "vertical"
-    | "inline-axis"
-    | "block-axis"
-    | "single"
-    | "multiple"
-    | "flex-start"
-    | "flex-end"
-    | "space-between"
-    | "space-around"
-    | "space-evenly"
-    | "first-baseline"
-    | "last-baseline"
-    | "self-start"
-    | "self-end"
-    | "unsafe"
-    | "safe"
-    | "legacy"
-    | "row"
-    | "row-reverse"
-    | "column"
-    | "column-reverse"
-    | "wrap-reverse"
-    | "block-start"
-    | "block-end"
-    | "inline-start"
-    | "inline-end"
-    | "forwards"
-    | "backwards"
-    | "ahead"
-    | "up"
-    | "down"
-    | "slow"
-    | "fast"
-    | "infinite"
-    | "slide"
-    | "alternate"
-    | "read-only"
-    | "read-write"
-    | "read-write-plaintext-only"
-    | "element"
-    | "ignore"
-    | "intrinsic"
-    | "min-intrinsic"
-    | "min-content"
-    | "-webkit-min-content"
-    | "max-content"
-    | "-webkit-max-content"
-    | "-webkit-fill-available"
-    | "fit-content"
-    | "-webkit-fit-content"
-    | "clip"
-    | "ellipsis"
-    | "stable"
-    | "pretty"
-    | "dot-dash"
-    | "dot-dot-dash"
-    | "wave"
-    | "continuous"
-    | "skip-white-space"
-    | "auto-phrase"
-    | "break-all"
-    | "keep-all"
-    | "break-word"
-    | "break-spaces"
-    | "preserve"
-    | "preserve-breaks"
-    | "space"
-    | "loose"
-    | "strict"
-    | "after-white-space"
-    | "anywhere"
-    | "base"
-    | "base-select"
-    | "checkbox"
-    | "radio"
-    | "push-button"
-    | "square-button"
-    | "button"
-    | "default-button"
-    | "listbox"
-    | "menulist"
-    | "menulist-button"
-    | "meter"
-    | "progress-bar"
-    | "slider-horizontal"
-    | "slider-vertical"
-    | "searchfield"
-    | "-apple-pay-button"
-    | "attachment"
-    | "borderless-attachment"
-    | "textarea"
-    | "textfield"
-    | "round"
-    | "border"
-    | "border-area"
-    | "border-box"
-    | "content"
-    | "content-box"
-    | "padding"
-    | "padding-box"
-    | "-webkit-text"
-    | "scoop"
-    | "notch"
-    | "straight"
-    | "squircle"
-    | "superellipse"
-    | "no-clip"
-    | "add"
-    | "subtract"
-    | "intersect"
-    | "exclude"
-    | "var"
-    | "env"
-    | "-internal-auto-base"
-    | "avoid-column"
-    | "avoid-page"
-    | "page"
-    | "recto"
-    | "region"
-    | "verso"
-    | "margin-box"
-    | "stroke-box"
-    | "view-box"
-    | "contain"
-    | "cover"
-    | "logical"
-    | "visual"
-    | "alternate-reverse"
-    | "running"
-    | "paused"
-    | "flat"
-    | "preserve-3d"
-    | "separated"
-    | "ease"
-    | "linear"
-    | "ease-in"
-    | "ease-out"
-    | "ease-in-out"
-    | "step-start"
-    | "step-end"
-    | "jump-start"
-    | "jump-end"
-    | "jump-none"
-    | "jump-both"
-    | "accumulate"
-    | "replace"
-    | "nearest"
-    | "root"
-    | "self"
-    | "view"
-    | "entry"
-    | "exit"
-    | "entry-crossing"
-    | "exit-crossing"
-    | "reset"
-    | "visiblePainted"
-    | "visibleFill"
-    | "visibleStroke"
-    | "painted"
-    | "fill"
-    | "stroke"
-    | "bounding-box"
-    | "spell-out"
-    | "digits"
-    | "literal-punctuation"
-    | "no-punctuation"
-    | "antialiased"
-    | "subpixel-antialiased"
-    | "leading"
-    | "cap"
-    | "ex"
-    | "ideographic-ink"
-    | "optimizeSpeed"
-    | "optimizeLegibility"
-    | "geometricPrecision"
-    | "economy"
-    | "exact"
-    | "no-limit"
-    | "manual"
-    | "touch"
-    | "lr"
-    | "rl"
-    | "tb"
-    | "lr-tb"
-    | "rl-tb"
-    | "tb-rl"
-    | "horizontal-tb"
-    | "vertical-lr"
-    | "vertical-rl"
-    | "sideways-lr"
-    | "sideways-rl"
-    | "horizontal-bt"
-    | "after"
-    | "before"
-    | "inter-character"
-    | "legacy-inter-character"
-    | "over"
-    | "under"
-    | "filled"
-    | "open"
-    | "dot"
-    | "double-circle"
-    | "triangle"
-    | "sesame"
-    | "ellipse"
-    | "closest-side"
-    | "closest-corner"
-    | "farthest-side"
-    | "farthest-corner"
-    | "sideways"
-    | "sideways-right"
-    | "upright"
-    | "vertical-right"
-    | "mixed"
-    | "font"
-    | "glyphs"
-    | "inline-box"
-    | "initial-letter"
-    | "replaced"
-    | "on"
-    | "off"
-    | "optimizeQuality"
-    | "crisp-edges"
-    | "pixelated"
-    | "-webkit-crisp-edges"
-    | "-webkit-optimize-contrast"
-    | "nonzero"
-    | "evenodd"
-    | "at"
-    | "elements"
-    | "mandatory"
-    | "proximity"
-    | "break"
-    | "wrap"
-    | "edges"
-    | "alphabetic"
-    | "sticky"
-    | "-webkit-sticky"
-    | "coarse"
-    | "fine"
-    | "hover"
-    | "progressive"
-    | "interlace"
-    | "active"
-    | "paged"
-    | "enabled"
-    | "initial-only"
-    | "multiply"
-    | "screen"
-    | "overlay"
-    | "darken"
-    | "lighten"
-    | "color-dodge"
-    | "color-burn"
-    | "hard-light"
-    | "soft-light"
-    | "difference"
-    | "exclusion"
-    | "hue"
-    | "saturation"
-    | "color"
-    | "luminosity"
-    | "isolate"
-    | "scale-down"
-    | "container-scroll"
-    | "cross-fade"
-    | "image-set"
-    | "linear-gradient"
-    | "radial-gradient"
-    | "conic-gradient"
-    | "repeating-linear-gradient"
-    | "repeating-radial-gradient"
-    | "repeating-conic-gradient"
-    | "-webkit-canvas"
-    | "-webkit-cross-fade"
-    | "-webkit-gradient"
-    | "-webkit-linear-gradient"
-    | "-webkit-radial-gradient"
-    | "-webkit-repeating-linear-gradient"
-    | "-webkit-repeating-radial-gradient"
-    | "-webkit-image-set"
-    | "-webkit-named-image"
-    | "filter"
-    | "-webkit-filter"
-    | "paint"
-    | "type"
-    | "from"
-    | "to"
-    | "color-stop"
-    | "radial"
-    | "attr"
-    | "counter"
-    | "counters"
-    | "rect"
-    | "polygon"
-    | "shape"
-    | "line"
-    | "hline"
-    | "vline"
-    | "curve"
-    | "arc"
-    | "cw"
-    | "ccw"
-    | "by"
-    | "close"
-    | "with"
-    | "of"
-    | "origin"
-    | "format"
-    | "collection"
-    | "embedded-opentype"
-    | "opentype"
-    | "svg"
-    | "truetype"
-    | "woff"
-    | "woff2"
-    | "tech"
-    | "color-cbdt"
-    | "color-colrv0"
-    | "color-colrv1"
-    | "color-sbix"
-    | "color-svg"
-    | "features-aat"
-    | "features-graphite"
-    | "features-opentype"
-    | "incremental"
-    | "palettes"
-    | "variations"
-    | "grayscale"
-    | "sepia"
-    | "saturate"
-    | "hue-rotate"
-    | "opacity"
-    | "brightness"
-    | "contrast"
-    | "blur"
-    | "drop-shadow"
-    | "url"
-    | "cubic-bezier"
-    | "spring"
-    | "steps"
-    | "apple-invert-lightness"
-    | "-apple-system-blur-material-ultra-thin"
-    | "-apple-system-blur-material-thin"
-    | "-apple-system-blur-material"
-    | "-apple-system-blur-material-thick"
-    | "-apple-system-blur-material-chrome"
-    | "-apple-system-glass-material"
-    | "-apple-system-glass-material-clear"
-    | "-apple-system-glass-material-subdued"
-    | "-apple-system-glass-material-media-controls"
-    | "-apple-system-glass-material-media-controls-subdued"
-    | "-apple-system-vibrancy-label"
-    | "-apple-system-vibrancy-secondary-label"
-    | "-apple-system-vibrancy-tertiary-label"
-    | "-apple-system-vibrancy-quaternary-label"
-    | "-apple-system-vibrancy-fill"
-    | "-apple-system-vibrancy-secondary-fill"
-    | "-apple-system-vibrancy-tertiary-fill"
-    | "-apple-system-vibrancy-separator"
-    | "rgb"
-    | "rgba"
-    | "hsl"
-    | "hsla"
-    | "hwb"
-    | "lab"
-    | "lch"
-    | "oklab"
-    | "oklch"
-    | "r"
-    | "g"
-    | "b"
-    | "h"
-    | "s"
-    | "l"
-    | "w"
-    | "a"
-    | "c"
-    | "matrix"
-    | "matrix3d"
-    | "perspective"
-    | "rotate"
-    | "rotateX"
-    | "rotateY"
-    | "rotateZ"
-    | "rotate3d"
-    | "scale"
-    | "scaleX"
-    | "scaleY"
-    | "scaleZ"
-    | "scale3d"
-    | "skew"
-    | "skewX"
-    | "skewY"
-    | "translate"
-    | "translateX"
-    | "translateY"
-    | "translateZ"
-    | "translate3d"
-    | "fill-box"
-    | "path"
-    | "xywh"
-    | "calc"
-    | "-webkit-calc"
-    | "min"
-    | "max"
-    | "clamp"
-    | "pow"
-    | "sqrt"
-    | "hypot"
-    | "sin"
-    | "cos"
-    | "e"
-    | "pi"
-    | "exp"
-    | "log"
-    | "asin"
-    | "acos"
-    | "atan"
-    | "atan2"
-    | "abs"
-    | "sign"
-    | "mod"
-    | "rem"
-    | "to-zero"
-    | "random"
-    | "element-scoped"
-    | "sibling-count"
-    | "sibling-index"
-    | "infinity"
-    | "-infinity"
-    | "NaN"
-    | "from-image"
-    | "-webkit-paged-x"
-    | "-webkit-paged-y"
-    | "markers"
-    | "span"
-    | "minmax"
-    | "subgrid"
-    | "auto-flow"
-    | "dense"
-    | "each-line"
-    | "balance"
-    | "white-outline"
-    | "plain"
-    | "buy"
-    | "set-up"
-    | "donate"
-    | "check-out"
-    | "book"
-    | "subscribe"
-    | "reload"
-    | "add-money"
-    | "top-up"
-    | "order"
-    | "rent"
-    | "support"
-    | "contribute"
-    | "tip"
-    | "weight"
-    | "style"
-    | "oblique-only"
-    | "scroll-position"
-    | "manipulation"
-    | "pan-x"
-    | "pan-y"
-    | "pinch-zoom"
-    | "smooth"
-    | "allow-end"
-    | "first"
-    | "force-end"
-    | "last"
-    | "p3"
-    | "rec2020"
-    | "sRGB"
-    | "a98-rgb"
-    | "display-p3"
-    | "display-p3-linear"
-    | "prophoto-rgb"
-    | "srgb-linear"
-    | "xyz"
-    | "xyz-d50"
-    | "xyz-d65"
-    | "color-layers"
-    | "color-mix"
-    | "contrast-color"
-    | "light-dark"
-    | "in"
-    | "shorter"
-    | "longer"
-    | "increasing"
-    | "decreasing"
-    | "prefers"
-    | "reduce"
-    | "no-preference"
-    | "more"
-    | "less"
-    | "custom"
-    | "light"
-    | "dark"
-    | "auto-fill"
-    | "auto-fit"
-    | "swap"
-    | "fallback"
-    | "optional"
-    | "fullscreen"
-    | "standalone"
-    | "minimal-ui"
-    | "browser"
-    | "grammar-error"
-    | "spelling-error"
-    | "from-font"
-    | "standard"
-    | "high"
-    | "constrained"
-    | "dynamic-range-limit-mix"
-    | "cyclic"
-    | "numeric"
-    | "symbolic"
-    | "additive"
-    | "-internal-disclosure-closed"
-    | "-internal-disclosure-open"
-    | "-internal-simplified-chinese-informal"
-    | "-internal-simplified-chinese-formal"
-    | "-internal-traditional-chinese-informal"
-    | "-internal-traditional-chinese-formal"
-    | "-internal-ethiopic-numeric"
-    | "extends"
-    | "bullets"
-    | "numbers"
-    | "words"
-    | "selector"
-    | "font-format"
-    | "font-tech"
-    | "auto-add"
-    | "compact"
-    | "luminance"
-    | "match-source"
-    | "x"
-    | "y"
-    | "z"
-    | "size"
-    | "layout"
-    | "inline-size"
-    | "ray"
-    | "sides"
-    | "and"
-    | "or"
-    | "not"
-    | "only"
-    | "true"
-    | "false"
-    | "space-all"
-    | "trim-all"
-    | "no-autospace"
-    | "ideograph-alpha"
-    | "ideograph-numeric"
-    | "insert"
-    | "both-edges"
-    | "allow-discrete"
-    | "-internal-textarea-auto"
-    | "-internal-inset"
-    | "anchor"
-    | "anchor-size"
-    | "width"
-    | "height"
-    | "self-block"
-    | "self-inline"
-    | "anchor-center"
-    | "most-width"
-    | "most-height"
-    | "most-block-size"
-    | "most-inline-size"
-    | "flip-block"
-    | "flip-inline"
-    | "flip-start"
-    | "flip-x"
-    | "flip-y"
-    | "self-block-end"
-    | "self-block-end-start"
-    | "self-block-start"
-    | "span-all"
-    | "span-block-end"
-    | "span-block-start"
-    | "span-bottom"
-    | "span-end"
-    | "span-left"
-    | "span-right"
-    | "span-self-block-end"
-    | "span-self-block-start"
-    | "span-self-end"
-    | "span-self-start"
-    | "span-start"
-    | "span-top"
-    | "span-x-end"
-    | "span-self-x-end"
-    | "span-self-x-start"
-    | "span-x-start"
-    | "span-y-end"
-    | "span-self-y-end"
-    | "span-self-y-start"
-    | "span-y-start"
-    | "x-end"
-    | "self-x-end"
-    | "self-x-start"
-    | "x-start"
-    | "y-end"
-    | "self-y-end"
-    | "self-y-start"
-    | "y-start"
-    | "span-inline-start"
-    | "span-inline-end"
-    | "self-inline-start"
-    | "self-inline-end"
-    | "span-self-inline-start"
-    | "span-self-inline-end"
-    | "anchors-valid"
-    | "anchor-valid"
-    | "anchors-visible"
-    | "anchor-visible"
-    | "no-overflow"
-    | "match-element"
-    | "cross-origin"
-    | "anonymous"
-    | "use-credentials"
-    | "integrity"
-    | "referrer-policy"
-    | "no-referrer"
-    | "no-referrer-when-downgrade"
-    | "same-origin"
-    | "strict-origin"
-    | "origin-when-cross-origin"
-    | "strict-origin-when-cross-origin"
-    | "unsafe-url"
-    | "will-change" ;
+inherit = "inherit" ;
+initial = "initial" ;
+unset = "unset" ;
+revert = "revert" ;
+revert_layer = "revert-layer" ;
+revert_rule = "revert-rule" ;
+none = "none" ;
+hidden = "hidden" ;
+inset = "inset" ;
+groove = "groove" ;
+outset = "outset" ;
+ridge = "ridge" ;
+dotted = "dotted" ;
+dashed = "dashed" ;
+solid = "solid" ;
+double = "double" ;
+caption = "caption" ;
+icon = "icon" ;
+menu = "menu" ;
+message_box = "message-box" ;
+small_caption = "small-caption" ;
+_webkit_mini_control = "-webkit-mini-control" ;
+_webkit_small_control = "-webkit-small-control" ;
+_webkit_control = "-webkit-control" ;
+_apple_system_headline = "-apple-system-headline" ;
+_apple_system_body = "-apple-system-body" ;
+_apple_system_subheadline = "-apple-system-subheadline" ;
+_apple_system_footnote = "-apple-system-footnote" ;
+_apple_system_caption1 = "-apple-system-caption1" ;
+_apple_system_caption2 = "-apple-system-caption2" ;
+_apple_system_short_headline = "-apple-system-short-headline" ;
+_apple_system_short_body = "-apple-system-short-body" ;
+_apple_system_short_subheadline = "-apple-system-short-subheadline" ;
+_apple_system_short_footnote = "-apple-system-short-footnote" ;
+_apple_system_short_caption1 = "-apple-system-short-caption1" ;
+_apple_system_tall_body = "-apple-system-tall-body" ;
+_apple_system_title0 = "-apple-system-title0" ;
+_apple_system_title1 = "-apple-system-title1" ;
+_apple_system_title2 = "-apple-system-title2" ;
+_apple_system_title3 = "-apple-system-title3" ;
+_apple_system_title4 = "-apple-system-title4" ;
+status_bar = "status-bar" ;
+ex_height = "ex-height" ;
+cap_height = "cap-height" ;
+ch_width = "ch-width" ;
+ic_width = "ic-width" ;
+ic_height = "ic-height" ;
+italic = "italic" ;
+oblique = "oblique" ;
+all = "all" ;
+small_caps = "small-caps" ;
+common_ligatures = "common-ligatures" ;
+no_common_ligatures = "no-common-ligatures" ;
+discretionary_ligatures = "discretionary-ligatures" ;
+no_discretionary_ligatures = "no-discretionary-ligatures" ;
+historical_ligatures = "historical-ligatures" ;
+no_historical_ligatures = "no-historical-ligatures" ;
+contextual = "contextual" ;
+no_contextual = "no-contextual" ;
+all_small_caps = "all-small-caps" ;
+petite_caps = "petite-caps" ;
+all_petite_caps = "all-petite-caps" ;
+unicase = "unicase" ;
+titling_caps = "titling-caps" ;
+lining_nums = "lining-nums" ;
+oldstyle_nums = "oldstyle-nums" ;
+proportional_nums = "proportional-nums" ;
+tabular_nums = "tabular-nums" ;
+diagonal_fractions = "diagonal-fractions" ;
+stacked_fractions = "stacked-fractions" ;
+ordinal = "ordinal" ;
+slashed_zero = "slashed-zero" ;
+historical_forms = "historical-forms" ;
+stylistic = "stylistic" ;
+styleset = "styleset" ;
+character_variant = "character-variant" ;
+swash = "swash" ;
+ornaments = "ornaments" ;
+annotation = "annotation" ;
+jis78 = "jis78" ;
+jis83 = "jis83" ;
+jis90 = "jis90" ;
+jis04 = "jis04" ;
+simplified = "simplified" ;
+traditional = "traditional" ;
+full_width = "full-width" ;
+proportional_width = "proportional-width" ;
+ruby = "ruby" ;
+emoji = "emoji" ;
+unicode = "unicode" ;
+normal = "normal" ;
+bold = "bold" ;
+bolder = "bolder" ;
+lighter = "lighter" ;
+xx_small = "xx-small" ;
+x_small = "x-small" ;
+small = "small" ;
+medium = "medium" ;
+large = "large" ;
+x_large = "x-large" ;
+xx_large = "xx-large" ;
+xxx_large = "xxx-large" ;
+_webkit_ruby_text = "-webkit-ruby-text" ;
+smaller = "smaller" ;
+larger = "larger" ;
+_webkit_xxx_large = "-webkit-xxx-large" ;
+wider = "wider" ;
+narrower = "narrower" ;
+ultra_condensed = "ultra-condensed" ;
+extra_condensed = "extra-condensed" ;
+condensed = "condensed" ;
+semi_condensed = "semi-condensed" ;
+semi_expanded = "semi-expanded" ;
+expanded = "expanded" ;
+extra_expanded = "extra-expanded" ;
+ultra_expanded = "ultra-expanded" ;
+serif = "serif" ;
+sans_serif = "sans-serif" ;
+cursive = "cursive" ;
+fantasy = "fantasy" ;
+monospace = "monospace" ;
+_webkit_body = "-webkit-body" ;
+_webkit_pictograph = "-webkit-pictograph" ;
+system_ui = "system-ui" ;
+math = "math" ;
+currentcolor = "currentcolor" ;
+transparent = "transparent" ;
+alpha = "alpha" ;
+aqua = "aqua" ;
+black = "black" ;
+blue = "blue" ;
+fuchsia = "fuchsia" ;
+gray = "gray" ;
+green = "green" ;
+lime = "lime" ;
+maroon = "maroon" ;
+navy = "navy" ;
+olive = "olive" ;
+orange = "orange" ;
+purple = "purple" ;
+red = "red" ;
+silver = "silver" ;
+teal = "teal" ;
+white = "white" ;
+yellow = "yellow" ;
+grey = "grey" ;
+activeborder = "activeborder" ;
+activecaption = "activecaption" ;
+appworkspace = "appworkspace" ;
+background = "background" ;
+buttonhighlight = "buttonhighlight" ;
+buttonshadow = "buttonshadow" ;
+captiontext = "captiontext" ;
+inactiveborder = "inactiveborder" ;
+inactivecaption = "inactivecaption" ;
+inactivecaptiontext = "inactivecaptiontext" ;
+infobackground = "infobackground" ;
+infotext = "infotext" ;
+menutext = "menutext" ;
+scrollbar = "scrollbar" ;
+threeddarkshadow = "threeddarkshadow" ;
+threedface = "threedface" ;
+threedhighlight = "threedhighlight" ;
+threedlightshadow = "threedlightshadow" ;
+threedshadow = "threedshadow" ;
+window = "window" ;
+windowframe = "windowframe" ;
+windowtext = "windowtext" ;
+canvas = "canvas" ;
+canvastext = "canvastext" ;
+linktext = "linktext" ;
+visitedtext = "visitedtext" ;
+activetext = "activetext" ;
+buttonface = "buttonface" ;
+buttontext = "buttontext" ;
+buttonborder = "buttonborder" ;
+field = "field" ;
+fieldtext = "fieldtext" ;
+highlight = "highlight" ;
+highlighttext = "highlighttext" ;
+selecteditem = "selecteditem" ;
+selecteditemtext = "selecteditemtext" ;
+mark = "mark" ;
+marktext = "marktext" ;
+graytext = "graytext" ;
+accentcolor = "accentcolor" ;
+accentcolortext = "accentcolortext" ;
+_apple_system_header_text = "-apple-system-header-text" ;
+_apple_system_text_background = "-apple-system-text-background" ;
+_apple_system_control_background = "-apple-system-control-background" ;
+_apple_system_placeholder_text = "-apple-system-placeholder-text" ;
+_apple_system_label = "-apple-system-label" ;
+_apple_system_secondary_label = "-apple-system-secondary-label" ;
+_apple_system_tertiary_label = "-apple-system-tertiary-label" ;
+_apple_system_tertiary_fill = "-apple-system-tertiary-fill" ;
+_apple_system_quaternary_label = "-apple-system-quaternary-label" ;
+_apple_system_quinary_label = "-apple-system-quinary-label" ;
+_apple_system_grid = "-apple-system-grid" ;
+_apple_system_separator = "-apple-system-separator" ;
+_apple_system_container_border = "-apple-system-container-border" ;
+_apple_system_background = "-apple-system-background" ;
+_apple_system_secondary_background = "-apple-system-secondary-background" ;
+_apple_system_tertiary_background = "-apple-system-tertiary-background" ;
+_apple_system_grouped_background = "-apple-system-grouped-background" ;
+_apple_system_secondary_grouped_background = "-apple-system-secondary-grouped-background" ;
+_apple_system_tertiary_grouped_background = "-apple-system-tertiary-grouped-background" ;
+_apple_system_selected_content_background = "-apple-system-selected-content-background" ;
+_apple_system_unemphasized_selected_content_background = "-apple-system-unemphasized-selected-content-background" ;
+_apple_wireless_playback_target_active = "-apple-wireless-playback-target-active" ;
+_apple_system_blue = "-apple-system-blue" ;
+_apple_system_brown = "-apple-system-brown" ;
+_apple_system_gray = "-apple-system-gray" ;
+_apple_system_green = "-apple-system-green" ;
+_apple_system_orange = "-apple-system-orange" ;
+_apple_system_pink = "-apple-system-pink" ;
+_apple_system_purple = "-apple-system-purple" ;
+_apple_system_red = "-apple-system-red" ;
+_apple_system_yellow = "-apple-system-yellow" ;
+_apple_system_app_highlight_background = "-apple-system-app-highlight-background" ;
+_apple_system_alternate_selected_text = "-apple-system-alternate-selected-text" ;
+_apple_system_control_accent = "-apple-system-control-accent" ;
+_apple_system_even_alternating_content_background = "-apple-system-even-alternating-content-background" ;
+_apple_system_odd_alternating_content_background = "-apple-system-odd-alternating-content-background" ;
+_apple_system_selected_text = "-apple-system-selected-text" ;
+_apple_system_unemphasized_selected_text = "-apple-system-unemphasized-selected-text" ;
+_apple_system_selected_text_background = "-apple-system-selected-text-background" ;
+_apple_system_unemphasized_selected_text_background = "-apple-system-unemphasized-selected-text-background" ;
+_apple_system_find_highlight_background = "-apple-system-find-highlight-background" ;
+_apple_system_indigo = "-apple-system-indigo" ;
+_apple_system_teal = "-apple-system-teal" ;
+_apple_system_opaque_fill = "-apple-system-opaque-fill" ;
+_apple_system_opaque_secondary_fill = "-apple-system-opaque-secondary-fill" ;
+_apple_system_opaque_secondary_fill_disabled = "-apple-system-opaque-secondary-fill-disabled" ;
+_apple_system_opaque_tertiary_fill = "-apple-system-opaque-tertiary-fill" ;
+_apple_system_quaternary_fill = "-apple-system-quaternary-fill" ;
+_apple_system_opaque_separator = "-apple-system-opaque-separator" ;
+_webkit_control_background = "-webkit-control-background" ;
+activebuttontext = "activebuttontext" ;
+_webkit_activelink = "-webkit-activelink" ;
+_webkit_link = "-webkit-link" ;
+_webkit_focus_ring_color = "-webkit-focus-ring-color" ;
+_internal_document_text_color = "-internal-document-text-color" ;
+repeat = "repeat" ;
+repeat_x = "repeat-x" ;
+repeat_y = "repeat-y" ;
+no_repeat = "no-repeat" ;
+clear = "clear" ;
+copy = "copy" ;
+source_over = "source-over" ;
+source_in = "source-in" ;
+source_out = "source-out" ;
+source_atop = "source-atop" ;
+destination_over = "destination-over" ;
+destination_in = "destination-in" ;
+destination_out = "destination-out" ;
+destination_atop = "destination-atop" ;
+xor = "xor" ;
+plus_darker = "plus-darker" ;
+plus_lighter = "plus-lighter" ;
+baseline = "baseline" ;
+middle = "middle" ;
+sub = "sub" ;
+super = "super" ;
+text_top = "text-top" ;
+text_bottom = "text-bottom" ;
+top = "top" ;
+bottom = "bottom" ;
+_webkit_baseline_middle = "-webkit-baseline-middle" ;
+_webkit_auto = "-webkit-auto" ;
+left = "left" ;
+right = "right" ;
+center = "center" ;
+justify = "justify" ;
+_webkit_left = "-webkit-left" ;
+_webkit_right = "-webkit-right" ;
+_webkit_center = "-webkit-center" ;
+match_parent = "match-parent" ;
+_webkit_match_parent = "-webkit-match-parent" ;
+_internal_th_center = "-internal-th-center" ;
+inter_word = "inter-word" ;
+distribute = "distribute" ;
+outside = "outside" ;
+inside = "inside" ;
+disc = "disc" ;
+circle = "circle" ;
+square = "square" ;
+decimal = "decimal" ;
+decimal_leading_zero = "decimal-leading-zero" ;
+arabic_indic = "arabic-indic" ;
+binary = "binary" ;
+bengali = "bengali" ;
+cambodian = "cambodian" ;
+khmer = "khmer" ;
+devanagari = "devanagari" ;
+gujarati = "gujarati" ;
+gurmukhi = "gurmukhi" ;
+kannada = "kannada" ;
+lower_hexadecimal = "lower-hexadecimal" ;
+lao = "lao" ;
+malayalam = "malayalam" ;
+mongolian = "mongolian" ;
+myanmar = "myanmar" ;
+octal = "octal" ;
+oriya = "oriya" ;
+persian = "persian" ;
+urdu = "urdu" ;
+telugu = "telugu" ;
+tibetan = "tibetan" ;
+thai = "thai" ;
+upper_hexadecimal = "upper-hexadecimal" ;
+lower_roman = "lower-roman" ;
+upper_roman = "upper-roman" ;
+lower_greek = "lower-greek" ;
+lower_alpha = "lower-alpha" ;
+lower_latin = "lower-latin" ;
+upper_alpha = "upper-alpha" ;
+upper_latin = "upper-latin" ;
+afar = "afar" ;
+ethiopic_halehame_aa_et = "ethiopic-halehame-aa-et" ;
+ethiopic_halehame_aa_er = "ethiopic-halehame-aa-er" ;
+amharic = "amharic" ;
+ethiopic_halehame_am_et = "ethiopic-halehame-am-et" ;
+amharic_abegede = "amharic-abegede" ;
+ethiopic_abegede_am_et = "ethiopic-abegede-am-et" ;
+cjk_earthly_branch = "cjk-earthly-branch" ;
+cjk_heavenly_stem = "cjk-heavenly-stem" ;
+ethiopic = "ethiopic" ;
+ethiopic_halehame_gez = "ethiopic-halehame-gez" ;
+ethiopic_abegede = "ethiopic-abegede" ;
+ethiopic_abegede_gez = "ethiopic-abegede-gez" ;
+hangul_consonant = "hangul-consonant" ;
+hangul = "hangul" ;
+lower_norwegian = "lower-norwegian" ;
+oromo = "oromo" ;
+ethiopic_halehame_om_et = "ethiopic-halehame-om-et" ;
+sidama = "sidama" ;
+ethiopic_halehame_sid_et = "ethiopic-halehame-sid-et" ;
+somali = "somali" ;
+ethiopic_halehame_so_et = "ethiopic-halehame-so-et" ;
+tigre = "tigre" ;
+ethiopic_halehame_tig = "ethiopic-halehame-tig" ;
+tigrinya_er = "tigrinya-er" ;
+ethiopic_halehame_ti_er = "ethiopic-halehame-ti-er" ;
+tigrinya_er_abegede = "tigrinya-er-abegede" ;
+ethiopic_abegede_ti_er = "ethiopic-abegede-ti-er" ;
+tigrinya_et = "tigrinya-et" ;
+ethiopic_halehame_ti_et = "ethiopic-halehame-ti-et" ;
+tigrinya_et_abegede = "tigrinya-et-abegede" ;
+ethiopic_abegede_ti_et = "ethiopic-abegede-ti-et" ;
+upper_greek = "upper-greek" ;
+upper_norwegian = "upper-norwegian" ;
+asterisks = "asterisks" ;
+footnotes = "footnotes" ;
+hebrew = "hebrew" ;
+armenian = "armenian" ;
+lower_armenian = "lower-armenian" ;
+upper_armenian = "upper-armenian" ;
+georgian = "georgian" ;
+cjk_ideographic = "cjk-ideographic" ;
+hiragana = "hiragana" ;
+katakana = "katakana" ;
+hiragana_iroha = "hiragana-iroha" ;
+katakana_iroha = "katakana-iroha" ;
+cjk_decimal = "cjk-decimal" ;
+tamil = "tamil" ;
+disclosure_open = "disclosure-open" ;
+disclosure_closed = "disclosure-closed" ;
+japanese_informal = "japanese-informal" ;
+japanese_formal = "japanese-formal" ;
+korean_hangul_formal = "korean-hangul-formal" ;
+korean_hanja_informal = "korean-hanja-informal" ;
+korean_hanja_formal = "korean-hanja-formal" ;
+simp_chinese_informal = "simp-chinese-informal" ;
+simp_chinese_formal = "simp-chinese-formal" ;
+trad_chinese_informal = "trad-chinese-informal" ;
+trad_chinese_formal = "trad-chinese-formal" ;
+ethiopic_numeric = "ethiopic-numeric" ;
+inline = "inline" ;
+block = "block" ;
+list_item = "list-item" ;
+inline_block = "inline-block" ;
+table = "table" ;
+inline_table = "inline-table" ;
+table_row_group = "table-row-group" ;
+table_header_group = "table-header-group" ;
+table_footer_group = "table-footer-group" ;
+table_row = "table-row" ;
+table_column_group = "table-column-group" ;
+table_column = "table-column" ;
+table_cell = "table-cell" ;
+table_caption = "table-caption" ;
+_webkit_box = "-webkit-box" ;
+_webkit_inline_box = "-webkit-inline-box" ;
+flex = "flex" ;
+inline_flex = "inline-flex" ;
+contents = "contents" ;
+grid = "grid" ;
+inline_grid = "inline-grid" ;
+grid_lanes = "grid-lanes" ;
+inline_grid_lanes = "inline-grid-lanes" ;
+flow_root = "flow-root" ;
+flow = "flow" ;
+_webkit_inline_flex = "-webkit-inline-flex" ;
+_webkit_flex = "-webkit-flex" ;
+ruby_base = "ruby-base" ;
+ruby_text = "ruby-text" ;
+auto = "auto" ;
+default = "default" ;
+context_menu = "context-menu" ;
+help = "help" ;
+pointer = "pointer" ;
+progress = "progress" ;
+wait = "wait" ;
+cell = "cell" ;
+crosshair = "crosshair" ;
+text = "text" ;
+vertical_text = "vertical-text" ;
+alias = "alias" ;
+move = "move" ;
+no_drop = "no-drop" ;
+not_allowed = "not-allowed" ;
+grab = "grab" ;
+grabbing = "grabbing" ;
+e_resize = "e-resize" ;
+n_resize = "n-resize" ;
+ne_resize = "ne-resize" ;
+nw_resize = "nw-resize" ;
+s_resize = "s-resize" ;
+se_resize = "se-resize" ;
+sw_resize = "sw-resize" ;
+w_resize = "w-resize" ;
+ew_resize = "ew-resize" ;
+ns_resize = "ns-resize" ;
+nesw_resize = "nesw-resize" ;
+nwse_resize = "nwse-resize" ;
+col_resize = "col-resize" ;
+row_resize = "row-resize" ;
+all_scroll = "all-scroll" ;
+zoom_in = "zoom-in" ;
+zoom_out = "zoom-out" ;
+_webkit_grab = "-webkit-grab" ;
+_webkit_grabbing = "-webkit-grabbing" ;
+_webkit_zoom_in = "-webkit-zoom-in" ;
+_webkit_zoom_out = "-webkit-zoom-out" ;
+auto_hide = "auto-hide" ;
+ltr = "ltr" ;
+rtl = "rtl" ;
+capitalize = "capitalize" ;
+uppercase = "uppercase" ;
+lowercase = "lowercase" ;
+full_size_kana = "full-size-kana" ;
+math_auto = "math-auto" ;
+visible = "visible" ;
+collapse = "collapse" ;
+a3 = "a3" ;
+a4 = "a4" ;
+a5 = "a5" ;
+b4 = "b4" ;
+b5 = "b5" ;
+jis_b4 = "jis-b4" ;
+jis_b5 = "jis-b5" ;
+landscape = "landscape" ;
+ledger = "ledger" ;
+legal = "legal" ;
+letter = "letter" ;
+above = "above" ;
+absolute = "absolute" ;
+always = "always" ;
+avoid = "avoid" ;
+below = "below" ;
+bidi_override = "bidi-override" ;
+blink = "blink" ;
+both = "both" ;
+close_quote = "close-quote" ;
+crop = "crop" ;
+cross = "cross" ;
+embed = "embed" ;
+fixed = "fixed" ;
+hand = "hand" ;
+hide = "hide" ;
+higher = "higher" ;
+invert = "invert" ;
+inverted = "inverted" ;
+isolate_override = "isolate-override" ;
+plaintext = "plaintext" ;
+_webkit_isolate = "-webkit-isolate" ;
+_webkit_isolate_override = "-webkit-isolate-override" ;
+_webkit_plaintext = "-webkit-plaintext" ;
+level = "level" ;
+line_through = "line-through" ;
+local = "local" ;
+loud = "loud" ;
+lower = "lower" ;
+mix = "mix" ;
+no_close_quote = "no-close-quote" ;
+no_open_quote = "no-open-quote" ;
+nowrap = "nowrap" ;
+open_quote = "open-quote" ;
+overline = "overline" ;
+portrait = "portrait" ;
+pre = "pre" ;
+pre_line = "pre-line" ;
+pre_wrap = "pre-wrap" ;
+relative = "relative" ;
+scroll = "scroll" ;
+separate = "separate" ;
+show = "show" ;
+static = "static" ;
+thick = "thick" ;
+thin = "thin" ;
+underline = "underline" ;
+wavy = "wavy" ;
+ink = "ink" ;
+objects = "objects" ;
+stretch = "stretch" ;
+start = "start" ;
+end = "end" ;
+clone = "clone" ;
+slice = "slice" ;
+reverse = "reverse" ;
+horizontal = "horizontal" ;
+vertical = "vertical" ;
+inline_axis = "inline-axis" ;
+block_axis = "block-axis" ;
+single = "single" ;
+multiple = "multiple" ;
+flex_start = "flex-start" ;
+flex_end = "flex-end" ;
+space_between = "space-between" ;
+space_around = "space-around" ;
+space_evenly = "space-evenly" ;
+first_baseline = "first-baseline" ;
+last_baseline = "last-baseline" ;
+self_start = "self-start" ;
+self_end = "self-end" ;
+unsafe = "unsafe" ;
+safe = "safe" ;
+legacy = "legacy" ;
+row = "row" ;
+row_reverse = "row-reverse" ;
+column = "column" ;
+column_reverse = "column-reverse" ;
+wrap_reverse = "wrap-reverse" ;
+block_start = "block-start" ;
+block_end = "block-end" ;
+inline_start = "inline-start" ;
+inline_end = "inline-end" ;
+forwards = "forwards" ;
+backwards = "backwards" ;
+ahead = "ahead" ;
+up = "up" ;
+down = "down" ;
+slow = "slow" ;
+fast = "fast" ;
+infinite = "infinite" ;
+slide = "slide" ;
+alternate = "alternate" ;
+read_only = "read-only" ;
+read_write = "read-write" ;
+read_write_plaintext_only = "read-write-plaintext-only" ;
+element = "element" ;
+ignore = "ignore" ;
+intrinsic = "intrinsic" ;
+min_intrinsic = "min-intrinsic" ;
+min_content = "min-content" ;
+_webkit_min_content = "-webkit-min-content" ;
+max_content = "max-content" ;
+_webkit_max_content = "-webkit-max-content" ;
+_webkit_fill_available = "-webkit-fill-available" ;
+fit_content = "fit-content" ;
+_webkit_fit_content = "-webkit-fit-content" ;
+clip = "clip" ;
+ellipsis = "ellipsis" ;
+stable = "stable" ;
+pretty = "pretty" ;
+dot_dash = "dot-dash" ;
+dot_dot_dash = "dot-dot-dash" ;
+wave = "wave" ;
+continuous = "continuous" ;
+skip_white_space = "skip-white-space" ;
+auto_phrase = "auto-phrase" ;
+break_all = "break-all" ;
+keep_all = "keep-all" ;
+break_word = "break-word" ;
+break_spaces = "break-spaces" ;
+preserve = "preserve" ;
+preserve_breaks = "preserve-breaks" ;
+space = "space" ;
+loose = "loose" ;
+strict = "strict" ;
+after_white_space = "after-white-space" ;
+anywhere = "anywhere" ;
+base = "base" ;
+base_select = "base-select" ;
+checkbox = "checkbox" ;
+radio = "radio" ;
+push_button = "push-button" ;
+square_button = "square-button" ;
+button = "button" ;
+default_button = "default-button" ;
+listbox = "listbox" ;
+menulist = "menulist" ;
+menulist_button = "menulist-button" ;
+meter = "meter" ;
+progress_bar = "progress-bar" ;
+slider_horizontal = "slider-horizontal" ;
+slider_vertical = "slider-vertical" ;
+searchfield = "searchfield" ;
+_apple_pay_button = "-apple-pay-button" ;
+attachment = "attachment" ;
+borderless_attachment = "borderless-attachment" ;
+textarea = "textarea" ;
+textfield = "textfield" ;
+round = "round" ;
+border = "border" ;
+border_area = "border-area" ;
+border_box = "border-box" ;
+content = "content" ;
+content_box = "content-box" ;
+padding = "padding" ;
+padding_box = "padding-box" ;
+_webkit_text = "-webkit-text" ;
+scoop = "scoop" ;
+notch = "notch" ;
+straight = "straight" ;
+squircle = "squircle" ;
+superellipse = "superellipse" ;
+no_clip = "no-clip" ;
+add = "add" ;
+subtract = "subtract" ;
+intersect = "intersect" ;
+exclude = "exclude" ;
+var = "var" ;
+env = "env" ;
+_internal_auto_base = "-internal-auto-base" ;
+avoid_column = "avoid-column" ;
+avoid_page = "avoid-page" ;
+page = "page" ;
+recto = "recto" ;
+region = "region" ;
+verso = "verso" ;
+margin_box = "margin-box" ;
+stroke_box = "stroke-box" ;
+view_box = "view-box" ;
+contain = "contain" ;
+cover = "cover" ;
+logical = "logical" ;
+visual = "visual" ;
+alternate_reverse = "alternate-reverse" ;
+running = "running" ;
+paused = "paused" ;
+flat = "flat" ;
+preserve_3d = "preserve-3d" ;
+separated = "separated" ;
+ease = "ease" ;
+linear = "linear" ;
+ease_in = "ease-in" ;
+ease_out = "ease-out" ;
+ease_in_out = "ease-in-out" ;
+step_start = "step-start" ;
+step_end = "step-end" ;
+jump_start = "jump-start" ;
+jump_end = "jump-end" ;
+jump_none = "jump-none" ;
+jump_both = "jump-both" ;
+accumulate = "accumulate" ;
+replace = "replace" ;
+nearest = "nearest" ;
+root = "root" ;
+self = "self" ;
+view = "view" ;
+entry = "entry" ;
+exit = "exit" ;
+entry_crossing = "entry-crossing" ;
+exit_crossing = "exit-crossing" ;
+reset = "reset" ;
+visiblePainted = "visiblePainted" ;
+visibleFill = "visibleFill" ;
+visibleStroke = "visibleStroke" ;
+painted = "painted" ;
+fill = "fill" ;
+stroke = "stroke" ;
+bounding_box = "bounding-box" ;
+spell_out = "spell-out" ;
+digits = "digits" ;
+literal_punctuation = "literal-punctuation" ;
+no_punctuation = "no-punctuation" ;
+antialiased = "antialiased" ;
+subpixel_antialiased = "subpixel-antialiased" ;
+leading = "leading" ;
+cap = "cap" ;
+ex = "ex" ;
+ideographic_ink = "ideographic-ink" ;
+optimizeSpeed = "optimizeSpeed" ;
+optimizeLegibility = "optimizeLegibility" ;
+geometricPrecision = "geometricPrecision" ;
+economy = "economy" ;
+exact = "exact" ;
+no_limit = "no-limit" ;
+manual = "manual" ;
+touch = "touch" ;
+lr = "lr" ;
+rl = "rl" ;
+tb = "tb" ;
+lr_tb = "lr-tb" ;
+rl_tb = "rl-tb" ;
+tb_rl = "tb-rl" ;
+horizontal_tb = "horizontal-tb" ;
+vertical_lr = "vertical-lr" ;
+vertical_rl = "vertical-rl" ;
+sideways_lr = "sideways-lr" ;
+sideways_rl = "sideways-rl" ;
+horizontal_bt = "horizontal-bt" ;
+after = "after" ;
+before = "before" ;
+inter_character = "inter-character" ;
+legacy_inter_character = "legacy-inter-character" ;
+over = "over" ;
+under = "under" ;
+filled = "filled" ;
+open = "open" ;
+dot = "dot" ;
+double_circle = "double-circle" ;
+triangle = "triangle" ;
+sesame = "sesame" ;
+ellipse = "ellipse" ;
+closest_side = "closest-side" ;
+closest_corner = "closest-corner" ;
+farthest_side = "farthest-side" ;
+farthest_corner = "farthest-corner" ;
+sideways = "sideways" ;
+sideways_right = "sideways-right" ;
+upright = "upright" ;
+vertical_right = "vertical-right" ;
+mixed = "mixed" ;
+font = "font" ;
+glyphs = "glyphs" ;
+inline_box = "inline-box" ;
+initial_letter = "initial-letter" ;
+replaced = "replaced" ;
+on = "on" ;
+off = "off" ;
+optimizeQuality = "optimizeQuality" ;
+crisp_edges = "crisp-edges" ;
+pixelated = "pixelated" ;
+_webkit_crisp_edges = "-webkit-crisp-edges" ;
+_webkit_optimize_contrast = "-webkit-optimize-contrast" ;
+nonzero = "nonzero" ;
+evenodd = "evenodd" ;
+at = "at" ;
+elements = "elements" ;
+mandatory = "mandatory" ;
+proximity = "proximity" ;
+break = "break" ;
+wrap = "wrap" ;
+edges = "edges" ;
+alphabetic = "alphabetic" ;
+sticky = "sticky" ;
+_webkit_sticky = "-webkit-sticky" ;
+coarse = "coarse" ;
+fine = "fine" ;
+hover = "hover" ;
+progressive = "progressive" ;
+interlace = "interlace" ;
+active = "active" ;
+paged = "paged" ;
+enabled = "enabled" ;
+initial_only = "initial-only" ;
+multiply = "multiply" ;
+screen = "screen" ;
+overlay = "overlay" ;
+darken = "darken" ;
+lighten = "lighten" ;
+color_dodge = "color-dodge" ;
+color_burn = "color-burn" ;
+hard_light = "hard-light" ;
+soft_light = "soft-light" ;
+difference = "difference" ;
+exclusion = "exclusion" ;
+hue = "hue" ;
+saturation = "saturation" ;
+color = "color" ;
+luminosity = "luminosity" ;
+isolate = "isolate" ;
+scale_down = "scale-down" ;
+container_scroll = "container-scroll" ;
+cross_fade = "cross-fade" ;
+image_set = "image-set" ;
+linear_gradient = "linear-gradient" ;
+radial_gradient = "radial-gradient" ;
+conic_gradient = "conic-gradient" ;
+repeating_linear_gradient = "repeating-linear-gradient" ;
+repeating_radial_gradient = "repeating-radial-gradient" ;
+repeating_conic_gradient = "repeating-conic-gradient" ;
+_webkit_canvas = "-webkit-canvas" ;
+_webkit_cross_fade = "-webkit-cross-fade" ;
+_webkit_gradient = "-webkit-gradient" ;
+_webkit_linear_gradient = "-webkit-linear-gradient" ;
+_webkit_radial_gradient = "-webkit-radial-gradient" ;
+_webkit_repeating_linear_gradient = "-webkit-repeating-linear-gradient" ;
+_webkit_repeating_radial_gradient = "-webkit-repeating-radial-gradient" ;
+_webkit_image_set = "-webkit-image-set" ;
+_webkit_named_image = "-webkit-named-image" ;
+filter = "filter" ;
+_webkit_filter = "-webkit-filter" ;
+paint = "paint" ;
+type = "type" ;
+from = "from" ;
+to = "to" ;
+color_stop = "color-stop" ;
+radial = "radial" ;
+attr = "attr" ;
+counter = "counter" ;
+counters = "counters" ;
+rect = "rect" ;
+polygon = "polygon" ;
+shape = "shape" ;
+line = "line" ;
+hline = "hline" ;
+vline = "vline" ;
+curve = "curve" ;
+arc = "arc" ;
+cw = "cw" ;
+ccw = "ccw" ;
+by = "by" ;
+close = "close" ;
+with = "with" ;
+of = "of" ;
+origin = "origin" ;
+format = "format" ;
+collection = "collection" ;
+embedded_opentype = "embedded-opentype" ;
+opentype = "opentype" ;
+svg = "svg" ;
+truetype = "truetype" ;
+woff = "woff" ;
+woff2 = "woff2" ;
+tech = "tech" ;
+color_cbdt = "color-cbdt" ;
+color_colrv0 = "color-colrv0" ;
+color_colrv1 = "color-colrv1" ;
+color_sbix = "color-sbix" ;
+color_svg = "color-svg" ;
+features_aat = "features-aat" ;
+features_graphite = "features-graphite" ;
+features_opentype = "features-opentype" ;
+incremental = "incremental" ;
+palettes = "palettes" ;
+variations = "variations" ;
+grayscale = "grayscale" ;
+sepia = "sepia" ;
+saturate = "saturate" ;
+hue_rotate = "hue-rotate" ;
+opacity = "opacity" ;
+brightness = "brightness" ;
+contrast = "contrast" ;
+blur = "blur" ;
+drop_shadow = "drop-shadow" ;
+url = "url" ;
+cubic_bezier = "cubic-bezier" ;
+spring = "spring" ;
+steps = "steps" ;
+apple_invert_lightness = "apple-invert-lightness" ;
+_apple_system_blur_material_ultra_thin = "-apple-system-blur-material-ultra-thin" ;
+_apple_system_blur_material_thin = "-apple-system-blur-material-thin" ;
+_apple_system_blur_material = "-apple-system-blur-material" ;
+_apple_system_blur_material_thick = "-apple-system-blur-material-thick" ;
+_apple_system_blur_material_chrome = "-apple-system-blur-material-chrome" ;
+_apple_system_glass_material = "-apple-system-glass-material" ;
+_apple_system_glass_material_clear = "-apple-system-glass-material-clear" ;
+_apple_system_glass_material_subdued = "-apple-system-glass-material-subdued" ;
+_apple_system_glass_material_media_controls = "-apple-system-glass-material-media-controls" ;
+_apple_system_glass_material_media_controls_subdued = "-apple-system-glass-material-media-controls-subdued" ;
+_apple_system_vibrancy_label = "-apple-system-vibrancy-label" ;
+_apple_system_vibrancy_secondary_label = "-apple-system-vibrancy-secondary-label" ;
+_apple_system_vibrancy_tertiary_label = "-apple-system-vibrancy-tertiary-label" ;
+_apple_system_vibrancy_quaternary_label = "-apple-system-vibrancy-quaternary-label" ;
+_apple_system_vibrancy_fill = "-apple-system-vibrancy-fill" ;
+_apple_system_vibrancy_secondary_fill = "-apple-system-vibrancy-secondary-fill" ;
+_apple_system_vibrancy_tertiary_fill = "-apple-system-vibrancy-tertiary-fill" ;
+_apple_system_vibrancy_separator = "-apple-system-vibrancy-separator" ;
+rgb = "rgb" ;
+rgba = "rgba" ;
+hsl = "hsl" ;
+hsla = "hsla" ;
+hwb = "hwb" ;
+lab = "lab" ;
+lch = "lch" ;
+oklab = "oklab" ;
+oklch = "oklch" ;
+r = "r" ;
+g = "g" ;
+b = "b" ;
+h = "h" ;
+s = "s" ;
+l = "l" ;
+w = "w" ;
+a = "a" ;
+c = "c" ;
+matrix = "matrix" ;
+matrix3d = "matrix3d" ;
+perspective = "perspective" ;
+rotate = "rotate" ;
+rotateX = "rotateX" ;
+rotateY = "rotateY" ;
+rotateZ = "rotateZ" ;
+rotate3d = "rotate3d" ;
+scale = "scale" ;
+scaleX = "scaleX" ;
+scaleY = "scaleY" ;
+scaleZ = "scaleZ" ;
+scale3d = "scale3d" ;
+skew = "skew" ;
+skewX = "skewX" ;
+skewY = "skewY" ;
+translate = "translate" ;
+translateX = "translateX" ;
+translateY = "translateY" ;
+translateZ = "translateZ" ;
+translate3d = "translate3d" ;
+fill_box = "fill-box" ;
+path = "path" ;
+xywh = "xywh" ;
+calc = "calc" ;
+_webkit_calc = "-webkit-calc" ;
+min = "min" ;
+max = "max" ;
+clamp = "clamp" ;
+pow = "pow" ;
+sqrt = "sqrt" ;
+hypot = "hypot" ;
+sin = "sin" ;
+cos = "cos" ;
+e = "e" ;
+pi = "pi" ;
+exp = "exp" ;
+log = "log" ;
+asin = "asin" ;
+acos = "acos" ;
+atan = "atan" ;
+atan2 = "atan2" ;
+abs = "abs" ;
+sign = "sign" ;
+mod = "mod" ;
+rem = "rem" ;
+to_zero = "to-zero" ;
+random = "random" ;
+element_scoped = "element-scoped" ;
+sibling_count = "sibling-count" ;
+sibling_index = "sibling-index" ;
+infinity = "infinity" ;
+_infinity = "-infinity" ;
+NaN = "NaN" ;
+from_image = "from-image" ;
+_webkit_paged_x = "-webkit-paged-x" ;
+_webkit_paged_y = "-webkit-paged-y" ;
+markers = "markers" ;
+span = "span" ;
+minmax = "minmax" ;
+subgrid = "subgrid" ;
+auto_flow = "auto-flow" ;
+dense = "dense" ;
+each_line = "each-line" ;
+balance = "balance" ;
+white_outline = "white-outline" ;
+plain = "plain" ;
+buy = "buy" ;
+set_up = "set-up" ;
+donate = "donate" ;
+check_out = "check-out" ;
+book = "book" ;
+subscribe = "subscribe" ;
+reload = "reload" ;
+add_money = "add-money" ;
+top_up = "top-up" ;
+order = "order" ;
+rent = "rent" ;
+support = "support" ;
+contribute = "contribute" ;
+tip = "tip" ;
+weight = "weight" ;
+style = "style" ;
+oblique_only = "oblique-only" ;
+scroll_position = "scroll-position" ;
+manipulation = "manipulation" ;
+pan_x = "pan-x" ;
+pan_y = "pan-y" ;
+pinch_zoom = "pinch-zoom" ;
+smooth = "smooth" ;
+allow_end = "allow-end" ;
+first = "first" ;
+force_end = "force-end" ;
+last = "last" ;
+p3 = "p3" ;
+rec2020 = "rec2020" ;
+sRGB = "sRGB" ;
+a98_rgb = "a98-rgb" ;
+display_p3 = "display-p3" ;
+display_p3_linear = "display-p3-linear" ;
+prophoto_rgb = "prophoto-rgb" ;
+srgb_linear = "srgb-linear" ;
+xyz = "xyz" ;
+xyz_d50 = "xyz-d50" ;
+xyz_d65 = "xyz-d65" ;
+color_layers = "color-layers" ;
+color_mix = "color-mix" ;
+contrast_color = "contrast-color" ;
+light_dark = "light-dark" ;
+in = "in" ;
+shorter = "shorter" ;
+longer = "longer" ;
+increasing = "increasing" ;
+decreasing = "decreasing" ;
+prefers = "prefers" ;
+reduce = "reduce" ;
+no_preference = "no-preference" ;
+more = "more" ;
+less = "less" ;
+custom = "custom" ;
+light = "light" ;
+dark = "dark" ;
+auto_fill = "auto-fill" ;
+auto_fit = "auto-fit" ;
+swap = "swap" ;
+fallback = "fallback" ;
+optional = "optional" ;
+fullscreen = "fullscreen" ;
+standalone = "standalone" ;
+minimal_ui = "minimal-ui" ;
+browser = "browser" ;
+grammar_error = "grammar-error" ;
+spelling_error = "spelling-error" ;
+from_font = "from-font" ;
+standard = "standard" ;
+high = "high" ;
+constrained = "constrained" ;
+dynamic_range_limit_mix = "dynamic-range-limit-mix" ;
+cyclic = "cyclic" ;
+numeric = "numeric" ;
+symbolic = "symbolic" ;
+additive = "additive" ;
+_internal_disclosure_closed = "-internal-disclosure-closed" ;
+_internal_disclosure_open = "-internal-disclosure-open" ;
+_internal_simplified_chinese_informal = "-internal-simplified-chinese-informal" ;
+_internal_simplified_chinese_formal = "-internal-simplified-chinese-formal" ;
+_internal_traditional_chinese_informal = "-internal-traditional-chinese-informal" ;
+_internal_traditional_chinese_formal = "-internal-traditional-chinese-formal" ;
+_internal_ethiopic_numeric = "-internal-ethiopic-numeric" ;
+extends = "extends" ;
+bullets = "bullets" ;
+numbers = "numbers" ;
+words = "words" ;
+selector = "selector" ;
+font_format = "font-format" ;
+font_tech = "font-tech" ;
+auto_add = "auto-add" ;
+compact = "compact" ;
+luminance = "luminance" ;
+match_source = "match-source" ;
+x = "x" ;
+y = "y" ;
+z = "z" ;
+size = "size" ;
+layout = "layout" ;
+inline_size = "inline-size" ;
+ray = "ray" ;
+sides = "sides" ;
+and = "and" ;
+or = "or" ;
+not = "not" ;
+only = "only" ;
+true = "true" ;
+false = "false" ;
+space_all = "space-all" ;
+trim_all = "trim-all" ;
+no_autospace = "no-autospace" ;
+ideograph_alpha = "ideograph-alpha" ;
+ideograph_numeric = "ideograph-numeric" ;
+insert = "insert" ;
+both_edges = "both-edges" ;
+allow_discrete = "allow-discrete" ;
+_internal_textarea_auto = "-internal-textarea-auto" ;
+_internal_inset = "-internal-inset" ;
+anchor = "anchor" ;
+anchor_size = "anchor-size" ;
+width = "width" ;
+height = "height" ;
+self_block = "self-block" ;
+self_inline = "self-inline" ;
+anchor_center = "anchor-center" ;
+most_width = "most-width" ;
+most_height = "most-height" ;
+most_block_size = "most-block-size" ;
+most_inline_size = "most-inline-size" ;
+flip_block = "flip-block" ;
+flip_inline = "flip-inline" ;
+flip_start = "flip-start" ;
+flip_x = "flip-x" ;
+flip_y = "flip-y" ;
+self_block_end = "self-block-end" ;
+self_block_end_start = "self-block-end-start" ;
+self_block_start = "self-block-start" ;
+span_all = "span-all" ;
+span_block_end = "span-block-end" ;
+span_block_start = "span-block-start" ;
+span_bottom = "span-bottom" ;
+span_end = "span-end" ;
+span_left = "span-left" ;
+span_right = "span-right" ;
+span_self_block_end = "span-self-block-end" ;
+span_self_block_start = "span-self-block-start" ;
+span_self_end = "span-self-end" ;
+span_self_start = "span-self-start" ;
+span_start = "span-start" ;
+span_top = "span-top" ;
+span_x_end = "span-x-end" ;
+span_self_x_end = "span-self-x-end" ;
+span_self_x_start = "span-self-x-start" ;
+span_x_start = "span-x-start" ;
+span_y_end = "span-y-end" ;
+span_self_y_end = "span-self-y-end" ;
+span_self_y_start = "span-self-y-start" ;
+span_y_start = "span-y-start" ;
+x_end = "x-end" ;
+self_x_end = "self-x-end" ;
+self_x_start = "self-x-start" ;
+x_start = "x-start" ;
+y_end = "y-end" ;
+self_y_end = "self-y-end" ;
+self_y_start = "self-y-start" ;
+y_start = "y-start" ;
+span_inline_start = "span-inline-start" ;
+span_inline_end = "span-inline-end" ;
+self_inline_start = "self-inline-start" ;
+self_inline_end = "self-inline-end" ;
+span_self_inline_start = "span-self-inline-start" ;
+span_self_inline_end = "span-self-inline-end" ;
+anchors_valid = "anchors-valid" ;
+anchor_valid = "anchor-valid" ;
+anchors_visible = "anchors-visible" ;
+anchor_visible = "anchor-visible" ;
+no_overflow = "no-overflow" ;
+match_element = "match-element" ;
+cross_origin = "cross-origin" ;
+anonymous = "anonymous" ;
+use_credentials = "use-credentials" ;
+integrity = "integrity" ;
+referrer_policy = "referrer-policy" ;
+no_referrer = "no-referrer" ;
+no_referrer_when_downgrade = "no-referrer-when-downgrade" ;
+same_origin = "same-origin" ;
+strict_origin = "strict-origin" ;
+origin_when_cross_origin = "origin-when-cross-origin" ;
+strict_origin_when_cross_origin = "strict-origin-when-cross-origin" ;
+unsafe_url = "unsafe-url" ;
+will_change = "will-change" ;

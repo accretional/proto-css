@@ -183,17 +183,18 @@ def parse_keywords(raw):
 # ---------------------------------------------------------------------------
 
 def write_keyword_ebnf(keywords, path):
-    """Write a flat keyword = "k1" | "k2" | ... ; production."""
+    """Write one named production per keyword: inherit = "inherit" ; """
     lines = [
         '(* CSS value keywords — generated from WebKit CSSValueKeywords.in *)',
-        '(* Each keyword string maps one-to-one to a CSSValueID enum entry.  *)',
+        '(* Each keyword is its own named production so other EBNF files    *)',
+        '(* can reference it by name rather than repeating the string.      *)',
         '',
-        'keyword =',
     ]
-    for i, kw in enumerate(keywords):
-        sep = '  ' if i == 0 else '  | '
-        suffix = ' ;' if i == len(keywords) - 1 else ''
-        lines.append(f'  {sep}"{kw}"{suffix}')
+    for kw in keywords:
+        # EBNF identifiers can't start with a digit or contain hyphens;
+        # map hyphens to underscores for the production name.
+        ident = kw.replace('-', '_')
+        lines.append(f'{ident} = "{kw}" ;')
     with open(path, 'w') as f:
         f.write('\n'.join(lines) + '\n')
 

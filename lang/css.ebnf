@@ -1,15 +1,8 @@
-css_style_sheet = css_rule , { css_rule }
+css_style_sheet = { at_rules | css_rule } ;      (* Empty stylesheet is valid CSS *)
 
-css_rule = rule_definition , "{" , rule_properties , "}"
+css_rule = rule_definition , "{" , rule_properties , "}" ;
 
-rule_definition = rule_name , [ rule_combinator ]
+rule_definition = selector_chain , { "," , selector_chain } ;
+selector_chain = rule_name , { combinator, rule_name } ;
 
-rule_properties = property , { property }
-
-property = display_expr | color_expr | ...
-
-display_expr = "flex-box" | "none" | ...
-
-rule_combinator = child_combinator | column_combinator | descendant_combinator | next_sibling_combinator | subsequent_sibling_combinator
-
-child_combinator = ">"
+rule_properties = { property } ;      (* A rule might not have properties *)
