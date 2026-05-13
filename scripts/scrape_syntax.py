@@ -11,14 +11,14 @@ Example:
         docs/syntax/properties.txt
 
 Reads URLs from the reference markdown file, fetches each MDN page,
-extracts the <pre><code class="language-css"> block that follows
-<h2 id="formal_syntax">, and writes:
+extracts the <pre class="css-formal-syntax"> block that follows
+<h2 id="formal_syntax">, and writes the syntax exactly as it appears
+on the page (multiline, with blank lines between sub-rules).
 
-    <name>: <syntax, whitespace-collapsed to one line>
+Entries are separated by a blank line. Missing-syntax entries are
+written at the end as:
 
-Missing-syntax entries are written as:
-
-    # NO_SYNTAX <name> (<url>)
+    # NO_SYNTAX <name> (note) — <url>
 """
 
 import sys
@@ -68,6 +68,10 @@ class FormalSyntaxParser(HTMLParser):
         # Another section started before we found the <pre> — give up
         if tag == "h2":
             self._in_formal_syntax_section = False
+            return
+
+        if tag == "br" and self._in_pre:
+            self._buf.append("\n")
             return
 
         if tag == "pre":
@@ -125,11 +129,19 @@ def name_from_url(url):
     return url.rstrip("/").split("/")[-1]
 
 
-# --- Syntax normalisation --------------------------------------------------
+# --- Syntax cleaning -------------------------------------------------------
 
-def normalise(raw):
-    """Collapse runs of whitespace to single spaces, strip outer whitespace."""
-    return re.sub(r"\s+", " ", raw).strip()
+def clean_raw(raw):
+    """Preserve multiline structure; just normalise line endings and strip outer whitespace."""
+    text = raw.replace("\r\n", "\n").replace("\r", "\n")
+    # Strip trailing whitespace from each line
+    lines = [line.rstrip() for line in text.split("\n")]
+    # Strip leading/trailing blank lines from the whole block
+    while lines and not lines[0].strip():
+        lines.pop(0)
+    while lines and not lines[-1].strip():
+        lines.pop()
+    return "\n".join(lines)
 
 
 # --- Fetch with retry ------------------------------------------------------
@@ -195,7 +207,7 @@ def main():
         parser.feed(html)
 
         if parser.syntax:
-            syntax = normalise(parser.syntax)
+            syntax = clean_raw(parser.syntax)
             print(f"ok ({len(syntax)} chars)")
             results.append((name, syntax, url, None))
         else:
@@ -210,11 +222,14 @@ def main():
         ok = [r for r in results if r[1]]
         missing = [r for r in results if not r[1]]
 
-        for name, syntax, url, _ in ok:
-            f.write(f"{name}: {syntax}\n")
+        for i, (name, syntax, url, _) in enumerate(ok):
+            if i > 0:
+                f.write("\n")
+            f.write(f"{syntax}\n")
 
         if missing:
-            f.write("\n")
+            if ok:
+                f.write("\n")
             for name, _, url, note in missing:
                 f.write(f"# NO_SYNTAX {name} ({note}) — {url}\n")
 

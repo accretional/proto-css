@@ -1,54 +1,1036 @@
-@color-profile: @color-profile = @color-profile [ <dashed-ident> | device-cmyk ] { <declaration-list> }
-@container: @container = @container <container-condition># { <block-contents> } <container-condition> = [ <container-name>? <container-query>? ]! <container-name> = <custom-ident> <container-query> = not <query-in-parens> | <query-in-parens> [ [ and <query-in-parens> ]* | [ or <query-in-parens> ]* ] <query-in-parens> = ( <container-query> ) | ( <size-feature> ) | style( <style-query> ) | scroll-state( <scroll-state-query> ) | <general-enclosed> <style-query> = not <style-in-parens> | <style-in-parens> [ [ and <style-in-parens> ]* | [ or <style-in-parens> ]* ] | <style-feature> <scroll-state-query> = not <scroll-state-in-parens> | <scroll-state-in-parens> [ [ and <scroll-state-in-parens> ]* | [ or <scroll-state-in-parens> ]* ] | <scroll-state-feature> <general-enclosed> = [ <function-token> <any-value>? ) ] | [ ( <any-value>? ) ] <style-in-parens> = ( <style-query> ) | ( <style-feature> ) | <general-enclosed> <style-feature> = <style-feature-plain> | <style-feature-boolean> | <style-range> <scroll-state-in-parens> = ( <scroll-state-query> ) | ( <scroll-state-feature> ) | <general-enclosed> <style-feature-plain> = <style-feature-name> : <style-feature-value> <style-feature-boolean> = <style-feature-name> <style-range> = <style-range-value> <mf-comparison> <style-range-value> | <style-range-value> <mf-lt> <style-range-value> <mf-lt> <style-range-value> | <style-range-value> <mf-gt> <style-range-value> <mf-gt> <style-range-value> <style-range-value> = <custom-property-name> | <style-feature-value> <mf-comparison> = <mf-lt> | <mf-gt> | <mf-eq> <mf-lt> = '<' '='? <mf-gt> = '>' '='? <mf-eq> = '='
-@counter-style: @counter-style = @counter-style <counter-style-name> { <declaration-list> } <counter-style-name> = <custom-ident>
-additive-symbols: additive-symbols = [ <integer [0,∞]> && <symbol> ]# <integer> = <number-token> <symbol> = <string> | <image> | <custom-ident> <image> = <url> | <image()> | <image-set()> | <cross-fade()> | <element()> | <gradient> <image()> = image( <image-tags>? [ <image-src>? , <color>? ]! ) <image-set()> = image-set( <image-set-option># ) <cross-fade()> = cross-fade( <cf-image># ) <element()> = element( <id-selector> ) <image-tags> = ltr | rtl <image-src> = <url> | <string> <image-set-option> = [ <image> | <string> ] [ <resolution> || type( <string> ) ]? <cf-image> = [ <image> | <color> ] && <percentage [0,100]>? <id-selector> = <hash-token>
-fallback: fallback = <counter-style-name> <counter-style-name> = <custom-ident>
-negative: negative = <symbol> <symbol>? <symbol> = <string> | <image> | <custom-ident> <image> = <url> | <image()> | <image-set()> | <cross-fade()> | <element()> | <gradient> <image()> = image( <image-tags>? [ <image-src>? , <color>? ]! ) <image-set()> = image-set( <image-set-option># ) <cross-fade()> = cross-fade( <cf-image># ) <element()> = element( <id-selector> ) <image-tags> = ltr | rtl <image-src> = <url> | <string> <image-set-option> = [ <image> | <string> ] [ <resolution> || type( <string> ) ]? <cf-image> = [ <image> | <color> ] && <percentage [0,100]>? <id-selector> = <hash-token>
-pad: pad = <integer [0,∞]> && <symbol> <integer> = <number-token> <symbol> = <string> | <image> | <custom-ident> <image> = <url> | <image()> | <image-set()> | <cross-fade()> | <element()> | <gradient> <image()> = image( <image-tags>? [ <image-src>? , <color>? ]! ) <image-set()> = image-set( <image-set-option># ) <cross-fade()> = cross-fade( <cf-image># ) <element()> = element( <id-selector> ) <image-tags> = ltr | rtl <image-src> = <url> | <string> <image-set-option> = [ <image> | <string> ] [ <resolution> || type( <string> ) ]? <cf-image> = [ <image> | <color> ] && <percentage [0,100]>? <id-selector> = <hash-token>
-prefix: prefix = <symbol> <symbol> = <string> | <image> | <custom-ident> <image> = <url> | <image()> | <image-set()> | <cross-fade()> | <element()> | <gradient> <image()> = image( <image-tags>? [ <image-src>? , <color>? ]! ) <image-set()> = image-set( <image-set-option># ) <cross-fade()> = cross-fade( <cf-image># ) <element()> = element( <id-selector> ) <image-tags> = ltr | rtl <image-src> = <url> | <string> <image-set-option> = [ <image> | <string> ] [ <resolution> || type( <string> ) ]? <cf-image> = [ <image> | <color> ] && <percentage [0,100]>? <id-selector> = <hash-token>
-range: range = [ [ <integer> | infinite ]{2} ]# | auto <integer> = <number-token>
-speak-as: speak-as = auto | bullets | numbers | words | spell-out | <counter-style-name> <counter-style-name> = <custom-ident>
-suffix: suffix = <symbol> <symbol> = <string> | <image> | <custom-ident> <image> = <url> | <image()> | <image-set()> | <cross-fade()> | <element()> | <gradient> <image()> = image( <image-tags>? [ <image-src>? , <color>? ]! ) <image-set()> = image-set( <image-set-option># ) <cross-fade()> = cross-fade( <cf-image># ) <element()> = element( <id-selector> ) <image-tags> = ltr | rtl <image-src> = <url> | <string> <image-set-option> = [ <image> | <string> ] [ <resolution> || type( <string> ) ]? <cf-image> = [ <image> | <color> ] && <percentage [0,100]>? <id-selector> = <hash-token>
-symbols: symbols = <symbol>+ <symbol> = <string> | <image> | <custom-ident> <image> = <url> | <image()> | <image-set()> | <cross-fade()> | <element()> | <gradient> <image()> = image( <image-tags>? [ <image-src>? , <color>? ]! ) <image-set()> = image-set( <image-set-option># ) <cross-fade()> = cross-fade( <cf-image># ) <element()> = element( <id-selector> ) <image-tags> = ltr | rtl <image-src> = <url> | <string> <image-set-option> = [ <image> | <string> ] [ <resolution> || type( <string> ) ]? <cf-image> = [ <image> | <color> ] && <percentage [0,100]>? <id-selector> = <hash-token>
-system: system = cyclic | numeric | alphabetic | symbolic | additive | [ fixed <integer>? ] | [ extends <counter-style-name> ] <integer> = <number-token> <counter-style-name> = <custom-ident>
-@custom-media: @custom-media = @custom-media <extension-name> [ <media-query-list> | true | false ] ;
-@font-face: @font-face = @font-face { <declaration-list> }
-ascent-override: ascent-override = [ normal | <percentage [0,∞]> ]{1,2}
-descent-override: descent-override = [ normal | <percentage [0,∞]> ]{1,2}
-font-display: font-display = auto | block | swap | fallback | optional
-font-family: font-family = <font-family-name> <font-family-name> = <string> | <custom-ident>+
-font-feature-settings: font-feature-settings = normal | <feature-tag-value># <feature-tag-value> = <opentype-tag> [ <integer [0,∞]> | on | off ]? <opentype-tag> = <string> <integer> = <number-token>
-font-stretch: font-width = auto | <'font-width'>{1,2} <font-width> = normal | <percentage [0,∞]> | ultra-condensed | extra-condensed | condensed | semi-condensed | semi-expanded | expanded | extra-expanded | ultra-expanded
-font-style: font-style = auto | normal | italic | left | right | oblique [ <angle [-90deg,90deg]>{1,2} ]?
-font-variation-settings: font-variation-settings = normal | [ <string> <number> ]#
-font-weight: font-weight = auto | <font-weight-absolute>{1,2} <font-weight-absolute> = normal | bold | <number [1,1000]>
-line-gap-override: line-gap-override = [ normal | <percentage [0,∞]> ]{1,2}
-size-adjust: size-adjust = <percentage [0,∞]>
-src: src = <font-src-list>
-unicode-range: unicode-range = <unicode-range-token>#
-@font-feature-values: @font-feature-values = @font-feature-values <font-family-name># { <declaration-rule-list> } <font-family-name> = <string> | <custom-ident>+
-@font-palette-values: @font-palette-values = @font-palette-values <dashed-ident> { <declaration-list> }
-base-palette: base-palette = light | dark | <integer [0,∞]> <integer> = <number-token>
-font-family: font-family = <font-family-name># <font-family-name> = <string> | <custom-ident>+
-override-colors: override-colors = [ <integer [0,∞]> <color> ]# <integer> = <number-token>
-@function: @function = @function <function-token> <function-parameter>#? ) [ returns <css-type> ]? { <declaration-rule-list> } <function-parameter> = <custom-property-name> <css-type>? [ : <default-value> ]? <css-type> = <syntax-component> | <type()> <default-value> = <declaration-value> <syntax-component> = <syntax-single-component> <syntax-multiplier>? | '<' transform-list '>' <type()> = type( <string> ) <syntax-single-component> = '<' <syntax-type-name> '>' | <ident> <syntax-multiplier> = '#' | '+' <syntax-type-name> = angle | color | custom-ident | image | integer | length | length-percentage | number | percentage | resolution | string | time | url | transform-function
-@import: @import = @import [ <url> | <string> ] [ [ layer | layer( <layer-name> ) ] || [ scope | scope( <scope-start> | <scope-boundaries> ) ] || <supports-import-condition> ]? <media-import-condition> ; <layer-name> = <ident> [ '.' <ident> ]* <scope-start> = <selector-list> <scope-boundaries> = [ [ ( <scope-start> ) ]? [ to ( <scope-end> ) ]? ]! <supports-import-condition> = supports( [ <supports-condition> | <declaration> ] ) <media-import-condition> = <media-query-list> <selector-list> = <complex-selector-list> <scope-end> = <selector-list> <supports-condition> = not <supports-in-parens> | <supports-in-parens> [ and <supports-in-parens> ]* | <supports-in-parens> [ or <supports-in-parens> ]* <complex-selector-list> = <complex-selector># <supports-in-parens> = ( <supports-condition> ) | <supports-feature> | <general-enclosed> <complex-selector> = <complex-selector-unit> [ <combinator>? <complex-selector-unit> ]* <supports-feature> = <supports-selector-fn> | <supports-font-tech-fn> | <supports-font-format-fn> | <supports-at-rule-fn> | <supports-named-feature-fn> | <supports-env-fn> | <supports-decl> <general-enclosed> = [ <function-token> <any-value>? ) ] | [ ( <any-value>? ) ] <complex-selector-unit> = [ <compound-selector>? <pseudo-compound-selector>* ]! <combinator> = '>' | '+' | '~' | [ '|' '|' ] | [ / <wq-name> / ] <supports-selector-fn> = selector( <complex-selector> ) <supports-font-tech-fn> = font-tech( <font-tech> ) <supports-font-format-fn> = font-format( <font-format> ) <supports-at-rule-fn> = at-rule( <at-keyword-token> ) <supports-named-feature-fn> = named-feature( <ident> ) <supports-env-fn> = env( <ident> ) <supports-decl> = ( [ <declaration> | <supports-condition-name> ] ) <compound-selector> = [ <type-selector>? <subclass-selector>* ]! <pseudo-compound-selector> = <pseudo-element-selector> <pseudo-class-selector>* <wq-name> = <ns-prefix>? <ident-token> <font-tech> = <font-features-tech> | <color-font-tech> | variations | palettes | incremental <font-format> = <string> | collection | embedded-opentype | opentype | svg | truetype | woff | woff2 <type-selector> = <wq-name> | <ns-prefix>? '*' <subclass-selector> = <id-selector> | <class-selector> | <attribute-selector> | <pseudo-class-selector> <pseudo-element-selector> = : <pseudo-class-selector> | <legacy-pseudo-element-selector> <pseudo-class-selector> = : <ident-token> | : <function-token> <any-value> ) <ns-prefix> = [ <ident-token> | '*' ]? '|' <font-features-tech> = features-opentype | features-aat | features-graphite <color-font-tech> = color-COLRv0 | color-COLRv1 | color-SVG | color-sbix | color-CBDT <id-selector> = <hash-token> <class-selector> = '.' <ident-token> <attribute-selector> = '[' <wq-name> ']' | '[' <wq-name> <attr-matcher> [ <string-token> | <ident-token> ] <attr-modifier>? ']' <legacy-pseudo-element-selector> = : [ before | after | first-line | first-letter ] <attr-matcher> = [ '~' | '|' | '^' | '$' | '*' ]? '=' <attr-modifier> = i | s
-@keyframes: @keyframes = @keyframes <keyframes-name> { <qualified-rule-list> } <keyframes-name> = <custom-ident> | <string>
-@layer: @layer = @layer <layer-name>? { <rule-list> } | @layer <layer-name># ; <layer-name> = <ident> [ '.' <ident> ]*
-@media: @media = @media <media-query-list> { <rule-list> }
-@namespace: @namespace = @namespace <namespace-prefix>? [ <string> | <url> ] ; <namespace-prefix> = <ident>
-@page: @page = @page <page-selector-list>? { <declaration-rule-list> } <page-selector-list> = <page-selector># <page-selector> = [ <ident-token>? <pseudo-page>* ]! <pseudo-page> = : [ left | right | first | blank ]
-page-orientation: page-orientation = upright | rotate-left | rotate-right
-size: size = <length [0,∞]>{1,2} | auto | [ <page-size> || [ portrait | landscape ] ] <page-size> = A5 | A4 | A3 | B5 | B4 | JIS-B5 | JIS-B4 | letter | legal | ledger
-@position-try: @position-try = @position-try <dashed-ident> { <declaration-list> }
-@property: @property = @property <custom-property-name> { <declaration-list> }
-inherits: inherits = true | false
-initial-value: initial-value = <declaration-value>?
-syntax: syntax = <string>
-@scope: @scope = @scope <scope-boundaries>? { <block-contents> } <scope-boundaries> = [ [ ( <scope-start> ) ]? [ to ( <scope-end> ) ]? ]! <scope-start> = <selector-list> <scope-end> = <selector-list> <selector-list> = <complex-selector-list> <complex-selector-list> = <complex-selector># <complex-selector> = <complex-selector-unit> [ <combinator>? <complex-selector-unit> ]* <complex-selector-unit> = [ <compound-selector>? <pseudo-compound-selector>* ]! <combinator> = '>' | '+' | '~' | [ '|' '|' ] | [ / <wq-name> / ] <compound-selector> = [ <type-selector>? <subclass-selector>* ]! <pseudo-compound-selector> = <pseudo-element-selector> <pseudo-class-selector>* <wq-name> = <ns-prefix>? <ident-token> <type-selector> = <wq-name> | <ns-prefix>? '*' <subclass-selector> = <id-selector> | <class-selector> | <attribute-selector> | <pseudo-class-selector> <pseudo-element-selector> = : <pseudo-class-selector> | <legacy-pseudo-element-selector> <pseudo-class-selector> = : <ident-token> | : <function-token> <any-value> ) <ns-prefix> = [ <ident-token> | '*' ]? '|' <id-selector> = <hash-token> <class-selector> = '.' <ident-token> <attribute-selector> = '[' <wq-name> ']' | '[' <wq-name> <attr-matcher> [ <string-token> | <ident-token> ] <attr-modifier>? ']' <legacy-pseudo-element-selector> = : [ before | after | first-line | first-letter ] <attr-matcher> = [ '~' | '|' | '^' | '$' | '*' ]? '=' <attr-modifier> = i | s
-@starting-style: @starting-style = @starting-style { <rule-list> }
-@supports: @supports = @supports <supports-condition> { <rule-list> } <supports-condition> = not <supports-in-parens> | <supports-in-parens> [ and <supports-in-parens> ]* | <supports-in-parens> [ or <supports-in-parens> ]* <supports-in-parens> = ( <supports-condition> ) | <supports-feature> | <general-enclosed> <supports-feature> = <supports-selector-fn> | <supports-font-tech-fn> | <supports-font-format-fn> | <supports-at-rule-fn> | <supports-named-feature-fn> | <supports-env-fn> | <supports-decl> <general-enclosed> = [ <function-token> <any-value>? ) ] | [ ( <any-value>? ) ] <supports-selector-fn> = selector( <complex-selector> ) <supports-font-tech-fn> = font-tech( <font-tech> ) <supports-font-format-fn> = font-format( <font-format> ) <supports-at-rule-fn> = at-rule( <at-keyword-token> ) <supports-named-feature-fn> = named-feature( <ident> ) <supports-env-fn> = env( <ident> ) <supports-decl> = ( [ <declaration> | <supports-condition-name> ] ) <complex-selector> = <complex-selector-unit> [ <combinator>? <complex-selector-unit> ]* <font-tech> = <font-features-tech> | <color-font-tech> | variations | palettes | incremental <font-format> = <string> | collection | embedded-opentype | opentype | svg | truetype | woff | woff2 <complex-selector-unit> = [ <compound-selector>? <pseudo-compound-selector>* ]! <combinator> = '>' | '+' | '~' | [ '|' '|' ] | [ / <wq-name> / ] <font-features-tech> = features-opentype | features-aat | features-graphite <color-font-tech> = color-COLRv0 | color-COLRv1 | color-SVG | color-sbix | color-CBDT <compound-selector> = [ <type-selector>? <subclass-selector>* ]! <pseudo-compound-selector> = <pseudo-element-selector> <pseudo-class-selector>* <wq-name> = <ns-prefix>? <ident-token> <type-selector> = <wq-name> | <ns-prefix>? '*' <subclass-selector> = <id-selector> | <class-selector> | <attribute-selector> | <pseudo-class-selector> <pseudo-element-selector> = : <pseudo-class-selector> | <legacy-pseudo-element-selector> <pseudo-class-selector> = : <ident-token> | : <function-token> <any-value> ) <ns-prefix> = [ <ident-token> | '*' ]? '|' <id-selector> = <hash-token> <class-selector> = '.' <ident-token> <attribute-selector> = '[' <wq-name> ']' | '[' <wq-name> <attr-matcher> [ <string-token> | <ident-token> ] <attr-modifier>? ']' <legacy-pseudo-element-selector> = : [ before | after | first-line | first-letter ] <attr-matcher> = [ '~' | '|' | '^' | '$' | '*' ]? '=' <attr-modifier> = i | s
-@view-transition: @view-transition = @view-transition { <declaration-list> }
+@color-profile =
+  @color-profile [ <dashed-ident> | device-cmyk ] { <declaration-list> }
+
+@container =
+  @container <container-condition># { <block-contents> }
+
+<container-condition> =
+  [ <container-name>? <container-query>? ]!
+
+<container-name> =
+  <custom-ident>
+
+<container-query> =
+  not <query-in-parens>                               |
+  <query-in-parens> [ [ and <query-in-parens> ]* | [ or <query-in-parens> ]* ]
+
+<query-in-parens> =
+  ( <container-query> )                 |
+  ( <size-feature> )                    |
+  style( <style-query> )                |
+  scroll-state( <scroll-state-query> )  |
+  <general-enclosed>
+
+<style-query> =
+  not <style-in-parens>                               |
+  <style-in-parens> [ [ and <style-in-parens> ]* | [ or <style-in-parens> ]* ]  |
+  <style-feature>
+
+<scroll-state-query> =
+  not <scroll-state-in-parens>                        |
+  <scroll-state-in-parens> [ [ and <scroll-state-in-parens> ]* | [ or <scroll-state-in-parens> ]* ]  |
+  <scroll-state-feature>
+
+<general-enclosed> =
+  [ <function-token> <any-value>? ) ]  |
+  [ ( <any-value>? ) ]
+
+<style-in-parens> =
+  ( <style-query> )    |
+  ( <style-feature> )  |
+  <general-enclosed>
+
+<style-feature> =
+  <style-feature-plain>    |
+  <style-feature-boolean>  |
+  <style-range>
+
+<scroll-state-in-parens> =
+  ( <scroll-state-query> )    |
+  ( <scroll-state-feature> )  |
+  <general-enclosed>
+
+<style-feature-plain> =
+  <style-feature-name> : <style-feature-value>
+
+<style-feature-boolean> =
+  <style-feature-name>
+
+<style-range> =
+  <style-range-value> <mf-comparison> <style-range-value>  |
+  <style-range-value> <mf-lt> <style-range-value> <mf-lt> <style-range-value>  |
+  <style-range-value> <mf-gt> <style-range-value> <mf-gt> <style-range-value>
+
+<style-range-value> =
+  <custom-property-name>  |
+  <style-feature-value>
+
+<mf-comparison> =
+  <mf-lt>  |
+  <mf-gt>  |
+  <mf-eq>
+
+<mf-lt> =
+  '<' '='?
+
+<mf-gt> =
+  '>' '='?
+
+<mf-eq> =
+  '='
+
+@counter-style =
+  @counter-style <counter-style-name> { <declaration-list> }
+
+<counter-style-name> =
+  <custom-ident>
+
+additive-symbols =
+  [ <integer [0,∞]> && <symbol> ]#
+
+<integer> =
+  <number-token>
+
+<symbol> =
+  <string>        |
+  <image>         |
+  <custom-ident>
+
+<image> =
+  <url>           |
+  <image()>       |
+  <image-set()>   |
+  <cross-fade()>  |
+  <element()>     |
+  <gradient>
+
+<image()> =
+  image( <image-tags>? [ <image-src>? , <color>? ]! )
+
+<image-set()> =
+  image-set( <image-set-option># )
+
+<cross-fade()> =
+  cross-fade( <cf-image># )
+
+<element()> =
+  element( <id-selector> )
+
+<image-tags> =
+  ltr  |
+  rtl
+
+<image-src> =
+  <url>     |
+  <string>
+
+<image-set-option> =
+  [ <image> | <string> ] [ <resolution> || type( <string> ) ]?
+
+<cf-image> =
+  [ <image> | <color> ]  &&
+  <percentage [0,100]>?
+
+<id-selector> =
+  <hash-token>
+
+fallback =
+  <counter-style-name>
+
+<counter-style-name> =
+  <custom-ident>
+
+negative =
+  <symbol> <symbol>?
+
+<symbol> =
+  <string>        |
+  <image>         |
+  <custom-ident>
+
+<image> =
+  <url>           |
+  <image()>       |
+  <image-set()>   |
+  <cross-fade()>  |
+  <element()>     |
+  <gradient>
+
+<image()> =
+  image( <image-tags>? [ <image-src>? , <color>? ]! )
+
+<image-set()> =
+  image-set( <image-set-option># )
+
+<cross-fade()> =
+  cross-fade( <cf-image># )
+
+<element()> =
+  element( <id-selector> )
+
+<image-tags> =
+  ltr  |
+  rtl
+
+<image-src> =
+  <url>     |
+  <string>
+
+<image-set-option> =
+  [ <image> | <string> ] [ <resolution> || type( <string> ) ]?
+
+<cf-image> =
+  [ <image> | <color> ]  &&
+  <percentage [0,100]>?
+
+<id-selector> =
+  <hash-token>
+
+pad =
+  <integer [0,∞]>  &&
+  <symbol>
+
+<integer> =
+  <number-token>
+
+<symbol> =
+  <string>        |
+  <image>         |
+  <custom-ident>
+
+<image> =
+  <url>           |
+  <image()>       |
+  <image-set()>   |
+  <cross-fade()>  |
+  <element()>     |
+  <gradient>
+
+<image()> =
+  image( <image-tags>? [ <image-src>? , <color>? ]! )
+
+<image-set()> =
+  image-set( <image-set-option># )
+
+<cross-fade()> =
+  cross-fade( <cf-image># )
+
+<element()> =
+  element( <id-selector> )
+
+<image-tags> =
+  ltr  |
+  rtl
+
+<image-src> =
+  <url>     |
+  <string>
+
+<image-set-option> =
+  [ <image> | <string> ] [ <resolution> || type( <string> ) ]?
+
+<cf-image> =
+  [ <image> | <color> ]  &&
+  <percentage [0,100]>?
+
+<id-selector> =
+  <hash-token>
+
+prefix =
+  <symbol>
+
+<symbol> =
+  <string>        |
+  <image>         |
+  <custom-ident>
+
+<image> =
+  <url>           |
+  <image()>       |
+  <image-set()>   |
+  <cross-fade()>  |
+  <element()>     |
+  <gradient>
+
+<image()> =
+  image( <image-tags>? [ <image-src>? , <color>? ]! )
+
+<image-set()> =
+  image-set( <image-set-option># )
+
+<cross-fade()> =
+  cross-fade( <cf-image># )
+
+<element()> =
+  element( <id-selector> )
+
+<image-tags> =
+  ltr  |
+  rtl
+
+<image-src> =
+  <url>     |
+  <string>
+
+<image-set-option> =
+  [ <image> | <string> ] [ <resolution> || type( <string> ) ]?
+
+<cf-image> =
+  [ <image> | <color> ]  &&
+  <percentage [0,100]>?
+
+<id-selector> =
+  <hash-token>
+
+range =
+  [ [ <integer> | infinite ]{2} ]#  |
+  auto
+
+<integer> =
+  <number-token>
+
+speak-as =
+  auto                  |
+  bullets               |
+  numbers               |
+  words                 |
+  spell-out             |
+  <counter-style-name>
+
+<counter-style-name> =
+  <custom-ident>
+
+suffix =
+  <symbol>
+
+<symbol> =
+  <string>        |
+  <image>         |
+  <custom-ident>
+
+<image> =
+  <url>           |
+  <image()>       |
+  <image-set()>   |
+  <cross-fade()>  |
+  <element()>     |
+  <gradient>
+
+<image()> =
+  image( <image-tags>? [ <image-src>? , <color>? ]! )
+
+<image-set()> =
+  image-set( <image-set-option># )
+
+<cross-fade()> =
+  cross-fade( <cf-image># )
+
+<element()> =
+  element( <id-selector> )
+
+<image-tags> =
+  ltr  |
+  rtl
+
+<image-src> =
+  <url>     |
+  <string>
+
+<image-set-option> =
+  [ <image> | <string> ] [ <resolution> || type( <string> ) ]?
+
+<cf-image> =
+  [ <image> | <color> ]  &&
+  <percentage [0,100]>?
+
+<id-selector> =
+  <hash-token>
+
+symbols =
+  <symbol>+
+
+<symbol> =
+  <string>        |
+  <image>         |
+  <custom-ident>
+
+<image> =
+  <url>           |
+  <image()>       |
+  <image-set()>   |
+  <cross-fade()>  |
+  <element()>     |
+  <gradient>
+
+<image()> =
+  image( <image-tags>? [ <image-src>? , <color>? ]! )
+
+<image-set()> =
+  image-set( <image-set-option># )
+
+<cross-fade()> =
+  cross-fade( <cf-image># )
+
+<element()> =
+  element( <id-selector> )
+
+<image-tags> =
+  ltr  |
+  rtl
+
+<image-src> =
+  <url>     |
+  <string>
+
+<image-set-option> =
+  [ <image> | <string> ] [ <resolution> || type( <string> ) ]?
+
+<cf-image> =
+  [ <image> | <color> ]  &&
+  <percentage [0,100]>?
+
+<id-selector> =
+  <hash-token>
+
+system =
+  cyclic                            |
+  numeric                           |
+  alphabetic                        |
+  symbolic                          |
+  additive                          |
+  [ fixed <integer>? ]              |
+  [ extends <counter-style-name> ]
+
+<integer> =
+  <number-token>
+
+<counter-style-name> =
+  <custom-ident>
+
+@custom-media =
+  @custom-media <extension-name> [ <media-query-list> | true | false ] ;
+
+@font-face =
+  @font-face { <declaration-list> }
+
+ascent-override =
+  [ normal | <percentage [0,∞]> ]{1,2}
+
+descent-override =
+  [ normal | <percentage [0,∞]> ]{1,2}
+
+font-display =
+  auto      |
+  block     |
+  swap      |
+  fallback  |
+  optional
+
+font-family =
+  <font-family-name>
+
+<font-family-name> =
+  <string>         |
+  <custom-ident>+
+
+font-feature-settings =
+  normal                |
+  <feature-tag-value>#
+
+<feature-tag-value> =
+  <opentype-tag> [ <integer [0,∞]> | on | off ]?
+
+<opentype-tag> =
+  <string>
+
+<integer> =
+  <number-token>
+
+font-width =
+  auto                 |
+  <'font-width'>{1,2}
+
+<font-width> =
+  normal              |
+  <percentage [0,∞]>  |
+  ultra-condensed     |
+  extra-condensed     |
+  condensed           |
+  semi-condensed      |
+  semi-expanded       |
+  expanded            |
+  extra-expanded      |
+  ultra-expanded
+
+font-style =
+  auto                                      |
+  normal                                    |
+  italic                                    |
+  left                                      |
+  right                                     |
+  oblique [ <angle [-90deg,90deg]>{1,2} ]?
+
+font-variation-settings =
+  normal                  |
+  [ <string> <number> ]#
+
+font-weight =
+  auto                         |
+  <font-weight-absolute>{1,2}
+
+<font-weight-absolute> =
+  normal             |
+  bold               |
+  <number [1,1000]>
+
+line-gap-override =
+  [ normal | <percentage [0,∞]> ]{1,2}
+
+size-adjust =
+  <percentage [0,∞]>
+
+src =
+  <font-src-list>
+
+unicode-range =
+  <unicode-range-token>#
+
+@font-feature-values =
+  @font-feature-values <font-family-name># { <declaration-rule-list> }
+
+<font-family-name> =
+  <string>         |
+  <custom-ident>+
+
+@font-palette-values =
+  @font-palette-values <dashed-ident> { <declaration-list> }
+
+base-palette =
+  light            |
+  dark             |
+  <integer [0,∞]>
+
+<integer> =
+  <number-token>
+
+font-family =
+  <font-family-name>#
+
+<font-family-name> =
+  <string>         |
+  <custom-ident>+
+
+override-colors =
+  [ <integer [0,∞]> <color> ]#
+
+<integer> =
+  <number-token>
+
+@function =
+  @function <function-token> <function-parameter>#? ) [ returns <css-type> ]? { <declaration-rule-list> }
+
+<function-parameter> =
+  <custom-property-name> <css-type>? [ : <default-value> ]?
+
+<css-type> =
+  <syntax-component>  |
+  <type()>
+
+<default-value> =
+  <declaration-value>
+
+<syntax-component> =
+  <syntax-single-component> <syntax-multiplier>?  |
+  '<' transform-list '>'
+
+<type()> =
+  type( <string> )
+
+<syntax-single-component> =
+  '<' <syntax-type-name> '>'  |
+  <ident>
+
+<syntax-multiplier> =
+  '#'  |
+  '+'
+
+<syntax-type-name> =
+  angle               |
+  color               |
+  custom-ident        |
+  image               |
+  integer             |
+  length              |
+  length-percentage   |
+  number              |
+  percentage          |
+  resolution          |
+  string              |
+  time                |
+  url                 |
+  transform-function
+
+@import =
+  @import [ <url> | <string> ] [ [ layer | layer( <layer-name> ) ] || [ scope | scope( <scope-start> | <scope-boundaries> ) ] || <supports-import-condition> ]? <media-import-condition> ;
+
+<layer-name> =
+  <ident> [ '.' <ident> ]*
+
+<scope-start> =
+  <selector-list>
+
+<scope-boundaries> =
+  [ [ ( <scope-start> ) ]? [ to ( <scope-end> ) ]? ]!
+
+<supports-import-condition> =
+  supports( [ <supports-condition> | <declaration> ] )
+
+<media-import-condition> =
+  <media-query-list>
+
+<selector-list> =
+  <complex-selector-list>
+
+<scope-end> =
+  <selector-list>
+
+<supports-condition> =
+  not <supports-in-parens>                            |
+  <supports-in-parens> [ and <supports-in-parens> ]*  |
+  <supports-in-parens> [ or <supports-in-parens> ]*
+
+<complex-selector-list> =
+  <complex-selector>#
+
+<supports-in-parens> =
+  ( <supports-condition> )  |
+  <supports-feature>        |
+  <general-enclosed>
+
+<complex-selector> =
+  <complex-selector-unit> [ <combinator>? <complex-selector-unit> ]*
+
+<supports-feature> =
+  <supports-selector-fn>       |
+  <supports-font-tech-fn>      |
+  <supports-font-format-fn>    |
+  <supports-at-rule-fn>        |
+  <supports-named-feature-fn>  |
+  <supports-env-fn>            |
+  <supports-decl>
+
+<general-enclosed> =
+  [ <function-token> <any-value>? ) ]  |
+  [ ( <any-value>? ) ]
+
+<complex-selector-unit> =
+  [ <compound-selector>? <pseudo-compound-selector>* ]!
+
+<combinator> =
+  '>'                |
+  '+'                |
+  '~'                |
+  [ '|' '|' ]        |
+  [ / <wq-name> / ]
+
+<supports-selector-fn> =
+  selector( <complex-selector> )
+
+<supports-font-tech-fn> =
+  font-tech( <font-tech> )
+
+<supports-font-format-fn> =
+  font-format( <font-format> )
+
+<supports-at-rule-fn> =
+  at-rule( <at-keyword-token> )
+
+<supports-named-feature-fn> =
+  named-feature( <ident> )
+
+<supports-env-fn> =
+  env( <ident> )
+
+<supports-decl> =
+  ( [ <declaration> | <supports-condition-name> ] )
+
+<compound-selector> =
+  [ <type-selector>? <subclass-selector>* ]!
+
+<pseudo-compound-selector> =
+  <pseudo-element-selector> <pseudo-class-selector>*
+
+<wq-name> =
+  <ns-prefix>? <ident-token>
+
+<font-tech> =
+  <font-features-tech>  |
+  <color-font-tech>     |
+  variations            |
+  palettes              |
+  incremental
+
+<font-format> =
+  <string>           |
+  collection         |
+  embedded-opentype  |
+  opentype           |
+  svg                |
+  truetype           |
+  woff               |
+  woff2
+
+<type-selector> =
+  <wq-name>         |
+  <ns-prefix>? '*'
+
+<subclass-selector> =
+  <id-selector>            |
+  <class-selector>         |
+  <attribute-selector>     |
+  <pseudo-class-selector>
+
+<pseudo-element-selector> =
+  : <pseudo-class-selector>         |
+  <legacy-pseudo-element-selector>
+
+<pseudo-class-selector> =
+  : <ident-token>                   |
+  : <function-token> <any-value> )
+
+<ns-prefix> =
+  [ <ident-token> | '*' ]? '|'
+
+<font-features-tech> =
+  features-opentype  |
+  features-aat       |
+  features-graphite
+
+<color-font-tech> =
+  color-COLRv0  |
+  color-COLRv1  |
+  color-SVG     |
+  color-sbix    |
+  color-CBDT
+
+<id-selector> =
+  <hash-token>
+
+<class-selector> =
+  '.' <ident-token>
+
+<attribute-selector> =
+  '[' <wq-name> ']'                                   |
+  '[' <wq-name> <attr-matcher> [ <string-token> | <ident-token> ] <attr-modifier>? ']'
+
+<legacy-pseudo-element-selector> =
+  : [ before | after | first-line | first-letter ]
+
+<attr-matcher> =
+  [ '~' | '|' | '^' | '$' | '*' ]? '='
+
+<attr-modifier> =
+  i  |
+  s
+
+@keyframes =
+  @keyframes <keyframes-name> { <qualified-rule-list> }
+
+<keyframes-name> =
+  <custom-ident>  |
+  <string>
+
+@layer =
+  @layer <layer-name>? { <rule-list> }  |
+  @layer <layer-name># ;
+
+<layer-name> =
+  <ident> [ '.' <ident> ]*
+
+@media =
+  @media <media-query-list> { <rule-list> }
+
+@namespace =
+  @namespace <namespace-prefix>? [ <string> | <url> ] ;
+
+<namespace-prefix> =
+  <ident>
+
+@page =
+  @page <page-selector-list>? { <declaration-rule-list> }
+
+<page-selector-list> =
+  <page-selector>#
+
+<page-selector> =
+  [ <ident-token>? <pseudo-page>* ]!
+
+<pseudo-page> =
+  : [ left | right | first | blank ]
+
+page-orientation =
+  upright       |
+  rotate-left   |
+  rotate-right
+
+size =
+  <length [0,∞]>{1,2}                          |
+  auto                                         |
+  [ <page-size> || [ portrait | landscape ] ]
+
+<page-size> =
+  A5      |
+  A4      |
+  A3      |
+  B5      |
+  B4      |
+  JIS-B5  |
+  JIS-B4  |
+  letter  |
+  legal   |
+  ledger
+
+@position-try =
+  @position-try <dashed-ident> { <declaration-list> }
+
+@property =
+  @property <custom-property-name> { <declaration-list> }
+
+inherits =
+  true   |
+  false
+
+initial-value =
+  <declaration-value>?
+
+syntax =
+  <string>
+
+@scope =
+  @scope <scope-boundaries>? { <block-contents> }
+
+<scope-boundaries> =
+  [ [ ( <scope-start> ) ]? [ to ( <scope-end> ) ]? ]!
+
+<scope-start> =
+  <selector-list>
+
+<scope-end> =
+  <selector-list>
+
+<selector-list> =
+  <complex-selector-list>
+
+<complex-selector-list> =
+  <complex-selector>#
+
+<complex-selector> =
+  <complex-selector-unit> [ <combinator>? <complex-selector-unit> ]*
+
+<complex-selector-unit> =
+  [ <compound-selector>? <pseudo-compound-selector>* ]!
+
+<combinator> =
+  '>'                |
+  '+'                |
+  '~'                |
+  [ '|' '|' ]        |
+  [ / <wq-name> / ]
+
+<compound-selector> =
+  [ <type-selector>? <subclass-selector>* ]!
+
+<pseudo-compound-selector> =
+  <pseudo-element-selector> <pseudo-class-selector>*
+
+<wq-name> =
+  <ns-prefix>? <ident-token>
+
+<type-selector> =
+  <wq-name>         |
+  <ns-prefix>? '*'
+
+<subclass-selector> =
+  <id-selector>            |
+  <class-selector>         |
+  <attribute-selector>     |
+  <pseudo-class-selector>
+
+<pseudo-element-selector> =
+  : <pseudo-class-selector>         |
+  <legacy-pseudo-element-selector>
+
+<pseudo-class-selector> =
+  : <ident-token>                   |
+  : <function-token> <any-value> )
+
+<ns-prefix> =
+  [ <ident-token> | '*' ]? '|'
+
+<id-selector> =
+  <hash-token>
+
+<class-selector> =
+  '.' <ident-token>
+
+<attribute-selector> =
+  '[' <wq-name> ']'                                   |
+  '[' <wq-name> <attr-matcher> [ <string-token> | <ident-token> ] <attr-modifier>? ']'
+
+<legacy-pseudo-element-selector> =
+  : [ before | after | first-line | first-letter ]
+
+<attr-matcher> =
+  [ '~' | '|' | '^' | '$' | '*' ]? '='
+
+<attr-modifier> =
+  i  |
+  s
+
+@starting-style =
+  @starting-style { <rule-list> }
+
+@supports =
+  @supports <supports-condition> { <rule-list> }
+
+<supports-condition> =
+  not <supports-in-parens>                            |
+  <supports-in-parens> [ and <supports-in-parens> ]*  |
+  <supports-in-parens> [ or <supports-in-parens> ]*
+
+<supports-in-parens> =
+  ( <supports-condition> )  |
+  <supports-feature>        |
+  <general-enclosed>
+
+<supports-feature> =
+  <supports-selector-fn>       |
+  <supports-font-tech-fn>      |
+  <supports-font-format-fn>    |
+  <supports-at-rule-fn>        |
+  <supports-named-feature-fn>  |
+  <supports-env-fn>            |
+  <supports-decl>
+
+<general-enclosed> =
+  [ <function-token> <any-value>? ) ]  |
+  [ ( <any-value>? ) ]
+
+<supports-selector-fn> =
+  selector( <complex-selector> )
+
+<supports-font-tech-fn> =
+  font-tech( <font-tech> )
+
+<supports-font-format-fn> =
+  font-format( <font-format> )
+
+<supports-at-rule-fn> =
+  at-rule( <at-keyword-token> )
+
+<supports-named-feature-fn> =
+  named-feature( <ident> )
+
+<supports-env-fn> =
+  env( <ident> )
+
+<supports-decl> =
+  ( [ <declaration> | <supports-condition-name> ] )
+
+<complex-selector> =
+  <complex-selector-unit> [ <combinator>? <complex-selector-unit> ]*
+
+<font-tech> =
+  <font-features-tech>  |
+  <color-font-tech>     |
+  variations            |
+  palettes              |
+  incremental
+
+<font-format> =
+  <string>           |
+  collection         |
+  embedded-opentype  |
+  opentype           |
+  svg                |
+  truetype           |
+  woff               |
+  woff2
+
+<complex-selector-unit> =
+  [ <compound-selector>? <pseudo-compound-selector>* ]!
+
+<combinator> =
+  '>'                |
+  '+'                |
+  '~'                |
+  [ '|' '|' ]        |
+  [ / <wq-name> / ]
+
+<font-features-tech> =
+  features-opentype  |
+  features-aat       |
+  features-graphite
+
+<color-font-tech> =
+  color-COLRv0  |
+  color-COLRv1  |
+  color-SVG     |
+  color-sbix    |
+  color-CBDT
+
+<compound-selector> =
+  [ <type-selector>? <subclass-selector>* ]!
+
+<pseudo-compound-selector> =
+  <pseudo-element-selector> <pseudo-class-selector>*
+
+<wq-name> =
+  <ns-prefix>? <ident-token>
+
+<type-selector> =
+  <wq-name>         |
+  <ns-prefix>? '*'
+
+<subclass-selector> =
+  <id-selector>            |
+  <class-selector>         |
+  <attribute-selector>     |
+  <pseudo-class-selector>
+
+<pseudo-element-selector> =
+  : <pseudo-class-selector>         |
+  <legacy-pseudo-element-selector>
+
+<pseudo-class-selector> =
+  : <ident-token>                   |
+  : <function-token> <any-value> )
+
+<ns-prefix> =
+  [ <ident-token> | '*' ]? '|'
+
+<id-selector> =
+  <hash-token>
+
+<class-selector> =
+  '.' <ident-token>
+
+<attribute-selector> =
+  '[' <wq-name> ']'                                   |
+  '[' <wq-name> <attr-matcher> [ <string-token> | <ident-token> ] <attr-modifier>? ']'
+
+<legacy-pseudo-element-selector> =
+  : [ before | after | first-line | first-letter ]
+
+<attr-matcher> =
+  [ '~' | '|' | '^' | '$' | '*' ]? '='
+
+<attr-modifier> =
+  i  |
+  s
+
+@view-transition =
+  @view-transition { <declaration-list> }
 
 # NO_SYNTAX @charset (no formal_syntax block found) — https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@charset
 # NO_SYNTAX @document (no formal_syntax block found) — https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@document

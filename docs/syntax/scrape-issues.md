@@ -9,7 +9,7 @@
 | atrules | 54 | 51 | 3 | Good coverage |
 | datatypes | 62 | 28 | 34 | High miss rate — see below |
 | selectors | 68 | 0 | 68 | Wrong page structure — see below |
-| pseudo-classes | 122 | 0 | 122 | Wrong page structure — see below |
+| pseudo-classes | 122 | 2 | 120 | Wrong page structure; 2 scraped are noise entries (`scroll-marker-group`, `@page`) — see below |
 | pseudo-elements | 29 | 0 | 29 | Wrong page structure — see below |
 | combinators | 5 | 0 | 5 | Wrong page structure — see below |
 | miscvalues | 9 | 0 | 9 | Wrong page structure — see below |
@@ -18,8 +18,11 @@
 
 ## Issue 1 — Selectors, pseudo-classes, pseudo-elements, combinators, miscvalues: no formal syntax block on MDN
 
-**Affected:** selectors (68/68), pseudo-classes (122/122), pseudo-elements (29/29),
-combinators (5/5), miscvalues (9/9) — **238 entries, 0 scraped**.
+**Affected:** selectors (68/68), pseudo-classes (120/122), pseudo-elements (29/29),
+combinators (5/5), miscvalues (9/9) — **236 actual pseudo-class/selector entries, 0 scraped**.
+
+Note: 2 entries in pseudo-classes did scrape (`scroll-marker-group` and `@page`) but
+these are noise entries from Issue 4, not actual pseudo-classes.
 
 These MDN pages use `id="syntax"` (not `id="formal_syntax"`) and show only usage
 examples, not CSS Value Definition Syntax. This is expected — selectors and combinators

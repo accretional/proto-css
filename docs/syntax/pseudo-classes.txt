@@ -1,5 +1,18 @@
-scroll-marker-group: scroll-marker-group = none | [ [ before | after ] || [ links | tabs ] ]
-@page: @page = @page <page-selector-list>? { <declaration-rule-list> } <page-selector-list> = <page-selector># <page-selector> = [ <ident-token>? <pseudo-page>* ]! <pseudo-page> = : [ left | right | first | blank ]
+scroll-marker-group =
+  none                                        |
+  [ [ before | after ] || [ links | tabs ] ]
+
+@page =
+  @page <page-selector-list>? { <declaration-rule-list> }
+
+<page-selector-list> =
+  <page-selector>#
+
+<page-selector> =
+  [ <ident-token>? <pseudo-page>* ]!
+
+<pseudo-page> =
+  : [ left | right | first | blank ]
 
 # NO_SYNTAX Pseudo-classes#elemental_pseudo-classes (no formal_syntax block found) — https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Pseudo-classes#elemental_pseudo-classes
 # NO_SYNTAX :defined (no formal_syntax block found) — https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:defined

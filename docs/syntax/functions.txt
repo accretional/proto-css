@@ -1,111 +1,2250 @@
-abs: <abs()> = abs( <calc-sum> ) <calc-sum> = <calc-product> [ [ '+' | '-' ] <calc-product> ]* <calc-product> = <calc-value> [ [ '*' | / ] <calc-value> ]* <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | ( <calc-sum> ) <calc-keyword> = e | pi | infinity | -infinity | NaN
-acos: <acos()> = acos( <calc-sum> ) <calc-sum> = <calc-product> [ [ '+' | '-' ] <calc-product> ]* <calc-product> = <calc-value> [ [ '*' | / ] <calc-value> ]* <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | ( <calc-sum> ) <calc-keyword> = e | pi | infinity | -infinity | NaN
-anchor: <anchor()> = anchor( <anchor-name>? && <anchor-side> , <length-percentage>? ) <anchor-name> = <dashed-ident> <anchor-side> = inside | outside | top | left | right | bottom | start | end | self-start | self-end | <percentage> | center <length-percentage> = <length> | <percentage>
-anchor-size: <anchor-size()> = anchor-size( [ <anchor-name> || <anchor-size> ]? , <length-percentage>? ) <anchor-name> = <dashed-ident> <anchor-size> = width | height | block | inline | self-block | self-inline <length-percentage> = <length> | <percentage>
-asin: <asin()> = asin( <calc-sum> ) <calc-sum> = <calc-product> [ [ '+' | '-' ] <calc-product> ]* <calc-product> = <calc-value> [ [ '*' | / ] <calc-value> ]* <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | ( <calc-sum> ) <calc-keyword> = e | pi | infinity | -infinity | NaN
-atan: <atan()> = atan( <calc-sum> ) <calc-sum> = <calc-product> [ [ '+' | '-' ] <calc-product> ]* <calc-product> = <calc-value> [ [ '*' | / ] <calc-value> ]* <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | ( <calc-sum> ) <calc-keyword> = e | pi | infinity | -infinity | NaN
-atan2: <atan2()> = atan2( <calc-sum> , <calc-sum> ) <calc-sum> = <calc-product> [ [ '+' | '-' ] <calc-product> ]* <calc-product> = <calc-value> [ [ '*' | / ] <calc-value> ]* <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | ( <calc-sum> ) <calc-keyword> = e | pi | infinity | -infinity | NaN
-attr: <attr()> = attr( <attr-name> <attr-type>? , <declaration-value>? ) <attr-name> = [ <ident-token>? '|' ]? <ident-token> <attr-type> = type( <syntax> ) | raw-string | number | <attr-unit> <syntax> = '*' | <syntax-component> [ <syntax-combinator> <syntax-component> ]* | <syntax-string> <attr-unit> = <custom-ident> <syntax-component> = <syntax-single-component> <syntax-multiplier>? | '<' transform-list '>' <syntax-combinator> = '|' <syntax-string> = <string> <syntax-single-component> = '<' <syntax-type-name> '>' | <ident> <syntax-multiplier> = '#' | '+' <syntax-type-name> = angle | color | custom-ident | image | integer | length | length-percentage | number | percentage | resolution | string | time | url | transform-function
-blur: <blur()> = blur( <length>? )
-brightness: <brightness()> = brightness( [ <number> | <percentage> ]? )
-calc: <calc()> = calc( <calc-sum> ) <calc-sum> = <calc-product> [ [ '+' | '-' ] <calc-product> ]* <calc-product> = <calc-value> [ [ '*' | / ] <calc-value> ]* <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | ( <calc-sum> ) <calc-keyword> = e | pi | infinity | -infinity | NaN
-calc-size: <calc-size()> = calc-size( <calc-size-basis> , <calc-sum> ) <calc-size-basis> = <size-keyword> | <calc-size()> | any | <calc-sum> <calc-sum> = <calc-product> [ [ '+' | '-' ] <calc-product> ]* <calc-product> = <calc-value> [ [ '*' | / ] <calc-value> ]* <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | ( <calc-sum> ) <calc-keyword> = e | pi | infinity | -infinity | NaN
-circle: <circle()> = circle( <radial-size>? [ at <position> ]? ) <radial-size> = <radial-extent> | <length [0,∞]> | <length-percentage [0,∞]>{2} <position> = <position-one> | <position-two> | <position-four> <radial-extent> = closest-corner | closest-side | farthest-corner | farthest-side <length-percentage> = <length> | <percentage> <position-one> = left | center | right | top | bottom | x-start | x-end | y-start | y-end | block-start | block-end | inline-start | inline-end | <length-percentage> <position-two> = [ left | center | right | x-start | x-end ] && [ top | center | bottom | y-start | y-end ] | [ left | center | right | x-start | x-end | <length-percentage> ] [ top | center | bottom | y-start | y-end | <length-percentage> ] | [ block-start | center | block-end ] && [ inline-start | center | inline-end ] | [ start | center | end ]{2} <position-four> = [ [ left | right | x-start | x-end ] <length-percentage> ] && [ [ top | bottom | y-start | y-end ] <length-percentage> ] | [ [ block-start | block-end ] <length-percentage> ] && [ [ inline-start | inline-end ] <length-percentage> ] | [ [ start | end ] <length-percentage> ]{2}
-clamp: <clamp()> = clamp( [ <calc-sum> | none ] , <calc-sum> , [ <calc-sum> | none ] ) <calc-sum> = <calc-product> [ [ '+' | '-' ] <calc-product> ]* <calc-product> = <calc-value> [ [ '*' | / ] <calc-value> ]* <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | ( <calc-sum> ) <calc-keyword> = e | pi | infinity | -infinity | NaN
-color: <color()> = color( [ from <color> ]? <colorspace-params> [ / [ <alpha-value> | none ] ]? ) <colorspace-params> = <custom-params> | <predefined-rgb-params> | <xyz-params> <alpha-value> = <number> | <percentage> <custom-params> = <dashed-ident> [ <number> | <percentage> | none ]+ <predefined-rgb-params> = <predefined-rgb> [ <number> | <percentage> | none ]{3} <xyz-params> = <xyz-space> [ <number> | <percentage> | none ]{3} <predefined-rgb> = srgb | srgb-linear | display-p3 | display-p3-linear | a98-rgb | prophoto-rgb | rec2020 | rec2100-pq | rec2100-hlg | rec2100-linear <xyz-space> = xyz | xyz-d50 | xyz-d65
-color-mix: <color-mix()> = color-mix( <color-interpolation-method>? , [ <color> && <percentage [0,100]>? ]# ) <color-interpolation-method> = in [ <rectangular-color-space> | <polar-color-space> <hue-interpolation-method>? | <custom-color-space> ] <rectangular-color-space> = srgb | srgb-linear | display-p3 | display-p3-linear | a98-rgb | prophoto-rgb | rec2020 | lab | oklab | <xyz-space> <polar-color-space> = hsl | hwb | lch | oklch <hue-interpolation-method> = [ shorter | longer | increasing | decreasing ] hue <custom-color-space> = <dashed-ident> <xyz-space> = xyz | xyz-d50 | xyz-d65
-conic-gradient: <conic-gradient()> = conic-gradient( [ <conic-gradient-syntax> ] ) <conic-gradient-syntax> = [ [ [ from [ <angle> | <zero> ] ]? [ at <position> ]? ] || <color-interpolation-method> ]? , <angular-color-stop-list> <position> = <position-one> | <position-two> | <position-four> <color-interpolation-method> = in [ <rectangular-color-space> | <polar-color-space> <hue-interpolation-method>? | <custom-color-space> ] <angular-color-stop-list> = <angular-color-stop> , [ <angular-color-hint>? , <angular-color-stop> ]#? <position-one> = left | center | right | top | bottom | x-start | x-end | y-start | y-end | block-start | block-end | inline-start | inline-end | <length-percentage> <position-two> = [ left | center | right | x-start | x-end ] && [ top | center | bottom | y-start | y-end ] | [ left | center | right | x-start | x-end | <length-percentage> ] [ top | center | bottom | y-start | y-end | <length-percentage> ] | [ block-start | center | block-end ] && [ inline-start | center | inline-end ] | [ start | center | end ]{2} <position-four> = [ [ left | right | x-start | x-end ] <length-percentage> ] && [ [ top | bottom | y-start | y-end ] <length-percentage> ] | [ [ block-start | block-end ] <length-percentage> ] && [ [ inline-start | inline-end ] <length-percentage> ] | [ [ start | end ] <length-percentage> ]{2} <rectangular-color-space> = srgb | srgb-linear | display-p3 | display-p3-linear | a98-rgb | prophoto-rgb | rec2020 | lab | oklab | <xyz-space> <polar-color-space> = hsl | hwb | lch | oklch <hue-interpolation-method> = [ shorter | longer | increasing | decreasing ] hue <custom-color-space> = <dashed-ident> <angular-color-stop> = <color> <color-stop-angle>? <angular-color-hint> = <angle-percentage> | <zero> <length-percentage> = <length> | <percentage> <xyz-space> = xyz | xyz-d50 | xyz-d65 <color-stop-angle> = [ <angle-percentage> | <zero> ]{1,2} <angle-percentage> = <angle> | <percentage>
-contrast: <contrast()> = contrast( [ <number> | <percentage> ]? )
-cos: <cos()> = cos( <calc-sum> ) <calc-sum> = <calc-product> [ [ '+' | '-' ] <calc-product> ]* <calc-product> = <calc-value> [ [ '*' | / ] <calc-value> ]* <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | ( <calc-sum> ) <calc-keyword> = e | pi | infinity | -infinity | NaN
-counter: <counter()> = counter( <counter-name> , <counter-style>? ) <counter-name> = <custom-ident> <counter-style> = <counter-style-name> | <symbols()> <counter-style-name> = <custom-ident> <symbols()> = symbols( <symbols-type>? [ <string> | <image> ]+ ) <symbols-type> = cyclic | numeric | alphabetic | symbolic | fixed <image> = <url> | <image()> | <image-set()> | <cross-fade()> | <element()> | <gradient> <image()> = image( <image-tags>? [ <image-src>? , <color>? ]! ) <image-set()> = image-set( <image-set-option># ) <cross-fade()> = cross-fade( <cf-image># ) <element()> = element( <id-selector> ) <image-tags> = ltr | rtl <image-src> = <url> | <string> <image-set-option> = [ <image> | <string> ] [ <resolution> || type( <string> ) ]? <cf-image> = [ <image> | <color> ] && <percentage [0,100]>? <id-selector> = <hash-token>
-counters: <counters()> = counters( <counter-name> , <string> , <counter-style>? ) <counter-name> = <custom-ident> <counter-style> = <counter-style-name> | <symbols()> <counter-style-name> = <custom-ident> <symbols()> = symbols( <symbols-type>? [ <string> | <image> ]+ ) <symbols-type> = cyclic | numeric | alphabetic | symbolic | fixed <image> = <url> | <image()> | <image-set()> | <cross-fade()> | <element()> | <gradient> <image()> = image( <image-tags>? [ <image-src>? , <color>? ]! ) <image-set()> = image-set( <image-set-option># ) <cross-fade()> = cross-fade( <cf-image># ) <element()> = element( <id-selector> ) <image-tags> = ltr | rtl <image-src> = <url> | <string> <image-set-option> = [ <image> | <string> ] [ <resolution> || type( <string> ) ]? <cf-image> = [ <image> | <color> ] && <percentage [0,100]>? <id-selector> = <hash-token>
-cross-fade: <cross-fade()> = cross-fade( <cf-image># ) <cf-image> = [ <image> | <color> ] && <percentage [0,100]>? <image> = <url> | <image()> | <image-set()> | <cross-fade()> | <element()> | <gradient> <image()> = image( <image-tags>? [ <image-src>? , <color>? ]! ) <image-set()> = image-set( <image-set-option># ) <element()> = element( <id-selector> ) <image-tags> = ltr | rtl <image-src> = <url> | <string> <image-set-option> = [ <image> | <string> ] [ <resolution> || type( <string> ) ]? <id-selector> = <hash-token>
-cubic-bezier: <cubic-bezier()> = cubic-bezier( [ <number [0,1]> , <number> ]#{2} )
-device-cmyk: <device-cmyk()> = <legacy-device-cmyk-syntax> | <modern-device-cmyk-syntax> <legacy-device-cmyk-syntax> = device-cmyk( <number>#{4} ) <modern-device-cmyk-syntax> = device-cmyk( <cmyk-component>{4} [ / [ <alpha-value> | none ] ]? ) <cmyk-component> = <number> | <percentage> | none <alpha-value> = <number> | <percentage>
-drop-shadow: <drop-shadow()> = drop-shadow( [ <color>? && <length>{2,3} ] )
-dynamic-range-limit-mix: <dynamic-range-limit-mix()> = dynamic-range-limit-mix( [ <'dynamic-range-limit'> && <percentage [0,100]> ]#{2,} ) <dynamic-range-limit> = standard | no-limit | constrained | <dynamic-range-limit-mix()>
-element: <element()> = element( <id-selector> ) <id-selector> = <hash-token>
-ellipse: <ellipse()> = ellipse( <radial-size>? [ at <position> ]? ) <radial-size> = <radial-extent> | <length [0,∞]> | <length-percentage [0,∞]>{2} <position> = <position-one> | <position-two> | <position-four> <radial-extent> = closest-corner | closest-side | farthest-corner | farthest-side <length-percentage> = <length> | <percentage> <position-one> = left | center | right | top | bottom | x-start | x-end | y-start | y-end | block-start | block-end | inline-start | inline-end | <length-percentage> <position-two> = [ left | center | right | x-start | x-end ] && [ top | center | bottom | y-start | y-end ] | [ left | center | right | x-start | x-end | <length-percentage> ] [ top | center | bottom | y-start | y-end | <length-percentage> ] | [ block-start | center | block-end ] && [ inline-start | center | inline-end ] | [ start | center | end ]{2} <position-four> = [ [ left | right | x-start | x-end ] <length-percentage> ] && [ [ top | bottom | y-start | y-end ] <length-percentage> ] | [ [ block-start | block-end ] <length-percentage> ] && [ [ inline-start | inline-end ] <length-percentage> ] | [ [ start | end ] <length-percentage> ]{2}
-env: <env()> = env( <custom-ident> <integer [0,∞]>* , <declaration-value>? ) <integer> = <number-token>
-exp: <exp()> = exp( <calc-sum> ) <calc-sum> = <calc-product> [ [ '+' | '-' ] <calc-product> ]* <calc-product> = <calc-value> [ [ '*' | / ] <calc-value> ]* <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | ( <calc-sum> ) <calc-keyword> = e | pi | infinity | -infinity | NaN
-fit-content_function: <fit-content()> = fit-content( <length-percentage> ) <length-percentage> = <length> | <percentage>
-grayscale: <grayscale()> = grayscale( [ <number> | <percentage> ]? )
-hsl: <hsl()> = <legacy-hsl-syntax> | <modern-hsl-syntax> <legacy-hsl-syntax> = hsl( <hue> , <percentage> , <percentage> , <alpha-value>? ) <modern-hsl-syntax> = hsl( [ from <color> ]? [ <hue> | none ] [ <percentage> | <number> | none ] [ <percentage> | <number> | none ] [ / [ <alpha-value> | none ] ]? ) <hue> = <number> | <angle> <alpha-value> = <number> | <percentage>
-hue-rotate: <hue-rotate()> = hue-rotate( [ <angle> | <zero> ]? )
-hwb: <hwb()> = hwb( [ from <color> ]? [ <hue> | none ] [ <percentage> | <number> | none ] [ <percentage> | <number> | none ] [ / [ <alpha-value> | none ] ]? ) <hue> = <number> | <angle> <alpha-value> = <number> | <percentage>
-hypot: <hypot()> = hypot( <calc-sum># ) <calc-sum> = <calc-product> [ [ '+' | '-' ] <calc-product> ]* <calc-product> = <calc-value> [ [ '*' | / ] <calc-value> ]* <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | ( <calc-sum> ) <calc-keyword> = e | pi | infinity | -infinity | NaN
-image: <image()> = image( <image-tags>? [ <image-src>? , <color>? ]! ) <image-tags> = ltr | rtl <image-src> = <url> | <string>
-image-set: <image-set()> = image-set( <image-set-option># ) <image-set-option> = [ <image> | <string> ] [ <resolution> || type( <string> ) ]? <image> = <url> | <image()> | <image-set()> | <cross-fade()> | <element()> | <gradient> <image()> = image( <image-tags>? [ <image-src>? , <color>? ]! ) <cross-fade()> = cross-fade( <cf-image># ) <element()> = element( <id-selector> ) <image-tags> = ltr | rtl <image-src> = <url> | <string> <cf-image> = [ <image> | <color> ] && <percentage [0,100]>? <id-selector> = <hash-token>
-inset: <inset()> = inset( <length-percentage>{1,4} [ round <'border-radius'> ]? ) <length-percentage> = <length> | <percentage> <border-radius> = <length-percentage [0,∞]>{1,4} [ / <length-percentage [0,∞]>{1,4} ]?
-invert: <invert()> = invert( [ <number> | <percentage> ]? )
-lab: <lab()> = lab( [ from <color> ]? [ <percentage> | <number> | none ] [ <percentage> | <number> | none ] [ <percentage> | <number> | none ] [ / [ <alpha-value> | none ] ]? ) <alpha-value> = <number> | <percentage>
-layer_function: layer() = layer( <layer-name> ) <layer-name> = <ident> [ '.' <ident> ]*
-lch: <lch()> = lch( [ from <color> ]? [ <percentage> | <number> | none ] [ <percentage> | <number> | none ] [ <hue> | none ] [ / [ <alpha-value> | none ] ]? ) <hue> = <number> | <angle> <alpha-value> = <number> | <percentage>
-light-dark: <light-dark()> = <light-dark-color> | <light-dark-image> <light-dark-color> = light-dark( <color> , <color> ) <light-dark-image> = light-dark( [ <image> | none ] , [ <image> | none ] ) <image> = <url> | <image()> | <image-set()> | <cross-fade()> | <element()> | <gradient> <image()> = image( <image-tags>? [ <image-src>? , <color>? ]! ) <image-set()> = image-set( <image-set-option># ) <cross-fade()> = cross-fade( <cf-image># ) <element()> = element( <id-selector> ) <image-tags> = ltr | rtl <image-src> = <url> | <string> <image-set-option> = [ <image> | <string> ] [ <resolution> || type( <string> ) ]? <cf-image> = [ <image> | <color> ] && <percentage [0,100]>? <id-selector> = <hash-token>
-linear: <linear()> = linear( [ <number> && <percentage>{0,2} ]# )
-linear-gradient: <linear-gradient()> = linear-gradient( [ <linear-gradient-syntax> ] ) <linear-gradient-syntax> = [ [ <angle> | <zero> | to <side-or-corner> ] || <color-interpolation-method> ]? , <color-stop-list> <side-or-corner> = [ left | right ] || [ top | bottom ] <color-interpolation-method> = in [ <rectangular-color-space> | <polar-color-space> <hue-interpolation-method>? | <custom-color-space> ] <color-stop-list> = <linear-color-stop> , [ <linear-color-hint>? , <linear-color-stop> ]#? <rectangular-color-space> = srgb | srgb-linear | display-p3 | display-p3-linear | a98-rgb | prophoto-rgb | rec2020 | lab | oklab | <xyz-space> <polar-color-space> = hsl | hwb | lch | oklch <hue-interpolation-method> = [ shorter | longer | increasing | decreasing ] hue <custom-color-space> = <dashed-ident> <linear-color-stop> = <color> <color-stop-length>? <linear-color-hint> = <length-percentage> <xyz-space> = xyz | xyz-d50 | xyz-d65 <color-stop-length> = <length-percentage>{1,2} <length-percentage> = <length> | <percentage>
-log: <log()> = log( <calc-sum> , <calc-sum>? ) <calc-sum> = <calc-product> [ [ '+' | '-' ] <calc-product> ]* <calc-product> = <calc-value> [ [ '*' | / ] <calc-value> ]* <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | ( <calc-sum> ) <calc-keyword> = e | pi | infinity | -infinity | NaN
-matrix: <matrix()> = matrix( <number>#{6} )
-matrix3d: <matrix3d()> = matrix3d( <number>#{16} )
-max: <max()> = max( <calc-sum># ) <calc-sum> = <calc-product> [ [ '+' | '-' ] <calc-product> ]* <calc-product> = <calc-value> [ [ '*' | / ] <calc-value> ]* <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | ( <calc-sum> ) <calc-keyword> = e | pi | infinity | -infinity | NaN
-min: <min()> = min( <calc-sum># ) <calc-sum> = <calc-product> [ [ '+' | '-' ] <calc-product> ]* <calc-product> = <calc-value> [ [ '*' | / ] <calc-value> ]* <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | ( <calc-sum> ) <calc-keyword> = e | pi | infinity | -infinity | NaN
-minmax: <minmax()> = minmax( min , max )
-mod: <mod()> = mod( <calc-sum> , <calc-sum> ) <calc-sum> = <calc-product> [ [ '+' | '-' ] <calc-product> ]* <calc-product> = <calc-value> [ [ '*' | / ] <calc-value> ]* <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | ( <calc-sum> ) <calc-keyword> = e | pi | infinity | -infinity | NaN
-oklab: <oklab()> = oklab( [ from <color> ]? [ <percentage> | <number> | none ] [ <percentage> | <number> | none ] [ <percentage> | <number> | none ] [ / [ <alpha-value> | none ] ]? ) <alpha-value> = <number> | <percentage>
-oklch: <oklch()> = oklch( [ from <color> ]? [ <percentage> | <number> | none ] [ <percentage> | <number> | none ] [ <hue> | none ] [ / [ <alpha-value> | none ] ]? ) <hue> = <number> | <angle> <alpha-value> = <number> | <percentage>
-opacity: <opacity()> = opacity( [ <number> | <percentage> ]? )
-paint: <paint()> = paint( <ident> , <declaration-value>? )
-palette-mix: <palette-mix()> = palette-mix( <color-interpolation-method> , [ [ normal | light | dark | <palette-identifier> | <palette-mix()> ] && <percentage [0,100]>? ]#{2} ) <color-interpolation-method> = in [ <rectangular-color-space> | <polar-color-space> <hue-interpolation-method>? | <custom-color-space> ] <palette-identifier> = <dashed-ident> <rectangular-color-space> = srgb | srgb-linear | display-p3 | display-p3-linear | a98-rgb | prophoto-rgb | rec2020 | lab | oklab | <xyz-space> <polar-color-space> = hsl | hwb | lch | oklch <hue-interpolation-method> = [ shorter | longer | increasing | decreasing ] hue <custom-color-space> = <dashed-ident> <xyz-space> = xyz | xyz-d50 | xyz-d65
-path: <path()> = path( <'fill-rule'>? , <string> ) <fill-rule> = nonzero | evenodd
-perspective: <perspective()> = perspective( [ <length [0,∞]> | none ] )
-polygon: <polygon()> = polygon( <'fill-rule'>? [ round <length> ]? , [ <length-percentage> <length-percentage> ]# ) <fill-rule> = nonzero | evenodd <length-percentage> = <length> | <percentage>
-pow: <pow()> = pow( <calc-sum> , <calc-sum> ) <calc-sum> = <calc-product> [ [ '+' | '-' ] <calc-product> ]* <calc-product> = <calc-value> [ [ '*' | / ] <calc-value> ]* <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | ( <calc-sum> ) <calc-keyword> = e | pi | infinity | -infinity | NaN
-progress: <progress()> = progress( <calc-sum> , <calc-sum> , <calc-sum> ) <calc-sum> = <calc-product> [ [ '+' | '-' ] <calc-product> ]* <calc-product> = <calc-value> [ [ '*' | / ] <calc-value> ]* <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | ( <calc-sum> ) <calc-keyword> = e | pi | infinity | -infinity | NaN
-radial-gradient: <radial-gradient()> = radial-gradient( [ <radial-gradient-syntax> ] ) <radial-gradient-syntax> = [ [ [ <radial-shape> || <radial-size> ]? [ at <position> ]? ] || <color-interpolation-method> ]? , <color-stop-list> <radial-shape> = circle | ellipse <radial-size> = <radial-extent> | <length [0,∞]> | <length-percentage [0,∞]>{2} <position> = <position-one> | <position-two> | <position-four> <color-interpolation-method> = in [ <rectangular-color-space> | <polar-color-space> <hue-interpolation-method>? | <custom-color-space> ] <color-stop-list> = <linear-color-stop> , [ <linear-color-hint>? , <linear-color-stop> ]#? <radial-extent> = closest-corner | closest-side | farthest-corner | farthest-side <length-percentage> = <length> | <percentage> <position-one> = left | center | right | top | bottom | x-start | x-end | y-start | y-end | block-start | block-end | inline-start | inline-end | <length-percentage> <position-two> = [ left | center | right | x-start | x-end ] && [ top | center | bottom | y-start | y-end ] | [ left | center | right | x-start | x-end | <length-percentage> ] [ top | center | bottom | y-start | y-end | <length-percentage> ] | [ block-start | center | block-end ] && [ inline-start | center | inline-end ] | [ start | center | end ]{2} <position-four> = [ [ left | right | x-start | x-end ] <length-percentage> ] && [ [ top | bottom | y-start | y-end ] <length-percentage> ] | [ [ block-start | block-end ] <length-percentage> ] && [ [ inline-start | inline-end ] <length-percentage> ] | [ [ start | end ] <length-percentage> ]{2} <rectangular-color-space> = srgb | srgb-linear | display-p3 | display-p3-linear | a98-rgb | prophoto-rgb | rec2020 | lab | oklab | <xyz-space> <polar-color-space> = hsl | hwb | lch | oklch <hue-interpolation-method> = [ shorter | longer | increasing | decreasing ] hue <custom-color-space> = <dashed-ident> <linear-color-stop> = <color> <color-stop-length>? <linear-color-hint> = <length-percentage> <xyz-space> = xyz | xyz-d50 | xyz-d65 <color-stop-length> = <length-percentage>{1,2}
-random: <random()> = random( <random-key>? , <calc-sum> , <calc-sum> , <calc-sum>? ) <random-key> = auto | <random-cache-key> | fixed <number [0,1]> <calc-sum> = <calc-product> [ [ '+' | '-' ] <calc-product> ]* <random-cache-key> = <dashed-ident> || element-scoped || [ property-scoped | property-index-scoped | <random-ua-ident> ] <calc-product> = <calc-value> [ [ '*' | / ] <calc-value> ]* <random-ua-ident> = <custom-ident> <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | ( <calc-sum> ) <calc-keyword> = e | pi | infinity | -infinity | NaN
-ray: <ray()> = ray( <angle> && <ray-size>? && contain? && [ at <position> ]? ) <ray-size> = <radial-extent> | sides <position> = <position-one> | <position-two> | <position-four> <radial-extent> = closest-corner | closest-side | farthest-corner | farthest-side <position-one> = left | center | right | top | bottom | x-start | x-end | y-start | y-end | block-start | block-end | inline-start | inline-end | <length-percentage> <position-two> = [ left | center | right | x-start | x-end ] && [ top | center | bottom | y-start | y-end ] | [ left | center | right | x-start | x-end | <length-percentage> ] [ top | center | bottom | y-start | y-end | <length-percentage> ] | [ block-start | center | block-end ] && [ inline-start | center | inline-end ] | [ start | center | end ]{2} <position-four> = [ [ left | right | x-start | x-end ] <length-percentage> ] && [ [ top | bottom | y-start | y-end ] <length-percentage> ] | [ [ block-start | block-end ] <length-percentage> ] && [ [ inline-start | inline-end ] <length-percentage> ] | [ [ start | end ] <length-percentage> ]{2} <length-percentage> = <length> | <percentage>
-rect: <rect()> = rect( [ <length-percentage> | auto ]{4} [ round <'border-radius'> ]? ) <length-percentage> = <length> | <percentage> <border-radius> = <length-percentage [0,∞]>{1,4} [ / <length-percentage [0,∞]>{1,4} ]?
-rem: <rem()> = rem( <calc-sum> , <calc-sum> ) <calc-sum> = <calc-product> [ [ '+' | '-' ] <calc-product> ]* <calc-product> = <calc-value> [ [ '*' | / ] <calc-value> ]* <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | ( <calc-sum> ) <calc-keyword> = e | pi | infinity | -infinity | NaN
-repeat: <track-repeat> = repeat( [ <integer [1,∞]> ] , [ <line-names>? <track-size> ]+ <line-names>? ) <auto-repeat> = repeat( [ auto-fill | auto-fit ] , [ <line-names>? <track-size> ]+ <line-names>? ) <fixed-repeat> = repeat( [ <integer [1,∞]> ] , [ <line-names>? <fixed-size> ]+ <line-names>? ) <name-repeat> = repeat( [ <integer [1,∞]> | auto-fill ] , <line-names>+ ) <integer> = <number-token> <line-names> = '[' <custom-ident>* ']' <track-size> = <track-breadth> | minmax( <inflexible-breadth> , <track-breadth> ) | fit-content( <length-percentage [0,∞]> ) <fixed-size> = <fixed-breadth> | minmax( <fixed-breadth> , <track-breadth> ) | minmax( <inflexible-breadth> , <fixed-breadth> ) <track-breadth> = <length-percentage [0,∞]> | <flex [0,∞]> | min-content | max-content | auto <inflexible-breadth> = <length-percentage [0,∞]> | min-content | max-content | auto <length-percentage> = <length> | <percentage> <fixed-breadth> = <length-percentage [0,∞]>
-repeating-conic-gradient: <repeating-conic-gradient()> = repeating-conic-gradient( [ <conic-gradient-syntax> ] ) <conic-gradient-syntax> = [ [ [ from [ <angle> | <zero> ] ]? [ at <position> ]? ] || <color-interpolation-method> ]? , <angular-color-stop-list> <position> = <position-one> | <position-two> | <position-four> <color-interpolation-method> = in [ <rectangular-color-space> | <polar-color-space> <hue-interpolation-method>? | <custom-color-space> ] <angular-color-stop-list> = <angular-color-stop> , [ <angular-color-hint>? , <angular-color-stop> ]#? <position-one> = left | center | right | top | bottom | x-start | x-end | y-start | y-end | block-start | block-end | inline-start | inline-end | <length-percentage> <position-two> = [ left | center | right | x-start | x-end ] && [ top | center | bottom | y-start | y-end ] | [ left | center | right | x-start | x-end | <length-percentage> ] [ top | center | bottom | y-start | y-end | <length-percentage> ] | [ block-start | center | block-end ] && [ inline-start | center | inline-end ] | [ start | center | end ]{2} <position-four> = [ [ left | right | x-start | x-end ] <length-percentage> ] && [ [ top | bottom | y-start | y-end ] <length-percentage> ] | [ [ block-start | block-end ] <length-percentage> ] && [ [ inline-start | inline-end ] <length-percentage> ] | [ [ start | end ] <length-percentage> ]{2} <rectangular-color-space> = srgb | srgb-linear | display-p3 | display-p3-linear | a98-rgb | prophoto-rgb | rec2020 | lab | oklab | <xyz-space> <polar-color-space> = hsl | hwb | lch | oklch <hue-interpolation-method> = [ shorter | longer | increasing | decreasing ] hue <custom-color-space> = <dashed-ident> <angular-color-stop> = <color> <color-stop-angle>? <angular-color-hint> = <angle-percentage> | <zero> <length-percentage> = <length> | <percentage> <xyz-space> = xyz | xyz-d50 | xyz-d65 <color-stop-angle> = [ <angle-percentage> | <zero> ]{1,2} <angle-percentage> = <angle> | <percentage>
-repeating-linear-gradient: <repeating-linear-gradient()> = repeating-linear-gradient( [ <linear-gradient-syntax> ] ) <linear-gradient-syntax> = [ [ <angle> | <zero> | to <side-or-corner> ] || <color-interpolation-method> ]? , <color-stop-list> <side-or-corner> = [ left | right ] || [ top | bottom ] <color-interpolation-method> = in [ <rectangular-color-space> | <polar-color-space> <hue-interpolation-method>? | <custom-color-space> ] <color-stop-list> = <linear-color-stop> , [ <linear-color-hint>? , <linear-color-stop> ]#? <rectangular-color-space> = srgb | srgb-linear | display-p3 | display-p3-linear | a98-rgb | prophoto-rgb | rec2020 | lab | oklab | <xyz-space> <polar-color-space> = hsl | hwb | lch | oklch <hue-interpolation-method> = [ shorter | longer | increasing | decreasing ] hue <custom-color-space> = <dashed-ident> <linear-color-stop> = <color> <color-stop-length>? <linear-color-hint> = <length-percentage> <xyz-space> = xyz | xyz-d50 | xyz-d65 <color-stop-length> = <length-percentage>{1,2} <length-percentage> = <length> | <percentage>
-repeating-radial-gradient: <repeating-radial-gradient()> = repeating-radial-gradient( [ <radial-gradient-syntax> ] ) <radial-gradient-syntax> = [ [ [ <radial-shape> || <radial-size> ]? [ at <position> ]? ] || <color-interpolation-method> ]? , <color-stop-list> <radial-shape> = circle | ellipse <radial-size> = <radial-extent> | <length [0,∞]> | <length-percentage [0,∞]>{2} <position> = <position-one> | <position-two> | <position-four> <color-interpolation-method> = in [ <rectangular-color-space> | <polar-color-space> <hue-interpolation-method>? | <custom-color-space> ] <color-stop-list> = <linear-color-stop> , [ <linear-color-hint>? , <linear-color-stop> ]#? <radial-extent> = closest-corner | closest-side | farthest-corner | farthest-side <length-percentage> = <length> | <percentage> <position-one> = left | center | right | top | bottom | x-start | x-end | y-start | y-end | block-start | block-end | inline-start | inline-end | <length-percentage> <position-two> = [ left | center | right | x-start | x-end ] && [ top | center | bottom | y-start | y-end ] | [ left | center | right | x-start | x-end | <length-percentage> ] [ top | center | bottom | y-start | y-end | <length-percentage> ] | [ block-start | center | block-end ] && [ inline-start | center | inline-end ] | [ start | center | end ]{2} <position-four> = [ [ left | right | x-start | x-end ] <length-percentage> ] && [ [ top | bottom | y-start | y-end ] <length-percentage> ] | [ [ block-start | block-end ] <length-percentage> ] && [ [ inline-start | inline-end ] <length-percentage> ] | [ [ start | end ] <length-percentage> ]{2} <rectangular-color-space> = srgb | srgb-linear | display-p3 | display-p3-linear | a98-rgb | prophoto-rgb | rec2020 | lab | oklab | <xyz-space> <polar-color-space> = hsl | hwb | lch | oklch <hue-interpolation-method> = [ shorter | longer | increasing | decreasing ] hue <custom-color-space> = <dashed-ident> <linear-color-stop> = <color> <color-stop-length>? <linear-color-hint> = <length-percentage> <xyz-space> = xyz | xyz-d50 | xyz-d65 <color-stop-length> = <length-percentage>{1,2}
-rgb: <rgb()> = <legacy-rgb-syntax> | <modern-rgb-syntax> <legacy-rgb-syntax> = rgb( <percentage>#{3} , <alpha-value>? ) | rgb( <number>#{3} , <alpha-value>? ) <modern-rgb-syntax> = rgb( [ from <color> ]? [ <number> | <percentage> | none ]{3} [ / [ <alpha-value> | none ] ]? ) <alpha-value> = <number> | <percentage>
-rotate: <rotate()> = rotate( [ <angle> | <zero> ] )
-rotate3d: <rotate3d()> = rotate3d( <number> , <number> , <number> , [ <angle> | <zero> ] )
-rotateX: <rotateX()> = rotateX( [ <angle> | <zero> ] )
-rotateY: <rotateY()> = rotateY( [ <angle> | <zero> ] )
-rotateZ: <rotateZ()> = rotateZ( [ <angle> | <zero> ] )
-round: <round()> = round( <rounding-strategy>? , <calc-sum> , <calc-sum>? ) <rounding-strategy> = nearest | up | down | to-zero | line-width <calc-sum> = <calc-product> [ [ '+' | '-' ] <calc-product> ]* <calc-product> = <calc-value> [ [ '*' | / ] <calc-value> ]* <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | ( <calc-sum> ) <calc-keyword> = e | pi | infinity | -infinity | NaN
-saturate: <saturate()> = saturate( [ <number> | <percentage> ]? )
-scale: <scale()> = scale( <number> , <number>? )
-scale3d: <scale3d()> = scale3d( [ <number> | <percentage> ]#{3} )
-scaleX: <scaleX()> = scaleX( <number> )
-scaleY: <scaleY()> = scaleY( <number> )
-scaleZ: <scaleZ()> = scaleZ( [ <number> | <percentage> ] )
-scroll: <scroll()> = scroll( [ <scroller> || <axis> ]? ) <scroller> = root | nearest | self <axis> = block | inline | x | y
-sepia: <sepia()> = sepia( [ <number> | <percentage> ]? )
-shape: <shape()> = shape( <'fill-rule'>? from <position> , <shape-command># ) <fill-rule> = nonzero | evenodd <position> = <position-one> | <position-two> | <position-four> <shape-command> = <move-command> | <line-command> | close | <horizontal-line-command> | <vertical-line-command> | <curve-command> | <smooth-command> | <arc-command> <position-one> = left | center | right | top | bottom | x-start | x-end | y-start | y-end | block-start | block-end | inline-start | inline-end | <length-percentage> <position-two> = [ left | center | right | x-start | x-end ] && [ top | center | bottom | y-start | y-end ] | [ left | center | right | x-start | x-end | <length-percentage> ] [ top | center | bottom | y-start | y-end | <length-percentage> ] | [ block-start | center | block-end ] && [ inline-start | center | inline-end ] | [ start | center | end ]{2} <position-four> = [ [ left | right | x-start | x-end ] <length-percentage> ] && [ [ top | bottom | y-start | y-end ] <length-percentage> ] | [ [ block-start | block-end ] <length-percentage> ] && [ [ inline-start | inline-end ] <length-percentage> ] | [ [ start | end ] <length-percentage> ]{2} <move-command> = move <command-end-point> <line-command> = line <command-end-point> <horizontal-line-command> = hline [ to [ <length-percentage> | left | center | right | x-start | x-end ] | by <length-percentage> ] <vertical-line-command> = vline [ to [ <length-percentage> | top | center | bottom | y-start | y-end ] | by <length-percentage> ] <curve-command> = curve [ [ to <position> with <control-point> [ / <control-point> ]? ] | [ by <coordinate-pair> with <relative-control-point> [ / <relative-control-point> ]? ] ] <smooth-command> = smooth [ [ to <position> [ with <control-point> ]? ] | [ by <coordinate-pair> [ with <relative-control-point> ]? ] ] <arc-command> = arc <command-end-point> [ [ of <length-percentage>{1,2} ] && <arc-sweep>? && <arc-size>? && [ rotate <angle> ]? ] <length-percentage> = <length> | <percentage> <command-end-point> = to <position> | by <coordinate-pair> <control-point> = <position> | <relative-control-point> <coordinate-pair> = <length-percentage>{2} <relative-control-point> = <coordinate-pair> [ from [ start | end | origin ] ]? <arc-sweep> = cw | ccw <arc-size> = large | small
-sign: <sign()> = sign( <calc-sum> ) <calc-sum> = <calc-product> [ [ '+' | '-' ] <calc-product> ]* <calc-product> = <calc-value> [ [ '*' | / ] <calc-value> ]* <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | ( <calc-sum> ) <calc-keyword> = e | pi | infinity | -infinity | NaN
-sin: <sin()> = sin( <calc-sum> ) <calc-sum> = <calc-product> [ [ '+' | '-' ] <calc-product> ]* <calc-product> = <calc-value> [ [ '*' | / ] <calc-value> ]* <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | ( <calc-sum> ) <calc-keyword> = e | pi | infinity | -infinity | NaN
-skew: <skew()> = skew( [ <angle> | <zero> ] , [ <angle> | <zero> ]? )
-skewX: <skewX()> = skewX( [ <angle> | <zero> ] )
-skewY: <skewY()> = skewY( [ <angle> | <zero> ] )
-sqrt: <sqrt()> = sqrt( <calc-sum> ) <calc-sum> = <calc-product> [ [ '+' | '-' ] <calc-product> ]* <calc-product> = <calc-value> [ [ '*' | / ] <calc-value> ]* <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | ( <calc-sum> ) <calc-keyword> = e | pi | infinity | -infinity | NaN
-steps: <steps()> = steps( <integer> , <step-position>? ) <integer> = <number-token> <step-position> = jump-start | jump-end | jump-none | jump-both | start | end
-superellipse: <superellipse()> = superellipse( <number> | infinity | -infinity )
-symbols: <symbols()> = symbols( <symbols-type>? [ <string> | <image> ]+ ) <symbols-type> = cyclic | numeric | alphabetic | symbolic | fixed <image> = <url> | <image()> | <image-set()> | <cross-fade()> | <element()> | <gradient> <image()> = image( <image-tags>? [ <image-src>? , <color>? ]! ) <image-set()> = image-set( <image-set-option># ) <cross-fade()> = cross-fade( <cf-image># ) <element()> = element( <id-selector> ) <image-tags> = ltr | rtl <image-src> = <url> | <string> <image-set-option> = [ <image> | <string> ] [ <resolution> || type( <string> ) ]? <cf-image> = [ <image> | <color> ] && <percentage [0,100]>? <id-selector> = <hash-token>
-tan: <tan()> = tan( <calc-sum> ) <calc-sum> = <calc-product> [ [ '+' | '-' ] <calc-product> ]* <calc-product> = <calc-value> [ [ '*' | / ] <calc-value> ]* <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | ( <calc-sum> ) <calc-keyword> = e | pi | infinity | -infinity | NaN
-translate: <translate()> = translate( <length-percentage> , <length-percentage>? ) <length-percentage> = <length> | <percentage>
-translate3d: <translate3d()> = translate3d( <length-percentage> , <length-percentage> , <length> ) <length-percentage> = <length> | <percentage>
-translateX: <translateX()> = translateX( <length-percentage> ) <length-percentage> = <length> | <percentage>
-translateY: <translateY()> = translateY( <length-percentage> ) <length-percentage> = <length> | <percentage>
-translateZ: <translateZ()> = translateZ( <length> )
-type: <type()> = type( <string> )
-url_function: <url()> = url( <string> <url-modifier>* ) | <url-token>
-var: <var()> = var( <custom-property-name> , <declaration-value>? )
-view: <view()> = view( [ <axis> || <'view-timeline-inset'> ]? ) <axis> = block | inline | x | y <view-timeline-inset> = [ [ auto | <length-percentage> ]{1,2} ]# <length-percentage> = <length> | <percentage>
-xywh: <xywh()> = xywh( <length-percentage>{2} <length-percentage [0,∞]>{2} [ round <'border-radius'> ]? ) <length-percentage> = <length> | <percentage> <border-radius> = <length-percentage [0,∞]>{1,4} [ / <length-percentage [0,∞]>{1,4} ]?
+<abs()> =
+  abs( <calc-sum> )
+
+<calc-sum> =
+  <calc-product> [ [ '+' | '-' ] <calc-product> ]*
+
+<calc-product> =
+  <calc-value> [ [ '*' | / ] <calc-value> ]*
+
+<calc-value> =
+  <number>        |
+  <dimension>     |
+  <percentage>    |
+  <calc-keyword>  |
+  ( <calc-sum> )
+
+<calc-keyword> =
+  e          |
+  pi         |
+  infinity   |
+  -infinity  |
+  NaN
+
+<acos()> =
+  acos( <calc-sum> )
+
+<calc-sum> =
+  <calc-product> [ [ '+' | '-' ] <calc-product> ]*
+
+<calc-product> =
+  <calc-value> [ [ '*' | / ] <calc-value> ]*
+
+<calc-value> =
+  <number>        |
+  <dimension>     |
+  <percentage>    |
+  <calc-keyword>  |
+  ( <calc-sum> )
+
+<calc-keyword> =
+  e          |
+  pi         |
+  infinity   |
+  -infinity  |
+  NaN
+
+<anchor()> =
+  anchor( <anchor-name>?                  &&
+  <anchor-side> , <length-percentage>? )
+
+<anchor-name> =
+  <dashed-ident>
+
+<anchor-side> =
+  inside        |
+  outside       |
+  top           |
+  left          |
+  right         |
+  bottom        |
+  start         |
+  end           |
+  self-start    |
+  self-end      |
+  <percentage>  |
+  center
+
+<length-percentage> =
+  <length>      |
+  <percentage>
+
+<anchor-size()> =
+  anchor-size( [ <anchor-name> || <anchor-size> ]? , <length-percentage>? )
+
+<anchor-name> =
+  <dashed-ident>
+
+<anchor-size> =
+  width        |
+  height       |
+  block        |
+  inline       |
+  self-block   |
+  self-inline
+
+<length-percentage> =
+  <length>      |
+  <percentage>
+
+<asin()> =
+  asin( <calc-sum> )
+
+<calc-sum> =
+  <calc-product> [ [ '+' | '-' ] <calc-product> ]*
+
+<calc-product> =
+  <calc-value> [ [ '*' | / ] <calc-value> ]*
+
+<calc-value> =
+  <number>        |
+  <dimension>     |
+  <percentage>    |
+  <calc-keyword>  |
+  ( <calc-sum> )
+
+<calc-keyword> =
+  e          |
+  pi         |
+  infinity   |
+  -infinity  |
+  NaN
+
+<atan()> =
+  atan( <calc-sum> )
+
+<calc-sum> =
+  <calc-product> [ [ '+' | '-' ] <calc-product> ]*
+
+<calc-product> =
+  <calc-value> [ [ '*' | / ] <calc-value> ]*
+
+<calc-value> =
+  <number>        |
+  <dimension>     |
+  <percentage>    |
+  <calc-keyword>  |
+  ( <calc-sum> )
+
+<calc-keyword> =
+  e          |
+  pi         |
+  infinity   |
+  -infinity  |
+  NaN
+
+<atan2()> =
+  atan2( <calc-sum> , <calc-sum> )
+
+<calc-sum> =
+  <calc-product> [ [ '+' | '-' ] <calc-product> ]*
+
+<calc-product> =
+  <calc-value> [ [ '*' | / ] <calc-value> ]*
+
+<calc-value> =
+  <number>        |
+  <dimension>     |
+  <percentage>    |
+  <calc-keyword>  |
+  ( <calc-sum> )
+
+<calc-keyword> =
+  e          |
+  pi         |
+  infinity   |
+  -infinity  |
+  NaN
+
+<attr()> =
+  attr( <attr-name> <attr-type>? , <declaration-value>? )
+
+<attr-name> =
+  [ <ident-token>? '|' ]? <ident-token>
+
+<attr-type> =
+  type( <syntax> )  |
+  raw-string        |
+  number            |
+  <attr-unit>
+
+<syntax> =
+  '*'                                                 |
+  <syntax-component> [ <syntax-combinator> <syntax-component> ]*  |
+  <syntax-string>
+
+<attr-unit> =
+  <custom-ident>
+
+<syntax-component> =
+  <syntax-single-component> <syntax-multiplier>?  |
+  '<' transform-list '>'
+
+<syntax-combinator> =
+  '|'
+
+<syntax-string> =
+  <string>
+
+<syntax-single-component> =
+  '<' <syntax-type-name> '>'  |
+  <ident>
+
+<syntax-multiplier> =
+  '#'  |
+  '+'
+
+<syntax-type-name> =
+  angle               |
+  color               |
+  custom-ident        |
+  image               |
+  integer             |
+  length              |
+  length-percentage   |
+  number              |
+  percentage          |
+  resolution          |
+  string              |
+  time                |
+  url                 |
+  transform-function
+
+<blur()> =
+  blur( <length>? )
+
+<brightness()> =
+  brightness( [ <number> | <percentage> ]? )
+
+<calc()> =
+  calc( <calc-sum> )
+
+<calc-sum> =
+  <calc-product> [ [ '+' | '-' ] <calc-product> ]*
+
+<calc-product> =
+  <calc-value> [ [ '*' | / ] <calc-value> ]*
+
+<calc-value> =
+  <number>        |
+  <dimension>     |
+  <percentage>    |
+  <calc-keyword>  |
+  ( <calc-sum> )
+
+<calc-keyword> =
+  e          |
+  pi         |
+  infinity   |
+  -infinity  |
+  NaN
+
+<calc-size()> =
+  calc-size( <calc-size-basis> , <calc-sum> )
+
+<calc-size-basis> =
+  <size-keyword>  |
+  <calc-size()>   |
+  any             |
+  <calc-sum>
+
+<calc-sum> =
+  <calc-product> [ [ '+' | '-' ] <calc-product> ]*
+
+<calc-product> =
+  <calc-value> [ [ '*' | / ] <calc-value> ]*
+
+<calc-value> =
+  <number>        |
+  <dimension>     |
+  <percentage>    |
+  <calc-keyword>  |
+  ( <calc-sum> )
+
+<calc-keyword> =
+  e          |
+  pi         |
+  infinity   |
+  -infinity  |
+  NaN
+
+<circle()> =
+  circle( <radial-size>? [ at <position> ]? )
+
+<radial-size> =
+  <radial-extent>               |
+  <length [0,∞]>                |
+  <length-percentage [0,∞]>{2}
+
+<position> =
+  <position-one>   |
+  <position-two>   |
+  <position-four>
+
+<radial-extent> =
+  closest-corner   |
+  closest-side     |
+  farthest-corner  |
+  farthest-side
+
+<length-percentage> =
+  <length>      |
+  <percentage>
+
+<position-one> =
+  left                 |
+  center               |
+  right                |
+  top                  |
+  bottom               |
+  x-start              |
+  x-end                |
+  y-start              |
+  y-end                |
+  block-start          |
+  block-end            |
+  inline-start         |
+  inline-end           |
+  <length-percentage>
+
+<position-two> =
+  [ left | center | right | x-start | x-end ] && [ top | center | bottom | y-start | y-end ]  |
+  [ left | center | right | x-start | x-end | <length-percentage> ] [ top | center | bottom | y-start | y-end | <length-percentage> ]  |
+  [ block-start | center | block-end ] && [ inline-start | center | inline-end ]  |
+  [ start | center | end ]{2}
+
+<position-four> =
+  [ [ left | right | x-start | x-end ] <length-percentage> ] && [ [ top | bottom | y-start | y-end ] <length-percentage> ]  |
+  [ [ block-start | block-end ] <length-percentage> ] && [ [ inline-start | inline-end ] <length-percentage> ]  |
+  [ [ start | end ] <length-percentage> ]{2}
+
+<clamp()> =
+  clamp( [ <calc-sum> | none ] , <calc-sum> , [ <calc-sum> | none ] )
+
+<calc-sum> =
+  <calc-product> [ [ '+' | '-' ] <calc-product> ]*
+
+<calc-product> =
+  <calc-value> [ [ '*' | / ] <calc-value> ]*
+
+<calc-value> =
+  <number>        |
+  <dimension>     |
+  <percentage>    |
+  <calc-keyword>  |
+  ( <calc-sum> )
+
+<calc-keyword> =
+  e          |
+  pi         |
+  infinity   |
+  -infinity  |
+  NaN
+
+<color()> =
+  color( [ from <color> ]? <colorspace-params> [ / [ <alpha-value> | none ] ]? )
+
+<colorspace-params> =
+  <custom-params>          |
+  <predefined-rgb-params>  |
+  <xyz-params>
+
+<alpha-value> =
+  <number>      |
+  <percentage>
+
+<custom-params> =
+  <dashed-ident> [ <number> | <percentage> | none ]+
+
+<predefined-rgb-params> =
+  <predefined-rgb> [ <number> | <percentage> | none ]{3}
+
+<xyz-params> =
+  <xyz-space> [ <number> | <percentage> | none ]{3}
+
+<predefined-rgb> =
+  srgb               |
+  srgb-linear        |
+  display-p3         |
+  display-p3-linear  |
+  a98-rgb            |
+  prophoto-rgb       |
+  rec2020            |
+  rec2100-pq         |
+  rec2100-hlg        |
+  rec2100-linear
+
+<xyz-space> =
+  xyz      |
+  xyz-d50  |
+  xyz-d65
+
+<color-mix()> =
+  color-mix( <color-interpolation-method>? , [ <color> && <percentage [0,100]>? ]# )
+
+<color-interpolation-method> =
+  in [ <rectangular-color-space> | <polar-color-space> <hue-interpolation-method>? | <custom-color-space> ]
+
+<rectangular-color-space> =
+  srgb               |
+  srgb-linear        |
+  display-p3         |
+  display-p3-linear  |
+  a98-rgb            |
+  prophoto-rgb       |
+  rec2020            |
+  lab                |
+  oklab              |
+  <xyz-space>
+
+<polar-color-space> =
+  hsl    |
+  hwb    |
+  lch    |
+  oklch
+
+<hue-interpolation-method> =
+  [ shorter | longer | increasing | decreasing ] hue
+
+<custom-color-space> =
+  <dashed-ident>
+
+<xyz-space> =
+  xyz      |
+  xyz-d50  |
+  xyz-d65
+
+<conic-gradient()> =
+  conic-gradient( [ <conic-gradient-syntax> ] )
+
+<conic-gradient-syntax> =
+  [ [ [ from [ <angle> | <zero> ] ]? [ at <position> ]? ] || <color-interpolation-method> ]? , <angular-color-stop-list>
+
+<position> =
+  <position-one>   |
+  <position-two>   |
+  <position-four>
+
+<color-interpolation-method> =
+  in [ <rectangular-color-space> | <polar-color-space> <hue-interpolation-method>? | <custom-color-space> ]
+
+<angular-color-stop-list> =
+  <angular-color-stop> , [ <angular-color-hint>? , <angular-color-stop> ]#?
+
+<position-one> =
+  left                 |
+  center               |
+  right                |
+  top                  |
+  bottom               |
+  x-start              |
+  x-end                |
+  y-start              |
+  y-end                |
+  block-start          |
+  block-end            |
+  inline-start         |
+  inline-end           |
+  <length-percentage>
+
+<position-two> =
+  [ left | center | right | x-start | x-end ] && [ top | center | bottom | y-start | y-end ]  |
+  [ left | center | right | x-start | x-end | <length-percentage> ] [ top | center | bottom | y-start | y-end | <length-percentage> ]  |
+  [ block-start | center | block-end ] && [ inline-start | center | inline-end ]  |
+  [ start | center | end ]{2}
+
+<position-four> =
+  [ [ left | right | x-start | x-end ] <length-percentage> ] && [ [ top | bottom | y-start | y-end ] <length-percentage> ]  |
+  [ [ block-start | block-end ] <length-percentage> ] && [ [ inline-start | inline-end ] <length-percentage> ]  |
+  [ [ start | end ] <length-percentage> ]{2}
+
+<rectangular-color-space> =
+  srgb               |
+  srgb-linear        |
+  display-p3         |
+  display-p3-linear  |
+  a98-rgb            |
+  prophoto-rgb       |
+  rec2020            |
+  lab                |
+  oklab              |
+  <xyz-space>
+
+<polar-color-space> =
+  hsl    |
+  hwb    |
+  lch    |
+  oklch
+
+<hue-interpolation-method> =
+  [ shorter | longer | increasing | decreasing ] hue
+
+<custom-color-space> =
+  <dashed-ident>
+
+<angular-color-stop> =
+  <color> <color-stop-angle>?
+
+<angular-color-hint> =
+  <angle-percentage>  |
+  <zero>
+
+<length-percentage> =
+  <length>      |
+  <percentage>
+
+<xyz-space> =
+  xyz      |
+  xyz-d50  |
+  xyz-d65
+
+<color-stop-angle> =
+  [ <angle-percentage> | <zero> ]{1,2}
+
+<angle-percentage> =
+  <angle>       |
+  <percentage>
+
+<contrast()> =
+  contrast( [ <number> | <percentage> ]? )
+
+<cos()> =
+  cos( <calc-sum> )
+
+<calc-sum> =
+  <calc-product> [ [ '+' | '-' ] <calc-product> ]*
+
+<calc-product> =
+  <calc-value> [ [ '*' | / ] <calc-value> ]*
+
+<calc-value> =
+  <number>        |
+  <dimension>     |
+  <percentage>    |
+  <calc-keyword>  |
+  ( <calc-sum> )
+
+<calc-keyword> =
+  e          |
+  pi         |
+  infinity   |
+  -infinity  |
+  NaN
+
+<counter()> =
+  counter( <counter-name> , <counter-style>? )
+
+<counter-name> =
+  <custom-ident>
+
+<counter-style> =
+  <counter-style-name>  |
+  <symbols()>
+
+<counter-style-name> =
+  <custom-ident>
+
+<symbols()> =
+  symbols( <symbols-type>? [ <string> | <image> ]+ )
+
+<symbols-type> =
+  cyclic      |
+  numeric     |
+  alphabetic  |
+  symbolic    |
+  fixed
+
+<image> =
+  <url>           |
+  <image()>       |
+  <image-set()>   |
+  <cross-fade()>  |
+  <element()>     |
+  <gradient>
+
+<image()> =
+  image( <image-tags>? [ <image-src>? , <color>? ]! )
+
+<image-set()> =
+  image-set( <image-set-option># )
+
+<cross-fade()> =
+  cross-fade( <cf-image># )
+
+<element()> =
+  element( <id-selector> )
+
+<image-tags> =
+  ltr  |
+  rtl
+
+<image-src> =
+  <url>     |
+  <string>
+
+<image-set-option> =
+  [ <image> | <string> ] [ <resolution> || type( <string> ) ]?
+
+<cf-image> =
+  [ <image> | <color> ]  &&
+  <percentage [0,100]>?
+
+<id-selector> =
+  <hash-token>
+
+<counters()> =
+  counters( <counter-name> , <string> , <counter-style>? )
+
+<counter-name> =
+  <custom-ident>
+
+<counter-style> =
+  <counter-style-name>  |
+  <symbols()>
+
+<counter-style-name> =
+  <custom-ident>
+
+<symbols()> =
+  symbols( <symbols-type>? [ <string> | <image> ]+ )
+
+<symbols-type> =
+  cyclic      |
+  numeric     |
+  alphabetic  |
+  symbolic    |
+  fixed
+
+<image> =
+  <url>           |
+  <image()>       |
+  <image-set()>   |
+  <cross-fade()>  |
+  <element()>     |
+  <gradient>
+
+<image()> =
+  image( <image-tags>? [ <image-src>? , <color>? ]! )
+
+<image-set()> =
+  image-set( <image-set-option># )
+
+<cross-fade()> =
+  cross-fade( <cf-image># )
+
+<element()> =
+  element( <id-selector> )
+
+<image-tags> =
+  ltr  |
+  rtl
+
+<image-src> =
+  <url>     |
+  <string>
+
+<image-set-option> =
+  [ <image> | <string> ] [ <resolution> || type( <string> ) ]?
+
+<cf-image> =
+  [ <image> | <color> ]  &&
+  <percentage [0,100]>?
+
+<id-selector> =
+  <hash-token>
+
+<cross-fade()> =
+  cross-fade( <cf-image># )
+
+<cf-image> =
+  [ <image> | <color> ]  &&
+  <percentage [0,100]>?
+
+<image> =
+  <url>           |
+  <image()>       |
+  <image-set()>   |
+  <cross-fade()>  |
+  <element()>     |
+  <gradient>
+
+<image()> =
+  image( <image-tags>? [ <image-src>? , <color>? ]! )
+
+<image-set()> =
+  image-set( <image-set-option># )
+
+<element()> =
+  element( <id-selector> )
+
+<image-tags> =
+  ltr  |
+  rtl
+
+<image-src> =
+  <url>     |
+  <string>
+
+<image-set-option> =
+  [ <image> | <string> ] [ <resolution> || type( <string> ) ]?
+
+<id-selector> =
+  <hash-token>
+
+<cubic-bezier()> =
+  cubic-bezier( [ <number [0,1]> , <number> ]#{2} )
+
+<device-cmyk()> =
+  <legacy-device-cmyk-syntax>  |
+  <modern-device-cmyk-syntax>
+
+<legacy-device-cmyk-syntax> =
+  device-cmyk( <number>#{4} )
+
+<modern-device-cmyk-syntax> =
+  device-cmyk( <cmyk-component>{4} [ / [ <alpha-value> | none ] ]? )
+
+<cmyk-component> =
+  <number>      |
+  <percentage>  |
+  none
+
+<alpha-value> =
+  <number>      |
+  <percentage>
+
+<drop-shadow()> =
+  drop-shadow( [ <color>? && <length>{2,3} ] )
+
+<dynamic-range-limit-mix()> =
+  dynamic-range-limit-mix( [ <'dynamic-range-limit'> && <percentage [0,100]> ]#{2,} )
+
+<dynamic-range-limit> =
+  standard                     |
+  no-limit                     |
+  constrained                  |
+  <dynamic-range-limit-mix()>
+
+<element()> =
+  element( <id-selector> )
+
+<id-selector> =
+  <hash-token>
+
+<ellipse()> =
+  ellipse( <radial-size>? [ at <position> ]? )
+
+<radial-size> =
+  <radial-extent>               |
+  <length [0,∞]>                |
+  <length-percentage [0,∞]>{2}
+
+<position> =
+  <position-one>   |
+  <position-two>   |
+  <position-four>
+
+<radial-extent> =
+  closest-corner   |
+  closest-side     |
+  farthest-corner  |
+  farthest-side
+
+<length-percentage> =
+  <length>      |
+  <percentage>
+
+<position-one> =
+  left                 |
+  center               |
+  right                |
+  top                  |
+  bottom               |
+  x-start              |
+  x-end                |
+  y-start              |
+  y-end                |
+  block-start          |
+  block-end            |
+  inline-start         |
+  inline-end           |
+  <length-percentage>
+
+<position-two> =
+  [ left | center | right | x-start | x-end ] && [ top | center | bottom | y-start | y-end ]  |
+  [ left | center | right | x-start | x-end | <length-percentage> ] [ top | center | bottom | y-start | y-end | <length-percentage> ]  |
+  [ block-start | center | block-end ] && [ inline-start | center | inline-end ]  |
+  [ start | center | end ]{2}
+
+<position-four> =
+  [ [ left | right | x-start | x-end ] <length-percentage> ] && [ [ top | bottom | y-start | y-end ] <length-percentage> ]  |
+  [ [ block-start | block-end ] <length-percentage> ] && [ [ inline-start | inline-end ] <length-percentage> ]  |
+  [ [ start | end ] <length-percentage> ]{2}
+
+<env()> =
+  env( <custom-ident> <integer [0,∞]>* , <declaration-value>? )
+
+<integer> =
+  <number-token>
+
+<exp()> =
+  exp( <calc-sum> )
+
+<calc-sum> =
+  <calc-product> [ [ '+' | '-' ] <calc-product> ]*
+
+<calc-product> =
+  <calc-value> [ [ '*' | / ] <calc-value> ]*
+
+<calc-value> =
+  <number>        |
+  <dimension>     |
+  <percentage>    |
+  <calc-keyword>  |
+  ( <calc-sum> )
+
+<calc-keyword> =
+  e          |
+  pi         |
+  infinity   |
+  -infinity  |
+  NaN
+
+<fit-content()> =
+  fit-content( <length-percentage> )
+
+<length-percentage> =
+  <length>      |
+  <percentage>
+
+<grayscale()> =
+  grayscale( [ <number> | <percentage> ]? )
+
+<hsl()> =
+  <legacy-hsl-syntax>  |
+  <modern-hsl-syntax>
+
+<legacy-hsl-syntax> =
+  hsl( <hue> , <percentage> , <percentage> , <alpha-value>? )
+
+<modern-hsl-syntax> =
+  hsl( [ from <color> ]? [ <hue> | none ] [ <percentage> | <number> | none ] [ <percentage> | <number> | none ] [ / [ <alpha-value> | none ] ]? )
+
+<hue> =
+  <number>  |
+  <angle>
+
+<alpha-value> =
+  <number>      |
+  <percentage>
+
+<hue-rotate()> =
+  hue-rotate( [ <angle> | <zero> ]? )
+
+<hwb()> =
+  hwb( [ from <color> ]? [ <hue> | none ] [ <percentage> | <number> | none ] [ <percentage> | <number> | none ] [ / [ <alpha-value> | none ] ]? )
+
+<hue> =
+  <number>  |
+  <angle>
+
+<alpha-value> =
+  <number>      |
+  <percentage>
+
+<hypot()> =
+  hypot( <calc-sum># )
+
+<calc-sum> =
+  <calc-product> [ [ '+' | '-' ] <calc-product> ]*
+
+<calc-product> =
+  <calc-value> [ [ '*' | / ] <calc-value> ]*
+
+<calc-value> =
+  <number>        |
+  <dimension>     |
+  <percentage>    |
+  <calc-keyword>  |
+  ( <calc-sum> )
+
+<calc-keyword> =
+  e          |
+  pi         |
+  infinity   |
+  -infinity  |
+  NaN
+
+<image()> =
+  image( <image-tags>? [ <image-src>? , <color>? ]! )
+
+<image-tags> =
+  ltr  |
+  rtl
+
+<image-src> =
+  <url>     |
+  <string>
+
+<image-set()> =
+  image-set( <image-set-option># )
+
+<image-set-option> =
+  [ <image> | <string> ] [ <resolution> || type( <string> ) ]?
+
+<image> =
+  <url>           |
+  <image()>       |
+  <image-set()>   |
+  <cross-fade()>  |
+  <element()>     |
+  <gradient>
+
+<image()> =
+  image( <image-tags>? [ <image-src>? , <color>? ]! )
+
+<cross-fade()> =
+  cross-fade( <cf-image># )
+
+<element()> =
+  element( <id-selector> )
+
+<image-tags> =
+  ltr  |
+  rtl
+
+<image-src> =
+  <url>     |
+  <string>
+
+<cf-image> =
+  [ <image> | <color> ]  &&
+  <percentage [0,100]>?
+
+<id-selector> =
+  <hash-token>
+
+<inset()> =
+  inset( <length-percentage>{1,4} [ round <'border-radius'> ]? )
+
+<length-percentage> =
+  <length>      |
+  <percentage>
+
+<border-radius> =
+  <length-percentage [0,∞]>{1,4} [ / <length-percentage [0,∞]>{1,4} ]?
+
+<invert()> =
+  invert( [ <number> | <percentage> ]? )
+
+<lab()> =
+  lab( [ from <color> ]? [ <percentage> | <number> | none ] [ <percentage> | <number> | none ] [ <percentage> | <number> | none ] [ / [ <alpha-value> | none ] ]? )
+
+<alpha-value> =
+  <number>      |
+  <percentage>
+
+layer() =
+  layer( <layer-name> )
+
+<layer-name> =
+  <ident> [ '.' <ident> ]*
+
+<lch()> =
+  lch( [ from <color> ]? [ <percentage> | <number> | none ] [ <percentage> | <number> | none ] [ <hue> | none ] [ / [ <alpha-value> | none ] ]? )
+
+<hue> =
+  <number>  |
+  <angle>
+
+<alpha-value> =
+  <number>      |
+  <percentage>
+
+<light-dark()> =
+  <light-dark-color>  |
+  <light-dark-image>
+
+<light-dark-color> =
+  light-dark( <color> , <color> )
+
+<light-dark-image> =
+  light-dark( [ <image> | none ] , [ <image> | none ] )
+
+<image> =
+  <url>           |
+  <image()>       |
+  <image-set()>   |
+  <cross-fade()>  |
+  <element()>     |
+  <gradient>
+
+<image()> =
+  image( <image-tags>? [ <image-src>? , <color>? ]! )
+
+<image-set()> =
+  image-set( <image-set-option># )
+
+<cross-fade()> =
+  cross-fade( <cf-image># )
+
+<element()> =
+  element( <id-selector> )
+
+<image-tags> =
+  ltr  |
+  rtl
+
+<image-src> =
+  <url>     |
+  <string>
+
+<image-set-option> =
+  [ <image> | <string> ] [ <resolution> || type( <string> ) ]?
+
+<cf-image> =
+  [ <image> | <color> ]  &&
+  <percentage [0,100]>?
+
+<id-selector> =
+  <hash-token>
+
+<linear()> =
+  linear( [ <number> && <percentage>{0,2} ]# )
+
+<linear-gradient()> =
+  linear-gradient( [ <linear-gradient-syntax> ] )
+
+<linear-gradient-syntax> =
+  [ [ <angle> | <zero> | to <side-or-corner> ] || <color-interpolation-method> ]? , <color-stop-list>
+
+<side-or-corner> =
+  [ left | right ]  ||
+  [ top | bottom ]
+
+<color-interpolation-method> =
+  in [ <rectangular-color-space> | <polar-color-space> <hue-interpolation-method>? | <custom-color-space> ]
+
+<color-stop-list> =
+  <linear-color-stop> , [ <linear-color-hint>? , <linear-color-stop> ]#?
+
+<rectangular-color-space> =
+  srgb               |
+  srgb-linear        |
+  display-p3         |
+  display-p3-linear  |
+  a98-rgb            |
+  prophoto-rgb       |
+  rec2020            |
+  lab                |
+  oklab              |
+  <xyz-space>
+
+<polar-color-space> =
+  hsl    |
+  hwb    |
+  lch    |
+  oklch
+
+<hue-interpolation-method> =
+  [ shorter | longer | increasing | decreasing ] hue
+
+<custom-color-space> =
+  <dashed-ident>
+
+<linear-color-stop> =
+  <color> <color-stop-length>?
+
+<linear-color-hint> =
+  <length-percentage>
+
+<xyz-space> =
+  xyz      |
+  xyz-d50  |
+  xyz-d65
+
+<color-stop-length> =
+  <length-percentage>{1,2}
+
+<length-percentage> =
+  <length>      |
+  <percentage>
+
+<log()> =
+  log( <calc-sum> , <calc-sum>? )
+
+<calc-sum> =
+  <calc-product> [ [ '+' | '-' ] <calc-product> ]*
+
+<calc-product> =
+  <calc-value> [ [ '*' | / ] <calc-value> ]*
+
+<calc-value> =
+  <number>        |
+  <dimension>     |
+  <percentage>    |
+  <calc-keyword>  |
+  ( <calc-sum> )
+
+<calc-keyword> =
+  e          |
+  pi         |
+  infinity   |
+  -infinity  |
+  NaN
+
+<matrix()> =
+  matrix( <number>#{6} )
+
+<matrix3d()> =
+  matrix3d( <number>#{16} )
+
+<max()> =
+  max( <calc-sum># )
+
+<calc-sum> =
+  <calc-product> [ [ '+' | '-' ] <calc-product> ]*
+
+<calc-product> =
+  <calc-value> [ [ '*' | / ] <calc-value> ]*
+
+<calc-value> =
+  <number>        |
+  <dimension>     |
+  <percentage>    |
+  <calc-keyword>  |
+  ( <calc-sum> )
+
+<calc-keyword> =
+  e          |
+  pi         |
+  infinity   |
+  -infinity  |
+  NaN
+
+<min()> =
+  min( <calc-sum># )
+
+<calc-sum> =
+  <calc-product> [ [ '+' | '-' ] <calc-product> ]*
+
+<calc-product> =
+  <calc-value> [ [ '*' | / ] <calc-value> ]*
+
+<calc-value> =
+  <number>        |
+  <dimension>     |
+  <percentage>    |
+  <calc-keyword>  |
+  ( <calc-sum> )
+
+<calc-keyword> =
+  e          |
+  pi         |
+  infinity   |
+  -infinity  |
+  NaN
+
+<minmax()> =
+  minmax( min , max )
+
+<mod()> =
+  mod( <calc-sum> , <calc-sum> )
+
+<calc-sum> =
+  <calc-product> [ [ '+' | '-' ] <calc-product> ]*
+
+<calc-product> =
+  <calc-value> [ [ '*' | / ] <calc-value> ]*
+
+<calc-value> =
+  <number>        |
+  <dimension>     |
+  <percentage>    |
+  <calc-keyword>  |
+  ( <calc-sum> )
+
+<calc-keyword> =
+  e          |
+  pi         |
+  infinity   |
+  -infinity  |
+  NaN
+
+<oklab()> =
+  oklab( [ from <color> ]? [ <percentage> | <number> | none ] [ <percentage> | <number> | none ] [ <percentage> | <number> | none ] [ / [ <alpha-value> | none ] ]? )
+
+<alpha-value> =
+  <number>      |
+  <percentage>
+
+<oklch()> =
+  oklch( [ from <color> ]? [ <percentage> | <number> | none ] [ <percentage> | <number> | none ] [ <hue> | none ] [ / [ <alpha-value> | none ] ]? )
+
+<hue> =
+  <number>  |
+  <angle>
+
+<alpha-value> =
+  <number>      |
+  <percentage>
+
+<opacity()> =
+  opacity( [ <number> | <percentage> ]? )
+
+<paint()> =
+  paint( <ident> , <declaration-value>? )
+
+<palette-mix()> =
+  palette-mix( <color-interpolation-method> , [ [ normal | light | dark | <palette-identifier> | <palette-mix()> ] && <percentage [0,100]>? ]#{2} )
+
+<color-interpolation-method> =
+  in [ <rectangular-color-space> | <polar-color-space> <hue-interpolation-method>? | <custom-color-space> ]
+
+<palette-identifier> =
+  <dashed-ident>
+
+<rectangular-color-space> =
+  srgb               |
+  srgb-linear        |
+  display-p3         |
+  display-p3-linear  |
+  a98-rgb            |
+  prophoto-rgb       |
+  rec2020            |
+  lab                |
+  oklab              |
+  <xyz-space>
+
+<polar-color-space> =
+  hsl    |
+  hwb    |
+  lch    |
+  oklch
+
+<hue-interpolation-method> =
+  [ shorter | longer | increasing | decreasing ] hue
+
+<custom-color-space> =
+  <dashed-ident>
+
+<xyz-space> =
+  xyz      |
+  xyz-d50  |
+  xyz-d65
+
+<path()> =
+  path( <'fill-rule'>? , <string> )
+
+<fill-rule> =
+  nonzero  |
+  evenodd
+
+<perspective()> =
+  perspective( [ <length [0,∞]> | none ] )
+
+<polygon()> =
+  polygon( <'fill-rule'>? [ round <length> ]? , [ <length-percentage> <length-percentage> ]# )
+
+<fill-rule> =
+  nonzero  |
+  evenodd
+
+<length-percentage> =
+  <length>      |
+  <percentage>
+
+<pow()> =
+  pow( <calc-sum> , <calc-sum> )
+
+<calc-sum> =
+  <calc-product> [ [ '+' | '-' ] <calc-product> ]*
+
+<calc-product> =
+  <calc-value> [ [ '*' | / ] <calc-value> ]*
+
+<calc-value> =
+  <number>        |
+  <dimension>     |
+  <percentage>    |
+  <calc-keyword>  |
+  ( <calc-sum> )
+
+<calc-keyword> =
+  e          |
+  pi         |
+  infinity   |
+  -infinity  |
+  NaN
+
+<progress()> =
+  progress( <calc-sum> , <calc-sum> , <calc-sum> )
+
+<calc-sum> =
+  <calc-product> [ [ '+' | '-' ] <calc-product> ]*
+
+<calc-product> =
+  <calc-value> [ [ '*' | / ] <calc-value> ]*
+
+<calc-value> =
+  <number>        |
+  <dimension>     |
+  <percentage>    |
+  <calc-keyword>  |
+  ( <calc-sum> )
+
+<calc-keyword> =
+  e          |
+  pi         |
+  infinity   |
+  -infinity  |
+  NaN
+
+<radial-gradient()> =
+  radial-gradient( [ <radial-gradient-syntax> ] )
+
+<radial-gradient-syntax> =
+  [ [ [ <radial-shape> || <radial-size> ]? [ at <position> ]? ] || <color-interpolation-method> ]? , <color-stop-list>
+
+<radial-shape> =
+  circle   |
+  ellipse
+
+<radial-size> =
+  <radial-extent>               |
+  <length [0,∞]>                |
+  <length-percentage [0,∞]>{2}
+
+<position> =
+  <position-one>   |
+  <position-two>   |
+  <position-four>
+
+<color-interpolation-method> =
+  in [ <rectangular-color-space> | <polar-color-space> <hue-interpolation-method>? | <custom-color-space> ]
+
+<color-stop-list> =
+  <linear-color-stop> , [ <linear-color-hint>? , <linear-color-stop> ]#?
+
+<radial-extent> =
+  closest-corner   |
+  closest-side     |
+  farthest-corner  |
+  farthest-side
+
+<length-percentage> =
+  <length>      |
+  <percentage>
+
+<position-one> =
+  left                 |
+  center               |
+  right                |
+  top                  |
+  bottom               |
+  x-start              |
+  x-end                |
+  y-start              |
+  y-end                |
+  block-start          |
+  block-end            |
+  inline-start         |
+  inline-end           |
+  <length-percentage>
+
+<position-two> =
+  [ left | center | right | x-start | x-end ] && [ top | center | bottom | y-start | y-end ]  |
+  [ left | center | right | x-start | x-end | <length-percentage> ] [ top | center | bottom | y-start | y-end | <length-percentage> ]  |
+  [ block-start | center | block-end ] && [ inline-start | center | inline-end ]  |
+  [ start | center | end ]{2}
+
+<position-four> =
+  [ [ left | right | x-start | x-end ] <length-percentage> ] && [ [ top | bottom | y-start | y-end ] <length-percentage> ]  |
+  [ [ block-start | block-end ] <length-percentage> ] && [ [ inline-start | inline-end ] <length-percentage> ]  |
+  [ [ start | end ] <length-percentage> ]{2}
+
+<rectangular-color-space> =
+  srgb               |
+  srgb-linear        |
+  display-p3         |
+  display-p3-linear  |
+  a98-rgb            |
+  prophoto-rgb       |
+  rec2020            |
+  lab                |
+  oklab              |
+  <xyz-space>
+
+<polar-color-space> =
+  hsl    |
+  hwb    |
+  lch    |
+  oklch
+
+<hue-interpolation-method> =
+  [ shorter | longer | increasing | decreasing ] hue
+
+<custom-color-space> =
+  <dashed-ident>
+
+<linear-color-stop> =
+  <color> <color-stop-length>?
+
+<linear-color-hint> =
+  <length-percentage>
+
+<xyz-space> =
+  xyz      |
+  xyz-d50  |
+  xyz-d65
+
+<color-stop-length> =
+  <length-percentage>{1,2}
+
+<random()> =
+  random( <random-key>? , <calc-sum> , <calc-sum> , <calc-sum>? )
+
+<random-key> =
+  auto                  |
+  <random-cache-key>    |
+  fixed <number [0,1]>
+
+<calc-sum> =
+  <calc-product> [ [ '+' | '-' ] <calc-product> ]*
+
+<random-cache-key> =
+  <dashed-ident>                                      ||
+  element-scoped                                      ||
+  [ property-scoped | property-index-scoped | <random-ua-ident> ]
+
+<calc-product> =
+  <calc-value> [ [ '*' | / ] <calc-value> ]*
+
+<random-ua-ident> =
+  <custom-ident>
+
+<calc-value> =
+  <number>        |
+  <dimension>     |
+  <percentage>    |
+  <calc-keyword>  |
+  ( <calc-sum> )
+
+<calc-keyword> =
+  e          |
+  pi         |
+  infinity   |
+  -infinity  |
+  NaN
+
+<ray()> =
+  ray( <angle>          &&
+  <ray-size>?           &&
+  contain?              &&
+  [ at <position> ]? )
+
+<ray-size> =
+  <radial-extent>  |
+  sides
+
+<position> =
+  <position-one>   |
+  <position-two>   |
+  <position-four>
+
+<radial-extent> =
+  closest-corner   |
+  closest-side     |
+  farthest-corner  |
+  farthest-side
+
+<position-one> =
+  left                 |
+  center               |
+  right                |
+  top                  |
+  bottom               |
+  x-start              |
+  x-end                |
+  y-start              |
+  y-end                |
+  block-start          |
+  block-end            |
+  inline-start         |
+  inline-end           |
+  <length-percentage>
+
+<position-two> =
+  [ left | center | right | x-start | x-end ] && [ top | center | bottom | y-start | y-end ]  |
+  [ left | center | right | x-start | x-end | <length-percentage> ] [ top | center | bottom | y-start | y-end | <length-percentage> ]  |
+  [ block-start | center | block-end ] && [ inline-start | center | inline-end ]  |
+  [ start | center | end ]{2}
+
+<position-four> =
+  [ [ left | right | x-start | x-end ] <length-percentage> ] && [ [ top | bottom | y-start | y-end ] <length-percentage> ]  |
+  [ [ block-start | block-end ] <length-percentage> ] && [ [ inline-start | inline-end ] <length-percentage> ]  |
+  [ [ start | end ] <length-percentage> ]{2}
+
+<length-percentage> =
+  <length>      |
+  <percentage>
+
+<rect()> =
+  rect( [ <length-percentage> | auto ]{4} [ round <'border-radius'> ]? )
+
+<length-percentage> =
+  <length>      |
+  <percentage>
+
+<border-radius> =
+  <length-percentage [0,∞]>{1,4} [ / <length-percentage [0,∞]>{1,4} ]?
+
+<rem()> =
+  rem( <calc-sum> , <calc-sum> )
+
+<calc-sum> =
+  <calc-product> [ [ '+' | '-' ] <calc-product> ]*
+
+<calc-product> =
+  <calc-value> [ [ '*' | / ] <calc-value> ]*
+
+<calc-value> =
+  <number>        |
+  <dimension>     |
+  <percentage>    |
+  <calc-keyword>  |
+  ( <calc-sum> )
+
+<calc-keyword> =
+  e          |
+  pi         |
+  infinity   |
+  -infinity  |
+  NaN
+
+<track-repeat> =
+  repeat( [ <integer [1,∞]> ] , [ <line-names>? <track-size> ]+ <line-names>? )
+
+<auto-repeat> =
+  repeat( [ auto-fill | auto-fit ] , [ <line-names>? <track-size> ]+ <line-names>? )
+
+<fixed-repeat> =
+  repeat( [ <integer [1,∞]> ] , [ <line-names>? <fixed-size> ]+ <line-names>? )
+
+<name-repeat> =
+  repeat( [ <integer [1,∞]> | auto-fill ] , <line-names>+ )
+
+<integer> =
+  <number-token>
+
+<line-names> =
+  '[' <custom-ident>* ']'
+
+<track-size> =
+  <track-breadth>                                   |
+  minmax( <inflexible-breadth> , <track-breadth> )  |
+  fit-content( <length-percentage [0,∞]> )
+
+<fixed-size> =
+  <fixed-breadth>                                   |
+  minmax( <fixed-breadth> , <track-breadth> )       |
+  minmax( <inflexible-breadth> , <fixed-breadth> )
+
+<track-breadth> =
+  <length-percentage [0,∞]>  |
+  <flex [0,∞]>               |
+  min-content                |
+  max-content                |
+  auto
+
+<inflexible-breadth> =
+  <length-percentage [0,∞]>  |
+  min-content                |
+  max-content                |
+  auto
+
+<length-percentage> =
+  <length>      |
+  <percentage>
+
+<fixed-breadth> =
+  <length-percentage [0,∞]>
+
+<repeating-conic-gradient()> =
+  repeating-conic-gradient( [ <conic-gradient-syntax> ] )
+
+<conic-gradient-syntax> =
+  [ [ [ from [ <angle> | <zero> ] ]? [ at <position> ]? ] || <color-interpolation-method> ]? , <angular-color-stop-list>
+
+<position> =
+  <position-one>   |
+  <position-two>   |
+  <position-four>
+
+<color-interpolation-method> =
+  in [ <rectangular-color-space> | <polar-color-space> <hue-interpolation-method>? | <custom-color-space> ]
+
+<angular-color-stop-list> =
+  <angular-color-stop> , [ <angular-color-hint>? , <angular-color-stop> ]#?
+
+<position-one> =
+  left                 |
+  center               |
+  right                |
+  top                  |
+  bottom               |
+  x-start              |
+  x-end                |
+  y-start              |
+  y-end                |
+  block-start          |
+  block-end            |
+  inline-start         |
+  inline-end           |
+  <length-percentage>
+
+<position-two> =
+  [ left | center | right | x-start | x-end ] && [ top | center | bottom | y-start | y-end ]  |
+  [ left | center | right | x-start | x-end | <length-percentage> ] [ top | center | bottom | y-start | y-end | <length-percentage> ]  |
+  [ block-start | center | block-end ] && [ inline-start | center | inline-end ]  |
+  [ start | center | end ]{2}
+
+<position-four> =
+  [ [ left | right | x-start | x-end ] <length-percentage> ] && [ [ top | bottom | y-start | y-end ] <length-percentage> ]  |
+  [ [ block-start | block-end ] <length-percentage> ] && [ [ inline-start | inline-end ] <length-percentage> ]  |
+  [ [ start | end ] <length-percentage> ]{2}
+
+<rectangular-color-space> =
+  srgb               |
+  srgb-linear        |
+  display-p3         |
+  display-p3-linear  |
+  a98-rgb            |
+  prophoto-rgb       |
+  rec2020            |
+  lab                |
+  oklab              |
+  <xyz-space>
+
+<polar-color-space> =
+  hsl    |
+  hwb    |
+  lch    |
+  oklch
+
+<hue-interpolation-method> =
+  [ shorter | longer | increasing | decreasing ] hue
+
+<custom-color-space> =
+  <dashed-ident>
+
+<angular-color-stop> =
+  <color> <color-stop-angle>?
+
+<angular-color-hint> =
+  <angle-percentage>  |
+  <zero>
+
+<length-percentage> =
+  <length>      |
+  <percentage>
+
+<xyz-space> =
+  xyz      |
+  xyz-d50  |
+  xyz-d65
+
+<color-stop-angle> =
+  [ <angle-percentage> | <zero> ]{1,2}
+
+<angle-percentage> =
+  <angle>       |
+  <percentage>
+
+<repeating-linear-gradient()> =
+  repeating-linear-gradient( [ <linear-gradient-syntax> ] )
+
+<linear-gradient-syntax> =
+  [ [ <angle> | <zero> | to <side-or-corner> ] || <color-interpolation-method> ]? , <color-stop-list>
+
+<side-or-corner> =
+  [ left | right ]  ||
+  [ top | bottom ]
+
+<color-interpolation-method> =
+  in [ <rectangular-color-space> | <polar-color-space> <hue-interpolation-method>? | <custom-color-space> ]
+
+<color-stop-list> =
+  <linear-color-stop> , [ <linear-color-hint>? , <linear-color-stop> ]#?
+
+<rectangular-color-space> =
+  srgb               |
+  srgb-linear        |
+  display-p3         |
+  display-p3-linear  |
+  a98-rgb            |
+  prophoto-rgb       |
+  rec2020            |
+  lab                |
+  oklab              |
+  <xyz-space>
+
+<polar-color-space> =
+  hsl    |
+  hwb    |
+  lch    |
+  oklch
+
+<hue-interpolation-method> =
+  [ shorter | longer | increasing | decreasing ] hue
+
+<custom-color-space> =
+  <dashed-ident>
+
+<linear-color-stop> =
+  <color> <color-stop-length>?
+
+<linear-color-hint> =
+  <length-percentage>
+
+<xyz-space> =
+  xyz      |
+  xyz-d50  |
+  xyz-d65
+
+<color-stop-length> =
+  <length-percentage>{1,2}
+
+<length-percentage> =
+  <length>      |
+  <percentage>
+
+<repeating-radial-gradient()> =
+  repeating-radial-gradient( [ <radial-gradient-syntax> ] )
+
+<radial-gradient-syntax> =
+  [ [ [ <radial-shape> || <radial-size> ]? [ at <position> ]? ] || <color-interpolation-method> ]? , <color-stop-list>
+
+<radial-shape> =
+  circle   |
+  ellipse
+
+<radial-size> =
+  <radial-extent>               |
+  <length [0,∞]>                |
+  <length-percentage [0,∞]>{2}
+
+<position> =
+  <position-one>   |
+  <position-two>   |
+  <position-four>
+
+<color-interpolation-method> =
+  in [ <rectangular-color-space> | <polar-color-space> <hue-interpolation-method>? | <custom-color-space> ]
+
+<color-stop-list> =
+  <linear-color-stop> , [ <linear-color-hint>? , <linear-color-stop> ]#?
+
+<radial-extent> =
+  closest-corner   |
+  closest-side     |
+  farthest-corner  |
+  farthest-side
+
+<length-percentage> =
+  <length>      |
+  <percentage>
+
+<position-one> =
+  left                 |
+  center               |
+  right                |
+  top                  |
+  bottom               |
+  x-start              |
+  x-end                |
+  y-start              |
+  y-end                |
+  block-start          |
+  block-end            |
+  inline-start         |
+  inline-end           |
+  <length-percentage>
+
+<position-two> =
+  [ left | center | right | x-start | x-end ] && [ top | center | bottom | y-start | y-end ]  |
+  [ left | center | right | x-start | x-end | <length-percentage> ] [ top | center | bottom | y-start | y-end | <length-percentage> ]  |
+  [ block-start | center | block-end ] && [ inline-start | center | inline-end ]  |
+  [ start | center | end ]{2}
+
+<position-four> =
+  [ [ left | right | x-start | x-end ] <length-percentage> ] && [ [ top | bottom | y-start | y-end ] <length-percentage> ]  |
+  [ [ block-start | block-end ] <length-percentage> ] && [ [ inline-start | inline-end ] <length-percentage> ]  |
+  [ [ start | end ] <length-percentage> ]{2}
+
+<rectangular-color-space> =
+  srgb               |
+  srgb-linear        |
+  display-p3         |
+  display-p3-linear  |
+  a98-rgb            |
+  prophoto-rgb       |
+  rec2020            |
+  lab                |
+  oklab              |
+  <xyz-space>
+
+<polar-color-space> =
+  hsl    |
+  hwb    |
+  lch    |
+  oklch
+
+<hue-interpolation-method> =
+  [ shorter | longer | increasing | decreasing ] hue
+
+<custom-color-space> =
+  <dashed-ident>
+
+<linear-color-stop> =
+  <color> <color-stop-length>?
+
+<linear-color-hint> =
+  <length-percentage>
+
+<xyz-space> =
+  xyz      |
+  xyz-d50  |
+  xyz-d65
+
+<color-stop-length> =
+  <length-percentage>{1,2}
+
+<rgb()> =
+  <legacy-rgb-syntax>  |
+  <modern-rgb-syntax>
+
+<legacy-rgb-syntax> =
+  rgb( <percentage>#{3} , <alpha-value>? )  |
+  rgb( <number>#{3} , <alpha-value>? )
+
+<modern-rgb-syntax> =
+  rgb( [ from <color> ]? [ <number> | <percentage> | none ]{3} [ / [ <alpha-value> | none ] ]? )
+
+<alpha-value> =
+  <number>      |
+  <percentage>
+
+<rotate()> =
+  rotate( [ <angle> | <zero> ] )
+
+<rotate3d()> =
+  rotate3d( <number> , <number> , <number> , [ <angle> | <zero> ] )
+
+<rotateX()> =
+  rotateX( [ <angle> | <zero> ] )
+
+<rotateY()> =
+  rotateY( [ <angle> | <zero> ] )
+
+<rotateZ()> =
+  rotateZ( [ <angle> | <zero> ] )
+
+<round()> =
+  round( <rounding-strategy>? , <calc-sum> , <calc-sum>? )
+
+<rounding-strategy> =
+  nearest     |
+  up          |
+  down        |
+  to-zero     |
+  line-width
+
+<calc-sum> =
+  <calc-product> [ [ '+' | '-' ] <calc-product> ]*
+
+<calc-product> =
+  <calc-value> [ [ '*' | / ] <calc-value> ]*
+
+<calc-value> =
+  <number>        |
+  <dimension>     |
+  <percentage>    |
+  <calc-keyword>  |
+  ( <calc-sum> )
+
+<calc-keyword> =
+  e          |
+  pi         |
+  infinity   |
+  -infinity  |
+  NaN
+
+<saturate()> =
+  saturate( [ <number> | <percentage> ]? )
+
+<scale()> =
+  scale( <number> , <number>? )
+
+<scale3d()> =
+  scale3d( [ <number> | <percentage> ]#{3} )
+
+<scaleX()> =
+  scaleX( <number> )
+
+<scaleY()> =
+  scaleY( <number> )
+
+<scaleZ()> =
+  scaleZ( [ <number> | <percentage> ] )
+
+<scroll()> =
+  scroll( [ <scroller> || <axis> ]? )
+
+<scroller> =
+  root     |
+  nearest  |
+  self
+
+<axis> =
+  block   |
+  inline  |
+  x       |
+  y
+
+<sepia()> =
+  sepia( [ <number> | <percentage> ]? )
+
+<shape()> =
+  shape( <'fill-rule'>? from <position> , <shape-command># )
+
+<fill-rule> =
+  nonzero  |
+  evenodd
+
+<position> =
+  <position-one>   |
+  <position-two>   |
+  <position-four>
+
+<shape-command> =
+  <move-command>             |
+  <line-command>             |
+  close                      |
+  <horizontal-line-command>  |
+  <vertical-line-command>    |
+  <curve-command>            |
+  <smooth-command>           |
+  <arc-command>
+
+<position-one> =
+  left                 |
+  center               |
+  right                |
+  top                  |
+  bottom               |
+  x-start              |
+  x-end                |
+  y-start              |
+  y-end                |
+  block-start          |
+  block-end            |
+  inline-start         |
+  inline-end           |
+  <length-percentage>
+
+<position-two> =
+  [ left | center | right | x-start | x-end ] && [ top | center | bottom | y-start | y-end ]  |
+  [ left | center | right | x-start | x-end | <length-percentage> ] [ top | center | bottom | y-start | y-end | <length-percentage> ]  |
+  [ block-start | center | block-end ] && [ inline-start | center | inline-end ]  |
+  [ start | center | end ]{2}
+
+<position-four> =
+  [ [ left | right | x-start | x-end ] <length-percentage> ] && [ [ top | bottom | y-start | y-end ] <length-percentage> ]  |
+  [ [ block-start | block-end ] <length-percentage> ] && [ [ inline-start | inline-end ] <length-percentage> ]  |
+  [ [ start | end ] <length-percentage> ]{2}
+
+<move-command> =
+  move <command-end-point>
+
+<line-command> =
+  line <command-end-point>
+
+<horizontal-line-command> =
+  hline [ to [ <length-percentage> | left | center | right | x-start | x-end ] | by <length-percentage> ]
+
+<vertical-line-command> =
+  vline [ to [ <length-percentage> | top | center | bottom | y-start | y-end ] | by <length-percentage> ]
+
+<curve-command> =
+  curve [ [ to <position> with <control-point> [ / <control-point> ]? ] | [ by <coordinate-pair> with <relative-control-point> [ / <relative-control-point> ]? ] ]
+
+<smooth-command> =
+  smooth [ [ to <position> [ with <control-point> ]? ] | [ by <coordinate-pair> [ with <relative-control-point> ]? ] ]
+
+<arc-command> =
+  arc <command-end-point> [ [ of <length-percentage>{1,2} ] && <arc-sweep>? && <arc-size>? && [ rotate <angle> ]? ]
+
+<length-percentage> =
+  <length>      |
+  <percentage>
+
+<command-end-point> =
+  to <position>         |
+  by <coordinate-pair>
+
+<control-point> =
+  <position>                |
+  <relative-control-point>
+
+<coordinate-pair> =
+  <length-percentage>{2}
+
+<relative-control-point> =
+  <coordinate-pair> [ from [ start | end | origin ] ]?
+
+<arc-sweep> =
+  cw   |
+  ccw
+
+<arc-size> =
+  large  |
+  small
+
+<sign()> =
+  sign( <calc-sum> )
+
+<calc-sum> =
+  <calc-product> [ [ '+' | '-' ] <calc-product> ]*
+
+<calc-product> =
+  <calc-value> [ [ '*' | / ] <calc-value> ]*
+
+<calc-value> =
+  <number>        |
+  <dimension>     |
+  <percentage>    |
+  <calc-keyword>  |
+  ( <calc-sum> )
+
+<calc-keyword> =
+  e          |
+  pi         |
+  infinity   |
+  -infinity  |
+  NaN
+
+<sin()> =
+  sin( <calc-sum> )
+
+<calc-sum> =
+  <calc-product> [ [ '+' | '-' ] <calc-product> ]*
+
+<calc-product> =
+  <calc-value> [ [ '*' | / ] <calc-value> ]*
+
+<calc-value> =
+  <number>        |
+  <dimension>     |
+  <percentage>    |
+  <calc-keyword>  |
+  ( <calc-sum> )
+
+<calc-keyword> =
+  e          |
+  pi         |
+  infinity   |
+  -infinity  |
+  NaN
+
+<skew()> =
+  skew( [ <angle> | <zero> ] , [ <angle> | <zero> ]? )
+
+<skewX()> =
+  skewX( [ <angle> | <zero> ] )
+
+<skewY()> =
+  skewY( [ <angle> | <zero> ] )
+
+<sqrt()> =
+  sqrt( <calc-sum> )
+
+<calc-sum> =
+  <calc-product> [ [ '+' | '-' ] <calc-product> ]*
+
+<calc-product> =
+  <calc-value> [ [ '*' | / ] <calc-value> ]*
+
+<calc-value> =
+  <number>        |
+  <dimension>     |
+  <percentage>    |
+  <calc-keyword>  |
+  ( <calc-sum> )
+
+<calc-keyword> =
+  e          |
+  pi         |
+  infinity   |
+  -infinity  |
+  NaN
+
+<steps()> =
+  steps( <integer> , <step-position>? )
+
+<integer> =
+  <number-token>
+
+<step-position> =
+  jump-start  |
+  jump-end    |
+  jump-none   |
+  jump-both   |
+  start       |
+  end
+
+<superellipse()> =
+  superellipse( <number>  |
+  infinity                |
+  -infinity )
+
+<symbols()> =
+  symbols( <symbols-type>? [ <string> | <image> ]+ )
+
+<symbols-type> =
+  cyclic      |
+  numeric     |
+  alphabetic  |
+  symbolic    |
+  fixed
+
+<image> =
+  <url>           |
+  <image()>       |
+  <image-set()>   |
+  <cross-fade()>  |
+  <element()>     |
+  <gradient>
+
+<image()> =
+  image( <image-tags>? [ <image-src>? , <color>? ]! )
+
+<image-set()> =
+  image-set( <image-set-option># )
+
+<cross-fade()> =
+  cross-fade( <cf-image># )
+
+<element()> =
+  element( <id-selector> )
+
+<image-tags> =
+  ltr  |
+  rtl
+
+<image-src> =
+  <url>     |
+  <string>
+
+<image-set-option> =
+  [ <image> | <string> ] [ <resolution> || type( <string> ) ]?
+
+<cf-image> =
+  [ <image> | <color> ]  &&
+  <percentage [0,100]>?
+
+<id-selector> =
+  <hash-token>
+
+<tan()> =
+  tan( <calc-sum> )
+
+<calc-sum> =
+  <calc-product> [ [ '+' | '-' ] <calc-product> ]*
+
+<calc-product> =
+  <calc-value> [ [ '*' | / ] <calc-value> ]*
+
+<calc-value> =
+  <number>        |
+  <dimension>     |
+  <percentage>    |
+  <calc-keyword>  |
+  ( <calc-sum> )
+
+<calc-keyword> =
+  e          |
+  pi         |
+  infinity   |
+  -infinity  |
+  NaN
+
+<translate()> =
+  translate( <length-percentage> , <length-percentage>? )
+
+<length-percentage> =
+  <length>      |
+  <percentage>
+
+<translate3d()> =
+  translate3d( <length-percentage> , <length-percentage> , <length> )
+
+<length-percentage> =
+  <length>      |
+  <percentage>
+
+<translateX()> =
+  translateX( <length-percentage> )
+
+<length-percentage> =
+  <length>      |
+  <percentage>
+
+<translateY()> =
+  translateY( <length-percentage> )
+
+<length-percentage> =
+  <length>      |
+  <percentage>
+
+<translateZ()> =
+  translateZ( <length> )
+
+<type()> =
+  type( <string> )
+
+<url()> =
+  url( <string> <url-modifier>* )  |
+  <url-token>
+
+<var()> =
+  var( <custom-property-name> , <declaration-value>? )
+
+<view()> =
+  view( [ <axis> || <'view-timeline-inset'> ]? )
+
+<axis> =
+  block   |
+  inline  |
+  x       |
+  y
+
+<view-timeline-inset> =
+  [ [ auto | <length-percentage> ]{1,2} ]#
+
+<length-percentage> =
+  <length>      |
+  <percentage>
+
+<xywh()> =
+  xywh( <length-percentage>{2} <length-percentage [0,∞]>{2} [ round <'border-radius'> ]? )
+
+<length-percentage> =
+  <length>      |
+  <percentage>
+
+<border-radius> =
+  <length-percentage [0,∞]>{1,4} [ / <length-percentage [0,∞]>{1,4} ]?
 
 # NO_SYNTAX -moz-image-rect (no formal_syntax block found) — https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/-moz-image-rect
 # NO_SYNTAX contrast-color (no formal_syntax block found) — https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/contrast-color
