@@ -96,3 +96,8 @@ in with actual pseudo-class entries. These should be removed from the reference 
 
 ### Duplicate URLs in properties reference
 `inset`, `inset-block`, `inset-inline`, `list-style` each appear twice.
+
+### Properties reference: two files, only one is MDN
+`properties-reference.md` contains w3schools URLs; `mdnproperties-reference.md` contains MDN URLs.
+The scraper must use `mdnproperties-reference.md` for properties — the w3schools pages have no
+formal syntax block and will produce 100% NO_SYNTAX output.
