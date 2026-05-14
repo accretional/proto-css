@@ -1,3 +1,3933 @@
-property = display_expr | color_expr | ... ;
+(* CSS Property value definitions
+   Generated from docs/syntax/properties.txt by scripts/properties_to_ebnf.py
 
-display_expr = "flex-box" | "none" | ... ;
+   Each property is named <property_name>_prop.
+   Inline sub-types not already defined in other EBNF files are also included here.
+*)
+
+(* ── CSS Property declarations (name : value ;) ─────────────────────────── *)
+
+(* accent-color *)
+accent_color_expr = "accent-color" , ":" , accent_color_prop , ";" ;
+
+(* align-content *)
+align_content_expr = "align-content" , ":" , align_content_prop , ";" ;
+
+(* align-items *)
+align_items_expr = "align-items" , ":" , align_items_prop , ";" ;
+
+(* align-self *)
+align_self_expr = "align-self" , ":" , align_self_prop , ";" ;
+
+(* alignment-baseline *)
+alignment_baseline_expr = "alignment-baseline" , ":" , alignment_baseline_prop , ";" ;
+
+(* all *)
+all_expr = all , ":" , all_prop , ";" ;
+
+(* anchor-name *)
+anchor_name_expr = "anchor-name" , ":" , anchor_name_prop , ";" ;
+
+(* anchor-scope *)
+anchor_scope_expr = "anchor-scope" , ":" , anchor_scope_prop , ";" ;
+
+(* animation-composition *)
+animation_composition_expr = "animation-composition" , ":" , animation_composition_prop , ";" ;
+
+(* animation-delay *)
+animation_delay_expr = "animation-delay" , ":" , animation_delay_prop , ";" ;
+
+(* animation-direction *)
+animation_direction_expr = "animation-direction" , ":" , animation_direction_prop , ";" ;
+
+(* animation-duration *)
+animation_duration_expr = "animation-duration" , ":" , animation_duration_prop , ";" ;
+
+(* animation-fill-mode *)
+animation_fill_mode_expr = "animation-fill-mode" , ":" , animation_fill_mode_prop , ";" ;
+
+(* animation-iteration-count *)
+animation_iteration_count_expr = "animation-iteration-count" , ":" , animation_iteration_count_prop , ";" ;
+
+(* animation-name *)
+animation_name_expr = "animation-name" , ":" , animation_name_prop , ";" ;
+
+(* animation-play-state *)
+animation_play_state_expr = "animation-play-state" , ":" , animation_play_state_prop , ";" ;
+
+(* animation-range-end *)
+animation_range_end_expr = "animation-range-end" , ":" , animation_range_end_prop , ";" ;
+
+(* animation-range-start *)
+animation_range_start_expr = "animation-range-start" , ":" , animation_range_start_prop , ";" ;
+
+(* animation-range *)
+animation_range_expr = "animation-range" , ":" , animation_range_prop , ";" ;
+
+(* animation-timeline *)
+animation_timeline_expr = "animation-timeline" , ":" , animation_timeline_prop , ";" ;
+
+(* animation-timing-function *)
+animation_timing_function_expr = "animation-timing-function" , ":" , animation_timing_function_prop , ";" ;
+
+(* animation *)
+animation_expr = "animation" , ":" , animation_prop , ";" ;
+
+(* appearance *)
+appearance_expr = "appearance" , ":" , appearance_prop , ";" ;
+
+(* aspect-ratio *)
+aspect_ratio_expr = "aspect-ratio" , ":" , aspect_ratio_prop , ";" ;
+
+(* backdrop-filter *)
+backdrop_filter_expr = "backdrop-filter" , ":" , backdrop_filter_prop , ";" ;
+
+(* backface-visibility *)
+backface_visibility_expr = "backface-visibility" , ":" , backface_visibility_prop , ";" ;
+
+(* background-attachment *)
+background_attachment_expr = "background-attachment" , ":" , background_attachment_prop , ";" ;
+
+(* background-blend-mode *)
+background_blend_mode_expr = "background-blend-mode" , ":" , background_blend_mode_prop , ";" ;
+
+(* background-clip *)
+background_clip_expr = "background-clip" , ":" , background_clip_prop , ";" ;
+
+(* background-color *)
+background_color_expr = "background-color" , ":" , background_color_prop , ";" ;
+
+(* background-image *)
+background_image_expr = "background-image" , ":" , background_image_prop , ";" ;
+
+(* background-origin *)
+background_origin_expr = "background-origin" , ":" , background_origin_prop , ";" ;
+
+(* background-position-x *)
+background_position_x_expr = "background-position-x" , ":" , background_position_x_prop , ";" ;
+
+(* background-position-y *)
+background_position_y_expr = "background-position-y" , ":" , background_position_y_prop , ";" ;
+
+(* background-position *)
+background_position_expr = "background-position" , ":" , background_position_prop , ";" ;
+
+(* background-repeat *)
+background_repeat_expr = "background-repeat" , ":" , background_repeat_prop , ";" ;
+
+(* background-repeat-x *)
+background_repeat_x_expr = "background-repeat-x" , ":" , background_repeat_x_prop , ";" ;
+
+(* background-repeat-y *)
+background_repeat_y_expr = "background-repeat-y" , ":" , background_repeat_y_prop , ";" ;
+
+(* background-size *)
+background_size_expr = "background-size" , ":" , background_size_prop , ";" ;
+
+(* background *)
+background_expr = background , ":" , background_prop , ";" ;
+
+(* baseline-shift *)
+baseline_shift_expr = "baseline-shift" , ":" , baseline_shift_prop , ";" ;
+
+(* baseline-source *)
+baseline_source_expr = "baseline-source" , ":" , baseline_source_prop , ";" ;
+
+(* block-size *)
+block_size_expr = "block-size" , ":" , block_size_prop , ";" ;
+
+(* border-block-color *)
+border_block_color_expr = "border-block-color" , ":" , border_block_color_prop , ";" ;
+
+(* border-block-end-color *)
+border_block_end_color_expr = "border-block-end-color" , ":" , border_block_end_color_prop , ";" ;
+
+(* border-block-end-style *)
+border_block_end_style_expr = "border-block-end-style" , ":" , border_block_end_style_prop , ";" ;
+
+(* border-block-end-width *)
+border_block_end_width_expr = "border-block-end-width" , ":" , border_block_end_width_prop , ";" ;
+
+(* border-block-end *)
+border_block_end_expr = "border-block-end" , ":" , border_block_end_prop , ";" ;
+
+(* border-block-start-color *)
+border_block_start_color_expr = "border-block-start-color" , ":" , border_block_start_color_prop , ";" ;
+
+(* border-block-start-style *)
+border_block_start_style_expr = "border-block-start-style" , ":" , border_block_start_style_prop , ";" ;
+
+(* border-block-start-width *)
+border_block_start_width_expr = "border-block-start-width" , ":" , border_block_start_width_prop , ";" ;
+
+(* border-block-start *)
+border_block_start_expr = "border-block-start" , ":" , border_block_start_prop , ";" ;
+
+(* border-block-style *)
+border_block_style_expr = "border-block-style" , ":" , border_block_style_prop , ";" ;
+
+(* border-block-width *)
+border_block_width_expr = "border-block-width" , ":" , border_block_width_prop , ";" ;
+
+(* border-block *)
+border_block_expr = "border-block" , ":" , border_block_prop , ";" ;
+
+(* border-bottom-color *)
+border_bottom_color_expr = "border-bottom-color" , ":" , border_bottom_color_prop , ";" ;
+
+(* border-bottom-left-radius *)
+border_bottom_left_radius_expr = "border-bottom-left-radius" , ":" , border_bottom_left_radius_prop , ";" ;
+
+(* border-bottom-right-radius *)
+border_bottom_right_radius_expr = "border-bottom-right-radius" , ":" , border_bottom_right_radius_prop , ";" ;
+
+(* border-bottom-style *)
+border_bottom_style_expr = "border-bottom-style" , ":" , border_bottom_style_prop , ";" ;
+
+(* border-bottom-width *)
+border_bottom_width_expr = "border-bottom-width" , ":" , border_bottom_width_prop , ";" ;
+
+(* border-bottom *)
+border_bottom_expr = "border-bottom" , ":" , border_bottom_prop , ";" ;
+
+(* border-collapse *)
+border_collapse_expr = "border-collapse" , ":" , border_collapse_prop , ";" ;
+
+(* border-color *)
+border_color_expr = "border-color" , ":" , border_color_prop , ";" ;
+
+(* border-end-end-radius *)
+border_end_end_radius_expr = "border-end-end-radius" , ":" , border_end_end_radius_prop , ";" ;
+
+(* border-end-start-radius *)
+border_end_start_radius_expr = "border-end-start-radius" , ":" , border_end_start_radius_prop , ";" ;
+
+(* border-image-outset *)
+border_image_outset_expr = "border-image-outset" , ":" , border_image_outset_prop , ";" ;
+
+(* border-image-repeat *)
+border_image_repeat_expr = "border-image-repeat" , ":" , border_image_repeat_prop , ";" ;
+
+(* border-image-slice *)
+border_image_slice_expr = "border-image-slice" , ":" , border_image_slice_prop , ";" ;
+
+(* border-image-source *)
+border_image_source_expr = "border-image-source" , ":" , border_image_source_prop , ";" ;
+
+(* border-image-width *)
+border_image_width_expr = "border-image-width" , ":" , border_image_width_prop , ";" ;
+
+(* border-image *)
+border_image_expr = "border-image" , ":" , border_image_prop , ";" ;
+
+(* border-inline-color *)
+border_inline_color_expr = "border-inline-color" , ":" , border_inline_color_prop , ";" ;
+
+(* border-inline-end-color *)
+border_inline_end_color_expr = "border-inline-end-color" , ":" , border_inline_end_color_prop , ";" ;
+
+(* border-inline-end-style *)
+border_inline_end_style_expr = "border-inline-end-style" , ":" , border_inline_end_style_prop , ";" ;
+
+(* border-inline-end-width *)
+border_inline_end_width_expr = "border-inline-end-width" , ":" , border_inline_end_width_prop , ";" ;
+
+(* border-inline-end *)
+border_inline_end_expr = "border-inline-end" , ":" , border_inline_end_prop , ";" ;
+
+(* border-inline-start-color *)
+border_inline_start_color_expr = "border-inline-start-color" , ":" , border_inline_start_color_prop , ";" ;
+
+(* border-inline-start-style *)
+border_inline_start_style_expr = "border-inline-start-style" , ":" , border_inline_start_style_prop , ";" ;
+
+(* border-inline-start-width *)
+border_inline_start_width_expr = "border-inline-start-width" , ":" , border_inline_start_width_prop , ";" ;
+
+(* border-inline-start *)
+border_inline_start_expr = "border-inline-start" , ":" , border_inline_start_prop , ";" ;
+
+(* border-inline-style *)
+border_inline_style_expr = "border-inline-style" , ":" , border_inline_style_prop , ";" ;
+
+(* border-inline-width *)
+border_inline_width_expr = "border-inline-width" , ":" , border_inline_width_prop , ";" ;
+
+(* border-inline *)
+border_inline_expr = "border-inline" , ":" , border_inline_prop , ";" ;
+
+(* border-left-color *)
+border_left_color_expr = "border-left-color" , ":" , border_left_color_prop , ";" ;
+
+(* border-left-style *)
+border_left_style_expr = "border-left-style" , ":" , border_left_style_prop , ";" ;
+
+(* border-left-width *)
+border_left_width_expr = "border-left-width" , ":" , border_left_width_prop , ";" ;
+
+(* border-left *)
+border_left_expr = "border-left" , ":" , border_left_prop , ";" ;
+
+(* border-radius *)
+border_radius_expr = "border-radius" , ":" , border_radius_prop , ";" ;
+
+(* border-right-color *)
+border_right_color_expr = "border-right-color" , ":" , border_right_color_prop , ";" ;
+
+(* border-right-style *)
+border_right_style_expr = "border-right-style" , ":" , border_right_style_prop , ";" ;
+
+(* border-right-width *)
+border_right_width_expr = "border-right-width" , ":" , border_right_width_prop , ";" ;
+
+(* border-right *)
+border_right_expr = "border-right" , ":" , border_right_prop , ";" ;
+
+(* border-spacing *)
+border_spacing_expr = "border-spacing" , ":" , border_spacing_prop , ";" ;
+
+(* border-start-end-radius *)
+border_start_end_radius_expr = "border-start-end-radius" , ":" , border_start_end_radius_prop , ";" ;
+
+(* border-start-start-radius *)
+border_start_start_radius_expr = "border-start-start-radius" , ":" , border_start_start_radius_prop , ";" ;
+
+(* border-style *)
+border_style_expr = "border-style" , ":" , border_style_prop , ";" ;
+
+(* border-top-color *)
+border_top_color_expr = "border-top-color" , ":" , border_top_color_prop , ";" ;
+
+(* border-top-left-radius *)
+border_top_left_radius_expr = "border-top-left-radius" , ":" , border_top_left_radius_prop , ";" ;
+
+(* border-top-right-radius *)
+border_top_right_radius_expr = "border-top-right-radius" , ":" , border_top_right_radius_prop , ";" ;
+
+(* border-top-style *)
+border_top_style_expr = "border-top-style" , ":" , border_top_style_prop , ";" ;
+
+(* border-top-width *)
+border_top_width_expr = "border-top-width" , ":" , border_top_width_prop , ";" ;
+
+(* border-top *)
+border_top_expr = "border-top" , ":" , border_top_prop , ";" ;
+
+(* border-width *)
+border_width_expr = "border-width" , ":" , border_width_prop , ";" ;
+
+(* border *)
+border_expr = border , ":" , border_prop , ";" ;
+
+(* bottom *)
+bottom_expr = bottom , ":" , bottom_prop , ";" ;
+
+(* box-align *)
+box_align_expr = "box-align" , ":" , box_align_prop , ";" ;
+
+(* box-decoration-break *)
+box_decoration_break_expr = "box-decoration-break" , ":" , box_decoration_break_prop , ";" ;
+
+(* box-direction *)
+box_direction_expr = "box-direction" , ":" , box_direction_prop , ";" ;
+
+(* box-flex-group *)
+box_flex_group_expr = "box-flex-group" , ":" , box_flex_group_prop , ";" ;
+
+(* box-flex *)
+box_flex_expr = "box-flex" , ":" , box_flex_prop , ";" ;
+
+(* box-lines *)
+box_lines_expr = "box-lines" , ":" , box_lines_prop , ";" ;
+
+(* box-ordinal-group *)
+box_ordinal_group_expr = "box-ordinal-group" , ":" , box_ordinal_group_prop , ";" ;
+
+(* box-orient *)
+box_orient_expr = "box-orient" , ":" , box_orient_prop , ";" ;
+
+(* box-pack *)
+box_pack_expr = "box-pack" , ":" , box_pack_prop , ";" ;
+
+(* box-shadow *)
+box_shadow_expr = "box-shadow" , ":" , box_shadow_prop , ";" ;
+
+(* box-sizing *)
+box_sizing_expr = "box-sizing" , ":" , box_sizing_prop , ";" ;
+
+(* break-after *)
+break_after_expr = "break-after" , ":" , break_after_prop , ";" ;
+
+(* break-before *)
+break_before_expr = "break-before" , ":" , break_before_prop , ";" ;
+
+(* break-inside *)
+break_inside_expr = "break-inside" , ":" , break_inside_prop , ";" ;
+
+(* caption-side *)
+caption_side_expr = "caption-side" , ":" , caption_side_prop , ";" ;
+
+(* caret-animation *)
+caret_animation_expr = "caret-animation" , ":" , caret_animation_prop , ";" ;
+
+(* caret-color *)
+caret_color_expr = "caret-color" , ":" , caret_color_prop , ";" ;
+
+(* caret-shape *)
+caret_shape_expr = "caret-shape" , ":" , caret_shape_prop , ";" ;
+
+(* caret *)
+caret_expr = "caret" , ":" , caret_prop , ";" ;
+
+(* clear *)
+clear_expr = clear , ":" , clear_prop , ";" ;
+
+(* clip-path *)
+clip_path_expr = "clip-path" , ":" , clip_path_prop , ";" ;
+
+(* clip-rule *)
+clip_rule_expr = "clip-rule" , ":" , clip_rule_prop , ";" ;
+
+(* clip *)
+clip_expr = clip , ":" , clip_prop , ";" ;
+
+(* color-interpolation-filters *)
+color_interpolation_filters_expr = "color-interpolation-filters" , ":" , color_interpolation_filters_prop , ";" ;
+
+(* color-interpolation *)
+color_interpolation_expr = "color-interpolation" , ":" , color_interpolation_prop , ";" ;
+
+(* color-scheme *)
+color_scheme_expr = "color-scheme" , ":" , color_scheme_prop , ";" ;
+
+(* color *)
+color_expr = color , ":" , color_prop , ";" ;
+
+(* column-count *)
+column_count_expr = "column-count" , ":" , column_count_prop , ";" ;
+
+(* column-fill *)
+column_fill_expr = "column-fill" , ":" , column_fill_prop , ";" ;
+
+(* column-gap *)
+column_gap_expr = "column-gap" , ":" , column_gap_prop , ";" ;
+
+(* column-height *)
+column_height_expr = "column-height" , ":" , column_height_prop , ";" ;
+
+(* column-rule-color *)
+column_rule_color_expr = "column-rule-color" , ":" , column_rule_color_prop , ";" ;
+
+(* column-rule-style *)
+column_rule_style_expr = "column-rule-style" , ":" , column_rule_style_prop , ";" ;
+
+(* column-rule-width *)
+column_rule_width_expr = "column-rule-width" , ":" , column_rule_width_prop , ";" ;
+
+(* column-rule *)
+column_rule_expr = "column-rule" , ":" , column_rule_prop , ";" ;
+
+(* column-span *)
+column_span_expr = "column-span" , ":" , column_span_prop , ";" ;
+
+(* column-width *)
+column_width_expr = "column-width" , ":" , column_width_prop , ";" ;
+
+(* column-wrap *)
+column_wrap_expr = "column-wrap" , ":" , column_wrap_prop , ";" ;
+
+(* columns *)
+columns_expr = "columns" , ":" , columns_prop , ";" ;
+
+(* contain-intrinsic-block-size *)
+contain_intrinsic_block_size_expr = "contain-intrinsic-block-size" , ":" , contain_intrinsic_block_size_prop , ";" ;
+
+(* contain-intrinsic-height *)
+contain_intrinsic_height_expr = "contain-intrinsic-height" , ":" , contain_intrinsic_height_prop , ";" ;
+
+(* contain-intrinsic-inline-size *)
+contain_intrinsic_inline_size_expr = "contain-intrinsic-inline-size" , ":" , contain_intrinsic_inline_size_prop , ";" ;
+
+(* contain-intrinsic-size *)
+contain_intrinsic_size_expr = "contain-intrinsic-size" , ":" , contain_intrinsic_size_prop , ";" ;
+
+(* contain-intrinsic-width *)
+contain_intrinsic_width_expr = "contain-intrinsic-width" , ":" , contain_intrinsic_width_prop , ";" ;
+
+(* contain *)
+contain_expr = contain , ":" , contain_prop , ";" ;
+
+(* container-name *)
+container_name_expr = "container-name" , ":" , container_name_prop , ";" ;
+
+(* container-type *)
+container_type_expr = "container-type" , ":" , container_type_prop , ";" ;
+
+(* container *)
+container_expr = "container" , ":" , container_prop , ";" ;
+
+(* content-visibility *)
+content_visibility_expr = "content-visibility" , ":" , content_visibility_prop , ";" ;
+
+(* content *)
+content_expr = content , ":" , content_prop , ";" ;
+
+(* corner-block-end-shape *)
+corner_block_end_shape_expr = "corner-block-end-shape" , ":" , corner_block_end_shape_prop , ";" ;
+
+(* corner-block-start-shape *)
+corner_block_start_shape_expr = "corner-block-start-shape" , ":" , corner_block_start_shape_prop , ";" ;
+
+(* corner-bottom-left-shape *)
+corner_bottom_left_shape_expr = "corner-bottom-left-shape" , ":" , corner_bottom_left_shape_prop , ";" ;
+
+(* corner-bottom-right-shape *)
+corner_bottom_right_shape_expr = "corner-bottom-right-shape" , ":" , corner_bottom_right_shape_prop , ";" ;
+
+(* corner-bottom-shape *)
+corner_bottom_shape_expr = "corner-bottom-shape" , ":" , corner_bottom_shape_prop , ";" ;
+
+(* corner-end-end-shape *)
+corner_end_end_shape_expr = "corner-end-end-shape" , ":" , corner_end_end_shape_prop , ";" ;
+
+(* corner-end-start-shape *)
+corner_end_start_shape_expr = "corner-end-start-shape" , ":" , corner_end_start_shape_prop , ";" ;
+
+(* corner-inline-end-shape *)
+corner_inline_end_shape_expr = "corner-inline-end-shape" , ":" , corner_inline_end_shape_prop , ";" ;
+
+(* corner-inline-start-shape *)
+corner_inline_start_shape_expr = "corner-inline-start-shape" , ":" , corner_inline_start_shape_prop , ";" ;
+
+(* corner-left-shape *)
+corner_left_shape_expr = "corner-left-shape" , ":" , corner_left_shape_prop , ";" ;
+
+(* corner-right-shape *)
+corner_right_shape_expr = "corner-right-shape" , ":" , corner_right_shape_prop , ";" ;
+
+(* corner-shape *)
+corner_shape_expr = "corner-shape" , ":" , corner_shape_prop , ";" ;
+
+(* corner-start-end-shape *)
+corner_start_end_shape_expr = "corner-start-end-shape" , ":" , corner_start_end_shape_prop , ";" ;
+
+(* corner-start-start-shape *)
+corner_start_start_shape_expr = "corner-start-start-shape" , ":" , corner_start_start_shape_prop , ";" ;
+
+(* corner-top-left-shape *)
+corner_top_left_shape_expr = "corner-top-left-shape" , ":" , corner_top_left_shape_prop , ";" ;
+
+(* corner-top-right-shape *)
+corner_top_right_shape_expr = "corner-top-right-shape" , ":" , corner_top_right_shape_prop , ";" ;
+
+(* corner-top-shape *)
+corner_top_shape_expr = "corner-top-shape" , ":" , corner_top_shape_prop , ";" ;
+
+(* counter-increment *)
+counter_increment_expr = "counter-increment" , ":" , counter_increment_prop , ";" ;
+
+(* counter-reset *)
+counter_reset_expr = "counter-reset" , ":" , counter_reset_prop , ";" ;
+
+(* counter-set *)
+counter_set_expr = "counter-set" , ":" , counter_set_prop , ";" ;
+
+(* cursor *)
+cursor_expr = "cursor" , ":" , cursor_prop , ";" ;
+
+(* cx *)
+cx_expr = "cx" , ":" , cx_prop , ";" ;
+
+(* cy *)
+cy_expr = "cy" , ":" , cy_prop , ";" ;
+
+(* d *)
+d_expr = "d" , ":" , d_prop , ";" ;
+
+(* direction *)
+direction_expr = "direction" , ":" , direction_prop , ";" ;
+
+(* display *)
+display_expr = "display" , ":" , display_prop , ";" ;
+
+(* dominant-baseline *)
+dominant_baseline_expr = "dominant-baseline" , ":" , dominant_baseline_prop , ";" ;
+
+(* dynamic-range-limit *)
+dynamic_range_limit_expr = "dynamic-range-limit" , ":" , dynamic_range_limit_prop , ";" ;
+
+(* empty-cells *)
+empty_cells_expr = "empty-cells" , ":" , empty_cells_prop , ";" ;
+
+(* field-sizing *)
+field_sizing_expr = "field-sizing" , ":" , field_sizing_prop , ";" ;
+
+(* fill-opacity *)
+fill_opacity_expr = "fill-opacity" , ":" , fill_opacity_prop , ";" ;
+
+(* fill-rule *)
+fill_rule_expr = "fill-rule" , ":" , fill_rule_prop , ";" ;
+
+(* fill *)
+fill_expr = fill , ":" , fill_prop , ";" ;
+
+(* filter *)
+filter_expr = filter , ":" , filter_prop , ";" ;
+
+(* flex-basis *)
+flex_basis_expr = "flex-basis" , ":" , flex_basis_prop , ";" ;
+
+(* flex-direction *)
+flex_direction_expr = "flex-direction" , ":" , flex_direction_prop , ";" ;
+
+(* flex-flow *)
+flex_flow_expr = "flex-flow" , ":" , flex_flow_prop , ";" ;
+
+(* flex-grow *)
+flex_grow_expr = "flex-grow" , ":" , flex_grow_prop , ";" ;
+
+(* flex-shrink *)
+flex_shrink_expr = "flex-shrink" , ":" , flex_shrink_prop , ";" ;
+
+(* flex-wrap *)
+flex_wrap_expr = "flex-wrap" , ":" , flex_wrap_prop , ";" ;
+
+(* flex *)
+flex_expr = flex , ":" , flex_prop , ";" ;
+
+(* float *)
+float_expr = "float" , ":" , float_prop , ";" ;
+
+(* flood-color *)
+flood_color_expr = "flood-color" , ":" , flood_color_prop , ";" ;
+
+(* flood-opacity *)
+flood_opacity_expr = "flood-opacity" , ":" , flood_opacity_prop , ";" ;
+
+(* font-family *)
+font_family_expr = "font-family" , ":" , font_family_prop , ";" ;
+
+(* font-feature-settings *)
+font_feature_settings_expr = "font-feature-settings" , ":" , font_feature_settings_prop , ";" ;
+
+(* font-kerning *)
+font_kerning_expr = "font-kerning" , ":" , font_kerning_prop , ";" ;
+
+(* font-language-override *)
+font_language_override_expr = "font-language-override" , ":" , font_language_override_prop , ";" ;
+
+(* font-optical-sizing *)
+font_optical_sizing_expr = "font-optical-sizing" , ":" , font_optical_sizing_prop , ";" ;
+
+(* font-palette *)
+font_palette_expr = "font-palette" , ":" , font_palette_prop , ";" ;
+
+(* font-size-adjust *)
+font_size_adjust_expr = "font-size-adjust" , ":" , font_size_adjust_prop , ";" ;
+
+(* font-size *)
+font_size_expr = "font-size" , ":" , font_size_prop , ";" ;
+
+(* font-smooth *)
+font_smooth_expr = "font-smooth" , ":" , font_smooth_prop , ";" ;
+
+(* font-stretch *)
+font_stretch_expr = "font-stretch" , ":" , font_stretch_prop , ";" ;
+
+(* font-style *)
+font_style_expr = "font-style" , ":" , font_style_prop , ";" ;
+
+(* font-synthesis-position *)
+font_synthesis_position_expr = "font-synthesis-position" , ":" , font_synthesis_position_prop , ";" ;
+
+(* font-synthesis-small-caps *)
+font_synthesis_small_caps_expr = "font-synthesis-small-caps" , ":" , font_synthesis_small_caps_prop , ";" ;
+
+(* font-synthesis-style *)
+font_synthesis_style_expr = "font-synthesis-style" , ":" , font_synthesis_style_prop , ";" ;
+
+(* font-synthesis-weight *)
+font_synthesis_weight_expr = "font-synthesis-weight" , ":" , font_synthesis_weight_prop , ";" ;
+
+(* font-synthesis *)
+font_synthesis_expr = "font-synthesis" , ":" , font_synthesis_prop , ";" ;
+
+(* font-variant-alternates *)
+font_variant_alternates_expr = "font-variant-alternates" , ":" , font_variant_alternates_prop , ";" ;
+
+(* font-variant-caps *)
+font_variant_caps_expr = "font-variant-caps" , ":" , font_variant_caps_prop , ";" ;
+
+(* font-variant-east-asian *)
+font_variant_east_asian_expr = "font-variant-east-asian" , ":" , font_variant_east_asian_prop , ";" ;
+
+(* font-variant-emoji *)
+font_variant_emoji_expr = "font-variant-emoji" , ":" , font_variant_emoji_prop , ";" ;
+
+(* font-variant-ligatures *)
+font_variant_ligatures_expr = "font-variant-ligatures" , ":" , font_variant_ligatures_prop , ";" ;
+
+(* font-variant-numeric *)
+font_variant_numeric_expr = "font-variant-numeric" , ":" , font_variant_numeric_prop , ";" ;
+
+(* font-variant-position *)
+font_variant_position_expr = "font-variant-position" , ":" , font_variant_position_prop , ";" ;
+
+(* font-variant *)
+font_variant_expr = "font-variant" , ":" , font_variant_prop , ";" ;
+
+(* font-variation-settings *)
+font_variation_settings_expr = "font-variation-settings" , ":" , font_variation_settings_prop , ";" ;
+
+(* font-weight *)
+font_weight_expr = "font-weight" , ":" , font_weight_prop , ";" ;
+
+(* font-width *)
+font_width_expr = "font-width" , ":" , font_width_prop , ";" ;
+
+(* font *)
+font_expr = font , ":" , font_prop , ";" ;
+
+(* forced-color-adjust *)
+forced_color_adjust_expr = "forced-color-adjust" , ":" , forced_color_adjust_prop , ";" ;
+
+(* gap *)
+gap_expr = "gap" , ":" , gap_prop , ";" ;
+
+(* grid-area *)
+grid_area_expr = "grid-area" , ":" , grid_area_prop , ";" ;
+
+(* grid-auto-columns *)
+grid_auto_columns_expr = "grid-auto-columns" , ":" , grid_auto_columns_prop , ";" ;
+
+(* grid-auto-flow *)
+grid_auto_flow_expr = "grid-auto-flow" , ":" , grid_auto_flow_prop , ";" ;
+
+(* grid-auto-rows *)
+grid_auto_rows_expr = "grid-auto-rows" , ":" , grid_auto_rows_prop , ";" ;
+
+(* grid-column-end *)
+grid_column_end_expr = "grid-column-end" , ":" , grid_column_end_prop , ";" ;
+
+(* grid-column-start *)
+grid_column_start_expr = "grid-column-start" , ":" , grid_column_start_prop , ";" ;
+
+(* grid-column *)
+grid_column_expr = "grid-column" , ":" , grid_column_prop , ";" ;
+
+(* grid-row-end *)
+grid_row_end_expr = "grid-row-end" , ":" , grid_row_end_prop , ";" ;
+
+(* grid-row-start *)
+grid_row_start_expr = "grid-row-start" , ":" , grid_row_start_prop , ";" ;
+
+(* grid-row *)
+grid_row_expr = "grid-row" , ":" , grid_row_prop , ";" ;
+
+(* grid-template-areas *)
+grid_template_areas_expr = "grid-template-areas" , ":" , grid_template_areas_prop , ";" ;
+
+(* grid-template-columns *)
+grid_template_columns_expr = "grid-template-columns" , ":" , grid_template_columns_prop , ";" ;
+
+(* grid-template-rows *)
+grid_template_rows_expr = "grid-template-rows" , ":" , grid_template_rows_prop , ";" ;
+
+(* grid-template *)
+grid_template_expr = "grid-template" , ":" , grid_template_prop , ";" ;
+
+(* grid *)
+grid_expr = grid , ":" , grid_prop , ";" ;
+
+(* hanging-punctuation *)
+hanging_punctuation_expr = "hanging-punctuation" , ":" , hanging_punctuation_prop , ";" ;
+
+(* height *)
+height_expr = height , ":" , height_prop , ";" ;
+
+(* hyphenate-character *)
+hyphenate_character_expr = "hyphenate-character" , ":" , hyphenate_character_prop , ";" ;
+
+(* hyphenate-limit-chars *)
+hyphenate_limit_chars_expr = "hyphenate-limit-chars" , ":" , hyphenate_limit_chars_prop , ";" ;
+
+(* hyphens *)
+hyphens_expr = "hyphens" , ":" , hyphens_prop , ";" ;
+
+(* image-orientation *)
+image_orientation_expr = "image-orientation" , ":" , image_orientation_prop , ";" ;
+
+(* image-rendering *)
+image_rendering_expr = "image-rendering" , ":" , image_rendering_prop , ";" ;
+
+(* image-resolution *)
+image_resolution_expr = "image-resolution" , ":" , image_resolution_prop , ";" ;
+
+(* initial-letter *)
+initial_letter_expr = initial_letter , ":" , initial_letter_prop , ";" ;
+
+(* inline-size *)
+inline_size_expr = inline_size , ":" , inline_size_prop , ";" ;
+
+(* inset-block-end *)
+inset_block_end_expr = "inset-block-end" , ":" , inset_block_end_prop , ";" ;
+
+(* inset-block-start *)
+inset_block_start_expr = "inset-block-start" , ":" , inset_block_start_prop , ";" ;
+
+(* inset-block *)
+inset_block_expr = "inset-block" , ":" , inset_block_prop , ";" ;
+
+(* inset-inline-end *)
+inset_inline_end_expr = "inset-inline-end" , ":" , inset_inline_end_prop , ";" ;
+
+(* inset-inline-start *)
+inset_inline_start_expr = "inset-inline-start" , ":" , inset_inline_start_prop , ";" ;
+
+(* inset-inline *)
+inset_inline_expr = "inset-inline" , ":" , inset_inline_prop , ";" ;
+
+(* inset *)
+inset_expr = inset , ":" , inset_prop , ";" ;
+
+(* interactivity *)
+interactivity_expr = "interactivity" , ":" , interactivity_prop , ";" ;
+
+(* interest-delay *)
+interest_delay_expr = "interest-delay" , ":" , interest_delay_prop , ";" ;
+
+(* interest-delay-end *)
+interest_delay_end_expr = "interest-delay-end" , ":" , interest_delay_end_prop , ";" ;
+
+(* interest-delay-start *)
+interest_delay_start_expr = "interest-delay-start" , ":" , interest_delay_start_prop , ";" ;
+
+(* interpolate-size *)
+interpolate_size_expr = "interpolate-size" , ":" , interpolate_size_prop , ";" ;
+
+(* isolation *)
+isolation_expr = "isolation" , ":" , isolation_prop , ";" ;
+
+(* justify-content *)
+justify_content_expr = "justify-content" , ":" , justify_content_prop , ";" ;
+
+(* justify-items *)
+justify_items_expr = "justify-items" , ":" , justify_items_prop , ";" ;
+
+(* justify-self *)
+justify_self_expr = "justify-self" , ":" , justify_self_prop , ";" ;
+
+(* left *)
+left_expr = left , ":" , left_prop , ";" ;
+
+(* letter-spacing *)
+letter_spacing_expr = "letter-spacing" , ":" , letter_spacing_prop , ";" ;
+
+(* lighting-color *)
+lighting_color_expr = "lighting-color" , ":" , lighting_color_prop , ";" ;
+
+(* line-break *)
+line_break_expr = "line-break" , ":" , line_break_prop , ";" ;
+
+(* line-clamp *)
+line_clamp_expr = "line-clamp" , ":" , line_clamp_prop , ";" ;
+
+(* line-height-step *)
+line_height_step_expr = "line-height-step" , ":" , line_height_step_prop , ";" ;
+
+(* line-height *)
+line_height_expr = "line-height" , ":" , line_height_prop , ";" ;
+
+(* list-style-image *)
+list_style_image_expr = "list-style-image" , ":" , list_style_image_prop , ";" ;
+
+(* list-style-position *)
+list_style_position_expr = "list-style-position" , ":" , list_style_position_prop , ";" ;
+
+(* list-style-type *)
+list_style_type_expr = "list-style-type" , ":" , list_style_type_prop , ";" ;
+
+(* list-style *)
+list_style_expr = "list-style" , ":" , list_style_prop , ";" ;
+
+(* margin-block-end *)
+margin_block_end_expr = "margin-block-end" , ":" , margin_block_end_prop , ";" ;
+
+(* margin-block-start *)
+margin_block_start_expr = "margin-block-start" , ":" , margin_block_start_prop , ";" ;
+
+(* margin-block *)
+margin_block_expr = "margin-block" , ":" , margin_block_prop , ";" ;
+
+(* margin-bottom *)
+margin_bottom_expr = "margin-bottom" , ":" , margin_bottom_prop , ";" ;
+
+(* margin-inline-end *)
+margin_inline_end_expr = "margin-inline-end" , ":" , margin_inline_end_prop , ";" ;
+
+(* margin-inline-start *)
+margin_inline_start_expr = "margin-inline-start" , ":" , margin_inline_start_prop , ";" ;
+
+(* margin-inline *)
+margin_inline_expr = "margin-inline" , ":" , margin_inline_prop , ";" ;
+
+(* margin-left *)
+margin_left_expr = "margin-left" , ":" , margin_left_prop , ";" ;
+
+(* margin-right *)
+margin_right_expr = "margin-right" , ":" , margin_right_prop , ";" ;
+
+(* margin-top *)
+margin_top_expr = "margin-top" , ":" , margin_top_prop , ";" ;
+
+(* margin-trim *)
+margin_trim_expr = "margin-trim" , ":" , margin_trim_prop , ";" ;
+
+(* margin *)
+margin_expr = "margin" , ":" , margin_prop , ";" ;
+
+(* marker-end *)
+marker_end_expr = "marker-end" , ":" , marker_end_prop , ";" ;
+
+(* marker-mid *)
+marker_mid_expr = "marker-mid" , ":" , marker_mid_prop , ";" ;
+
+(* marker-start *)
+marker_start_expr = "marker-start" , ":" , marker_start_prop , ";" ;
+
+(* marker *)
+marker_expr = "marker" , ":" , marker_prop , ";" ;
+
+(* mask-border-mode *)
+mask_border_mode_expr = "mask-border-mode" , ":" , mask_border_mode_prop , ";" ;
+
+(* mask-border-outset *)
+mask_border_outset_expr = "mask-border-outset" , ":" , mask_border_outset_prop , ";" ;
+
+(* mask-border-repeat *)
+mask_border_repeat_expr = "mask-border-repeat" , ":" , mask_border_repeat_prop , ";" ;
+
+(* mask-border-slice *)
+mask_border_slice_expr = "mask-border-slice" , ":" , mask_border_slice_prop , ";" ;
+
+(* mask-border-source *)
+mask_border_source_expr = "mask-border-source" , ":" , mask_border_source_prop , ";" ;
+
+(* mask-border-width *)
+mask_border_width_expr = "mask-border-width" , ":" , mask_border_width_prop , ";" ;
+
+(* mask-border *)
+mask_border_expr = "mask-border" , ":" , mask_border_prop , ";" ;
+
+(* mask-clip *)
+mask_clip_expr = "mask-clip" , ":" , mask_clip_prop , ";" ;
+
+(* mask-composite *)
+mask_composite_expr = "mask-composite" , ":" , mask_composite_prop , ";" ;
+
+(* mask-image *)
+mask_image_expr = "mask-image" , ":" , mask_image_prop , ";" ;
+
+(* mask-mode *)
+mask_mode_expr = "mask-mode" , ":" , mask_mode_prop , ";" ;
+
+(* mask-origin *)
+mask_origin_expr = "mask-origin" , ":" , mask_origin_prop , ";" ;
+
+(* mask-position *)
+mask_position_expr = "mask-position" , ":" , mask_position_prop , ";" ;
+
+(* mask-repeat *)
+mask_repeat_expr = "mask-repeat" , ":" , mask_repeat_prop , ";" ;
+
+(* mask-size *)
+mask_size_expr = "mask-size" , ":" , mask_size_prop , ";" ;
+
+(* mask-type *)
+mask_type_expr = "mask-type" , ":" , mask_type_prop , ";" ;
+
+(* mask *)
+mask_expr = "mask" , ":" , mask_prop , ";" ;
+
+(* math-depth *)
+math_depth_expr = "math-depth" , ":" , math_depth_prop , ";" ;
+
+(* math-shift *)
+math_shift_expr = "math-shift" , ":" , math_shift_prop , ";" ;
+
+(* math-style *)
+math_style_expr = "math-style" , ":" , math_style_prop , ";" ;
+
+(* max-block-size *)
+max_block_size_expr = "max-block-size" , ":" , max_block_size_prop , ";" ;
+
+(* max-height *)
+max_height_expr = "max-height" , ":" , max_height_prop , ";" ;
+
+(* max-inline-size *)
+max_inline_size_expr = "max-inline-size" , ":" , max_inline_size_prop , ";" ;
+
+(* max-width *)
+max_width_expr = "max-width" , ":" , max_width_prop , ";" ;
+
+(* min-block-size *)
+min_block_size_expr = "min-block-size" , ":" , min_block_size_prop , ";" ;
+
+(* min-height *)
+min_height_expr = "min-height" , ":" , min_height_prop , ";" ;
+
+(* min-inline-size *)
+min_inline_size_expr = "min-inline-size" , ":" , min_inline_size_prop , ";" ;
+
+(* min-width *)
+min_width_expr = "min-width" , ":" , min_width_prop , ";" ;
+
+(* mix-blend-mode *)
+mix_blend_mode_expr = "mix-blend-mode" , ":" , mix_blend_mode_prop , ";" ;
+
+(* object-fit *)
+object_fit_expr = "object-fit" , ":" , object_fit_prop , ";" ;
+
+(* object-position *)
+object_position_expr = "object-position" , ":" , object_position_prop , ";" ;
+
+(* object-view-box *)
+object_view_box_expr = "object-view-box" , ":" , object_view_box_prop , ";" ;
+
+(* offset-anchor *)
+offset_anchor_expr = "offset-anchor" , ":" , offset_anchor_prop , ";" ;
+
+(* offset-distance *)
+offset_distance_expr = "offset-distance" , ":" , offset_distance_prop , ";" ;
+
+(* offset-path *)
+offset_path_expr = "offset-path" , ":" , offset_path_prop , ";" ;
+
+(* offset-position *)
+offset_position_expr = "offset-position" , ":" , offset_position_prop , ";" ;
+
+(* offset-rotate *)
+offset_rotate_expr = "offset-rotate" , ":" , offset_rotate_prop , ";" ;
+
+(* offset *)
+offset_expr = "offset" , ":" , offset_prop , ";" ;
+
+(* opacity *)
+opacity_expr = opacity , ":" , opacity_prop , ";" ;
+
+(* order *)
+order_expr = order , ":" , order_prop , ";" ;
+
+(* orphans *)
+orphans_expr = "orphans" , ":" , orphans_prop , ";" ;
+
+(* outline-color *)
+outline_color_expr = "outline-color" , ":" , outline_color_prop , ";" ;
+
+(* outline-offset *)
+outline_offset_expr = "outline-offset" , ":" , outline_offset_prop , ";" ;
+
+(* outline-style *)
+outline_style_expr = "outline-style" , ":" , outline_style_prop , ";" ;
+
+(* outline-width *)
+outline_width_expr = "outline-width" , ":" , outline_width_prop , ";" ;
+
+(* outline *)
+outline_expr = "outline" , ":" , outline_prop , ";" ;
+
+(* overflow-anchor *)
+overflow_anchor_expr = "overflow-anchor" , ":" , overflow_anchor_prop , ";" ;
+
+(* overflow-block *)
+overflow_block_expr = "overflow-block" , ":" , overflow_block_prop , ";" ;
+
+(* overflow-clip-margin *)
+overflow_clip_margin_expr = "overflow-clip-margin" , ":" , overflow_clip_margin_prop , ";" ;
+
+(* overflow-inline *)
+overflow_inline_expr = "overflow-inline" , ":" , overflow_inline_prop , ";" ;
+
+(* overflow-wrap *)
+overflow_wrap_expr = "overflow-wrap" , ":" , overflow_wrap_prop , ";" ;
+
+(* overflow-x *)
+overflow_x_expr = "overflow-x" , ":" , overflow_x_prop , ";" ;
+
+(* overflow-y *)
+overflow_y_expr = "overflow-y" , ":" , overflow_y_prop , ";" ;
+
+(* overflow *)
+overflow_expr = "overflow" , ":" , overflow_prop , ";" ;
+
+(* overlay *)
+overlay_expr = overlay , ":" , overlay_prop , ";" ;
+
+(* overscroll-behavior-block *)
+overscroll_behavior_block_expr = "overscroll-behavior-block" , ":" , overscroll_behavior_block_prop , ";" ;
+
+(* overscroll-behavior-inline *)
+overscroll_behavior_inline_expr = "overscroll-behavior-inline" , ":" , overscroll_behavior_inline_prop , ";" ;
+
+(* overscroll-behavior-x *)
+overscroll_behavior_x_expr = "overscroll-behavior-x" , ":" , overscroll_behavior_x_prop , ";" ;
+
+(* overscroll-behavior-y *)
+overscroll_behavior_y_expr = "overscroll-behavior-y" , ":" , overscroll_behavior_y_prop , ";" ;
+
+(* overscroll-behavior *)
+overscroll_behavior_expr = "overscroll-behavior" , ":" , overscroll_behavior_prop , ";" ;
+
+(* padding-block-end *)
+padding_block_end_expr = "padding-block-end" , ":" , padding_block_end_prop , ";" ;
+
+(* padding-block-start *)
+padding_block_start_expr = "padding-block-start" , ":" , padding_block_start_prop , ";" ;
+
+(* padding-block *)
+padding_block_expr = "padding-block" , ":" , padding_block_prop , ";" ;
+
+(* padding-bottom *)
+padding_bottom_expr = "padding-bottom" , ":" , padding_bottom_prop , ";" ;
+
+(* padding-inline-end *)
+padding_inline_end_expr = "padding-inline-end" , ":" , padding_inline_end_prop , ";" ;
+
+(* padding-inline-start *)
+padding_inline_start_expr = "padding-inline-start" , ":" , padding_inline_start_prop , ";" ;
+
+(* padding-inline *)
+padding_inline_expr = "padding-inline" , ":" , padding_inline_prop , ";" ;
+
+(* padding-left *)
+padding_left_expr = "padding-left" , ":" , padding_left_prop , ";" ;
+
+(* padding-right *)
+padding_right_expr = "padding-right" , ":" , padding_right_prop , ";" ;
+
+(* padding-top *)
+padding_top_expr = "padding-top" , ":" , padding_top_prop , ";" ;
+
+(* padding *)
+padding_expr = padding , ":" , padding_prop , ";" ;
+
+(* page-break-after *)
+page_break_after_expr = "page-break-after" , ":" , page_break_after_prop , ";" ;
+
+(* page-break-before *)
+page_break_before_expr = "page-break-before" , ":" , page_break_before_prop , ";" ;
+
+(* page-break-inside *)
+page_break_inside_expr = "page-break-inside" , ":" , page_break_inside_prop , ";" ;
+
+(* page *)
+page_expr = page , ":" , page_prop , ";" ;
+
+(* paint-order *)
+paint_order_expr = "paint-order" , ":" , paint_order_prop , ";" ;
+
+(* perspective-origin *)
+perspective_origin_expr = "perspective-origin" , ":" , perspective_origin_prop , ";" ;
+
+(* perspective *)
+perspective_expr = perspective , ":" , perspective_prop , ";" ;
+
+(* place-content *)
+place_content_expr = "place-content" , ":" , place_content_prop , ";" ;
+
+(* place-items *)
+place_items_expr = "place-items" , ":" , place_items_prop , ";" ;
+
+(* place-self *)
+place_self_expr = "place-self" , ":" , place_self_prop , ";" ;
+
+(* pointer-events *)
+pointer_events_expr = "pointer-events" , ":" , pointer_events_prop , ";" ;
+
+(* position-anchor *)
+position_anchor_expr = "position-anchor" , ":" , position_anchor_prop , ";" ;
+
+(* position-area *)
+position_area_expr = "position-area" , ":" , position_area_prop , ";" ;
+
+(* position-try-fallbacks *)
+position_try_fallbacks_expr = "position-try-fallbacks" , ":" , position_try_fallbacks_prop , ";" ;
+
+(* position-try-order *)
+position_try_order_expr = "position-try-order" , ":" , position_try_order_prop , ";" ;
+
+(* position-try *)
+position_try_expr = "position-try" , ":" , position_try_prop , ";" ;
+
+(* position-visibility *)
+position_visibility_expr = "position-visibility" , ":" , position_visibility_prop , ";" ;
+
+(* position *)
+position_expr = "position" , ":" , position_prop , ";" ;
+
+(* print-color-adjust *)
+print_color_adjust_expr = "print-color-adjust" , ":" , print_color_adjust_prop , ";" ;
+
+(* quotes *)
+quotes_expr = "quotes" , ":" , quotes_prop , ";" ;
+
+(* r *)
+r_expr = r , ":" , r_prop , ";" ;
+
+(* resize *)
+resize_expr = "resize" , ":" , resize_prop , ";" ;
+
+(* right *)
+right_expr = right , ":" , right_prop , ";" ;
+
+(* rotate *)
+rotate_expr = rotate , ":" , rotate_prop , ";" ;
+
+(* row-gap *)
+row_gap_expr = "row-gap" , ":" , row_gap_prop , ";" ;
+
+(* ruby-align *)
+ruby_align_expr = "ruby-align" , ":" , ruby_align_prop , ";" ;
+
+(* ruby-overhang *)
+ruby_overhang_expr = "ruby-overhang" , ":" , ruby_overhang_prop , ";" ;
+
+(* ruby-position *)
+ruby_position_expr = "ruby-position" , ":" , ruby_position_prop , ";" ;
+
+(* rx *)
+rx_expr = "rx" , ":" , rx_prop , ";" ;
+
+(* ry *)
+ry_expr = "ry" , ":" , ry_prop , ";" ;
+
+(* scale *)
+scale_expr = scale , ":" , scale_prop , ";" ;
+
+(* scroll-behavior *)
+scroll_behavior_expr = "scroll-behavior" , ":" , scroll_behavior_prop , ";" ;
+
+(* scroll-initial-target *)
+scroll_initial_target_expr = "scroll-initial-target" , ":" , scroll_initial_target_prop , ";" ;
+
+(* scroll-margin-block-end *)
+scroll_margin_block_end_expr = "scroll-margin-block-end" , ":" , scroll_margin_block_end_prop , ";" ;
+
+(* scroll-margin-block-start *)
+scroll_margin_block_start_expr = "scroll-margin-block-start" , ":" , scroll_margin_block_start_prop , ";" ;
+
+(* scroll-margin-block *)
+scroll_margin_block_expr = "scroll-margin-block" , ":" , scroll_margin_block_prop , ";" ;
+
+(* scroll-margin-bottom *)
+scroll_margin_bottom_expr = "scroll-margin-bottom" , ":" , scroll_margin_bottom_prop , ";" ;
+
+(* scroll-margin-inline-end *)
+scroll_margin_inline_end_expr = "scroll-margin-inline-end" , ":" , scroll_margin_inline_end_prop , ";" ;
+
+(* scroll-margin-inline-start *)
+scroll_margin_inline_start_expr = "scroll-margin-inline-start" , ":" , scroll_margin_inline_start_prop , ";" ;
+
+(* scroll-margin-inline *)
+scroll_margin_inline_expr = "scroll-margin-inline" , ":" , scroll_margin_inline_prop , ";" ;
+
+(* scroll-margin-left *)
+scroll_margin_left_expr = "scroll-margin-left" , ":" , scroll_margin_left_prop , ";" ;
+
+(* scroll-margin-right *)
+scroll_margin_right_expr = "scroll-margin-right" , ":" , scroll_margin_right_prop , ";" ;
+
+(* scroll-margin-top *)
+scroll_margin_top_expr = "scroll-margin-top" , ":" , scroll_margin_top_prop , ";" ;
+
+(* scroll-margin *)
+scroll_margin_expr = "scroll-margin" , ":" , scroll_margin_prop , ";" ;
+
+(* scroll-marker-group *)
+scroll_marker_group_expr = "scroll-marker-group" , ":" , scroll_marker_group_prop , ";" ;
+
+(* scroll-padding-block-end *)
+scroll_padding_block_end_expr = "scroll-padding-block-end" , ":" , scroll_padding_block_end_prop , ";" ;
+
+(* scroll-padding-block-start *)
+scroll_padding_block_start_expr = "scroll-padding-block-start" , ":" , scroll_padding_block_start_prop , ";" ;
+
+(* scroll-padding-block *)
+scroll_padding_block_expr = "scroll-padding-block" , ":" , scroll_padding_block_prop , ";" ;
+
+(* scroll-padding-bottom *)
+scroll_padding_bottom_expr = "scroll-padding-bottom" , ":" , scroll_padding_bottom_prop , ";" ;
+
+(* scroll-padding-inline-end *)
+scroll_padding_inline_end_expr = "scroll-padding-inline-end" , ":" , scroll_padding_inline_end_prop , ";" ;
+
+(* scroll-padding-inline-start *)
+scroll_padding_inline_start_expr = "scroll-padding-inline-start" , ":" , scroll_padding_inline_start_prop , ";" ;
+
+(* scroll-padding-inline *)
+scroll_padding_inline_expr = "scroll-padding-inline" , ":" , scroll_padding_inline_prop , ";" ;
+
+(* scroll-padding-left *)
+scroll_padding_left_expr = "scroll-padding-left" , ":" , scroll_padding_left_prop , ";" ;
+
+(* scroll-padding-right *)
+scroll_padding_right_expr = "scroll-padding-right" , ":" , scroll_padding_right_prop , ";" ;
+
+(* scroll-padding-top *)
+scroll_padding_top_expr = "scroll-padding-top" , ":" , scroll_padding_top_prop , ";" ;
+
+(* scroll-padding *)
+scroll_padding_expr = "scroll-padding" , ":" , scroll_padding_prop , ";" ;
+
+(* scroll-snap-align *)
+scroll_snap_align_expr = "scroll-snap-align" , ":" , scroll_snap_align_prop , ";" ;
+
+(* scroll-snap-stop *)
+scroll_snap_stop_expr = "scroll-snap-stop" , ":" , scroll_snap_stop_prop , ";" ;
+
+(* scroll-snap-type *)
+scroll_snap_type_expr = "scroll-snap-type" , ":" , scroll_snap_type_prop , ";" ;
+
+(* scroll-target-group *)
+scroll_target_group_expr = "scroll-target-group" , ":" , scroll_target_group_prop , ";" ;
+
+(* scroll-timeline-axis *)
+scroll_timeline_axis_expr = "scroll-timeline-axis" , ":" , scroll_timeline_axis_prop , ";" ;
+
+(* scroll-timeline-name *)
+scroll_timeline_name_expr = "scroll-timeline-name" , ":" , scroll_timeline_name_prop , ";" ;
+
+(* scroll-timeline *)
+scroll_timeline_expr = "scroll-timeline" , ":" , scroll_timeline_prop , ";" ;
+
+(* scrollbar-color *)
+scrollbar_color_expr = "scrollbar-color" , ":" , scrollbar_color_prop , ";" ;
+
+(* scrollbar-gutter *)
+scrollbar_gutter_expr = "scrollbar-gutter" , ":" , scrollbar_gutter_prop , ";" ;
+
+(* scrollbar-width *)
+scrollbar_width_expr = "scrollbar-width" , ":" , scrollbar_width_prop , ";" ;
+
+(* shape-image-threshold *)
+shape_image_threshold_expr = "shape-image-threshold" , ":" , shape_image_threshold_prop , ";" ;
+
+(* shape-margin *)
+shape_margin_expr = "shape-margin" , ":" , shape_margin_prop , ";" ;
+
+(* shape-outside *)
+shape_outside_expr = "shape-outside" , ":" , shape_outside_prop , ";" ;
+
+(* shape-rendering *)
+shape_rendering_expr = "shape-rendering" , ":" , shape_rendering_prop , ";" ;
+
+(* speak-as *)
+speak_as_expr = "speak-as" , ":" , speak_as_prop , ";" ;
+
+(* stop-color *)
+stop_color_expr = "stop-color" , ":" , stop_color_prop , ";" ;
+
+(* stop-opacity *)
+stop_opacity_expr = "stop-opacity" , ":" , stop_opacity_prop , ";" ;
+
+(* stroke-dasharray *)
+stroke_dasharray_expr = "stroke-dasharray" , ":" , stroke_dasharray_prop , ";" ;
+
+(* stroke-dashoffset *)
+stroke_dashoffset_expr = "stroke-dashoffset" , ":" , stroke_dashoffset_prop , ";" ;
+
+(* stroke-linecap *)
+stroke_linecap_expr = "stroke-linecap" , ":" , stroke_linecap_prop , ";" ;
+
+(* stroke-linejoin *)
+stroke_linejoin_expr = "stroke-linejoin" , ":" , stroke_linejoin_prop , ";" ;
+
+(* stroke-miterlimit *)
+stroke_miterlimit_expr = "stroke-miterlimit" , ":" , stroke_miterlimit_prop , ";" ;
+
+(* stroke-opacity *)
+stroke_opacity_expr = "stroke-opacity" , ":" , stroke_opacity_prop , ";" ;
+
+(* stroke-width *)
+stroke_width_expr = "stroke-width" , ":" , stroke_width_prop , ";" ;
+
+(* stroke *)
+stroke_expr = stroke , ":" , stroke_prop , ";" ;
+
+(* tab-size *)
+tab_size_expr = "tab-size" , ":" , tab_size_prop , ";" ;
+
+(* table-layout *)
+table_layout_expr = "table-layout" , ":" , table_layout_prop , ";" ;
+
+(* text-align-last *)
+text_align_last_expr = "text-align-last" , ":" , text_align_last_prop , ";" ;
+
+(* text-align *)
+text_align_expr = "text-align" , ":" , text_align_prop , ";" ;
+
+(* text-anchor *)
+text_anchor_expr = "text-anchor" , ":" , text_anchor_prop , ";" ;
+
+(* text-autospace *)
+text_autospace_expr = "text-autospace" , ":" , text_autospace_prop , ";" ;
+
+(* text-box-edge *)
+text_box_edge_expr = "text-box-edge" , ":" , text_box_edge_prop , ";" ;
+
+(* text-box-trim *)
+text_box_trim_expr = "text-box-trim" , ":" , text_box_trim_prop , ";" ;
+
+(* text-box *)
+text_box_expr = "text-box" , ":" , text_box_prop , ";" ;
+
+(* text-combine-upright *)
+text_combine_upright_expr = "text-combine-upright" , ":" , text_combine_upright_prop , ";" ;
+
+(* text-decoration-color *)
+text_decoration_color_expr = "text-decoration-color" , ":" , text_decoration_color_prop , ";" ;
+
+(* text-decoration-inset *)
+text_decoration_inset_expr = "text-decoration-inset" , ":" , text_decoration_inset_prop , ";" ;
+
+(* text-decoration-line *)
+text_decoration_line_expr = "text-decoration-line" , ":" , text_decoration_line_prop , ";" ;
+
+(* text-decoration-skip-ink *)
+text_decoration_skip_ink_expr = "text-decoration-skip-ink" , ":" , text_decoration_skip_ink_prop , ";" ;
+
+(* text-decoration-skip *)
+text_decoration_skip_expr = "text-decoration-skip" , ":" , text_decoration_skip_prop , ";" ;
+
+(* text-decoration-style *)
+text_decoration_style_expr = "text-decoration-style" , ":" , text_decoration_style_prop , ";" ;
+
+(* text-decoration-thickness *)
+text_decoration_thickness_expr = "text-decoration-thickness" , ":" , text_decoration_thickness_prop , ";" ;
+
+(* text-decoration *)
+text_decoration_expr = "text-decoration" , ":" , text_decoration_prop , ";" ;
+
+(* text-emphasis-color *)
+text_emphasis_color_expr = "text-emphasis-color" , ":" , text_emphasis_color_prop , ";" ;
+
+(* text-emphasis-position *)
+text_emphasis_position_expr = "text-emphasis-position" , ":" , text_emphasis_position_prop , ";" ;
+
+(* text-emphasis-style *)
+text_emphasis_style_expr = "text-emphasis-style" , ":" , text_emphasis_style_prop , ";" ;
+
+(* text-emphasis *)
+text_emphasis_expr = "text-emphasis" , ":" , text_emphasis_prop , ";" ;
+
+(* text-indent *)
+text_indent_expr = "text-indent" , ":" , text_indent_prop , ";" ;
+
+(* text-justify *)
+text_justify_expr = "text-justify" , ":" , text_justify_prop , ";" ;
+
+(* text-orientation *)
+text_orientation_expr = "text-orientation" , ":" , text_orientation_prop , ";" ;
+
+(* text-overflow *)
+text_overflow_expr = "text-overflow" , ":" , text_overflow_prop , ";" ;
+
+(* text-rendering *)
+text_rendering_expr = "text-rendering" , ":" , text_rendering_prop , ";" ;
+
+(* text-shadow *)
+text_shadow_expr = "text-shadow" , ":" , text_shadow_prop , ";" ;
+
+(* text-size-adjust *)
+text_size_adjust_expr = "text-size-adjust" , ":" , text_size_adjust_prop , ";" ;
+
+(* text-spacing-trim *)
+text_spacing_trim_expr = "text-spacing-trim" , ":" , text_spacing_trim_prop , ";" ;
+
+(* text-transform *)
+text_transform_expr = "text-transform" , ":" , text_transform_prop , ";" ;
+
+(* text-underline-offset *)
+text_underline_offset_expr = "text-underline-offset" , ":" , text_underline_offset_prop , ";" ;
+
+(* text-underline-position *)
+text_underline_position_expr = "text-underline-position" , ":" , text_underline_position_prop , ";" ;
+
+(* text-wrap-mode *)
+text_wrap_mode_expr = "text-wrap-mode" , ":" , text_wrap_mode_prop , ";" ;
+
+(* text-wrap-style *)
+text_wrap_style_expr = "text-wrap-style" , ":" , text_wrap_style_prop , ";" ;
+
+(* text-wrap *)
+text_wrap_expr = "text-wrap" , ":" , text_wrap_prop , ";" ;
+
+(* timeline-scope *)
+timeline_scope_expr = "timeline-scope" , ":" , timeline_scope_prop , ";" ;
+
+(* top *)
+top_expr = top , ":" , top_prop , ";" ;
+
+(* touch-action *)
+touch_action_expr = "touch-action" , ":" , touch_action_prop , ";" ;
+
+(* transform-box *)
+transform_box_expr = "transform-box" , ":" , transform_box_prop , ";" ;
+
+(* transform-origin *)
+transform_origin_expr = "transform-origin" , ":" , transform_origin_prop , ";" ;
+
+(* transform-style *)
+transform_style_expr = "transform-style" , ":" , transform_style_prop , ";" ;
+
+(* transform *)
+transform_expr = "transform" , ":" , transform_prop , ";" ;
+
+(* transition-behavior *)
+transition_behavior_expr = "transition-behavior" , ":" , transition_behavior_prop , ";" ;
+
+(* transition-delay *)
+transition_delay_expr = "transition-delay" , ":" , transition_delay_prop , ";" ;
+
+(* transition-duration *)
+transition_duration_expr = "transition-duration" , ":" , transition_duration_prop , ";" ;
+
+(* transition-property *)
+transition_property_expr = "transition-property" , ":" , transition_property_prop , ";" ;
+
+(* transition-timing-function *)
+transition_timing_function_expr = "transition-timing-function" , ":" , transition_timing_function_prop , ";" ;
+
+(* transition *)
+transition_expr = "transition" , ":" , transition_prop , ";" ;
+
+(* translate *)
+translate_expr = translate , ":" , translate_prop , ";" ;
+
+(* unicode-bidi *)
+unicode_bidi_expr = "unicode-bidi" , ":" , unicode_bidi_prop , ";" ;
+
+(* user-modify *)
+user_modify_expr = "user-modify" , ":" , user_modify_prop , ";" ;
+
+(* user-select *)
+user_select_expr = "user-select" , ":" , user_select_prop , ";" ;
+
+(* vector-effect *)
+vector_effect_expr = "vector-effect" , ":" , vector_effect_prop , ";" ;
+
+(* vertical-align *)
+vertical_align_expr = "vertical-align" , ":" , vertical_align_prop , ";" ;
+
+(* view-timeline-axis *)
+view_timeline_axis_expr = "view-timeline-axis" , ":" , view_timeline_axis_prop , ";" ;
+
+(* view-timeline-inset *)
+view_timeline_inset_expr = "view-timeline-inset" , ":" , view_timeline_inset_prop , ";" ;
+
+(* view-timeline-name *)
+view_timeline_name_expr = "view-timeline-name" , ":" , view_timeline_name_prop , ";" ;
+
+(* view-timeline *)
+view_timeline_expr = "view-timeline" , ":" , view_timeline_prop , ";" ;
+
+(* view-transition-class *)
+view_transition_class_expr = "view-transition-class" , ":" , view_transition_class_prop , ";" ;
+
+(* view-transition-name *)
+view_transition_name_expr = "view-transition-name" , ":" , view_transition_name_prop , ";" ;
+
+(* visibility *)
+visibility_expr = "visibility" , ":" , visibility_prop , ";" ;
+
+(* white-space-collapse *)
+white_space_collapse_expr = "white-space-collapse" , ":" , white_space_collapse_prop , ";" ;
+
+(* white-space *)
+white_space_expr = "white-space" , ":" , white_space_prop , ";" ;
+
+(* widows *)
+widows_expr = "widows" , ":" , widows_prop , ";" ;
+
+(* width *)
+width_expr = width , ":" , width_prop , ";" ;
+
+(* will-change *)
+will_change_expr = will_change , ":" , will_change_prop , ";" ;
+
+(* word-break *)
+word_break_expr = "word-break" , ":" , word_break_prop , ";" ;
+
+(* word-spacing *)
+word_spacing_expr = "word-spacing" , ":" , word_spacing_prop , ";" ;
+
+(* writing-mode *)
+writing_mode_expr = "writing-mode" , ":" , writing_mode_prop , ";" ;
+
+(* x *)
+x_expr = x , ":" , x_prop , ";" ;
+
+(* y *)
+y_expr = y , ":" , y_prop , ";" ;
+
+(* z-index *)
+z_index_expr = "z-index" , ":" , z_index_prop , ";" ;
+
+(* zoom *)
+zoom_expr = "zoom" , ":" , zoom_prop , ";" ;
+
+(* ── Property-specific sub-types ──────────────────────────────────────── *)
+
+(* <baseline-metric> *)
+baseline_metric_type = text_bottom | alphabetic | "ideographic" | middle | "central" | "mathematical" | "hanging" | text_top ;
+
+(* <anchor-name> *)
+anchor_name_type = dashed_ident_type ;
+
+(* <single-animation-composition> *)
+single_animation_composition_type = replace | add | accumulate ;
+
+(* <single-animation-direction> *)
+single_animation_direction_type = normal | reverse | alternate | alternate_reverse ;
+
+(* <single-animation-fill-mode> *)
+single_animation_fill_mode_type = none | forwards | backwards | both ;
+
+(* <single-animation-iteration-count> *)
+single_animation_iteration_count_type = infinite | number_type ;
+
+(* <keyframes-name> *)
+keyframes_name_type = custom_ident_type | string_type ;
+
+(* <single-animation-play-state> *)
+single_animation_play_state_type = running | paused ;
+
+(* <animation-range-start> *)
+animation_range_start_type = animation_range_start_type_item , { "," , animation_range_start_type_item } ;
+animation_range_start_type_item = ( normal | length_percentage_type | timeline_range_name_type , [ length_percentage_type ] ) ;
+
+(* <animation-range-end> *)
+animation_range_end_type = animation_range_end_type_item , { "," , animation_range_end_type_item } ;
+animation_range_end_type_item = ( normal | length_percentage_type | timeline_range_name_type , [ length_percentage_type ] ) ;
+
+(* <single-animation-timeline> *)
+single_animation_timeline_type = auto | none | dashed_ident_type | scroll_fn | view_fn ;
+
+(* <single-animation> *)
+single_animation_type = [ "animation-duration" ] , [ easing_function_type ] , [ "animation-delay" ] , [ single_animation_iteration_count_type ] , [ single_animation_direction_type ] , [ single_animation_fill_mode_type ] , [ single_animation_play_state_type ] , [ ( none | keyframes_name_type ) ] , [ single_animation_timeline_type ] ;
+
+(* <animation-duration> *)
+animation_duration_type = animation_duration_type_item , { "," , animation_duration_type_item } ;
+animation_duration_type_item = ( auto | time_type ) ;
+
+(* <animation-delay> *)
+animation_delay_type = time_type , { "," , time_type } ;
+
+(* <compat-auto> *)
+compat_auto_type = searchfield | textarea | checkbox | radio | menulist | listbox | meter | progress_bar | button ;
+
+(* <compat-special> *)
+compat_special_type = textfield | menulist_button ;
+
+(* <filter-value-list> *)
+filter_value_list_type = filter_value_list_type_item , { filter_value_list_type_item } ;
+filter_value_list_type_item = ( filter_function_type | url_type ) ;
+
+(* <attachment> *)
+attachment_type = scroll | fixed | local ;
+
+(* <mix-blend-mode> *)
+mix_blend_mode_type = blend_mode_type | plus_lighter ;
+
+(* <bg-clip> *)
+bg_clip_type = visual_box_type | ( [ border_area ] , [ text ] ) ;
+
+(* <bg-image> *)
+bg_image_type = image_type | none ;
+
+(* <bg-position> *)
+bg_position_type = position_type | position_three_type ;
+
+(* <position-three> *)
+position_three_type = ( left | center | right ) , ( top | bottom ) , length_percentage_type | ( left | right ) , length_percentage_type , ( top | center | bottom ) ;
+
+(* <repeat-style> *)
+repeat_style_type = repeat_x | repeat_y | "repeat-block" | "repeat-inline" | repetition_type , [ repetition_type ] ;
+
+(* <repetition> *)
+repetition_type = repeat | space | round | no_repeat ;
+
+(* <bg-size> *)
+bg_size_type = bg_size_type_item , [ bg_size_type_item ] | cover | contain ;
+bg_size_type_item = ( length_percentage_type | auto ) ;
+
+(* <bg-layer> *)
+bg_layer_type = [ bg_image_type ] , [ bg_position_type , [ "/" , bg_size_type ] ] , [ repeat_style_type ] , [ attachment_type ] , [ bg_clip_type ] , [ visual_box_type ] ;
+
+(* <final-bg-layer> *)
+final_bg_layer_type = [ bg_image_type ] , [ bg_position_type , [ "/" , bg_size_type ] ] , [ repeat_style_type ] , [ attachment_type ] , [ bg_clip_type ] , [ visual_box_type ] , [ "background-color" ] ;
+
+(* <background-color> *)
+background_color_type = color_type ;
+
+(* <width> *)
+width_type = auto | length_percentage_type | min_content | max_content | fit_content , "(" , length_percentage_type , ")" | calc_size_fn | anchor_size_fn | stretch | fit_content | contain ;
+
+(* <anchor-size> *)
+anchor_size_type = width | height | block | inline | self_block | self_inline ;
+
+(* <border-top-color> *)
+border_top_color_type = color_type | image_1d_type ;
+
+(* <image-1D> *)
+image_1d_type = stripes_fn ;
+
+(* <stripes()> *)
+stripes_fn = "stripes" , "(" , color_stripe_type , { "," , color_stripe_type } , ")" ;
+
+(* <color-stripe> *)
+color_stripe_type = color_type , [ ( length_percentage_type | flex_type ) ] ;
+
+(* <line-width> *)
+line_width_type = length_type | "hairline" | thin | medium | thick ;
+
+(* <border-top-style> *)
+border_top_style_type = line_style_type ;
+
+(* <border-top-width> *)
+border_top_width_type = line_width_type ;
+
+(* <border-block-start> *)
+border_block_start_type = [ line_width_type ] , [ line_style_type ] , [ color_type ] ;
+
+(* <slash-separated-border-radius-syntax> *)
+slash_separated_border_radius_syntax_type = length_percentage_type , [ "/" , length_percentage_type ] ;
+
+(* <legacy-border-radius-syntax> *)
+legacy_border_radius_syntax_type = length_percentage_type , [ length_percentage_type ] ;
+
+(* <border-image-source> *)
+border_image_source_type = none | image_type ;
+
+(* <border-image-slice> *)
+border_image_slice_type = border_image_slice_type_item , [ border_image_slice_type_item ] , [ border_image_slice_type_item ] , [ border_image_slice_type_item ] , [ fill ] ;
+border_image_slice_type_item = ( number_type | percentage_type ) ;
+
+(* <border-image-width> *)
+border_image_width_type = border_image_width_type_item , [ border_image_width_type_item ] , [ border_image_width_type_item ] , [ border_image_width_type_item ] ;
+border_image_width_type_item = ( length_percentage_type | number_type | auto ) ;
+
+(* <border-image-outset> *)
+border_image_outset_type = border_image_outset_type_item , [ border_image_outset_type_item ] , [ border_image_outset_type_item ] , [ border_image_outset_type_item ] ;
+border_image_outset_type_item = ( length_type | number_type ) ;
+
+(* <border-image-repeat> *)
+border_image_repeat_type = border_image_repeat_type_item , [ border_image_repeat_type_item ] ;
+border_image_repeat_type_item = ( stretch | repeat | round | space ) ;
+
+(* <spread-shadow> *)
+spread_shadow_type = [ "box-shadow-color" ] , ( none | length_type , length_type ) , [ "box-shadow-blur" , [ "box-shadow-spread" ] ] , [ "box-shadow-position" ] ;
+
+(* <box-shadow-color> *)
+box_shadow_color_type = color_type , { "," , color_type } ;
+
+(* <box-shadow-blur> *)
+box_shadow_blur_type = length_type , { "," , length_type } ;
+
+(* <box-shadow-spread> *)
+box_shadow_spread_type = length_type , { "," , length_type } ;
+
+(* <box-shadow-position> *)
+box_shadow_position_type = box_shadow_position_type_item , { "," , box_shadow_position_type_item } ;
+box_shadow_position_type_item = ( outset | inset ) ;
+
+(* <caret-color> *)
+caret_color_type = auto | color_type , [ ( auto | color_type ) ] ;
+
+(* <caret-animation> *)
+caret_animation_type = auto | manual ;
+
+(* <caret-shape> *)
+caret_shape_type = auto | "bar" | block | "underscore" ;
+
+(* <clip-source> *)
+clip_source_type = url_type ;
+
+(* <basic-shape-rect> *)
+basic_shape_rect_type = inset_fn | rect_fn | xywh_fn ;
+
+(* <line-color-list> *)
+line_color_list_type = line_color_or_repeat_type , { "," , line_color_or_repeat_type } ;
+
+(* <auto-line-color-list> *)
+auto_line_color_list_type = [ line_color_or_repeat_type , { "," , line_color_or_repeat_type } ] , "," , auto_repeat_line_color_type , "," , [ line_color_or_repeat_type , { "," , line_color_or_repeat_type } ] ;
+
+(* <line-color-or-repeat> *)
+line_color_or_repeat_type = color_type | repeat_line_color_type ;
+
+(* <auto-repeat-line-color> *)
+auto_repeat_line_color_type = repeat , "(" , auto , "," , auto_repeat_line_color_type_item , { "," , auto_repeat_line_color_type_item } , ")" ;
+auto_repeat_line_color_type_item = color_type ;
+
+(* <repeat-line-color> *)
+repeat_line_color_type = repeat , "(" , integer_type , "," , repeat_line_color_type_item , { "," , repeat_line_color_type_item } , ")" ;
+repeat_line_color_type_item = color_type ;
+
+(* <line-style-list> *)
+line_style_list_type = line_style_or_repeat_type , { "," , line_style_or_repeat_type } ;
+
+(* <auto-line-style-list> *)
+auto_line_style_list_type = [ line_style_or_repeat_type , { "," , line_style_or_repeat_type } ] , "," , auto_repeat_line_style_type , "," , [ line_style_or_repeat_type , { "," , line_style_or_repeat_type } ] ;
+
+(* <line-style-or-repeat> *)
+line_style_or_repeat_type = line_style_type | repeat_line_style_type ;
+
+(* <auto-repeat-line-style> *)
+auto_repeat_line_style_type = repeat , "(" , auto , "," , auto_repeat_line_style_type_item , { "," , auto_repeat_line_style_type_item } , ")" ;
+auto_repeat_line_style_type_item = line_style_type ;
+
+(* <repeat-line-style> *)
+repeat_line_style_type = repeat , "(" , integer_type , "," , repeat_line_style_type_item , { "," , repeat_line_style_type_item } , ")" ;
+repeat_line_style_type_item = line_style_type ;
+
+(* <line-width-list> *)
+line_width_list_type = line_width_or_repeat_type , { "," , line_width_or_repeat_type } ;
+
+(* <auto-line-width-list> *)
+auto_line_width_list_type = [ line_width_or_repeat_type , { "," , line_width_or_repeat_type } ] , "," , auto_repeat_line_width_type , "," , [ line_width_or_repeat_type , { "," , line_width_or_repeat_type } ] ;
+
+(* <line-width-or-repeat> *)
+line_width_or_repeat_type = line_width_type | repeat_line_width_type ;
+
+(* <auto-repeat-line-width> *)
+auto_repeat_line_width_type = repeat , "(" , auto , "," , auto_repeat_line_width_type_item , { "," , auto_repeat_line_width_type_item } , ")" ;
+auto_repeat_line_width_type_item = line_width_type ;
+
+(* <repeat-line-width> *)
+repeat_line_width_type = repeat , "(" , integer_type , "," , repeat_line_width_type_item , { "," , repeat_line_width_type_item } , ")" ;
+repeat_line_width_type_item = line_width_type ;
+
+(* <gap-rule-list> *)
+gap_rule_list_type = gap_rule_or_repeat_type , { "," , gap_rule_or_repeat_type } ;
+
+(* <gap-auto-rule-list> *)
+gap_auto_rule_list_type = [ gap_rule_or_repeat_type , { "," , gap_rule_or_repeat_type } ] , "," , gap_auto_repeat_rule_type , "," , [ gap_rule_or_repeat_type , { "," , gap_rule_or_repeat_type } ] ;
+
+(* <gap-rule-or-repeat> *)
+gap_rule_or_repeat_type = gap_rule_type | gap_repeat_rule_type ;
+
+(* <gap-auto-repeat-rule> *)
+gap_auto_repeat_rule_type = repeat , "(" , auto , "," , gap_rule_type , { "," , gap_rule_type } , ")" ;
+
+(* <gap-rule> *)
+gap_rule_type = [ line_width_type ] , [ line_style_type ] , [ color_type ] ;
+
+(* <gap-repeat-rule> *)
+gap_repeat_rule_type = repeat , "(" , integer_type , "," , gap_rule_type , { "," , gap_rule_type } , ")" ;
+
+(* <column-width> *)
+column_width_type = auto | length_type | min_content | max_content | fit_content , "(" , length_percentage_type , ")" ;
+
+(* <column-count> *)
+column_count_type = auto | integer_type ;
+
+(* <column-height> *)
+column_height_type = auto | length_type ;
+
+(* <container-name> *)
+container_name_type = none | custom_ident_type , { custom_ident_type } ;
+
+(* <container-type> *)
+container_type_type = normal | ( [ ( size | inline_size ) ] , [ "scroll-state" ] ) ;
+
+(* <content-replacement> *)
+content_replacement_type = image_type ;
+
+(* <content-list> *)
+content_list_type = content_list_type_item , { content_list_type_item } ;
+content_list_type_item = ( string_type | image_type | attr_fn | contents | quote_type | leader_fn | target_type | string_fn | content_fn | counter_type ) ;
+
+(* <counter> *)
+counter_type = counter_fn | counters_fn ;
+
+(* <quote> *)
+quote_type = open_quote | close_quote | no_open_quote | no_close_quote ;
+
+(* <leader()> *)
+leader_fn = "leader" , "(" , leader_type_type , ")" ;
+
+(* <target> *)
+target_type = target_counter_fn | target_counters_fn | target_text_fn ;
+
+(* <string()> *)
+string_fn = "string" , "(" , custom_ident_type , "," , [ ( first | start | last | "first-except" ) ] , ")" ;
+
+(* <content()> *)
+content_fn = content , "(" , [ ( text | before | after | "first-letter" | "marker" ) ] , ")" ;
+
+(* <leader-type> *)
+leader_type_type = dotted | solid | space | string_type ;
+
+(* <target-counter()> *)
+target_counter_fn = "target-counter" , "(" , ( string_type | url_type ) , "," , custom_ident_type , "," , [ counter_style_type ] , ")" ;
+
+(* <target-counters()> *)
+target_counters_fn = "target-counters" , "(" , ( string_type | url_type ) , "," , custom_ident_type , "," , string_type , "," , [ counter_style_type ] , ")" ;
+
+(* <target-text()> *)
+target_text_fn = "target-text" , "(" , ( string_type | url_type ) , "," , [ ( content | before | after | "first-letter" ) ] , ")" ;
+
+(* <counter-name> *)
+counter_name_type = custom_ident_type ;
+
+(* <syntax> *)
+syntax_type = (* skip: * *) | syntax_component_type , { syntax_combinator_type , syntax_component_type } | syntax_string_type ;
+
+(* <attr-unit> *)
+attr_unit_type = custom_ident_type ;
+
+(* <counter-style-name> *)
+counter_style_name_type = custom_ident_type ;
+
+(* <syntax-component> *)
+syntax_component_type = syntax_single_component_type , [ syntax_multiplier_type ] | "transform-list" ;
+
+(* <syntax-combinator> *)
+syntax_combinator_type = (* empty *) | (* empty *) ;
+
+(* <syntax-string> *)
+syntax_string_type = string_type ;
+
+(* <symbols-type> *)
+symbols_type_type = cyclic | numeric | alphabetic | symbolic | fixed ;
+
+(* <syntax-single-component> *)
+syntax_single_component_type = syntax_type_name_type | ident_type ;
+
+(* <syntax-multiplier> *)
+syntax_multiplier_type = (* skip: # *) | (* skip: + *) ;
+
+(* <syntax-type-name> *)
+syntax_type_name_type = "angle" | color | "custom-ident" | "image" | "integer" | "length" | "length-percentage" | "number" | "percentage" | "resolution" | "string" | "time" | url | "transform-function" ;
+
+(* <corner-top-left-shape> *)
+corner_top_left_shape_type = corner_shape_value_type ;
+
+(* <reversed-counter-name> *)
+reversed_counter_name_type = "reversed" , "(" , counter_name_type , ")" ;
+
+(* <cursor-image> *)
+cursor_image_type = ( url_type | url_set_type ) , number_type , number_type , (* skip: ? *) ;
+
+(* <cursor-predefined> *)
+cursor_predefined_type = auto | default | none | context_menu | help | pointer | progress | wait | cell | crosshair | text | vertical_text | alias | copy | move | no_drop | not_allowed | grab | grabbing | e_resize | n_resize | ne_resize | nw_resize | s_resize | se_resize | sw_resize | w_resize | ew_resize | ns_resize | nesw_resize | nwse_resize | col_resize | row_resize | all_scroll | zoom_in | zoom_out ;
+
+(* <opacity> *)
+opacity_type = opacity_value_type ;
+
+(* <opacity-value> *)
+opacity_value_type = number_type | percentage_type ;
+
+(* <paint> *)
+paint_type = none | image_type | svg_paint_type ;
+
+(* <svg-paint> *)
+svg_paint_type = "child" | "child" , "(" , integer_type , ")" ;
+
+(* <flex-direction> *)
+flex_direction_type = row | row_reverse | column | column_reverse ;
+
+(* <flex-wrap> *)
+flex_wrap_type = nowrap | wrap | wrap_reverse ;
+
+(* <flex-grow> *)
+flex_grow_type = number_type ;
+
+(* <flex-shrink> *)
+flex_shrink_type = number_type ;
+
+(* <flex-basis> *)
+flex_basis_type = content | width ;
+
+(* <snap-block()> *)
+snap_block_fn = "snap-block" , "(" , length_type , "," , [ ( start | end | "near" ) ] , ")" ;
+
+(* <snap-inline()> *)
+snap_inline_fn = "snap-inline" , "(" , length_type , "," , [ ( left | right | "near" ) ] , ")" ;
+
+(* <font-family-name> *)
+font_family_name_type = string_type | custom_ident_type , { custom_ident_type } ;
+
+(* <generic-font-family> *)
+generic_font_family_type = generic_font_script_specific_type | generic_font_complete_type | generic_font_incomplete_type ;
+
+(* <generic-font-script-specific> *)
+generic_font_script_specific_type = "generic" , "(" , "fangsong" , ")" | "generic" , "(" , "kai" , ")" | "generic" , "(" , "khmer-mul" , ")" | "generic" , "(" , "nastaliq" , ")" ;
+
+(* <generic-font-complete> *)
+generic_font_complete_type = serif | sans_serif | system_ui | cursive | fantasy | math | monospace ;
+
+(* <generic-font-incomplete> *)
+generic_font_incomplete_type = "ui-serif" | "ui-sans-serif" | "ui-monospace" | "ui-rounded" ;
+
+(* <feature-tag-value> *)
+feature_tag_value_type = opentype_tag_type , [ ( integer_type | on | off ) ] ;
+
+(* <opentype-tag> *)
+opentype_tag_type = string_type ;
+
+(* <palette-identifier> *)
+palette_identifier_type = dashed_ident_type ;
+
+(* <font-feature-value-name> *)
+font_feature_value_name_type = ident_type ;
+
+(* <east-asian-variant-values> *)
+east_asian_variant_values_type = jis78 | jis83 | jis90 | jis04 | simplified | traditional ;
+
+(* <east-asian-width-values> *)
+east_asian_width_values_type = full_width | proportional_width ;
+
+(* <common-lig-values> *)
+common_lig_values_type = common_ligatures | no_common_ligatures ;
+
+(* <discretionary-lig-values> *)
+discretionary_lig_values_type = discretionary_ligatures | no_discretionary_ligatures ;
+
+(* <historical-lig-values> *)
+historical_lig_values_type = historical_ligatures | no_historical_ligatures ;
+
+(* <contextual-alt-values> *)
+contextual_alt_values_type = contextual | no_contextual ;
+
+(* <numeric-figure-values> *)
+numeric_figure_values_type = lining_nums | oldstyle_nums ;
+
+(* <numeric-spacing-values> *)
+numeric_spacing_values_type = proportional_nums | tabular_nums ;
+
+(* <numeric-fraction-values> *)
+numeric_fraction_values_type = diagonal_fractions | stacked_fractions ;
+
+(* <font-weight-absolute> *)
+font_weight_absolute_type = normal | bold | number_type ;
+
+(* <font-style> *)
+font_style_type = normal | italic | left | right | oblique , [ angle_type ] ;
+
+(* <font-variant-css2> *)
+font_variant_css2_type = normal | small_caps ;
+
+(* <font-weight> *)
+font_weight_type = font_weight_absolute_type | bolder | lighter ;
+
+(* <font-width-css3> *)
+font_width_css3_type = normal | ultra_condensed | extra_condensed | condensed | semi_condensed | semi_expanded | expanded | extra_expanded | ultra_expanded ;
+
+(* <font-size> *)
+font_size_type = absolute_size_type | relative_size_type | length_percentage_type | math ;
+
+(* <line-height> *)
+line_height_type = normal | number_type | length_percentage_type ;
+
+(* <font-family> *)
+font_family_type = font_family_type_item , { "," , font_family_type_item } ;
+font_family_type_item = ( font_family_name_type | generic_font_family_type ) ;
+
+(* <system-font-family-name> *)
+system_font_family_name_type = caption | icon | menu | message_box | small_caption | status_bar ;
+
+(* <row-gap> *)
+row_gap_type = normal | length_percentage_type | line_width_type ;
+
+(* <column-gap> *)
+column_gap_type = normal | length_percentage_type | line_width_type ;
+
+(* <grid-line> *)
+grid_line_type = auto | custom_ident_type | ( ( integer_type | integer_type ) , [ custom_ident_type ] ) | ( span , ( [ integer_type ] , [ custom_ident_type ] ) ) ;
+
+(* <track-list> *)
+track_list_type = track_list_type_item , { track_list_type_item } , [ line_names_type ] ;
+track_list_type_item = [ line_names_type ] , ( track_size_type | track_repeat_type ) ;
+
+(* <auto-track-list> *)
+auto_track_list_type = { [ line_names_type ] , ( fixed_size_type | fixed_repeat_type ) } , [ line_names_type ] , auto_repeat_type , { [ line_names_type ] , ( fixed_size_type | fixed_repeat_type ) } , [ line_names_type ] ;
+
+(* <line-name-list> *)
+line_name_list_type = line_name_list_type_item , { line_name_list_type_item } ;
+line_name_list_type_item = ( line_names_type | name_repeat_type ) ;
+
+(* <track-repeat> *)
+track_repeat_type = repeat , "(" , integer_type , "," , track_repeat_type_item , { track_repeat_type_item } , [ line_names_type ] , ")" ;
+track_repeat_type_item = [ line_names_type ] , track_size_type ;
+
+(* <fixed-size> *)
+fixed_size_type = fixed_breadth_type | minmax , "(" , fixed_breadth_type , "," , track_breadth_type , ")" | minmax , "(" , inflexible_breadth_type , "," , fixed_breadth_type , ")" ;
+
+(* <fixed-repeat> *)
+fixed_repeat_type = repeat , "(" , integer_type , "," , fixed_repeat_type_item , { fixed_repeat_type_item } , [ line_names_type ] , ")" ;
+fixed_repeat_type_item = [ line_names_type ] , fixed_size_type ;
+
+(* <auto-repeat> *)
+auto_repeat_type = repeat , "(" , ( auto_fill | auto_fit ) , "," , auto_repeat_type_item , { auto_repeat_type_item } , [ line_names_type ] , ")" ;
+auto_repeat_type_item = [ line_names_type ] , track_size_type ;
+
+(* <name-repeat> *)
+name_repeat_type = repeat , "(" , ( integer_type | auto_fill ) , "," , line_names_type , { line_names_type } , ")" ;
+
+(* <grid-template-rows> *)
+grid_template_rows_type = none | track_list_type | auto_track_list_type | subgrid , [ line_name_list_type ] ;
+
+(* <grid-template-columns> *)
+grid_template_columns_type = none | track_list_type | auto_track_list_type | subgrid , [ line_name_list_type ] ;
+
+(* <explicit-track-list> *)
+explicit_track_list_type = explicit_track_list_type_item , { explicit_track_list_type_item } , [ line_names_type ] ;
+explicit_track_list_type_item = [ line_names_type ] , track_size_type ;
+
+(* <grid-template> *)
+grid_template_type = none | "grid-template-rows" , "/" , "grid-template-columns" | grid_template_type_item , { grid_template_type_item } , [ "/" , explicit_track_list_type ] ;
+grid_template_type_item = [ line_names_type ] , string_type , [ track_size_type ] , [ line_names_type ] ;
+
+(* <grid-auto-columns> *)
+grid_auto_columns_type = track_size_type , { track_size_type } ;
+
+(* <grid-auto-rows> *)
+grid_auto_rows_type = track_size_type , { track_size_type } ;
+
+(* <top> *)
+top_type = auto | length_percentage_type | anchor_fn | anchor_size_fn ;
+
+(* <interest-delay-start> *)
+interest_delay_start_type = normal | time_type ;
+
+(* <isolation-mode> *)
+isolation_mode_type = auto | isolate ;
+
+(* <block-ellipsis> *)
+block_ellipsis_type = "no-ellipsis" | auto | string_type ;
+
+(* <list-style-position> *)
+list_style_position_type = inside | outside ;
+
+(* <list-style-image> *)
+list_style_image_type = image_type | none ;
+
+(* <list-style-type> *)
+list_style_type_type = counter_style_type | string_type | none ;
+
+(* <margin-top> *)
+margin_top_type = length_percentage_type | auto | anchor_size_fn ;
+
+(* <marker-ref> *)
+marker_ref_type = url_type ;
+
+(* <mask-border-source> *)
+mask_border_source_type = "border-image-source" ;
+
+(* <mask-border-slice> *)
+mask_border_slice_type = "border-image-slice" ;
+
+(* <mask-border-width> *)
+mask_border_width_type = "border-image-width" ;
+
+(* <mask-border-outset> *)
+mask_border_outset_type = "border-image-outset" ;
+
+(* <mask-border-repeat> *)
+mask_border_repeat_type = "border-image-repeat" ;
+
+(* <mask-border-mode> *)
+mask_border_mode_type = luminance | alpha ;
+
+(* <compositing-operator> *)
+compositing_operator_type = add | subtract | intersect | exclude ;
+
+(* <mask-reference> *)
+mask_reference_type = none | image_type | mask_source_type ;
+
+(* <mask-source> *)
+mask_source_type = url_type ;
+
+(* <masking-mode> *)
+masking_mode_type = alpha | luminance | match_source ;
+
+(* <mask-layer> *)
+mask_layer_type = [ mask_reference_type ] , [ position_type , [ "/" , bg_size_type ] ] , [ repeat_style_type ] , [ geometry_box_type ] , [ ( geometry_box_type | no_clip ) ] , [ compositing_operator_type ] , [ masking_mode_type ] ;
+
+(* <max-width> *)
+max_width_type = none | length_percentage_type | min_content | max_content | fit_content , "(" , length_percentage_type , ")" | calc_size_fn | anchor_size_fn | stretch | fit_content | contain ;
+
+(* <min-width> *)
+min_width_type = auto | length_percentage_type | min_content | max_content | fit_content , "(" , length_percentage_type , ")" | calc_size_fn | anchor_size_fn | stretch | fit_content | contain ;
+
+(* <offset-path> *)
+offset_path_type = ray_fn | url_type | basic_shape_type ;
+
+(* <offset-position> *)
+offset_position_type = normal | auto | position_type ;
+
+(* <offset-distance> *)
+offset_distance_type = length_percentage_type ;
+
+(* <offset-rotate> *)
+offset_rotate_type = [ ( auto | reverse ) ] , [ angle_type ] ;
+
+(* <offset-anchor> *)
+offset_anchor_type = auto | position_type ;
+
+(* <outline-line-style> *)
+outline_line_style_type = none | auto | dotted | dashed | solid | double | groove | ridge | inset | outset ;
+
+(* <outline-width> *)
+outline_width_type = line_width_type ;
+
+(* <outline-style> *)
+outline_style_type = auto | outline_line_style_type ;
+
+(* <outline-color> *)
+outline_color_type = auto | "border-top-color" ;
+
+(* <overflow-block> *)
+overflow_block_type = visible | hidden | clip | scroll | auto ;
+
+(* <padding-top> *)
+padding_top_type = length_percentage_type ;
+
+(* <align-content> *)
+align_content_type = normal | baseline_position_type | content_distribution_type | [ overflow_position_type ] , content_position_type ;
+
+(* <justify-content> *)
+justify_content_type = normal | content_distribution_type | [ overflow_position_type ] , ( content_position_type | left | right ) ;
+
+(* <align-items> *)
+align_items_type = normal | stretch | baseline_position_type | [ overflow_position_type ] , self_position_type ;
+
+(* <justify-items> *)
+justify_items_type = normal | stretch | baseline_position_type | [ overflow_position_type ] , ( self_position_type | left | right ) | legacy | legacy , ( left | right | center ) ;
+
+(* <align-self> *)
+align_self_type = auto | [ overflow_position_type ] , ( normal | self_position_type ) | stretch | baseline_position_type | anchor_center ;
+
+(* <justify-self> *)
+justify_self_type = auto | [ overflow_position_type ] , ( normal | self_position_type | left | right ) | stretch | baseline_position_type | anchor_center ;
+
+(* <try-tactic> *)
+try_tactic_type = [ flip_block ] , [ flip_inline ] , [ flip_start ] , [ flip_x ] , [ flip_y ] ;
+
+(* <try-size> *)
+try_size_type = most_width | most_height | most_block_size | most_inline_size ;
+
+(* <position-try-order> *)
+position_try_order_type = normal | try_size_type ;
+
+(* <position-try-fallbacks> *)
+position_try_fallbacks_type = none | position_try_fallbacks_type_item , { "," , position_try_fallbacks_type_item } ;
+position_try_fallbacks_type_item = ( ( [ dashed_ident_type ] , [ try_tactic_type ] ) | position_area_type ) ;
+
+(* <running()> *)
+running_fn = running , "(" , custom_ident_type , ")" ;
+
+(* <scroll-timeline-name> *)
+scroll_timeline_name_type = scroll_timeline_name_type_item , { "," , scroll_timeline_name_type_item } ;
+scroll_timeline_name_type_item = ( none | dashed_ident_type ) ;
+
+(* <scroll-timeline-axis> *)
+scroll_timeline_axis_type = scroll_timeline_axis_type_item , { "," , scroll_timeline_axis_type_item } ;
+scroll_timeline_axis_type_item = ( block | inline | x | y ) ;
+
+(* <autospace> *)
+autospace_type = no_autospace | [ ( [ ideograph_alpha ] , [ ideograph_numeric ] , [ "punctuation" ] ) ] , [ ( insert | replace ) ] ;
+
+(* <text-box-trim> *)
+text_box_trim_type = none | "trim-start" | "trim-end" | "trim-both" ;
+
+(* <text-box-edge> *)
+text_box_edge_type = auto | text_edge_type ;
+
+(* <text-decoration-line> *)
+text_decoration_line_type = none | ( [ underline ] , [ overline ] , [ line_through ] , [ blink ] ) | spelling_error | grammar_error ;
+
+(* <text-decoration-thickness> *)
+text_decoration_thickness_type = auto | from_font | length_percentage_type | line_width_type ;
+
+(* <text-decoration-style> *)
+text_decoration_style_type = solid | double | dotted | dashed | wavy ;
+
+(* <text-decoration-color> *)
+text_decoration_color_type = color_type ;
+
+(* <text-emphasis-style> *)
+text_emphasis_style_type = none | ( [ ( filled | open ) ] , [ ( dot | circle | double_circle | triangle | sesame ) ] ) | string_type ;
+
+(* <text-emphasis-color> *)
+text_emphasis_color_type = color_type ;
+
+(* <fade()> *)
+fade_fn = "fade" , "(" , length_percentage_type , ")" ;
+
+(* <shadow> *)
+shadow_type = [ color_type ] , length_type , length_type , [ length_type , [ length_type ] ] , [ inset ] ;
+
+(* <spacing-trim> *)
+spacing_trim_type = space_all | normal | "space-first" | "trim-start" | "trim-both" | trim_all ;
+
+(* <text-wrap-mode> *)
+text_wrap_mode_type = wrap | nowrap ;
+
+(* <text-wrap-style> *)
+text_wrap_style_type = auto | balance | stable | pretty | "avoid-orphans" ;
+
+(* <transition-behavior-value> *)
+transition_behavior_value_type = normal | allow_discrete ;
+
+(* <single-transition-property> *)
+single_transition_property_type = all | custom_ident_type ;
+
+(* <single-transition> *)
+single_transition_type = [ ( none | single_transition_property_type ) ] , [ time_type ] , [ easing_function_type ] , [ time_type ] , [ transition_behavior_value_type ] ;
+
+(* <alignment-baseline> *)
+alignment_baseline_type = baseline | baseline_metric_type ;
+
+(* <baseline-shift> *)
+baseline_shift_type = length_percentage_type | sub | super | top | center | bottom ;
+
+(* <view-timeline-name> *)
+view_timeline_name_type = view_timeline_name_type_item , { "," , view_timeline_name_type_item } ;
+view_timeline_name_type_item = ( none | dashed_ident_type ) ;
+
+(* <view-timeline-axis> *)
+view_timeline_axis_type = view_timeline_axis_type_item , { "," , view_timeline_axis_type_item } ;
+view_timeline_axis_type_item = ( block | inline | x | y ) ;
+
+(* <white-space-collapse> *)
+white_space_collapse_type = collapse | "discard" | preserve | preserve_breaks | "preserve-spaces" | break_spaces ;
+
+(* <white-space-trim> *)
+white_space_trim_type = none | [ "discard-before" ] , [ "discard-after" ] , [ "discard-inner" ] ;
+
+(* <animateable-feature> *)
+animateable_feature_type = scroll_position | contents | custom_ident_type ;
+
+(* <border-width> *)
+border_width_type = "border-top-width" , [ "border-top-width" ] , [ "border-top-width" ] , [ "border-top-width" ] ;
+
+(* <border-style> *)
+border_style_type = "border-top-style" , [ "border-top-style" ] , [ "border-top-style" ] , [ "border-top-style" ] ;
+
+
+(* ── CSS Properties ────────────────────────────────────────────────────── *)
+
+(* accent-color *)
+accent_color_prop = auto | color_type ;
+
+(* align-content *)
+align_content_prop = normal | baseline_position_type | content_distribution_type | [ overflow_position_type ] , content_position_type ;
+
+(* align-items *)
+align_items_prop = normal | stretch | baseline_position_type | [ overflow_position_type ] , self_position_type ;
+
+(* align-self *)
+align_self_prop = auto | [ overflow_position_type ] , ( normal | self_position_type ) | stretch | baseline_position_type | anchor_center ;
+
+(* alignment-baseline *)
+alignment_baseline_prop = baseline | baseline_metric_type ;
+
+(* all *)
+all_prop = initial | inherit | unset | revert | revert_layer | revert_rule ;
+
+(* anchor-name *)
+anchor_name_prop = none | anchor_name_type , { "," , anchor_name_type } ;
+
+(* anchor-scope *)
+anchor_scope_prop = none | all | anchor_name_type , { "," , anchor_name_type } ;
+
+(* animation-composition *)
+animation_composition_prop = single_animation_composition_type , { "," , single_animation_composition_type } ;
+
+(* animation-delay *)
+animation_delay_prop = time_type , { "," , time_type } ;
+
+(* animation-direction *)
+animation_direction_prop = single_animation_direction_type , { "," , single_animation_direction_type } ;
+
+(* animation-duration *)
+animation_duration_prop = animation_duration_prop_item , { "," , animation_duration_prop_item } ;
+animation_duration_prop_item = ( auto | time_type ) ;
+
+(* animation-fill-mode *)
+animation_fill_mode_prop = single_animation_fill_mode_type , { "," , single_animation_fill_mode_type } ;
+
+(* animation-iteration-count *)
+animation_iteration_count_prop = single_animation_iteration_count_type , { "," , single_animation_iteration_count_type } ;
+
+(* animation-name *)
+animation_name_prop = animation_name_prop_item , { "," , animation_name_prop_item } ;
+animation_name_prop_item = ( none | keyframes_name_type ) ;
+
+(* animation-play-state *)
+animation_play_state_prop = single_animation_play_state_type , { "," , single_animation_play_state_type } ;
+
+(* animation-range-end *)
+animation_range_end_prop = animation_range_end_prop_item , { "," , animation_range_end_prop_item } ;
+animation_range_end_prop_item = ( normal | length_percentage_type | timeline_range_name_type , [ length_percentage_type ] ) ;
+
+(* animation-range-start *)
+animation_range_start_prop = animation_range_start_prop_item , { "," , animation_range_start_prop_item } ;
+animation_range_start_prop_item = ( normal | length_percentage_type | timeline_range_name_type , [ length_percentage_type ] ) ;
+
+(* animation-range *)
+animation_range_prop = animation_range_prop_item , { "," , animation_range_prop_item } ;
+animation_range_prop_item = "animation-range-start" , [ "animation-range-end" ] ;
+
+(* animation-timeline *)
+animation_timeline_prop = single_animation_timeline_type , { "," , single_animation_timeline_type } ;
+
+(* animation-timing-function *)
+animation_timing_function_prop = easing_function_type , { "," , easing_function_type } ;
+
+(* animation *)
+animation_prop = single_animation_type , { "," , single_animation_type } ;
+
+(* appearance *)
+appearance_prop = none | auto | base | base_select | compat_auto_type | compat_special_type | base ;
+
+(* aspect-ratio *)
+aspect_ratio_prop = [ auto ] , [ ratio_type ] ;
+
+(* backdrop-filter *)
+backdrop_filter_prop = none | filter_value_list_type ;
+
+(* backface-visibility *)
+backface_visibility_prop = visible | hidden ;
+
+(* background-attachment *)
+background_attachment_prop = attachment_type , { "," , attachment_type } ;
+
+(* background-blend-mode *)
+background_blend_mode_prop = "mix-blend-mode" , { "," , "mix-blend-mode" } ;
+
+(* background-clip *)
+background_clip_prop = bg_clip_type , { "," , bg_clip_type } ;
+
+(* background-color *)
+background_color_prop = color_type ;
+
+(* background-image *)
+background_image_prop = bg_image_type , { "," , bg_image_type } ;
+
+(* background-origin *)
+background_origin_prop = visual_box_type , { "," , visual_box_type } ;
+
+(* background-position-x *)
+background_position_x_prop = background_position_x_prop_item , { "," , background_position_x_prop_item } ;
+background_position_x_prop_item = ( center | (* ! at-least-one *) [ ( left | right | x_start | x_end ) ] , [ length_percentage_type ] ) ;
+
+(* background-position-y *)
+background_position_y_prop = background_position_y_prop_item , { "," , background_position_y_prop_item } ;
+background_position_y_prop_item = ( center | (* ! at-least-one *) [ ( top | bottom | y_start | y_end ) ] , [ length_percentage_type ] ) ;
+
+(* background-position *)
+background_position_prop = bg_position_type , { "," , bg_position_type } ;
+
+(* background-repeat *)
+background_repeat_prop = repeat_style_type , { "," , repeat_style_type } ;
+
+(* background-repeat-x *)
+background_repeat_x_prop = repetition_type , { "," , repetition_type } ;
+
+(* background-repeat-y *)
+background_repeat_y_prop = repetition_type , { "," , repetition_type } ;
+
+(* background-size *)
+background_size_prop = bg_size_type , { "," , bg_size_type } ;
+
+(* background *)
+background_prop = [ bg_layer_type , { "," , bg_layer_type } ] , "," , final_bg_layer_type ;
+
+(* baseline-shift *)
+baseline_shift_prop = length_percentage_type | sub | super | top | center | bottom ;
+
+(* baseline-source *)
+baseline_source_prop = auto | first | last ;
+
+(* block-size *)
+block_size_prop = width ;
+
+(* border-block-color *)
+border_block_color_prop = "border-top-color" , [ "border-top-color" ] ;
+
+(* border-block-end-color *)
+border_block_end_color_prop = color_type | image_1d_type ;
+
+(* border-block-end-style *)
+border_block_end_style_prop = line_style_type ;
+
+(* border-block-end-width *)
+border_block_end_width_prop = line_width_type ;
+
+(* border-block-end *)
+border_block_end_prop = [ line_width_type ] , [ line_style_type ] , [ color_type ] ;
+
+(* border-block-start-color *)
+border_block_start_color_prop = color_type | image_1d_type ;
+
+(* border-block-start-style *)
+border_block_start_style_prop = line_style_type ;
+
+(* border-block-start-width *)
+border_block_start_width_prop = line_width_type ;
+
+(* border-block-start *)
+border_block_start_prop = [ line_width_type ] , [ line_style_type ] , [ color_type ] ;
+
+(* border-block-style *)
+border_block_style_prop = "border-top-style" , [ "border-top-style" ] ;
+
+(* border-block-width *)
+border_block_width_prop = "border-top-width" , [ "border-top-width" ] ;
+
+(* border-block *)
+border_block_prop = "border-block-start" ;
+
+(* border-bottom-color *)
+border_bottom_color_prop = color_type | image_1d_type ;
+
+(* border-bottom-left-radius *)
+border_bottom_left_radius_prop = border_radius_type ;
+
+(* border-bottom-right-radius *)
+border_bottom_right_radius_prop = border_radius_type ;
+
+(* border-bottom-style *)
+border_bottom_style_prop = line_style_type ;
+
+(* border-bottom-width *)
+border_bottom_width_prop = line_width_type ;
+
+(* border-bottom *)
+border_bottom_prop = [ line_width_type ] , [ line_style_type ] , [ color_type ] ;
+
+(* border-collapse *)
+border_collapse_prop = separate | collapse ;
+
+(* border-color *)
+border_color_prop = border_color_prop_item , [ border_color_prop_item ] , [ border_color_prop_item ] , [ border_color_prop_item ] ;
+border_color_prop_item = ( color_type | image_1d_type ) ;
+
+(* border-end-end-radius *)
+border_end_end_radius_prop = border_radius_type ;
+
+(* border-end-start-radius *)
+border_end_start_radius_prop = border_radius_type ;
+
+(* border-image-outset *)
+border_image_outset_prop = border_image_outset_prop_item , [ border_image_outset_prop_item ] , [ border_image_outset_prop_item ] , [ border_image_outset_prop_item ] ;
+border_image_outset_prop_item = ( length_type | number_type ) ;
+
+(* border-image-repeat *)
+border_image_repeat_prop = border_image_repeat_prop_item , [ border_image_repeat_prop_item ] ;
+border_image_repeat_prop_item = ( stretch | repeat | round | space ) ;
+
+(* border-image-slice *)
+border_image_slice_prop = border_image_slice_prop_item , [ border_image_slice_prop_item ] , [ border_image_slice_prop_item ] , [ border_image_slice_prop_item ] , [ fill ] ;
+border_image_slice_prop_item = ( number_type | percentage_type ) ;
+
+(* border-image-source *)
+border_image_source_prop = none | image_type ;
+
+(* border-image-width *)
+border_image_width_prop = border_image_width_prop_item , [ border_image_width_prop_item ] , [ border_image_width_prop_item ] , [ border_image_width_prop_item ] ;
+border_image_width_prop_item = ( length_percentage_type | number_type | auto ) ;
+
+(* border-image *)
+border_image_prop = [ "border-image-source" ] , [ "border-image-slice" , [ ( "/" , "border-image-width" | "/" , [ "border-image-width" ] , "/" , "border-image-outset" ) ] ] , [ "border-image-repeat" ] ;
+
+(* border-inline-color *)
+border_inline_color_prop = "border-top-color" , [ "border-top-color" ] ;
+
+(* border-inline-end-color *)
+border_inline_end_color_prop = color_type | image_1d_type ;
+
+(* border-inline-end-style *)
+border_inline_end_style_prop = line_style_type ;
+
+(* border-inline-end-width *)
+border_inline_end_width_prop = line_width_type ;
+
+(* border-inline-end *)
+border_inline_end_prop = [ line_width_type ] , [ line_style_type ] , [ color_type ] ;
+
+(* border-inline-start-color *)
+border_inline_start_color_prop = color_type | image_1d_type ;
+
+(* border-inline-start-style *)
+border_inline_start_style_prop = line_style_type ;
+
+(* border-inline-start-width *)
+border_inline_start_width_prop = line_width_type ;
+
+(* border-inline-start *)
+border_inline_start_prop = [ line_width_type ] , [ line_style_type ] , [ color_type ] ;
+
+(* border-inline-style *)
+border_inline_style_prop = "border-top-style" , [ "border-top-style" ] ;
+
+(* border-inline-width *)
+border_inline_width_prop = "border-top-width" , [ "border-top-width" ] ;
+
+(* border-inline *)
+border_inline_prop = "border-block-start" ;
+
+(* border-left-color *)
+border_left_color_prop = color_type | image_1d_type ;
+
+(* border-left-style *)
+border_left_style_prop = line_style_type ;
+
+(* border-left-width *)
+border_left_width_prop = line_width_type ;
+
+(* border-left *)
+border_left_prop = [ line_width_type ] , [ line_style_type ] , [ color_type ] ;
+
+(* border-radius *)
+border_radius_prop = length_percentage_type , [ length_percentage_type ] , [ length_percentage_type ] , [ length_percentage_type ] , [ "/" , length_percentage_type , [ length_percentage_type ] , [ length_percentage_type ] , [ length_percentage_type ] ] ;
+
+(* border-right-color *)
+border_right_color_prop = color_type | image_1d_type ;
+
+(* border-right-style *)
+border_right_style_prop = line_style_type ;
+
+(* border-right-width *)
+border_right_width_prop = line_width_type ;
+
+(* border-right *)
+border_right_prop = [ line_width_type ] , [ line_style_type ] , [ color_type ] ;
+
+(* border-spacing *)
+border_spacing_prop = length_type , [ length_type ] ;
+
+(* border-start-end-radius *)
+border_start_end_radius_prop = border_radius_type ;
+
+(* border-start-start-radius *)
+border_start_start_radius_prop = border_radius_type ;
+
+(* border-style *)
+border_style_prop = "border-top-style" , [ "border-top-style" ] , [ "border-top-style" ] , [ "border-top-style" ] ;
+
+(* border-top-color *)
+border_top_color_prop = color_type | image_1d_type ;
+
+(* border-top-left-radius *)
+border_top_left_radius_prop = border_radius_type ;
+
+(* border-top-right-radius *)
+border_top_right_radius_prop = border_radius_type ;
+
+(* border-top-style *)
+border_top_style_prop = line_style_type ;
+
+(* border-top-width *)
+border_top_width_prop = line_width_type ;
+
+(* border-top *)
+border_top_prop = [ line_width_type ] , [ line_style_type ] , [ color_type ] ;
+
+(* border-width *)
+border_width_prop = "border-top-width" , [ "border-top-width" ] , [ "border-top-width" ] , [ "border-top-width" ] ;
+
+(* border *)
+border_prop = [ line_width_type ] , [ line_style_type ] , [ color_type ] ;
+
+(* bottom *)
+bottom_prop = auto | length_percentage_type | anchor_fn | anchor_size_fn ;
+
+(* box-align *)
+box_align_prop = start | center | end | baseline | stretch ;
+
+(* box-decoration-break *)
+box_decoration_break_prop = slice | clone ;
+
+(* box-direction *)
+box_direction_prop = normal | reverse ;
+
+(* box-flex-group *)
+box_flex_group_prop = integer_type ;
+
+(* box-flex *)
+box_flex_prop = number_type ;
+
+(* box-lines *)
+box_lines_prop = single | multiple ;
+
+(* box-ordinal-group *)
+box_ordinal_group_prop = integer_type ;
+
+(* box-orient *)
+box_orient_prop = horizontal | vertical | inline_axis | block_axis ;
+
+(* box-pack *)
+box_pack_prop = start | center | end | justify ;
+
+(* box-shadow *)
+box_shadow_prop = spread_shadow_type , { "," , spread_shadow_type } ;
+
+(* box-sizing *)
+box_sizing_prop = content_box | border_box ;
+
+(* break-after *)
+break_after_prop = auto | avoid | always | all | avoid_page | page | left | right | recto | verso | avoid_column | column | "avoid-region" | region ;
+
+(* break-before *)
+break_before_prop = auto | avoid | always | all | avoid_page | page | left | right | recto | verso | avoid_column | column | "avoid-region" | region ;
+
+(* break-inside *)
+break_inside_prop = auto | avoid | avoid_page | avoid_column | "avoid-region" ;
+
+(* caption-side *)
+caption_side_prop = top | bottom ;
+
+(* caret-animation *)
+caret_animation_prop = auto | manual ;
+
+(* caret-color *)
+caret_color_prop = auto | color_type , [ ( auto | color_type ) ] ;
+
+(* caret-shape *)
+caret_shape_prop = auto | "bar" | block | "underscore" ;
+
+(* caret *)
+caret_prop = [ "caret-color" ] , [ "caret-animation" ] , [ "caret-shape" ] ;
+
+(* clear *)
+clear_prop = inline_start | inline_end | block_start | block_end | left | right | top | bottom | "both-inline" | "both-block" | both | none ;
+
+(* clip-path *)
+clip_path_prop = clip_source_type | ( [ basic_shape_type ] , [ geometry_box_type ] ) | none ;
+
+(* clip-rule *)
+clip_rule_prop = nonzero | evenodd ;
+
+(* clip *)
+clip_prop = rect_fn | auto ;
+
+(* color-interpolation-filters *)
+color_interpolation_filters_prop = auto | sRGB | "linearRGB" ;
+
+(* color-interpolation *)
+color_interpolation_prop = auto | sRGB | "linearRGB" ;
+
+(* color-scheme *)
+color_scheme_prop = normal | color_scheme_prop_item , { color_scheme_prop_item } , [ only ] ;
+color_scheme_prop_item = ( light | dark | custom_ident_type ) ;
+
+(* color *)
+color_prop = color_type ;
+
+(* column-count *)
+column_count_prop = auto | integer_type ;
+
+(* column-fill *)
+column_fill_prop = auto | balance | "balance-all" ;
+
+(* column-gap *)
+column_gap_prop = normal | length_percentage_type | line_width_type ;
+
+(* column-height *)
+column_height_prop = auto | length_type ;
+
+(* column-rule-color *)
+column_rule_color_prop = line_color_list_type | auto_line_color_list_type ;
+
+(* column-rule-style *)
+column_rule_style_prop = line_style_list_type | auto_line_style_list_type ;
+
+(* column-rule-width *)
+column_rule_width_prop = line_width_list_type | auto_line_width_list_type ;
+
+(* column-rule *)
+column_rule_prop = gap_rule_list_type | gap_auto_rule_list_type ;
+
+(* column-span *)
+column_span_prop = none | integer_type | all | auto ;
+
+(* column-width *)
+column_width_prop = auto | length_type | min_content | max_content | fit_content , "(" , length_percentage_type , ")" ;
+
+(* column-wrap *)
+column_wrap_prop = auto | nowrap | wrap ;
+
+(* columns *)
+columns_prop = ( [ "column-width" ] , [ "column-count" ] ) , [ "/" , "column-height" ] ;
+
+(* contain-intrinsic-block-size *)
+contain_intrinsic_block_size_prop = [ auto ] , ( none | length_type ) ;
+
+(* contain-intrinsic-height *)
+contain_intrinsic_height_prop = [ auto ] , ( none | length_type ) ;
+
+(* contain-intrinsic-inline-size *)
+contain_intrinsic_inline_size_prop = [ auto ] , ( none | length_type ) ;
+
+(* contain-intrinsic-size *)
+contain_intrinsic_size_prop = contain_intrinsic_size_prop_item , [ contain_intrinsic_size_prop_item ] ;
+contain_intrinsic_size_prop_item = [ auto ] , ( none | length_type ) ;
+
+(* contain-intrinsic-width *)
+contain_intrinsic_width_prop = [ auto ] , ( none | length_type ) ;
+
+(* contain *)
+contain_prop = none | strict | content | ( [ ( size | inline_size ) ] , [ layout ] , [ style ] , [ paint ] ) ;
+
+(* container-name *)
+container_name_prop = none | custom_ident_type , { custom_ident_type } ;
+
+(* container-type *)
+container_type_prop = normal | ( [ ( size | inline_size ) ] , [ "scroll-state" ] ) ;
+
+(* container *)
+container_prop = "container-name" , [ "/" , "container-type" ] ;
+
+(* content-visibility *)
+content_visibility_prop = visible | auto | hidden ;
+
+(* content *)
+content_prop = normal | none | ( content_replacement_type | content_list_type ) , [ "/" , content_prop_item , { content_prop_item } ] | element_fn ;
+content_prop_item = ( string_type | counter_type | attr_fn ) ;
+
+(* corner-block-end-shape *)
+corner_block_end_shape_prop = "corner-top-left-shape" , [ "corner-top-left-shape" ] ;
+
+(* corner-block-start-shape *)
+corner_block_start_shape_prop = "corner-top-left-shape" , [ "corner-top-left-shape" ] ;
+
+(* corner-bottom-left-shape *)
+corner_bottom_left_shape_prop = corner_shape_value_type ;
+
+(* corner-bottom-right-shape *)
+corner_bottom_right_shape_prop = corner_shape_value_type ;
+
+(* corner-bottom-shape *)
+corner_bottom_shape_prop = "corner-top-left-shape" , [ "corner-top-left-shape" ] ;
+
+(* corner-end-end-shape *)
+corner_end_end_shape_prop = corner_shape_value_type ;
+
+(* corner-end-start-shape *)
+corner_end_start_shape_prop = corner_shape_value_type ;
+
+(* corner-inline-end-shape *)
+corner_inline_end_shape_prop = "corner-top-left-shape" , [ "corner-top-left-shape" ] ;
+
+(* corner-inline-start-shape *)
+corner_inline_start_shape_prop = "corner-top-left-shape" , [ "corner-top-left-shape" ] ;
+
+(* corner-left-shape *)
+corner_left_shape_prop = "corner-top-left-shape" , [ "corner-top-left-shape" ] ;
+
+(* corner-right-shape *)
+corner_right_shape_prop = "corner-top-left-shape" , [ "corner-top-left-shape" ] ;
+
+(* corner-shape *)
+corner_shape_prop = "corner-top-left-shape" , [ "corner-top-left-shape" ] , [ "corner-top-left-shape" ] , [ "corner-top-left-shape" ] ;
+
+(* corner-start-end-shape *)
+corner_start_end_shape_prop = corner_shape_value_type ;
+
+(* corner-start-start-shape *)
+corner_start_start_shape_prop = corner_shape_value_type ;
+
+(* corner-top-left-shape *)
+corner_top_left_shape_prop = corner_shape_value_type ;
+
+(* corner-top-right-shape *)
+corner_top_right_shape_prop = corner_shape_value_type ;
+
+(* corner-top-shape *)
+corner_top_shape_prop = "corner-top-left-shape" , [ "corner-top-left-shape" ] ;
+
+(* counter-increment *)
+counter_increment_prop = counter_increment_prop_item , { counter_increment_prop_item } | none ;
+counter_increment_prop_item = counter_name_type , [ integer_type ] ;
+
+(* counter-reset *)
+counter_reset_prop = counter_reset_prop_item , { counter_reset_prop_item } | none ;
+counter_reset_prop_item = ( counter_name_type , [ integer_type ] | reversed_counter_name_type , [ integer_type ] ) ;
+
+(* counter-set *)
+counter_set_prop = counter_set_prop_item , { counter_set_prop_item } | none ;
+counter_set_prop_item = counter_name_type , [ integer_type ] ;
+
+(* cursor *)
+cursor_prop = { cursor_image_type , "," } , cursor_predefined_type ;
+
+(* cx *)
+cx_prop = length_percentage_type ;
+
+(* cy *)
+cy_prop = length_percentage_type ;
+
+(* d *)
+d_prop = none | string_type ;
+
+(* direction *)
+direction_prop = ltr | rtl ;
+
+(* display *)
+display_prop = ( [ display_outside_type ] , [ display_inside_type ] ) | display_listitem_type | display_internal_type | display_box_type | display_legacy_type | grid_lanes | inline_grid_lanes | [ display_outside_type ] , [ ( display_inside_type | math ) ] ;
+
+(* dominant-baseline *)
+dominant_baseline_prop = auto | baseline_metric_type ;
+
+(* dynamic-range-limit *)
+dynamic_range_limit_prop = standard | no_limit | constrained | dynamic_range_limit_mix_fn ;
+
+(* empty-cells *)
+empty_cells_prop = show | hide ;
+
+(* field-sizing *)
+field_sizing_prop = fixed | content ;
+
+(* fill-opacity *)
+fill_opacity_prop = opacity ;
+
+(* fill-rule *)
+fill_rule_prop = nonzero | evenodd ;
+
+(* fill *)
+fill_prop = paint_type ;
+
+(* filter *)
+filter_prop = none | filter_value_list_type ;
+
+(* flex-basis *)
+flex_basis_prop = content | width ;
+
+(* flex-direction *)
+flex_direction_prop = row | row_reverse | column | column_reverse ;
+
+(* flex-flow *)
+flex_flow_prop = [ "flex-direction" ] , [ "flex-wrap" ] ;
+
+(* flex-grow *)
+flex_grow_prop = number_type ;
+
+(* flex-shrink *)
+flex_shrink_prop = number_type ;
+
+(* flex-wrap *)
+flex_wrap_prop = nowrap | wrap | wrap_reverse ;
+
+(* flex *)
+flex_prop = none | ( [ "flex-grow" , [ "flex-shrink" ] ] , [ "flex-basis" ] ) ;
+
+(* float *)
+float_prop = block_start | block_end | inline_start | inline_end | "snap-block" | snap_block_fn | "snap-inline" | snap_inline_fn | left | right | top | bottom | none | "footnote" ;
+
+(* flood-color *)
+flood_color_prop = color_type ;
+
+(* flood-opacity *)
+flood_opacity_prop = opacity ;
+
+(* font-family *)
+font_family_prop = font_family_prop_item , { "," , font_family_prop_item } ;
+font_family_prop_item = ( font_family_name_type | generic_font_family_type ) ;
+
+(* font-feature-settings *)
+font_feature_settings_prop = normal | feature_tag_value_type , { "," , feature_tag_value_type } ;
+
+(* font-kerning *)
+font_kerning_prop = auto | normal | none ;
+
+(* font-language-override *)
+font_language_override_prop = normal | string_type ;
+
+(* font-optical-sizing *)
+font_optical_sizing_prop = auto | none ;
+
+(* font-palette *)
+font_palette_prop = normal | light | dark | palette_identifier_type | palette_mix_fn ;
+
+(* font-size-adjust *)
+font_size_adjust_prop = none | [ ( ex_height | cap_height | ch_width | ic_width | ic_height ) ] , ( from_font | number_type ) ;
+
+(* font-size *)
+font_size_prop = absolute_size_type | relative_size_type | length_percentage_type | math ;
+
+(* font-smooth *)
+font_smooth_prop = auto | "never" | always | absolute_size_type | length_type ;
+
+(* font-stretch *)
+font_stretch_prop = normal | percentage_type | ultra_condensed | extra_condensed | condensed | semi_condensed | semi_expanded | expanded | extra_expanded | ultra_expanded ;
+
+(* font-style *)
+font_style_prop = normal | italic | left | right | oblique , [ angle_type ] ;
+
+(* font-synthesis-position *)
+font_synthesis_position_prop = auto | none ;
+
+(* font-synthesis-small-caps *)
+font_synthesis_small_caps_prop = auto | none ;
+
+(* font-synthesis-style *)
+font_synthesis_style_prop = auto | none | oblique_only ;
+
+(* font-synthesis-weight *)
+font_synthesis_weight_prop = auto | none ;
+
+(* font-synthesis *)
+font_synthesis_prop = none | ( [ weight ] , [ style ] , [ small_caps ] , [ "position" ] ) ;
+
+(* font-variant-alternates *)
+font_variant_alternates_prop = normal | ( [ stylistic , "(" , font_feature_value_name_type , ")" ] , [ historical_forms ] , [ styleset , "(" , font_feature_value_name_type , { "," , font_feature_value_name_type } , ")" ] , [ character_variant , "(" , font_feature_value_name_type , { "," , font_feature_value_name_type } , ")" ] , [ swash , "(" , font_feature_value_name_type , ")" ] , [ ornaments , "(" , font_feature_value_name_type , ")" ] , [ annotation , "(" , font_feature_value_name_type , ")" ] ) ;
+
+(* font-variant-caps *)
+font_variant_caps_prop = normal | small_caps | all_small_caps | petite_caps | all_petite_caps | unicase | titling_caps ;
+
+(* font-variant-east-asian *)
+font_variant_east_asian_prop = normal | ( [ east_asian_variant_values_type ] , [ east_asian_width_values_type ] , [ ruby ] ) ;
+
+(* font-variant-emoji *)
+font_variant_emoji_prop = normal | text | emoji | unicode ;
+
+(* font-variant-ligatures *)
+font_variant_ligatures_prop = normal | none | ( [ common_lig_values_type ] , [ discretionary_lig_values_type ] , [ historical_lig_values_type ] , [ contextual_alt_values_type ] ) ;
+
+(* font-variant-numeric *)
+font_variant_numeric_prop = normal | ( [ numeric_figure_values_type ] , [ numeric_spacing_values_type ] , [ numeric_fraction_values_type ] , [ ordinal ] , [ slashed_zero ] ) ;
+
+(* font-variant-position *)
+font_variant_position_prop = normal | sub | super ;
+
+(* font-variant *)
+font_variant_prop = normal | none | ( [ ( [ common_lig_values_type ] , [ discretionary_lig_values_type ] , [ historical_lig_values_type ] , [ contextual_alt_values_type ] ) ] , [ ( small_caps | all_small_caps | petite_caps | all_petite_caps | unicase | titling_caps ) ] , [ ( [ stylistic , "(" , font_feature_value_name_type , ")" ] , [ historical_forms ] , [ styleset , "(" , font_feature_value_name_type , { "," , font_feature_value_name_type } , ")" ] , [ character_variant , "(" , font_feature_value_name_type , { "," , font_feature_value_name_type } , ")" ] , [ swash , "(" , font_feature_value_name_type , ")" ] , [ ornaments , "(" , font_feature_value_name_type , ")" ] , [ annotation , "(" , font_feature_value_name_type , ")" ] ) ] , [ ( [ numeric_figure_values_type ] , [ numeric_spacing_values_type ] , [ numeric_fraction_values_type ] , [ ordinal ] , [ slashed_zero ] ) ] , [ ( [ east_asian_variant_values_type ] , [ east_asian_width_values_type ] , [ ruby ] ) ] , [ ( sub | super ) ] , [ ( text | emoji | unicode ) ] ) ;
+
+(* font-variation-settings *)
+font_variation_settings_prop = normal | font_variation_settings_prop_item , { "," , font_variation_settings_prop_item } ;
+font_variation_settings_prop_item = opentype_tag_type , number_type ;
+
+(* font-weight *)
+font_weight_prop = font_weight_absolute_type | bolder | lighter ;
+
+(* font-width *)
+font_width_prop = normal | percentage_type | ultra_condensed | extra_condensed | condensed | semi_condensed | semi_expanded | expanded | extra_expanded | ultra_expanded ;
+
+(* font *)
+font_prop = [ ( [ "font-style" ] , [ font_variant_css2_type ] , [ "font-weight" ] , [ font_width_css3_type ] ) ] , "font-size" , [ "/" , "line-height" ] , "font-family" , { "," , "font-family" } | system_font_family_name_type ;
+
+(* forced-color-adjust *)
+forced_color_adjust_prop = auto | none | "preserve-parent-color" ;
+
+(* gap *)
+gap_prop = "row-gap" , [ "column-gap" ] ;
+
+(* grid-area *)
+grid_area_prop = grid_line_type , [ grid_area_prop_item ] , [ grid_area_prop_item ] , [ grid_area_prop_item ] ;
+grid_area_prop_item = "/" , grid_line_type ;
+
+(* grid-auto-columns *)
+grid_auto_columns_prop = track_size_type , { track_size_type } ;
+
+(* grid-auto-flow *)
+grid_auto_flow_prop = [ ( row | column ) ] , [ dense ] ;
+
+(* grid-auto-rows *)
+grid_auto_rows_prop = track_size_type , { track_size_type } ;
+
+(* grid-column-end *)
+grid_column_end_prop = grid_line_type ;
+
+(* grid-column-start *)
+grid_column_start_prop = grid_line_type ;
+
+(* grid-column *)
+grid_column_prop = grid_line_type , [ "/" , grid_line_type ] ;
+
+(* grid-row-end *)
+grid_row_end_prop = grid_line_type ;
+
+(* grid-row-start *)
+grid_row_start_prop = grid_line_type ;
+
+(* grid-row *)
+grid_row_prop = grid_line_type , [ "/" , grid_line_type ] ;
+
+(* grid-template-areas *)
+grid_template_areas_prop = none | string_type , { string_type } ;
+
+(* grid-template-columns *)
+grid_template_columns_prop = none | track_list_type | auto_track_list_type | subgrid , [ line_name_list_type ] ;
+
+(* grid-template-rows *)
+grid_template_rows_prop = none | track_list_type | auto_track_list_type | subgrid , [ line_name_list_type ] ;
+
+(* grid-template *)
+grid_template_prop = none | "grid-template-rows" , "/" , "grid-template-columns" | grid_template_prop_item , { grid_template_prop_item } , [ "/" , explicit_track_list_type ] ;
+grid_template_prop_item = [ line_names_type ] , string_type , [ track_size_type ] , [ line_names_type ] ;
+
+(* grid *)
+grid_prop = "grid-template" | "grid-template-rows" , "/" , ( auto_flow , [ dense ] ) , [ "grid-auto-columns" ] | ( auto_flow , [ dense ] ) , [ "grid-auto-rows" ] , "/" , "grid-template-columns" ;
+
+(* hanging-punctuation *)
+hanging_punctuation_prop = none | ( [ first ] , [ ( force_end | allow_end ) ] , [ last ] ) ;
+
+(* height *)
+height_prop = auto | length_percentage_type | min_content | max_content | fit_content , "(" , length_percentage_type , ")" | calc_size_fn | anchor_size_fn | stretch | fit_content | contain ;
+
+(* hyphenate-character *)
+hyphenate_character_prop = auto | string_type ;
+
+(* hyphenate-limit-chars *)
+hyphenate_limit_chars_prop = hyphenate_limit_chars_prop_item , [ hyphenate_limit_chars_prop_item ] , [ hyphenate_limit_chars_prop_item ] ;
+hyphenate_limit_chars_prop_item = ( auto | integer_type ) ;
+
+(* hyphens *)
+hyphens_prop = none | manual | auto ;
+
+(* image-orientation *)
+image_orientation_prop = from_image | none | ( [ angle_type ] , [ "flip" ] ) ;
+
+(* image-rendering *)
+image_rendering_prop = auto | smooth | "high-quality" | pixelated | crisp_edges ;
+
+(* image-resolution *)
+image_resolution_prop = ( [ from_image ] , [ resolution_type ] ) , [ "snap" ] ;
+
+(* initial-letter *)
+initial_letter_prop = normal | number_type , integer_type | number_type , [ ( "drop" | "raise" ) ] ;
+
+(* inline-size *)
+inline_size_prop = width ;
+
+(* inset-block-end *)
+inset_block_end_prop = auto | length_percentage_type ;
+
+(* inset-block-start *)
+inset_block_start_prop = auto | length_percentage_type ;
+
+(* inset-block *)
+inset_block_prop = top , [ top ] ;
+
+(* inset-inline-end *)
+inset_inline_end_prop = auto | length_percentage_type ;
+
+(* inset-inline-start *)
+inset_inline_start_prop = auto | length_percentage_type ;
+
+(* inset-inline *)
+inset_inline_prop = top , [ top ] ;
+
+(* inset *)
+inset_prop = top , [ top ] , [ top ] , [ top ] ;
+
+(* interactivity *)
+interactivity_prop = auto | "inert" ;
+
+(* interest-delay *)
+interest_delay_prop = "interest-delay-start" , [ "interest-delay-start" ] ;
+
+(* interest-delay-end *)
+interest_delay_end_prop = normal | time_type ;
+
+(* interest-delay-start *)
+interest_delay_start_prop = normal | time_type ;
+
+(* interpolate-size *)
+interpolate_size_prop = "numeric-only" | "allow-keywords" ;
+
+(* isolation *)
+isolation_prop = isolation_mode_type ;
+
+(* justify-content *)
+justify_content_prop = normal | content_distribution_type | [ overflow_position_type ] , ( content_position_type | left | right ) ;
+
+(* justify-items *)
+justify_items_prop = normal | stretch | baseline_position_type | [ overflow_position_type ] , ( self_position_type | left | right ) | legacy | legacy , ( left | right | center ) ;
+
+(* justify-self *)
+justify_self_prop = auto | [ overflow_position_type ] , ( normal | self_position_type | left | right ) | stretch | baseline_position_type | anchor_center ;
+
+(* left *)
+left_prop = auto | length_percentage_type | anchor_fn | anchor_size_fn ;
+
+(* letter-spacing *)
+letter_spacing_prop = normal | length_percentage_type ;
+
+(* lighting-color *)
+lighting_color_prop = color_type ;
+
+(* line-break *)
+line_break_prop = auto | loose | normal | strict | anywhere ;
+
+(* line-clamp *)
+line_clamp_prop = none | ( [ integer_type ] , [ "block-ellipsis" ] ) , [ "-webkit-legacy" ] ;
+
+(* line-height-step *)
+line_height_step_prop = length_type ;
+
+(* line-height *)
+line_height_prop = normal | number_type | length_percentage_type ;
+
+(* list-style-image *)
+list_style_image_prop = image_type | none ;
+
+(* list-style-position *)
+list_style_position_prop = inside | outside ;
+
+(* list-style-type *)
+list_style_type_prop = counter_style_type | string_type | none ;
+
+(* list-style *)
+list_style_prop = [ "list-style-position" ] , [ "list-style-image" ] , [ "list-style-type" ] ;
+
+(* margin-block-end *)
+margin_block_end_prop = "margin-top" ;
+
+(* margin-block-start *)
+margin_block_start_prop = "margin-top" ;
+
+(* margin-block *)
+margin_block_prop = "margin-top" , [ "margin-top" ] ;
+
+(* margin-bottom *)
+margin_bottom_prop = length_percentage_type | auto | anchor_size_fn ;
+
+(* margin-inline-end *)
+margin_inline_end_prop = "margin-top" ;
+
+(* margin-inline-start *)
+margin_inline_start_prop = "margin-top" ;
+
+(* margin-inline *)
+margin_inline_prop = "margin-top" , [ "margin-top" ] ;
+
+(* margin-left *)
+margin_left_prop = length_percentage_type | auto | anchor_size_fn ;
+
+(* margin-right *)
+margin_right_prop = length_percentage_type | auto | anchor_size_fn ;
+
+(* margin-top *)
+margin_top_prop = length_percentage_type | auto | anchor_size_fn ;
+
+(* margin-trim *)
+margin_trim_prop = none | ( [ block ] , [ inline ] ) | ( [ block_start ] , [ inline_start ] , [ block_end ] , [ inline_end ] ) ;
+
+(* margin *)
+margin_prop = "margin-top" , [ "margin-top" ] , [ "margin-top" ] , [ "margin-top" ] ;
+
+(* marker-end *)
+marker_end_prop = none | marker_ref_type ;
+
+(* marker-mid *)
+marker_mid_prop = none | marker_ref_type ;
+
+(* marker-start *)
+marker_start_prop = none | marker_ref_type ;
+
+(* marker *)
+marker_prop = none | marker_ref_type ;
+
+(* mask-border-mode *)
+mask_border_mode_prop = luminance | alpha ;
+
+(* mask-border-outset *)
+mask_border_outset_prop = "border-image-outset" ;
+
+(* mask-border-repeat *)
+mask_border_repeat_prop = "border-image-repeat" ;
+
+(* mask-border-slice *)
+mask_border_slice_prop = "border-image-slice" ;
+
+(* mask-border-source *)
+mask_border_source_prop = "border-image-source" ;
+
+(* mask-border-width *)
+mask_border_width_prop = "border-image-width" ;
+
+(* mask-border *)
+mask_border_prop = [ "mask-border-source" ] , [ "mask-border-slice" , [ "/" , [ "mask-border-width" ] , [ "/" , "mask-border-outset" ] ] ] , [ "mask-border-repeat" ] , [ "mask-border-mode" ] ;
+
+(* mask-clip *)
+mask_clip_prop = mask_clip_prop_item , { "," , mask_clip_prop_item } ;
+mask_clip_prop_item = ( coord_box_type | no_clip ) ;
+
+(* mask-composite *)
+mask_composite_prop = compositing_operator_type , { "," , compositing_operator_type } ;
+
+(* mask-image *)
+mask_image_prop = mask_reference_type , { "," , mask_reference_type } ;
+
+(* mask-mode *)
+mask_mode_prop = masking_mode_type , { "," , masking_mode_type } ;
+
+(* mask-origin *)
+mask_origin_prop = coord_box_type , { "," , coord_box_type } ;
+
+(* mask-position *)
+mask_position_prop = position_type , { "," , position_type } ;
+
+(* mask-repeat *)
+mask_repeat_prop = repeat_style_type , { "," , repeat_style_type } ;
+
+(* mask-size *)
+mask_size_prop = bg_size_type , { "," , bg_size_type } ;
+
+(* mask-type *)
+mask_type_prop = luminance | alpha ;
+
+(* mask *)
+mask_prop = mask_layer_type , { "," , mask_layer_type } ;
+
+(* math-depth *)
+math_depth_prop = auto_add | add , "(" , integer_type , ")" | integer_type ;
+
+(* math-shift *)
+math_shift_prop = normal | compact ;
+
+(* math-style *)
+math_style_prop = normal | compact ;
+
+(* max-block-size *)
+max_block_size_prop = "max-width" ;
+
+(* max-height *)
+max_height_prop = none | length_percentage_type | min_content | max_content | fit_content , "(" , length_percentage_type , ")" | calc_size_fn | anchor_size_fn | stretch | fit_content | contain ;
+
+(* max-inline-size *)
+max_inline_size_prop = "max-width" ;
+
+(* max-width *)
+max_width_prop = none | length_percentage_type | min_content | max_content | fit_content , "(" , length_percentage_type , ")" | calc_size_fn | anchor_size_fn | stretch | fit_content | contain ;
+
+(* min-block-size *)
+min_block_size_prop = "min-width" ;
+
+(* min-height *)
+min_height_prop = auto | length_percentage_type | min_content | max_content | fit_content , "(" , length_percentage_type , ")" | calc_size_fn | anchor_size_fn | stretch | fit_content | contain ;
+
+(* min-inline-size *)
+min_inline_size_prop = "min-width" ;
+
+(* min-width *)
+min_width_prop = auto | length_percentage_type | min_content | max_content | fit_content , "(" , length_percentage_type , ")" | calc_size_fn | anchor_size_fn | stretch | fit_content | contain ;
+
+(* mix-blend-mode *)
+mix_blend_mode_prop = blend_mode_type | plus_lighter ;
+
+(* object-fit *)
+object_fit_prop = fill | none | [ ( contain | cover ) ] , [ scale_down ] ;
+
+(* object-position *)
+object_position_prop = position_type ;
+
+(* object-view-box *)
+object_view_box_prop = none | basic_shape_rect_type ;
+
+(* offset-anchor *)
+offset_anchor_prop = auto | position_type ;
+
+(* offset-distance *)
+offset_distance_prop = length_percentage_type ;
+
+(* offset-path *)
+offset_path_prop = none | [ offset_path_type ] , [ coord_box_type ] ;
+
+(* offset-position *)
+offset_position_prop = normal | auto | position_type ;
+
+(* offset-rotate *)
+offset_rotate_prop = [ ( auto | reverse ) ] , [ angle_type ] ;
+
+(* offset *)
+offset_prop = (* ! at-least-one *) [ "offset-position" ] , [ "offset-path" , [ ( [ "offset-distance" ] , [ "offset-rotate" ] ) ] ] , [ "/" , "offset-anchor" ] ;
+
+(* opacity *)
+opacity_prop = opacity_value_type ;
+
+(* order *)
+order_prop = integer_type ;
+
+(* orphans *)
+orphans_prop = integer_type ;
+
+(* outline-color *)
+outline_color_prop = auto | "border-top-color" ;
+
+(* outline-offset *)
+outline_offset_prop = length_type ;
+
+(* outline-style *)
+outline_style_prop = auto | outline_line_style_type ;
+
+(* outline-width *)
+outline_width_prop = line_width_type ;
+
+(* outline *)
+outline_prop = [ "outline-width" ] , [ "outline-style" ] , [ "outline-color" ] ;
+
+(* overflow-anchor *)
+overflow_anchor_prop = auto | none ;
+
+(* overflow-block *)
+overflow_block_prop = visible | hidden | clip | scroll | auto ;
+
+(* overflow-clip-margin *)
+overflow_clip_margin_prop = [ visual_box_type ] , [ length_type ] ;
+
+(* overflow-inline *)
+overflow_inline_prop = visible | hidden | clip | scroll | auto ;
+
+(* overflow-wrap *)
+overflow_wrap_prop = normal | break_word | anywhere ;
+
+(* overflow-x *)
+overflow_x_prop = visible | hidden | clip | scroll | auto ;
+
+(* overflow-y *)
+overflow_y_prop = visible | hidden | clip | scroll | auto ;
+
+(* overflow *)
+overflow_prop = "overflow-block" , [ "overflow-block" ] ;
+
+(* overlay *)
+overlay_prop = none | auto ;
+
+(* overscroll-behavior-block *)
+overscroll_behavior_block_prop = contain | none | auto | "chain" ;
+
+(* overscroll-behavior-inline *)
+overscroll_behavior_inline_prop = contain | none | auto | "chain" ;
+
+(* overscroll-behavior-x *)
+overscroll_behavior_x_prop = contain | none | auto | "chain" ;
+
+(* overscroll-behavior-y *)
+overscroll_behavior_y_prop = contain | none | auto | "chain" ;
+
+(* overscroll-behavior *)
+overscroll_behavior_prop = overscroll_behavior_prop_item , [ overscroll_behavior_prop_item ] ;
+overscroll_behavior_prop_item = ( contain | none | auto | "chain" ) ;
+
+(* padding-block-end *)
+padding_block_end_prop = "padding-top" ;
+
+(* padding-block-start *)
+padding_block_start_prop = "padding-top" ;
+
+(* padding-block *)
+padding_block_prop = "padding-top" , [ "padding-top" ] ;
+
+(* padding-bottom *)
+padding_bottom_prop = length_percentage_type ;
+
+(* padding-inline-end *)
+padding_inline_end_prop = "padding-top" ;
+
+(* padding-inline-start *)
+padding_inline_start_prop = "padding-top" ;
+
+(* padding-inline *)
+padding_inline_prop = "padding-top" , [ "padding-top" ] ;
+
+(* padding-left *)
+padding_left_prop = length_percentage_type ;
+
+(* padding-right *)
+padding_right_prop = length_percentage_type ;
+
+(* padding-top *)
+padding_top_prop = length_percentage_type ;
+
+(* padding *)
+padding_prop = "padding-top" , [ "padding-top" ] , [ "padding-top" ] , [ "padding-top" ] ;
+
+(* page-break-after *)
+page_break_after_prop = auto | always | avoid | left | right | inherit ;
+
+(* page-break-before *)
+page_break_before_prop = auto | always | avoid | left | right | inherit ;
+
+(* page-break-inside *)
+page_break_inside_prop = avoid | auto | inherit ;
+
+(* page *)
+page_prop = auto | custom_ident_type ;
+
+(* paint-order *)
+paint_order_prop = normal | ( [ fill ] , [ stroke ] , [ markers ] ) ;
+
+(* perspective-origin *)
+perspective_origin_prop = position_type ;
+
+(* perspective *)
+perspective_prop = none | length_type ;
+
+(* place-content *)
+place_content_prop = "align-content" , [ "justify-content" ] ;
+
+(* place-items *)
+place_items_prop = "align-items" , [ "justify-items" ] ;
+
+(* place-self *)
+place_self_prop = "align-self" , [ "justify-self" ] ;
+
+(* pointer-events *)
+pointer_events_prop = auto | bounding_box | visiblePainted | visibleFill | visibleStroke | visible | painted | fill | stroke | all | none ;
+
+(* position-anchor *)
+position_anchor_prop = normal | none | auto | anchor_name_type | match_parent ;
+
+(* position-area *)
+position_area_prop = none | position_area_type ;
+
+(* position-try-fallbacks *)
+position_try_fallbacks_prop = none | position_try_fallbacks_prop_item , { "," , position_try_fallbacks_prop_item } ;
+position_try_fallbacks_prop_item = ( ( [ dashed_ident_type ] , [ try_tactic_type ] ) | position_area_type ) ;
+
+(* position-try-order *)
+position_try_order_prop = normal | try_size_type ;
+
+(* position-try *)
+position_try_prop = [ "position-try-order" ] , "position-try-fallbacks" ;
+
+(* position-visibility *)
+position_visibility_prop = always | ( [ anchors_valid ] , [ anchors_visible ] , [ no_overflow ] ) ;
+
+(* position *)
+position_prop = static | relative | absolute | sticky | fixed | running_fn ;
+
+(* print-color-adjust *)
+print_color_adjust_prop = economy | exact ;
+
+(* quotes *)
+quotes_prop = auto | none | match_parent | quotes_prop_item , { quotes_prop_item } ;
+quotes_prop_item = string_type , string_type ;
+
+(* r *)
+r_prop = length_percentage_type ;
+
+(* resize *)
+resize_prop = none | both | horizontal | vertical | block | inline ;
+
+(* right *)
+right_prop = auto | length_percentage_type | anchor_fn | anchor_size_fn ;
+
+(* rotate *)
+rotate_prop = none | angle_type | ( x | y | z | number_type , number_type , number_type ) , angle_type ;
+
+(* row-gap *)
+row_gap_prop = normal | length_percentage_type | line_width_type ;
+
+(* ruby-align *)
+ruby_align_prop = start | center | space_between | space_around ;
+
+(* ruby-overhang *)
+ruby_overhang_prop = auto | "spaces" ;
+
+(* ruby-position *)
+ruby_position_prop = ( [ alternate ] , [ ( over | under ) ] ) | inter_character ;
+
+(* rx *)
+rx_prop = length_percentage_type | auto ;
+
+(* ry *)
+ry_prop = length_percentage_type | auto ;
+
+(* scale *)
+scale_prop = none | scale_prop_item , [ scale_prop_item ] , [ scale_prop_item ] ;
+scale_prop_item = ( number_type | percentage_type ) ;
+
+(* scroll-behavior *)
+scroll_behavior_prop = auto | smooth ;
+
+(* scroll-initial-target *)
+scroll_initial_target_prop = none | nearest ;
+
+(* scroll-margin-block-end *)
+scroll_margin_block_end_prop = length_type ;
+
+(* scroll-margin-block-start *)
+scroll_margin_block_start_prop = length_type ;
+
+(* scroll-margin-block *)
+scroll_margin_block_prop = length_type , [ length_type ] ;
+
+(* scroll-margin-bottom *)
+scroll_margin_bottom_prop = length_type ;
+
+(* scroll-margin-inline-end *)
+scroll_margin_inline_end_prop = length_type ;
+
+(* scroll-margin-inline-start *)
+scroll_margin_inline_start_prop = length_type ;
+
+(* scroll-margin-inline *)
+scroll_margin_inline_prop = length_type , [ length_type ] ;
+
+(* scroll-margin-left *)
+scroll_margin_left_prop = length_type ;
+
+(* scroll-margin-right *)
+scroll_margin_right_prop = length_type ;
+
+(* scroll-margin-top *)
+scroll_margin_top_prop = length_type ;
+
+(* scroll-margin *)
+scroll_margin_prop = length_type , [ length_type ] , [ length_type ] , [ length_type ] ;
+
+(* scroll-marker-group *)
+scroll_marker_group_prop = none | ( [ ( before | after ) ] , [ ( "links" | "tabs" ) ] ) ;
+
+(* scroll-padding-block-end *)
+scroll_padding_block_end_prop = auto | length_percentage_type ;
+
+(* scroll-padding-block-start *)
+scroll_padding_block_start_prop = auto | length_percentage_type ;
+
+(* scroll-padding-block *)
+scroll_padding_block_prop = scroll_padding_block_prop_item , [ scroll_padding_block_prop_item ] ;
+scroll_padding_block_prop_item = ( auto | length_percentage_type ) ;
+
+(* scroll-padding-bottom *)
+scroll_padding_bottom_prop = auto | length_percentage_type ;
+
+(* scroll-padding-inline-end *)
+scroll_padding_inline_end_prop = auto | length_percentage_type ;
+
+(* scroll-padding-inline-start *)
+scroll_padding_inline_start_prop = auto | length_percentage_type ;
+
+(* scroll-padding-inline *)
+scroll_padding_inline_prop = scroll_padding_inline_prop_item , [ scroll_padding_inline_prop_item ] ;
+scroll_padding_inline_prop_item = ( auto | length_percentage_type ) ;
+
+(* scroll-padding-left *)
+scroll_padding_left_prop = auto | length_percentage_type ;
+
+(* scroll-padding-right *)
+scroll_padding_right_prop = auto | length_percentage_type ;
+
+(* scroll-padding-top *)
+scroll_padding_top_prop = auto | length_percentage_type ;
+
+(* scroll-padding *)
+scroll_padding_prop = scroll_padding_prop_item , [ scroll_padding_prop_item ] , [ scroll_padding_prop_item ] , [ scroll_padding_prop_item ] ;
+scroll_padding_prop_item = ( auto | length_percentage_type ) ;
+
+(* scroll-snap-align *)
+scroll_snap_align_prop = scroll_snap_align_prop_item , [ scroll_snap_align_prop_item ] ;
+scroll_snap_align_prop_item = ( none | start | end | center ) ;
+
+(* scroll-snap-stop *)
+scroll_snap_stop_prop = normal | always ;
+
+(* scroll-snap-type *)
+scroll_snap_type_prop = none | ( x | y | block | inline | both ) , [ ( mandatory | proximity ) ] ;
+
+(* scroll-target-group *)
+scroll_target_group_prop = none | auto ;
+
+(* scroll-timeline-axis *)
+scroll_timeline_axis_prop = scroll_timeline_axis_prop_item , { "," , scroll_timeline_axis_prop_item } ;
+scroll_timeline_axis_prop_item = ( block | inline | x | y ) ;
+
+(* scroll-timeline-name *)
+scroll_timeline_name_prop = scroll_timeline_name_prop_item , { "," , scroll_timeline_name_prop_item } ;
+scroll_timeline_name_prop_item = ( none | dashed_ident_type ) ;
+
+(* scroll-timeline *)
+scroll_timeline_prop = scroll_timeline_prop_item , { "," , scroll_timeline_prop_item } ;
+scroll_timeline_prop_item = "scroll-timeline-name" , [ "scroll-timeline-axis" ] ;
+
+(* scrollbar-color *)
+scrollbar_color_prop = auto | color_type , color_type ;
+
+(* scrollbar-gutter *)
+scrollbar_gutter_prop = auto | stable , [ both_edges ] ;
+
+(* scrollbar-width *)
+scrollbar_width_prop = auto | thin | none ;
+
+(* shape-image-threshold *)
+shape_image_threshold_prop = opacity_value_type ;
+
+(* shape-margin *)
+shape_margin_prop = length_percentage_type ;
+
+(* shape-outside *)
+shape_outside_prop = none | ( [ basic_shape_type ] , [ shape_box_type ] ) | image_type ;
+
+(* shape-rendering *)
+shape_rendering_prop = auto | optimizeSpeed | "crispEdges" | geometricPrecision ;
+
+(* speak-as *)
+speak_as_prop = normal | [ spell_out ] , [ "digits" ] , [ ( literal_punctuation | no_punctuation ) ] ;
+
+(* stop-color *)
+stop_color_prop = color_type ;
+
+(* stop-opacity *)
+stop_opacity_prop = number_type | percentage_type ;
+
+(* stroke-dasharray *)
+stroke_dasharray_prop = none | stroke_dasharray_prop_item , { stroke_dasharray_prop_item } , (* skip: # *) ;
+stroke_dasharray_prop_item = ( length_percentage_type | number_type ) ;
+
+(* stroke-dashoffset *)
+stroke_dashoffset_prop = length_percentage_type | number_type ;
+
+(* stroke-linecap *)
+stroke_linecap_prop = "butt" | round | square ;
+
+(* stroke-linejoin *)
+stroke_linejoin_prop = [ ( crop | "arcs" | "miter" ) ] , [ ( "bevel" | round | fallback ) ] ;
+
+(* stroke-miterlimit *)
+stroke_miterlimit_prop = number_type ;
+
+(* stroke-opacity *)
+stroke_opacity_prop = opacity ;
+
+(* stroke-width *)
+stroke_width_prop = stroke_width_prop_item , { "," , stroke_width_prop_item } ;
+stroke_width_prop_item = ( length_percentage_type | line_width_type | number_type ) ;
+
+(* stroke *)
+stroke_prop = paint_type ;
+
+(* tab-size *)
+tab_size_prop = number_type | length_type ;
+
+(* table-layout *)
+table_layout_prop = auto | fixed ;
+
+(* text-align-last *)
+text_align_last_prop = auto | start | end | left | right | center | justify | match_parent ;
+
+(* text-align *)
+text_align_prop = start | end | left | right | center | string_type | justify | match_parent | "justify-all" ;
+
+(* text-anchor *)
+text_anchor_prop = start | middle | end ;
+
+(* text-autospace *)
+text_autospace_prop = normal | autospace_type | auto ;
+
+(* text-box-edge *)
+text_box_edge_prop = auto | text_edge_type ;
+
+(* text-box-trim *)
+text_box_trim_prop = none | "trim-start" | "trim-end" | "trim-both" ;
+
+(* text-box *)
+text_box_prop = normal | [ "text-box-trim" ] , [ "text-box-edge" ] ;
+
+(* text-combine-upright *)
+text_combine_upright_prop = none | all | "digits" , [ integer_type ] ;
+
+(* text-decoration-color *)
+text_decoration_color_prop = color_type ;
+
+(* text-decoration-inset *)
+text_decoration_inset_prop = length_type , [ length_type ] | auto ;
+
+(* text-decoration-line *)
+text_decoration_line_prop = none | ( [ underline ] , [ overline ] , [ line_through ] , [ blink ] ) | spelling_error | grammar_error ;
+
+(* text-decoration-skip-ink *)
+text_decoration_skip_ink_prop = auto | none | all ;
+
+(* text-decoration-skip *)
+text_decoration_skip_prop = none | auto ;
+
+(* text-decoration-style *)
+text_decoration_style_prop = solid | double | dotted | dashed | wavy ;
+
+(* text-decoration-thickness *)
+text_decoration_thickness_prop = auto | from_font | length_percentage_type | line_width_type ;
+
+(* text-decoration *)
+text_decoration_prop = [ "text-decoration-line" ] , [ "text-decoration-thickness" ] , [ "text-decoration-style" ] , [ "text-decoration-color" ] ;
+
+(* text-emphasis-color *)
+text_emphasis_color_prop = color_type ;
+
+(* text-emphasis-position *)
+text_emphasis_position_prop = ( over | under ) , [ ( right | left ) ] ;
+
+(* text-emphasis-style *)
+text_emphasis_style_prop = none | ( [ ( filled | open ) ] , [ ( dot | circle | double_circle | triangle | sesame ) ] ) | string_type ;
+
+(* text-emphasis *)
+text_emphasis_prop = [ "text-emphasis-style" ] , [ "text-emphasis-color" ] ;
+
+(* text-indent *)
+text_indent_prop = length_percentage_type , [ "hanging" ] , [ each_line ] ;
+
+(* text-justify *)
+text_justify_prop = [ ( auto | none | inter_word | inter_character | ruby ) ] , [ "no-compress" ] ;
+
+(* text-orientation *)
+text_orientation_prop = mixed | upright | sideways ;
+
+(* text-overflow *)
+text_overflow_prop = text_overflow_prop_item , [ text_overflow_prop_item ] ;
+text_overflow_prop_item = ( clip | ellipsis | string_type | "fade" | fade_fn ) ;
+
+(* text-rendering *)
+text_rendering_prop = auto | optimizeSpeed | optimizeLegibility | geometricPrecision ;
+
+(* text-shadow *)
+text_shadow_prop = none | shadow_type , { "," , shadow_type } ;
+
+(* text-size-adjust *)
+text_size_adjust_prop = auto | none | percentage_type ;
+
+(* text-spacing-trim *)
+text_spacing_trim_prop = spacing_trim_type | auto ;
+
+(* text-transform *)
+text_transform_prop = none | [ ( capitalize | uppercase | lowercase ) ] , [ full_width ] , [ full_size_kana ] | math_auto ;
+
+(* text-underline-offset *)
+text_underline_offset_prop = auto | length_percentage_type ;
+
+(* text-underline-position *)
+text_underline_position_prop = auto | [ ( from_font | under ) ] , [ ( left | right ) ] ;
+
+(* text-wrap-mode *)
+text_wrap_mode_prop = wrap | nowrap ;
+
+(* text-wrap-style *)
+text_wrap_style_prop = auto | balance | stable | pretty | "avoid-orphans" ;
+
+(* text-wrap *)
+text_wrap_prop = [ "text-wrap-mode" ] , [ "text-wrap-style" ] ;
+
+(* timeline-scope *)
+timeline_scope_prop = none | all | dashed_ident_type , { "," , dashed_ident_type } ;
+
+(* top *)
+top_prop = auto | length_percentage_type | anchor_fn | anchor_size_fn ;
+
+(* touch-action *)
+touch_action_prop = auto | none | ( [ ( pan_x | "pan-left" | "pan-right" ) ] , [ ( pan_y | "pan-up" | "pan-down" ) ] , [ pinch_zoom ] ) | manipulation ;
+
+(* transform-box *)
+transform_box_prop = content_box | border_box | fill_box | stroke_box | view_box ;
+
+(* transform-origin *)
+transform_origin_prop = ( left | center | right | top | bottom | length_percentage_type ) | ( left | center | right | length_percentage_type ) , ( top | center | bottom | length_percentage_type ) , [ length_type ] | ( ( center | left | right ) , ( center | top | bottom ) ) , [ length_type ] ;
+
+(* transform-style *)
+transform_style_prop = flat | preserve_3d ;
+
+(* transform *)
+transform_prop = none | transform_list_type ;
+
+(* transition-behavior *)
+transition_behavior_prop = transition_behavior_value_type , { "," , transition_behavior_value_type } ;
+
+(* transition-delay *)
+transition_delay_prop = time_type , { "," , time_type } ;
+
+(* transition-duration *)
+transition_duration_prop = time_type , { "," , time_type } ;
+
+(* transition-property *)
+transition_property_prop = none | single_transition_property_type , { "," , single_transition_property_type } ;
+
+(* transition-timing-function *)
+transition_timing_function_prop = easing_function_type , { "," , easing_function_type } ;
+
+(* transition *)
+transition_prop = single_transition_type , { "," , single_transition_type } ;
+
+(* translate *)
+translate_prop = none | length_percentage_type , [ length_percentage_type , [ length_type ] ] ;
+
+(* unicode-bidi *)
+unicode_bidi_prop = normal | embed | isolate | bidi_override | isolate_override | plaintext ;
+
+(* user-modify *)
+user_modify_prop = read_only | read_write | read_write_plaintext_only | "write-only" ;
+
+(* user-select *)
+user_select_prop = auto | text | none | contain | all ;
+
+(* vector-effect *)
+vector_effect_prop = none | "non-scaling-stroke" | "non-scaling-size" | "non-rotation" | "fixed-position" ;
+
+(* vertical-align *)
+vertical_align_prop = [ ( first | last ) ] , [ "alignment-baseline" ] , [ "baseline-shift" ] ;
+
+(* view-timeline-axis *)
+view_timeline_axis_prop = view_timeline_axis_prop_item , { "," , view_timeline_axis_prop_item } ;
+view_timeline_axis_prop_item = ( block | inline | x | y ) ;
+
+(* view-timeline-inset *)
+view_timeline_inset_prop = view_timeline_inset_prop_item , { "," , view_timeline_inset_prop_item } ;
+view_timeline_inset_prop_item_2 = ( auto | length_percentage_type ) ;
+view_timeline_inset_prop_item = view_timeline_inset_prop_item_2 , [ view_timeline_inset_prop_item_2 ] ;
+
+(* view-timeline-name *)
+view_timeline_name_prop = view_timeline_name_prop_item , { "," , view_timeline_name_prop_item } ;
+view_timeline_name_prop_item = ( none | dashed_ident_type ) ;
+
+(* view-timeline *)
+view_timeline_prop = view_timeline_prop_item , { "," , view_timeline_prop_item } ;
+view_timeline_prop_item = "view-timeline-name" , [ ( [ "view-timeline-axis" ] , [ "view-timeline-inset" ] ) ] ;
+
+(* view-transition-class *)
+view_transition_class_prop = none | custom_ident_type , { custom_ident_type } ;
+
+(* view-transition-name *)
+view_transition_name_prop = none | custom_ident_type ;
+
+(* visibility *)
+visibility_prop = visible | hidden | "force-hidden" | collapse ;
+
+(* white-space-collapse *)
+white_space_collapse_prop = collapse | "discard" | preserve | preserve_breaks | "preserve-spaces" | break_spaces ;
+
+(* white-space *)
+white_space_prop = normal | pre | pre_wrap | pre_line | [ "white-space-collapse" ] , [ "text-wrap-mode" ] , [ "white-space-trim" ] ;
+
+(* widows *)
+widows_prop = integer_type ;
+
+(* width *)
+width_prop = auto | length_percentage_type | min_content | max_content | fit_content , "(" , length_percentage_type , ")" | calc_size_fn | anchor_size_fn | stretch | fit_content | contain ;
+
+(* will-change *)
+will_change_prop = auto | animateable_feature_type , { "," , animateable_feature_type } ;
+
+(* word-break *)
+word_break_prop = normal | break_all | keep_all | manual | auto_phrase | break_word ;
+
+(* word-spacing *)
+word_spacing_prop = normal | length_percentage_type ;
+
+(* writing-mode *)
+writing_mode_prop = horizontal_tb | vertical_rl | vertical_lr | sideways_rl | sideways_lr ;
+
+(* x *)
+x_prop = length_percentage_type ;
+
+(* y *)
+y_prop = length_percentage_type ;
+
+(* z-index *)
+z_index_prop = auto | integer_type | inherit ;
+
+(* zoom *)
+zoom_prop = number_type | percentage_type ;
+

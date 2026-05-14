@@ -30,7 +30,14 @@ Format — one entry per line:
 ### Known issues
 
 - Pseudo-elements URLs in `reference/` were malformed and have been fixed.
-- A few entries have no formal syntax block on MDN; leave them out and note them.
+- A few entries have no formal syntax block on MDN; leave them out and note them in `syntax/MISSING_SYNTAX.md`.
+
+## Step 1.5: Checking the missing syntax
+
+Go through the webpages in `syntax/MISSING_SYNTAX.md` file. For each element in the markdown, mark it if it is `DEPRECATED`, `EXPERIMENTAL`, or `UNCLEAR`:
+- `DEPRECATED` if it is mentioned as such in the webpage
+- `EXXPERIMENTAL` if it is mentioned as such in the webpage
+- `UNCLEAR` if the document has no formal syntax in any part of the page (Syntax, Formal Syntax, etc)
 
 ## Step 2: Transforming the formal syntax to EBNF
 

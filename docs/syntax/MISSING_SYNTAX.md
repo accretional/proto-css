@@ -9,12 +9,8 @@ The following entries/webpages did not have a formal syntax section (or our scri
 
 ## properties
 
-**NOTE**: These two are experimental and as such don't have their syntax listed in the docs
-
 - [EXPERIMENTAL] reading-flow — https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/reading-flow
 - [EXPERIMENTAL] reading-order — https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/reading-order
-
-
 
 ## functions
 
@@ -23,8 +19,6 @@ The following entries/webpages did not have a formal syntax section (or our scri
 - [EXPERIMENTAL] if() — https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/if
 - [DONE] sibling-count() — https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/sibling-count
 - [DONE] sibling-index() — https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/sibling-index
-
-
 
 ## atrules
 
