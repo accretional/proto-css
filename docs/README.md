@@ -59,8 +59,8 @@ To avoid duplication of implementations, follow a bottom-up dependency implement
 - [x] Keywords (pulled from [WebKit](https://github.com/WebKit/WebKit))
 - [x] Datatypes
 - [x] Functions
-- [ ] Properties
-- [ ] At-rules
+- [x] Properties
+- [x] At-rules
 - [ ] Selectors
 - [ ] Pseudo-classes
 - [ ] Pseudo-elements
