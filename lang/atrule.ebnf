@@ -1,0 +1,352 @@
+(* CSS At-rule definitions
+   Sources: MDN formal syntax, W3C CSS specifications
+*)
+
+(* ── at_rules — union used in css.ebnf ───────────────────────────────────── *)
+
+at_rules =
+    at_charset
+    | at_color_profile
+    | at_container
+    | at_counter_style
+    | at_custom_media
+    | at_font_face
+    | at_font_feature_values
+    | at_font_palette_values
+    | at_function
+    | at_import
+    | at_keyframes
+    | at_layer
+    | at_media
+    | at_namespace
+    | at_page
+    | at_position_try
+    | at_property
+    | at_scope
+    | at_starting_style
+    | at_supports
+    | at_view_transition ;
+
+
+(* ── Placeholder types for sub-systems defined in other EBNF files ───────── *)
+block_contents_type       = declaration_value_type ;  (* rules + declarations; defined with selectors *)
+declaration_list_type     = declaration_value_type ;  (* descriptor block *)
+rule_list_type            = declaration_value_type ;  (* list of rules *)
+declaration_rule_list_type = declaration_value_type ; (* mixed declarations and rules *)
+qualified_rule_list_type  = declaration_value_type ;  (* e.g. @keyframes block *)
+media_query_list_type     = declaration_value_type ;  (* defined with @media *)
+selector_list_type        = declaration_value_type ;  (* defined in selectors EBNF *)
+any_value_type            = declaration_value_type ;  (* any CSS token sequence *)
+
+(* ── Shared: general-enclosed (used in container/supports queries) ───────── *)
+general_enclosed_type =
+    custom_ident_type , "(" , [ any_value_type ] , ")"
+    | "(" , [ any_value_type ] , ")" ;
+
+(* ── Shared: @supports condition (used in @import and @supports) ─────────── *)
+font_tech_atrule_type =
+    "features-opentype" | "features-aat" | "features-graphite"
+    | "color-COLRv0" | "color-COLRv1" | "color-SVG" | "color-sbix" | "color-CBDT"
+    | "variations" | "palettes" | "incremental" ;
+
+font_format_atrule_type =
+    string_type
+    | "collection" | "embedded-opentype" | "opentype"
+    | "svg" | "truetype" | "woff" | "woff2" ;
+
+supports_selector_fn_type      = "selector(" , any_value_type , ")" ;
+supports_font_tech_fn_type     = "font-tech(" , font_tech_atrule_type , ")" ;
+supports_font_format_fn_type   = "font-format(" , font_format_atrule_type , ")" ;
+supports_at_rule_fn_type       = "at-rule(" , custom_ident_type , ")" ;
+supports_named_feature_fn_type = "named-feature(" , custom_ident_type , ")" ;
+supports_env_fn_type           = "env(" , custom_ident_type , ")" ;
+supports_decl_type             = "(" , declaration_value_type , ")" ;
+
+supports_feature_type =
+    supports_selector_fn_type
+    | supports_font_tech_fn_type
+    | supports_font_format_fn_type
+    | supports_at_rule_fn_type
+    | supports_named_feature_fn_type
+    | supports_env_fn_type
+    | supports_decl_type ;
+
+supports_in_parens_type =
+    "(" , supports_condition_type , ")"
+    | supports_feature_type
+    | general_enclosed_type ;
+
+supports_condition_type =
+    "not" , supports_in_parens_type
+    | supports_in_parens_type , { "and" , supports_in_parens_type }
+    | supports_in_parens_type , { "or" , supports_in_parens_type } ;
+
+(* ── @charset ────────────────────────────────────────────────────────────── *)
+
+(* Common IANA charset names. Use custom_ident_type for any other valid value. *)
+charset_name_type =
+    (* Unicode *)
+    "UTF-8" | "UTF-16" | "UTF-16BE" | "UTF-16LE"
+    | "UTF-32" | "UTF-32BE" | "UTF-32LE" | "UTF-7"
+    (* ASCII / Latin *)
+    | "US-ASCII"
+    | "ISO-8859-1" | "ISO-8859-2" | "ISO-8859-3" | "ISO-8859-4"
+    | "ISO-8859-5" | "ISO-8859-6" | "ISO-8859-7" | "ISO-8859-8"
+    | "ISO-8859-9" | "ISO-8859-10" | "ISO-8859-11" | "ISO-8859-13"
+    | "ISO-8859-14" | "ISO-8859-15" | "ISO-8859-16"
+    (* Windows code pages *)
+    | "windows-874" | "windows-1250" | "windows-1251" | "windows-1252"
+    | "windows-1253" | "windows-1254" | "windows-1255" | "windows-1256"
+    | "windows-1257" | "windows-1258"
+    (* East Asian *)
+    | "Shift_JIS" | "EUC-JP" | "ISO-2022-JP" | "ISO-2022-JP-2"
+    | "EUC-KR" | "ISO-2022-KR"
+    | "GB2312" | "GBK" | "GB18030"
+    | "Big5" | "Big5-HKSCS"
+    (* Cyrillic *)
+    | "KOI8-R" | "KOI8-U"
+    (* Other *)
+    | "macintosh" | "TIS-620" | "IBM866" | "IBM850"
+    (* Custom / non-standard *)
+    | custom_ident_type ;
+
+at_charset = "@charset" , charset_name_type , ";" ;
+
+(* ── @color-profile ──────────────────────────────────────────────────────── *)
+
+at_color_profile = "@color-profile" , ( dashed_ident_type | "device-cmyk" ) , "{" , declaration_list_type , "}" ;
+
+(* ── @container ──────────────────────────────────────────────────────────── *)
+
+mf_lt_type         = "<" | "<=" ;
+mf_gt_type         = ">" | ">=" ;
+mf_eq_type         = "=" ;
+mf_comparison_type = mf_lt_type | mf_gt_type | mf_eq_type ;
+
+size_feature_type         = declaration_value_type ;  (* defined with media features *)
+scroll_state_feature_type = declaration_value_type ;  (* defined with scroll state *)
+style_feature_name_type   = custom_ident_type ;
+style_feature_value_type  = declaration_value_type ;
+
+style_feature_plain_type   = style_feature_name_type , ":" , style_feature_value_type ;
+style_feature_boolean_type = style_feature_name_type ;
+style_range_value_type     = custom_property_name_type | style_feature_value_type ;
+style_range_type =
+    style_range_value_type , mf_comparison_type , style_range_value_type
+    | style_range_value_type , mf_lt_type , style_range_value_type , mf_lt_type , style_range_value_type
+    | style_range_value_type , mf_gt_type , style_range_value_type , mf_gt_type , style_range_value_type ;
+style_feature_type = style_feature_plain_type | style_feature_boolean_type | style_range_type ;
+
+style_in_parens_type =
+    "(" , style_query_type , ")"
+    | "(" , style_feature_type , ")"
+    | general_enclosed_type ;
+
+style_query_type =
+    "not" , style_in_parens_type
+    | style_in_parens_type , { "and" , style_in_parens_type }
+    | style_in_parens_type , { "or" , style_in_parens_type }
+    | style_feature_type ;
+
+scroll_state_in_parens_type =
+    "(" , scroll_state_query_type , ")"
+    | "(" , scroll_state_feature_type , ")"
+    | general_enclosed_type ;
+
+scroll_state_query_type =
+    "not" , scroll_state_in_parens_type
+    | scroll_state_in_parens_type , { "and" , scroll_state_in_parens_type }
+    | scroll_state_in_parens_type , { "or" , scroll_state_in_parens_type } ;
+
+query_in_parens_type =
+    "(" , container_query_type , ")"
+    | "(" , size_feature_type , ")"
+    | "style(" , style_query_type , ")"
+    | "scroll-state(" , scroll_state_query_type , ")"
+    | general_enclosed_type ;
+
+container_query_type =
+    "not" , query_in_parens_type
+    | query_in_parens_type , { "and" , query_in_parens_type }
+    | query_in_parens_type , { "or" , query_in_parens_type } ;
+
+container_condition_type = [ custom_ident_type ] , container_query_type ;
+
+at_container = "@container" , container_condition_type , { "," , container_condition_type } , "{" , block_contents_type , "}" ;
+
+(* ── @counter-style ──────────────────────────────────────────────────────── *)
+
+(* <symbol> in the context of @counter-style descriptors (not the symbols() fn) *)
+counter_style_symbol_type = string_type | image_type | custom_ident_type ;
+
+counter_style_additive_symbols_type =
+    integer_type , counter_style_symbol_type ,
+    { "," , integer_type , counter_style_symbol_type } ;
+
+counter_style_negative_type = counter_style_symbol_type , [ counter_style_symbol_type ] ;
+counter_style_pad_type      = integer_type , counter_style_symbol_type ;
+counter_style_range_value_type = integer_type | "infinite" ;
+counter_style_range_type =
+    counter_style_range_value_type , counter_style_range_value_type ,
+    { "," , counter_style_range_value_type , counter_style_range_value_type }
+    | "auto" ;
+
+counter_style_speak_as_type =
+    "auto" | "bullets" | "numbers" | "words" | "spell-out"
+    | counter_style_name_type ;
+
+counter_style_system_type =
+    "cyclic" | "numeric" | "alphabetic" | "symbolic" | "additive"
+    | ( "fixed" , [ integer_type ] )
+    | ( "extends" , counter_style_name_type ) ;
+
+at_counter_style = "@counter-style" , custom_ident_type , "{" , declaration_list_type , "}" ;
+
+(* ── @custom-media ───────────────────────────────────────────────────────── *)
+
+at_custom_media = "@custom-media" , dashed_ident_type , ( media_query_list_type | "true" | "false" ) , ";" ;
+
+(* ── @font-face ──────────────────────────────────────────────────────────── *)
+
+font_face_src_type         = declaration_value_type ;  (* url() with optional format()/tech() hints *)
+unicode_range_token_type   = custom_ident_type ;       (* e.g. U+0025, U+4??, U+0025-00FF *)
+
+font_face_override_type    = "normal" | percentage_type ;   (* ascent/descent/line-gap override *)
+font_face_display_type     = "auto" | "block" | "swap" | "fallback" | "optional" ;
+
+font_face_style_desc_type  =
+    "auto" | "normal" | "italic" | "left" | "right"
+    | ( "oblique" , [ angle_type , [ angle_type ] ] ) ;
+
+font_face_weight_desc_type =
+    "auto" | font_weight_absolute_type | ( font_weight_absolute_type , font_weight_absolute_type ) ;
+
+font_face_width_desc_type  = "auto" | font_width_css3_type | ( font_width_css3_type , font_width_css3_type ) ;
+
+(* opentype_tag_type: defined in property.ebnf *)
+font_face_feature_tag_value_type = opentype_tag_type , [ integer_type | "on" | "off" ] ;
+font_face_feature_settings_type = "normal" | font_face_feature_tag_value_type , { "," , font_face_feature_tag_value_type } ;
+
+at_font_face = "@font-face" , "{" , declaration_list_type , "}" ;
+
+(* ── @font-feature-values ────────────────────────────────────────────────── *)
+
+at_font_feature_values = "@font-feature-values" , font_family_name_type , { "," , font_family_name_type } , "{" , declaration_rule_list_type , "}" ;
+
+(* ── @font-palette-values ────────────────────────────────────────────────── *)
+
+font_palette_base_type = "light" | "dark" | integer_type ;
+font_palette_override_colors_type = integer_type , color_type , { "," , integer_type , color_type } ;
+
+at_font_palette_values = "@font-palette-values" , dashed_ident_type , "{" , declaration_list_type , "}" ;
+
+(* ── @function ───────────────────────────────────────────────────────────── *)
+
+custom_property_name_type  = dashed_ident_type ;
+
+syntax_type_name_atrule_type =
+    "angle" | "color" | "custom-ident" | "image" | "integer"
+    | "length" | "length-percentage" | "number" | "percentage"
+    | "resolution" | "string" | "time" | "url" | "transform-function" ;
+
+syntax_multiplier_atrule_type  = "#" | "+" ;
+(* syntax_single_component_type, syntax_component_type: defined in property.ebnf *)
+css_type_atrule_type           = syntax_component_type | ( "type(" , string_type , ")" ) ;
+function_parameter_type        = custom_property_name_type , [ css_type_atrule_type ] , [ ":" , declaration_value_type ] ;
+
+at_function =
+    "@function" , custom_ident_type , "(" , [ function_parameter_type , { "," , function_parameter_type } ] , ")" ,
+    [ "returns" , css_type_atrule_type ] ,
+    "{" , declaration_rule_list_type , "}" ;
+
+(* ── @import ─────────────────────────────────────────────────────────────── *)
+
+scope_start_type      = selector_list_type ;
+scope_end_type        = selector_list_type ;
+scope_boundaries_type =
+    [ "(" , scope_start_type , ")" ] ,
+    [ "to" , "(" , scope_end_type , ")" ] ;
+
+supports_import_condition_type =
+    "supports(" , ( supports_condition_type | declaration_value_type ) , ")" ;
+
+import_layer_type = "layer" | ( "layer(" , layer_name_type , ")" ) ;
+import_scope_type = "scope" | ( "scope(" , ( scope_start_type | scope_boundaries_type ) , ")" ) ;
+
+at_import =
+    "@import" , ( url_type | string_type ) ,
+    [ import_layer_type ] ,
+    [ import_scope_type ] ,
+    [ supports_import_condition_type ] ,
+    [ media_query_list_type ] ,
+    ";" ;
+
+(* ── @keyframes ──────────────────────────────────────────────────────────── *)
+
+(* keyframes_name_type: defined in property.ebnf *)
+
+at_keyframes = "@keyframes" , keyframes_name_type , "{" , qualified_rule_list_type , "}" ;
+
+(* ── @layer ──────────────────────────────────────────────────────────────── *)
+
+at_layer =
+    ( "@layer" , [ layer_name_type ] , "{" , rule_list_type , "}" )
+    | ( "@layer" , layer_name_type , { "," , layer_name_type } , ";" ) ;
+
+(* ── @media ──────────────────────────────────────────────────────────────── *)
+
+at_media = "@media" , media_query_list_type , "{" , rule_list_type , "}" ;
+
+(* ── @namespace ──────────────────────────────────────────────────────────── *)
+
+namespace_prefix_type = custom_ident_type ;
+
+at_namespace = "@namespace" , [ namespace_prefix_type ] , ( string_type | url_type ) , ";" ;
+
+(* ── @page ───────────────────────────────────────────────────────────────── *)
+
+pseudo_page_type =
+    ":" , ( "left" | "right" | "first" | "blank" ) ;
+
+page_selector_type =
+    [ custom_ident_type ] , { pseudo_page_type } ;
+
+page_size_type =
+    "A5" | "A4" | "A3" | "B5" | "B4" | "JIS-B5" | "JIS-B4"
+    | "letter" | "legal" | "ledger" ;
+
+page_orientation_type = "upright" | "rotate-left" | "rotate-right" ;
+
+page_size_descriptor_type =
+    length_type , [ length_type ]
+    | "auto"
+    | page_size_type
+    | page_size_type , ( "portrait" | "landscape" )
+    | "portrait" | "landscape" ;
+
+at_page = "@page" , [ page_selector_type , { "," , page_selector_type } ] , "{" , declaration_rule_list_type , "}" ;
+
+(* ── @position-try ───────────────────────────────────────────────────────── *)
+
+at_position_try = "@position-try" , dashed_ident_type , "{" , declaration_list_type , "}" ;
+
+(* ── @property ───────────────────────────────────────────────────────────── *)
+
+at_property = "@property" , custom_property_name_type , "{" , declaration_list_type , "}" ;
+
+(* ── @scope ──────────────────────────────────────────────────────────────── *)
+
+at_scope = "@scope" , [ scope_boundaries_type ] , "{" , block_contents_type , "}" ;
+
+(* ── @starting-style ─────────────────────────────────────────────────────── *)
+
+at_starting_style = "@starting-style" , "{" , rule_list_type , "}" ;
+
+(* ── @supports ───────────────────────────────────────────────────────────── *)
+
+at_supports = "@supports" , supports_condition_type , "{" , rule_list_type , "}" ;
+
+(* ── @view-transition ────────────────────────────────────────────────────── *)
+
+at_view_transition = "@view-transition" , "{" , declaration_list_type , "}" ;
+
