@@ -1,11 +1,11 @@
-css_style_sheet = { at_rules | css_rule } ;      (* Empty stylesheet is valid CSS *)
+(* Empty stylesheet is valid CSS *)
+css_style_sheet = { at_rule | css_rule } ;
 
-css_rule = rule_definition , "{" , rule_properties , "}" ;
+css_rule = complex_selector_list , left_curly_bracket_symbol , rule_body , right_curly_bracket_symbol ;
 
-rule_definition = selector_chain , { "," , selector_chain } ;
-selector_chain = rule_name , { combinator, rule_name } ;
+(* A rule body can be empty, can have property or a nested rule *)
+rule_body = { property | nested_css_rule | at_rule } ;
 
-rule_name = selector , { pseudo_operator }; 
-pseudo_operator = (":", pseudo_class ) | ("::", pseudo_element ) ;
-
-rule_properties = { property } ;      (* A rule might not have properties *)
+(* The nested rule is the same as a CSS rule, except the rule_name *)
+(* can have an ampersand as a valid selector *)
+nested_css_rule = nested_complex_selector_list , left_curly_bracket_symbol , rule_body , right_curly_bracket_symbol ;
