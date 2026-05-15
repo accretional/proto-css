@@ -1,0 +1,181 @@
+(* pseudo-element.ebnf — CSS pseudo-element selectors
+   Sources: MDN pseudo-element reference, CSS Selectors Level 4 / Pseudo-Elements Level 4 spec
+            docs/data/pseudo-elements.json
+
+   Naming convention: pe_ prefix for every pseudo-element rule.
+
+   Circular-reference note:
+     ::slotted() and ::cue() take compound-selector arguments.
+     These resolve to compound_selector defined in selector.ebnf,
+     which in turn includes pseudo_element via simple_selector.
+     gluon compiles all files together so the mutual recursion resolves
+     at grammar-compile time.
+
+   Flagged rules (NOT implemented — see inline comments):
+     None — all 29 pseudo-elements are implemented.
+     The view-transition-* group shares a helper type (view_transition_arg)
+     defined at the bottom of this file.
+*)
+
+
+(* ── Top-level union ─────────────────────────────────────────────────────── *)
+
+pseudo_element =
+    (* Generated content *)
+    pe_before | pe_after
+    (* Display / layout *)
+    | pe_backdrop | pe_column | pe_details_content | pe_file_selector_button
+    (* Typography *)
+    | pe_first_letter | pe_first_line | pe_placeholder
+    (* List / marker *)
+    | pe_marker | pe_checkmark
+    (* Selection / highlight *)
+    | pe_selection | pe_highlight | pe_target_text
+    (* Spelling / grammar *)
+    | pe_spelling_error | pe_grammar_error
+    (* Shadow DOM *)
+    | pe_part | pe_slotted
+    (* Web Components / picker *)
+    | pe_picker | pe_picker_icon
+    (* Scroll *)
+    | pe_scroll_button | pe_scroll_marker | pe_scroll_marker_group
+    (* WebVTT *)
+    | pe_cue
+    (* View transitions *)
+    | pe_view_transition
+    | pe_view_transition_group
+    | pe_view_transition_image_pair
+    | pe_view_transition_new
+    | pe_view_transition_old ;
+
+
+(* ── Generated content ───────────────────────────────────────────────────── *)
+
+pe_before = double_colon_symbol , before ;
+pe_after  = double_colon_symbol , after ;
+
+
+(* ── Display / layout ────────────────────────────────────────────────────── *)
+
+pe_backdrop           = double_colon_symbol , backdrop ;
+pe_column             = double_colon_symbol , column ;
+pe_details_content    = double_colon_symbol , details_content ;
+pe_file_selector_button = double_colon_symbol , file_selector_button ;
+
+
+(* ── Typography ──────────────────────────────────────────────────────────── *)
+
+pe_first_letter = double_colon_symbol , first_letter ;
+pe_first_line   = double_colon_symbol , first_line ;
+pe_placeholder  = double_colon_symbol , placeholder ;
+
+
+(* ── List / marker ───────────────────────────────────────────────────────── *)
+
+pe_marker    = double_colon_symbol , marker ;
+pe_checkmark = double_colon_symbol , checkmark ;
+
+
+(* ── Selection / highlight ───────────────────────────────────────────────── *)
+
+pe_selection  = double_colon_symbol , selection ;
+pe_target_text = double_colon_symbol , target_text ;
+
+(* ::highlight(<custom-ident>) — names a custom highlight registered via the
+   CSS Custom Highlight API (HighlightRegistry). The argument is the highlight name. *)
+pe_highlight = double_colon_symbol , highlight ,
+               left_parenthesis_symbol , custom_ident_type , right_parenthesis_symbol ;
+
+
+(* ── Spelling / grammar ──────────────────────────────────────────────────── *)
+
+pe_spelling_error = double_colon_symbol , spelling_error ;
+pe_grammar_error  = double_colon_symbol , grammar_error ;
+
+
+(* ── Shadow DOM ──────────────────────────────────────────────────────────── *)
+
+(* ::part(<ident>+) — one or more part names exposed by a shadow host element. *)
+pe_part = double_colon_symbol , part ,
+          left_parenthesis_symbol , ident_type , { ident_type } , right_parenthesis_symbol ;
+
+(* ::slotted(<compound-selector>) — elements placed into a shadow DOM slot. *)
+pe_slotted = double_colon_symbol , slotted ,
+             left_parenthesis_symbol , compound_selector , right_parenthesis_symbol ;
+
+
+(* ── Web Components / picker ─────────────────────────────────────────────── *)
+
+(* ::picker(<ident>) — targets the picker of a form control that has base appearance.
+   Currently only "select" is supported as the ident value. *)
+pe_picker      = double_colon_symbol , picker ,
+                 left_parenthesis_symbol , ident_type , right_parenthesis_symbol ;
+
+pe_picker_icon = double_colon_symbol , picker_icon ;
+
+
+(* ── Scroll ──────────────────────────────────────────────────────────────── *)
+
+(* ::scroll-button(<scroll-button-direction>)
+   Selects scroll buttons generated on a scroll container.
+   * = all scroll buttons; directional keywords select a specific one. *)
+pe_scroll_button = double_colon_symbol , scroll_button ,
+                   left_parenthesis_symbol , scroll_button_direction , right_parenthesis_symbol ;
+
+pe_scroll_marker       = double_colon_symbol , scroll_marker ;
+pe_scroll_marker_group = double_colon_symbol , scroll_marker_group ;
+
+
+(* ── WebVTT ──────────────────────────────────────────────────────────────── *)
+
+(* ::cue | ::cue(<compound-selector>)
+   Matches WebVTT cues. The optional argument is a compound selector that
+   filters which cues are matched. WebVTT cue selectors are a subset of
+   CSS compound selectors (no combinators). *)
+pe_cue = double_colon_symbol , cue ,
+         [ left_parenthesis_symbol , compound_selector , right_parenthesis_symbol ] ;
+
+
+(* ── View transitions ────────────────────────────────────────────────────── *)
+
+pe_view_transition = double_colon_symbol , view_transition ;
+
+(* ::view-transition-group(), ::view-transition-image-pair(),
+   ::view-transition-new(), ::view-transition-old()
+   all share the same argument syntax — see view_transition_arg below. *)
+pe_view_transition_group      = double_colon_symbol , view_transition_group ,
+                                 left_parenthesis_symbol , view_transition_arg , right_parenthesis_symbol ;
+pe_view_transition_image_pair = double_colon_symbol , view_transition_image_pair ,
+                                 left_parenthesis_symbol , view_transition_arg , right_parenthesis_symbol ;
+pe_view_transition_new        = double_colon_symbol , view_transition_new ,
+                                 left_parenthesis_symbol , view_transition_arg , right_parenthesis_symbol ;
+pe_view_transition_old        = double_colon_symbol , view_transition_old ,
+                                 left_parenthesis_symbol , view_transition_arg , right_parenthesis_symbol ;
+
+
+(* ── Supporting types ────────────────────────────────────────────────────── *)
+
+(* <scroll-button-direction>:
+   * selects all scroll buttons; directional keywords select a specific one.
+   next / prev are spec-defined but not yet browser-supported. *)
+scroll_button_direction =
+    asterisk_symbol
+    | up | down | left | right
+    | block_start | block_end | inline_start | inline_end ;
+
+(* View-transition argument syntax:
+     [ <pt-name-selector> <pt-class-selector>? ] | <pt-class-selector>
+   <pt-name-selector> = * | <custom-ident>   (the view-transition-name value)
+   <pt-class-selector> = . <custom-ident>    (the view-transition-class value, dot-prefixed)
+   The two forms are:
+     - a name (with optional class):  custom_ident [ . custom_ident ]
+     - a class alone:                 . custom_ident
+     - the universal selector:        * [ . custom_ident ] *)
+pt_name_selector  = asterisk_symbol | custom_ident_type ;
+pt_class_selector = full_stop_symbol , custom_ident_type ;
+
+view_transition_arg =
+    ( pt_name_selector , [ pt_class_selector ] )
+    | pt_class_selector ;
+
+(* compound_selector_type is defined in pseudo-class.ebnf — shared alias. *)

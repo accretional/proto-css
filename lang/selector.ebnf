@@ -1,0 +1,127 @@
+(* selector.ebnf — CSS selector structure
+   Sources:
+     MDN Selector Definition - https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors
+     MDN Selector structure — https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Selectors/Selector_structure
+     MDN Selectors and combinators — https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Selectors/Selectors_and_combinators
+*)
+
+
+(* ── Selector lists ───────────────────────────────────────────────────────── *)
+(* A complex selector list (<complex-selector-list>) is a comma-separated list
+   of complex selectors. An element matches if it matches any one of them.
+   If any selector in a non-forgiving list is invalid, the entire list is
+   invalidated. *)
+
+complex_selector_list = complex_selector , { comma_symbol , complex_selector } ;
+
+(* Forgiving selector list: structurally identical to complex_selector_list.
+   Used by :is() and :where() — invalid individual selectors are silently
+   ignored rather than invalidating the whole list. *)
+
+forgiving_selector_list = complex_selector , { comma_symbol , complex_selector } ;
+
+(* Compound selector list: comma-separated compound selectors.
+   Used by :current(). Narrower than complex_selector_list — no combinators
+   allowed within each item. *)
+
+compound_selector_list = compound_selector , { comma_symbol , compound_selector } ;
+
+(* Relative selector list: used by :has(). *)
+
+relative_selector_list = relative_selector , { comma_symbol , relative_selector } ;
+
+(* Nested selector list: used by CSS Nesting. & is valid in place of a
+   simple selector at the start of a compound selector. *)
+
+nested_complex_selector_list = nested_complex_selector , { comma_symbol , nested_complex_selector } ;
+
+
+(* ── No-pseudo-element selector lists ────────────────────────────────────── *)
+(* Used by :is(), :not(), :where() whose argument lists must not contain
+   pseudo-elements. *)
+
+complex_selector_list_no_pe   = complex_selector_no_pe , { comma_symbol , complex_selector_no_pe } ;
+forgiving_selector_list_no_pe = complex_selector_no_pe , { comma_symbol , complex_selector_no_pe } ;
+
+
+(* ── Complex selectors ────────────────────────────────────────────────────── *)
+(* A complex selector is one or more compound selectors separated by combinators
+   (including the whitespace descendant combinator). It represents simultaneous
+   conditions on a set of elements. *)
+
+complex_selector = compound_selector , { combinator , compound_selector } ;
+
+(* A relative selector represents an element relative to one or more anchor
+   elements, optionally preceded by a combinator. When the leading combinator
+   is omitted, a descendant combinator is implied. Used inside :has(). *)
+
+relative_selector = [ combinator ] , complex_selector ;
+
+nested_complex_selector = nested_compound_selector , { combinator , nested_compound_selector } ;
+
+complex_selector_no_pe = compound_selector_no_pe , { combinator , compound_selector_no_pe } ;
+
+
+(* ── Compound selectors ───────────────────────────────────────────────────── *)
+(* A compound selector is a sequence of simple selectors with no combinator
+   between them. It represents simultaneous conditions on a single element.
+   Rules:
+     - type or universal selector may appear at most once, and must come first
+     - qualifying_selector excludes type/universal, so they can only be the first
+       component (via simple_selector) — the at-most-once constraint is structural
+     - no whitespace between components (whitespace = descendant combinator) *)
+
+compound_selector = simple_selector , { qualifying_selector } ;
+
+(* & is valid in place of a simple selector at the start of a nested compound selector. *)
+nested_compound_selector = ( ampersand_symbol | simple_selector ) , { qualifying_selector } ;
+
+compound_selector_no_pe = simple_selector_no_pe , { qualifying_selector_no_pe } ;
+
+
+(* ── Simple selectors ─────────────────────────────────────────────────────── *)
+(* A simple selector is a selector with a single component: a basic selector,
+   a pseudo-class, or a pseudo-element.
+   "Any selector that contains a single basic selector, attribute selector,
+   pseudo-class, or pseudo-element selector is a simple selector." — MDN *)
+
+simple_selector = basic_selector | pseudo_class | pseudo_element ;
+
+(* No-pseudo-element variant: used inside :is()/:not()/:where() argument lists. *)
+simple_selector_no_pe = basic_selector | pseudo_class ;
+
+(* Qualifying selectors: may follow a type or universal selector inside a
+   compound selector (i.e., everything except type and universal). *)
+
+qualifying_selector = class_selector | id_selector | attribute_selector
+                    | pseudo_class | pseudo_element ;
+
+qualifying_selector_no_pe = class_selector | id_selector | attribute_selector | pseudo_class ;
+
+
+(* ── Basic selectors ──────────────────────────────────────────────────────── *)
+(* The four fundamental selector types defined in MDN "Basic selectors":
+   type, universal, class, and ID. Attribute selectors also belong here. *)
+
+basic_selector = type_selector | universal_selector | class_selector | id_selector | attribute_selector ;
+
+type_selector = element_name ;
+(* For now element_name is any <ident> string. When HTML elements are defined,
+   this will be replaced with an enum. proto-html will constrain this boundary. *)
+element_name = ident_type ;
+
+universal_selector = asterisk_symbol ;
+
+class_selector = full_stop_symbol , ident_type ;
+
+id_selector = number_sign_symbol , ident_type ;
+
+attribute_selector = left_square_bracket_symbol , attr_name ,
+                     [ attr_matcher , attr_value , [ attr_modifier ] ] ,
+                     right_square_bracket_symbol ;
+
+attr_name     = ident_type ;
+attr_matcher  = [ tilde_symbol | vertical_line_symbol | circumflex_accent_symbol
+               | dollar_sign_symbol | asterisk_symbol ] , equals_sign_symbol ;
+attr_value    = string_type | ident_type ;
+attr_modifier = lowercase_i_symbol | lowercase_s_symbol ;
