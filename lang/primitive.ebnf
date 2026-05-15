@@ -1,21 +1,39 @@
 (* Some really useful primitives *)
-non_zero = "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
-zero = "0" ;
-period = "." ;
-plus = "+" ;
-minus = "-" ;
-digit = zero | non_zero ;
+
+non_zero = digit_1_symbol | digit_2_symbol | digit_3_symbol | digit_4_symbol
+         | digit_5_symbol | digit_6_symbol | digit_7_symbol | digit_8_symbol
+         | digit_9_symbol ;
+digit = digit_0_symbol | non_zero ;
 natural_number = non_zero , { digit } ;
-whole_number = digit , { digit } ;
+whole_number   = digit , { digit } ;
 
-letter   =
-  "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m"
-  | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z"
-  | "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M"
-  | "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z" ;
+uppercase_letter =
+    uppercase_a_symbol | uppercase_b_symbol | uppercase_c_symbol | uppercase_d_symbol
+  | uppercase_e_symbol | uppercase_f_symbol | uppercase_g_symbol | uppercase_h_symbol
+  | uppercase_i_symbol | uppercase_j_symbol | uppercase_k_symbol | uppercase_l_symbol
+  | uppercase_m_symbol | uppercase_n_symbol | uppercase_o_symbol | uppercase_p_symbol
+  | uppercase_q_symbol | uppercase_r_symbol | uppercase_s_symbol | uppercase_t_symbol
+  | uppercase_u_symbol | uppercase_v_symbol | uppercase_w_symbol | uppercase_x_symbol
+  | uppercase_y_symbol | uppercase_z_symbol ;
+
+lowercase_letter =
+    lowercase_a_symbol | lowercase_b_symbol | lowercase_c_symbol | lowercase_d_symbol
+  | lowercase_e_symbol | lowercase_f_symbol | lowercase_g_symbol | lowercase_h_symbol
+  | lowercase_i_symbol | lowercase_j_symbol | lowercase_k_symbol | lowercase_l_symbol
+  | lowercase_m_symbol | lowercase_n_symbol | lowercase_o_symbol | lowercase_p_symbol
+  | lowercase_q_symbol | lowercase_r_symbol | lowercase_s_symbol | lowercase_t_symbol
+  | lowercase_u_symbol | lowercase_v_symbol | lowercase_w_symbol | lowercase_x_symbol
+  | lowercase_y_symbol | lowercase_z_symbol ;
+
+letter = uppercase_letter | lowercase_letter ;
+
+hex_digit =
+    digit_0_symbol | digit_1_symbol | digit_2_symbol | digit_3_symbol
+  | digit_4_symbol | digit_5_symbol | digit_6_symbol | digit_7_symbol
+  | digit_8_symbol | digit_9_symbol
+  | lowercase_a_symbol | lowercase_b_symbol | lowercase_c_symbol
+  | lowercase_d_symbol | lowercase_e_symbol | lowercase_f_symbol
+  | uppercase_a_symbol | uppercase_b_symbol | uppercase_c_symbol
+  | uppercase_d_symbol | uppercase_e_symbol | uppercase_f_symbol ;
+
 string_literal = (* Need something for string literals *) ;
-
-hex_digit   =
-  "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
-  | "a" | "b" | "c" | "d" | "e" | "f"
-  | "A" | "B" | "C" | "D" | "E" | "F" ;
