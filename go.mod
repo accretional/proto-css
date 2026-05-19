@@ -14,4 +14,4 @@ require (
 	google.golang.org/protobuf v1.36.11 // indirect
 )
 
-replace github.com/accretional/gluon => /Users/rithesh/Documents/gluon
+replace github.com/accretional/gluon => ../gluon
