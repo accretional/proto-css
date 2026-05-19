@@ -36,4 +36,14 @@ hex_digit =
   | uppercase_a_symbol | uppercase_b_symbol | uppercase_c_symbol
   | uppercase_d_symbol | uppercase_e_symbol | uppercase_f_symbol ;
 
-string_literal = (* Need something for string literals *) ;
+(* <string> — CSS quoted string. Any printable ASCII character (0x20–0x7E) except
+   the enclosing quote character may appear unescaped. Escape sequences (\<hex>)
+   are not modelled here; they are legal per spec but rare in practice.
+   Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/string *)
+string_literal       = double_quoted_string | single_quoted_string ;
+double_quoted_string = quotation_mark_symbol , { string_char_dq } , quotation_mark_symbol ;
+single_quoted_string = apostrophe_symbol     , { string_char_sq } , apostrophe_symbol ;
+(* Printable ASCII 0x20–0x7E excluding " (0x22) *)
+string_char_dq = " " ... "!" | "#" ... "~" ;
+(* Printable ASCII 0x20–0x7E excluding ' (0x27) *)
+string_char_sq = " " ... "&" | "(" ... "~" ;

@@ -1,12 +1,15 @@
-# CSS → EBNF Translation Constraints
+# CSS to EBNF Translation Constraints
 
 Constraints and information losses that occur when translating CSS documentation
-(MDN, W3C VDS) into EBNF. These are not structural decisions we made — they are
-inherent gaps between what the CSS spec expresses and what EBNF can represent.
+(MDN, W3C VDS) into EBNF. These are inherent gaps between what the CSS spec expresses 
+and what EBNF can represent.
 
 ---
 
-## VDS → EBNF Translation
+## VDS to EBNF Translation
+
+The main problem here is that CSS is not a pure CFG. CSS rules, which are written in Value Definition Syntax (VDS) 
+format, is not completely convertible into EBNF without making a few key decisions.
 
 ### `||` loses the "at least one" requirement
 
@@ -52,6 +55,23 @@ In CSS VDS, `<'outline-width'>` means "accept the same values as the
 This is easy to confuse with a type reference (`<outline-width>` without quotes).
 The quoting convention is subtle and required cross-referencing against the
 formal syntax to resolve correctly. See also: MDN disagreement below.
+
+### Optional rules greedily consume shared identifier prefixes
+
+When an optional rule `[ A ]` is followed by a mandatory alternative `( B | C )`,
+and `A` and `B` both start with an identifier, the optional rule always wins
+the leading identifier characters — even when the longer intended match is `B`.
+
+Concrete example: `@namespace [ <ident> ] [ <string> | url(<string>) ]`.
+In CSS's tokenizer, `url` and a bare `<ident>` are distinct token types, so
+no ambiguity exists at the token level. In EBNF, both are matched by the same
+`ident_type` character-level rule, so `[ NamespacePrefixType ]` consumes `url`
+as a valid identifier, leaving `(<string>)` stranded — and the whole rule fails.
+
+The only fix within EBNF is to reorder: place the non-optional longer alternatives
+before the optional prefix, so that the optional arm is only tried when those fail.
+This means the grammar rule order carries information that the CSS spec expresses
+through token-type distinctions.
 
 ---
 
@@ -112,8 +132,8 @@ MDN documents which CSS properties each pseudo-element accepts
 (e.g., `::selection` accepts only 7 properties; `::first-letter` accepts 57).
 This information is scraped into `docs/data/pseudo-elements.json`. It has no
 representation in the CSS formal syntax and cannot be expressed in a
-context-free grammar without a dedicated rule-body variant per pseudo-element.
-Left to the semantic/validation layer.
+context-free grammar without a dedicated rule-body variant per pseudo-element, 
+which is too verbose and complicated. Left to the semantic/validation layer.
 
 ### `<url-set>` mapped to `image_set_fn`
 
@@ -129,7 +149,7 @@ CSS UI Level 4 spec at `https://drafts.csswg.org/css-ui-4/#cursor`.
 
 MDN's WebKit extensions reference lists ~110 items across properties, pseudo-classes,
 pseudo-elements, and media features. The documentation is inconsistent: some entries
-have standard replacements (e.g. `:-webkit-any()` → `:is()`), some are deprecated
+have standard replacements (e.g. `:-webkit-any()` -> `:is()`), some are deprecated
 with no replacement, some are Safari-only, and several have no formal syntax at all.
 Rather than encoding vendor-prefixed aliases that duplicate already-written standard
 rules, Webkit extensions are omitted from the EBNF. The full list is scraped into

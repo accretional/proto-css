@@ -9,139 +9,142 @@
 
 
 (* <contrast-color()> *)
-contrast_color_fn = contrast_color , left_parenthesis_symbol , color_type , right_parenthesis_symbol ;
+ContrastColorFn = contrast_color , left_parenthesis_symbol , ColorType , right_parenthesis_symbol ;
 
 (* <sibling-count()> — takes no parameters; returns sibling count as integer *)
-sibling_count_fn = sibling_count , left_parenthesis_symbol , right_parenthesis_symbol ;
+SiblingCountFn = sibling_count , left_parenthesis_symbol , right_parenthesis_symbol ;
 
 (* <sibling-index()> — takes no parameters; returns element's 1-based sibling position *)
-sibling_index_fn = sibling_index , left_parenthesis_symbol , right_parenthesis_symbol ;
+SiblingIndexFn = sibling_index , left_parenthesis_symbol , right_parenthesis_symbol ;
 
 (* <device-cmyk()> *)
-device_cmyk_fn = legacy_device_cmyk_syntax_type | modern_device_cmyk_syntax_type ;
+DeviceCmykFn = LegacyDeviceCmykSyntaxType | ModernDeviceCmykSyntaxType ;
 
 (* <color-mix()> *)
-color_mix_fn = color_mix , left_parenthesis_symbol , [ color_interpolation_method_type ] , comma_symbol , color_mix_fn_item , { comma_symbol , color_mix_fn_item } , right_parenthesis_symbol ;
+ColorMixFn = color_mix , left_parenthesis_symbol , [ ColorInterpolationMethodType ] , comma_symbol , ColorMixFnItem , { comma_symbol , ColorMixFnItem } , right_parenthesis_symbol ;
 
 (* <rgb()> *)
-rgb_fn = legacy_rgb_syntax_type | modern_rgb_syntax_type ;
+RgbFn = LegacyRgbSyntaxType | ModernRgbSyntaxType ;
 
 (* <rgba()> *)
-rgba_fn = legacy_rgba_syntax_type | modern_rgba_syntax_type ;
+RgbaFn = LegacyRgbaSyntaxType | ModernRgbaSyntaxType ;
 
 (* <hsl()> *)
-hsl_fn = legacy_hsl_syntax_type | modern_hsl_syntax_type ;
+HslFn = LegacyHslSyntaxType | ModernHslSyntaxType ;
 
 (* <hsla()> *)
-hsla_fn = legacy_hsla_syntax_type | modern_hsla_syntax_type ;
+HslaFn = LegacyHslaSyntaxType | ModernHslaSyntaxType ;
 
 (* <hwb()> *)
-hwb_fn = hwb , left_parenthesis_symbol , [ from , color_type ] , ( hue_type | none ) , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , [ solidus_symbol , ( alpha_value_type | none ) ] , right_parenthesis_symbol ;
+HwbFn = hwb , left_parenthesis_symbol , [ from , ColorType ] , ( HueType | none ) , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
 
 (* <lab()> *)
-lab_fn = lab , left_parenthesis_symbol , [ from , color_type ] , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , [ solidus_symbol , ( alpha_value_type | none ) ] , right_parenthesis_symbol ;
+LabFn = lab , left_parenthesis_symbol , [ from , ColorType ] , ColorChannelValue , ColorChannelValue , ColorChannelValue , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
 
 (* <lch()> *)
-lch_fn = lch , left_parenthesis_symbol , [ from , color_type ] , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , ( hue_type | none ) , [ solidus_symbol , ( alpha_value_type | none ) ] , right_parenthesis_symbol ;
+LchFn = lch , left_parenthesis_symbol , [ from , ColorType ] , ColorChannelValue , ColorChannelValue , ( HueType | none | ident_type | MathFunctionType ) , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
 
 (* <oklab()> *)
-oklab_fn = oklab , left_parenthesis_symbol , [ from , color_type ] , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , [ solidus_symbol , ( alpha_value_type | none ) ] , right_parenthesis_symbol ;
+OklabFn = oklab , left_parenthesis_symbol , [ from , ColorType ] , ColorChannelValue , ColorChannelValue , ColorChannelValue , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
 
 (* <oklch()> *)
-oklch_fn = oklch , left_parenthesis_symbol , [ from , color_type ] , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , ( hue_type | none ) , [ solidus_symbol , ( alpha_value_type | none ) ] , right_parenthesis_symbol ;
+OklchFn = oklch , left_parenthesis_symbol , [ from , ColorType ] , ColorChannelValue , ColorChannelValue , ( HueType | none | ident_type | MathFunctionType ) , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
 
 (* <ictcp()> *)
-ictcp_fn = ictcp , left_parenthesis_symbol , [ from , color_type ] , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , [ solidus_symbol , ( alpha_value_type | none ) ] , right_parenthesis_symbol ;
+IctcpFn = ictcp , left_parenthesis_symbol , [ from , ColorType ] , ColorChannelValue , ColorChannelValue , ColorChannelValue , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
 
 (* <jzazbz()> *)
-jzazbz_fn = jzazbz , left_parenthesis_symbol , [ from , color_type ] , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , [ solidus_symbol , ( alpha_value_type | none ) ] , right_parenthesis_symbol ;
+JzazbzFn = jzazbz , left_parenthesis_symbol , [ from , ColorType ] , ColorChannelValue , ColorChannelValue , ColorChannelValue , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
 
 (* <jzczhz()> *)
-jzczhz_fn = jzczhz , left_parenthesis_symbol , [ from , color_type ] , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , ( hue_type | none ) , [ solidus_symbol , ( alpha_value_type | none ) ] , right_parenthesis_symbol ;
+JzczhzFn = jzczhz , left_parenthesis_symbol , [ from , ColorType ] , ColorChannelValue , ColorChannelValue , ( HueType | none | ident_type | MathFunctionType ) , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
+
+(* <color-channel-value> — for relative color syntax: number, percentage, none, or channel ident *)
+ColorChannelValue = percentage_type | number_type | none | ident_type | MathFunctionType | VarFn ;
 
 (* <alpha()> *)
-alpha_fn = alpha , left_parenthesis_symbol , from , color_type , [ solidus_symbol , ( alpha_value_type | none ) ] , right_parenthesis_symbol ;
+AlphaFn = alpha , left_parenthesis_symbol , from , ColorType , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
 
 (* <color()> *)
-color_fn = color , left_parenthesis_symbol , [ from , color_type ] , colorspace_params_type , [ solidus_symbol , ( alpha_value_type | none ) ] , right_parenthesis_symbol ;
+ColorFn = color , left_parenthesis_symbol , [ from , ColorType ] , ColorspaceParamsType , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
 
 (* <hdr-color()> *)
-hdr_color_fn = color_hdr , left_parenthesis_symbol , hdr_color_fn_item , comma_symbol , hdr_color_fn_item , right_parenthesis_symbol ;
+HdrColorFn = color_hdr , left_parenthesis_symbol , HdrColorFnItem , comma_symbol , HdrColorFnItem , right_parenthesis_symbol ;
 
 (* <superellipse()> *)
-superellipse_fn = superellipse , left_parenthesis_symbol , ( number_type | infinity | _infinity ) , right_parenthesis_symbol ;
+SuperellipseFn = superellipse , left_parenthesis_symbol , ( number_type | infinity | _infinity ) , right_parenthesis_symbol ;
 
 (* <linear()> *)
-linear_fn = linear , left_parenthesis_symbol , linear_fn_item , { comma_symbol , linear_fn_item } , right_parenthesis_symbol ;
+LinearFn = linear , left_parenthesis_symbol , LinearFnItem , { comma_symbol , LinearFnItem } , right_parenthesis_symbol ;
 
 (* <cubic-bezier()> *)
-cubic_bezier_fn = cubic_bezier , left_parenthesis_symbol , cubic_bezier_fn_item , comma_symbol , cubic_bezier_fn_item , right_parenthesis_symbol ;
+CubicBezierFn = cubic_bezier , left_parenthesis_symbol , CubicBezierFnItem , comma_symbol , CubicBezierFnItem , right_parenthesis_symbol ;
 
 (* <steps()> *)
-steps_fn = steps , left_parenthesis_symbol , integer_type , comma_symbol , [ step_position_type ] , right_parenthesis_symbol ;
+StepsFn = steps , left_parenthesis_symbol , integer_type , comma_symbol , [ StepPositionType ] , right_parenthesis_symbol ;
 
 (* <blur()> *)
-blur_fn = blur , left_parenthesis_symbol , [ length_type ] , right_parenthesis_symbol ;
+BlurFn = blur , left_parenthesis_symbol , [ length_type ] , right_parenthesis_symbol ;
 
 (* <brightness()> *)
-brightness_fn = brightness , left_parenthesis_symbol , [ ( number_type | percentage_type ) ] , right_parenthesis_symbol ;
+BrightnessFn = brightness , left_parenthesis_symbol , [ ( number_type | percentage_type ) ] , right_parenthesis_symbol ;
 
 (* <contrast()> *)
-contrast_fn = contrast , left_parenthesis_symbol , [ ( number_type | percentage_type ) ] , right_parenthesis_symbol ;
+ContrastFn = contrast , left_parenthesis_symbol , [ ( number_type | percentage_type ) ] , right_parenthesis_symbol ;
 
 (* <drop-shadow()> *)
-drop_shadow_fn = drop_shadow , left_parenthesis_symbol , ( [ color_type ] , length_type , length_type , [ length_type ] ) , right_parenthesis_symbol ;
+DropShadowFn = drop_shadow , left_parenthesis_symbol , ( [ ColorType ] , length_type , length_type , [ length_type ] ) , right_parenthesis_symbol ;
 
 (* <grayscale()> *)
-grayscale_fn = grayscale , left_parenthesis_symbol , [ ( number_type | percentage_type ) ] , right_parenthesis_symbol ;
+GrayscaleFn = grayscale , left_parenthesis_symbol , [ ( number_type | percentage_type ) ] , right_parenthesis_symbol ;
 
 (* <hue-rotate()> *)
-hue_rotate_fn = hue_rotate , left_parenthesis_symbol , [ ( angle_type | digit_0_symbol ) ] , right_parenthesis_symbol ;
+HueRotateFn = hue_rotate , left_parenthesis_symbol , [ ( angle_type | digit_0_symbol ) ] , right_parenthesis_symbol ;
 
 (* <invert()> *)
-invert_fn = invert , left_parenthesis_symbol , [ ( number_type | percentage_type ) ] , right_parenthesis_symbol ;
+InvertFn = invert , left_parenthesis_symbol , [ ( number_type | percentage_type ) ] , right_parenthesis_symbol ;
 
 (* <opacity()> *)
-opacity_fn = opacity , left_parenthesis_symbol , [ ( number_type | percentage_type ) ] , right_parenthesis_symbol ;
+OpacityFn = opacity , left_parenthesis_symbol , [ ( number_type | percentage_type ) ] , right_parenthesis_symbol ;
 
 (* <sepia()> *)
-sepia_fn = sepia , left_parenthesis_symbol , [ ( number_type | percentage_type ) ] , right_parenthesis_symbol ;
+SepiaFn = sepia , left_parenthesis_symbol , [ ( number_type | percentage_type ) ] , right_parenthesis_symbol ;
 
 (* <saturate()> *)
-saturate_fn = saturate , left_parenthesis_symbol , [ ( number_type | percentage_type ) ] , right_parenthesis_symbol ;
+SaturateFn = saturate , left_parenthesis_symbol , [ ( number_type | percentage_type ) ] , right_parenthesis_symbol ;
 
 (* <linear-gradient()> *)
-linear_gradient_fn = linear_gradient , left_parenthesis_symbol , linear_gradient_syntax_type , right_parenthesis_symbol ;
+LinearGradientFn = linear_gradient , left_parenthesis_symbol , LinearGradientSyntaxType , right_parenthesis_symbol ;
 
 (* <repeating-linear-gradient()> *)
-repeating_linear_gradient_fn = repeating_linear_gradient , left_parenthesis_symbol , linear_gradient_syntax_type , right_parenthesis_symbol ;
+RepeatingLinearGradientFn = repeating_linear_gradient , left_parenthesis_symbol , LinearGradientSyntaxType , right_parenthesis_symbol ;
 
 (* <radial-gradient()> *)
-radial_gradient_fn = radial_gradient , left_parenthesis_symbol , radial_gradient_syntax_type , right_parenthesis_symbol ;
+RadialGradientFn = radial_gradient , left_parenthesis_symbol , RadialGradientSyntaxType , right_parenthesis_symbol ;
 
 (* <repeating-radial-gradient()> *)
-repeating_radial_gradient_fn = repeating_radial_gradient , left_parenthesis_symbol , radial_gradient_syntax_type , right_parenthesis_symbol ;
+RepeatingRadialGradientFn = repeating_radial_gradient , left_parenthesis_symbol , RadialGradientSyntaxType , right_parenthesis_symbol ;
 
 (* <conic-gradient()> *)
-conic_gradient_fn = conic_gradient , left_parenthesis_symbol , conic_gradient_syntax_type , right_parenthesis_symbol ;
+ConicGradientFn = conic_gradient , left_parenthesis_symbol , ConicGradientSyntaxType , right_parenthesis_symbol ;
 
 (* <repeating-conic-gradient()> *)
-repeating_conic_gradient_fn = repeating_conic_gradient , left_parenthesis_symbol , conic_gradient_syntax_type , right_parenthesis_symbol ;
+RepeatingConicGradientFn = repeating_conic_gradient , left_parenthesis_symbol , ConicGradientSyntaxType , right_parenthesis_symbol ;
 
 (* <image()> *)
-image_fn = image , left_parenthesis_symbol , [ image_tags_type ] , (* ! at-least-one *) [ image_src_type ] , comma_symbol , [ color_type ] , right_parenthesis_symbol ;
+ImageFn = image , left_parenthesis_symbol , [ ImageTagsType ] , (* ! at-least-one *) [ ImageSrcType ] , comma_symbol , [ ColorType ] , right_parenthesis_symbol ;
 
 (* <image-set()> *)
-image_set_fn = image_set , left_parenthesis_symbol , image_set_option_type , { comma_symbol , image_set_option_type } , right_parenthesis_symbol ;
+ImageSetFn = image_set , left_parenthesis_symbol , ImageSetOptionType , { comma_symbol , ImageSetOptionType } , right_parenthesis_symbol ;
 
 (* <cross-fade()> *)
-cross_fade_fn = cross_fade , left_parenthesis_symbol , cf_image_type , { comma_symbol , cf_image_type } , right_parenthesis_symbol ;
+CrossFadeFn = cross_fade , left_parenthesis_symbol , CfImageType , { comma_symbol , CfImageType } , right_parenthesis_symbol ;
 
 (* <element()> *)
-element_fn = element , left_parenthesis_symbol , id_selector_type , right_parenthesis_symbol ;
+ElementFn = element , left_parenthesis_symbol , IdSelectorType , right_parenthesis_symbol ;
 
 (* scale3d( [ <number> | <percentage> ]#{3} ) *)
-scale3d_fn =
+Scale3dFn =
   scale3d , left_parenthesis_symbol ,
     ( number_type | percentage_type ) , comma_symbol ,
     ( number_type | percentage_type ) , comma_symbol ,
@@ -149,67 +152,67 @@ scale3d_fn =
   right_parenthesis_symbol ;
 
 (* scale( <number> , <number>? ) *)
-scale_fn = scale , left_parenthesis_symbol , number_type , [ comma_symbol , number_type ] , right_parenthesis_symbol ;
+ScaleFn = scale , left_parenthesis_symbol , number_type , [ comma_symbol , number_type ] , right_parenthesis_symbol ;
 
 (* scaleX( <number> ) *)
-scaleX_fn = scaleX , left_parenthesis_symbol , number_type , right_parenthesis_symbol ;
+ScalexFn = scaleX , left_parenthesis_symbol , number_type , right_parenthesis_symbol ;
 
 (* scaleY( <number> ) *)
-scaleY_fn = scaleY , left_parenthesis_symbol , number_type , right_parenthesis_symbol ;
+ScaleyFn = scaleY , left_parenthesis_symbol , number_type , right_parenthesis_symbol ;
 
 (* scaleZ( [ <number> | <percentage> ] ) *)
-scaleZ_fn = scaleZ , left_parenthesis_symbol , ( number_type | percentage_type ) , right_parenthesis_symbol ;
+ScalezFn = scaleZ , left_parenthesis_symbol , ( number_type | percentage_type ) , right_parenthesis_symbol ;
 
 (* translate3d( <length-percentage> , <length-percentage> , <length> ) *)
-translate3d_fn =
+Translate3dFn =
   translate3d , left_parenthesis_symbol ,
-    length_percentage_type , comma_symbol ,
-    length_percentage_type , comma_symbol ,
+    LengthPercentageType , comma_symbol ,
+    LengthPercentageType , comma_symbol ,
     length_type ,
   right_parenthesis_symbol ;
 
 (* translate( <length-percentage> , <length-percentage>? ) *)
-translate_fn = translate , left_parenthesis_symbol , length_percentage_type , [ comma_symbol , length_percentage_type ] , right_parenthesis_symbol ;
+TranslateFn = translate , left_parenthesis_symbol , LengthPercentageType , [ comma_symbol , LengthPercentageType ] , right_parenthesis_symbol ;
 
 (* translateX( <length-percentage> ) *)
-translateX_fn = translateX , left_parenthesis_symbol , length_percentage_type , right_parenthesis_symbol ;
+TranslatexFn = translateX , left_parenthesis_symbol , LengthPercentageType , right_parenthesis_symbol ;
 
 (* translateY( <length-percentage> ) *)
-translateY_fn = translateY , left_parenthesis_symbol , length_percentage_type , right_parenthesis_symbol ;
+TranslateyFn = translateY , left_parenthesis_symbol , LengthPercentageType , right_parenthesis_symbol ;
 
 (* translateZ( <length> ) *)
-translateZ_fn = translateZ , left_parenthesis_symbol , length_type , right_parenthesis_symbol ;
+TranslatezFn = translateZ , left_parenthesis_symbol , length_type , right_parenthesis_symbol ;
 
 (* rotate3d( <number> , <number> , <number> , [ <angle> | <0> ] ) *)
-rotate3d_fn =
+Rotate3dFn =
   rotate3d , left_parenthesis_symbol ,
     number_type , comma_symbol , number_type , comma_symbol , number_type , comma_symbol ,
     ( angle_type | digit_0_symbol ) ,
   right_parenthesis_symbol ;
 
 (* rotate( [ <angle> | <0> ] ) *)
-rotate_fn = rotate , left_parenthesis_symbol , ( angle_type | digit_0_symbol ) , right_parenthesis_symbol ;
+RotateFn = rotate , left_parenthesis_symbol , ( angle_type | digit_0_symbol ) , right_parenthesis_symbol ;
 
 (* rotateX( [ <angle> | <0> ] ) *)
-rotateX_fn = rotateX , left_parenthesis_symbol , ( angle_type | digit_0_symbol ) , right_parenthesis_symbol ;
+RotatexFn = rotateX , left_parenthesis_symbol , ( angle_type | digit_0_symbol ) , right_parenthesis_symbol ;
 
 (* rotateY( [ <angle> | <0> ] ) *)
-rotateY_fn = rotateY , left_parenthesis_symbol , ( angle_type | digit_0_symbol ) , right_parenthesis_symbol ;
+RotateyFn = rotateY , left_parenthesis_symbol , ( angle_type | digit_0_symbol ) , right_parenthesis_symbol ;
 
 (* rotateZ( [ <angle> | <0> ] ) *)
-rotateZ_fn = rotateZ , left_parenthesis_symbol , ( angle_type | digit_0_symbol ) , right_parenthesis_symbol ;
+RotatezFn = rotateZ , left_parenthesis_symbol , ( angle_type | digit_0_symbol ) , right_parenthesis_symbol ;
 
 (* skew( [ <angle> | <0> ] , [ <angle> | <0> ]? ) *)
-skew_fn = skew , left_parenthesis_symbol , ( angle_type | digit_0_symbol ) , [ comma_symbol , ( angle_type | digit_0_symbol ) ] , right_parenthesis_symbol ;
+SkewFn = skew , left_parenthesis_symbol , ( angle_type | digit_0_symbol ) , [ comma_symbol , ( angle_type | digit_0_symbol ) ] , right_parenthesis_symbol ;
 
 (* skewX( [ <angle> | <0> ] ) *)
-skewX_fn = skewX , left_parenthesis_symbol , ( angle_type | digit_0_symbol ) , right_parenthesis_symbol ;
+SkewxFn = skewX , left_parenthesis_symbol , ( angle_type | digit_0_symbol ) , right_parenthesis_symbol ;
 
 (* skewY( [ <angle> | <0> ] ) *)
-skewY_fn = skewY , left_parenthesis_symbol , ( angle_type | digit_0_symbol ) , right_parenthesis_symbol ;
+SkewyFn = skewY , left_parenthesis_symbol , ( angle_type | digit_0_symbol ) , right_parenthesis_symbol ;
 
 (* matrix3d( <number>#{16} ) — 4×4 homogeneous matrix, 16 comma-separated numbers *)
-matrix3d_fn =
+Matrix3dFn =
   matrix3d , left_parenthesis_symbol ,
     number_type , comma_symbol , number_type , comma_symbol , number_type , comma_symbol , number_type , comma_symbol ,
     number_type , comma_symbol , number_type , comma_symbol , number_type , comma_symbol , number_type , comma_symbol ,
@@ -218,7 +221,7 @@ matrix3d_fn =
   right_parenthesis_symbol ;
 
 (* matrix( <number>#{6} ) — 2D homogeneous matrix, 6 comma-separated numbers *)
-matrix_fn =
+MatrixFn =
   matrix , left_parenthesis_symbol ,
     number_type , comma_symbol , number_type , comma_symbol ,
     number_type , comma_symbol , number_type , comma_symbol ,
@@ -226,121 +229,121 @@ matrix_fn =
   right_parenthesis_symbol ;
 
 (* perspective( [ <length [0,∞]> | none ] ) *)
-perspective_fn = perspective , left_parenthesis_symbol , ( length_type | none ) , right_parenthesis_symbol ;
+PerspectiveFn = perspective , left_parenthesis_symbol , ( length_type | none ) , right_parenthesis_symbol ;
 
 (* inset( <length-percentage>{1,4} [ round <border-radius> ]? ) *)
-inset_fn = inset , left_parenthesis_symbol ,
-    length_percentage_type , [ length_percentage_type ] , [ length_percentage_type ] , [ length_percentage_type ] ,
-    [ round , border_radius_type ] ,
+InsetFn = inset , left_parenthesis_symbol ,
+    LengthPercentageType , [ LengthPercentageType ] , [ LengthPercentageType ] , [ LengthPercentageType ] ,
+    [ round , BorderRadiusType ] ,
   right_parenthesis_symbol ;
 
 (* circle( <radial-size>? [ at <position> ]? ) *)
-circle_fn = circle , left_parenthesis_symbol , [ radial_size_type ] , [ at , position_type ] , right_parenthesis_symbol ;
+CircleFn = circle , left_parenthesis_symbol , [ RadialSizeType ] , [ at , PositionType ] , right_parenthesis_symbol ;
 
 (* ellipse( <radial-size>? [ at <position> ]? ) *)
-ellipse_fn = ellipse , left_parenthesis_symbol , [ radial_size_type ] , [ at , position_type ] , right_parenthesis_symbol ;
+EllipseFn = ellipse , left_parenthesis_symbol , [ RadialSizeType ] , [ at , PositionType ] , right_parenthesis_symbol ;
 
 (* polygon( <fill-rule>? [ round <length> ]? , [ <length-percentage> <length-percentage> ]# ) *)
-polygon_fn = polygon , left_parenthesis_symbol ,
-    [ fill_rule_type ] , [ round , length_type ] , comma_symbol ,
-    length_percentage_type , length_percentage_type , { comma_symbol , length_percentage_type , length_percentage_type } ,
+PolygonFn = polygon , left_parenthesis_symbol ,
+    [ FillRuleType ] , [ round , length_type ] , comma_symbol ,
+    LengthPercentageType , LengthPercentageType , { comma_symbol , LengthPercentageType , LengthPercentageType } ,
   right_parenthesis_symbol ;
 
 (* path( <fill-rule>? , <string> )  — comma only present when fill-rule given *)
-path_fn = path , left_parenthesis_symbol , [ fill_rule_type , comma_symbol ] , string_type , right_parenthesis_symbol ;
+PathFn = path , left_parenthesis_symbol , [ FillRuleType , comma_symbol ] , string_type , right_parenthesis_symbol ;
 
 (* rect( [ <length-percentage> | auto ]{4} [ round <border-radius> ]? ) *)
-rect_fn = rect , left_parenthesis_symbol ,
-    ( length_percentage_type | auto ) , ( length_percentage_type | auto ) ,
-    ( length_percentage_type | auto ) , ( length_percentage_type | auto ) ,
-    [ round , border_radius_type ] ,
+RectFn = rect , left_parenthesis_symbol ,
+    ( LengthPercentageType | auto ) , ( LengthPercentageType | auto ) ,
+    ( LengthPercentageType | auto ) , ( LengthPercentageType | auto ) ,
+    [ round , BorderRadiusType ] ,
   right_parenthesis_symbol ;
 
 (* xywh( <length-percentage>{2} <length-percentage>{2} [ round <border-radius> ]? ) *)
-xywh_fn = xywh , left_parenthesis_symbol ,
-    length_percentage_type , length_percentage_type ,
-    length_percentage_type , length_percentage_type ,
-    [ round , border_radius_type ] ,
+XywhFn = xywh , left_parenthesis_symbol ,
+    LengthPercentageType , LengthPercentageType ,
+    LengthPercentageType , LengthPercentageType ,
+    [ round , BorderRadiusType ] ,
   right_parenthesis_symbol ;
 
 (* ── shape() ─────────────────────────────────────────────────────────────── *)
 
 (* shape( <fill-rule>? from <position> , <shape-command># ) *)
-shape_fn = shape , left_parenthesis_symbol ,
-    [ fill_rule_type ] , from , position_type , comma_symbol ,
-    shape_command_type , { comma_symbol , shape_command_type } ,
+ShapeFn = shape , left_parenthesis_symbol ,
+    [ FillRuleType ] , from , PositionType , comma_symbol ,
+    ShapeCommandType , { comma_symbol , ShapeCommandType } ,
   right_parenthesis_symbol ;
 
 
 (* ── Math functions ─────────────────────────────────────────────────────── *)
 
 (* abs( <calc-sum> ) *)
-abs_fn = abs , left_parenthesis_symbol , calc_sum_type , right_parenthesis_symbol ;
+AbsFn = abs , left_parenthesis_symbol , CalcSumType , right_parenthesis_symbol ;
 
 (* acos( <calc-sum> ) *)
-acos_fn = acos , left_parenthesis_symbol , calc_sum_type , right_parenthesis_symbol ;
+AcosFn = acos , left_parenthesis_symbol , CalcSumType , right_parenthesis_symbol ;
 
 (* asin( <calc-sum> ) *)
-asin_fn = asin , left_parenthesis_symbol , calc_sum_type , right_parenthesis_symbol ;
+AsinFn = asin , left_parenthesis_symbol , CalcSumType , right_parenthesis_symbol ;
 
 (* atan( <calc-sum> ) *)
-atan_fn = atan , left_parenthesis_symbol , calc_sum_type , right_parenthesis_symbol ;
+AtanFn = atan , left_parenthesis_symbol , CalcSumType , right_parenthesis_symbol ;
 
 (* atan2( <calc-sum> , <calc-sum> ) *)
-atan2_fn = atan2 , left_parenthesis_symbol , calc_sum_type , comma_symbol , calc_sum_type , right_parenthesis_symbol ;
+Atan2Fn = atan2 , left_parenthesis_symbol , CalcSumType , comma_symbol , CalcSumType , right_parenthesis_symbol ;
 
 (* calc( <calc-sum> ) *)
-calc_fn = calc , left_parenthesis_symbol , calc_sum_type , right_parenthesis_symbol ;
+CalcFn = calc , left_parenthesis_symbol , CalcSumType , right_parenthesis_symbol ;
 
 (* clamp( [ <calc-sum> | none ] , <calc-sum> , [ <calc-sum> | none ] ) *)
-clamp_fn = clamp , left_parenthesis_symbol , ( calc_sum_type | none ) , comma_symbol , calc_sum_type , comma_symbol , ( calc_sum_type | none ) , right_parenthesis_symbol ;
+ClampFn = clamp , left_parenthesis_symbol , ( CalcSumType | none ) , comma_symbol , CalcSumType , comma_symbol , ( CalcSumType | none ) , right_parenthesis_symbol ;
 
 (* cos( <calc-sum> ) *)
-cos_fn = cos , left_parenthesis_symbol , calc_sum_type , right_parenthesis_symbol ;
+CosFn = cos , left_parenthesis_symbol , CalcSumType , right_parenthesis_symbol ;
 
 (* exp( <calc-sum> ) *)
-exp_fn = exp , left_parenthesis_symbol , calc_sum_type , right_parenthesis_symbol ;
+ExpFn = exp , left_parenthesis_symbol , CalcSumType , right_parenthesis_symbol ;
 
 (* hypot( <calc-sum># ) *)
-hypot_fn = hypot , left_parenthesis_symbol , calc_sum_type , { comma_symbol , calc_sum_type } , right_parenthesis_symbol ;
+HypotFn = hypot , left_parenthesis_symbol , CalcSumType , { comma_symbol , CalcSumType } , right_parenthesis_symbol ;
 
 (* log( <calc-sum> , <calc-sum>? ) *)
-log_fn = log , left_parenthesis_symbol , calc_sum_type , [ comma_symbol , calc_sum_type ] , right_parenthesis_symbol ;
+LogFn = log , left_parenthesis_symbol , CalcSumType , [ comma_symbol , CalcSumType ] , right_parenthesis_symbol ;
 
 (* max( <calc-sum># ) *)
-max_fn = max , left_parenthesis_symbol , calc_sum_type , { comma_symbol , calc_sum_type } , right_parenthesis_symbol ;
+MaxFn = max , left_parenthesis_symbol , CalcSumType , { comma_symbol , CalcSumType } , right_parenthesis_symbol ;
 
 (* min( <calc-sum># ) *)
-min_fn = min , left_parenthesis_symbol , calc_sum_type , { comma_symbol , calc_sum_type } , right_parenthesis_symbol ;
+MinFn = min , left_parenthesis_symbol , CalcSumType , { comma_symbol , CalcSumType } , right_parenthesis_symbol ;
 
 (* mod( <calc-sum> , <calc-sum> ) *)
-mod_fn = mod , left_parenthesis_symbol , calc_sum_type , comma_symbol , calc_sum_type , right_parenthesis_symbol ;
+ModFn = mod , left_parenthesis_symbol , CalcSumType , comma_symbol , CalcSumType , right_parenthesis_symbol ;
 
 (* pow( <calc-sum> , <calc-sum> ) *)
-pow_fn = pow , left_parenthesis_symbol , calc_sum_type , comma_symbol , calc_sum_type , right_parenthesis_symbol ;
+PowFn = pow , left_parenthesis_symbol , CalcSumType , comma_symbol , CalcSumType , right_parenthesis_symbol ;
 
 (* progress( <calc-sum> , <calc-sum> , <calc-sum> ) *)
-progress_fn = progress , left_parenthesis_symbol , calc_sum_type , comma_symbol , calc_sum_type , comma_symbol , calc_sum_type , right_parenthesis_symbol ;
+ProgressFn = progress , left_parenthesis_symbol , CalcSumType , comma_symbol , CalcSumType , comma_symbol , CalcSumType , right_parenthesis_symbol ;
 
 (* rem( <calc-sum> , <calc-sum> ) *)
-rem_fn = rem , left_parenthesis_symbol , calc_sum_type , comma_symbol , calc_sum_type , right_parenthesis_symbol ;
+RemFn = rem , left_parenthesis_symbol , CalcSumType , comma_symbol , CalcSumType , right_parenthesis_symbol ;
 
 (* round( <rounding-strategy>? , <calc-sum> , <calc-sum>? )
    <rounding-strategy> = nearest | up | down | to-0 | line-width *)
-rounding_strategy_type = nearest | up | down | to_zero | line_width ;
-round_fn = round , left_parenthesis_symbol , [ rounding_strategy_type , comma_symbol ] , calc_sum_type , [ comma_symbol , calc_sum_type ] , right_parenthesis_symbol ;
+RoundingStrategyType = nearest | up | down | to_zero | line_width ;
+RoundFn = round , left_parenthesis_symbol , [ RoundingStrategyType , comma_symbol ] , CalcSumType , [ comma_symbol , CalcSumType ] , right_parenthesis_symbol ;
 
 (* sign( <calc-sum> ) *)
-sign_fn = sign , left_parenthesis_symbol , calc_sum_type , right_parenthesis_symbol ;
+SignFn = sign , left_parenthesis_symbol , CalcSumType , right_parenthesis_symbol ;
 
 (* sin( <calc-sum> ) *)
-sin_fn = sin , left_parenthesis_symbol , calc_sum_type , right_parenthesis_symbol ;
+SinFn = sin , left_parenthesis_symbol , CalcSumType , right_parenthesis_symbol ;
 
 (* sqrt( <calc-sum> ) *)
-sqrt_fn = sqrt , left_parenthesis_symbol , calc_sum_type , right_parenthesis_symbol ;
+SqrtFn = sqrt , left_parenthesis_symbol , CalcSumType , right_parenthesis_symbol ;
 
 (* tan( <calc-sum> ) *)
-tan_fn = tan , left_parenthesis_symbol , calc_sum_type , right_parenthesis_symbol ;
+TanFn = tan , left_parenthesis_symbol , CalcSumType , right_parenthesis_symbol ;
 
 
 (* ── Sizing / layout functions ──────────────────────────────────────────── *)
@@ -350,39 +353,39 @@ tan_fn = tan , left_parenthesis_symbol , calc_sum_type , right_parenthesis_symbo
    <anchor-side> = inside | outside | top | left | right | bottom | start | end
                  | self-start | self-end | <percentage> | center
    Note: && allows any order; grammar places optional anchor-name before anchor-side *)
-anchor_side_type = inside | outside | top | left | right | bottom | start | end
+AnchorSideType = inside | outside | top | left | right | bottom | start | end
                  | self_start | self_end | percentage_type | center ;
-anchor_fn = anchor , left_parenthesis_symbol , [ dashed_ident_type ] , anchor_side_type , [ comma_symbol , length_percentage_type ] , right_parenthesis_symbol ;
+AnchorFn = anchor , left_parenthesis_symbol , [ dashed_ident_type ] , AnchorSideType , [ comma_symbol , LengthPercentageType ] , right_parenthesis_symbol ;
 
 (* anchor-size( [ <anchor-name> || <anchor-size-dimension> ]? , <length-percentage>? )
    <anchor-size-dimension> = width | height | block | inline | self-block | self-inline
    Note: || means one or both in any order; grammar places anchor-name before dimension *)
-anchor_dim_type = width | height | block | inline | self_block | self_inline ;
-anchor_size_fn = anchor_size , left_parenthesis_symbol , [ dashed_ident_type ] , [ anchor_dim_type ] , [ comma_symbol , length_percentage_type ] , right_parenthesis_symbol ;
+AnchorDimType = width | height | block | inline | self_block | self_inline ;
+AnchorSizeFn = anchor_size , left_parenthesis_symbol , [ dashed_ident_type ] , [ AnchorDimType ] , [ comma_symbol , LengthPercentageType ] , right_parenthesis_symbol ;
 
 (* calc-size( <calc-size-basis> , <calc-sum> )
    <calc-size-basis> = <size-keyword> | <calc-size()> | any | <calc-sum>
    <size-keyword>    = auto | min-content | max-content | fit-content | contain | stretch *)
-size_keyword_type = auto | min_content | max_content | fit_content | contain | stretch ;
-calc_size_basis_type = size_keyword_type | calc_size_fn | any | calc_sum_type ;
-calc_size_fn = calc_size , left_parenthesis_symbol , calc_size_basis_type , comma_symbol , calc_sum_type , right_parenthesis_symbol ;
+SizeKeywordType = auto | min_content | max_content | fit_content | contain | stretch ;
+CalcSizeBasisType = SizeKeywordType | CalcSizeFn | any | CalcSumType ;
+CalcSizeFn = calc_size , left_parenthesis_symbol , CalcSizeBasisType , comma_symbol , CalcSumType , right_parenthesis_symbol ;
 
 (* env( <custom-ident> <integer [0,∞]>* , <declaration-value>? )
    <declaration-value>: any sequence of CSS tokens — approximated as string_literal *)
-declaration_value_type = string_literal ;
-env_fn = env , left_parenthesis_symbol , custom_ident_type , { integer_type } , [ comma_symbol , declaration_value_type ] , right_parenthesis_symbol ;
+DeclarationValueType = string_literal ;
+EnvFn = env , left_parenthesis_symbol , custom_ident_type , { integer_type } , [ comma_symbol , DeclarationValueType ] , right_parenthesis_symbol ;
 
 (* fit-content( <length-percentage> ) *)
-fit_content_fn = fit_content , left_parenthesis_symbol , length_percentage_type , right_parenthesis_symbol ;
+FitContentFn = fit_content , left_parenthesis_symbol , LengthPercentageType , right_parenthesis_symbol ;
 
 (* minmax( <inflexible-breadth> , <track-breadth> )
    <track-breadth>      = <length-percentage> | <flex> | min-content | max-content | auto
    <inflexible-breadth> = <length-percentage> | min-content | max-content | auto
    <fixed-breadth>      = <length-percentage> *)
-track_breadth_type = length_percentage_type | flex_type | min_content | max_content | auto ;
-inflexible_breadth_type = length_percentage_type | min_content | max_content | auto ;
-fixed_breadth_type = length_percentage_type ;
-minmax_fn = minmax , left_parenthesis_symbol , ( inflexible_breadth_type | fixed_breadth_type ) , comma_symbol , track_breadth_type , right_parenthesis_symbol ;
+TrackBreadthType = LengthPercentageType | flex_type | min_content | max_content | auto ;
+InflexibleBreadthType = LengthPercentageType | min_content | max_content | auto ;
+FixedBreadthType = LengthPercentageType ;
+MinmaxFn = minmax , left_parenthesis_symbol , ( InflexibleBreadthType | FixedBreadthType ) , comma_symbol , TrackBreadthType , right_parenthesis_symbol ;
 
 (* repeat( ... ) — three forms for CSS Grid track lists
    track-repeat: repeat( <integer [1,∞]> , [ <line-names>? <track-size> ]+ <line-names>? )
@@ -390,51 +393,51 @@ minmax_fn = minmax , left_parenthesis_symbol , ( inflexible_breadth_type | fixed
    name-repeat:  repeat( <integer [1,∞]> | auto-fill , <line-names>+ )
    <track-size>  = <track-breadth> | minmax(...) | fit-content(...)
    <line-names>  = '[' <custom-ident>* ']' *)
-track_size_type = track_breadth_type | minmax_fn | fit_content_fn ;
-line_names_type = left_square_bracket_symbol , { custom_ident_type } , right_square_bracket_symbol ;
-track_repeat_fn = repeat , left_parenthesis_symbol , integer_type , comma_symbol ,
-    { line_names_type } , track_size_type , { line_names_type , track_size_type } , { line_names_type } , right_parenthesis_symbol ;
-auto_repeat_fn = repeat , left_parenthesis_symbol , ( auto_fill | auto_fit ) , comma_symbol ,
-    { line_names_type } , track_size_type , { line_names_type , track_size_type } , { line_names_type } , right_parenthesis_symbol ;
-name_repeat_fn = repeat , left_parenthesis_symbol , ( integer_type | auto_fill ) , comma_symbol , line_names_type , { line_names_type } , right_parenthesis_symbol ;
-repeat_fn = track_repeat_fn | auto_repeat_fn | name_repeat_fn ;
+TrackSizeType = TrackBreadthType | MinmaxFn | FitContentFn ;
+LineNamesType = left_square_bracket_symbol , { custom_ident_type } , right_square_bracket_symbol ;
+TrackRepeatFn = repeat , left_parenthesis_symbol , integer_type , comma_symbol ,
+    { LineNamesType } , TrackSizeType , { LineNamesType , TrackSizeType } , { LineNamesType } , right_parenthesis_symbol ;
+AutoRepeatFn = repeat , left_parenthesis_symbol , ( auto_fill | auto_fit ) , comma_symbol ,
+    { LineNamesType } , TrackSizeType , { LineNamesType , TrackSizeType } , { LineNamesType } , right_parenthesis_symbol ;
+NameRepeatFn = repeat , left_parenthesis_symbol , ( integer_type | auto_fill ) , comma_symbol , LineNamesType , { LineNamesType } , right_parenthesis_symbol ;
+RepeatFn = TrackRepeatFn | AutoRepeatFn | NameRepeatFn ;
 
 (* scroll( [ <scroller> || <axis> ]? )
    <scroller> = root | nearest | self
    Note: || means one or both in any order *)
-scroller_type = root | nearest | self ;
-scroll_fn = scroll , left_parenthesis_symbol , [ scroller_type ] , [ axis_type ] , right_parenthesis_symbol ;
+ScrollerType = root | nearest | self ;
+ScrollFn = scroll , left_parenthesis_symbol , [ ScrollerType ] , [ AxisType ] , right_parenthesis_symbol ;
 
 (* view( [ <axis> || <view-timeline-inset> ]? )
    <view-timeline-inset> = [ auto | <length-percentage> ]{1,2}
    Note: || means one or both in any order *)
-view_timeline_inset_type = ( auto | length_percentage_type ) , [ auto | length_percentage_type ] ;
-view_fn = view , left_parenthesis_symbol , [ axis_type ] , [ view_timeline_inset_type ] , right_parenthesis_symbol ;
+ViewTimelineInsetType = ( auto | LengthPercentageType ) , [ auto | LengthPercentageType ] ;
+ViewFn = view , left_parenthesis_symbol , [ AxisType ] , [ ViewTimelineInsetType ] , right_parenthesis_symbol ;
 
 
 (* ── Color functions ─────────────────────────────────────────────────────── *)
 
 (* dynamic-range-limit-mix( [ <'dynamic-range-limit'> && <percentage [0,100]> ]#{2,} )
    <dynamic-range-limit> = standard | no-limit | constrained | <dynamic-range-limit-mix()> *)
-dynamic_range_limit_type = standard | no_limit | constrained | dynamic_range_limit_mix_fn ;
-dynamic_range_limit_mix_item = dynamic_range_limit_type , percentage_type ;
-dynamic_range_limit_mix_fn = dynamic_range_limit_mix , left_parenthesis_symbol ,
-    dynamic_range_limit_mix_item , comma_symbol , dynamic_range_limit_mix_item ,
-    { comma_symbol , dynamic_range_limit_mix_item } ,
+DynamicRangeLimitType = standard | no_limit | constrained | DynamicRangeLimitMixFn ;
+DynamicRangeLimitMixItem = DynamicRangeLimitType , percentage_type ;
+DynamicRangeLimitMixFn = dynamic_range_limit_mix , left_parenthesis_symbol ,
+    DynamicRangeLimitMixItem , comma_symbol , DynamicRangeLimitMixItem ,
+    { comma_symbol , DynamicRangeLimitMixItem } ,
   right_parenthesis_symbol ;
 
 (* light-dark( <color> , <color> )            — color variant
    light-dark( [ <image> | none ] , [ <image> | none ] ) — image variant *)
-light_dark_fn = light_dark , left_parenthesis_symbol , ( color_type | image_type | none ) , comma_symbol , ( color_type | image_type | none ) , right_parenthesis_symbol ;
+LightDarkFn = light_dark , left_parenthesis_symbol , ( ColorType | ImageType | none ) , comma_symbol , ( ColorType | ImageType | none ) , right_parenthesis_symbol ;
 
 (* palette-mix( <color-interpolation-method> , [ palette-entry && <percentage [0,100]>? ]#{2} )
    palette-entry = normal | light | dark | <palette-identifier> | <palette-mix()>
    <palette-identifier> = <dashed-ident>
    Note: && allows any order; grammar places entry before percentage *)
-palette_entry_type = normal | light | dark | dashed_ident_type | palette_mix_fn ;
-palette_mix_item = palette_entry_type , [ percentage_type ] ;
-palette_mix_fn = palette_mix , left_parenthesis_symbol , color_interpolation_method_type , comma_symbol ,
-    palette_mix_item , comma_symbol , palette_mix_item ,
+PaletteEntryType = normal | light | dark | dashed_ident_type | PaletteMixFn ;
+PaletteMixItem = PaletteEntryType , [ percentage_type ] ;
+PaletteMixFn = palette_mix , left_parenthesis_symbol , ColorInterpolationMethodType , comma_symbol ,
+    PaletteMixItem , comma_symbol , PaletteMixItem ,
   right_parenthesis_symbol ;
 
 
@@ -444,42 +447,42 @@ palette_mix_fn = palette_mix , left_parenthesis_symbol , color_interpolation_met
    <attr-name>  = [ <ident> '|' ]? <ident>
    <attr-type>  = type( <syntax> ) | raw-string | number | <custom-ident>
    <syntax>     = complex typed-OM syntax string; approximated as string_literal *)
-attr_name_type = [ ident_type , vertical_line_symbol ] , ident_type ;
-attr_type_type = type_fn | raw_string | number | custom_ident_type ;
-attr_fn = attr , left_parenthesis_symbol , attr_name_type , [ attr_type_type ] , [ comma_symbol , declaration_value_type ] , right_parenthesis_symbol ;
+AttrNameType = [ ident_type , vertical_line_symbol ] , ident_type ;
+AttrTypeType = TypeFn | raw_string | number | custom_ident_type ;
+AttrFn = attr , left_parenthesis_symbol , AttrNameType , [ AttrTypeType ] , [ comma_symbol , DeclarationValueType ] , right_parenthesis_symbol ;
 
 (* counter( <counter-name> , <counter-style>? )
    <counter-name>        = <custom-ident>
    <counter-style>       = <counter-style-name> | <symbols()>
    <counter-style-name>  = <custom-ident> *)
-counter_style_type = custom_ident_type | symbols_fn ;
-counter_fn = counter , left_parenthesis_symbol , custom_ident_type , [ comma_symbol , counter_style_type ] , right_parenthesis_symbol ;
+CounterStyleType = custom_ident_type | SymbolsFn ;
+CounterFn = counter , left_parenthesis_symbol , custom_ident_type , [ comma_symbol , CounterStyleType ] , right_parenthesis_symbol ;
 
 (* counters( <counter-name> , <string> , <counter-style>? ) *)
-counters_fn = counters , left_parenthesis_symbol , custom_ident_type , comma_symbol , string_type , [ comma_symbol , counter_style_type ] , right_parenthesis_symbol ;
+CountersFn = counters , left_parenthesis_symbol , custom_ident_type , comma_symbol , string_type , [ comma_symbol , CounterStyleType ] , right_parenthesis_symbol ;
 
 (* layer( <layer-name> )
    <layer-name> = <ident> [ '.' <ident> ]* *)
-layer_name_type = ident_type , { full_stop_symbol , ident_type } ;
-layer_fn = layer , left_parenthesis_symbol , layer_name_type , right_parenthesis_symbol ;
+LayerNameType = ident_type , { full_stop_symbol , ident_type } ;
+LayerFn = layer , left_parenthesis_symbol , LayerNameType , right_parenthesis_symbol ;
 
 (* paint( <ident> , <declaration-value>? ) *)
-paint_fn = paint , left_parenthesis_symbol , ident_type , [ comma_symbol , declaration_value_type ] , right_parenthesis_symbol ;
+PaintFn = paint , left_parenthesis_symbol , ident_type , [ comma_symbol , DeclarationValueType ] , right_parenthesis_symbol ;
 
 (* symbols( <symbols-type>? [ <string> | <image> ]+ )
    <symbols-type> = cyclic | numeric | alphabetic | symbolic | fixed *)
-symbols_fn = symbols , left_parenthesis_symbol , [ cyclic | numeric | alphabetic | symbolic | fixed ] , ( string_type | image_type ) , { string_type | image_type } , right_parenthesis_symbol ;
+SymbolsFn = symbols , left_parenthesis_symbol , [ cyclic | numeric | alphabetic | symbolic | fixed ] , ( string_type | ImageType ) , { string_type | ImageType } , right_parenthesis_symbol ;
 
 (* type( <string> ) *)
-type_fn = type , left_parenthesis_symbol , string_type , right_parenthesis_symbol ;
+TypeFn = type , left_parenthesis_symbol , string_type , right_parenthesis_symbol ;
 
 (* url( <string> <url-modifier>* ) | <url-token>
    url-modifier and url-token are low-level CSS token forms; simplified to string argument *)
-url_fn = url , left_parenthesis_symbol , string_type , right_parenthesis_symbol ;
+UrlFn = url , left_parenthesis_symbol , string_type , right_parenthesis_symbol ;
 
-(* var( <custom-property-name> , <declaration-value>? )
-   <custom-property-name> = --<ident>  (same form as <dashed-ident>) *)
-var_fn = var , left_parenthesis_symbol , dashed_ident_type , [ comma_symbol , declaration_value_type ] , right_parenthesis_symbol ;
+(* var( <custom-Property-name> , <declaration-value>? )
+   <custom-Property-name> = --<ident>  (same form as <dashed-ident>) *)
+VarFn = var , left_parenthesis_symbol , dashed_ident_type , [ comma_symbol , DeclarationValueType ] , right_parenthesis_symbol ;
 
 
 (* ── Animation / motion functions ────────────────────────────────────────── *)
@@ -487,13 +490,13 @@ var_fn = var , left_parenthesis_symbol , dashed_ident_type , [ comma_symbol , de
 (* random( <random-key>? , <calc-sum> , <calc-sum> , <calc-sum>? )
    <random-key>       = auto | <random-cache-key> | fixed <number [0,1]>
    <random-cache-key> = <dashed-ident> || element-scoped
-                      || [ property-scoped | property-index-scoped | <custom-ident> ] *)
-random_cache_key_type = dashed_ident_type | element_scoped | property_scoped | property_index_scoped | custom_ident_type ;
-random_key_type = auto | random_cache_key_type | ( fixed , number_type ) ;
-random_fn = random , left_parenthesis_symbol , [ random_key_type , comma_symbol ] , calc_sum_type , comma_symbol , calc_sum_type , [ comma_symbol , calc_sum_type ] , right_parenthesis_symbol ;
+                      || [ Property-scoped | Property-index-scoped | <custom-ident> ] *)
+RandomCacheKeyType = dashed_ident_type | element_scoped | property_scoped | property_index_scoped | custom_ident_type ;
+RandomKeyType = auto | RandomCacheKeyType | ( fixed , number_type ) ;
+RandomFn = random , left_parenthesis_symbol , [ RandomKeyType , comma_symbol ] , CalcSumType , comma_symbol , CalcSumType , [ comma_symbol , CalcSumType ] , right_parenthesis_symbol ;
 
 (* ray( <angle> && <ray-size>? && contain? && [ at <position> ]? )
    <ray-size> = <radial-extent> | sides
    Note: && allows any order; grammar approximates angle-first canonical order *)
-ray_size_type = radial_extent_type | sides ;
-ray_fn = ray , left_parenthesis_symbol , angle_type , [ ray_size_type ] , [ contain ] , [ at , position_type ] , right_parenthesis_symbol ;
+RaySizeType = RadialExtentType | sides ;
+RayFn = ray , left_parenthesis_symbol , angle_type , [ RaySizeType ] , [ contain ] , [ at , PositionType ] , right_parenthesis_symbol ;

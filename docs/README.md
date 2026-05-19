@@ -33,10 +33,12 @@ All CSS function types (`color-mix()`, `calc()`, `env()`, `image-set()`, grid tr
 
 Full CSS selector hierarchy:
 - **Basic**: type, universal, class (`.foo`), ID (`#foo`), attribute (`[attr~=val]`)
-- **Compound and complex**: `compound_selector`, `complex_selector`, with combinator support (`>`, `+`, `~`, `||`, descendant)
-- **Lists**: `complex_selector_list`, `forgiving_selector_list`, `compound_selector_list`, `relative_selector_list`
-- **Nested CSS**: `nested_compound_selector` (with `&`), `nested_complex_selector`, `nested_complex_selector_list`
-- **`_no_pe` variants**: selector forms excluding `pseudo_element`, used as arguments to `:is()`, `:not()`, `:where()`
+- **Compound and complex**: `CompoundSelector`, `ComplexSelector`, with combinator support (`>`, `+`, `~`, `||`, and descendant)
+- **Lists**: `ComplexSelectorList`, `ForgivingSelectorList`, `CompoundSelectorList`, `RelativeSelectorList`
+- **Nested CSS**: `NestedCompoundSelector` (with `&`), `NestedComplexSelector`, `NestedComplexSelectorList`
+- **`NoPe` variants**: selector forms excluding `PseudoElement`, used as arguments to `:is()`, `:not()`, `:where()`
+
+**Descendant combinator** — encoded implicitly. The CSS spec defines the descendant combinator as whitespace between two selectors in the absence of another combinator. Because the parser skips whitespace automatically, the combinator inside the complex-selector repetition is made optional (`{ [ Combinator ] , CompoundSelector }`): an absent explicit combinator with consumed whitespace represents a descendant relationship. CSS comments inside the whitespace (e.g. `div /* c */ span`) are also handled transparently. See `lang/GRAMMAR_FIXES.md` Fix 11 for full rationale.
 
 ### Pseudo-classes — `lang/pseudo-class.ebnf`
 

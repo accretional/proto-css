@@ -1,11 +1,15 @@
 (* Empty stylesheet is valid CSS *)
-css_style_sheet = { at_rule | css_rule } ;
+CssStyleSheet = { AtRule | CssRule } ;
 
-css_rule = complex_selector_list , left_curly_bracket_symbol , rule_body , right_curly_bracket_symbol ;
+CssRule = ComplexSelectorList , left_curly_bracket_symbol , RuleBody , right_curly_bracket_symbol ;
 
-(* A rule body can be empty, can have property or a nested rule *)
-rule_body = { property | nested_css_rule | at_rule } ;
+(* A rule body can be empty, can have Property or a nested rule *)
+RuleBody = { CustomPropertyDecl | Property | NestedCssRule | AtRule } ;
+
+(* --custom-property: value; — any CSS value, including important *)
+CustomPropertyDecl = dashed_ident_type , colon_symbol , CustomPropertyValue , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+CustomPropertyValue = { ident_type | number_type | length_type | percentage_type | string_type | ColorType | comma_symbol | solidus_symbol | left_parenthesis_symbol | right_parenthesis_symbol } ;
 
 (* The nested rule is the same as a CSS rule, except the rule_name *)
 (* can have an ampersand as a valid selector *)
-nested_css_rule = nested_complex_selector_list , left_curly_bracket_symbol , rule_body , right_curly_bracket_symbol ;
+NestedCssRule = NestedComplexSelectorList , left_curly_bracket_symbol , RuleBody , right_curly_bracket_symbol ;

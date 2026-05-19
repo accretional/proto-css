@@ -6,7 +6,7 @@ fraction = integer_type , [ full_stop_symbol , whole_number ] ;
 integer_type = [ plus_sign_symbol | hyphen_symbol ], whole_number ;
 
 (* <percentage> CSS type: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/percentage *)
-percentage_type = number_type , percentage ;
+percentage_type = number_type , percent_sign_symbol ;
 
 (* <length> CSS type: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/length *)
 length_type = digit_0_symbol | length_number ;
@@ -46,334 +46,335 @@ time_type = number_type , time_unit ;
 time_unit = lowercase_s_symbol | ms ;
 
 (* <absolute-size> CSS type: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/absolute-size *)
-absolute_size_type = xx_small | x_small | small | medium | large | x_large | xx_large | xxx_large ;
+AbsoluteSizeType = xx_small | x_small | small | medium | large | x_large | xx_large | xxx_large ;
 
 (* <alpha-value> *)
-alpha_value_type = number_type | percentage_type ;
+AlphaValueType = number_type | percentage_type ;
 
 (* <angle-percentage> *)
-angle_percentage_type = angle_type | percentage_type ;
+AnglePercentageType = angle_type | percentage_type ;
 
 (* <axis> *)
-axis_type = block | inline | lowercase_x_symbol | lowercase_y_symbol ;
+AxisType = block | inline | lowercase_x_symbol | lowercase_y_symbol ;
 
 (* <blend-mode> *)
-blend_mode_type = normal | darken | multiply | color_burn | lighten | screen | color_dodge | overlay | soft_light | hard_light | difference | exclusion | hue_type | saturation | color_type | luminosity ;
+BlendModeType = normal | darken | multiply | color_burn | lighten | screen | color_dodge | overlay | soft_light | hard_light | difference | exclusion | HueType | saturation | ColorType | luminosity ;
 
 (* <color> *)
-color_type = color_base_type | currentcolor | system_color_type | contrast_color_fn | device_cmyk_fn | light_dark_color_type ;
+ColorType = ColorBaseType | currentcolor | SystemColorType | ContrastColorFn | DeviceCmykFn | LightDarkColorType | VarFn ;
 
 (* <color-base> *)
-color_base_type = hex_color_type | color_function_type | named_color_type | color_mix_fn | transparent ;
+ColorBaseType = hex_color_type | ColorFunctionType | NamedColorType | ColorMixFn | transparent ;
 
 (* <system-color> *)
-system_color_type = accentcolor | accentcolortext | activetext | buttonborder | buttonface | buttontext | canvas | canvastext | field | fieldtext | graytext | highlight | highlighttext | linktext | mark | marktext | selecteditem | selecteditemtext | visitedtext | deprecated_color_type ;
+SystemColorType = accentcolor | accentcolortext | activetext | buttonborder | buttonface | buttontext | canvas | canvastext | field | fieldtext | graytext | highlight | highlighttext | linktext | mark | marktext | selecteditem | selecteditemtext | visitedtext | DeprecatedColorType ;
 
 (* <light-dark-color> *)
-light_dark_color_type = light_dark_fn ;
+LightDarkColorType = LightDarkFn ;
 
 (* <color-function> *)
-color_function_type = rgb_fn | rgba_fn | hsl_fn | hsla_fn | hwb_fn | lab_fn | lch_fn | oklab_fn | oklch_fn | ictcp_fn | jzazbz_fn | jzczhz_fn | alpha_fn | color_fn | hdr_color_fn ;
+ColorFunctionType = RgbFn | RgbaFn | HslFn | HslaFn | HwbFn | LabFn | LchFn | OklabFn | OklchFn | IctcpFn | JzazbzFn | JzczhzFn | AlphaFn | ColorFn | HdrColorFn ;
 
 (* <named-color> *)
-named_color_type = aliceblue | antiquewhite | aqua | aquamarine | azure | beige | bisque | black | blanchedalmond | blue | blueviolet | brown | burlywood | cadetblue | chartreuse | chocolate | coral | cornflowerblue | cornsilk | crimson | cyan | darkblue | darkcyan | darkgoldenrod | darkgray | darkgreen | darkgrey | darkkhaki | darkmagenta | darkolivegreen | darkorange | darkorchid | darkred | darksalmon | darkseagreen | darkslateblue | darkslategray | darkslategrey | darkturquoise | darkviolet | deeppink | deepskyblue | dimgray | dimgrey | dodgerblue | firebrick | floralwhite | forestgreen | fuchsia | gainsboro | ghostwhite | gold | goldenrod | gray | green | greenyellow | grey | honeydew | hotpink | indianred | indigo | ivory | khaki | lavender | lavenderblush | lawngreen | lemonchiffon | lightblue | lightcoral | lightcyan | lightgoldenrodyellow | lightgray | lightgreen | lightgrey | lightpink | lightsalmon | lightseagreen | lightskyblue | lightslategray | lightslategrey | lightsteelblue | lightyellow | lime | limegreen | linen | magenta | maroon | mediumaquamarine | mediumblue | mediumorchid | mediumpurple | mediumseagreen | mediumslateblue | mediumspringgreen | mediumturquoise | mediumvioletred | midnightblue | mintcream | mistyrose | moccasin | navajowhite | navy | oldlace | olive | olivedrab | orange | orangered | orchid | palegoldenrod | palegreen | paleturquoise | palevioletred | papayawhip | peachpuff | peru | pink | plum | powderblue | purple | rebeccapurple | red | rosybrown | royalblue | saddlebrown | salmon | sandybrown | seagreen | seashell | sienna | silver | skyblue | slateblue | slategray | slategrey | snow | springgreen | steelblue | tan | teal | thistle | tomato | turquoise | violet | wheat | white | whitesmoke | yellow | yellowgreen | transparent ;
-color_mix_fn_item = ( color_type , [ percentage_type ] ) ;
+NamedColorType = aliceblue | antiquewhite | aqua | aquamarine | azure | beige | bisque | black | blanchedalmond | blue | blueviolet | brown | burlywood | cadetblue | chartreuse | chocolate | coral | cornflowerblue | cornsilk | crimson | cyan | darkblue | darkcyan | darkgoldenrod | darkgray | darkgreen | darkgrey | darkkhaki | darkmagenta | darkolivegreen | darkorange | darkorchid | darkred | darksalmon | darkseagreen | darkslateblue | darkslategray | darkslategrey | darkturquoise | darkviolet | deeppink | deepskyblue | dimgray | dimgrey | dodgerblue | firebrick | floralwhite | forestgreen | fuchsia | gainsboro | ghostwhite | gold | goldenrod | gray | green | greenyellow | grey | honeydew | hotpink | indianred | indigo | ivory | khaki | lavender | lavenderblush | lawngreen | lemonchiffon | lightblue | lightcoral | lightcyan | lightgoldenrodyellow | lightgray | lightgreen | lightgrey | lightpink | lightsalmon | lightseagreen | lightskyblue | lightslategray | lightslategrey | lightsteelblue | lightyellow | lime | limegreen | linen | magenta | maroon | mediumaquamarine | mediumblue | mediumorchid | mediumpurple | mediumseagreen | mediumslateblue | mediumspringgreen | mediumturquoise | mediumvioletred | midnightblue | mintcream | mistyrose | moccasin | navajowhite | navy | oldlace | olive | olivedrab | orange | orangered | orchid | palegoldenrod | palegreen | paleturquoise | palevioletred | papayawhip | peachpuff | peru | pink | plum | powderblue | purple | rebeccapurple | red | rosybrown | royalblue | saddlebrown | salmon | sandybrown | seagreen | seashell | sienna | silver | skyblue | slateblue | slategray | slategrey | snow | springgreen | steelblue | tan | teal | thistle | tomato | turquoise | violet | wheat | white | whitesmoke | yellow | yellowgreen | transparent ;
+ColorMixFnItem = ( ColorType , [ percentage_type ] ) ;
 
 (* <deprecated-color> *)
-deprecated_color_type = activeborder | activecaption | appworkspace | background | buttonhighlight | buttonshadow | captiontext | inactiveborder | inactivecaption | inactivecaptiontext | infobackground | infotext | menu | menutext | scrollbar | threeddarkshadow | threedface | threedhighlight | threedlightshadow | threedshadow | window | windowframe | windowtext ;
+DeprecatedColorType = activeborder | activecaption | appworkspace | background | buttonhighlight | buttonshadow | captiontext | inactiveborder | inactivecaption | inactivecaptiontext | infobackground | infotext | menu | menutext | scrollbar | threeddarkshadow | threedface | threedhighlight | threedlightshadow | threedshadow | window | windowframe | windowtext ;
 
 (* <target-contrast> *)
-target_contrast_type = wcag2_type ;
+TargetContrastType = Wcag2Type ;
 
 (* <legacy-device-cmyk-syntax> *)
-legacy_device_cmyk_syntax_type = device_cmyk , left_parenthesis_symbol , number_type , comma_symbol , number_type , comma_symbol , number_type , comma_symbol , number_type , right_parenthesis_symbol ;
+LegacyDeviceCmykSyntaxType = device_cmyk , left_parenthesis_symbol , number_type , comma_symbol , number_type , comma_symbol , number_type , comma_symbol , number_type , right_parenthesis_symbol ;
 
 (* <modern-device-cmyk-syntax> *)
-modern_device_cmyk_syntax_type = device_cmyk , left_parenthesis_symbol , cmyk_component_type , cmyk_component_type , cmyk_component_type , cmyk_component_type , [ solidus_symbol , ( alpha_value_type | none ) ] , right_parenthesis_symbol ;
-hdr_color_fn_item = ( color_type , [ number_type ] ) ;
+ModernDeviceCmykSyntaxType = device_cmyk , left_parenthesis_symbol , CmykComponentType , CmykComponentType , CmykComponentType , CmykComponentType , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
+HdrColorFnItem = ( ColorType , [ number_type ] ) ;
 
 (* <color-interpolation-method> *)
-color_interpolation_method_type = in , ( rectangular_color_space_type | polar_color_space_type , [ hue_interpolation_method_type ] | custom_color_space_type ) ;
+ColorInterpolationMethodType = in , ( RectangularColorSpaceType | PolarColorSpaceType , [ HueInterpolationMethodType ] | CustomColorSpaceType ) ;
 
 (* <wcag2> *)
-wcag2_type = wcag2 , [ left_parenthesis_symbol , ( number_type | ( aa | aaa ) , [ large ] ) , right_parenthesis_symbol ] ;
+Wcag2Type = wcag2 , [ left_parenthesis_symbol , ( number_type | ( aa | aaa ) , [ large ] ) , right_parenthesis_symbol ] ;
 
 (* <cmyk-component> *)
-cmyk_component_type = number_type | percentage_type | none ;
+CmykComponentType = number_type | percentage_type | none ;
 
 (* <legacy-rgb-syntax> *)
-legacy_rgb_syntax_type = rgb , left_parenthesis_symbol , percentage_type , comma_symbol , percentage_type , comma_symbol , percentage_type , comma_symbol , [ alpha_value_type ] , right_parenthesis_symbol | rgb , left_parenthesis_symbol , number_type , comma_symbol , number_type , comma_symbol , number_type , comma_symbol , [ alpha_value_type ] , right_parenthesis_symbol ;
+LegacyRgbSyntaxType = rgb , left_parenthesis_symbol , percentage_type , comma_symbol , percentage_type , comma_symbol , percentage_type , comma_symbol , [ AlphaValueType ] , right_parenthesis_symbol | rgb , left_parenthesis_symbol , number_type , comma_symbol , number_type , comma_symbol , number_type , comma_symbol , [ AlphaValueType ] , right_parenthesis_symbol ;
 
 (* <modern-rgb-syntax> *)
-modern_rgb_syntax_type = rgb , left_parenthesis_symbol , [ from , color_type ] , modern_rgb_syntax_item , modern_rgb_syntax_item , modern_rgb_syntax_item , [ solidus_symbol , ( alpha_value_type | none ) ] , right_parenthesis_symbol ;
-modern_rgb_syntax_item = ( number_type | percentage_type | none ) ;
+ModernRgbSyntaxType = rgb , left_parenthesis_symbol , [ from , ColorType ] , ModernRgbSyntaxItem , ModernRgbSyntaxItem , ModernRgbSyntaxItem , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
+ModernRgbSyntaxItem = ( number_type | percentage_type | none ) ;
 
 (* <legacy-rgba-syntax> *)
-legacy_rgba_syntax_type = rgba , left_parenthesis_symbol , percentage_type , comma_symbol , percentage_type , comma_symbol , percentage_type , comma_symbol , [ alpha_value_type ] , right_parenthesis_symbol | rgba , left_parenthesis_symbol , number_type , comma_symbol , number_type , comma_symbol , number_type , comma_symbol , [ alpha_value_type ] , right_parenthesis_symbol ;
+LegacyRgbaSyntaxType = rgba , left_parenthesis_symbol , percentage_type , comma_symbol , percentage_type , comma_symbol , percentage_type , comma_symbol , [ AlphaValueType ] , right_parenthesis_symbol | rgba , left_parenthesis_symbol , number_type , comma_symbol , number_type , comma_symbol , number_type , comma_symbol , [ AlphaValueType ] , right_parenthesis_symbol ;
 
 (* <modern-rgba-syntax> *)
-modern_rgba_syntax_type = rgba , left_parenthesis_symbol , [ from , color_type ] , modern_rgba_syntax_item , modern_rgba_syntax_item , modern_rgba_syntax_item , [ solidus_symbol , ( alpha_value_type | none ) ] , right_parenthesis_symbol ;
-modern_rgba_syntax_item = ( number_type | percentage_type | none ) ;
+ModernRgbaSyntaxType = rgba , left_parenthesis_symbol , [ from , ColorType ] , ModernRgbaSyntaxItem , ModernRgbaSyntaxItem , ModernRgbaSyntaxItem , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
+ModernRgbaSyntaxItem = ( number_type | percentage_type | none ) ;
 
 (* <legacy-hsl-syntax> *)
-legacy_hsl_syntax_type = hsl , left_parenthesis_symbol , hue_type , comma_symbol , percentage_type , comma_symbol , percentage_type , comma_symbol , [ alpha_value_type ] , right_parenthesis_symbol ;
+LegacyHslSyntaxType = hsl , left_parenthesis_symbol , HueType , comma_symbol , percentage_type , comma_symbol , percentage_type , comma_symbol , [ AlphaValueType ] , right_parenthesis_symbol ;
 
 (* <modern-hsl-syntax> *)
-modern_hsl_syntax_type = hsl , left_parenthesis_symbol , [ from , color_type ] , ( hue_type | none ) , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , [ solidus_symbol , ( alpha_value_type | none ) ] , right_parenthesis_symbol ;
+ModernHslSyntaxType = hsl , left_parenthesis_symbol , [ from , ColorType ] , ( HueType | none ) , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
 
 (* <legacy-hsla-syntax> *)
-legacy_hsla_syntax_type = hsla , left_parenthesis_symbol , hue_type , comma_symbol , percentage_type , comma_symbol , percentage_type , comma_symbol , [ alpha_value_type ] , right_parenthesis_symbol ;
+LegacyHslaSyntaxType = hsla , left_parenthesis_symbol , HueType , comma_symbol , percentage_type , comma_symbol , percentage_type , comma_symbol , [ AlphaValueType ] , right_parenthesis_symbol ;
 
 (* <modern-hsla-syntax> *)
-modern_hsla_syntax_type = hsla , left_parenthesis_symbol , [ from , color_type ] , ( hue_type | none ) , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , [ solidus_symbol , ( alpha_value_type | none ) ] , right_parenthesis_symbol ;
+ModernHslaSyntaxType = hsla , left_parenthesis_symbol , [ from , ColorType ] , ( HueType | none ) , ( percentage_type | number_type | none ) , ( percentage_type | number_type | none ) , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
 
 (* <hue> *)
-hue_type = number_type | angle_type ;
+HueType = number_type | angle_type ;
 
 (* <colorspace-params> *)
-colorspace_params_type = custom_params_type | predefined_rgb_params_type | xyz_params_type ;
+ColorspaceParamsType = CustomParamsType | PredefinedRgbParamsType | XyzParamsType ;
 
 (* <rectangular-color-space> *)
-rectangular_color_space_type = sRGB | srgb_linear | display_p3 | display_p3_linear | a98_rgb | prophoto_rgb | rec2020 | lab | oklab | xyz_space_type ;
+RectangularColorSpaceType = sRGB | srgb_linear | display_p3 | display_p3_linear | a98_rgb | prophoto_rgb | rec2020 | lab | oklab | XyzSpaceType ;
 
 (* <polar-color-space> *)
-polar_color_space_type = hsl | hwb | lch | oklch ;
+PolarColorSpaceType = hsl | hwb | lch | oklch ;
 
 (* <hue-interpolation-method> *)
-hue_interpolation_method_type = ( shorter | longer | increasing | decreasing ) , hue_type ;
+HueInterpolationMethodType = ( shorter | longer | increasing | decreasing ) , HueType ;
 
 (* <custom-color-space> *)
-custom_color_space_type = dashed_ident_type ;
+CustomColorSpaceType = dashed_ident_type ;
 
 (* <custom-params> *)
-custom_params_type = dashed_ident_type , custom_params_item , { custom_params_item } ;
-custom_params_item = ( number_type | percentage_type | none ) ;
+CustomParamsType = dashed_ident_type , CustomParamsItem , { CustomParamsItem } ;
+CustomParamsItem = ( number_type | percentage_type | none ) ;
 
 (* <predefined-rgb-params> *)
-predefined_rgb_params_type = predefined_rgb_type , predefined_rgb_params_item , predefined_rgb_params_item , predefined_rgb_params_item ;
-predefined_rgb_params_item = ( number_type | percentage_type | none ) ;
+PredefinedRgbParamsType = PredefinedRgbType , PredefinedRgbParamsItem , PredefinedRgbParamsItem , PredefinedRgbParamsItem ;
+PredefinedRgbParamsItem = ( number_type | percentage_type | none ) ;
 
 (* <xyz-params> *)
-xyz_params_type = xyz_space_type , xyz_params_item , xyz_params_item , xyz_params_item ;
-xyz_params_item = ( number_type | percentage_type | none ) ;
+XyzParamsType = XyzSpaceType , XyzParamsItem , XyzParamsItem , XyzParamsItem ;
+XyzParamsItem = ( number_type | percentage_type | none ) ;
 
 (* <xyz-space> *)
-xyz_space_type = xyz | xyz_d50 | xyz_d65 ;
+XyzSpaceType = xyz | xyz_d50 | xyz_d65 ;
 
 (* <predefined-rgb> *)
-predefined_rgb_type = sRGB | srgb_linear | display_p3 | display_p3_linear | a98_rgb | prophoto_rgb | rec2020 | rec2100_pq | rec2100_hlg | rec2100_linear ;
+PredefinedRgbType = sRGB | srgb_linear | display_p3 | display_p3_linear | a98_rgb | prophoto_rgb | rec2020 | rec2100_pq | rec2100_hlg | rec2100_linear ;
 
 (* <corner-shape-value> *)
-corner_shape_value_type = round | scoop | bevel | notch | square | squircle | superellipse_fn ;
+CornerShapeValueType = round | scoop | bevel | notch | square | squircle | SuperellipseFn ;
 
 (* <display-box> *)
-display_box_type = contents | none ;
+DisplayBoxType = contents | none ;
 
 (* <display-inside> *)
-display_inside_type = flow | flow_root | table | flex | grid | ruby ;
+DisplayInsideType = flow | flow_root | table | flex | grid | ruby ;
 
 (* <display-internal> *)
-display_internal_type = table_row_group | table_header_group | table_footer_group | table_row | table_cell | table_column_group | table_column | table_caption | ruby_base | ruby_text | ruby_base_container | ruby_text_container ;
+DisplayInternalType = table_row_group | table_header_group | table_footer_group | table_row | table_cell | table_column_group | table_column | table_caption | ruby_base | ruby_text | ruby_base_container | ruby_text_container ;
 
 (* <display-legacy> *)
-display_legacy_type = inline_block | inline_table | inline_flex | inline_grid ;
+DisplayLegacyType = inline_block | inline_table | inline_flex | inline_grid ;
 
 (* <display-listitem> *)
-display_listitem_type = [ display_outside_type ] , [ ( flow | flow_root ) ] , list_item ;
+DisplayListitemType = [ DisplayOutsideType ] , [ ( flow | flow_root ) ] , list_item ;
 
 (* <display-outside> *)
-display_outside_type = block | inline | run_in ;
+DisplayOutsideType = block | inline | run_in ;
 
 (* <easing-function> *)
-easing_function_type = linear_easing_function_type | cubic_bezier_easing_function_type | step_easing_function_type ;
+EasingFunctionType = LinearEasingFunctionType | CubicBezierEasingFunctionType | StepEasingFunctionType ;
 
 (* <linear-easing-function> *)
-linear_easing_function_type = linear | linear_fn ;
+LinearEasingFunctionType = linear | LinearFn ;
 
 (* <cubic-bezier-easing-function> *)
-cubic_bezier_easing_function_type = ease | ease_in | ease_out | ease_in_out | cubic_bezier_fn ;
+CubicBezierEasingFunctionType = ease | ease_in | ease_out | ease_in_out | CubicBezierFn ;
 
 (* <step-easing-function> *)
-step_easing_function_type = step_start | step_end | steps_fn ;
-linear_fn_item = ( number_type , [ percentage_type ] , [ percentage_type ] ) ;
-cubic_bezier_fn_item = number_type , comma_symbol , number_type ;
+StepEasingFunctionType = step_start | step_end | StepsFn ;
+LinearFnItem = ( number_type , [ percentage_type ] , [ percentage_type ] ) ;
+CubicBezierFnItem = number_type , comma_symbol , number_type ;
 
 (* <step-position> *)
-step_position_type = jump_start | jump_end | jump_none | jump_both | start | end ;
+StepPositionType = jump_start | jump_end | jump_none | jump_both | start | end ;
 
 (* <filter-function> *)
-filter_function_type = blur_fn | brightness_fn | contrast_fn | drop_shadow_fn | grayscale_fn | hue_rotate_fn | invert_fn | opacity_fn | sepia_fn | saturate_fn ;
+FilterFunctionType = BlurFn | BrightnessFn | ContrastFn | DropShadowFn | GrayscaleFn | HueRotateFn | InvertFn | OpacityFn | SepiaFn | SaturateFn ;
 
 (* <frequency-percentage> *)
-frequency_percentage_type = frequency_type | percentage_type ;
+FrequencyPercentageType = frequency_type | percentage_type ;
 
 (* <generic-family> *)
-generic_family_type = serif | sans_serif | monospace | cursive | fantasy | system_ui | ui_serif | ui_sans_serif | ui_monospace | ui_rounded | math | fangsong ;
+GenericFamilyType = serif | sans_serif | monospace | cursive | fantasy | system_ui | ui_serif | ui_sans_serif | ui_monospace | ui_rounded | math | fangsong ;
 
 (* <gradient> *)
-gradient_type = linear_gradient_fn | repeating_linear_gradient_fn | radial_gradient_fn | repeating_radial_gradient_fn | conic_gradient_fn | repeating_conic_gradient_fn ;
+GradientType = LinearGradientFn | RepeatingLinearGradientFn | RadialGradientFn | RepeatingRadialGradientFn | ConicGradientFn | RepeatingConicGradientFn ;
 
 (* <linear-gradient-syntax> *)
-linear_gradient_syntax_type = [ ( [ ( angle_type | digit_0_symbol | to , side_or_corner_type ) ] , [ color_interpolation_method_type ] ) ] , comma_symbol , color_stop_list_type ;
+LinearGradientSyntaxType = [ ( [ ( angle_type | digit_0_symbol | to , SideOrCornerType ) ] , [ ColorInterpolationMethodType ] ) , comma_symbol ] , ColorStopListType ;
 
 (* <radial-gradient-syntax> *)
-radial_gradient_syntax_type = [ ( [ [ ( [ radial_shape_type ] , [ radial_size_type ] ) ] , [ at , position_type ] ] , [ color_interpolation_method_type ] ) ] , comma_symbol , color_stop_list_type ;
+RadialGradientSyntaxType = [ ( [ [ ( [ RadialShapeType ] , [ RadialSizeType ] ) ] , [ at , PositionType ] ] , [ ColorInterpolationMethodType ] ) , comma_symbol ] , ColorStopListType ;
 
 (* <conic-gradient-syntax> *)
-conic_gradient_syntax_type = [ ( [ [ from , ( angle_type | digit_0_symbol ) ] , [ at , position_type ] ] , [ color_interpolation_method_type ] ) ] , comma_symbol , angular_color_stop_list_type ;
+ConicGradientSyntaxType = [ ( [ [ from , ( angle_type | digit_0_symbol ) ] , [ at , PositionType ] ] , [ ColorInterpolationMethodType ] ) , comma_symbol ] , AngularColorStopListType ;
 
 (* <side-or-corner> *)
-side_or_corner_type = [ ( left | right ) ] , [ ( top | bottom ) ] ;
+SideOrCornerType = [ ( left | right ) ] , [ ( top | bottom ) ] ;
 
 (* <color-stop-list> *)
-color_stop_list_type = linear_color_stop_type , comma_symbol , [ color_stop_list_item , { comma_symbol , color_stop_list_item } ] ;
-color_stop_list_item = [ linear_color_hint_type ] , comma_symbol , linear_color_stop_type ;
+ColorStopListType = LinearColorStopType , { comma_symbol , [ LinearColorHintType , comma_symbol ] , LinearColorStopType } ;
+ColorStopListItem = [ LinearColorHintType , comma_symbol ] , LinearColorStopType ;
 
 (* <radial-shape> *)
-radial_shape_type = circle | ellipse ;
+RadialShapeType = circle | ellipse ;
 
 (* <radial-size> *)
-radial_size_type = radial_extent_type | length_type | length_percentage_type , length_percentage_type ;
+RadialSizeType = RadialExtentType | length_type | LengthPercentageType , LengthPercentageType ;
 
 (* <position> *)
-position_type = position_one_type | position_two_type | position_four_type ;
+PositionType = PositionOneType | PositionTwoType | PositionFourType ;
 
 (* <angular-color-stop-list> *)
-angular_color_stop_list_type = angular_color_stop_type , comma_symbol , [ angular_color_stop_list_item , { comma_symbol , angular_color_stop_list_item } ] ;
-angular_color_stop_list_item = [ angular_color_hint_type ] , comma_symbol , angular_color_stop_type ;
+AngularColorStopListType = AngularColorStopType , { comma_symbol , [ AngularColorHintType , comma_symbol ] , AngularColorStopType } ;
+AngularColorStopListItem = [ AngularColorHintType , comma_symbol ] , AngularColorStopType ;
 
 (* <linear-color-stop> *)
-linear_color_stop_type = color_type , [ color_stop_length_type ] ;
+LinearColorStopType = ColorType , [ ColorStopLengthType ] ;
 
 (* <linear-color-hint> *)
-linear_color_hint_type = length_percentage_type ;
+LinearColorHintType = LengthPercentageType ;
 
 (* <radial-extent> *)
-radial_extent_type = closest_corner | closest_side | farthest_corner | farthest_side ;
+RadialExtentType = closest_corner | closest_side | farthest_corner | farthest_side ;
 
 (* <length-percentage> *)
-length_percentage_type = length_type | percentage_type ;
+MathFunctionType = CalcFn | ClampFn | MinFn | MaxFn | RoundFn | AbsFn | SignFn ;
+LengthPercentageType = length_type | percentage_type | MathFunctionType | AnchorSizeFn | AnchorFn | VarFn ;
 
 (* <position-one> *)
-position_one_type = left | center | right | top | bottom | x_start | x_end | y_start | y_end | block_start | block_end | inline_start | inline_end | length_percentage_type ;
+PositionOneType = left | center | right | top | bottom | x_start | x_end | y_start | y_end | block_start | block_end | inline_start | inline_end | LengthPercentageType ;
 
 (* <position-two> *)
-position_two_type = ( left | center | right | x_start | x_end ) , ( top | center | bottom | y_start | y_end ) | ( left | center | right | x_start | x_end | length_percentage_type ) , ( top | center | bottom | y_start | y_end | length_percentage_type ) | ( block_start | center | block_end ) , ( inline_start | center | inline_end ) | position_two_item , position_two_item ;
-position_two_item = ( start | center | end ) ;
+PositionTwoType = ( left | center | right | x_start | x_end ) , ( top | center | bottom | y_start | y_end ) | ( left | center | right | x_start | x_end | LengthPercentageType ) , ( top | center | bottom | y_start | y_end | LengthPercentageType ) | ( block_start | center | block_end ) , ( inline_start | center | inline_end ) | PositionTwoItem , PositionTwoItem ;
+PositionTwoItem = ( start | center | end ) ;
 
 (* <position-four> *)
-position_four_type = ( left | right | x_start | x_end ) , length_percentage_type , ( top | bottom | y_start | y_end ) , length_percentage_type | ( block_start | block_end ) , length_percentage_type , ( inline_start | inline_end ) , length_percentage_type | position_four_item , position_four_item ;
-position_four_item = ( start | end ) , length_percentage_type ;
+PositionFourType = ( left | right | x_start | x_end ) , LengthPercentageType , ( top | bottom | y_start | y_end ) , LengthPercentageType | ( block_start | block_end ) , LengthPercentageType , ( inline_start | inline_end ) , LengthPercentageType | PositionFourItem , PositionFourItem ;
+PositionFourItem = ( start | end ) , LengthPercentageType ;
 
 (* <angular-color-stop> *)
-angular_color_stop_type = color_type , [ color_stop_angle_type ] ;
+AngularColorStopType = ColorType , [ ColorStopAngleType ] ;
 
 (* <angular-color-hint> *)
-angular_color_hint_type = angle_percentage_type | digit_0_symbol ;
+AngularColorHintType = AnglePercentageType | digit_0_symbol ;
 
 (* <color-stop-length> *)
-color_stop_length_type = length_percentage_type , [ length_percentage_type ] ;
+ColorStopLengthType = LengthPercentageType , [ LengthPercentageType ] ;
 
 (* <color-stop-angle> *)
-color_stop_angle_type = color_stop_angle_item , [ color_stop_angle_item ] ;
-color_stop_angle_item = ( angle_percentage_type | digit_0_symbol ) ;
+ColorStopAngleType = ColorStopAngleItem , [ ColorStopAngleItem ] ;
+ColorStopAngleItem = ( AnglePercentageType | digit_0_symbol ) ;
 
 (* <image> *)
-image_type = url | image_fn | image_set_fn | cross_fade_fn | element_fn | gradient_type ;
+ImageType = url | ImageFn | ImageSetFn | CrossFadeFn | ElementFn | GradientType ;
 
 (* <image-tags> *)
-image_tags_type = ltr | rtl ;
+ImageTagsType = ltr | rtl ;
 
 (* <image-src> *)
-image_src_type = url | string_type ;
+ImageSrcType = url | string_type ;
 
 (* <image-set-option> *)
-image_set_option_type = ( image_type | string_type ) , [ ( [ resolution_type ] , [ type_fn ] ) ] ;
+ImageSetOptionType = ( ImageType | string_type ) , [ ( [ resolution_type ] , [ TypeFn ] ) ] ;
 
 (* <cf-image> *)
-cf_image_type = ( image_type | color_type ) , [ percentage_type ] ;
+CfImageType = ( ImageType | ColorType ) , [ percentage_type ] ;
 
 (* <id-selector> *)
-id_selector_type = number_sign_symbol ;
+IdSelectorType = number_sign_symbol ;
 
 (* <line-style> *)
-line_style_type = none | hidden | dotted | dashed | solid | double | groove | ridge | inset | outset ;
+LineStyleType = none | hidden | dotted | dashed | solid | double | groove | ridge | inset | outset ;
 
 (* <ratio> *)
-ratio_type = number_type , [ solidus_symbol , number_type ] ;
+RatioType = number_type , [ solidus_symbol , number_type ] ;
 
 (* <text-edge> *)
-text_edge_type = ( text | ideographic | ideographic_ink ) | ( text | ideographic | ideographic_ink | cap | ex ) , ( text | ideographic | ideographic_ink | alphabetic ) ;
+TextEdgeType = ( text | ideographic | ideographic_ink ) | ( text | ideographic | ideographic_ink | cap | ex ) , ( text | ideographic | ideographic_ink | alphabetic ) ;
 
 (* <timeline-range-name> *)
-timeline_range_name_type = cover | contain | entry | exit | entry_crossing | exit_crossing | scroll ;
+TimelineRangeNameType = cover | contain | entry | exit | entry_crossing | exit_crossing | scroll ;
 
 (* <time-percentage> *)
-time_percentage_type = time_type | percentage_type ;
+TimePercentageType = time_type | percentage_type ;
 
 (* <baseline-position> — [ first | last ]? && baseline *)
-baseline_position_type = [ ( first | last ) ] , baseline ;
+BaselinePositionType = [ ( first | last ) ] , baseline ;
 
 (* <content-distribution> — space-between | space-around | space-evenly | stretch *)
-content_distribution_type = space_between | space_around | space_evenly | stretch ;
+ContentDistributionType = space_between | space_around | space_evenly | stretch ;
 
 (* <content-position> — center | start | end | flex-start | flex-end *)
-content_position_type = center | start | end | flex_start | flex_end ;
+ContentPositionType = center | start | end | flex_start | flex_end ;
 
 (* <overflow-position> — unsafe | safe *)
-overflow_position_type = unsafe | safe ;
+OverflowPositionType = unsafe | safe ;
 
 (* <overflow> — visible | hidden | clip | scroll | auto *)
-overflow_type = visible | hidden | clip | scroll | auto ;
+OverflowType = visible | hidden | clip | scroll | auto ;
 
 (* <relative-size> — smaller | larger *)
-relative_size_type = smaller | larger ;
+RelativeSizeType = smaller | larger ;
 
 (* <self-position> — center | start | end | self-start | self-end | flex-start | flex-end *)
-self_position_type = center | start | end | self_start | self_end | flex_start | flex_end ;
+SelfPositionType = center | start | end | self_start | self_end | flex_start | flex_end ;
 
 (* <url> — url( <string> ) *)
-url_type = url , left_parenthesis_symbol , [ string_type ] , right_parenthesis_symbol ;
+UrlType = url , left_parenthesis_symbol , [ string_type ] , right_parenthesis_symbol ;
 
 (* <url-set> — restricted image-set() where <image> is limited to <url> strings only.
    Per CSS UI Level 4, support for the broader <image> type is "allowed but optional",
-   so aliasing to image_set_fn (which accepts the full image-set syntax) is within spec.
+   so aliasing to ImageSetFn (which accepts the full image-set syntax) is within spec.
    No MDN page exists; defined in drafts.csswg.org/css-ui-4/#cursor. *)
-url_set_type = image_set_fn ;
-visual_box_type   = content_box | padding_box | border_box ;
-shape_box_type    = visual_box_type | margin_box ;
-layout_box_type   = shape_box_type ;
-paint_box_type    = visual_box_type | fill_box | stroke_box ;
-coord_box_type    = paint_box_type | view_box ;
-geometry_box_type = shape_box_type | fill_box | stroke_box | view_box ;
-box_edge_type     = geometry_box_type | coord_box_type ;
-position_area_type =
-    [ position_area_x ] , [ position_area_y ]
-  | [ position_area_block_kw ] , [ position_area_inline_kw ]
-  | [ position_area_self_block_kw ] , [ position_area_self_inline_kw ] ;
+UrlSetType = ImageSetFn ;
+VisualBoxType   = content_box | padding_box | border_box ;
+ShapeBoxType    = VisualBoxType | margin_box ;
+LayoutBoxType   = ShapeBoxType ;
+PaintBoxType    = VisualBoxType | fill_box | stroke_box ;
+CoordBoxType    = PaintBoxType | view_box ;
+GeometryBoxType = ShapeBoxType | fill_box | stroke_box | view_box ;
+BoxEdgeType     = GeometryBoxType | CoordBoxType ;
+PositionAreaType =
+    [ PositionAreaX ] , [ PositionAreaY ]
+  | [ PositionAreaBlockKw ] , [ PositionAreaInlineKw ]
+  | [ PositionAreaSelfBlockKw ] , [ PositionAreaSelfInlineKw ] ;
 
-position_area_x =
+PositionAreaX =
   left | center | right | span_left | span_right
   | x_start | x_end | span_x_start | span_x_end
   | self_x_start | self_x_end | span_self_x_start | span_self_x_end
   | span_all ;
 
-position_area_y =
+PositionAreaY =
   top | center | bottom | span_top | span_bottom
   | y_start | y_end | span_y_start | span_y_end
   | self_y_start | self_y_end | span_self_y_start | span_self_y_end
   | span_all ;
 
-position_area_block_kw =
+PositionAreaBlockKw =
   block_start | center | block_end | span_block_start | span_block_end | span_all ;
 
-position_area_inline_kw =
+PositionAreaInlineKw =
   inline_start | center | inline_end | span_inline_start | span_inline_end | span_all ;
 
-position_area_self_block_kw =
+PositionAreaSelfBlockKw =
   self_block_start | self_block_end | span_self_block_start | span_self_block_end | span_all ;
 
-position_area_self_inline_kw =
+PositionAreaSelfInlineKw =
   self_inline_start | self_inline_end | span_self_inline_start | span_self_inline_end | span_all ;
 
 (* <angle> — <number> + angle unit; 0 is valid without unit *)
@@ -382,8 +383,8 @@ angle_value = number_type , angle_unit ;
 angle_unit = deg | grad | rad | turn ;
 
 (* <dimension> — <number> immediately followed by a unit identifier (generic) *)
-dimension_type      = number_type , dimension_unit ;
-dimension_unit = ident_type ;
+DimensionType      = number_type , DimensionUnit ;
+DimensionUnit = ident_type ;
 
 (* <flex> — <number> fr *)
 flex_type = number_type , fr ;
@@ -405,7 +406,7 @@ ident_continue = letter | digit | low_line_symbol | hyphen_symbol ;
 (* <custom-ident> — user-defined, case-sensitive identifier (structurally same as ident) *)
 custom_ident_type = ident_type ;
 
-(* <dashed-ident> — custom property name: two dashes followed by an identifier *)
+(* <dashed-ident> — custom Property name: two dashes followed by an identifier *)
 dashed_ident_type = double_hyphen_symbol , ident_type ;
 
 (* <hex-color> — # followed by 3, 4, 6, or 8 hex digits (longest match first) *)
@@ -420,78 +421,82 @@ hex_color_8 = hex_digit , hex_digit , hex_digit , hex_digit
 string_type = string_literal ;
 
 (* <calc-sum> = <calc-product> [ [ '+' | '-' ] <calc-product> ]* *)
-calc_sum_type = calc_product_type , { ( plus_sign_symbol | hyphen_symbol ) , calc_product_type } ;
+CalcSumType = CalcProductType , { ( plus_sign_symbol | hyphen_symbol ) , CalcProductType } ;
 
 (* <calc-product> = <calc-value> [ [ '*' | '/' ] <calc-value> ]* *)
-calc_product_type = calc_value_type , { ( asterisk_symbol | solidus_symbol ) , calc_value_type } ;
+CalcProductType = CalcValueType , { ( asterisk_symbol | solidus_symbol ) , CalcValueType } ;
 
-(* <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | ( <calc-sum> ) *)
-calc_value_type = number_type | dimension_type | percentage_type | calc_keyword_type | ( left_parenthesis_symbol , calc_sum_type , right_parenthesis_symbol ) ;
+(* <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | math-fn | <ident> | ( <calc-sum> ) *)
+CalcValueType = number_type | DimensionType | percentage_type | calc_keyword_type
+              | CalcFn | MinFn | MaxFn | ClampFn | RoundFn | AbsFn | SignFn
+              | AnchorSizeFn | AnchorFn | VarFn | EnvFn
+              | ( left_parenthesis_symbol , CalcSumType , right_parenthesis_symbol )
+              | ident_type ;
 
 (* <transform-list> *)
-transform_list_type = transform_function_type , { transform_function_type } ;
+TransformListType = TransformFunctionType , { TransformFunctionType } ;
 
 (* <transform-function> *)
-transform_function_type =
-    scale3d_fn | scale_fn | scaleX_fn | scaleY_fn | scaleZ_fn
-  | translate3d_fn | translate_fn | translateX_fn | translateY_fn | translateZ_fn
-  | rotate3d_fn | rotate_fn | rotateX_fn | rotateY_fn | rotateZ_fn
-  | skew_fn | skewX_fn | skewY_fn
-  | matrix3d_fn | matrix_fn
-  | perspective_fn ;
+TransformFunctionType =
+    Scale3dFn | ScaleFn | ScalexFn | ScaleyFn | ScalezFn
+  | Translate3dFn | TranslateFn | TranslatexFn | TranslateyFn | TranslatezFn
+  | Rotate3dFn | RotateFn | RotatexFn | RotateyFn | RotatezFn
+  | SkewFn | SkewxFn | SkewyFn
+  | Matrix3dFn | MatrixFn
+  | PerspectiveFn ;
 
 (* <basic-shape> *)
-basic_shape_type =
-    inset_fn | circle_fn | ellipse_fn | polygon_fn
-  | path_fn | shape_fn | rect_fn | xywh_fn ;
+BasicShapeType =
+    InsetFn | CircleFn | EllipseFn | PolygonFn
+  | PathFn | ShapeFn | RectFn | XywhFn ;
 
 (* Shared: fill-rule and border-radius *)
-fill_rule_type = nonzero | evenodd ;
+FillRuleType = nonzero | evenodd ;
 
 (* <border-radius> = <length-percentage [0,∞]>{1,4} [ / <length-percentage [0,∞]>{1,4} ]? *)
-border_radius_type =
-    length_percentage_type , [ length_percentage_type ] , [ length_percentage_type ] , [ length_percentage_type ]
-  , [ solidus_symbol , length_percentage_type , [ length_percentage_type ] , [ length_percentage_type ] , [ length_percentage_type ] ] ;
+BorderRadiusType =
+    LengthPercentageType , [ LengthPercentageType ] , [ LengthPercentageType ] , [ LengthPercentageType ]
+  , [ solidus_symbol , LengthPercentageType , [ LengthPercentageType ] , [ LengthPercentageType ] , [ LengthPercentageType ] ] ;
 
 (* <shape-command> *)
-shape_command_type =
-    move_command_type | line_command_type | close
-  | horizontal_line_command_type | vertical_line_command_type
-  | curve_command_type | smooth_command_type | arc_command_type ;
+ShapeCommandType =
+    MoveCommandType | LineCommandType | close
+  | HorizontalLineCommandType | VerticalLineCommandType
+  | CurveCommandType | SmoothCommandType | ArcCommandType ;
 
 (* move <command-end-point> *)
-move_command_type = move , command_end_point_type ;
+MoveCommandType = move , CommandEndPointType ;
 
 (* line <command-end-point> *)
-line_command_type = line , command_end_point_type ;
+LineCommandType = line , CommandEndPointType ;
 
 (* <command-end-point> = to <position> | by <coordinate-pair> *)
-command_end_point_type = ( to , position_type ) | ( by , coordinate_pair_type ) ;
-coordinate_pair_type    = length_percentage_type , length_percentage_type ;
+CommandEndPointType = ( to , PositionType ) | ( by , CoordinatePairType ) ;
+CoordinatePairType    = LengthPercentageType , LengthPercentageType ;
 
 (* hline [ to [ <length-percentage> | left | center | right | x-start | x-end ] | by <length-percentage> ] *)
-horizontal_line_command_type = hline , (
-    ( to , ( length_percentage_type | left | center | right | x_start | x_end ) )
-  | ( by , length_percentage_type ) ) ;
+HorizontalLineCommandType = hline , (
+    ( to , ( LengthPercentageType | left | center | right | x_start | x_end ) )
+  | ( by , LengthPercentageType ) ) ;
 
 (* vline [ to [ <length-percentage> | top | center | bottom | y-start | y-end ] | by <length-percentage> ] *)
-vertical_line_command_type = vline , (
-    ( to , ( length_percentage_type | top | center | bottom | y_start | y_end ) )
-  | ( by , length_percentage_type ) ) ;
-relative_control_point_type = coordinate_pair_type , [ from , ( start | end | origin ) ] ;
-control_point_type          = position_type | relative_control_point_type ;
-curve_command_type = curve , (
-    ( to , position_type , with , control_point_type , [ solidus_symbol , control_point_type ] )
-  | ( by , coordinate_pair_type , with , relative_control_point_type , [ solidus_symbol , relative_control_point_type ] ) ) ;
-smooth_command_type = smooth , (
-    ( to , position_type , [ with , control_point_type ] )
-  | ( by , coordinate_pair_type , [ with , relative_control_point_type ] ) ) ;
-arc_sweep_type = cw | ccw ;
-arc_size_type  = large | small ;
+VerticalLineCommandType = vline , (
+    ( to , ( LengthPercentageType | top | center | bottom | y_start | y_end ) )
+  | ( by , LengthPercentageType ) ) ;
+RelativeControlPointType = CoordinatePairType , [ from , ( start | end | origin ) ] ;
+ControlPointType          = PositionType | RelativeControlPointType ;
+CurveCommandType = curve , (
+    ( to , PositionType , with , ControlPointType , [ solidus_symbol , ControlPointType ] )
+  | ( by , CoordinatePairType , with , RelativeControlPointType , [ solidus_symbol , RelativeControlPointType ] ) ) ;
+SmoothCommandType = smooth , (
+    ( to , PositionType , [ with , ControlPointType ] )
+  | ( by , CoordinatePairType , [ with , RelativeControlPointType ] ) ) ;
+ArcSweepType = cw | ccw ;
+ArcSizeType  = large | small ;
 
-arc_command_type = arc , command_end_point_type ,
-  [ [ of , length_percentage_type , [ length_percentage_type ] ] ,
-    [ arc_sweep_type ] ,
-    [ arc_size_type ] ,
+ArcCommandType = arc , CommandEndPointType ,
+  [ [ of , LengthPercentageType , [ LengthPercentageType ] ] ,
+    [ ArcSweepType ] ,
+    [ ArcSizeType ] ,
     [ rotate , angle_type ] ] ;
 

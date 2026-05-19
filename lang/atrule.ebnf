@@ -2,89 +2,89 @@
    Sources: MDN formal syntax, W3C CSS specifications
 *)
 
-(* ── at_rule — union used in css.ebnf ───────────────────────────────────── *)
+(* ── AtRule — union used in css.ebnf ───────────────────────────────────── *)
 
-at_rule =
-    at_charset
-    | at_color_profile
-    | at_container
-    | at_counter_style
-    | at_custom_media
-    | at_font_face
-    | at_font_feature_values
-    | at_font_palette_values
-    | at_function
-    | at_import
-    | at_keyframes
-    | at_layer
-    | at_media
-    | at_namespace
-    | at_page
-    | at_position_try
-    | at_property
-    | at_scope
-    | at_starting_style
-    | at_supports
-    | at_view_transition ;
+AtRule =
+    AtCharset
+    | AtColorProfile
+    | AtContainer
+    | AtCounterStyle
+    | AtCustomMedia
+    | AtFontFace
+    | AtFontFeatureValues
+    | AtFontPaletteValues
+    | AtFunction
+    | AtImport
+    | AtKeyframes
+    | AtLayer
+    | AtMedia
+    | AtNamespace
+    | AtPage
+    | AtPositionTry
+    | AtProperty
+    | AtScope
+    | AtStartingStyle
+    | AtSupports
+    | AtViewTransition ;
 
 
 (* ── Placeholder types for sub-systems defined in other EBNF files ───────── *)
-block_contents_type       = declaration_value_type ;  (* rules + declarations; defined with selectors *)
-declaration_list_type     = declaration_value_type ;  (* descriptor block *)
-rule_list_type            = declaration_value_type ;  (* list of rules *)
-declaration_rule_list_type = declaration_value_type ; (* mixed declarations and rules *)
-qualified_rule_list_type  = declaration_value_type ;  (* e.g. @keyframes block *)
-media_query_list_type     = declaration_value_type ;  (* defined with @media *)
-selector_list_type        = declaration_value_type ;  (* defined in selectors EBNF *)
-any_value_type            = declaration_value_type ;  (* any CSS token sequence *)
+BlockContentsType        = RuleBody ;   (* rules + declarations — same shape as a rule body *)
+DeclarationListType      = RuleBody ;   (* descriptor block  — same shape as a rule body *)
+RuleListType             = CssStyleSheet ; (* list of rules — same shape as top-level sheet *)
+DeclarationRuleListType = RuleBody ;   (* mixed declarations and rules *)
+QualifiedRuleListType   = CssStyleSheet ; (* e.g. @keyframes body *)
+MediaQueryListType      = DeclarationValueType ;  (* media queries — liberal placeholder *)
+SelectorListType         = ComplexSelectorList ;   (* forward ref to selector.ebnf *)
+AnyValueType             = DeclarationValueType ;  (* any CSS token sequence *)
 
 (* ── Shared: general-enclosed (used in container/supports queries) ───────── *)
-general_enclosed_type =
-    custom_ident_type , left_parenthesis_symbol , [ any_value_type ] , right_parenthesis_symbol
-    | left_parenthesis_symbol , [ any_value_type ] , right_parenthesis_symbol ;
+GeneralEnclosedType =
+    custom_ident_type , left_parenthesis_symbol , [ AnyValueType ] , right_parenthesis_symbol
+    | left_parenthesis_symbol , [ AnyValueType ] , right_parenthesis_symbol ;
 
 (* ── Shared: @supports condition (used in @import and @supports) ─────────── *)
-font_tech_atrule_type =
+FontTechAtruleType =
     features_opentype | features_aat | features_graphite
     | color_colrv0 | color_colrv1 | color_svg | color_sbix | color_cbdt
     | variations | palettes | incremental ;
 
-font_format_atrule_type =
+FontFormatAtruleType =
     string_type
     | collection | embedded_opentype | opentype
     | svg | truetype | woff | woff2 ;
 
-supports_selector_fn_type      = selector , left_parenthesis_symbol , any_value_type , right_parenthesis_symbol ;
-supports_font_tech_fn_type     = font_tech , left_parenthesis_symbol , font_tech_atrule_type , right_parenthesis_symbol ;
-supports_font_format_fn_type   = font_format , left_parenthesis_symbol , font_format_atrule_type , right_parenthesis_symbol ;
-supports_at_rule_fn_type       = at_rule , left_parenthesis_symbol , custom_ident_type , right_parenthesis_symbol ;
-supports_named_feature_fn_type = named_feature , left_parenthesis_symbol , custom_ident_type , right_parenthesis_symbol ;
-supports_env_fn_type           = env_fn ;
-supports_decl_type             = left_parenthesis_symbol , declaration_value_type , right_parenthesis_symbol ;
+SupportsSelectorFnType      = selector , left_parenthesis_symbol , AnyValueType , right_parenthesis_symbol ;
+SupportsFontTechFnType     = font_tech , left_parenthesis_symbol , FontTechAtruleType , right_parenthesis_symbol ;
+SupportsFontFormatFnType   = font_format , left_parenthesis_symbol , FontFormatAtruleType , right_parenthesis_symbol ;
+SupportsAtRuleFnType       = AtRule , left_parenthesis_symbol , custom_ident_type , right_parenthesis_symbol ;
+SupportsNamedFeatureFnType = named_feature , left_parenthesis_symbol , custom_ident_type , right_parenthesis_symbol ;
+SupportsEnvFnType           = EnvFn ;
+SupportsDeclType             = left_parenthesis_symbol , DeclarationValueType , right_parenthesis_symbol ;
 
-supports_feature_type =
-    supports_selector_fn_type
-    | supports_font_tech_fn_type
-    | supports_font_format_fn_type
-    | supports_at_rule_fn_type
-    | supports_named_feature_fn_type
-    | supports_env_fn_type
-    | supports_decl_type ;
+SupportsFeatureType =
+    SupportsSelectorFnType
+    | SupportsFontTechFnType
+    | SupportsFontFormatFnType
+    | SupportsAtRuleFnType
+    | SupportsNamedFeatureFnType
+    | SupportsEnvFnType
+    | SupportsDeclType ;
 
-supports_in_parens_type =
-    left_parenthesis_symbol , supports_condition_type , right_parenthesis_symbol
-    | supports_feature_type
-    | general_enclosed_type ;
+SupportsInParensType =
+    left_parenthesis_symbol , SupportsConditionType , right_parenthesis_symbol
+    | SupportsFeatureType
+    | GeneralEnclosedType ;
 
-supports_condition_type =
-    not , supports_in_parens_type
-    | supports_in_parens_type , { and , supports_in_parens_type }
-    | supports_in_parens_type , { or , supports_in_parens_type } ;
+SupportsConditionType =
+    not , SupportsInParensType
+    | SupportsInParensType , { and , SupportsInParensType }
+    | SupportsInParensType , { or , SupportsInParensType } ;
 
 (* ── @charset ────────────────────────────────────────────────────────────── *)
 
 (* Common IANA charset names. Use custom_ident_type for any other valid value. *)
-charset_name_type =
+CharsetNameType =
     (* Unicode *)
     utf_8 | utf_16 | utf_16be | utf_16le
     | utf_32 | utf_32be | utf_32le | utf_7
@@ -110,242 +110,267 @@ charset_name_type =
     (* Custom / non-standard *)
     | custom_ident_type ;
 
-at_charset = commercial_at_symbol , charset , charset_name_type , semicolon_symbol ;
+AtCharset = commercial_at_symbol , charset , CharsetNameType , semicolon_symbol ;
 
 (* ── @color-profile ──────────────────────────────────────────────────────── *)
 
-at_color_profile = commercial_at_symbol , color_profile , ( dashed_ident_type | device_cmyk ) , left_curly_bracket_symbol , declaration_list_type , right_curly_bracket_symbol ;
+AtColorProfile = commercial_at_symbol , color_profile , ( dashed_ident_type | device_cmyk ) , left_curly_bracket_symbol , DeclarationListType , right_curly_bracket_symbol ;
 
 (* ── @container ──────────────────────────────────────────────────────────── *)
 
-mf_lt_type         = [ less_than_sign_symbol ], equals_sign_symbol ;
-mf_gt_type         = [ greater_than_sign_symbol ], equals_sign_symbol ;
-mf_comparison_type = mf_lt_type | mf_gt_type | equals_sign_symbol ;
+MfLtType         = [ less_than_sign_symbol ], equals_sign_symbol ;
+MfGtType         = [ greater_than_sign_symbol ], equals_sign_symbol ;
+MfComparisonType = MfLtType | MfGtType | equals_sign_symbol ;
 
-size_feature_type         = declaration_value_type ;  (* defined with media features *)
-scroll_state_feature_type = declaration_value_type ;  (* defined with scroll state *)
-style_feature_name_type   = custom_ident_type ;
-style_feature_value_type  = declaration_value_type ;
+SizeFeatureType         = DeclarationValueType ;  (* defined with media features *)
+ScrollStateFeatureType = DeclarationValueType ;  (* defined with scroll state *)
+StyleFeatureNameType   = custom_ident_type ;
+StyleFeatureValueType  = DeclarationValueType ;
 
-style_feature_plain_type   = style_feature_name_type , colon_symbol , style_feature_value_type ;
-style_feature_boolean_type = style_feature_name_type ;
-style_range_value_type     = custom_property_name_type | style_feature_value_type ;
-style_range_type =
-    style_range_value_type , mf_comparison_type , style_range_value_type
-    | style_range_value_type , mf_lt_type , style_range_value_type , mf_lt_type , style_range_value_type
-    | style_range_value_type , mf_gt_type , style_range_value_type , mf_gt_type , style_range_value_type ;
-style_feature_type = style_feature_plain_type | style_feature_boolean_type | style_range_type ;
+StyleFeaturePlainType   = StyleFeatureNameType , colon_symbol , StyleFeatureValueType ;
+StyleFeatureBooleanType = StyleFeatureNameType ;
+StyleRangeValueType     = CustomPropertyNameType | StyleFeatureValueType ;
+StyleRangeType =
+    StyleRangeValueType , MfComparisonType , StyleRangeValueType
+    | StyleRangeValueType , MfLtType , StyleRangeValueType , MfLtType , StyleRangeValueType
+    | StyleRangeValueType , MfGtType , StyleRangeValueType , MfGtType , StyleRangeValueType ;
+StyleFeatureType = StyleFeaturePlainType | StyleFeatureBooleanType | StyleRangeType ;
 
-style_in_parens_type =
-    left_parenthesis_symbol , style_query_type , right_parenthesis_symbol
-    | left_parenthesis_symbol , style_feature_type , right_parenthesis_symbol
-    | general_enclosed_type ;
+StyleInParensType =
+    left_parenthesis_symbol , StyleQueryType , right_parenthesis_symbol
+    | left_parenthesis_symbol , StyleFeatureType , right_parenthesis_symbol
+    | GeneralEnclosedType ;
 
-style_query_type =
-    not , style_in_parens_type
-    | style_in_parens_type , { and , style_in_parens_type }
-    | style_in_parens_type , { or , style_in_parens_type }
-    | style_feature_type ;
+StyleQueryType =
+    not , StyleInParensType
+    | StyleInParensType , { and , StyleInParensType }
+    | StyleInParensType , { or , StyleInParensType }
+    | StyleFeatureType ;
 
-scroll_state_in_parens_type =
-    left_parenthesis_symbol , scroll_state_query_type , right_parenthesis_symbol
-    | left_parenthesis_symbol , scroll_state_feature_type , right_parenthesis_symbol
-    | general_enclosed_type ;
+ScrollStateInParensType =
+    left_parenthesis_symbol , ScrollStateQueryType , right_parenthesis_symbol
+    | left_parenthesis_symbol , ScrollStateFeatureType , right_parenthesis_symbol
+    | GeneralEnclosedType ;
 
-scroll_state_query_type =
-    not , scroll_state_in_parens_type
-    | scroll_state_in_parens_type , { and , scroll_state_in_parens_type }
-    | scroll_state_in_parens_type , { or , scroll_state_in_parens_type } ;
+ScrollStateQueryType =
+    not , ScrollStateInParensType
+    | ScrollStateInParensType , { and , ScrollStateInParensType }
+    | ScrollStateInParensType , { or , ScrollStateInParensType } ;
 
-query_in_parens_type =
-    left_parenthesis_symbol , container_query_type , right_parenthesis_symbol
-    | left_parenthesis_symbol , size_feature_type , right_parenthesis_symbol
-    | style , left_parenthesis_symbol , style_query_type , right_parenthesis_symbol
-    | scroll_state , left_parenthesis_symbol , scroll_state_query_type , right_parenthesis_symbol
-    | general_enclosed_type ;
+QueryInParensType =
+    left_parenthesis_symbol , ContainerQueryType , right_parenthesis_symbol
+    | left_parenthesis_symbol , SizeFeatureType , right_parenthesis_symbol
+    | style , left_parenthesis_symbol , StyleQueryType , right_parenthesis_symbol
+    | scroll_state , left_parenthesis_symbol , ScrollStateQueryType , right_parenthesis_symbol
+    | GeneralEnclosedType ;
 
-container_query_type =
-    not , query_in_parens_type
-    | query_in_parens_type , { and , query_in_parens_type }
-    | query_in_parens_type , { or , query_in_parens_type } ;
+ContainerQueryType =
+    not , QueryInParensType
+    | QueryInParensType , { and , QueryInParensType }
+    | QueryInParensType , { or , QueryInParensType } ;
 
-container_condition_type = [ custom_ident_type ] , container_query_type ;
+ContainerConditionType = [ custom_ident_type ] , ContainerQueryType ;
 
-at_container = commercial_at_symbol , container , container_condition_type , { comma_symbol , container_condition_type } , left_curly_bracket_symbol , block_contents_type , right_curly_bracket_symbol ;
+AtContainer = commercial_at_symbol , container , ContainerConditionType , { comma_symbol , ContainerConditionType } , left_curly_bracket_symbol , BlockContentsType , right_curly_bracket_symbol ;
 
 (* ── @counter-style ──────────────────────────────────────────────────────── *)
 
 (* <symbol> in the context of @counter-style descriptors (not the symbols() fn) *)
-counter_style_symbol_type = string_type | image_type | custom_ident_type ;
+CounterStyleSymbolType = string_type | ImageType | custom_ident_type ;
 
-counter_style_additive_symbols_type =
-    integer_type , counter_style_symbol_type ,
-    { comma_symbol , integer_type , counter_style_symbol_type } ;
+CounterStyleAdditiveSymbolsType =
+    integer_type , CounterStyleSymbolType ,
+    { comma_symbol , integer_type , CounterStyleSymbolType } ;
 
-counter_style_negative_type = counter_style_symbol_type , [ counter_style_symbol_type ] ;
-counter_style_pad_type      = integer_type , counter_style_symbol_type ;
-counter_style_range_value_type = integer_type | infinite ;
-counter_style_range_type =
-    counter_style_range_value_type , counter_style_range_value_type ,
-    { comma_symbol , counter_style_range_value_type , counter_style_range_value_type }
+CounterStyleNegativeType = CounterStyleSymbolType , [ CounterStyleSymbolType ] ;
+CounterStylePadType      = integer_type , CounterStyleSymbolType ;
+CounterStyleRangeValueType = integer_type | infinite ;
+CounterStyleRangeType =
+    CounterStyleRangeValueType , CounterStyleRangeValueType ,
+    { comma_symbol , CounterStyleRangeValueType , CounterStyleRangeValueType }
     | auto ;
 
-counter_style_speak_as_type =
+CounterStyleSpeakAsType =
     auto | bullets | numbers | words | spell_out
-    | counter_style_name_type ;
+    | CounterStyleNameType ;
 
-counter_style_system_type =
+CounterStyleSystemType =
     cyclic | numeric | alphabetic | symbolic | additive
     | ( fixed , [ integer_type ] )
-    | ( extends , counter_style_name_type ) ;
+    | ( extends , CounterStyleNameType ) ;
 
-at_counter_style = commercial_at_symbol , counter_style , custom_ident_type , left_curly_bracket_symbol , declaration_list_type , right_curly_bracket_symbol ;
+(* @counter-style descriptor block — system/symbols/range/negative/pad/speak-as descriptors *)
+AtCounterStyleSystemDesc   = system   , colon_symbol , CounterStyleSystemType , semicolon_symbol ;
+AtCounterStyleSymbolsDesc  = symbols  , colon_symbol , CounterStyleSymbolType , { CounterStyleSymbolType } , semicolon_symbol ;
+AtCounterStyleRangeDesc    = range    , colon_symbol , CounterStyleRangeType , semicolon_symbol ;
+AtCounterStyleNegativeDesc = negative , colon_symbol , CounterStyleNegativeType , semicolon_symbol ;
+AtCounterStylePadDesc      = pad      , colon_symbol , CounterStylePadType , semicolon_symbol ;
+AtCounterStyleSpeakAsDesc  = speak_as , colon_symbol , CounterStyleSpeakAsType , semicolon_symbol ;
+
+AtCounterStyleBlock = { Property | AtCounterStyleSystemDesc | AtCounterStyleSymbolsDesc
+                      | AtCounterStyleRangeDesc | AtCounterStyleNegativeDesc
+                      | AtCounterStylePadDesc | AtCounterStyleSpeakAsDesc } ;
+
+AtCounterStyle = commercial_at_symbol , counter_style , custom_ident_type , left_curly_bracket_symbol , AtCounterStyleBlock , right_curly_bracket_symbol ;
 
 (* ── @custom-media ───────────────────────────────────────────────────────── *)
 
-at_custom_media = commercial_at_symbol , custom_media , dashed_ident_type , ( media_query_list_type | true | false ) , semicolon_symbol ;
+AtCustomMedia = commercial_at_symbol , custom_media , dashed_ident_type , ( MediaQueryListType | true | false ) , semicolon_symbol ;
 
 (* ── @font-face ──────────────────────────────────────────────────────────── *)
 
-font_face_src_type         = declaration_value_type ;  (* url() with optional format()/tech() hints *)
-unicode_range_token_type   = custom_ident_type ;       (* e.g. U+0025, U+4??, U+0025-00FF *)
+FontFaceSrcType         = DeclarationValueType ;  (* url() with optional format()/tech() hints *)
+UnicodeRangeTokenType   = custom_ident_type ;       (* e.g. U+0025, U+4??, U+0025-00FF *)
 
-font_face_override_type    = normal | percentage_type ;   (* ascent/descent/line-gap override *)
-font_face_display_type     = auto | block | swap | fallback | optional ;
+FontFaceOverrideType    = normal | percentage_type ;   (* ascent/descent/line-gap override *)
+FontFaceDisplayType     = auto | block | swap | fallback | optional ;
 
-font_face_style_desc_type  =
+FontFaceStyleDescType  =
     auto | normal | italic | left | right
     | ( oblique , [ angle_type , [ angle_type ] ] ) ;
 
-font_face_weight_desc_type =
-    auto | font_weight_absolute_type | ( font_weight_absolute_type , font_weight_absolute_type ) ;
+FontFaceWeightDescType =
+    auto | FontWeightAbsoluteType | ( FontWeightAbsoluteType , FontWeightAbsoluteType ) ;
 
-font_face_width_desc_type  = auto | font_width_css3_type | ( font_width_css3_type , font_width_css3_type ) ;
+FontFaceWidthDescType  = auto | FontWidthCss3Type | ( FontWidthCss3Type , FontWidthCss3Type ) ;
 
-(* opentype_tag_type: defined in property.ebnf *)
-font_face_feature_tag_value_type = opentype_tag_type , [ integer_type | on | off ] ;
-font_face_feature_settings_type = normal | font_face_feature_tag_value_type , { comma_symbol , font_face_feature_tag_value_type } ;
+(* OpentypeTagType: defined in Property.ebnf *)
+FontFaceFeatureTagValueType = OpentypeTagType , [ integer_type | on | off ] ;
+FontFaceFeatureSettingsType = normal | FontFaceFeatureTagValueType , { comma_symbol , FontFaceFeatureTagValueType } ;
 
-at_font_face = commercial_at_symbol , font_face , left_curly_bracket_symbol , declaration_list_type , right_curly_bracket_symbol ;
+(* @font-face src descriptor: url() or local() with optional format()/tech() hints *)
+AtFontFaceSrcItem =
+    UrlType , [ font_format , left_parenthesis_symbol , FontFormatAtruleType , right_parenthesis_symbol ] ,
+              [ font_tech  , left_parenthesis_symbol , FontTechAtruleType   , right_parenthesis_symbol ]
+    | local , left_parenthesis_symbol , ( string_type | ident_type ) , right_parenthesis_symbol ;
+
+AtFontFaceSrcDesc    = src        , colon_symbol , AtFontFaceSrcItem , { comma_symbol , AtFontFaceSrcItem } , semicolon_symbol ;
+AtFontFaceWeightDesc = font_weight , colon_symbol , FontFaceWeightDescType , semicolon_symbol ;
+AtFontFaceStyleDesc  = font_style  , colon_symbol , FontFaceStyleDescType  , semicolon_symbol ;
+AtFontFaceWidthDesc  = font_width  , colon_symbol , FontFaceWidthDescType  , semicolon_symbol ;
+
+AtFontFaceBlock = { Property | AtFontFaceSrcDesc | AtFontFaceWeightDesc | AtFontFaceStyleDesc | AtFontFaceWidthDesc } ;
+
+AtFontFace = commercial_at_symbol , font_face , left_curly_bracket_symbol , AtFontFaceBlock , right_curly_bracket_symbol ;
 
 (* ── @font-feature-values ────────────────────────────────────────────────── *)
 
-at_font_feature_values = commercial_at_symbol , font_feature_values , font_family_name_type , { comma_symbol , font_family_name_type } , left_curly_bracket_symbol , declaration_rule_list_type , right_curly_bracket_symbol ;
+AtFontFeatureValues = commercial_at_symbol , font_feature_values , FontFamilyNameType , { comma_symbol , FontFamilyNameType } , left_curly_bracket_symbol , DeclarationRuleListType , right_curly_bracket_symbol ;
 
 (* ── @font-palette-values ────────────────────────────────────────────────── *)
 
-font_palette_base_type = light | dark | integer_type ;
-font_palette_override_colors_type = integer_type , color_type , { comma_symbol , integer_type , color_type } ;
+FontPaletteBaseType = light | dark | integer_type ;
+FontPaletteOverrideColorsType = integer_type , ColorType , { comma_symbol , integer_type , ColorType } ;
 
-at_font_palette_values = commercial_at_symbol , font_palette_values , dashed_ident_type , left_curly_bracket_symbol , declaration_list_type , right_curly_bracket_symbol ;
+AtFontPaletteValues = commercial_at_symbol , font_palette_values , dashed_ident_type , left_curly_bracket_symbol , DeclarationListType , right_curly_bracket_symbol ;
 
 (* ── @function ───────────────────────────────────────────────────────────── *)
 
-custom_property_name_type  = dashed_ident_type ;
+CustomPropertyNameType  = dashed_ident_type ;
 
-syntax_type_name_atrule_type =
+SyntaxTypeNameAtruleType =
     angle | color | custom_ident | image | integer
     | length | length_percentage | number | percentage
     | resolution | string | time | url | transform_function ;
 
-syntax_multiplier_atrule_type  = number_sign_symbol | plus_sign_symbol ;
-(* syntax_single_component_type, syntax_component_type: defined in property.ebnf *)
-css_type_atrule_type           = syntax_component_type | type_fn ;
-function_parameter_type        = custom_property_name_type , [ css_type_atrule_type ] , [ colon_symbol , declaration_value_type ] ;
+SyntaxMultiplierAtruleType  = number_sign_symbol | plus_sign_symbol ;
+(* SyntaxSingleComponentType, SyntaxComponentType: defined in Property.ebnf *)
+CssTypeAtruleType           = SyntaxComponentType | TypeFn ;
+FunctionParameterType        = CustomPropertyNameType , [ CssTypeAtruleType ] , [ colon_symbol , DeclarationValueType ] ;
 
-at_function =
-    commercial_at_symbol , function , custom_ident_type , left_parenthesis_symbol , [ function_parameter_type , { comma_symbol , function_parameter_type } ] , right_parenthesis_symbol ,
-    [ returns , css_type_atrule_type ] ,
-    left_curly_bracket_symbol , declaration_rule_list_type , right_curly_bracket_symbol ;
+AtFunction =
+    commercial_at_symbol , function , custom_ident_type , left_parenthesis_symbol , [ FunctionParameterType , { comma_symbol , FunctionParameterType } ] , right_parenthesis_symbol ,
+    [ returns , CssTypeAtruleType ] ,
+    left_curly_bracket_symbol , DeclarationRuleListType , right_curly_bracket_symbol ;
 
 (* ── @import ─────────────────────────────────────────────────────────────── *)
 
-scope_start_type      = selector_list_type ;
-scope_end_type        = selector_list_type ;
-scope_boundaries_type =
-    [ left_parenthesis_symbol , scope_start_type , right_parenthesis_symbol ] ,
-    [ to , left_parenthesis_symbol , scope_end_type , right_parenthesis_symbol ] ;
+ScopeStartType      = SelectorListType ;
+ScopeEndType        = SelectorListType ;
+ScopeBoundariesType =
+    [ left_parenthesis_symbol , ScopeStartType , right_parenthesis_symbol ] ,
+    [ to , left_parenthesis_symbol , ScopeEndType , right_parenthesis_symbol ] ;
 
-supports_import_condition_type =
-    supports , left_parenthesis_symbol , ( supports_condition_type | declaration_value_type ) , right_parenthesis_symbol ;
+SupportsImportConditionType =
+    supports , left_parenthesis_symbol , ( SupportsConditionType | DeclarationValueType ) , right_parenthesis_symbol ;
 
-import_layer_type = layer | layer_fn ;
-import_scope_type = scope | ( scope , left_parenthesis_symbol , ( scope_start_type | scope_boundaries_type ) , right_parenthesis_symbol ) ;
+ImportLayerType = layer | LayerFn ;
+ImportScopeType = scope | ( scope , left_parenthesis_symbol , ( ScopeStartType | ScopeBoundariesType ) , right_parenthesis_symbol ) ;
 
-at_import =
-    commercial_at_symbol , import , ( url_type | string_type ) ,
-    [ import_layer_type ] ,
-    [ import_scope_type ] ,
-    [ supports_import_condition_type ] ,
-    [ media_query_list_type ] ,
+AtImport =
+    commercial_at_symbol , import , ( UrlType | string_type ) ,
+    [ ImportLayerType ] ,
+    [ ImportScopeType ] ,
+    [ SupportsImportConditionType ] ,
+    [ MediaQueryListType ] ,
     semicolon_symbol ;
 
 (* ── @keyframes ──────────────────────────────────────────────────────────── *)
 
-(* keyframes_name_type: defined in property.ebnf *)
+(* KeyframesNameType: defined in Property.ebnf *)
 
-at_keyframes = commercial_at_symbol , keyframes , keyframes_name_type , left_curly_bracket_symbol , qualified_rule_list_type , right_curly_bracket_symbol ;
+AtKeyframes = commercial_at_symbol , keyframes , KeyframesNameType , left_curly_bracket_symbol , QualifiedRuleListType , right_curly_bracket_symbol ;
 
 (* ── @layer ──────────────────────────────────────────────────────────────── *)
 
-at_layer =
-    ( commercial_at_symbol , layer , [ layer_name_type ] , left_curly_bracket_symbol , rule_list_type , right_curly_bracket_symbol )
-    | ( commercial_at_symbol , layer , layer_name_type , { comma_symbol , layer_name_type } , semicolon_symbol ) ;
+AtLayer =
+    ( commercial_at_symbol , layer , [ LayerNameType ] , left_curly_bracket_symbol , RuleListType , right_curly_bracket_symbol )
+    | ( commercial_at_symbol , layer , LayerNameType , { comma_symbol , LayerNameType } , semicolon_symbol ) ;
 
 (* ── @media ──────────────────────────────────────────────────────────────── *)
 
-at_media = commercial_at_symbol , media , media_query_list_type , left_curly_bracket_symbol , rule_list_type , right_curly_bracket_symbol ;
+AtMedia = commercial_at_symbol , media , MediaQueryListType , left_curly_bracket_symbol , RuleListType , right_curly_bracket_symbol ;
 
 (* ── @namespace ──────────────────────────────────────────────────────────── *)
 
-namespace_prefix_type = custom_ident_type ;
+NamespacePrefixType = custom_ident_type ;
 
-at_namespace = commercial_at_symbol , namespace , [ namespace_prefix_type ] , ( string_type | url_type ) , semicolon_symbol ;
+AtNamespace = commercial_at_symbol , namespace , [ NamespacePrefixType ] , ( string_type | UrlType ) , semicolon_symbol ;
 
 (* ── @page ───────────────────────────────────────────────────────────────── *)
 
-pseudo_page_type =
+PseudoPageType =
     colon_symbol , ( left | right | first | blank ) ;
 
-page_selector_type =
-    [ custom_ident_type ] , { pseudo_page_type } ;
+PageSelectorType =
+    [ custom_ident_type ] , { PseudoPageType } ;
 
-page_size_type =
+PageSizeType =
     a5 | a4 | a3 | b5 | b4 | jis_b5 | jis_b4
     | page_letter | legal | ledger ;
 
-page_orientation_type = upright | rotate_left | rotate_right ;
+PageOrientationType = upright | rotate_left | rotate_right ;
 
-page_size_descriptor_type =
+PageSizeDescriptorType =
     length_type , [ length_type ]
     | auto
-    | page_size_type
-    | page_size_type , ( portrait | landscape )
+    | PageSizeType
+    | PageSizeType , ( portrait | landscape )
     | portrait | landscape ;
 
-at_page = commercial_at_symbol , page , [ page_selector_type , { comma_symbol , page_selector_type } ] , left_curly_bracket_symbol , declaration_rule_list_type , right_curly_bracket_symbol ;
+AtPage = commercial_at_symbol , page , [ PageSelectorType , { comma_symbol , PageSelectorType } ] , left_curly_bracket_symbol , DeclarationRuleListType , right_curly_bracket_symbol ;
 
 (* ── @position-try ───────────────────────────────────────────────────────── *)
 
-at_position_try = commercial_at_symbol , position_try , dashed_ident_type , left_curly_bracket_symbol , declaration_list_type , right_curly_bracket_symbol ;
+AtPositionTry = commercial_at_symbol , position_try , dashed_ident_type , left_curly_bracket_symbol , DeclarationListType , right_curly_bracket_symbol ;
 
-(* ── @property ───────────────────────────────────────────────────────────── *)
+(* ── @Property ───────────────────────────────────────────────────────────── *)
 
-at_property = commercial_at_symbol , property_kw , custom_property_name_type , left_curly_bracket_symbol , declaration_list_type , right_curly_bracket_symbol ;
+AtProperty = commercial_at_symbol , property_kw , CustomPropertyNameType , left_curly_bracket_symbol , DeclarationListType , right_curly_bracket_symbol ;
 
 (* ── @scope ──────────────────────────────────────────────────────────────── *)
 
-at_scope = commercial_at_symbol , scope , [ scope_boundaries_type ] , left_curly_bracket_symbol , block_contents_type , right_curly_bracket_symbol ;
+AtScope = commercial_at_symbol , scope , [ ScopeBoundariesType ] , left_curly_bracket_symbol , BlockContentsType , right_curly_bracket_symbol ;
 
 (* ── @starting-style ─────────────────────────────────────────────────────── *)
 
-at_starting_style = commercial_at_symbol , starting_style , left_curly_bracket_symbol , rule_list_type , right_curly_bracket_symbol ;
+AtStartingStyle = commercial_at_symbol , starting_style , left_curly_bracket_symbol , RuleListType , right_curly_bracket_symbol ;
 
 (* ── @supports ───────────────────────────────────────────────────────────── *)
 
-at_supports = commercial_at_symbol , supports , supports_condition_type , left_curly_bracket_symbol , rule_list_type , right_curly_bracket_symbol ;
+AtSupports = commercial_at_symbol , supports , SupportsConditionType , left_curly_bracket_symbol , RuleListType , right_curly_bracket_symbol ;
 
 (* ── @view-transition ────────────────────────────────────────────────────── *)
 
-at_view_transition = commercial_at_symbol , view_transition , left_curly_bracket_symbol , declaration_list_type , right_curly_bracket_symbol ;
+AtViewTransition = commercial_at_symbol , view_transition , left_curly_bracket_symbol , DeclarationListType , right_curly_bracket_symbol ;
 
