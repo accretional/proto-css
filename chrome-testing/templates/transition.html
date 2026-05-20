@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>transition</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-card { background: #16213e; border-radius: 12px; padding: 20px; width: 380px; }
+    .demo-title { font-size: 13px; font-weight: 600; color: #e0e0e0; margin-bottom: 14px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+    .state-row { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
+    .state-label { font-size: 10px; font-family: monospace; color: #6b7280; width: 50px; text-align: center; }
+    .box { width: 70px; height: 70px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; }
+    .arrow { color: #4a5568; font-size: 20px; }
+
+    /* Demo 1: opacity 0.3s */
+    .d1-before { background: #e94560; opacity: 1; }
+    .d1-after { background: #e94560; opacity: 0.2; }
+
+    /* Demo 2: all 0.5s ease-in */
+    .d2-before { background: #0f3460; border: 2px solid #533483; }
+    .d2-after { background: #533483; border: 2px solid #0f3460; transform: scale(1.15); border-radius: 50%; }
+
+    /* Demo 3: transform 1s cubic-bezier */
+    .d3-before { background: #16c79a; }
+    .d3-after { background: #16c79a; transform: rotate(45deg) scale(0.8); }
+
+    /* Demo 4: background-color 0.5s, border-radius 0.3s */
+    .d4-before { background: #ff6b6b; border-radius: 8px; }
+    .d4-after { background: #4ecdc4; border-radius: 50%; }
+
+    /* Demo 5: width 0.4s ease-out */
+    .bar { height: 36px; border-radius: 6px; display: flex; align-items: center; padding-left: 10px; font-size: 10px; font-family: monospace; color: #fff; }
+    .d5-before { background: #e17055; width: 80px; }
+    .d5-after { background: #e17055; width: 260px; }
+  </style>
+</head>
+<body>
+  <h1>Transition Shorthand</h1>
+  <p class="prop-name">transition</p>
+  <div class="demos">
+
+    <div class="demo-card">
+      <div class="demo-title">Opacity Fade</div>
+      <div class="state-row">
+        <div class="state-label">before</div>
+        <div class="box d1-before"></div>
+        <div class="arrow">&#10132;</div>
+        <div class="state-label">after</div>
+        <div class="box d1-after"></div>
+      </div>
+      <div class="label">transition: opacity 0.3s</div>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-title">All Properties with Easing</div>
+      <div class="state-row">
+        <div class="state-label">before</div>
+        <div class="box d2-before"></div>
+        <div class="arrow">&#10132;</div>
+        <div class="state-label">after</div>
+        <div class="box d2-after"></div>
+      </div>
+      <div class="label">transition: all 0.5s ease-in</div>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-title">Transform with Cubic Bezier</div>
+      <div class="state-row">
+        <div class="state-label">before</div>
+        <div class="box d3-before"></div>
+        <div class="arrow">&#10132;</div>
+        <div class="state-label">after</div>
+        <div class="box d3-after"></div>
+      </div>
+      <div class="label">transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55)</div>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-title">Multiple Properties</div>
+      <div class="state-row">
+        <div class="state-label">before</div>
+        <div class="box d4-before"></div>
+        <div class="arrow">&#10132;</div>
+        <div class="state-label">after</div>
+        <div class="box d4-after"></div>
+      </div>
+      <div class="label">transition: background-color 0.5s, border-radius 0.3s</div>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-title">Width with Ease-Out</div>
+      <div class="state-row">
+        <div class="state-label">before</div>
+        <div class="bar d5-before"></div>
+      </div>
+      <div class="state-row">
+        <div class="state-label">after</div>
+        <div class="bar d5-after"></div>
+      </div>
+      <div class="label">transition: width 0.4s ease-out</div>
+    </div>
+
+  </div>
+</body>
+</html>

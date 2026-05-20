@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>scroll-target-group</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .experimental {
+      display: inline-block;
+      background: #e9456033;
+      color: #e94560;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 20px;
+      width: 370px;
+    }
+    .card-title {
+      font-size: 14px;
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .card-desc {
+      font-size: 11px;
+      color: #7b8794;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
+    .scroll-container {
+      width: 100%;
+      height: 160px;
+      overflow-y: scroll;
+      border-radius: 8px;
+      background: #0a0a1a;
+      position: relative;
+    }
+    .scroll-container::-webkit-scrollbar { width: 5px; }
+    .scroll-container::-webkit-scrollbar-track { background: #0a0a1a; }
+    .scroll-container::-webkit-scrollbar-thumb { background: #e94560; border-radius: 3px; }
+    .section {
+      padding: 16px;
+      min-height: 100px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid #1a1a2e;
+    }
+    .section-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .section-text {
+      font-size: 13px;
+      color: #e0e0e0;
+    }
+    .section-tag {
+      font-size: 9px;
+      font-family: monospace;
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-top: 4px;
+      display: inline-block;
+    }
+    .group-a .section-icon { background: #e9456033; }
+    .group-a .section-tag { background: #e9456022; color: #e94560; }
+    .group-b .section-icon { background: #2ecc7133; }
+    .group-b .section-tag { background: #2ecc7122; color: #2ecc71; }
+    .group-none .section-icon { background: #7b879433; }
+    .group-none .section-tag { background: #7b879422; color: #7b8794; }
+    .nav-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .nav-btn {
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+    }
+    .nav-btn-a { background: #e9456044; color: #e94560; }
+    .nav-btn-b { background: #2ecc7144; color: #2ecc71; }
+    .code-block {
+      background: #0a0a1a;
+      border-radius: 6px;
+      padding: 12px;
+      font-family: monospace;
+      font-size: 11px;
+      color: #9ca3af;
+      line-height: 1.6;
+      margin-top: 12px;
+    }
+    .code-block .kw { color: #e94560; }
+    .code-block .val { color: #2ecc71; }
+  </style>
+</head>
+<body>
+  <h1>Scroll Target Group <span class="experimental">EXPERIMENTAL</span></h1>
+  <p class="prop-name">scroll-target-group</p>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="card-title">Grouped Scroll Targets</div>
+      <div class="card-desc">Items assigned to different scroll target groups can be navigated independently</div>
+      <div class="nav-bar">
+        <div class="nav-btn nav-btn-a">Group A</div>
+        <div class="nav-btn nav-btn-b">Group B</div>
+      </div>
+      <div class="scroll-container">
+        <div class="section group-a">
+          <div class="section-icon">&#9733;</div>
+          <div>
+            <div class="section-text">Section Alpha</div>
+            <span class="section-tag">scroll-target-group: group-a</span>
+          </div>
+        </div>
+        <div class="section group-b">
+          <div class="section-icon">&#9830;</div>
+          <div>
+            <div class="section-text">Section Beta</div>
+            <span class="section-tag">scroll-target-group: group-b</span>
+          </div>
+        </div>
+        <div class="section group-a">
+          <div class="section-icon">&#9733;</div>
+          <div>
+            <div class="section-text">Section Gamma</div>
+            <span class="section-tag">scroll-target-group: group-a</span>
+          </div>
+        </div>
+        <div class="section group-none">
+          <div class="section-icon">&#9679;</div>
+          <div>
+            <div class="section-text">Section Delta</div>
+            <span class="section-tag">scroll-target-group: none</span>
+          </div>
+        </div>
+        <div class="section group-b">
+          <div class="section-icon">&#9830;</div>
+          <div>
+            <div class="section-text">Section Epsilon</div>
+            <span class="section-tag">scroll-target-group: group-b</span>
+          </div>
+        </div>
+      </div>
+      <p class="label">scroll-target-group: &lt;group-name&gt;</p>
+    </div>
+    <div class="demo-card">
+      <div class="card-title">CSS Syntax</div>
+      <div class="card-desc">Assigns elements to named groups for targeted scroll navigation</div>
+      <div class="code-block">
+        <span class="kw">.item-a</span> {<br>
+        &nbsp;&nbsp;scroll-target-group: <span class="val">group-a</span>;<br>
+        }<br><br>
+        <span class="kw">.item-b</span> {<br>
+        &nbsp;&nbsp;scroll-target-group: <span class="val">group-b</span>;<br>
+        }<br><br>
+        <span class="kw">.item-default</span> {<br>
+        &nbsp;&nbsp;scroll-target-group: <span class="val">none</span>;<br>
+        }
+      </div>
+      <div style="margin-top: 16px;">
+        <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 8px;">
+          <div style="width: 12px; height: 12px; background: #e94560; border-radius: 3px;"></div>
+          <span style="font-size: 12px; color: #9ca3af;">group-a targets</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 8px;">
+          <div style="width: 12px; height: 12px; background: #2ecc71; border-radius: 3px;"></div>
+          <span style="font-size: 12px; color: #9ca3af;">group-b targets</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <div style="width: 12px; height: 12px; background: #7b8794; border-radius: 3px;"></div>
+          <span style="font-size: 12px; color: #9ca3af;">none (default)</span>
+        </div>
+      </div>
+      <p class="label">scroll-target-group: none | &lt;custom-ident&gt;</p>
+    </div>
+  </div>
+</body>
+</html>

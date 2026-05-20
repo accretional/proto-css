@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>font-kerning</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-direction: column; gap: 24px; }
+    .demo-block {
+      background: #16213e;
+      border-radius: 8px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; }
+    .sample {
+      font-size: 48px;
+      color: #fff;
+      line-height: 1.3;
+      font-family: Georgia, "Times New Roman", serif;
+      letter-spacing: 0;
+    }
+    .sample-row {
+      display: flex;
+      gap: 40px;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+    .note {
+      font-size: 12px;
+      color: #6b7280;
+      line-height: 1.5;
+    }
+    .highlight {
+      color: #f72585;
+    }
+    .pair-box {
+      background: #0f1b35;
+      border: 1px solid #2a3a5e;
+      border-radius: 6px;
+      padding: 12px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .pair-label {
+      font-size: 10px;
+      font-family: monospace;
+      color: #7b8794;
+    }
+  </style>
+</head>
+<body>
+  <h1>Font Kerning</h1>
+  <p class="prop-name">font-kerning</p>
+  <p class="note" style="margin-bottom: 16px;">Kerning adjusts spacing between specific character pairs like <span class="highlight">AV</span>, <span class="highlight">To</span>, <span class="highlight">WA</span>, and <span class="highlight">Ty</span>. Notice how letter spacing changes.</p>
+  <div class="demos">
+    <div class="demo-block">
+      <div class="label">font-kerning: auto — browser decides</div>
+      <div class="sample" style="font-kerning: auto;">AV WAVE To Ty VA LT</div>
+      <div class="sample-row">
+        <div class="pair-box">
+          <div class="pair-label">AV pair</div>
+          <span class="sample" style="font-kerning: auto; font-size: 56px;">AV</span>
+        </div>
+        <div class="pair-box">
+          <div class="pair-label">To pair</div>
+          <span class="sample" style="font-kerning: auto; font-size: 56px;">To</span>
+        </div>
+        <div class="pair-box">
+          <div class="pair-label">WA pair</div>
+          <span class="sample" style="font-kerning: auto; font-size: 56px;">WA</span>
+        </div>
+      </div>
+    </div>
+    <div class="demo-block">
+      <div class="label">font-kerning: normal — kerning applied</div>
+      <div class="sample" style="font-kerning: normal;">AV WAVE To Ty VA LT</div>
+      <div class="sample-row">
+        <div class="pair-box">
+          <div class="pair-label">AV pair</div>
+          <span class="sample" style="font-kerning: normal; font-size: 56px;">AV</span>
+        </div>
+        <div class="pair-box">
+          <div class="pair-label">To pair</div>
+          <span class="sample" style="font-kerning: normal; font-size: 56px;">To</span>
+        </div>
+        <div class="pair-box">
+          <div class="pair-label">WA pair</div>
+          <span class="sample" style="font-kerning: normal; font-size: 56px;">WA</span>
+        </div>
+      </div>
+    </div>
+    <div class="demo-block">
+      <div class="label">font-kerning: none — no kerning, letters evenly spaced</div>
+      <div class="sample" style="font-kerning: none;">AV WAVE To Ty VA LT</div>
+      <div class="sample-row">
+        <div class="pair-box">
+          <div class="pair-label">AV pair</div>
+          <span class="sample" style="font-kerning: none; font-size: 56px;">AV</span>
+        </div>
+        <div class="pair-box">
+          <div class="pair-label">To pair</div>
+          <span class="sample" style="font-kerning: none; font-size: 56px;">To</span>
+        </div>
+        <div class="pair-box">
+          <div class="pair-label">WA pair</div>
+          <span class="sample" style="font-kerning: none; font-size: 56px;">WA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

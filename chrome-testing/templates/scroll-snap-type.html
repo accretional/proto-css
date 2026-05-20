@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>scroll-snap-type</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .card-title {
+      font-size: 14px;
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .card-desc {
+      font-size: 11px;
+      color: #7b8794;
+      margin-bottom: 12px;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
+    .scroll-x {
+      width: 100%;
+      height: 120px;
+      overflow-x: scroll;
+      display: flex;
+      border-radius: 8px;
+      background: #0a0a1a;
+    }
+    .scroll-x::-webkit-scrollbar { height: 5px; }
+    .scroll-x::-webkit-scrollbar-track { background: #0a0a1a; }
+    .scroll-x::-webkit-scrollbar-thumb { background: #e94560; border-radius: 3px; }
+    .scroll-y {
+      width: 100%;
+      height: 120px;
+      overflow-y: scroll;
+      border-radius: 8px;
+      background: #0a0a1a;
+    }
+    .scroll-y::-webkit-scrollbar { width: 5px; }
+    .scroll-y::-webkit-scrollbar-track { background: #0a0a1a; }
+    .scroll-y::-webkit-scrollbar-thumb { background: #e94560; border-radius: 3px; }
+    .scroll-both {
+      width: 100%;
+      height: 120px;
+      overflow: scroll;
+      border-radius: 8px;
+      background: #0a0a1a;
+      position: relative;
+    }
+    .scroll-both::-webkit-scrollbar { width: 5px; height: 5px; }
+    .scroll-both::-webkit-scrollbar-track { background: #0a0a1a; }
+    .scroll-both::-webkit-scrollbar-thumb { background: #e94560; border-radius: 3px; }
+    .snap-none { scroll-snap-type: none; }
+    .snap-x-mandatory { scroll-snap-type: x mandatory; }
+    .snap-y-proximity { scroll-snap-type: y proximity; }
+    .snap-both-mandatory { scroll-snap-type: both mandatory; }
+    .h-item {
+      min-width: 180px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+    }
+    .v-item {
+      width: 100%;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      scroll-snap-align: start;
+    }
+    .grid-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 180px);
+      grid-template-rows: repeat(4, 100px);
+    }
+    .grid-inner .g-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      scroll-snap-align: start;
+    }
+    .c1 { background: #e94560; }
+    .c2 { background: #0f3460; }
+    .c3 { background: #533483; }
+    .c4 { background: #2b6e4e; }
+    .c5 { background: #8b5e3c; }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 600;
+      margin-left: 6px;
+    }
+    .badge-off { background: #e9456033; color: #e94560; }
+    .badge-on { background: #2ecc7133; color: #2ecc71; }
+  </style>
+</head>
+<body>
+  <h1>Scroll Snap Type</h1>
+  <p class="prop-name">scroll-snap-type</p>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="card-title">None <span class="badge badge-off">OFF</span></div>
+      <div class="card-desc">No snapping behavior</div>
+      <div class="scroll-x snap-none">
+        <div class="h-item c1">A</div>
+        <div class="h-item c2">B</div>
+        <div class="h-item c3">C</div>
+        <div class="h-item c4">D</div>
+      </div>
+      <p class="label">scroll-snap-type: none</p>
+    </div>
+    <div class="demo-card">
+      <div class="card-title">X Mandatory <span class="badge badge-on">SNAP</span></div>
+      <div class="card-desc">Horizontal snapping, always lands on snap point</div>
+      <div class="scroll-x snap-x-mandatory">
+        <div class="h-item c1">A</div>
+        <div class="h-item c2">B</div>
+        <div class="h-item c3">C</div>
+        <div class="h-item c4">D</div>
+      </div>
+      <p class="label">scroll-snap-type: x mandatory</p>
+    </div>
+    <div class="demo-card">
+      <div class="card-title">Y Proximity <span class="badge badge-on">SNAP</span></div>
+      <div class="card-desc">Vertical snapping, only when near a snap point</div>
+      <div class="scroll-y snap-y-proximity">
+        <div class="v-item c1">1</div>
+        <div class="v-item c2">2</div>
+        <div class="v-item c3">3</div>
+        <div class="v-item c4">4</div>
+        <div class="v-item c5">5</div>
+      </div>
+      <p class="label">scroll-snap-type: y proximity</p>
+    </div>
+    <div class="demo-card">
+      <div class="card-title">Both Mandatory <span class="badge badge-on">SNAP</span></div>
+      <div class="card-desc">Snaps in both axes, always lands on snap point</div>
+      <div class="scroll-both snap-both-mandatory">
+        <div class="grid-inner">
+          <div class="g-item c1">1,1</div>
+          <div class="g-item c2">1,2</div>
+          <div class="g-item c3">1,3</div>
+          <div class="g-item c4">1,4</div>
+          <div class="g-item c2">2,1</div>
+          <div class="g-item c3">2,2</div>
+          <div class="g-item c4">2,3</div>
+          <div class="g-item c1">2,4</div>
+          <div class="g-item c3">3,1</div>
+          <div class="g-item c4">3,2</div>
+          <div class="g-item c1">3,3</div>
+          <div class="g-item c2">3,4</div>
+          <div class="g-item c4">4,1</div>
+          <div class="g-item c1">4,2</div>
+          <div class="g-item c2">4,3</div>
+          <div class="g-item c3">4,4</div>
+        </div>
+      </div>
+      <p class="label">scroll-snap-type: both mandatory</p>
+    </div>
+  </div>
+</body>
+</html>

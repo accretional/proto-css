@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>container-type</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-direction: column; gap: 20px; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 10px;
+      padding: 20px 24px;
+      border: 1px solid #2a2a4a;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 6px; }
+    .desc { font-size: 10px; color: #6b7a8d; margin-bottom: 14px; line-height: 1.4; }
+    .type-container {
+      background: #0f1a30;
+      border-radius: 8px;
+      padding: 16px;
+      border: 2px solid #2a2a4a;
+      position: relative;
+    }
+    .type-badge {
+      position: absolute;
+      top: -9px;
+      right: 14px;
+      font-size: 9px;
+      font-family: monospace;
+      padding: 2px 10px;
+      border-radius: 3px;
+      font-weight: 600;
+    }
+    .badge-normal { background: #555; color: #ccc; border: 1px solid #777; }
+    .badge-size { background: #e94560; color: #fff; }
+    .badge-inline { background: #4fc3f7; color: #0f1a30; }
+
+    .inner-demo {
+      display: flex;
+      gap: 12px;
+    }
+    .inner-box {
+      flex: 1;
+      background: #1a2440;
+      border: 1px solid #3a3a5a;
+      border-radius: 6px;
+      padding: 12px;
+    }
+    .inner-box h3 { font-size: 12px; font-weight: 600; margin-bottom: 4px; }
+    .inner-box p { font-size: 11px; color: #9ca3af; line-height: 1.5; }
+
+    /* Container types */
+    .ct-normal { container-type: normal; }
+    .ct-size { container-type: size; }
+    .ct-inline { container-type: inline-size; }
+
+    /* Queries only work on size/inline-size containers */
+    @container (min-width: 200px) {
+      .cq-responsive { border-left: 3px solid #66bb6a; padding-left: 10px; }
+    }
+
+    .feature-list {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .feature {
+      font-size: 9px;
+      font-family: monospace;
+      padding: 3px 8px;
+      border-radius: 3px;
+    }
+    .feature-yes { background: rgba(102, 187, 106, 0.2); color: #66bb6a; }
+    .feature-no { background: rgba(233, 69, 96, 0.15); color: #e94560; }
+  </style>
+</head>
+<body>
+  <h1>Container Type</h1>
+  <p class="prop-name">container-type</p>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="label">container-type: normal</div>
+      <div class="desc">The default. The element is not a query container for dimensional queries. Style queries still work.</div>
+      <div class="type-container ct-normal">
+        <div class="type-badge badge-normal">normal</div>
+        <div class="inner-demo">
+          <div class="inner-box">
+            <h3>Not a Size Container</h3>
+            <p>This element cannot be queried for width or height. Dimensional @container queries will not match this container type.</p>
+          </div>
+          <div class="inner-box">
+            <h3>Style Queries Only</h3>
+            <p>Only style-based container queries (@container style(...)) can target a normal container type.</p>
+          </div>
+        </div>
+        <div class="feature-list">
+          <span class="feature feature-no">inline-size queries</span>
+          <span class="feature feature-no">block-size queries</span>
+          <span class="feature feature-yes">style queries</span>
+        </div>
+      </div>
+    </div>
+    <div class="demo-card">
+      <div class="label">container-type: inline-size</div>
+      <div class="desc">Establishes containment on the inline axis. Most commonly used for responsive width-based container queries.</div>
+      <div class="type-container ct-inline">
+        <div class="type-badge badge-inline">inline-size</div>
+        <div class="inner-demo">
+          <div class="inner-box">
+            <h3 class="cq-responsive">Width-Responsive</h3>
+            <p>This container responds to inline-size (width) queries. The green left border appears via @container (min-width: 200px).</p>
+          </div>
+          <div class="inner-box">
+            <h3>Most Common Type</h3>
+            <p>inline-size is the most widely used container type. It enables width-based responsive design at the component level.</p>
+          </div>
+        </div>
+        <div class="feature-list">
+          <span class="feature feature-yes">inline-size queries</span>
+          <span class="feature feature-no">block-size queries</span>
+          <span class="feature feature-yes">style queries</span>
+        </div>
+      </div>
+    </div>
+    <div class="demo-card">
+      <div class="label">container-type: size</div>
+      <div class="desc">Establishes containment on both axes. Enables both width and height queries but is more restrictive.</div>
+      <div class="type-container ct-size" style="height: 160px;">
+        <div class="type-badge badge-size">size</div>
+        <div class="inner-demo">
+          <div class="inner-box">
+            <h3 class="cq-responsive">Full Size Container</h3>
+            <p>Both width and height queries work. The element must have explicit dimensions since size containment prevents intrinsic sizing.</p>
+          </div>
+          <div class="inner-box">
+            <h3>Both Axes</h3>
+            <p>Query both inline and block dimensions. Useful when layout depends on container height as well as width.</p>
+          </div>
+        </div>
+        <div class="feature-list">
+          <span class="feature feature-yes">inline-size queries</span>
+          <span class="feature feature-yes">block-size queries</span>
+          <span class="feature feature-yes">style queries</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

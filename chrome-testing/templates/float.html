@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>float</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .demo-block { display: flex; flex-direction: column; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 6px; }
+    .container {
+      background: #16213e;
+      border-radius: 8px;
+      padding: 14px;
+      min-height: 130px;
+      overflow: hidden;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #c0c0d0;
+    }
+    .floated {
+      width: 70px;
+      height: 70px;
+      background: #e94560;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      margin: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Float</h1>
+  <p class="prop-name">float</p>
+  <div class="demos">
+    <div class="demo-block">
+      <div class="label">float: left</div>
+      <div class="container">
+        <div class="floated" style="float: left; margin-right: 10px; margin-bottom: 4px;">left</div>
+        Text wraps around the floated element on its right side. The quick brown fox jumps over the lazy dog. More text flows naturally around the box that has been floated to the left of the container.
+      </div>
+    </div>
+    <div class="demo-block">
+      <div class="label">float: right</div>
+      <div class="container">
+        <div class="floated" style="float: right; margin-left: 10px; margin-bottom: 4px;">right</div>
+        Text wraps around the floated element on its left side. The quick brown fox jumps over the lazy dog. More text flows naturally around the box that has been floated to the right of the container.
+      </div>
+    </div>
+    <div class="demo-block">
+      <div class="label">float: none — element stays in normal flow</div>
+      <div class="container">
+        <div class="floated" style="float: none; margin-bottom: 8px;">none</div>
+        Text appears below the element since it is not floated. The quick brown fox jumps over the lazy dog. The element stays in normal document flow and takes up its full line.
+      </div>
+    </div>
+    <div class="demo-block">
+      <div class="label">float: inline-start</div>
+      <div class="container">
+        <div class="floated" style="float: inline-start; margin-right: 10px; margin-bottom: 4px;">start</div>
+        Text wraps around the element floated to the inline-start edge. For LTR text, this behaves like float: left. The quick brown fox jumps over the lazy dog and more text follows.
+      </div>
+    </div>
+    <div class="demo-block" style="grid-column: 1 / -1; max-width: 50%;">
+      <div class="label">float: inline-end</div>
+      <div class="container">
+        <div class="floated" style="float: inline-end; margin-left: 10px; margin-bottom: 4px;">end</div>
+        Text wraps around the element floated to the inline-end edge. For LTR text, this behaves like float: right. The quick brown fox jumps over the lazy dog and more text follows.
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>stroke-dasharray</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-direction: column; gap: 28px; }
+    .demo-row { display: flex; align-items: center; gap: 20px; }
+    .label { font-size: 12px; font-family: monospace; color: #9ca3af; width: 260px; text-align: right; flex-shrink: 0; }
+    svg line { stroke: #06b6d4; stroke-width: 4; }
+  </style>
+</head>
+<body>
+  <h1>Stroke Dash Array</h1>
+  <p class="prop-name">stroke-dasharray</p>
+  <div class="demos">
+    <div class="demo-row">
+      <div class="label">stroke-dasharray: none</div>
+      <svg width="700" height="30"><line x1="10" y1="15" x2="690" y2="15" stroke-dasharray="none"/></svg>
+    </div>
+    <div class="demo-row">
+      <div class="label">stroke-dasharray: 5</div>
+      <svg width="700" height="30"><line x1="10" y1="15" x2="690" y2="15" stroke-dasharray="5"/></svg>
+    </div>
+    <div class="demo-row">
+      <div class="label">stroke-dasharray: 10 5</div>
+      <svg width="700" height="30"><line x1="10" y1="15" x2="690" y2="15" stroke-dasharray="10 5"/></svg>
+    </div>
+    <div class="demo-row">
+      <div class="label">stroke-dasharray: 20 10 5</div>
+      <svg width="700" height="30"><line x1="10" y1="15" x2="690" y2="15" stroke-dasharray="20 10 5"/></svg>
+    </div>
+    <div class="demo-row">
+      <div class="label">stroke-dasharray: 5 15 25</div>
+      <svg width="700" height="30"><line x1="10" y1="15" x2="690" y2="15" stroke-dasharray="5 15 25"/></svg>
+    </div>
+  </div>
+</body>
+</html>

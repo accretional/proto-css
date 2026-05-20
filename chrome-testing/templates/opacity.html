@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>opacity</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
+    .demo-box { background: #16213e; border-radius: 10px; padding: 20px; width: 210px; text-align: center; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; }
+    .stack-area { position: relative; width: 160px; height: 160px; margin: 0 auto; }
+    .layer {
+      position: absolute; width: 100px; height: 100px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: bold; color: #fff;
+    }
+    .layer-red { background: #e94560; top: 0; left: 0; }
+    .layer-blue { background: #0077ff; top: 30px; left: 30px; }
+    .layer-green { background: #00cc66; top: 60px; left: 60px; }
+    .d1 .layer { opacity: 0; }
+    .d2 .layer { opacity: 0.25; }
+    .d3 .layer { opacity: 0.5; }
+    .d4 .layer { opacity: 0.75; }
+    .d5 .layer { opacity: 1; }
+  </style>
+</head>
+<body>
+  <h1>Opacity</h1>
+  <p class="prop-name">opacity</p>
+  <div class="demos">
+    <div class="demo-box d1">
+      <div class="stack-area">
+        <div class="layer layer-red">R</div>
+        <div class="layer layer-blue">B</div>
+        <div class="layer layer-green">G</div>
+      </div>
+      <div class="label">opacity: 0</div>
+    </div>
+    <div class="demo-box d2">
+      <div class="stack-area">
+        <div class="layer layer-red">R</div>
+        <div class="layer layer-blue">B</div>
+        <div class="layer layer-green">G</div>
+      </div>
+      <div class="label">opacity: 0.25</div>
+    </div>
+    <div class="demo-box d3">
+      <div class="stack-area">
+        <div class="layer layer-red">R</div>
+        <div class="layer layer-blue">B</div>
+        <div class="layer layer-green">G</div>
+      </div>
+      <div class="label">opacity: 0.5</div>
+    </div>
+    <div class="demo-box d4">
+      <div class="stack-area">
+        <div class="layer layer-red">R</div>
+        <div class="layer layer-blue">B</div>
+        <div class="layer layer-green">G</div>
+      </div>
+      <div class="label">opacity: 0.75</div>
+    </div>
+    <div class="demo-box d5">
+      <div class="stack-area">
+        <div class="layer layer-red">R</div>
+        <div class="layer layer-blue">B</div>
+        <div class="layer layer-green">G</div>
+      </div>
+      <div class="label">opacity: 1</div>
+    </div>
+  </div>
+</body>
+</html>

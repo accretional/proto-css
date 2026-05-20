@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>box-shadow</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 32px; }
+    .demo-box { display: flex; flex-direction: column; align-items: center; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; max-width: 180px; text-align: center; }
+    .box {
+      width: 140px;
+      height: 100px;
+      background: #0f3460;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+    .s1 { box-shadow: 5px 5px #e94560; }
+    .s2 { box-shadow: 5px 5px 10px #e94560; }
+    .s3 { box-shadow: 5px 5px 10px 5px #e94560; }
+    .s4 { box-shadow: 0 0 20px #00d2ff; }
+    .s5 { box-shadow: inset 0 0 15px #e94560; }
+    .s6 {
+      box-shadow:
+        5px 5px 10px #e94560,
+        -5px -5px 10px #00d2ff;
+    }
+  </style>
+</head>
+<body>
+  <h1>Box Shadow</h1>
+  <p class="prop-name">box-shadow</p>
+  <div class="demos">
+    <div class="demo-box">
+      <div class="box s1">offset</div>
+      <span class="label">box-shadow: 5px 5px #e94560</span>
+    </div>
+    <div class="demo-box">
+      <div class="box s2">blur</div>
+      <span class="label">box-shadow: 5px 5px 10px #e94560</span>
+    </div>
+    <div class="demo-box">
+      <div class="box s3">spread</div>
+      <span class="label">box-shadow: 5px 5px 10px 5px #e94560</span>
+    </div>
+    <div class="demo-box">
+      <div class="box s4">glow</div>
+      <span class="label">box-shadow: 0 0 20px #00d2ff</span>
+    </div>
+    <div class="demo-box">
+      <div class="box s5">inset</div>
+      <span class="label">box-shadow: inset 0 0 15px #e94560</span>
+    </div>
+    <div class="demo-box">
+      <div class="box s6">multiple</div>
+      <span class="label">box-shadow: 5px 5px 10px #e94560, -5px -5px 10px #00d2ff</span>
+    </div>
+  </div>
+</body>
+</html>

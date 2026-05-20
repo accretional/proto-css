@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>position-area</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 220px;
+    }
+    .demo-area {
+      width: 180px;
+      height: 180px;
+      position: relative;
+      border: 2px dashed rgba(255,255,255,0.12);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .anchor-box {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #0f3460, #1a5276);
+      border: 2px solid #3498db;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: #7ec8e3;
+      font-weight: 600;
+    }
+    .area-el {
+      position: absolute;
+      padding: 4px 10px;
+      background: linear-gradient(135deg, #e94560, #c23066);
+      border-radius: 6px;
+      font-size: 10px;
+      font-weight: 600;
+      color: #fff;
+      white-space: nowrap;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>Position Area</h1>
+  <p class="prop-name">position-area</p>
+  <p style="font-size: 12px; color: #6b7280; margin-bottom: 20px; max-width: 900px; line-height: 1.5;">
+    Defines which area of the anchor positioning grid an element should be placed in. Simulated below.
+  </p>
+  <div class="demos">
+
+    <div class="demo-card">
+      <div class="demo-area">
+        <div class="anchor-box">anchor</div>
+        <div class="area-el" style="top: 6px; left: 50%; transform: translateX(-50%);">top</div>
+      </div>
+      <div class="label">position-area: top</div>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-area">
+        <div class="anchor-box">anchor</div>
+        <div class="area-el" style="bottom: 6px; left: 50%; transform: translateX(-50%);">bottom</div>
+      </div>
+      <div class="label">position-area: bottom</div>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-area">
+        <div class="anchor-box">anchor</div>
+        <div class="area-el" style="left: 6px; top: 50%; transform: translateY(-50%);">left</div>
+      </div>
+      <div class="label">position-area: left</div>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-area">
+        <div class="anchor-box">anchor</div>
+        <div class="area-el" style="right: 6px; top: 50%; transform: translateY(-50%);">right</div>
+      </div>
+      <div class="label">position-area: right</div>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-area">
+        <div class="anchor-box">anchor</div>
+        <div class="area-el" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">center</div>
+      </div>
+      <div class="label">position-area: center</div>
+    </div>
+
+  </div>
+</body>
+</html>

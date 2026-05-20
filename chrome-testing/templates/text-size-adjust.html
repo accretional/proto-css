@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>text-size-adjust</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demo-card {
+      background: #16213e; border-radius: 10px; padding: 20px 24px;
+      width: 280px; display: flex; flex-direction: column;
+    }
+    .demo-text {
+      font-size: 14px; line-height: 1.5; color: #d1d5db; margin-bottom: 8px;
+      min-height: 80px;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: auto; }
+    .badge {
+      display: inline-block; background: #e94560; color: #fff; font-size: 10px;
+      padding: 2px 8px; border-radius: 4px; margin-bottom: 10px; font-weight: 600;
+      align-self: flex-start;
+    }
+    .t1 { -webkit-text-size-adjust: auto; -moz-text-size-adjust: auto; text-size-adjust: auto; }
+    .t2 { -webkit-text-size-adjust: none; -moz-text-size-adjust: none; text-size-adjust: none; }
+    .t3 { -webkit-text-size-adjust: 100%; -moz-text-size-adjust: 100%; text-size-adjust: 100%; }
+    .t4 { -webkit-text-size-adjust: 150%; -moz-text-size-adjust: 150%; text-size-adjust: 150%; }
+  </style>
+</head>
+<body>
+  <h1>Text Size Adjust</h1>
+  <p class="prop-name">text-size-adjust</p>
+  <div class="demos">
+    <div class="demo-card">
+      <span class="badge">auto</span>
+      <div class="demo-text t1">The browser may inflate text size on small screens. This is the default behavior that allows the text size inflation algorithm to run.</div>
+      <span class="label">text-size-adjust: auto</span>
+    </div>
+    <div class="demo-card">
+      <span class="badge">none</span>
+      <div class="demo-text t2">The browser will not inflate text size. Text remains at the authored size regardless of viewport width or device orientation changes.</div>
+      <span class="label">text-size-adjust: none</span>
+    </div>
+    <div class="demo-card">
+      <span class="badge">100%</span>
+      <div class="demo-text t3">Text size is explicitly set to 100% of the authored size. No inflation will occur, behaving similarly to none but expressed as a percentage.</div>
+      <span class="label">text-size-adjust: 100%</span>
+    </div>
+    <div class="demo-card">
+      <span class="badge">150%</span>
+      <div class="demo-text t4">Text size adjust set to 150%. On mobile browsers that support inflation, text may be scaled up to 150% of the authored size to improve readability.</div>
+      <span class="label">text-size-adjust: 150%</span>
+    </div>
+  </div>
+</body>
+</html>

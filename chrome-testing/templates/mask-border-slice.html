@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>mask-border-slice</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-card { background: #16213e; border-radius: 10px; padding: 20px; width: 280px; }
+    .demo-card h3 { font-size: 13px; color: #e2e8f0; margin-bottom: 12px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
+    .desc { font-size: 10px; color: #6b7280; margin-top: 4px; line-height: 1.4; }
+
+    .slice-diagram {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      margin: 0 auto;
+    }
+    .slice-diagram .full {
+      width: 100%;
+      height: 100%;
+      border: 2px solid #4a5568;
+      border-radius: 4px;
+      position: absolute;
+      background: linear-gradient(135deg, #e94560 0%, #a855f7 50%, #00d2ff 100%);
+    }
+    .slice-line-h {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 0;
+      border-top: 2px dashed #f9a825;
+      z-index: 2;
+    }
+    .slice-line-v {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 0;
+      border-left: 2px dashed #f9a825;
+      z-index: 2;
+    }
+    .slice-val {
+      position: absolute;
+      font-size: 10px;
+      font-family: monospace;
+      color: #f9a825;
+      z-index: 3;
+      background: #16213e;
+      padding: 1px 4px;
+      border-radius: 2px;
+    }
+    .region {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      font-family: monospace;
+      color: rgba(255,255,255,0.6);
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mask Border Slice</h1>
+  <p class="prop-name">mask-border-slice</p>
+  <div class="demos">
+
+    <div class="demo-card">
+      <h3>slice: 10%</h3>
+      <div class="slice-diagram">
+        <div class="full"></div>
+        <div class="slice-line-h" style="top: 10%;"></div>
+        <div class="slice-line-h" style="top: 90%;"></div>
+        <div class="slice-line-v" style="left: 10%;"></div>
+        <div class="slice-line-v" style="left: 90%;"></div>
+        <span class="slice-val" style="top: 10%; right: -30px;">10%</span>
+        <span class="slice-val" style="bottom: 10%; right: -30px;">90%</span>
+      </div>
+      <p class="label">mask-border-slice: 10%</p>
+      <p class="desc">Thin border slices, more center area</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>slice: 25%</h3>
+      <div class="slice-diagram">
+        <div class="full"></div>
+        <div class="slice-line-h" style="top: 25%;"></div>
+        <div class="slice-line-h" style="top: 75%;"></div>
+        <div class="slice-line-v" style="left: 25%;"></div>
+        <div class="slice-line-v" style="left: 75%;"></div>
+        <span class="slice-val" style="top: 25%; right: -30px;">25%</span>
+        <span class="slice-val" style="bottom: 25%; right: -30px;">75%</span>
+      </div>
+      <p class="label">mask-border-slice: 25%</p>
+      <p class="desc">Balanced border and center</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>slice: 40%</h3>
+      <div class="slice-diagram">
+        <div class="full"></div>
+        <div class="slice-line-h" style="top: 40%;"></div>
+        <div class="slice-line-h" style="top: 60%;"></div>
+        <div class="slice-line-v" style="left: 40%;"></div>
+        <div class="slice-line-v" style="left: 60%;"></div>
+        <span class="slice-val" style="top: 40%; right: -30px;">40%</span>
+        <span class="slice-val" style="bottom: 40%; right: -30px;">60%</span>
+      </div>
+      <p class="label">mask-border-slice: 40%</p>
+      <p class="desc">Wide border slices, small center</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>slice: 50% fill</h3>
+      <div class="slice-diagram">
+        <div class="full"></div>
+        <div class="slice-line-h" style="top: 50%;"></div>
+        <div class="slice-line-v" style="left: 50%;"></div>
+        <span class="slice-val" style="top: 50%; right: -30px;">50%</span>
+        <span class="slice-val" style="left: 50%; top: -16px;">50%</span>
+        <div class="region" style="top:0;left:0;width:50%;height:50%;background:rgba(233,69,96,0.3);">TL</div>
+        <div class="region" style="top:0;right:0;width:50%;height:50%;background:rgba(0,210,255,0.3);">TR</div>
+        <div class="region" style="bottom:0;left:0;width:50%;height:50%;background:rgba(168,85,247,0.3);">BL</div>
+        <div class="region" style="bottom:0;right:0;width:50%;height:50%;background:rgba(249,168,37,0.3);">BR</div>
+      </div>
+      <p class="label">mask-border-slice: 50% fill</p>
+      <p class="desc">Full coverage with fill keyword</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>slice: 30 (unitless)</h3>
+      <div class="slice-diagram">
+        <div class="full"></div>
+        <div class="slice-line-h" style="top: 15%;"></div>
+        <div class="slice-line-h" style="top: 85%;"></div>
+        <div class="slice-line-v" style="left: 15%;"></div>
+        <div class="slice-line-v" style="left: 85%;"></div>
+        <span class="slice-val" style="top: 15%; right: -20px;">30</span>
+        <span class="slice-val" style="bottom: 15%; right: -20px;">30</span>
+      </div>
+      <p class="label">mask-border-slice: 30</p>
+      <p class="desc">Unitless = pixel coordinates in source</p>
+    </div>
+
+  </div>
+</body>
+</html>

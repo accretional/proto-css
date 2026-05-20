@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>cy</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; gap: 28px; align-items: flex-start; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+
+    .svg-container {
+      background: #16213e;
+      border-radius: 10px;
+      padding: 24px;
+    }
+    .axis-label {
+      font-size: 10px;
+      fill: #7b8794;
+      font-family: monospace;
+    }
+    .value-label {
+      font-size: 11px;
+      fill: #e0e0e0;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>SVG Circle cy</h1>
+  <p class="prop-name">cy (SVG attribute / CSS property)</p>
+  <div class="demos">
+    <!-- Main vertical demo -->
+    <div>
+      <div class="svg-container">
+        <svg width="300" height="560" viewBox="0 0 300 560">
+          <!-- Vertical axis -->
+          <line x1="150" y1="20" x2="150" y2="540" stroke="#333" stroke-width="1"/>
+          <text x="150" y="555" text-anchor="middle" class="axis-label">y</text>
+
+          <!-- Grid lines -->
+          <line x1="40" y1="60" x2="260" y2="60" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/>
+          <line x1="40" y1="160" x2="260" y2="160" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/>
+          <line x1="40" y1="280" x2="260" y2="280" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/>
+          <line x1="40" y1="400" x2="260" y2="400" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/>
+
+          <!-- cy: 20 -->
+          <circle cx="150" cy="60" r="24" fill="#e9456044" stroke="#e94560" stroke-width="2"/>
+          <text x="150" y="65" text-anchor="middle" font-size="11" fill="#fff" font-family="monospace">20</text>
+          <text x="260" y="65" class="value-label" fill="#e94560">cy: 20</text>
+
+          <!-- Dashed connector -->
+          <line x1="150" y1="84" x2="150" y2="136" stroke="#ffffff22" stroke-width="1" stroke-dasharray="3"/>
+
+          <!-- cy: 50 -->
+          <circle cx="150" cy="160" r="24" fill="#00d2ff44" stroke="#00d2ff" stroke-width="2"/>
+          <text x="150" y="165" text-anchor="middle" font-size="11" fill="#fff" font-family="monospace">50</text>
+          <text x="260" y="165" class="value-label" fill="#00d2ff">cy: 50</text>
+
+          <!-- Dashed connector -->
+          <line x1="150" y1="184" x2="150" y2="256" stroke="#ffffff22" stroke-width="1" stroke-dasharray="3"/>
+
+          <!-- cy: 80 -->
+          <circle cx="150" cy="280" r="24" fill="#10b98144" stroke="#10b981" stroke-width="2"/>
+          <text x="150" y="285" text-anchor="middle" font-size="11" fill="#fff" font-family="monospace">80</text>
+          <text x="260" y="285" class="value-label" fill="#10b981">cy: 80</text>
+
+          <!-- Dashed connector -->
+          <line x1="150" y1="304" x2="150" y2="376" stroke="#ffffff22" stroke-width="1" stroke-dasharray="3"/>
+
+          <!-- cy: 120 -->
+          <circle cx="150" cy="400" r="24" fill="#f59e0b44" stroke="#f59e0b" stroke-width="2"/>
+          <text x="150" y="405" text-anchor="middle" font-size="11" fill="#fff" font-family="monospace">120</text>
+          <text x="260" y="405" class="value-label" fill="#f59e0b">cy: 120</text>
+
+          <!-- Axis ticks -->
+          <line x1="145" y1="60" x2="140" y2="60" stroke="#7b8794" stroke-width="1"/>
+          <text x="30" y="64" text-anchor="middle" class="axis-label">20px</text>
+          <line x1="145" y1="160" x2="140" y2="160" stroke="#7b8794" stroke-width="1"/>
+          <text x="30" y="164" text-anchor="middle" class="axis-label">50px</text>
+          <line x1="145" y1="280" x2="140" y2="280" stroke="#7b8794" stroke-width="1"/>
+          <text x="30" y="284" text-anchor="middle" class="axis-label">80px</text>
+          <line x1="145" y1="400" x2="140" y2="400" stroke="#7b8794" stroke-width="1"/>
+          <text x="28" y="404" text-anchor="middle" class="axis-label">120px</text>
+
+          <!-- Arrow showing direction -->
+          <polygon points="150,530 145,520 155,520" fill="#7b8794"/>
+        </svg>
+      </div>
+      <p class="label">Increasing cy moves circle downward</p>
+    </div>
+
+    <!-- Grid comparison -->
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div style="background:#16213e; border-radius:8px; padding:14px 18px;">
+        <svg width="200" height="200" viewBox="0 0 200 200">
+          <rect x="0" y="0" width="200" height="200" fill="none" stroke="#0f3460" stroke-width="1" rx="4"/>
+          <line x1="0" y1="100" x2="200" y2="100" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/>
+          <line x1="100" y1="0" x2="100" y2="200" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/>
+          <circle cx="100" cy="30" r="20" fill="#e9456044" stroke="#e94560" stroke-width="2"/>
+          <text x="100" y="35" text-anchor="middle" font-size="9" fill="#fff" font-family="monospace">cy:30</text>
+        </svg>
+        <p class="label">cy: 30 (near top)</p>
+      </div>
+      <div style="background:#16213e; border-radius:8px; padding:14px 18px;">
+        <svg width="200" height="200" viewBox="0 0 200 200">
+          <rect x="0" y="0" width="200" height="200" fill="none" stroke="#0f3460" stroke-width="1" rx="4"/>
+          <line x1="0" y1="100" x2="200" y2="100" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/>
+          <line x1="100" y1="0" x2="100" y2="200" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/>
+          <circle cx="100" cy="100" r="20" fill="#00d2ff44" stroke="#00d2ff" stroke-width="2"/>
+          <text x="100" y="105" text-anchor="middle" font-size="9" fill="#fff" font-family="monospace">cy:100</text>
+        </svg>
+        <p class="label">cy: 100 (centered)</p>
+      </div>
+      <div style="background:#16213e; border-radius:8px; padding:14px 18px;">
+        <svg width="200" height="200" viewBox="0 0 200 200">
+          <rect x="0" y="0" width="200" height="200" fill="none" stroke="#0f3460" stroke-width="1" rx="4"/>
+          <line x1="0" y1="100" x2="200" y2="100" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/>
+          <line x1="100" y1="0" x2="100" y2="200" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/>
+          <circle cx="100" cy="170" r="20" fill="#10b98144" stroke="#10b981" stroke-width="2"/>
+          <text x="100" y="175" text-anchor="middle" font-size="9" fill="#fff" font-family="monospace">cy:170</text>
+        </svg>
+        <p class="label">cy: 170 (near bottom)</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>empty-cells</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; gap: 40px; }
+    .demo-box { background: #16213e; border-radius: 12px; padding: 24px; flex: 1; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 16px; }
+    table { border-collapse: separate; border-spacing: 6px; width: 100%; }
+    th { background: #e94560; color: #fff; padding: 10px 14px; font-size: 13px; border-radius: 4px; text-align: left; }
+    td { background: #0f3460; padding: 10px 14px; font-size: 13px; border-radius: 4px; border: 2px solid #233d6e; }
+    .show-table { empty-cells: show; }
+    .hide-table { empty-cells: hide; }
+    .empty-note { font-size: 10px; color: #e94560; text-align: center; }
+    .desc { font-size: 12px; color: #6b7280; margin-top: 14px; line-height: 1.5; }
+    .arrow { color: #e94560; font-size: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Empty Table Cells</h1>
+  <p class="prop-name">empty-cells</p>
+  <div class="demos">
+
+    <div class="demo-box">
+      <div class="label">empty-cells: show</div>
+      <table class="show-table">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+        </tr>
+        <tr>
+          <td>Alice</td>
+          <td>alice@mail.com</td>
+          <td>555-0101</td>
+        </tr>
+        <tr>
+          <td>Bob</td>
+          <td></td>
+          <td>555-0202</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>carol@mail.com</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Dave</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+      <p class="desc">Empty cells still render their background and borders. The cell box is visible even without content.</p>
+    </div>
+
+    <div class="demo-box">
+      <div class="label">empty-cells: hide</div>
+      <table class="hide-table">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+        </tr>
+        <tr>
+          <td>Alice</td>
+          <td>alice@mail.com</td>
+          <td>555-0101</td>
+        </tr>
+        <tr>
+          <td>Bob</td>
+          <td></td>
+          <td>555-0202</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>carol@mail.com</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Dave</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+      <p class="desc">Empty cells have no background or border drawn. The space is still reserved but appears transparent.</p>
+    </div>
+
+  </div>
+</body>
+</html>

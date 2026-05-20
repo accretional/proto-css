@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>font-width</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-direction: column; gap: 12px; }
+    .demo-row {
+      display: flex; align-items: center; gap: 20px;
+      background: #16213e; border-radius: 10px; padding: 16px 24px;
+      border: 1px solid #2a2a4a;
+    }
+    .label {
+      font-size: 11px; font-family: monospace; color: #9ca3af;
+      min-width: 280px; flex-shrink: 0;
+    }
+    .demo-text { color: #fff; font-size: 26px; white-space: nowrap; }
+    .pct {
+      font-size: 10px; color: #6b7280; font-family: monospace; min-width: 40px; text-align: right;
+    }
+    .width-bar {
+      width: 80px; height: 6px; background: #2a2a4a; border-radius: 3px;
+      flex-shrink: 0; overflow: hidden;
+    }
+    .width-fill {
+      height: 100%; background: #a78bfa; border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Font Width</h1>
+  <p class="prop-name">font-width</p>
+  <div class="demos">
+    <div class="demo-row">
+      <div class="width-bar"><div class="width-fill" style="width: 25%;"></div></div>
+      <span class="pct">50%</span>
+      <p class="label">font-width: ultra-condensed</p>
+      <span class="demo-text" style="font-width: ultra-condensed;">Hamburgefonstiv</span>
+    </div>
+    <div class="demo-row">
+      <div class="width-bar"><div class="width-fill" style="width: 31%;"></div></div>
+      <span class="pct">62.5%</span>
+      <p class="label">font-width: extra-condensed</p>
+      <span class="demo-text" style="font-width: extra-condensed;">Hamburgefonstiv</span>
+    </div>
+    <div class="demo-row">
+      <div class="width-bar"><div class="width-fill" style="width: 37%;"></div></div>
+      <span class="pct">75%</span>
+      <p class="label">font-width: condensed</p>
+      <span class="demo-text" style="font-width: condensed;">Hamburgefonstiv</span>
+    </div>
+    <div class="demo-row">
+      <div class="width-bar"><div class="width-fill" style="width: 44%;"></div></div>
+      <span class="pct">87.5%</span>
+      <p class="label">font-width: semi-condensed</p>
+      <span class="demo-text" style="font-width: semi-condensed;">Hamburgefonstiv</span>
+    </div>
+    <div class="demo-row">
+      <div class="width-bar"><div class="width-fill" style="width: 50%;"></div></div>
+      <span class="pct">100%</span>
+      <p class="label">font-width: normal</p>
+      <span class="demo-text" style="font-width: normal;">Hamburgefonstiv</span>
+    </div>
+    <div class="demo-row">
+      <div class="width-bar"><div class="width-fill" style="width: 56%;"></div></div>
+      <span class="pct">112.5%</span>
+      <p class="label">font-width: semi-expanded</p>
+      <span class="demo-text" style="font-width: semi-expanded;">Hamburgefonstiv</span>
+    </div>
+    <div class="demo-row">
+      <div class="width-bar"><div class="width-fill" style="width: 62%;"></div></div>
+      <span class="pct">125%</span>
+      <p class="label">font-width: expanded</p>
+      <span class="demo-text" style="font-width: expanded;">Hamburgefonstiv</span>
+    </div>
+    <div class="demo-row">
+      <div class="width-bar"><div class="width-fill" style="width: 75%;"></div></div>
+      <span class="pct">150%</span>
+      <p class="label">font-width: extra-expanded</p>
+      <span class="demo-text" style="font-width: extra-expanded;">Hamburgefonstiv</span>
+    </div>
+    <div class="demo-row">
+      <div class="width-bar"><div class="width-fill" style="width: 100%;"></div></div>
+      <span class="pct">200%</span>
+      <p class="label">font-width: ultra-expanded</p>
+      <span class="demo-text" style="font-width: ultra-expanded;">Hamburgefonstiv</span>
+    </div>
+  </div>
+</body>
+</html>

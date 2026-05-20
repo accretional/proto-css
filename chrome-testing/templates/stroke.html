@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>stroke</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 18px; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 18px;
+      width: 228px;
+    }
+    .card-title {
+      font-size: 14px;
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .card-desc {
+      font-size: 11px;
+      color: #7b8794;
+      margin-bottom: 10px;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+    .svg-container {
+      background: #0a0a1a;
+      border-radius: 8px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .stroke-preview {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .sp-line {
+      width: 40px;
+      height: 4px;
+      border-radius: 2px;
+    }
+    .sp-text {
+      font-size: 11px;
+      color: #7b8794;
+    }
+  </style>
+</head>
+<body>
+  <h1>Stroke</h1>
+  <p class="prop-name">stroke</p>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="card-title">none</div>
+      <div class="card-desc">No stroke is painted on the shape</div>
+      <div class="svg-container">
+        <svg width="190" height="130" viewBox="0 0 190 130">
+          <circle cx="55" cy="45" r="30" fill="#333" stroke="none" stroke-width="3" />
+          <rect x="105" y="15" width="60" height="60" rx="6" fill="#333" stroke="none" stroke-width="3" />
+          <polygon points="95,115 55,85 135,85" fill="#333" stroke="none" stroke-width="3" />
+        </svg>
+      </div>
+      <div class="stroke-preview">
+        <div class="sp-line" style="background: transparent; border: 1px dashed #555;"></div>
+        <span class="sp-text">No visible outline</span>
+      </div>
+      <p class="label">stroke: none</p>
+    </div>
+    <div class="demo-card">
+      <div class="card-title">red</div>
+      <div class="card-desc">Red stroke color on shapes</div>
+      <div class="svg-container">
+        <svg width="190" height="130" viewBox="0 0 190 130">
+          <circle cx="55" cy="45" r="30" fill="none" stroke="red" stroke-width="3" />
+          <rect x="105" y="15" width="60" height="60" rx="6" fill="none" stroke="red" stroke-width="3" />
+          <polygon points="95,115 55,85 135,85" fill="none" stroke="red" stroke-width="3" />
+        </svg>
+      </div>
+      <div class="stroke-preview">
+        <div class="sp-line" style="background: red;"></div>
+        <span class="sp-text">Named color: red</span>
+      </div>
+      <p class="label">stroke: red</p>
+    </div>
+    <div class="demo-card">
+      <div class="card-title">blue</div>
+      <div class="card-desc">Blue stroke color on shapes</div>
+      <div class="svg-container">
+        <svg width="190" height="130" viewBox="0 0 190 130">
+          <circle cx="55" cy="45" r="30" fill="none" stroke="blue" stroke-width="3" />
+          <rect x="105" y="15" width="60" height="60" rx="6" fill="none" stroke="blue" stroke-width="3" />
+          <polygon points="95,115 55,85 135,85" fill="none" stroke="blue" stroke-width="3" />
+        </svg>
+      </div>
+      <div class="stroke-preview">
+        <div class="sp-line" style="background: blue;"></div>
+        <span class="sp-text">Named color: blue</span>
+      </div>
+      <p class="label">stroke: blue</p>
+    </div>
+    <div class="demo-card">
+      <div class="card-title">green</div>
+      <div class="card-desc">Green stroke color on shapes</div>
+      <div class="svg-container">
+        <svg width="190" height="130" viewBox="0 0 190 130">
+          <circle cx="55" cy="45" r="30" fill="none" stroke="green" stroke-width="3" />
+          <rect x="105" y="15" width="60" height="60" rx="6" fill="none" stroke="green" stroke-width="3" />
+          <polygon points="95,115 55,85 135,85" fill="none" stroke="green" stroke-width="3" />
+        </svg>
+      </div>
+      <div class="stroke-preview">
+        <div class="sp-line" style="background: green;"></div>
+        <span class="sp-text">Named color: green</span>
+      </div>
+      <p class="label">stroke: green</p>
+    </div>
+    <div class="demo-card">
+      <div class="card-title">url(#gradient)</div>
+      <div class="card-desc">Gradient applied as the stroke paint</div>
+      <div class="svg-container">
+        <svg width="190" height="130" viewBox="0 0 190 130">
+          <defs>
+            <linearGradient id="stroke-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#e94560" />
+              <stop offset="50%" stop-color="#533483" />
+              <stop offset="100%" stop-color="#2ecc71" />
+            </linearGradient>
+          </defs>
+          <circle cx="55" cy="45" r="30" fill="none" stroke="url(#stroke-grad)" stroke-width="3" />
+          <rect x="105" y="15" width="60" height="60" rx="6" fill="none" stroke="url(#stroke-grad)" stroke-width="3" />
+          <polygon points="95,115 55,85 135,85" fill="none" stroke="url(#stroke-grad)" stroke-width="3" />
+        </svg>
+      </div>
+      <div class="stroke-preview">
+        <div class="sp-line" style="background: linear-gradient(90deg, #e94560, #533483, #2ecc71);"></div>
+        <span class="sp-text">Gradient paint server</span>
+      </div>
+      <p class="label">stroke: url(#gradient)</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>background-image</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demo-item { display: flex; flex-direction: column; align-items: center; }
+    .box {
+      width: 220px;
+      height: 140px;
+      border-radius: 8px;
+      border: 2px solid rgba(255,255,255,0.1);
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; max-width: 220px; }
+    .b1 { background-image: linear-gradient(135deg, #667eea, #764ba2); }
+    .b2 { background-image: radial-gradient(circle, #f093fb, #f5576c); }
+    .b3 { background-image: conic-gradient(from 0deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3, #ff6b6b); }
+    .b4 { background-image: repeating-linear-gradient(45deg, #0abde3 0px, #0abde3 10px, #10ac84 10px, #10ac84 20px); }
+    .b5 { background-image: none; background-color: #2d2d4e; }
+  </style>
+</head>
+<body>
+  <h1>Background Image</h1>
+  <p class="prop-name">background-image</p>
+  <div class="demos">
+    <div class="demo-item">
+      <div class="box b1"></div>
+      <div class="label">linear-gradient(135deg, #667eea, #764ba2)</div>
+    </div>
+    <div class="demo-item">
+      <div class="box b2"></div>
+      <div class="label">radial-gradient(circle, #f093fb, #f5576c)</div>
+    </div>
+    <div class="demo-item">
+      <div class="box b3"></div>
+      <div class="label">conic-gradient(from 0deg, ...)</div>
+    </div>
+    <div class="demo-item">
+      <div class="box b4"></div>
+      <div class="label">repeating-linear-gradient(45deg, ...)</div>
+    </div>
+    <div class="demo-item">
+      <div class="box b5"></div>
+      <div class="label">background-image: none</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>border-image-slice</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .box {
+      width: 180px;
+      height: 130px;
+      background: #16213e;
+      border: 16px solid transparent;
+      border-image-source: linear-gradient(135deg, #e94560, #53d8fb, #4ade80, #fbbf24);
+      border-image-width: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: #ccc;
+      font-family: monospace;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>Border Image Slice</h1>
+  <p class="prop-name">border-image-slice</p>
+  <div class="demos">
+    <div class="demo-item">
+      <div class="box" style="border-image-slice: 1;">slice: 1</div>
+      <div class="label">border-image-slice: 1</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border-image-slice: 10;">slice: 10</div>
+      <div class="label">border-image-slice: 10</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border-image-slice: 30;">slice: 30</div>
+      <div class="label">border-image-slice: 30</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border-image-slice: 50;">slice: 50</div>
+      <div class="label">border-image-slice: 50</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border-image-slice: 30 fill;">slice: 30 fill</div>
+      <div class="label">border-image-slice: 30 fill</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border-image-slice: 50 fill;">slice: 50 fill</div>
+      <div class="label">border-image-slice: 50 fill</div>
+    </div>
+  </div>
+</body>
+</html>

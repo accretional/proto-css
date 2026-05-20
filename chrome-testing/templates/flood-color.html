@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>flood-color</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-block { display: flex; flex-direction: column; align-items: center; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>Flood Color</h1>
+  <p class="prop-name">flood-color (SVG filter)</p>
+  <div class="demos">
+    <div class="demo-block">
+      <svg width="240" height="160" viewBox="0 0 240 160">
+        <defs>
+          <filter id="flood-red" x="0" y="0" width="100%" height="100%">
+            <feFlood flood-color="red" flood-opacity="1" result="flood"/>
+            <feComposite in="flood" in2="SourceGraphic" operator="over"/>
+          </filter>
+        </defs>
+        <rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/>
+        <rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-red)"/>
+      </svg>
+      <div class="label">flood-color: red</div>
+    </div>
+    <div class="demo-block">
+      <svg width="240" height="160" viewBox="0 0 240 160">
+        <defs>
+          <filter id="flood-blue" x="0" y="0" width="100%" height="100%">
+            <feFlood flood-color="blue" flood-opacity="1" result="flood"/>
+            <feComposite in="flood" in2="SourceGraphic" operator="over"/>
+          </filter>
+        </defs>
+        <rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/>
+        <rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-blue)"/>
+      </svg>
+      <div class="label">flood-color: blue</div>
+    </div>
+    <div class="demo-block">
+      <svg width="240" height="160" viewBox="0 0 240 160">
+        <defs>
+          <filter id="flood-green" x="0" y="0" width="100%" height="100%">
+            <feFlood flood-color="green" flood-opacity="1" result="flood"/>
+            <feComposite in="flood" in2="SourceGraphic" operator="over"/>
+          </filter>
+        </defs>
+        <rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/>
+        <rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-green)"/>
+      </svg>
+      <div class="label">flood-color: green</div>
+    </div>
+    <div class="demo-block">
+      <svg width="240" height="160" viewBox="0 0 240 160">
+        <defs>
+          <filter id="flood-gold" x="0" y="0" width="100%" height="100%">
+            <feFlood flood-color="gold" flood-opacity="1" result="flood"/>
+            <feComposite in="flood" in2="SourceGraphic" operator="over"/>
+          </filter>
+        </defs>
+        <rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/>
+        <rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-gold)"/>
+      </svg>
+      <div class="label">flood-color: gold</div>
+    </div>
+  </div>
+</body>
+</html>

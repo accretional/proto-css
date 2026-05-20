@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>grid-row-end</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-box { background: #16213e; border-radius: 8px; padding: 16px; width: 280px; }
+    .demo-box h3 { font-size: 13px; color: #e0e0e0; margin-bottom: 10px; }
+    .grid-base { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(4, 40px); gap: 5px; }
+    .cell { background: #0a1a35; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #4a5568; font-weight: 600; }
+    .cell.highlight { background: #e94560; color: #fff; font-size: 11px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Grid Row End</h1>
+  <p class="prop-name">grid-row-end</p>
+  <div class="demos">
+    <div class="demo-box">
+      <h3>auto (spans 1 row)</h3>
+      <div class="grid-base">
+        <div class="cell highlight" style="grid-row-start: 1; grid-row-end: auto;">Item</div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+      </div>
+      <p class="label">grid-row-end: auto</p>
+    </div>
+    <div class="demo-box">
+      <h3>End at line 3</h3>
+      <div class="grid-base">
+        <div class="cell highlight" style="grid-row-start: 1; grid-row-end: 3;">Rows 1-2</div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+      </div>
+      <p class="label">grid-row-end: 3</p>
+    </div>
+    <div class="demo-box">
+      <h3>span 2</h3>
+      <div class="grid-base">
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="cell highlight" style="grid-row-start: 2; grid-row-end: span 2;">Span 2</div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+      </div>
+      <p class="label">grid-row-end: span 2</p>
+    </div>
+    <div class="demo-box">
+      <h3>End at -1 (last line)</h3>
+      <div class="grid-base">
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="cell highlight" style="grid-row-start: 2; grid-row-end: -1;">To end</div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div>
+      </div>
+      <p class="label">grid-row-end: -1</p>
+    </div>
+  </div>
+</body>
+</html>

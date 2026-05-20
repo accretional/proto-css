@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>paint-order</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 32px; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; text-align: center; }
+    svg text {
+      font-family: system-ui, sans-serif;
+      font-weight: 900;
+      font-size: 72px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Paint Order</h1>
+  <p class="prop-name">paint-order</p>
+  <div class="demos">
+
+    <div class="demo-card">
+      <svg width="240" height="100" viewBox="0 0 240 100">
+        <text x="120" y="75" text-anchor="middle" fill="#e94560" stroke="#ffffff" stroke-width="6" style="paint-order: normal;">Abc</text>
+      </svg>
+      <div class="label">paint-order: normal<br><span style="color:#6b7280; font-size:10px;">fill drawn over stroke</span></div>
+    </div>
+
+    <div class="demo-card">
+      <svg width="240" height="100" viewBox="0 0 240 100">
+        <text x="120" y="75" text-anchor="middle" fill="#e94560" stroke="#ffffff" stroke-width="6" style="paint-order: stroke;">Abc</text>
+      </svg>
+      <div class="label">paint-order: stroke<br><span style="color:#6b7280; font-size:10px;">stroke drawn first (behind fill)</span></div>
+    </div>
+
+    <div class="demo-card">
+      <svg width="240" height="100" viewBox="0 0 240 100">
+        <text x="120" y="75" text-anchor="middle" fill="#e94560" stroke="#ffffff" stroke-width="6" style="paint-order: fill stroke;">Abc</text>
+      </svg>
+      <div class="label">paint-order: fill stroke<br><span style="color:#6b7280; font-size:10px;">fill first, then stroke on top</span></div>
+    </div>
+
+    <div class="demo-card">
+      <svg width="240" height="100" viewBox="0 0 240 100">
+        <text x="120" y="75" text-anchor="middle" fill="#e94560" stroke="#ffffff" stroke-width="6" style="paint-order: markers stroke fill;">Abc</text>
+      </svg>
+      <div class="label">paint-order: markers stroke fill<br><span style="color:#6b7280; font-size:10px;">markers, then stroke, then fill</span></div>
+    </div>
+
+  </div>
+</body>
+</html>

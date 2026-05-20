@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>hyphens</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 8px;
+      padding: 20px;
+      width: 260px;
+    }
+    .text-block {
+      width: 100%;
+      background: #0f3460;
+      border-radius: 6px;
+      padding: 16px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #e0e0e0;
+      overflow-wrap: break-word;
+      min-height: 160px;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+    .hint { font-size: 10px; color: #6b7280; margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Hyphens</h1>
+  <p class="prop-name">hyphens</p>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="text-block" lang="en" style="hyphens: none;">
+        Supercalifragilisticexpialidocious incomprehensibilities and antidisestablishmentarianism are extraordinarily long words.
+      </div>
+      <p class="label">hyphens: none</p>
+      <p class="hint">Words never break with hyphens</p>
+    </div>
+    <div class="demo-card">
+      <div class="text-block" lang="en" style="hyphens: manual;">
+        Super&shy;cali&shy;fragilistic&shy;expiali&shy;docious in&shy;comprehen&shy;sibilities and anti&shy;dis&shy;establish&shy;ment&shy;arianism are extra&shy;ordinarily long words.
+      </div>
+      <p class="label">hyphens: manual</p>
+      <p class="hint">Breaks only at &amp;shy; points</p>
+    </div>
+    <div class="demo-card">
+      <div class="text-block" lang="en" style="hyphens: auto;">
+        Supercalifragilisticexpialidocious incomprehensibilities and antidisestablishmentarianism are extraordinarily long words.
+      </div>
+      <p class="label">hyphens: auto</p>
+      <p class="hint">Browser auto-hyphenates at natural points</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>animation-composition</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 28px; }
+    .demo-box {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 24px;
+      width: 360px;
+      height: 260px;
+      position: relative;
+    }
+    .demo-title { font-size: 13px; color: #ccc; margin-bottom: 16px; }
+    .track {
+      width: 100%;
+      height: 80px;
+      background: #0f3460;
+      border-radius: 8px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .comp-box {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      position: absolute;
+      transform: translateX(30px) rotate(20deg);
+    }
+    @keyframes moveRight {
+      from { transform: translateX(0px) rotate(0deg); }
+      to { transform: translateX(100px) rotate(45deg); }
+    }
+    .replace-box {
+      background: #e94560;
+      animation: moveRight 2s ease-in-out paused;
+      animation-delay: -1s;
+      animation-composition: replace;
+      transform: translateX(30px) rotate(20deg);
+    }
+    .add-box {
+      background: #3498db;
+      animation: moveRight 2s ease-in-out paused;
+      animation-delay: -1s;
+      animation-composition: add;
+      transform: translateX(30px) rotate(20deg);
+    }
+    .accumulate-box {
+      background: #2ecc71;
+      animation: moveRight 2s ease-in-out paused;
+      animation-delay: -1s;
+      animation-composition: accumulate;
+      transform: translateX(30px) rotate(20deg);
+    }
+    .guide {
+      position: absolute;
+      left: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 60px;
+      height: 60px;
+      border: 2px dashed #4a5568;
+      border-radius: 8px;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; }
+    .note { font-size: 11px; color: #6b7280; margin-top: 4px; font-style: italic; }
+    .legend {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+    }
+    .legend-text { font-size: 10px; color: #9ca3af; }
+  </style>
+</head>
+<body>
+  <h1>Animation Composition</h1>
+  <p class="prop-name">animation-composition</p>
+  <div class="demos">
+    <div class="demo-box">
+      <div class="demo-title">replace - animation value replaces underlying</div>
+      <div class="track">
+        <div class="guide"></div>
+        <div class="comp-box replace-box"></div>
+      </div>
+      <div class="label">animation-composition: replace</div>
+      <div class="note">Underlying transform (30px, 20deg) is replaced by animation value</div>
+      <div class="legend">
+        <div class="legend-dot" style="border: 1px dashed #4a5568;"></div>
+        <div class="legend-text">Original position</div>
+      </div>
+    </div>
+    <div class="demo-box">
+      <div class="demo-title">add - animation composites onto underlying</div>
+      <div class="track">
+        <div class="guide"></div>
+        <div class="comp-box add-box"></div>
+      </div>
+      <div class="label">animation-composition: add</div>
+      <div class="note">Underlying transform + animation transform are combined (added)</div>
+      <div class="legend">
+        <div class="legend-dot" style="border: 1px dashed #4a5568;"></div>
+        <div class="legend-text">Original position</div>
+      </div>
+    </div>
+    <div class="demo-box">
+      <div class="demo-title">accumulate - values are accumulated</div>
+      <div class="track">
+        <div class="guide"></div>
+        <div class="comp-box accumulate-box"></div>
+      </div>
+      <div class="label">animation-composition: accumulate</div>
+      <div class="note">Underlying + animation values accumulated (numeric addition)</div>
+      <div class="legend">
+        <div class="legend-dot" style="border: 1px dashed #4a5568;"></div>
+        <div class="legend-text">Original position</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

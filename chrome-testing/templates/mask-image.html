@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>mask-image</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-card { background: #16213e; border-radius: 10px; padding: 20px; width: 280px; }
+    .demo-card h3 { font-size: 13px; color: #e2e8f0; margin-bottom: 12px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; line-height: 1.5; }
+    .box {
+      width: 240px;
+      height: 120px;
+      background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .m-linear-h {
+      -webkit-mask-image: linear-gradient(to right, black, transparent);
+      mask-image: linear-gradient(to right, black, transparent);
+    }
+    .m-linear-v {
+      -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent);
+      mask-image: linear-gradient(to bottom, black 40%, transparent);
+    }
+    .m-radial {
+      -webkit-mask-image: radial-gradient(circle, black 40%, transparent 70%);
+      mask-image: radial-gradient(circle, black 40%, transparent 70%);
+    }
+    .m-radial-ellipse {
+      -webkit-mask-image: radial-gradient(ellipse 120px 60px at center, black, transparent);
+      mask-image: radial-gradient(ellipse 120px 60px at center, black, transparent);
+    }
+    .m-conic {
+      -webkit-mask-image: conic-gradient(black, transparent, black);
+      mask-image: conic-gradient(black, transparent, black);
+    }
+    .m-none {
+      /* no mask */
+    }
+  </style>
+</head>
+<body>
+  <h1>Mask Image</h1>
+  <p class="prop-name">mask-image</p>
+  <div class="demos">
+
+    <div class="demo-card">
+      <h3>Linear Horizontal Fade</h3>
+      <div class="box m-linear-h">HELLO</div>
+      <p class="label">mask-image: linear-gradient(<br>&nbsp;&nbsp;to right, black, transparent)</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>Linear Vertical Fade</h3>
+      <div class="box m-linear-v">HELLO</div>
+      <p class="label">mask-image: linear-gradient(<br>&nbsp;&nbsp;to bottom, black 40%, transparent)</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>Radial Circle</h3>
+      <div class="box m-radial">HELLO</div>
+      <p class="label">mask-image: radial-gradient(<br>&nbsp;&nbsp;circle, black 40%, transparent 70%)</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>Radial Ellipse</h3>
+      <div class="box m-radial-ellipse">HELLO</div>
+      <p class="label">mask-image: radial-gradient(<br>&nbsp;&nbsp;ellipse 120px 60px, black, transparent)</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>Conic Gradient</h3>
+      <div class="box m-conic">HELLO</div>
+      <p class="label">mask-image: conic-gradient(<br>&nbsp;&nbsp;black, transparent, black)</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>No Mask</h3>
+      <div class="box m-none">HELLO</div>
+      <p class="label">mask-image: none</p>
+    </div>
+
+  </div>
+</body>
+</html>

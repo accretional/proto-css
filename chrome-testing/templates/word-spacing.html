@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>word-spacing</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-direction: column; gap: 16px; }
+    .demo-row { background: #16213e; border-radius: 10px; padding: 20px 24px; display: flex; align-items: flex-start; gap: 24px; }
+    .label-col { width: 200px; flex-shrink: 0; }
+    .label-col h3 { font-size: 13px; color: #a78bfa; font-family: monospace; font-weight: 500; margin-bottom: 4px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; }
+    .text-col { flex: 1; }
+    .sample-text { font-size: 16px; line-height: 1.7; color: #d1d5db; }
+    .spacer-viz { display: inline; position: relative; }
+    .word-gap-bar { height: 3px; background: #e94560; border-radius: 2px; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Word Spacing</h1>
+  <p class="prop-name">word-spacing</p>
+  <div class="demos">
+
+    <div class="demo-row">
+      <div class="label-col">
+        <h3>normal</h3>
+        <span class="label">word-spacing: normal</span>
+      </div>
+      <div class="text-col">
+        <p class="sample-text" style="word-spacing: normal;">The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs.</p>
+        <div class="word-gap-bar" style="width: 30px;"></div>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <div class="label-col">
+        <h3>-3px</h3>
+        <span class="label">word-spacing: -3px</span>
+      </div>
+      <div class="text-col">
+        <p class="sample-text" style="word-spacing: -3px;">The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs.</p>
+        <div class="word-gap-bar" style="width: 15px;"></div>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <div class="label-col">
+        <h3>5px</h3>
+        <span class="label">word-spacing: 5px</span>
+      </div>
+      <div class="text-col">
+        <p class="sample-text" style="word-spacing: 5px;">The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs.</p>
+        <div class="word-gap-bar" style="width: 50px;"></div>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <div class="label-col">
+        <h3>10px</h3>
+        <span class="label">word-spacing: 10px</span>
+      </div>
+      <div class="text-col">
+        <p class="sample-text" style="word-spacing: 10px;">The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs.</p>
+        <div class="word-gap-bar" style="width: 80px;"></div>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <div class="label-col">
+        <h3>20px</h3>
+        <span class="label">word-spacing: 20px</span>
+      </div>
+      <div class="text-col">
+        <p class="sample-text" style="word-spacing: 20px;">The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs.</p>
+        <div class="word-gap-bar" style="width: 140px;"></div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

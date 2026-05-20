@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>cursor</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 14px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 6px; text-align: center; }
+
+    .cursor-box {
+      background: #16213e;
+      border-radius: 10px;
+      padding: 14px 10px;
+      width: 140px;
+      height: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #0f3460;
+      transition: border-color 0.2s;
+    }
+    .cursor-box:hover {
+      border-color: #e94560;
+    }
+    .cursor-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #e0e0e0;
+      margin-bottom: 4px;
+    }
+    .cursor-code {
+      font-size: 10px;
+      font-family: monospace;
+      color: #7b8794;
+      background: #0f3460;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .c-default { cursor: default; }
+    .c-pointer { cursor: pointer; }
+    .c-crosshair { cursor: crosshair; }
+    .c-wait { cursor: wait; }
+    .c-text { cursor: text; }
+    .c-move { cursor: move; }
+    .c-grab { cursor: grab; }
+    .c-grabbing { cursor: grabbing; }
+    .c-not-allowed { cursor: not-allowed; }
+    .c-help { cursor: help; }
+    .c-zoom-in { cursor: zoom-in; }
+    .c-zoom-out { cursor: zoom-out; }
+    .c-col-resize { cursor: col-resize; }
+    .c-row-resize { cursor: row-resize; }
+    .c-progress { cursor: progress; }
+    .c-cell { cursor: cell; }
+    .c-copy { cursor: copy; }
+    .c-alias { cursor: alias; }
+    .c-context-menu { cursor: context-menu; }
+    .c-none { cursor: none; }
+    .c-nesw-resize { cursor: nesw-resize; }
+    .c-nwse-resize { cursor: nwse-resize; }
+    .c-ns-resize { cursor: ns-resize; }
+    .c-ew-resize { cursor: ew-resize; }
+  </style>
+</head>
+<body>
+  <h1>Cursor</h1>
+  <p class="prop-name">cursor</p>
+  <div class="demos">
+    <div>
+      <div class="cursor-box c-default">
+        <span class="cursor-name">default</span>
+        <span class="cursor-code">cursor: default</span>
+      </div>
+    </div>
+    <div>
+      <div class="cursor-box c-pointer">
+        <span class="cursor-name">pointer</span>
+        <span class="cursor-code">cursor: pointer</span>
+      </div>
+    </div>
+    <div>
+      <div class="cursor-box c-crosshair">
+        <span class="cursor-name">crosshair</span>
+        <span class="cursor-code">cursor: crosshair</span>
+      </div>
+    </div>
+    <div>
+      <div class="cursor-box c-wait">
+        <span class="cursor-name">wait</span>
+        <span class="cursor-code">cursor: wait</span>
+      </div>
+    </div>
+    <div>
+      <div class="cursor-box c-text">
+        <span class="cursor-name">text</span>
+        <span class="cursor-code">cursor: text</span>
+      </div>
+    </div>
+    <div>
+      <div class="cursor-box c-move">
+        <span class="cursor-name">move</span>
+        <span class="cursor-code">cursor: move</span>
+      </div>
+    </div>
+    <div>
+      <div class="cursor-box c-grab">
+        <span class="cursor-name">grab</span>
+        <span class="cursor-code">cursor: grab</span>
+      </div>
+    </div>
+    <div>
+      <div class="cursor-box c-grabbing">
+        <span class="cursor-name">grabbing</span>
+        <span class="cursor-code">cursor: grabbing</span>
+      </div>
+    </div>
+    <div>
+      <div class="cursor-box c-not-allowed">
+        <span class="cursor-name">not-allowed</span>
+        <span class="cursor-code">cursor: not-allowed</span>
+      </div>
+    </div>
+    <div>
+      <div class="cursor-box c-help">
+        <span class="cursor-name">help</span>
+        <span class="cursor-code">cursor: help</span>
+      </div>
+    </div>
+    <div>
+      <div class="cursor-box c-zoom-in">
+        <span class="cursor-name">zoom-in</span>
+        <span class="cursor-code">cursor: zoom-in</span>
+      </div>
+    </div>
+    <div>
+      <div class="cursor-box c-zoom-out">
+        <span class="cursor-name">zoom-out</span>
+        <span class="cursor-code">cursor: zoom-out</span>
+      </div>
+    </div>
+    <div>
+      <div class="cursor-box c-col-resize">
+        <span class="cursor-name">col-resize</span>
+        <span class="cursor-code">cursor: col-resize</span>
+      </div>
+    </div>
+    <div>
+      <div class="cursor-box c-row-resize">
+        <span class="cursor-name">row-resize</span>
+        <span class="cursor-code">cursor: row-resize</span>
+      </div>
+    </div>
+    <div>
+      <div class="cursor-box c-progress">
+        <span class="cursor-name">progress</span>
+        <span class="cursor-code">cursor: progress</span>
+      </div>
+    </div>
+    <div>
+      <div class="cursor-box c-cell">
+        <span class="cursor-name">cell</span>
+        <span class="cursor-code">cursor: cell</span>
+      </div>
+    </div>
+    <div>
+      <div class="cursor-box c-copy">
+        <span class="cursor-name">copy</span>
+        <span class="cursor-code">cursor: copy</span>
+      </div>
+    </div>
+    <div>
+      <div class="cursor-box c-alias">
+        <span class="cursor-name">alias</span>
+        <span class="cursor-code">cursor: alias</span>
+      </div>
+    </div>
+    <div>
+      <div class="cursor-box c-context-menu">
+        <span class="cursor-name">context-menu</span>
+        <span class="cursor-code">cursor: context-menu</span>
+      </div>
+    </div>
+    <div>
+      <div class="cursor-box c-ew-resize">
+        <span class="cursor-name">ew-resize</span>
+        <span class="cursor-code">cursor: ew-resize</span>
+      </div>
+    </div>
+    <div>
+      <div class="cursor-box c-ns-resize">
+        <span class="cursor-name">ns-resize</span>
+        <span class="cursor-code">cursor: ns-resize</span>
+      </div>
+    </div>
+    <div>
+      <div class="cursor-box c-nesw-resize">
+        <span class="cursor-name">nesw-resize</span>
+        <span class="cursor-code">cursor: nesw-resize</span>
+      </div>
+    </div>
+    <div>
+      <div class="cursor-box c-nwse-resize">
+        <span class="cursor-name">nwse-resize</span>
+        <span class="cursor-code">cursor: nwse-resize</span>
+      </div>
+    </div>
+    <div>
+      <div class="cursor-box c-none">
+        <span class="cursor-name">none</span>
+        <span class="cursor-code">cursor: none</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

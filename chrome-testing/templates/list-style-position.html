@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>list-style-position</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 28px; }
+    .demo-card { background: #16213e; border-radius: 12px; padding: 20px; width: 480px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; text-align: center; }
+    .list-box { background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 44px; }
+    ul { font-size: 14px; line-height: 1.8; color: #e0e0e0; }
+    li { background: rgba(233, 69, 96, 0.1); border: 1px solid rgba(233, 69, 96, 0.3); border-radius: 4px; margin-bottom: 6px; padding: 4px 8px; }
+    .note { font-size: 10px; color: #6b7280; text-align: center; margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <h1>List Style Position</h1>
+  <p class="prop-name">list-style-position</p>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="list-box">
+        <ul style="list-style-position: outside;">
+          <li>First item with outside positioning. The marker sits outside the content box of the list item.</li>
+          <li>Second item shows how text wraps under text, not under the marker.</li>
+          <li>Third item for reference.</li>
+        </ul>
+      </div>
+      <div class="label">list-style-position: outside</div>
+      <div class="note">Marker is outside the content box (default)</div>
+    </div>
+    <div class="demo-card">
+      <div class="list-box">
+        <ul style="list-style-position: inside;">
+          <li>First item with inside positioning. The marker is inside the content box of the list item element.</li>
+          <li>Second item shows how text wraps under the marker, part of the content flow.</li>
+          <li>Third item for reference.</li>
+        </ul>
+      </div>
+      <div class="label">list-style-position: inside</div>
+      <div class="note">Marker is inside the content box</div>
+    </div>
+  </div>
+</body>
+</html>

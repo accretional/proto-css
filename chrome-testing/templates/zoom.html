@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>zoom</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-start; }
+    .demo-card { background: #16213e; border-radius: 10px; padding: 18px; width: 160px; display: flex; flex-direction: column; align-items: center; }
+    .demo-card h3 { font-size: 12px; color: #a78bfa; margin-bottom: 14px; font-family: monospace; font-weight: 500; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
+    .zoom-container { width: 120px; height: 120px; background: #0f1a30; border: 1px solid #2a2a4a; border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+    .zoom-target { width: 50px; height: 50px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: #fff; font-weight: 600; }
+    .size-indicator { font-size: 9px; color: #6b7280; margin-top: 4px; font-family: monospace; }
+  </style>
+</head>
+<body>
+  <h1>Zoom</h1>
+  <p class="prop-name">zoom</p>
+  <div class="demos">
+
+    <div class="demo-card">
+      <h3>normal</h3>
+      <div class="zoom-container">
+        <div class="zoom-target" style="zoom: normal;">Aa</div>
+      </div>
+      <p class="size-indicator">1x scale</p>
+      <p class="label">zoom: normal</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>0.5</h3>
+      <div class="zoom-container">
+        <div class="zoom-target" style="zoom: 0.5;">Aa</div>
+      </div>
+      <p class="size-indicator">0.5x scale</p>
+      <p class="label">zoom: 0.5</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>50%</h3>
+      <div class="zoom-container">
+        <div class="zoom-target" style="zoom: 50%;">Aa</div>
+      </div>
+      <p class="size-indicator">50% scale</p>
+      <p class="label">zoom: 50%</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>1</h3>
+      <div class="zoom-container">
+        <div class="zoom-target" style="zoom: 1;">Aa</div>
+      </div>
+      <p class="size-indicator">1x scale</p>
+      <p class="label">zoom: 1</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>1.5</h3>
+      <div class="zoom-container">
+        <div class="zoom-target" style="zoom: 1.5;">Aa</div>
+      </div>
+      <p class="size-indicator">1.5x scale</p>
+      <p class="label">zoom: 1.5</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>2</h3>
+      <div class="zoom-container">
+        <div class="zoom-target" style="zoom: 2;">Aa</div>
+      </div>
+      <p class="size-indicator">2x scale</p>
+      <p class="label">zoom: 2</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>200%</h3>
+      <div class="zoom-container">
+        <div class="zoom-target" style="zoom: 200%;">Aa</div>
+      </div>
+      <p class="size-indicator">200% scale</p>
+      <p class="label">zoom: 200%</p>
+    </div>
+
+  </div>
+</body>
+</html>

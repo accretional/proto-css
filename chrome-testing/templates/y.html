@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>y</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; gap: 24px; }
+    .svg-container { background: #0f1a30; border: 1px solid #2a2a4a; border-radius: 10px; padding: 20px; flex: 1; }
+    .section-title { font-size: 14px; color: #a78bfa; margin-bottom: 12px; font-family: monospace; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Y (SVG Attribute)</h1>
+  <p class="prop-name">y</p>
+  <div class="demos">
+
+    <div class="svg-container">
+      <p class="section-title">SVG &lt;rect&gt; with different y values</p>
+      <svg width="500" height="500" viewBox="0 0 500 500">
+        <!-- Horizontal grid lines -->
+        <line x1="0" y1="0" x2="500" y2="0" stroke="#2a2a4a" stroke-width="1" stroke-dasharray="4"/>
+        <line x1="0" y1="50" x2="500" y2="50" stroke="#2a2a4a" stroke-width="1" stroke-dasharray="4"/>
+        <line x1="0" y1="100" x2="500" y2="100" stroke="#2a2a4a" stroke-width="1" stroke-dasharray="4"/>
+        <line x1="0" y1="150" x2="500" y2="150" stroke="#2a2a4a" stroke-width="1" stroke-dasharray="4"/>
+        <line x1="0" y1="200" x2="500" y2="200" stroke="#2a2a4a" stroke-width="1" stroke-dasharray="4"/>
+        <line x1="0" y1="250" x2="500" y2="250" stroke="#2a2a4a" stroke-width="1" stroke-dasharray="4"/>
+        <line x1="0" y1="300" x2="500" y2="300" stroke="#2a2a4a" stroke-width="1" stroke-dasharray="4"/>
+        <line x1="0" y1="350" x2="500" y2="350" stroke="#2a2a4a" stroke-width="1" stroke-dasharray="4"/>
+        <line x1="0" y1="400" x2="500" y2="400" stroke="#2a2a4a" stroke-width="1" stroke-dasharray="4"/>
+
+        <!-- Y-axis labels -->
+        <text x="480" y="12" fill="#4a4a6a" font-size="10" font-family="monospace">0</text>
+        <text x="475" y="62" fill="#4a4a6a" font-size="10" font-family="monospace">50</text>
+        <text x="470" y="112" fill="#4a4a6a" font-size="10" font-family="monospace">100</text>
+        <text x="470" y="162" fill="#4a4a6a" font-size="10" font-family="monospace">150</text>
+        <text x="470" y="212" fill="#4a4a6a" font-size="10" font-family="monospace">200</text>
+        <text x="470" y="262" fill="#4a4a6a" font-size="10" font-family="monospace">250</text>
+        <text x="470" y="312" fill="#4a4a6a" font-size="10" font-family="monospace">300</text>
+        <text x="470" y="362" fill="#4a4a6a" font-size="10" font-family="monospace">350</text>
+        <text x="470" y="412" fill="#4a4a6a" font-size="10" font-family="monospace">400</text>
+
+        <!-- Rects at different y positions -->
+        <rect x="10" y="0" width="120" height="30" rx="4" fill="#e94560"/>
+        <text x="18" y="20" fill="#fff" font-size="12" font-family="monospace">y="0"</text>
+
+        <rect x="150" y="20" width="120" height="30" rx="4" fill="#533483"/>
+        <text x="158" y="40" fill="#fff" font-size="12" font-family="monospace">y="20"</text>
+
+        <rect x="10" y="50" width="120" height="30" rx="4" fill="#0f3460"/>
+        <text x="18" y="70" fill="#fff" font-size="12" font-family="monospace">y="50"</text>
+
+        <rect x="150" y="80" width="120" height="30" rx="4" fill="#c23152"/>
+        <text x="158" y="100" fill="#fff" font-size="12" font-family="monospace">y="80"</text>
+
+        <rect x="10" y="120" width="120" height="30" rx="4" fill="#16a085"/>
+        <text x="18" y="140" fill="#fff" font-size="12" font-family="monospace">y="120"</text>
+      </svg>
+    </div>
+
+    <div class="svg-container">
+      <p class="section-title">SVG &lt;text&gt; with different y values</p>
+      <svg width="500" height="500" viewBox="0 0 500 500">
+        <!-- Horizontal grid lines -->
+        <line x1="0" y1="0" x2="500" y2="0" stroke="#2a2a4a" stroke-width="1" stroke-dasharray="4"/>
+        <line x1="0" y1="50" x2="500" y2="50" stroke="#2a2a4a" stroke-width="1" stroke-dasharray="4"/>
+        <line x1="0" y1="100" x2="500" y2="100" stroke="#2a2a4a" stroke-width="1" stroke-dasharray="4"/>
+        <line x1="0" y1="150" x2="500" y2="150" stroke="#2a2a4a" stroke-width="1" stroke-dasharray="4"/>
+        <line x1="0" y1="200" x2="500" y2="200" stroke="#2a2a4a" stroke-width="1" stroke-dasharray="4"/>
+        <line x1="0" y1="250" x2="500" y2="250" stroke="#2a2a4a" stroke-width="1" stroke-dasharray="4"/>
+
+        <!-- Indicator lines for each text y position -->
+        <line x1="0" y1="0" x2="30" y2="0" stroke="#e94560" stroke-width="2"/>
+        <line x1="0" y1="20" x2="30" y2="20" stroke="#533483" stroke-width="2"/>
+        <line x1="0" y1="50" x2="30" y2="50" stroke="#0f3460" stroke-width="2"/>
+        <line x1="0" y1="80" x2="30" y2="80" stroke="#c23152" stroke-width="2"/>
+        <line x1="0" y1="120" x2="30" y2="120" stroke="#16a085" stroke-width="2"/>
+
+        <text x="40" y="0" fill="#e94560" font-size="15" font-family="monospace" dominant-baseline="auto">y="0" - Text baseline at top</text>
+        <text x="40" y="20" fill="#533483" font-size="15" font-family="monospace" dominant-baseline="auto">y="20" - Moved down 20px</text>
+        <text x="40" y="50" fill="#0f3460" font-size="15" font-family="monospace" dominant-baseline="auto">y="50" - Moved down 50px</text>
+        <text x="40" y="80" fill="#c23152" font-size="15" font-family="monospace" dominant-baseline="auto">y="80" - Moved down 80px</text>
+        <text x="40" y="120" fill="#16a085" font-size="15" font-family="monospace" dominant-baseline="auto">y="120" - Moved down 120px</text>
+      </svg>
+    </div>
+
+  </div>
+</body>
+</html>

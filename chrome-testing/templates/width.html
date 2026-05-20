@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>width</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-direction: column; gap: 14px; }
+    .demo-row { display: flex; align-items: center; gap: 16px; }
+    .label { font-size: 12px; font-family: monospace; color: #9ca3af; width: 200px; text-align: right; flex-shrink: 0; }
+    .box-container { flex: 1; }
+    .box { height: 48px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; font-weight: 500; white-space: nowrap; overflow: hidden; }
+    .ruler { position: relative; height: 20px; margin-top: 4px; margin-bottom: 16px; }
+    .ruler-line { position: absolute; top: 0; left: 0; right: 0; height: 1px; background: #3a3a5c; }
+    .content-text { display: inline; }
+  </style>
+</head>
+<body>
+  <h1>Width</h1>
+  <p class="prop-name">width</p>
+  <div class="demos">
+
+    <div class="demo-row">
+      <span class="label">width: auto</span>
+      <div class="box-container">
+        <div class="box" style="width: auto;">auto (fills available space)</div>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <span class="label">width: 50px</span>
+      <div class="box-container">
+        <div class="box" style="width: 50px;">50</div>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <span class="label">width: 100px</span>
+      <div class="box-container">
+        <div class="box" style="width: 100px;">100px</div>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <span class="label">width: 200px</span>
+      <div class="box-container">
+        <div class="box" style="width: 200px;">200px</div>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <span class="label">width: 50%</span>
+      <div class="box-container">
+        <div class="box" style="width: 50%;">50% of parent</div>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <span class="label">width: max-content</span>
+      <div class="box-container">
+        <div class="box" style="width: max-content;">max-content: fits the longest line without wrapping</div>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <span class="label">width: min-content</span>
+      <div class="box-container">
+        <div class="box" style="width: min-content; white-space: nowrap; height: auto; min-height: 48px;">min-content</div>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <span class="label">width: fit-content</span>
+      <div class="box-container">
+        <div class="box" style="width: fit-content;">fit-content: shrinks to content</div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

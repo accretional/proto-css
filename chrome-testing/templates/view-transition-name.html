@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>view-transition-name</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-card { background: #16213e; border-radius: 12px; padding: 24px; width: 560px; }
+    .demo-title { font-size: 15px; font-weight: 600; color: #e0e0e0; margin-bottom: 6px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 14px; }
+    .desc { font-size: 12px; color: #6b7280; margin-bottom: 16px; line-height: 1.5; }
+    .badge { display: inline-block; font-size: 10px; font-family: monospace; padding: 3px 8px; border-radius: 10px; background: rgba(243,156,18,0.15); color: #f39c12; margin-bottom: 10px; }
+    .code-block { background: #0d1117; border-radius: 8px; padding: 14px 18px; font-family: monospace; font-size: 11px; line-height: 1.7; }
+    .keyword { color: #ff7b72; }
+    .value { color: #79c0ff; }
+    .comment { color: #6b7280; }
+    .selector { color: #7ee787; }
+    .transition-visual { display: flex; align-items: center; gap: 16px; margin-top: 16px; }
+    .page { background: #0d1117; border-radius: 8px; padding: 16px; width: 200px; height: 140px; border: 1px solid #2a3a5c; position: relative; }
+    .page-label { font-size: 10px; font-family: monospace; color: #6b7280; margin-bottom: 8px; }
+    .page-element { border-radius: 6px; padding: 8px; font-size: 10px; font-family: monospace; color: #fff; text-align: center; }
+    .transition-arrow { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .arrow-icon { font-size: 24px; color: #4a5568; }
+    .arrow-text { font-size: 9px; font-family: monospace; color: #6b7280; }
+    .match-line { position: absolute; }
+    .no-transition { opacity: 0.4; border-style: dashed !important; }
+  </style>
+</head>
+<body>
+  <h1>View Transition Name</h1>
+  <p class="prop-name">view-transition-name (experimental)</p>
+  <div class="demos">
+
+    <div class="demo-card">
+      <div class="demo-title">none (default)</div>
+      <div class="badge">default</div>
+      <div class="desc">The element does not participate in view transitions. It will not be individually animated during page transitions; instead it cross-fades with the rest of the page.</div>
+      <div class="code-block">
+        <span class="selector">.element</span> {<br>
+        &nbsp;&nbsp;<span class="keyword">view-transition-name:</span> <span class="value">none</span>;<br>
+        &nbsp;&nbsp;<span class="comment">/* Element transitions with full page cross-fade */</span><br>
+        }
+      </div>
+      <div class="transition-visual">
+        <div class="page">
+          <div class="page-label">Page A</div>
+          <div class="page-element no-transition" style="background: #4a5568; border: 1px dashed #6b7280;">No VT name</div>
+          <div class="page-element" style="background: rgba(100,100,100,0.2); margin-top: 8px; border: 1px dashed #4a5568; color: #6b7280;">other content</div>
+        </div>
+        <div class="transition-arrow">
+          <div class="arrow-icon">&#10132;</div>
+          <div class="arrow-text">full page<br>cross-fade</div>
+        </div>
+        <div class="page">
+          <div class="page-label">Page B</div>
+          <div class="page-element no-transition" style="background: #4a5568; border: 1px dashed #6b7280;">No VT name</div>
+          <div class="page-element" style="background: rgba(100,100,100,0.2); margin-top: 8px; border: 1px dashed #4a5568; color: #6b7280;">other content</div>
+        </div>
+      </div>
+      <div class="label">view-transition-name: none</div>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-title">Custom Name</div>
+      <div class="badge">Experimental</div>
+      <div class="desc">Assigns a unique name enabling the element to animate independently during view transitions. Elements with matching names on different pages morph into each other.</div>
+      <div class="code-block">
+        <span class="selector">.hero-image</span> {<br>
+        &nbsp;&nbsp;<span class="keyword">view-transition-name:</span> <span class="value">hero</span>;<br>
+        &nbsp;&nbsp;<span class="comment">/* Element transitions independently */</span><br>
+        }<br><br>
+        <span class="comment">/* Style the transition pseudo-elements */</span><br>
+        <span class="selector">::view-transition-old(hero)</span> { <span class="keyword">animation:</span> <span class="value">fadeOut 0.3s</span>; }<br>
+        <span class="selector">::view-transition-new(hero)</span> { <span class="keyword">animation:</span> <span class="value">fadeIn 0.3s</span>; }
+      </div>
+      <div class="transition-visual">
+        <div class="page">
+          <div class="page-label">Page A</div>
+          <div class="page-element" style="background: #e94560; border: 2px solid #ff6b6b;">hero</div>
+          <div class="page-element" style="background: rgba(100,100,100,0.2); margin-top: 8px; border: 1px dashed #4a5568; color: #6b7280;">other</div>
+        </div>
+        <div class="transition-arrow">
+          <svg width="60" height="60" viewBox="0 0 60 60">
+            <defs>
+              <marker id="mah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+                <polygon points="0 0,8 3,0 6" fill="#e94560"/>
+              </marker>
+            </defs>
+            <path d="M5,20 C30,20 30,40 55,40" stroke="#e94560" stroke-width="2" fill="none" marker-end="url(#mah)" stroke-dasharray="4"/>
+            <text x="30" y="14" fill="#e94560" font-size="8" font-family="monospace" text-anchor="middle">morph</text>
+          </svg>
+        </div>
+        <div class="page">
+          <div class="page-label">Page B</div>
+          <div class="page-element" style="background: rgba(100,100,100,0.2); border: 1px dashed #4a5568; color: #6b7280;">other</div>
+          <div class="page-element" style="background: #e94560; margin-top: 8px; border: 2px solid #ff6b6b;">hero</div>
+        </div>
+      </div>
+      <div class="label">view-transition-name: hero</div>
+    </div>
+
+  </div>
+</body>
+</html>

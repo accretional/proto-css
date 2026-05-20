@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>writing-mode</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 18px; }
+    .demo-card { background: #16213e; border-radius: 10px; padding: 18px; width: 220px; }
+    .demo-card h3 { font-size: 12px; color: #a78bfa; margin-bottom: 12px; font-family: monospace; font-weight: 500; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
+    .text-box { background: #0f1a30; border: 1px solid #2a2a4a; border-radius: 6px; padding: 14px; font-size: 14px; line-height: 1.6; color: #d1d5db; height: 200px; overflow: hidden; display: flex; align-items: flex-start; }
+    .arrow { color: #e94560; font-size: 18px; margin-top: 4px; display: block; }
+  </style>
+</head>
+<body>
+  <h1>Writing Mode</h1>
+  <p class="prop-name">writing-mode</p>
+  <div class="demos">
+
+    <div class="demo-card">
+      <h3>horizontal-tb</h3>
+      <div class="text-box">
+        <span style="writing-mode: horizontal-tb;">Hello World! Text flows left to right, top to bottom. This is the default for Latin scripts.</span>
+      </div>
+      <span class="arrow">&#8594; &#8595;</span>
+      <p class="label">writing-mode: horizontal-tb</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>vertical-rl</h3>
+      <div class="text-box">
+        <span style="writing-mode: vertical-rl;">Hello World! Text flows top to bottom, columns go right to left. Used in traditional CJK.</span>
+      </div>
+      <span class="arrow">&#8595; &#8592;</span>
+      <p class="label">writing-mode: vertical-rl</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>vertical-lr</h3>
+      <div class="text-box">
+        <span style="writing-mode: vertical-lr;">Hello World! Text flows top to bottom, columns go left to right. Used in Mongolian script.</span>
+      </div>
+      <span class="arrow">&#8595; &#8594;</span>
+      <p class="label">writing-mode: vertical-lr</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>sideways-rl</h3>
+      <div class="text-box">
+        <span style="writing-mode: sideways-rl;">Hello World! Text is rotated sideways. Columns flow right to left like vertical-rl.</span>
+      </div>
+      <span class="arrow">&#8595; &#8592;</span>
+      <p class="label">writing-mode: sideways-rl</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>sideways-lr</h3>
+      <div class="text-box">
+        <span style="writing-mode: sideways-lr;">Hello World! Text is rotated sideways. Columns flow left to right like vertical-lr.</span>
+      </div>
+      <span class="arrow">&#8593; &#8594;</span>
+      <p class="label">writing-mode: sideways-lr</p>
+    </div>
+
+  </div>
+</body>
+</html>

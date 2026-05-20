@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>transform</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demo-card {
+      background: #16213e; border-radius: 10px; padding: 20px;
+      width: 190px; display: flex; flex-direction: column; align-items: center;
+    }
+    .transform-area {
+      width: 130px; height: 130px; display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .ghost {
+      width: 70px; height: 70px; border: 2px dashed #394867; border-radius: 8px;
+      position: absolute;
+    }
+    .box {
+      width: 70px; height: 70px; background: linear-gradient(135deg, #e94560, #0f3460);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      font-size: 20px; font-weight: 700; color: #fff;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
+    .t1 { transform: translate(20px, 10px); }
+    .t2 { transform: rotate(45deg); }
+    .t3 { transform: scale(1.4); }
+    .t4 { transform: skew(20deg, 5deg); }
+    .t5 { transform: perspective(200px) rotateY(30deg); }
+    .t6 { transform: rotate(30deg) scale(0.8) translate(10px, -5px); }
+  </style>
+</head>
+<body>
+  <h1>Transform</h1>
+  <p class="prop-name">transform</p>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="transform-area">
+        <div class="ghost"></div>
+        <div class="box t1">T</div>
+      </div>
+      <span class="label">transform:<br>translate(20px, 10px)</span>
+    </div>
+    <div class="demo-card">
+      <div class="transform-area">
+        <div class="ghost"></div>
+        <div class="box t2">R</div>
+      </div>
+      <span class="label">transform:<br>rotate(45deg)</span>
+    </div>
+    <div class="demo-card">
+      <div class="transform-area">
+        <div class="ghost"></div>
+        <div class="box t3">S</div>
+      </div>
+      <span class="label">transform:<br>scale(1.4)</span>
+    </div>
+    <div class="demo-card">
+      <div class="transform-area">
+        <div class="ghost"></div>
+        <div class="box t4">K</div>
+      </div>
+      <span class="label">transform:<br>skew(20deg, 5deg)</span>
+    </div>
+    <div class="demo-card">
+      <div class="transform-area">
+        <div class="ghost"></div>
+        <div class="box t5">P</div>
+      </div>
+      <span class="label">transform: perspective(200px)<br>rotateY(30deg)</span>
+    </div>
+    <div class="demo-card">
+      <div class="transform-area">
+        <div class="ghost"></div>
+        <div class="box t6">M</div>
+      </div>
+      <span class="label">transform: rotate(30deg)<br>scale(0.8) translate(10px)</span>
+    </div>
+  </div>
+</body>
+</html>

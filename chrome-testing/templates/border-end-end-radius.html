@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>border-end-end-radius</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .box {
+      width: 120px;
+      height: 120px;
+      background: #16213e;
+      border: 3px solid #e94560;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: #ccc;
+      font-family: monospace;
+      position: relative;
+    }
+    .corner-highlight {
+      position: absolute;
+      bottom: -3px;
+      right: -3px;
+      width: 24px;
+      height: 24px;
+      border-bottom: 3px solid #53d8fb;
+      border-right: 3px solid #53d8fb;
+      pointer-events: none;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>Border End End Radius</h1>
+  <p class="prop-name">border-end-end-radius</p>
+  <div class="demos">
+    <div class="demo-item">
+      <div class="box" style="border-end-end-radius: 0;">0</div>
+      <div class="label">border-end-end-radius: 0</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border-end-end-radius: 8px;">8px</div>
+      <div class="label">border-end-end-radius: 8px</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border-end-end-radius: 20px;">20px</div>
+      <div class="label">border-end-end-radius: 20px</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border-end-end-radius: 40px;">40px</div>
+      <div class="label">border-end-end-radius: 40px</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border-end-end-radius: 60px;">60px</div>
+      <div class="label">border-end-end-radius: 60px</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border-end-end-radius: 50%;">50%</div>
+      <div class="label">border-end-end-radius: 50%</div>
+    </div>
+  </div>
+</body>
+</html>

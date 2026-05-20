@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>content-visibility</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 28px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+
+    .demo-card {
+      width: 340px;
+    }
+    .outer-box {
+      background: #16213e;
+      border-radius: 10px;
+      padding: 20px;
+      min-height: 200px;
+      border: 2px solid #0f3460;
+      position: relative;
+    }
+    .outer-label {
+      font-size: 11px;
+      color: #7b8794;
+      font-family: monospace;
+      margin-bottom: 12px;
+    }
+    .inner-content {
+      background: #0f3460;
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .inner-content h3 {
+      font-size: 15px;
+      color: #e94560;
+      margin-bottom: 8px;
+    }
+    .inner-content p {
+      font-size: 13px;
+      color: #c0c0c0;
+      line-height: 1.5;
+    }
+    .inner-content .swatch-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .inner-content .swatch {
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+    }
+
+    .cv-visible {
+      content-visibility: visible;
+    }
+    .cv-hidden {
+      content-visibility: hidden;
+    }
+    .cv-auto {
+      content-visibility: auto;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-family: monospace;
+      margin-top: 10px;
+    }
+    .visible-badge { background: #00d26a33; color: #00d26a; }
+    .hidden-badge { background: #e9456033; color: #e94560; }
+    .auto-badge { background: #00d2ff33; color: #00d2ff; }
+  </style>
+</head>
+<body>
+  <h1>Content Visibility</h1>
+  <p class="prop-name">content-visibility</p>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="outer-box">
+        <div class="outer-label">Container</div>
+        <div class="inner-content cv-visible">
+          <h3>Card Title</h3>
+          <p>This content is fully visible and rendered normally.</p>
+          <div class="swatch-row">
+            <div class="swatch" style="background: #e94560;"></div>
+            <div class="swatch" style="background: #00d2ff;"></div>
+            <div class="swatch" style="background: #00d26a;"></div>
+          </div>
+        </div>
+        <span class="status-badge visible-badge">Rendered</span>
+      </div>
+      <p class="label">content-visibility: visible</p>
+    </div>
+
+    <div class="demo-card">
+      <div class="outer-box">
+        <div class="outer-label">Container</div>
+        <div class="inner-content cv-hidden">
+          <h3>Card Title</h3>
+          <p>This content is hidden and skips rendering.</p>
+          <div class="swatch-row">
+            <div class="swatch" style="background: #e94560;"></div>
+            <div class="swatch" style="background: #00d2ff;"></div>
+            <div class="swatch" style="background: #00d26a;"></div>
+          </div>
+        </div>
+        <span class="status-badge hidden-badge">Hidden (not rendered)</span>
+      </div>
+      <p class="label">content-visibility: hidden</p>
+    </div>
+
+    <div class="demo-card">
+      <div class="outer-box">
+        <div class="outer-label">Container</div>
+        <div class="inner-content cv-auto">
+          <h3>Card Title</h3>
+          <p>This content uses auto: rendered when on-screen, skipped off-screen.</p>
+          <div class="swatch-row">
+            <div class="swatch" style="background: #e94560;"></div>
+            <div class="swatch" style="background: #00d2ff;"></div>
+            <div class="swatch" style="background: #00d26a;"></div>
+          </div>
+        </div>
+        <span class="status-badge auto-badge">Auto (on-screen = rendered)</span>
+      </div>
+      <p class="label">content-visibility: auto</p>
+    </div>
+  </div>
+</body>
+</html>

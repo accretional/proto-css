@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>scroll-behavior</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; gap: 40px; }
+    .demo-card { flex: 1; }
+    .scroll-container {
+      width: 100%;
+      height: 280px;
+      overflow-y: auto;
+      border: 2px solid #333;
+      border-radius: 10px;
+      background: #16213e;
+      position: relative;
+    }
+    .scroll-container.auto { scroll-behavior: auto; }
+    .scroll-container.smooth { scroll-behavior: smooth; }
+    .scroll-item {
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 600;
+      border-bottom: 1px solid #2a2a4a;
+    }
+    .scroll-item:nth-child(odd) { background: #1a1a3e; }
+    .scroll-item:nth-child(even) { background: #22224a; }
+    .scroll-item:nth-child(1) { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
+    .scroll-item:nth-child(4) { background: linear-gradient(135deg, #ec4899, #f43f5e); }
+    .scroll-item:nth-child(6) { background: linear-gradient(135deg, #14b8a6, #06b6d4); }
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      display: inline-block;
+      padding: 5px 12px;
+      background: #2d2d5e;
+      border-radius: 6px;
+      color: #a5b4fc;
+      text-decoration: none;
+      font-size: 12px;
+      font-family: monospace;
+    }
+    .nav-links a:hover { background: #3d3d7e; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; margin-bottom: 8px; }
+    .hint { font-size: 11px; color: #6b7280; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Scroll Behavior</h1>
+  <p class="prop-name">scroll-behavior</p>
+  <div class="demos">
+    <div class="demo-card">
+      <p class="label">scroll-behavior: auto</p>
+      <div class="scroll-container auto" id="container-auto">
+        <div class="scroll-item" id="a1">Section 1</div>
+        <div class="scroll-item" id="a2">Section 2</div>
+        <div class="scroll-item" id="a3">Section 3</div>
+        <div class="scroll-item" id="a4">Section 4</div>
+        <div class="scroll-item" id="a5">Section 5</div>
+        <div class="scroll-item" id="a6">Section 6</div>
+      </div>
+      <div class="nav-links">
+        <a href="#a1" onclick="event.preventDefault();document.getElementById('a1').scrollIntoView();">Go to 1</a>
+        <a href="#a4" onclick="event.preventDefault();document.getElementById('a4').scrollIntoView();">Go to 4</a>
+        <a href="#a6" onclick="event.preventDefault();document.getElementById('a6').scrollIntoView();">Go to 6</a>
+      </div>
+      <p class="hint">Jumps instantly to target</p>
+    </div>
+    <div class="demo-card">
+      <p class="label">scroll-behavior: smooth</p>
+      <div class="scroll-container smooth" id="container-smooth">
+        <div class="scroll-item" id="s1">Section 1</div>
+        <div class="scroll-item" id="s2">Section 2</div>
+        <div class="scroll-item" id="s3">Section 3</div>
+        <div class="scroll-item" id="s4">Section 4</div>
+        <div class="scroll-item" id="s5">Section 5</div>
+        <div class="scroll-item" id="s6">Section 6</div>
+      </div>
+      <div class="nav-links">
+        <a href="#s1" onclick="event.preventDefault();document.getElementById('s1').scrollIntoView();">Go to 1</a>
+        <a href="#s4" onclick="event.preventDefault();document.getElementById('s4').scrollIntoView();">Go to 4</a>
+        <a href="#s6" onclick="event.preventDefault();document.getElementById('s6').scrollIntoView();">Go to 6</a>
+      </div>
+      <p class="hint">Animates smoothly to target</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>overflow-inline</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 8px; }
+    .description { font-size: 12px; color: #7b8794; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demo-box { background: #16213e; border-radius: 10px; padding: 20px; width: 280px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 10px; }
+    .container {
+      width: 240px; height: 80px; background: #0f3460; border-radius: 6px;
+      border: 2px solid #3a3a5c; padding: 12px;
+      white-space: nowrap;
+    }
+    .content {
+      font-size: 12px; color: #c0c0d0;
+    }
+    .wide-text { color: #e94560; font-weight: bold; }
+    .d1 .container { overflow-inline: visible; }
+    .d2 .container { overflow-inline: hidden; }
+    .d3 .container { overflow-inline: scroll; }
+    .d4 .container { overflow-inline: auto; }
+    .direction-indicator {
+      display: flex; align-items: center; gap: 6px; margin-top: 8px;
+      font-size: 10px; color: #5a5a7a;
+    }
+    .arrow-right { color: #0077ff; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <h1>Overflow Inline</h1>
+  <p class="prop-name">overflow-inline</p>
+  <p class="description">Controls overflow in the inline direction (horizontal in horizontal writing modes).</p>
+  <div class="demos">
+    <div class="demo-box d1">
+      <div class="label">overflow-inline: visible</div>
+      <div class="container">
+        <div class="content">
+          Short text then <span class="wide-text">a very long unbroken string that extends well beyond the container edge visibly</span>
+        </div>
+      </div>
+      <div class="direction-indicator"><span class="arrow-right">&#8594;</span> Inline overflow visible</div>
+    </div>
+    <div class="demo-box d2">
+      <div class="label">overflow-inline: hidden</div>
+      <div class="container">
+        <div class="content">
+          Short text then <span class="wide-text">a very long unbroken string that extends well beyond the container edge but is hidden</span>
+        </div>
+      </div>
+      <div class="direction-indicator"><span class="arrow-right">&#8594;</span> Inline overflow hidden</div>
+    </div>
+    <div class="demo-box d3">
+      <div class="label">overflow-inline: scroll</div>
+      <div class="container">
+        <div class="content">
+          Short text then <span class="wide-text">a very long unbroken string that extends well beyond and is scrollable horizontally</span>
+        </div>
+      </div>
+      <div class="direction-indicator"><span class="arrow-right">&#8594;</span> Inline overflow scrollable</div>
+    </div>
+    <div class="demo-box d4">
+      <div class="label">overflow-inline: auto</div>
+      <div class="container">
+        <div class="content">
+          Short text then <span class="wide-text">a very long unbroken string that extends well beyond with auto scrollbar when needed</span>
+        </div>
+      </div>
+      <div class="direction-indicator"><span class="arrow-right">&#8594;</span> Inline overflow auto</div>
+    </div>
+  </div>
+</body>
+</html>

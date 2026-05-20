@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>fill</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-box { background: #16213e; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; align-items: center; min-width: 200px; flex: 1; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>SVG Fill Color</h1>
+  <p class="prop-name">fill</p>
+  <div class="demos">
+
+    <div class="demo-box">
+      <svg width="140" height="140" viewBox="0 0 140 140">
+        <circle cx="70" cy="70" r="55" fill="red" />
+      </svg>
+      <div class="label">fill: red</div>
+    </div>
+
+    <div class="demo-box">
+      <svg width="140" height="140" viewBox="0 0 140 140">
+        <rect x="15" y="15" width="110" height="110" rx="12" fill="blue" />
+      </svg>
+      <div class="label">fill: blue</div>
+    </div>
+
+    <div class="demo-box">
+      <svg width="140" height="140" viewBox="0 0 140 140">
+        <polygon points="70,15 120,55 100,115 40,115 20,55" fill="none" stroke="#e0e0e0" stroke-width="3" />
+      </svg>
+      <div class="label">fill: none</div>
+    </div>
+
+    <div class="demo-box">
+      <svg width="140" height="140" viewBox="0 0 140 140">
+        <defs>
+          <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#e94560;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#533483;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <ellipse cx="70" cy="70" rx="60" ry="45" fill="url(#grad1)" />
+      </svg>
+      <div class="label">fill: url(#gradient)</div>
+    </div>
+
+    <div class="demo-box" style="color: #e94560;">
+      <svg width="140" height="140" viewBox="0 0 140 140">
+        <path d="M70,10 L90,55 L135,55 L98,82 L112,125 L70,100 L28,125 L42,82 L5,55 L50,55 Z" fill="currentColor" />
+      </svg>
+      <div class="label">fill: currentColor<br><span style="color: #6b7280;">(inherits color: #e94560)</span></div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>perspective-origin</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 28px; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 270px;
+    }
+    .scene {
+      width: 200px;
+      height: 160px;
+      perspective: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      border: 1px dashed rgba(255,255,255,0.15);
+      border-radius: 6px;
+    }
+    .box {
+      width: 90px;
+      height: 90px;
+      background: linear-gradient(135deg, #e94560, #0f3460);
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 8px;
+      transform: rotateY(45deg) rotateX(15deg);
+      position: absolute;
+    }
+    .origin-dot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: #00d2ff;
+      border-radius: 50%;
+      z-index: 2;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>Perspective Origin</h1>
+  <p class="prop-name">perspective-origin</p>
+  <div class="demos">
+
+    <div class="demo-card">
+      <div class="scene" style="perspective-origin: center;">
+        <div class="origin-dot" style="top:50%; left:50%; transform:translate(-50%,-50%);"></div>
+        <div class="box"></div>
+      </div>
+      <div class="label">perspective-origin: center<br><span style="color:#6b7280; font-size:10px;">vanishing point at center</span></div>
+    </div>
+
+    <div class="demo-card">
+      <div class="scene" style="perspective-origin: top left;">
+        <div class="origin-dot" style="top:0; left:0; transform:translate(-50%,-50%);"></div>
+        <div class="box"></div>
+      </div>
+      <div class="label">perspective-origin: top left<br><span style="color:#6b7280; font-size:10px;">vanishing point at top-left</span></div>
+    </div>
+
+    <div class="demo-card">
+      <div class="scene" style="perspective-origin: bottom right;">
+        <div class="origin-dot" style="bottom:0; right:0; transform:translate(50%,50%);"></div>
+        <div class="box"></div>
+      </div>
+      <div class="label">perspective-origin: bottom right<br><span style="color:#6b7280; font-size:10px;">vanishing point at bottom-right</span></div>
+    </div>
+
+    <div class="demo-card">
+      <div class="scene" style="perspective-origin: 25% 75%;">
+        <div class="origin-dot" style="top:75%; left:25%; transform:translate(-50%,-50%);"></div>
+        <div class="box"></div>
+      </div>
+      <div class="label">perspective-origin: 25% 75%<br><span style="color:#6b7280; font-size:10px;">vanishing point offset</span></div>
+    </div>
+
+  </div>
+</body>
+</html>

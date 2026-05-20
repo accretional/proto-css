@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>position-visibility</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 370px;
+    }
+    .demo-area {
+      width: 310px;
+      height: 200px;
+      position: relative;
+      border: 2px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      background: rgba(0,0,0,0.2);
+      overflow: hidden;
+    }
+    .viewport-label {
+      position: absolute;
+      top: 4px;
+      right: 8px;
+      font-size: 8px;
+      color: #555;
+      font-family: monospace;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .anchor-el {
+      position: absolute;
+      padding: 6px 14px;
+      background: linear-gradient(135deg, #0f3460, #1a5276);
+      border: 2px solid #3498db;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #7ec8e3;
+    }
+    .popup {
+      position: absolute;
+      padding: 6px 14px;
+      background: linear-gradient(135deg, #e94560, #c23066);
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #fff;
+      white-space: nowrap;
+    }
+    .popup-hidden {
+      position: absolute;
+      padding: 6px 14px;
+      background: rgba(233,69,96,0.15);
+      border: 2px dashed rgba(233,69,96,0.4);
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(233,69,96,0.5);
+      white-space: nowrap;
+    }
+    .status-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+    .visible { background: rgba(34,197,94,0.2); color: #22c55e; }
+    .hidden { background: rgba(239,68,68,0.2); color: #ef4444; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <h1>Position Visibility</h1>
+  <p class="prop-name">position-visibility</p>
+  <p style="font-size: 12px; color: #6b7280; margin-bottom: 20px; max-width: 800px; line-height: 1.5;">
+    Controls when an anchor-positioned element is visible, depending on anchor visibility or overflow.
+  </p>
+  <div class="demos">
+
+    <div class="demo-card">
+      <div class="demo-area">
+        <div class="viewport-label">viewport</div>
+        <div class="anchor-el" style="top: 70px; left: 100px;">Anchor</div>
+        <div class="popup" style="top: 38px; left: 95px;">Tooltip</div>
+      </div>
+      <span class="status-badge visible">always visible</span>
+      <div class="label">position-visibility: always<br><span style="color:#6b7280; font-size:10px;">always shown regardless of position</span></div>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-area">
+        <div class="viewport-label">viewport</div>
+        <div class="anchor-el" style="top: 70px; left: 100px;">Anchor</div>
+        <div class="popup" style="top: 38px; left: 95px;">Tooltip</div>
+      </div>
+      <span class="status-badge visible">visible</span>
+      <div class="label">position-visibility: anchors-visible<br><span style="color:#6b7280; font-size:10px;">shown only when anchor is visible</span></div>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-area" style="overflow: hidden;">
+        <div class="viewport-label">viewport (overflow: hidden)</div>
+        <div class="anchor-el" style="bottom: -10px; left: 100px;">Anchor</div>
+        <div class="popup-hidden" style="bottom: -42px; left: 95px;">Hidden</div>
+      </div>
+      <span class="status-badge hidden">hidden</span>
+      <div class="label">position-visibility: anchors-visible<br><span style="color:#6b7280; font-size:10px;">hidden because anchor scrolled away</span></div>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-area">
+        <div class="viewport-label">viewport</div>
+        <div class="anchor-el" style="top: 70px; left: 100px;">Anchor</div>
+        <div class="popup" style="top: 38px; left: 95px;">Tooltip</div>
+      </div>
+      <span class="status-badge visible">visible</span>
+      <div class="label">position-visibility: no-overflow<br><span style="color:#6b7280; font-size:10px;">shown only when not overflowing</span></div>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-area" style="overflow: hidden;">
+        <div class="viewport-label">viewport</div>
+        <div class="anchor-el" style="top: 10px; left: 100px;">Anchor</div>
+        <div class="popup-hidden" style="top: -25px; left: 95px;">Overflow!</div>
+      </div>
+      <span class="status-badge hidden">hidden</span>
+      <div class="label">position-visibility: no-overflow<br><span style="color:#6b7280; font-size:10px;">hidden because tooltip overflows</span></div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>mask-border-outset</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-card { background: #16213e; border-radius: 10px; padding: 24px; width: 280px; }
+    .demo-card h3 { font-size: 13px; color: #e2e8f0; margin-bottom: 16px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
+    .wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 160px;
+      position: relative;
+    }
+    .border-ref {
+      border: 2px dashed #4a5568;
+      position: absolute;
+      width: 160px;
+      height: 100px;
+      border-radius: 4px;
+    }
+    .box {
+      background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 12px;
+      font-family: monospace;
+      border-radius: 4px;
+    }
+    .outset-0 { width: 160px; height: 100px; }
+    .outset-10 { width: 180px; height: 120px; }
+    .outset-20 { width: 200px; height: 140px; }
+    .outset-1x { width: 190px; height: 130px; }
+
+    .guide-text {
+      font-size: 10px;
+      color: #e94560;
+      position: absolute;
+    }
+    .outset-label-top { top: 4px; left: 50%; transform: translateX(-50%); }
+    .outset-label-right { right: 4px; top: 50%; transform: translateY(-50%); }
+  </style>
+</head>
+<body>
+  <h1>Mask Border Outset</h1>
+  <p class="prop-name">mask-border-outset</p>
+  <div class="demos">
+
+    <div class="demo-card">
+      <h3>outset: 0</h3>
+      <div class="wrapper">
+        <div class="border-ref"></div>
+        <div class="box outset-0">0</div>
+      </div>
+      <p class="label">mask-border-outset: 0</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>outset: 10px</h3>
+      <div class="wrapper">
+        <div class="border-ref"></div>
+        <div class="box outset-10">
+          <svg width="180" height="120" viewBox="0 0 180 120" style="position:absolute;">
+            <line x1="10" y1="0" x2="10" y2="10" stroke="#e94560" stroke-width="1" stroke-dasharray="2"/>
+            <line x1="170" y1="0" x2="170" y2="10" stroke="#e94560" stroke-width="1" stroke-dasharray="2"/>
+            <line x1="0" y1="10" x2="10" y2="10" stroke="#e94560" stroke-width="1" stroke-dasharray="2"/>
+            <text x="90" y="65" text-anchor="middle" fill="#fff" font-size="12" font-family="monospace">10px</text>
+          </svg>
+        </div>
+      </div>
+      <p class="label">mask-border-outset: 10px</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>outset: 20px</h3>
+      <div class="wrapper">
+        <div class="border-ref"></div>
+        <div class="box outset-20">20px</div>
+      </div>
+      <p class="label">mask-border-outset: 20px</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>outset: 1 (number)</h3>
+      <div class="wrapper">
+        <div class="border-ref"></div>
+        <div class="box outset-1x">1</div>
+      </div>
+      <p class="label">mask-border-outset: 1</p>
+      <p style="font-size:10px;color:#6b7280;margin-top:4px;">Multiplied by mask-border-width</p>
+    </div>
+
+  </div>
+
+  <div style="margin-top: 20px; padding: 16px; background: #16213e; border-radius: 10px; max-width: 600px;">
+    <p style="font-size: 12px; color: #cbd5e1; line-height: 1.6;">
+      <span style="color: #e94560;">Dashed border</span> = element border box.
+      <span style="color: #a855f7;">Colored box</span> = mask-border extent after outset.
+      Larger outset values push the mask border further beyond the element.
+    </p>
+  </div>
+</body>
+</html>

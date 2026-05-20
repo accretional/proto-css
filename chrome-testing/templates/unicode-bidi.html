@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>unicode-bidi</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-direction: column; gap: 16px; }
+    .demo-card { background: #16213e; border-radius: 12px; padding: 18px 24px; display: flex; align-items: flex-start; gap: 24px; }
+    .info { width: 260px; flex-shrink: 0; }
+    .demo-title { font-size: 14px; font-weight: 600; color: #e0e0e0; margin-bottom: 6px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 4px; }
+    .desc { font-size: 11px; color: #6b7280; line-height: 1.5; margin-top: 4px; }
+    .text-display { flex: 1; background: #0d1117; border-radius: 8px; padding: 14px 18px; font-size: 15px; line-height: 1.8; min-height: 56px; display: flex; align-items: center; }
+    .rtl-text { color: #f39c12; }
+    .ltr-text { color: #3498db; }
+    .mixed { direction: ltr; }
+  </style>
+</head>
+<body>
+  <h1>Unicode Bidi</h1>
+  <p class="prop-name">unicode-bidi</p>
+  <div class="demos">
+
+    <div class="demo-card">
+      <div class="info">
+        <div class="demo-title">normal</div>
+        <div class="desc">Does not open an additional level of embedding. Default behavior.</div>
+        <div class="label">unicode-bidi: normal</div>
+      </div>
+      <div class="text-display mixed">
+        <span>Hello </span><span class="rtl-text" style="unicode-bidi: normal; direction: rtl;">&#1605;&#1585;&#1581;&#1576;&#1575;</span><span> World</span>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <div class="info">
+        <div class="demo-title">embed</div>
+        <div class="desc">Opens an additional level of embedding with direction from the direction property.</div>
+        <div class="label">unicode-bidi: embed</div>
+      </div>
+      <div class="text-display mixed">
+        <span>Hello </span><span class="rtl-text" style="unicode-bidi: embed; direction: rtl;">&#1605;&#1585;&#1581;&#1576;&#1575;</span><span> World</span>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <div class="info">
+        <div class="demo-title">isolate</div>
+        <div class="desc">Isolates the element from its siblings. BiDi algorithm treats it as a single character.</div>
+        <div class="label">unicode-bidi: isolate</div>
+      </div>
+      <div class="text-display mixed">
+        <span>Hello </span><span class="rtl-text" style="unicode-bidi: isolate; direction: rtl;">&#1605;&#1585;&#1581;&#1576;&#1575; 123</span><span> World</span>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <div class="info">
+        <div class="demo-title">bidi-override</div>
+        <div class="desc">Forces all characters to follow the direction property, overriding BiDi algorithm.</div>
+        <div class="label">unicode-bidi: bidi-override</div>
+      </div>
+      <div class="text-display mixed">
+        <span>Hello </span><span class="rtl-text" style="unicode-bidi: bidi-override; direction: rtl;">ABC 123</span><span> World</span>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <div class="info">
+        <div class="demo-title">isolate-override</div>
+        <div class="desc">Combines isolate and bidi-override: isolates content and forces direction.</div>
+        <div class="label">unicode-bidi: isolate-override</div>
+      </div>
+      <div class="text-display mixed">
+        <span>Hello </span><span class="rtl-text" style="unicode-bidi: isolate-override; direction: rtl;">ABC 123</span><span> World</span>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

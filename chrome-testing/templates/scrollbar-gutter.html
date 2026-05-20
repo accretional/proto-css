@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>scrollbar-gutter</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 20px;
+      width: 370px;
+    }
+    .card-title {
+      font-size: 14px;
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .card-desc {
+      font-size: 11px;
+      color: #7b8794;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
+    .box-wrapper {
+      background: #0a0a1a;
+      border-radius: 8px;
+      padding: 12px;
+    }
+    .gutter-box {
+      width: 100%;
+      height: 140px;
+      overflow: auto;
+      border: 1px solid #333;
+      border-radius: 6px;
+      padding: 12px;
+      font-size: 12px;
+      color: #9ca3af;
+      line-height: 1.6;
+      background: #16213e;
+    }
+    .gutter-auto {
+      scrollbar-gutter: auto;
+    }
+    .gutter-stable {
+      scrollbar-gutter: stable;
+    }
+    .gutter-both {
+      scrollbar-gutter: stable both-edges;
+    }
+    .indicator-row {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+      gap: 6px;
+    }
+    .gutter-visual {
+      display: flex;
+      align-items: stretch;
+      height: 40px;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+    .gv-content {
+      flex: 1;
+      background: #0f3460;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-family: monospace;
+      color: #7b8794;
+    }
+    .gv-gutter {
+      width: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8px;
+      color: #fff;
+    }
+    .gv-gutter-reserved { background: #e9456044; border: 1px dashed #e94560; }
+    .gv-gutter-empty { background: transparent; }
+    .gv-scrollbar { background: #e94560; width: 8px; }
+    .note {
+      font-size: 10px;
+      color: #7b8794;
+      margin-top: 8px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>Scrollbar Gutter</h1>
+  <p class="prop-name">scrollbar-gutter</p>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="card-title">auto</div>
+      <div class="card-desc">Gutter only appears when content overflows and scrollbar is shown</div>
+      <div class="box-wrapper">
+        <div class="gutter-box gutter-auto">
+          Short content. No scrollbar needed, so no gutter space is reserved.
+        </div>
+      </div>
+      <div class="gutter-visual">
+        <div class="gv-content">content area (full width)</div>
+      </div>
+      <p class="note">No space reserved - content shifts when scrollbar appears</p>
+      <p class="label">scrollbar-gutter: auto</p>
+    </div>
+    <div class="demo-card">
+      <div class="card-title">stable</div>
+      <div class="card-desc">Space is always reserved for the scrollbar gutter, preventing layout shifts</div>
+      <div class="box-wrapper">
+        <div class="gutter-box gutter-stable">
+          Short content. Gutter space is reserved even though no scrollbar is needed yet.
+        </div>
+      </div>
+      <div class="gutter-visual">
+        <div class="gv-content">content area</div>
+        <div class="gv-gutter gv-gutter-reserved"></div>
+      </div>
+      <p class="note">Right gutter always reserved - no layout shift</p>
+      <p class="label">scrollbar-gutter: stable</p>
+    </div>
+    <div class="demo-card">
+      <div class="card-title">stable both-edges</div>
+      <div class="card-desc">Gutter space is reserved on both sides for visual symmetry</div>
+      <div class="box-wrapper">
+        <div class="gutter-box gutter-both">
+          Short content. Gutter space is reserved on both left and right sides for symmetrical appearance.
+        </div>
+      </div>
+      <div class="gutter-visual">
+        <div class="gv-gutter gv-gutter-reserved"></div>
+        <div class="gv-content">content area (centered)</div>
+        <div class="gv-gutter gv-gutter-reserved"></div>
+      </div>
+      <p class="note">Both edges reserved - content is visually centered</p>
+      <p class="label">scrollbar-gutter: stable both-edges</p>
+    </div>
+  </div>
+</body>
+</html>

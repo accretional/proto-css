@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>page-break-after</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 20px;
+      width: 370px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .demo-card h2 { font-size: 14px; color: #e0e0e0; margin-bottom: 12px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
+    .page-sheet {
+      width: 150px;
+      height: 190px;
+      background: #f5f5f5;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      padding: 12px;
+      position: relative;
+    }
+    .page-sheet .section {
+      font-size: 9px;
+      color: #333;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+    .page-sheet .section-title {
+      font-size: 10px;
+      font-weight: 600;
+      color: #222;
+      margin-bottom: 3px;
+    }
+    .page-pair {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .break-indicator {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 9px;
+      font-family: monospace;
+      margin: 6px 0;
+    }
+    .cut-icon {
+      font-size: 14px;
+    }
+    .arrow-between {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      padding: 0 4px;
+      min-width: 30px;
+    }
+    .code-block {
+      background: #0f3460;
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 11px;
+      font-family: monospace;
+      color: #e0e0e0;
+      margin-top: 10px;
+      width: 100%;
+      line-height: 1.5;
+    }
+    .kw { color: #e94560; }
+    .val { color: #4ecca3; }
+    .sel { color: #64b5f6; }
+  </style>
+</head>
+<body>
+  <h1>Page Break After</h1>
+  <p class="prop-name">page-break-after</p>
+  <div class="demos">
+
+    <div class="demo-card">
+      <h2>page-break-after: auto</h2>
+      <div class="page-pair">
+        <div class="page-sheet">
+          <div class="section-title">Section 1</div>
+          <div class="section">Content of section one flows normally within the page.</div>
+          <div style="border-top:1px dashed #999; margin:6px 0;"></div>
+          <div class="section-title">Section 2</div>
+          <div class="section">Next section continues on the same page if there is space.</div>
+          <div style="border-top:1px dashed #999; margin:6px 0;"></div>
+          <div class="section-title">Section 3</div>
+          <div class="section">Continues flowing...</div>
+        </div>
+      </div>
+      <div class="break-indicator">
+        <span style="color:#7b8794;">No forced break -- content flows naturally</span>
+      </div>
+      <div class="code-block">
+        <span class="sel">.section</span> {<br>
+        &nbsp;&nbsp;<span class="kw">page-break-after</span>: <span class="val">auto</span>;<br>
+        }
+      </div>
+      <div class="label">page-break-after: auto</div>
+    </div>
+
+    <div class="demo-card">
+      <h2>page-break-after: always</h2>
+      <div class="page-pair">
+        <div class="page-sheet">
+          <div class="section-title">Section 1</div>
+          <div class="section">Content of section one. After this section, a page break is forced.</div>
+          <div style="position:absolute; bottom:30px; left:12px; right:12px; border-bottom:2px solid #e94560;"></div>
+          <div style="position:absolute; bottom:10px; left:0; right:0; text-align:center; font-size:9px; font-family:monospace; color:#e94560;">--- page break ---</div>
+        </div>
+        <div class="arrow-between">
+          <span class="cut-icon" style="color:#e94560;">&#9986;</span>
+        </div>
+        <div class="page-sheet">
+          <div class="section-title">Section 2</div>
+          <div class="section">This section starts on a new page because a break was forced after Section 1.</div>
+        </div>
+      </div>
+      <div class="break-indicator">
+        <span style="color:#e94560;">&#9986; Forces a page break after the element</span>
+      </div>
+      <div class="code-block">
+        <span class="sel">.section</span> {<br>
+        &nbsp;&nbsp;<span class="kw">page-break-after</span>: <span class="val">always</span>;<br>
+        }
+      </div>
+      <div class="label">page-break-after: always</div>
+    </div>
+
+    <div class="demo-card">
+      <h2>page-break-after: avoid</h2>
+      <div class="page-pair">
+        <div class="page-sheet">
+          <div class="section-title">Section 1</div>
+          <div class="section">Content of section one.</div>
+          <div style="display:flex; align-items:center; gap:4px; margin:6px 0;">
+            <div style="flex:1; height:1px; border-top:1px dashed #4ecca3;"></div>
+            <span style="font-size:8px; color:#4ecca3; font-family:monospace;">no break</span>
+            <div style="flex:1; height:1px; border-top:1px dashed #4ecca3;"></div>
+          </div>
+          <div class="section-title">Section 2</div>
+          <div class="section">Stays on the same page. The browser avoids inserting a page break here.</div>
+        </div>
+      </div>
+      <div class="break-indicator">
+        <span style="color:#4ecca3;">&#10003; Avoids a page break after the element</span>
+      </div>
+      <div class="code-block">
+        <span class="sel">.section</span> {<br>
+        &nbsp;&nbsp;<span class="kw">page-break-after</span>: <span class="val">avoid</span>;<br>
+        }
+      </div>
+      <div class="label">page-break-after: avoid</div>
+    </div>
+
+  </div>
+</body>
+</html>

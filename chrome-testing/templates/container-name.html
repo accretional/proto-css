@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>container-name</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-direction: column; gap: 20px; }
+    .demo-row {
+      display: flex;
+      gap: 20px;
+    }
+    .demo-card {
+      flex: 1;
+      background: #16213e;
+      border-radius: 10px;
+      padding: 18px 20px;
+      border: 1px solid #2a2a4a;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 10px; }
+    .named-container {
+      container-type: inline-size;
+      background: #0f1a30;
+      border-radius: 8px;
+      padding: 16px;
+      border: 2px solid #2a2a4a;
+      position: relative;
+    }
+    .name-tag {
+      position: absolute;
+      top: -9px;
+      left: 14px;
+      font-size: 10px;
+      font-family: monospace;
+      padding: 1px 10px;
+      border-radius: 3px;
+      font-weight: 600;
+    }
+    .tag-hero { background: #e94560; color: #fff; }
+    .tag-sidebar { background: #4fc3f7; color: #0f1a30; }
+    .tag-footer { background: #66bb6a; color: #0f1a30; }
+    .tag-none { background: #555; color: #fff; }
+
+    .inner-card {
+      background: #1a2440;
+      border: 1px solid #3a3a5a;
+      border-radius: 6px;
+      padding: 12px;
+    }
+    .inner-title { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+    .inner-text { font-size: 11px; color: #9ca3af; line-height: 1.5; }
+
+    /* Named containers */
+    .cn-hero { container-name: hero; }
+    .cn-sidebar { container-name: sidebar; }
+    .cn-footer { container-name: footer; }
+    .cn-none { container-name: none; }
+
+    /* Container queries targeting specific names */
+    @container hero (min-width: 100px) {
+      .hero-child { border-left: 3px solid #e94560; padding-left: 10px; }
+    }
+    @container sidebar (min-width: 100px) {
+      .sidebar-child { border-left: 3px solid #4fc3f7; padding-left: 10px; }
+    }
+    @container footer (min-width: 100px) {
+      .footer-child { border-left: 3px solid #66bb6a; padding-left: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Container Name</h1>
+  <p class="prop-name">container-name</p>
+  <div class="demos">
+    <div class="demo-row">
+      <div class="demo-card">
+        <div class="label">container-name: hero</div>
+        <div class="named-container cn-hero">
+          <div class="name-tag tag-hero">hero</div>
+          <div class="inner-card">
+            <div class="inner-title hero-child" style="color: #e94560;">Hero Section</div>
+            <div class="inner-text">This container is named "hero". Child elements can target it specifically with <code>@container hero { ... }</code>. The red left border comes from a container query matching this name.</div>
+          </div>
+        </div>
+      </div>
+      <div class="demo-card">
+        <div class="label">container-name: sidebar</div>
+        <div class="named-container cn-sidebar">
+          <div class="name-tag tag-sidebar">sidebar</div>
+          <div class="inner-card">
+            <div class="inner-title sidebar-child" style="color: #4fc3f7;">Sidebar Section</div>
+            <div class="inner-text">Named "sidebar" so container queries can target this specific container. Useful when multiple containers exist and each needs different responsive behavior.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="demo-row">
+      <div class="demo-card">
+        <div class="label">container-name: footer</div>
+        <div class="named-container cn-footer">
+          <div class="name-tag tag-footer">footer</div>
+          <div class="inner-card">
+            <div class="inner-title footer-child" style="color: #66bb6a;">Footer Section</div>
+            <div class="inner-text">Named "footer" for targeted container queries. Multiple named containers on a page let each section respond independently to its own size changes.</div>
+          </div>
+        </div>
+      </div>
+      <div class="demo-card">
+        <div class="label">container-name: none</div>
+        <div class="named-container cn-none">
+          <div class="name-tag tag-none">none</div>
+          <div class="inner-card">
+            <div class="inner-title" style="color: #888;">Unnamed Container</div>
+            <div class="inner-text">Setting container-name to none removes any container name. Named @container queries will not match this element. Only unnamed @container queries apply.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

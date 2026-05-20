@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>cx</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-direction: column; gap: 20px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+
+    .svg-container {
+      background: #16213e;
+      border-radius: 10px;
+      padding: 24px;
+    }
+    .axis-label {
+      font-size: 10px;
+      fill: #7b8794;
+      font-family: monospace;
+    }
+    .value-label {
+      font-size: 11px;
+      fill: #e0e0e0;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>SVG Circle cx</h1>
+  <p class="prop-name">cx (SVG attribute / CSS property)</p>
+  <div class="demos">
+    <div class="svg-container">
+      <svg width="1000" height="220" viewBox="0 0 1000 220">
+        <!-- Grid lines -->
+        <line x1="50" y1="30" x2="50" y2="180" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/>
+        <line x1="200" y1="30" x2="200" y2="180" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/>
+        <line x1="350" y1="30" x2="350" y2="180" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/>
+        <line x1="550" y1="30" x2="550" y2="180" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/>
+        <line x1="750" y1="30" x2="750" y2="180" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/>
+
+        <!-- Horizontal axis -->
+        <line x1="20" y1="110" x2="960" y2="110" stroke="#333" stroke-width="1"/>
+        <text x="970" y="114" class="axis-label">x</text>
+
+        <!-- cx: 20 -->
+        <circle cx="50" cy="110" r="22" fill="#e9456044" stroke="#e94560" stroke-width="2"/>
+        <line x1="50" y1="30" x2="50" y2="40" stroke="#e94560" stroke-width="2"/>
+        <text x="50" y="22" text-anchor="middle" class="value-label" fill="#e94560">cx: 20</text>
+        <text x="50" y="115" text-anchor="middle" font-size="11" fill="#fff" font-family="monospace">20</text>
+
+        <!-- cx: 50 -->
+        <circle cx="200" cy="110" r="22" fill="#00d2ff44" stroke="#00d2ff" stroke-width="2"/>
+        <line x1="200" y1="30" x2="200" y2="40" stroke="#00d2ff" stroke-width="2"/>
+        <text x="200" y="22" text-anchor="middle" class="value-label" fill="#00d2ff">cx: 50</text>
+        <text x="200" y="115" text-anchor="middle" font-size="11" fill="#fff" font-family="monospace">50</text>
+
+        <!-- cx: 100 -->
+        <circle cx="350" cy="110" r="22" fill="#10b98144" stroke="#10b981" stroke-width="2"/>
+        <line x1="350" y1="30" x2="350" y2="40" stroke="#10b981" stroke-width="2"/>
+        <text x="350" y="22" text-anchor="middle" class="value-label" fill="#10b981">cx: 100</text>
+        <text x="350" y="115" text-anchor="middle" font-size="11" fill="#fff" font-family="monospace">100</text>
+
+        <!-- cx: 150 -->
+        <circle cx="550" cy="110" r="22" fill="#f59e0b44" stroke="#f59e0b" stroke-width="2"/>
+        <line x1="550" y1="30" x2="550" y2="40" stroke="#f59e0b" stroke-width="2"/>
+        <text x="550" y="22" text-anchor="middle" class="value-label" fill="#f59e0b">cx: 150</text>
+        <text x="550" y="115" text-anchor="middle" font-size="11" fill="#fff" font-family="monospace">150</text>
+
+        <!-- cx: 200 -->
+        <circle cx="750" cy="110" r="22" fill="#a855f744" stroke="#a855f7" stroke-width="2"/>
+        <line x1="750" y1="30" x2="750" y2="40" stroke="#a855f7" stroke-width="2"/>
+        <text x="750" y="22" text-anchor="middle" class="value-label" fill="#a855f7">cx: 200</text>
+        <text x="750" y="115" text-anchor="middle" font-size="11" fill="#fff" font-family="monospace">200</text>
+
+        <!-- Connecting line showing movement -->
+        <line x1="72" y1="110" x2="178" y2="110" stroke="#ffffff22" stroke-width="1" stroke-dasharray="3"/>
+        <line x1="222" y1="110" x2="328" y2="110" stroke="#ffffff22" stroke-width="1" stroke-dasharray="3"/>
+        <line x1="372" y1="110" x2="528" y2="110" stroke="#ffffff22" stroke-width="1" stroke-dasharray="3"/>
+        <line x1="572" y1="110" x2="728" y2="110" stroke="#ffffff22" stroke-width="1" stroke-dasharray="3"/>
+
+        <!-- Axis ticks -->
+        <text x="50" y="198" text-anchor="middle" class="axis-label">20px</text>
+        <text x="200" y="198" text-anchor="middle" class="axis-label">50px</text>
+        <text x="350" y="198" text-anchor="middle" class="axis-label">100px</text>
+        <text x="550" y="198" text-anchor="middle" class="axis-label">150px</text>
+        <text x="750" y="198" text-anchor="middle" class="axis-label">200px</text>
+      </svg>
+    </div>
+    <p class="label">The cx property defines the x-axis center coordinate of SVG circle and ellipse elements. Higher values move the circle rightward.</p>
+
+    <div style="display:flex; gap: 16px; flex-wrap:wrap;">
+      <div style="background:#16213e; border-radius:8px; padding:14px 18px;">
+        <svg width="180" height="180" viewBox="0 0 180 180">
+          <rect x="0" y="0" width="180" height="180" fill="none" stroke="#0f3460" stroke-width="1" rx="4"/>
+          <line x1="90" y1="0" x2="90" y2="180" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/>
+          <line x1="0" y1="90" x2="180" y2="90" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/>
+          <circle cx="30" cy="90" r="18" fill="#e9456044" stroke="#e94560" stroke-width="2"/>
+          <text x="30" y="94" text-anchor="middle" font-size="9" fill="#fff" font-family="monospace">30</text>
+        </svg>
+        <p class="label">cx: 30</p>
+      </div>
+      <div style="background:#16213e; border-radius:8px; padding:14px 18px;">
+        <svg width="180" height="180" viewBox="0 0 180 180">
+          <rect x="0" y="0" width="180" height="180" fill="none" stroke="#0f3460" stroke-width="1" rx="4"/>
+          <line x1="90" y1="0" x2="90" y2="180" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/>
+          <line x1="0" y1="90" x2="180" y2="90" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/>
+          <circle cx="90" cy="90" r="18" fill="#00d2ff44" stroke="#00d2ff" stroke-width="2"/>
+          <text x="90" y="94" text-anchor="middle" font-size="9" fill="#fff" font-family="monospace">90</text>
+        </svg>
+        <p class="label">cx: 90 (centered)</p>
+      </div>
+      <div style="background:#16213e; border-radius:8px; padding:14px 18px;">
+        <svg width="180" height="180" viewBox="0 0 180 180">
+          <rect x="0" y="0" width="180" height="180" fill="none" stroke="#0f3460" stroke-width="1" rx="4"/>
+          <line x1="90" y1="0" x2="90" y2="180" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/>
+          <line x1="0" y1="90" x2="180" y2="90" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/>
+          <circle cx="150" cy="90" r="18" fill="#10b98144" stroke="#10b981" stroke-width="2"/>
+          <text x="150" y="94" text-anchor="middle" font-size="9" fill="#fff" font-family="monospace">150</text>
+        </svg>
+        <p class="label">cx: 150</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

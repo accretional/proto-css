@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>break-inside</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; gap: 32px; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 10px;
+      padding: 20px;
+      flex: 1;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 12px; }
+    .multicol {
+      column-count: 3;
+      column-gap: 14px;
+      column-rule: 1px solid #2a2a4a;
+    }
+    .card {
+      background: #0f3460;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 10px;
+      border: 1px solid #1a4a8a;
+    }
+    .card h3 { font-size: 13px; color: #e94560; margin-bottom: 6px; }
+    .card p { font-size: 11px; line-height: 1.5; color: #b0b0c0; }
+    .auto-demo .card { break-inside: auto; }
+    .avoid-demo .card { break-inside: avoid; }
+  </style>
+</head>
+<body>
+  <h1>Break Inside</h1>
+  <p class="prop-name">break-inside</p>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="label">break-inside: auto</div>
+      <div class="multicol auto-demo">
+        <div class="card"><h3>Card A</h3><p>This card has enough content that it may be split across columns when auto is used.</p></div>
+        <div class="card"><h3>Card B</h3><p>Another card with some content that could break.</p></div>
+        <div class="card"><h3>Card C</h3><p>More content here to demonstrate the default break behavior inside columns.</p></div>
+        <div class="card"><h3>Card D</h3><p>Additional card with text that fills space in the column layout.</p></div>
+        <div class="card"><h3>Card E</h3><p>This card also has content that may split across column boundaries.</p></div>
+      </div>
+    </div>
+    <div class="demo-card">
+      <div class="label">break-inside: avoid</div>
+      <div class="multicol avoid-demo">
+        <div class="card"><h3>Card A</h3><p>This card will stay together and not break across columns.</p></div>
+        <div class="card"><h3>Card B</h3><p>Another card kept intact within its column.</p></div>
+        <div class="card"><h3>Card C</h3><p>More content here, the card remains whole across columns.</p></div>
+        <div class="card"><h3>Card D</h3><p>Additional card with text that stays together in the layout.</p></div>
+        <div class="card"><h3>Card E</h3><p>This card also stays intact, avoiding any column break inside it.</p></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

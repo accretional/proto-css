@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>grid-area</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-box { background: #16213e; border-radius: 8px; padding: 16px; width: 280px; }
+    .demo-box h3 { font-size: 13px; color: #e0e0e0; margin-bottom: 10px; }
+    .cell { background: #0f3460; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #e94560; font-weight: 600; padding: 6px; }
+    .cell.highlight { background: #e94560; color: #fff; }
+    .cell.dim { background: #0a1a35; color: #4a5568; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+
+    .grid-base { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; }
+
+    .g1 .item { grid-area: 1 / 1 / 3 / 3; }
+    .g2 .item { grid-area: 2 / 2 / 4 / 5; }
+    .g3 .item { grid-area: 1 / 1 / 2 / 5; }
+    .g4 .item { grid-area: 1 / 4 / 5 / 5; }
+
+    .g5 { display: grid; grid-template-areas: "header header header" "sidebar main main" "footer footer footer"; grid-template-columns: 80px 1fr 1fr; grid-template-rows: 40px 70px 35px; gap: 4px; }
+    .g5 .c-header { grid-area: header; }
+    .g5 .c-sidebar { grid-area: sidebar; }
+    .g5 .c-main { grid-area: main; }
+    .g5 .c-footer { grid-area: footer; }
+  </style>
+</head>
+<body>
+  <h1>Grid Area</h1>
+  <p class="prop-name">grid-area</p>
+  <div class="demos">
+    <div class="demo-box">
+      <h3>Top-left 2x2 block</h3>
+      <div class="grid-base g1">
+        <div class="cell highlight item">A</div>
+        <div class="cell dim"></div><div class="cell dim"></div>
+        <div class="cell dim"></div><div class="cell dim"></div>
+        <div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div>
+        <div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div>
+      </div>
+      <p class="label">grid-area: 1 / 1 / 3 / 3</p>
+    </div>
+    <div class="demo-box">
+      <h3>Middle-right block</h3>
+      <div class="grid-base g2">
+        <div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div>
+        <div class="cell dim"></div>
+        <div class="cell highlight item">B</div>
+        <div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div>
+        <div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div>
+      </div>
+      <p class="label">grid-area: 2 / 2 / 4 / 5</p>
+    </div>
+    <div class="demo-box">
+      <h3>Full-width top row</h3>
+      <div class="grid-base g3">
+        <div class="cell highlight item">C</div>
+        <div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div>
+        <div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div>
+        <div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div>
+      </div>
+      <p class="label">grid-area: 1 / 1 / 2 / 5</p>
+    </div>
+    <div class="demo-box">
+      <h3>Full-height right column</h3>
+      <div class="grid-base g4">
+        <div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div>
+        <div class="cell highlight item">D</div>
+        <div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div>
+        <div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div>
+        <div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div>
+      </div>
+      <p class="label">grid-area: 1 / 4 / 5 / 5</p>
+    </div>
+    <div class="demo-box" style="width: 580px;">
+      <h3>Named areas</h3>
+      <div class="g5">
+        <div class="cell highlight c-header">header</div>
+        <div class="cell highlight c-sidebar">sidebar</div>
+        <div class="cell highlight c-main">main</div>
+        <div class="cell highlight c-footer">footer</div>
+      </div>
+      <p class="label">grid-area: header | sidebar | main | footer</p>
+    </div>
+  </div>
+</body>
+</html>

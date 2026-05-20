@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>column-height</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 8px; }
+    .note {
+      font-size: 12px;
+      color: #e94560;
+      background: rgba(233, 69, 96, 0.1);
+      border: 1px solid rgba(233, 69, 96, 0.3);
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin-bottom: 24px;
+      font-family: monospace;
+    }
+    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demo-card {
+      flex: 1;
+      min-width: 220px;
+      background: #16213e;
+      border-radius: 10px;
+      padding: 16px 20px;
+      border: 1px solid #2a2a4a;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 10px; }
+    .col-demo {
+      column-count: 3;
+      column-rule: 1px solid #3a3a5a;
+      font-size: 11px;
+      line-height: 1.5;
+      color: #c0c8d4;
+      background: #0f1a30;
+      border-radius: 6px;
+      padding: 12px;
+      overflow: hidden;
+    }
+    .height-marker {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 6px;
+    }
+    .height-bar {
+      flex: 1;
+      border-top: 2px dashed #e94560;
+    }
+    .height-val {
+      font-size: 10px;
+      color: #e94560;
+      font-family: monospace;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>Column Height</h1>
+  <p class="prop-name">column-height</p>
+  <div class="note">Experimental / Non-standard: column-height is not part of any CSS specification. The examples below simulate the concept by constraining column container height. Browser support is effectively nonexistent.</div>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="label">height: auto (default)</div>
+      <div class="col-demo" style="height: auto;">
+        Columns grow to fit their content naturally. The container expands as needed. Text flows across columns and the overall height adjusts automatically to accommodate all content without overflow.
+      </div>
+      <div class="height-marker"><div class="height-bar"></div><div class="height-val">auto</div></div>
+    </div>
+    <div class="demo-card">
+      <div class="label">height: 80px</div>
+      <div class="col-demo" style="height: 80px;">
+        When height is constrained to 80px, column content is limited. Overflow is hidden and the columns are compact. This simulates a short column-height value restricting how tall each column can be.
+      </div>
+      <div class="height-marker"><div class="height-bar"></div><div class="height-val">80px</div></div>
+    </div>
+    <div class="demo-card">
+      <div class="label">height: 140px</div>
+      <div class="col-demo" style="height: 140px;">
+        A medium height constraint gives columns more room. Text can flow across the available columns while still being bounded. This provides a balance between compactness and readability across the column layout.
+      </div>
+      <div class="height-marker"><div class="height-bar"></div><div class="height-val">140px</div></div>
+    </div>
+    <div class="demo-card">
+      <div class="label">height: 200px</div>
+      <div class="col-demo" style="height: 200px;">
+        A taller height constraint allows columns to display more content vertically before wrapping. The content fills more of each column before flowing to the next. This simulates a generous column-height setting where readability is prioritized.
+      </div>
+      <div class="height-marker"><div class="height-bar"></div><div class="height-val">200px</div></div>
+    </div>
+  </div>
+</body>
+</html>

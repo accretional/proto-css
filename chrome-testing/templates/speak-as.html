@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>speak-as</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .note {
+      font-size: 12px;
+      color: #7b8794;
+      margin-bottom: 20px;
+      padding: 10px 14px;
+      background: #16213e;
+      border-radius: 8px;
+      border-left: 3px solid #e94560;
+    }
+    .demos { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .card-title {
+      font-size: 14px;
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .card-desc {
+      font-size: 11px;
+      color: #7b8794;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
+    .example-box {
+      background: #0a0a1a;
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .input-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .input-label {
+      font-size: 10px;
+      font-family: monospace;
+      color: #7b8794;
+      text-transform: uppercase;
+    }
+    .input-text {
+      font-size: 16px;
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .output-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .output-label {
+      font-size: 10px;
+      font-family: monospace;
+      color: #7b8794;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+    .speech-bubble {
+      background: #16213e;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 13px;
+      color: #e0e0e0;
+      position: relative;
+      line-height: 1.5;
+      flex: 1;
+    }
+    .speech-bubble::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 10px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 6px 6px 6px 0;
+      border-color: transparent #16213e transparent transparent;
+    }
+    .speaker-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .highlight { color: #e94560; font-weight: 600; }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 9px;
+      font-weight: 600;
+      margin-left: 6px;
+    }
+    .badge-audio { background: #64b5f633; color: #64b5f6; }
+  </style>
+</head>
+<body>
+  <h1>Speak As <span style="display: inline-block; background: #64b5f633; color: #64b5f6; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; vertical-align: middle;">AUDITORY</span></h1>
+  <p class="prop-name">speak-as</p>
+  <div class="note">This is an auditory CSS property used by screen readers. The visual demos below show how each value affects speech output.</div>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="card-title">auto</div>
+      <div class="card-desc">Default behavior - reads content naturally as words</div>
+      <div class="example-box">
+        <div class="input-row">
+          <span class="input-label">text:</span>
+          <span class="input-text">Hello 2024!</span>
+        </div>
+        <div class="output-row">
+          <div class="speaker-icon" style="background: #e9456033; color: #e94560;">&#9835;</div>
+          <div class="speech-bubble">"Hello <span class="highlight">twenty twenty-four</span>!"</div>
+        </div>
+      </div>
+      <p class="label">speak-as: auto</p>
+    </div>
+    <div class="demo-card">
+      <div class="card-title">spell-out</div>
+      <div class="card-desc">Each character is spoken individually as a letter</div>
+      <div class="example-box">
+        <div class="input-row">
+          <span class="input-label">text:</span>
+          <span class="input-text">Hello</span>
+        </div>
+        <div class="output-row">
+          <div class="speaker-icon" style="background: #2ecc7133; color: #2ecc71;">&#9835;</div>
+          <div class="speech-bubble">"<span class="highlight">H - E - L - L - O</span>"</div>
+        </div>
+      </div>
+      <p class="label">speak-as: spell-out</p>
+    </div>
+    <div class="demo-card">
+      <div class="card-title">digits</div>
+      <div class="card-desc">Numbers are spoken as individual digits</div>
+      <div class="example-box">
+        <div class="input-row">
+          <span class="input-label">text:</span>
+          <span class="input-text">2024</span>
+        </div>
+        <div class="output-row">
+          <div class="speaker-icon" style="background: #64b5f633; color: #64b5f6;">&#9835;</div>
+          <div class="speech-bubble">"<span class="highlight">two - zero - two - four</span>"</div>
+        </div>
+      </div>
+      <p class="label">speak-as: digits</p>
+    </div>
+    <div class="demo-card">
+      <div class="card-title">literal-punctuation</div>
+      <div class="card-desc">Punctuation marks are spoken aloud by name</div>
+      <div class="example-box">
+        <div class="input-row">
+          <span class="input-label">text:</span>
+          <span class="input-text">Hi, world!</span>
+        </div>
+        <div class="output-row">
+          <div class="speaker-icon" style="background: #ffb74d33; color: #ffb74d;">&#9835;</div>
+          <div class="speech-bubble">"Hi <span class="highlight">comma</span> world <span class="highlight">exclamation-mark</span>"</div>
+        </div>
+      </div>
+      <p class="label">speak-as: literal-punctuation</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>position-anchor</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 28px; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 360px;
+    }
+    .demo-area {
+      width: 310px;
+      height: 200px;
+      position: relative;
+      border: 2px dashed rgba(255,255,255,0.12);
+      border-radius: 8px;
+    }
+    .anchor-el {
+      position: absolute;
+      width: 90px;
+      height: 40px;
+      background: linear-gradient(135deg, #0f3460, #1a5276);
+      border: 2px solid #3498db;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 600;
+      color: #7ec8e3;
+    }
+    .positioned-el {
+      position: absolute;
+      padding: 6px 14px;
+      background: linear-gradient(135deg, #e94560, #c23066);
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #fff;
+      white-space: nowrap;
+    }
+    .connector {
+      position: absolute;
+      border: 1px dashed rgba(233,69,96,0.5);
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>Position Anchor</h1>
+  <p class="prop-name">position-anchor</p>
+  <p style="font-size: 12px; color: #6b7280; margin-bottom: 20px; max-width: 800px; line-height: 1.5;">
+    CSS Anchor Positioning allows elements to be positioned relative to an anchor element using <code style="color:#e94560;">position-anchor</code> to reference a named anchor. Simulated below for visual clarity.
+  </p>
+  <div class="demos">
+
+    <div class="demo-card">
+      <div class="demo-area">
+        <div class="anchor-el" style="top: 70px; left: 30px;">--anchor-a</div>
+        <div class="positioned-el" style="top: 30px; left: 40px;">Tooltip A</div>
+        <div class="connector" style="top: 52px; left: 75px; height: 18px; width: 0;"></div>
+      </div>
+      <div class="label">position-anchor: --anchor-a<br><span style="color:#6b7280; font-size:10px;">positioned relative to anchor A</span></div>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-area">
+        <div class="anchor-el" style="top: 70px; right: 30px;">--anchor-b</div>
+        <div class="positioned-el" style="top: 120px; right: 25px;">Popover B</div>
+        <div class="connector" style="top: 110px; right: 70px; height: 10px; width: 0;"></div>
+      </div>
+      <div class="label">position-anchor: --anchor-b<br><span style="color:#6b7280; font-size:10px;">positioned relative to anchor B</span></div>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-area">
+        <div class="anchor-el" style="top: 80px; left: 110px;">--anchor-c</div>
+        <div class="positioned-el" style="top: 40px; left: 100px;">Menu C</div>
+        <div class="connector" style="top: 62px; left: 150px; height: 18px; width: 0;"></div>
+      </div>
+      <div class="label">position-anchor: --anchor-c<br><span style="color:#6b7280; font-size:10px;">centered above anchor C</span></div>
+    </div>
+
+  </div>
+</body>
+</html>

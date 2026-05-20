@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>animation-iteration-count</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-box {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 24px;
+      width: 270px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .demo-title { font-size: 14px; color: #fff; font-weight: bold; }
+    .iteration-visual {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      min-height: 40px;
+    }
+    .iter-dot {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+      color: #fff;
+    }
+    .iter-dot.active { background: #e94560; }
+    .iter-dot.inactive { background: #2d3748; border: 2px dashed #4a5568; color: #4a5568; }
+    .infinite-dots {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .inf-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #e94560;
+      opacity: 0.6;
+    }
+    .progress-bar {
+      width: 200px;
+      height: 12px;
+      background: #0f3460;
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+    }
+    .progress-fill {
+      height: 100%;
+      border-radius: 6px;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .progress-segments {
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
+    .segment {
+      height: 100%;
+      border-right: 1px solid #0f3460;
+    }
+    .segment.filled { background: #e94560; }
+    .segment.empty { background: transparent; }
+    .count-1 .segment:nth-child(1) { background: #e94560; }
+    .count-2 .segment:nth-child(1),
+    .count-2 .segment:nth-child(2) { background: #f39c12; }
+    .count-3 .segment:nth-child(1),
+    .count-3 .segment:nth-child(2),
+    .count-3 .segment:nth-child(3) { background: #3498db; }
+
+    .anim-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 6px;
+      background: #e94560;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .spin-1 {
+      animation: spin 1s linear 1 paused;
+      animation-delay: -0.5s;
+      background: #e94560;
+    }
+    .spin-2 {
+      animation: spin 1s linear 2 paused;
+      animation-delay: -0.5s;
+      background: #f39c12;
+    }
+    .spin-3 {
+      animation: spin 1s linear 3 paused;
+      animation-delay: -0.5s;
+      background: #3498db;
+    }
+    .spin-inf {
+      animation: spin 1s linear infinite paused;
+      animation-delay: -0.5s;
+      background: #2ecc71;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 4px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>Animation Iteration Count</h1>
+  <p class="prop-name">animation-iteration-count</p>
+  <div class="demos">
+    <div class="demo-box">
+      <div class="demo-title">1</div>
+      <div class="iteration-visual">
+        <div class="iter-dot active">1</div>
+        <div class="iter-dot inactive">2</div>
+        <div class="iter-dot inactive">3</div>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-segments count-1">
+          <div class="segment filled" style="width:33.3%"></div>
+          <div class="segment empty" style="width:33.3%"></div>
+          <div class="segment empty" style="width:33.3%"></div>
+        </div>
+      </div>
+      <div class="anim-box spin-1"></div>
+      <div class="label">animation-iteration-count: 1</div>
+    </div>
+    <div class="demo-box">
+      <div class="demo-title">2</div>
+      <div class="iteration-visual">
+        <div class="iter-dot active">1</div>
+        <div class="iter-dot active">2</div>
+        <div class="iter-dot inactive">3</div>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-segments count-2">
+          <div class="segment filled" style="width:33.3%"></div>
+          <div class="segment filled" style="width:33.3%"></div>
+          <div class="segment empty" style="width:33.3%"></div>
+        </div>
+      </div>
+      <div class="anim-box spin-2"></div>
+      <div class="label">animation-iteration-count: 2</div>
+    </div>
+    <div class="demo-box">
+      <div class="demo-title">3</div>
+      <div class="iteration-visual">
+        <div class="iter-dot active">1</div>
+        <div class="iter-dot active">2</div>
+        <div class="iter-dot active">3</div>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-segments count-3">
+          <div class="segment filled" style="width:33.3%"></div>
+          <div class="segment filled" style="width:33.3%"></div>
+          <div class="segment filled" style="width:33.3%"></div>
+        </div>
+      </div>
+      <div class="anim-box spin-3"></div>
+      <div class="label">animation-iteration-count: 3</div>
+    </div>
+    <div class="demo-box">
+      <div class="demo-title">infinite</div>
+      <div class="iteration-visual">
+        <div class="iter-dot active">1</div>
+        <div class="iter-dot active">2</div>
+        <div class="iter-dot active">3</div>
+        <div class="infinite-dots">
+          <div class="inf-dot"></div>
+          <div class="inf-dot"></div>
+          <div class="inf-dot"></div>
+        </div>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-segments">
+          <div class="segment" style="width:100%; background: linear-gradient(90deg, #2ecc71, #2ecc71 90%, #0f3460 90%);"></div>
+        </div>
+      </div>
+      <div class="anim-box spin-inf"></div>
+      <div class="label">animation-iteration-count: infinite</div>
+    </div>
+  </div>
+</body>
+</html>

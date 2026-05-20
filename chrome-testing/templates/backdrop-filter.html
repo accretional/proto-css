@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>backdrop-filter</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+
+    .demo-box {
+      width: 220px;
+      height: 240px;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .bg-pattern {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, #e94560 0%, #533bdb 25%, #0ea5e9 50%, #10b981 75%, #f59205 100%);
+    }
+    .bg-shapes {
+      position: absolute;
+      inset: 0;
+    }
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+    }
+    .s1 { width: 80px; height: 80px; background: #e94560; top: 10px; left: 10px; }
+    .s2 { width: 60px; height: 60px; background: #fff; top: 30px; right: 20px; }
+    .s3 { width: 70px; height: 70px; background: #f59205; bottom: 40px; left: 30px; }
+    .s4 { width: 50px; height: 50px; background: #533bdb; bottom: 20px; right: 10px; }
+
+    .filter-card {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 110px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 16px;
+      background: rgba(26, 26, 46, 0.25);
+    }
+    .filter-title { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .label { font-size: 11px; font-family: monospace; color: rgba(255,255,255,0.8); }
+
+    .no-filter .filter-card { backdrop-filter: none; }
+    .blur-filter .filter-card { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+    .brightness-filter .filter-card { backdrop-filter: brightness(0.4); -webkit-backdrop-filter: brightness(0.4); }
+    .contrast-filter .filter-card { backdrop-filter: contrast(2); -webkit-backdrop-filter: contrast(2); }
+    .grayscale-filter .filter-card { backdrop-filter: grayscale(1); -webkit-backdrop-filter: grayscale(1); }
+    .sepia-filter .filter-card { backdrop-filter: sepia(1); -webkit-backdrop-filter: sepia(1); }
+  </style>
+</head>
+<body>
+  <h1>Backdrop Filter</h1>
+  <p class="prop-name">backdrop-filter</p>
+  <div class="demos">
+    <div class="demo-box no-filter">
+      <div class="bg-pattern"></div>
+      <div class="bg-shapes">
+        <div class="shape s1"></div>
+        <div class="shape s2"></div>
+        <div class="shape s3"></div>
+        <div class="shape s4"></div>
+      </div>
+      <div class="filter-card">
+        <span class="filter-title">None</span>
+        <span class="label">backdrop-filter: none</span>
+      </div>
+    </div>
+
+    <div class="demo-box blur-filter">
+      <div class="bg-pattern"></div>
+      <div class="bg-shapes">
+        <div class="shape s1"></div>
+        <div class="shape s2"></div>
+        <div class="shape s3"></div>
+        <div class="shape s4"></div>
+      </div>
+      <div class="filter-card">
+        <span class="filter-title">Blur</span>
+        <span class="label">backdrop-filter: blur(10px)</span>
+      </div>
+    </div>
+
+    <div class="demo-box brightness-filter">
+      <div class="bg-pattern"></div>
+      <div class="bg-shapes">
+        <div class="shape s1"></div>
+        <div class="shape s2"></div>
+        <div class="shape s3"></div>
+        <div class="shape s4"></div>
+      </div>
+      <div class="filter-card">
+        <span class="filter-title">Brightness</span>
+        <span class="label">backdrop-filter: brightness(0.4)</span>
+      </div>
+    </div>
+
+    <div class="demo-box contrast-filter">
+      <div class="bg-pattern"></div>
+      <div class="bg-shapes">
+        <div class="shape s1"></div>
+        <div class="shape s2"></div>
+        <div class="shape s3"></div>
+        <div class="shape s4"></div>
+      </div>
+      <div class="filter-card">
+        <span class="filter-title">Contrast</span>
+        <span class="label">backdrop-filter: contrast(2)</span>
+      </div>
+    </div>
+
+    <div class="demo-box grayscale-filter">
+      <div class="bg-pattern"></div>
+      <div class="bg-shapes">
+        <div class="shape s1"></div>
+        <div class="shape s2"></div>
+        <div class="shape s3"></div>
+        <div class="shape s4"></div>
+      </div>
+      <div class="filter-card">
+        <span class="filter-title">Grayscale</span>
+        <span class="label">backdrop-filter: grayscale(1)</span>
+      </div>
+    </div>
+
+    <div class="demo-box sepia-filter">
+      <div class="bg-pattern"></div>
+      <div class="bg-shapes">
+        <div class="shape s1"></div>
+        <div class="shape s2"></div>
+        <div class="shape s3"></div>
+        <div class="shape s4"></div>
+      </div>
+      <div class="filter-card">
+        <span class="filter-title">Sepia</span>
+        <span class="label">backdrop-filter: sepia(1)</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

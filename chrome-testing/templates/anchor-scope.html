@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>anchor-scope</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 28px; }
+    .demo-box {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 24px;
+      width: 380px;
+      min-height: 300px;
+      position: relative;
+    }
+    .demo-title { font-size: 13px; color: #ccc; margin-bottom: 16px; }
+    .scope-container {
+      border: 2px dashed #4a5568;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .scope-label {
+      font-size: 10px;
+      font-family: monospace;
+      color: #f39c12;
+      position: absolute;
+      top: -8px;
+      left: 12px;
+      background: #16213e;
+      padding: 0 4px;
+    }
+    .no-scope .scope-container {
+      anchor-scope: none;
+    }
+    .with-scope .scope-container {
+      anchor-scope: all;
+    }
+    .anchor-el {
+      anchor-name: --scoped-anchor;
+      background: #e94560;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 12px;
+      display: inline-block;
+      font-weight: bold;
+    }
+    .positioned-el {
+      background: #3498db;
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 11px;
+      display: inline-block;
+      margin-top: 8px;
+    }
+    .note {
+      font-size: 11px;
+      color: #6b7280;
+      margin-top: 8px;
+      font-style: italic;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 14px; }
+    .visual-indicator {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .indicator-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .indicator-dot.visible { background: #2ecc71; }
+    .indicator-dot.hidden { background: #e74c3c; }
+    .indicator-text { font-size: 11px; color: #aaa; }
+  </style>
+</head>
+<body>
+  <h1>Anchor Scope</h1>
+  <p class="prop-name">anchor-scope</p>
+  <div class="demos">
+    <div class="demo-box no-scope">
+      <div class="demo-title">Without anchor-scope (none)</div>
+      <div class="scope-container">
+        <div class="scope-label">Container A</div>
+        <div class="anchor-el">Anchor A</div>
+        <div class="positioned-el">Can reference any anchor</div>
+      </div>
+      <div class="scope-container">
+        <div class="scope-label">Container B</div>
+        <div class="anchor-el">Anchor B</div>
+        <div class="positioned-el">Can reference any anchor</div>
+      </div>
+      <div class="visual-indicator">
+        <div class="indicator-dot visible"></div>
+        <div class="indicator-text">Anchors visible across containers</div>
+      </div>
+      <div class="label">anchor-scope: none</div>
+      <div class="note">Anchors are globally visible, not scoped</div>
+    </div>
+    <div class="demo-box with-scope">
+      <div class="demo-title">With anchor-scope (all)</div>
+      <div class="scope-container">
+        <div class="scope-label">Container A (scoped)</div>
+        <div class="anchor-el">Anchor A</div>
+        <div class="positioned-el">Only sees Anchor A</div>
+      </div>
+      <div class="scope-container">
+        <div class="scope-label">Container B (scoped)</div>
+        <div class="anchor-el">Anchor B</div>
+        <div class="positioned-el">Only sees Anchor B</div>
+      </div>
+      <div class="visual-indicator">
+        <div class="indicator-dot hidden"></div>
+        <div class="indicator-text">Anchors limited to their scope</div>
+      </div>
+      <div class="label">anchor-scope: all</div>
+      <div class="note">Each container scopes its own anchors</div>
+    </div>
+    <div class="demo-box">
+      <div class="demo-title">Named anchor-scope</div>
+      <div class="scope-container" style="anchor-scope: --my-anchor;">
+        <div class="scope-label">Scoped to --my-anchor</div>
+        <div class="anchor-el">Named Anchor</div>
+        <div class="positioned-el">Scoped positioning</div>
+      </div>
+      <div class="scope-container">
+        <div class="scope-label">Outside scope</div>
+        <div class="positioned-el" style="background: #6b7280;">Cannot see --my-anchor</div>
+      </div>
+      <div class="visual-indicator">
+        <div class="indicator-dot hidden"></div>
+        <div class="indicator-text">Only named anchors are scoped</div>
+      </div>
+      <div class="label">anchor-scope: --my-anchor</div>
+      <div class="note">Scopes only the specified anchor name</div>
+    </div>
+  </div>
+</body>
+</html>

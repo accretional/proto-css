@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>mask-position</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-card { background: #16213e; border-radius: 10px; padding: 20px; width: 280px; }
+    .demo-card h3 { font-size: 13px; color: #e2e8f0; margin-bottom: 12px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
+    .box {
+      width: 240px;
+      height: 130px;
+      background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80);
+      border-radius: 8px;
+      position: relative;
+    }
+    /* All use same mask shape - a circle that doesn't cover the whole element */
+    .pos-center {
+      -webkit-mask-image: radial-gradient(circle 70px, black 60%, transparent 61%);
+      -webkit-mask-position: center;
+      -webkit-mask-repeat: no-repeat;
+      mask-image: radial-gradient(circle 70px, black 60%, transparent 61%);
+      mask-position: center;
+      mask-repeat: no-repeat;
+    }
+    .pos-top-left {
+      -webkit-mask-image: radial-gradient(circle 70px, black 60%, transparent 61%);
+      -webkit-mask-position: top left;
+      -webkit-mask-repeat: no-repeat;
+      mask-image: radial-gradient(circle 70px, black 60%, transparent 61%);
+      mask-position: top left;
+      mask-repeat: no-repeat;
+    }
+    .pos-bottom-right {
+      -webkit-mask-image: radial-gradient(circle 70px, black 60%, transparent 61%);
+      -webkit-mask-position: bottom right;
+      -webkit-mask-repeat: no-repeat;
+      mask-image: radial-gradient(circle 70px, black 60%, transparent 61%);
+      mask-position: bottom right;
+      mask-repeat: no-repeat;
+    }
+    .pos-25-75 {
+      -webkit-mask-image: radial-gradient(circle 70px, black 60%, transparent 61%);
+      -webkit-mask-position: 25% 75%;
+      -webkit-mask-repeat: no-repeat;
+      mask-image: radial-gradient(circle 70px, black 60%, transparent 61%);
+      mask-position: 25% 75%;
+      mask-repeat: no-repeat;
+    }
+    .pos-right-center {
+      -webkit-mask-image: radial-gradient(circle 70px, black 60%, transparent 61%);
+      -webkit-mask-position: right center;
+      -webkit-mask-repeat: no-repeat;
+      mask-image: radial-gradient(circle 70px, black 60%, transparent 61%);
+      mask-position: right center;
+      mask-repeat: no-repeat;
+    }
+    .pos-50px-20px {
+      -webkit-mask-image: radial-gradient(circle 70px, black 60%, transparent 61%);
+      -webkit-mask-position: 50px 20px;
+      -webkit-mask-repeat: no-repeat;
+      mask-image: radial-gradient(circle 70px, black 60%, transparent 61%);
+      mask-position: 50px 20px;
+      mask-repeat: no-repeat;
+    }
+    .dot {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #f9a825;
+      z-index: 2;
+      box-shadow: 0 0 4px rgba(249,168,37,0.6);
+    }
+  </style>
+</head>
+<body>
+  <h1>Mask Position</h1>
+  <p class="prop-name">mask-position</p>
+  <div class="demos">
+
+    <div class="demo-card">
+      <h3>center</h3>
+      <div class="box pos-center" style="position:relative;">
+        <div class="dot" style="top: 50%; left: 50%; transform: translate(-50%,-50%);"></div>
+      </div>
+      <p class="label">mask-position: center</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>top left</h3>
+      <div class="box pos-top-left" style="position:relative;">
+        <div class="dot" style="top: 0; left: 0;"></div>
+      </div>
+      <p class="label">mask-position: top left</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>bottom right</h3>
+      <div class="box pos-bottom-right" style="position:relative;">
+        <div class="dot" style="bottom: 0; right: 0;"></div>
+      </div>
+      <p class="label">mask-position: bottom right</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>25% 75%</h3>
+      <div class="box pos-25-75" style="position:relative;">
+        <div class="dot" style="top: 75%; left: 25%; transform: translate(-50%,-50%);"></div>
+      </div>
+      <p class="label">mask-position: 25% 75%</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>right center</h3>
+      <div class="box pos-right-center" style="position:relative;">
+        <div class="dot" style="top: 50%; right: 0; transform: translateY(-50%);"></div>
+      </div>
+      <p class="label">mask-position: right center</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>50px 20px</h3>
+      <div class="box pos-50px-20px" style="position:relative;">
+        <div class="dot" style="top: 20px; left: 50px;"></div>
+      </div>
+      <p class="label">mask-position: 50px 20px</p>
+    </div>
+
+  </div>
+</body>
+</html>

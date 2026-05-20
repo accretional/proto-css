@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>max-width</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-direction: column; gap: 12px; }
+    .demo-row {
+      background: #16213e;
+      border-radius: 10px;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .label {
+      font-size: 11px;
+      font-family: monospace;
+      color: #9ca3af;
+      min-width: 200px;
+      flex-shrink: 0;
+    }
+    .box {
+      background: linear-gradient(90deg, #4fc3f7, #7c4dff);
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 12px;
+      color: #fff;
+      font-family: monospace;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      height: 40px;
+      display: flex;
+      align-items: center;
+    }
+    .track {
+      flex: 1;
+      background: #0f3460;
+      border-radius: 6px;
+      padding: 4px;
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+    }
+    .box-none { max-width: none; width: 100%; }
+    .box-100 { max-width: 100px; width: 100%; }
+    .box-200 { max-width: 200px; width: 100%; }
+    .box-300 { max-width: 300px; width: 100%; }
+    .box-50pct { max-width: 50%; width: 100%; }
+    .box-maxc { max-width: max-content; }
+    .box-fitc { max-width: fit-content; }
+  </style>
+</head>
+<body>
+  <h1>Max Width</h1>
+  <p class="prop-name">max-width</p>
+  <div class="demos">
+    <div class="demo-row">
+      <p class="label">max-width: none</p>
+      <div class="track">
+        <div class="box box-none">fills entire container width with no upper bound</div>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <p class="label">max-width: 100px</p>
+      <div class="track">
+        <div class="box box-100">100px</div>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <p class="label">max-width: 200px</p>
+      <div class="track">
+        <div class="box box-200">200px limit</div>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <p class="label">max-width: 300px</p>
+      <div class="track">
+        <div class="box box-300">300px maximum width</div>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <p class="label">max-width: 50%</p>
+      <div class="track">
+        <div class="box box-50pct">50% of parent</div>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <p class="label">max-width: max-content</p>
+      <div class="track">
+        <div class="box box-maxc">Sized to content, no wrapping</div>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <p class="label">max-width: fit-content</p>
+      <div class="track">
+        <div class="box box-fitc">Shrinks to fit content naturally</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

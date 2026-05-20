@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>min-height</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 20px;
+      width: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
+    .container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .box {
+      width: 100%;
+      background: linear-gradient(180deg, #0f3460, #533483);
+      border: 2px solid #4fc3f7;
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 11px;
+      color: #c8d6e5;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .box-0 { min-height: 0; }
+    .box-50 { min-height: 50px; }
+    .box-100 { min-height: 100px; }
+    .box-200 { min-height: 200px; }
+    .ruler {
+      width: 4px;
+      background: #ff6b6b;
+      border-radius: 2px;
+      margin-left: 8px;
+      align-self: stretch;
+      flex-shrink: 0;
+    }
+    .box-inner {
+      display: flex;
+      width: 100%;
+    }
+    .box-text {
+      flex: 1;
+    }
+    .size-note {
+      font-size: 10px;
+      color: #4fc3f7;
+      font-family: monospace;
+      margin-top: 6px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Min Height</h1>
+  <p class="prop-name">min-height</p>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="container">
+        <div class="box box-0">
+          <div class="box-inner">
+            <span class="box-text">tiny</span>
+            <div class="ruler"></div>
+          </div>
+        </div>
+      </div>
+      <p class="size-note">Shrinks to content</p>
+      <p class="label">min-height: 0</p>
+    </div>
+
+    <div class="demo-card">
+      <div class="container">
+        <div class="box box-50">
+          <div class="box-inner">
+            <span class="box-text">tiny</span>
+            <div class="ruler"></div>
+          </div>
+        </div>
+      </div>
+      <p class="size-note">50px minimum</p>
+      <p class="label">min-height: 50px</p>
+    </div>
+
+    <div class="demo-card">
+      <div class="container">
+        <div class="box box-100">
+          <div class="box-inner">
+            <span class="box-text">tiny</span>
+            <div class="ruler"></div>
+          </div>
+        </div>
+      </div>
+      <p class="size-note">100px minimum</p>
+      <p class="label">min-height: 100px</p>
+    </div>
+
+    <div class="demo-card">
+      <div class="container">
+        <div class="box box-200">
+          <div class="box-inner">
+            <span class="box-text">tiny</span>
+            <div class="ruler"></div>
+          </div>
+        </div>
+      </div>
+      <p class="size-note">200px minimum</p>
+      <p class="label">min-height: 200px</p>
+    </div>
+  </div>
+</body>
+</html>

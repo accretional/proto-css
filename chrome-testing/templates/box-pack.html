@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>box-pack</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-direction: column; gap: 20px; }
+    .demo-box { display: flex; flex-direction: column; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+    .container {
+      display: -webkit-box;
+      -webkit-box-orient: horizontal;
+      width: 100%;
+      max-width: 900px;
+      height: 80px;
+      background: #16213e;
+      border: 2px solid #333;
+    }
+    .child {
+      width: 80px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      margin: 10px 6px;
+      border-radius: 6px;
+    }
+    .child:nth-child(1) { background: #e94560; }
+    .child:nth-child(2) { background: #0f3460; }
+    .child:nth-child(3) { background: #53d769; color: #1a1a2e; }
+    .p-start { -webkit-box-pack: start; }
+    .p-center { -webkit-box-pack: center; }
+    .p-end { -webkit-box-pack: end; }
+    .p-justify { -webkit-box-pack: justify; }
+  </style>
+</head>
+<body>
+  <h1>Box Pack (deprecated)</h1>
+  <p class="prop-name">box-pack / -webkit-box-pack</p>
+  <div class="demos">
+    <div class="demo-box">
+      <div class="container p-start">
+        <div class="child">A</div>
+        <div class="child">B</div>
+        <div class="child">C</div>
+      </div>
+      <span class="label">-webkit-box-pack: start</span>
+    </div>
+    <div class="demo-box">
+      <div class="container p-center">
+        <div class="child">A</div>
+        <div class="child">B</div>
+        <div class="child">C</div>
+      </div>
+      <span class="label">-webkit-box-pack: center</span>
+    </div>
+    <div class="demo-box">
+      <div class="container p-end">
+        <div class="child">A</div>
+        <div class="child">B</div>
+        <div class="child">C</div>
+      </div>
+      <span class="label">-webkit-box-pack: end</span>
+    </div>
+    <div class="demo-box">
+      <div class="container p-justify">
+        <div class="child">A</div>
+        <div class="child">B</div>
+        <div class="child">C</div>
+      </div>
+      <span class="label">-webkit-box-pack: justify</span>
+    </div>
+  </div>
+</body>
+</html>

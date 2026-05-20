@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>lighting-color</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demo-card { background: #16213e; border-radius: 12px; padding: 16px; width: 240px; text-align: center; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
+    .svg-wrap { display: flex; justify-content: center; }
+  </style>
+</head>
+<body>
+  <h1>Lighting Color</h1>
+  <p class="prop-name">lighting-color</p>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="svg-wrap">
+        <svg width="200" height="140" viewBox="0 0 200 140">
+          <defs>
+            <filter id="light1" x="0" y="0" width="100%" height="100%">
+              <feDiffuseLighting in="SourceGraphic" result="light" lighting-color="white" surfaceScale="3">
+                <fePointLight x="100" y="70" z="80"/>
+              </feDiffuseLighting>
+              <feComposite in="SourceGraphic" in2="light" operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/>
+            </filter>
+          </defs>
+          <rect x="10" y="10" width="180" height="120" rx="12" fill="#4a5568" filter="url(#light1)"/>
+        </svg>
+      </div>
+      <div class="label">lighting-color: white</div>
+    </div>
+    <div class="demo-card">
+      <div class="svg-wrap">
+        <svg width="200" height="140" viewBox="0 0 200 140">
+          <defs>
+            <filter id="light2" x="0" y="0" width="100%" height="100%">
+              <feDiffuseLighting in="SourceGraphic" result="light" lighting-color="#ff6b6b" surfaceScale="3">
+                <fePointLight x="100" y="70" z="80"/>
+              </feDiffuseLighting>
+              <feComposite in="SourceGraphic" in2="light" operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/>
+            </filter>
+          </defs>
+          <rect x="10" y="10" width="180" height="120" rx="12" fill="#4a5568" filter="url(#light2)"/>
+        </svg>
+      </div>
+      <div class="label">lighting-color: #ff6b6b</div>
+    </div>
+    <div class="demo-card">
+      <div class="svg-wrap">
+        <svg width="200" height="140" viewBox="0 0 200 140">
+          <defs>
+            <filter id="light3" x="0" y="0" width="100%" height="100%">
+              <feDiffuseLighting in="SourceGraphic" result="light" lighting-color="#4ecdc4" surfaceScale="3">
+                <fePointLight x="100" y="70" z="80"/>
+              </feDiffuseLighting>
+              <feComposite in="SourceGraphic" in2="light" operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/>
+            </filter>
+          </defs>
+          <rect x="10" y="10" width="180" height="120" rx="12" fill="#4a5568" filter="url(#light3)"/>
+        </svg>
+      </div>
+      <div class="label">lighting-color: #4ecdc4</div>
+    </div>
+    <div class="demo-card">
+      <div class="svg-wrap">
+        <svg width="200" height="140" viewBox="0 0 200 140">
+          <defs>
+            <filter id="light4" x="0" y="0" width="100%" height="100%">
+              <feDiffuseLighting in="SourceGraphic" result="light" lighting-color="#ffd93d" surfaceScale="3">
+                <fePointLight x="100" y="70" z="80"/>
+              </feDiffuseLighting>
+              <feComposite in="SourceGraphic" in2="light" operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/>
+            </filter>
+          </defs>
+          <rect x="10" y="10" width="180" height="120" rx="12" fill="#4a5568" filter="url(#light4)"/>
+        </svg>
+      </div>
+      <div class="label">lighting-color: #ffd93d</div>
+    </div>
+    <div class="demo-card">
+      <div class="svg-wrap">
+        <svg width="200" height="140" viewBox="0 0 200 140">
+          <defs>
+            <filter id="light5" x="0" y="0" width="100%" height="100%">
+              <feDiffuseLighting in="SourceGraphic" result="light" lighting-color="#a855f7" surfaceScale="3">
+                <fePointLight x="100" y="70" z="80"/>
+              </feDiffuseLighting>
+              <feComposite in="SourceGraphic" in2="light" operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/>
+            </filter>
+          </defs>
+          <rect x="10" y="10" width="180" height="120" rx="12" fill="#4a5568" filter="url(#light5)"/>
+        </svg>
+      </div>
+      <div class="label">lighting-color: #a855f7</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>interest-delay</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .note { font-size: 12px; color: #f5c542; margin-bottom: 20px; padding: 10px 14px; background: rgba(245,197,66,0.1); border-radius: 6px; border-left: 3px solid #f5c542; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 8px;
+      padding: 20px;
+      width: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .trigger-area {
+      width: 160px;
+      height: 120px;
+      background: #0f3460;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      position: relative;
+      border: 2px solid #3a3a5e;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .trigger-area:hover {
+      border-color: #e94560;
+    }
+    .trigger-area .icon {
+      font-size: 28px;
+    }
+    .trigger-area .trigger-label {
+      font-size: 12px;
+      color: #9ca3af;
+    }
+    .timeline {
+      width: 160px;
+      height: 24px;
+      background: #0a0a1e;
+      border-radius: 4px;
+      margin-top: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .timeline .delay-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background: rgba(233,69,96,0.3);
+      border-right: 2px solid #e94560;
+    }
+    .timeline .show-bar {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      background: rgba(83,166,83,0.3);
+    }
+    .timeline .time-label {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 8px;
+      font-family: monospace;
+      color: #fff;
+      padding: 0 4px;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
+    .hint { font-size: 10px; color: #6b7280; margin-top: 4px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>Interest Delay</h1>
+  <p class="prop-name">interest-delay</p>
+  <p class="note">Experimental property. Controls the delay before showing interest-triggered content (e.g., tooltips on hover).</p>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="trigger-area">
+        <span class="icon">&#9432;</span>
+        <span class="trigger-label">Hover me</span>
+      </div>
+      <div class="timeline">
+        <div class="show-bar" style="left: 0; right: 0; background: rgba(83,166,83,0.3);"></div>
+        <span class="time-label" style="left: 4px;">instant</span>
+      </div>
+      <p class="label">interest-delay: 0s</p>
+      <p class="hint">Shows immediately</p>
+    </div>
+    <div class="demo-card">
+      <div class="trigger-area">
+        <span class="icon">&#9432;</span>
+        <span class="trigger-label">Hover me</span>
+      </div>
+      <div class="timeline">
+        <div class="delay-bar" style="width: 25%;"></div>
+        <div class="show-bar" style="left: 25%; right: 0;"></div>
+        <span class="time-label" style="left: 4px;">0.25s</span>
+      </div>
+      <p class="label">interest-delay: 0.25s</p>
+      <p class="hint">Quarter-second delay</p>
+    </div>
+    <div class="demo-card">
+      <div class="trigger-area">
+        <span class="icon">&#9432;</span>
+        <span class="trigger-label">Hover me</span>
+      </div>
+      <div class="timeline">
+        <div class="delay-bar" style="width: 50%;"></div>
+        <div class="show-bar" style="left: 50%; right: 0;"></div>
+        <span class="time-label" style="left: 4px;">0.5s</span>
+      </div>
+      <p class="label">interest-delay: 0.5s</p>
+      <p class="hint">Half-second delay</p>
+    </div>
+    <div class="demo-card">
+      <div class="trigger-area">
+        <span class="icon">&#9432;</span>
+        <span class="trigger-label">Hover me</span>
+      </div>
+      <div class="timeline">
+        <div class="delay-bar" style="width: 75%;"></div>
+        <div class="show-bar" style="left: 75%; right: 0;"></div>
+        <span class="time-label" style="left: 4px;">1s</span>
+      </div>
+      <p class="label">interest-delay: 1s</p>
+      <p class="hint">One-second delay</p>
+    </div>
+    <div class="demo-card">
+      <div class="trigger-area">
+        <span class="icon">&#9432;</span>
+        <span class="trigger-label">Hover me</span>
+      </div>
+      <div class="timeline">
+        <div class="delay-bar" style="width: 100%;"></div>
+        <span class="time-label" style="left: 4px;">2s</span>
+      </div>
+      <p class="label">interest-delay: 2s</p>
+      <p class="hint">Two-second delay</p>
+    </div>
+  </div>
+</body>
+</html>

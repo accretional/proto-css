@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>hyphenate-limit-chars</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 8px;
+      padding: 20px;
+      width: 350px;
+    }
+    .text-block {
+      width: 100%;
+      background: #0f3460;
+      border-radius: 6px;
+      padding: 16px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #e0e0e0;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      min-height: 130px;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+    .hint { font-size: 10px; color: #6b7280; margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Hyphenate Limit Chars</h1>
+  <p class="prop-name">hyphenate-limit-chars</p>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="text-block" lang="en" style="hyphenate-limit-chars: auto;">
+        Internationalization and telecommunications require extraordinarily sophisticated infrastructure. Electroencephalographically measuring neuropsychopharmacological responses.
+      </div>
+      <p class="label">hyphenate-limit-chars: auto</p>
+      <p class="hint">Default: minimum word length decided by browser</p>
+    </div>
+    <div class="demo-card">
+      <div class="text-block" lang="en" style="hyphenate-limit-chars: 5 3 2;">
+        Internationalization and telecommunications require extraordinarily sophisticated infrastructure. Electroencephalographically measuring neuropsychopharmacological responses.
+      </div>
+      <p class="label">hyphenate-limit-chars: 5 3 2</p>
+      <p class="hint">Min 5 chars total, 3 before break, 2 after</p>
+    </div>
+    <div class="demo-card">
+      <div class="text-block" lang="en" style="hyphenate-limit-chars: 10;">
+        Internationalization and telecommunications require extraordinarily sophisticated infrastructure. Electroencephalographically measuring neuropsychopharmacological responses.
+      </div>
+      <p class="label">hyphenate-limit-chars: 10</p>
+      <p class="hint">Only hyphenate words with 10+ characters</p>
+    </div>
+  </div>
+</body>
+</html>

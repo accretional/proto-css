@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>background-blend-mode</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 18px; }
+    .demo-box { width: calc(20% - 15px); display: flex; flex-direction: column; align-items: center; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; }
+
+    .blend-sample {
+      width: 100%;
+      height: 180px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background-image:
+        linear-gradient(135deg, #e94560 0%, #e94560 100%),
+        linear-gradient(225deg, #533bdb 0%, #0ea5e9 50%, #10b981 100%);
+      background-size: 100% 100%;
+    }
+    .blend-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+      text-align: center;
+    }
+
+    .bm-normal { background-blend-mode: normal; }
+    .bm-multiply { background-blend-mode: multiply; }
+    .bm-screen { background-blend-mode: screen; }
+    .bm-overlay { background-blend-mode: overlay; }
+    .bm-darken { background-blend-mode: darken; }
+    .bm-lighten { background-blend-mode: lighten; }
+    .bm-color-dodge { background-blend-mode: color-dodge; }
+    .bm-color-burn { background-blend-mode: color-burn; }
+    .bm-hard-light { background-blend-mode: hard-light; }
+    .bm-soft-light { background-blend-mode: soft-light; }
+    .bm-difference { background-blend-mode: difference; }
+    .bm-exclusion { background-blend-mode: exclusion; }
+    .bm-hue { background-blend-mode: hue; }
+    .bm-saturation { background-blend-mode: saturation; }
+    .bm-luminosity { background-blend-mode: luminosity; }
+  </style>
+</head>
+<body>
+  <h1>Background Blend Mode</h1>
+  <p class="prop-name">background-blend-mode</p>
+  <div class="demos">
+    <div class="demo-box">
+      <div class="blend-title">normal</div>
+      <div class="blend-sample bm-normal"></div>
+      <p class="label">normal</p>
+    </div>
+    <div class="demo-box">
+      <div class="blend-title">multiply</div>
+      <div class="blend-sample bm-multiply"></div>
+      <p class="label">multiply</p>
+    </div>
+    <div class="demo-box">
+      <div class="blend-title">screen</div>
+      <div class="blend-sample bm-screen"></div>
+      <p class="label">screen</p>
+    </div>
+    <div class="demo-box">
+      <div class="blend-title">overlay</div>
+      <div class="blend-sample bm-overlay"></div>
+      <p class="label">overlay</p>
+    </div>
+    <div class="demo-box">
+      <div class="blend-title">darken</div>
+      <div class="blend-sample bm-darken"></div>
+      <p class="label">darken</p>
+    </div>
+    <div class="demo-box">
+      <div class="blend-title">lighten</div>
+      <div class="blend-sample bm-lighten"></div>
+      <p class="label">lighten</p>
+    </div>
+    <div class="demo-box">
+      <div class="blend-title">color-dodge</div>
+      <div class="blend-sample bm-color-dodge"></div>
+      <p class="label">color-dodge</p>
+    </div>
+    <div class="demo-box">
+      <div class="blend-title">color-burn</div>
+      <div class="blend-sample bm-color-burn"></div>
+      <p class="label">color-burn</p>
+    </div>
+    <div class="demo-box">
+      <div class="blend-title">hard-light</div>
+      <div class="blend-sample bm-hard-light"></div>
+      <p class="label">hard-light</p>
+    </div>
+    <div class="demo-box">
+      <div class="blend-title">soft-light</div>
+      <div class="blend-sample bm-soft-light"></div>
+      <p class="label">soft-light</p>
+    </div>
+    <div class="demo-box">
+      <div class="blend-title">difference</div>
+      <div class="blend-sample bm-difference"></div>
+      <p class="label">difference</p>
+    </div>
+    <div class="demo-box">
+      <div class="blend-title">exclusion</div>
+      <div class="blend-sample bm-exclusion"></div>
+      <p class="label">exclusion</p>
+    </div>
+    <div class="demo-box">
+      <div class="blend-title">hue</div>
+      <div class="blend-sample bm-hue"></div>
+      <p class="label">hue</p>
+    </div>
+    <div class="demo-box">
+      <div class="blend-title">saturation</div>
+      <div class="blend-sample bm-saturation"></div>
+      <p class="label">saturation</p>
+    </div>
+    <div class="demo-box">
+      <div class="blend-title">luminosity</div>
+      <div class="blend-sample bm-luminosity"></div>
+      <p class="label">luminosity</p>
+    </div>
+  </div>
+</body>
+</html>

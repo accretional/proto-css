@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>animation-range-start</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-direction: column; gap: 18px; }
+    .demo-row { background: #16213e; border-radius: 12px; padding: 18px 28px; }
+    .demo-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .demo-title { font-size: 13px; color: #e0e0e0; font-weight: 600; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; }
+
+    .timeline { position: relative; height: 36px; background: #0f3460; border-radius: 6px; overflow: visible; }
+    .active-zone { position: absolute; top: 0; bottom: 0; right: 0; border-radius: 0 6px 6px 0; display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; font-size: 11px; font-weight: 600; color: #fff; }
+    .start-marker { position: absolute; top: -8px; bottom: -8px; width: 4px; background: #6ee7b7; border-radius: 2px; z-index: 2; }
+    .start-label { position: absolute; top: -22px; font-size: 10px; font-family: monospace; color: #6ee7b7; font-weight: 600; white-space: nowrap; transform: translateX(-50%); }
+    .end-line { position: absolute; top: 0; bottom: 0; right: 0; width: 4px; background: #f87171; border-radius: 0 2px 2px 0; z-index: 2; }
+
+    .start-normal .active-zone { left: 0; background: linear-gradient(90deg, #e9456020, #e9456060); border-radius: 6px; }
+    .start-normal .start-marker { left: 0; }
+
+    .start-20 .active-zone { left: 20%; background: linear-gradient(90deg, #533bdb20, #533bdb60); }
+    .start-20 .start-marker { left: 20%; }
+
+    .start-40 .active-zone { left: 40%; background: linear-gradient(90deg, #0ea5e920, #0ea5e960); }
+    .start-40 .start-marker { left: 40%; }
+
+    .start-60 .active-zone { left: 60%; background: linear-gradient(90deg, #f5920520, #f5920560); }
+    .start-60 .start-marker { left: 60%; }
+
+    .start-entry .active-zone { left: 50%; background: linear-gradient(90deg, #10b98120, #10b98160); }
+    .start-entry .start-marker { left: 50%; }
+
+    .ticks { display: flex; justify-content: space-between; margin-top: 8px; font-size: 10px; font-family: monospace; color: #4b5563; }
+  </style>
+</head>
+<body>
+  <h1>Animation Range Start</h1>
+  <p class="prop-name">animation-range-start</p>
+  <div class="demos">
+    <div class="demo-row">
+      <div class="demo-header">
+        <span class="demo-title">Normal (0%)</span>
+        <span class="label">animation-range-start: normal</span>
+      </div>
+      <div class="timeline start-normal">
+        <div class="active-zone">Active range</div>
+        <div class="start-marker"><span class="start-label">0%</span></div>
+        <div class="end-line"></div>
+      </div>
+      <div class="ticks"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
+    </div>
+
+    <div class="demo-row">
+      <div class="demo-header">
+        <span class="demo-title">Start at 20%</span>
+        <span class="label">animation-range-start: 20%</span>
+      </div>
+      <div class="timeline start-20">
+        <div class="active-zone">Active range</div>
+        <div class="start-marker"><span class="start-label">20%</span></div>
+        <div class="end-line"></div>
+      </div>
+      <div class="ticks"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
+    </div>
+
+    <div class="demo-row">
+      <div class="demo-header">
+        <span class="demo-title">Start at 40%</span>
+        <span class="label">animation-range-start: 40%</span>
+      </div>
+      <div class="timeline start-40">
+        <div class="active-zone">Active range</div>
+        <div class="start-marker"><span class="start-label">40%</span></div>
+        <div class="end-line"></div>
+      </div>
+      <div class="ticks"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
+    </div>
+
+    <div class="demo-row">
+      <div class="demo-header">
+        <span class="demo-title">Start at 60%</span>
+        <span class="label">animation-range-start: 60%</span>
+      </div>
+      <div class="timeline start-60">
+        <div class="active-zone">Active range</div>
+        <div class="start-marker"><span class="start-label">60%</span></div>
+        <div class="end-line"></div>
+      </div>
+      <div class="ticks"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
+    </div>
+
+    <div class="demo-row">
+      <div class="demo-header">
+        <span class="demo-title">Entry range start</span>
+        <span class="label">animation-range-start: entry 50%</span>
+      </div>
+      <div class="timeline start-entry">
+        <div class="active-zone">Active range</div>
+        <div class="start-marker"><span class="start-label">entry 50%</span></div>
+        <div class="end-line"></div>
+      </div>
+      <div class="ticks"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
+    </div>
+  </div>
+</body>
+</html>

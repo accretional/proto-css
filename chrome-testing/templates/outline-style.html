@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>outline-style</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 18px; }
+    .demo-box { background: #16213e; border-radius: 10px; padding: 18px; width: 185px; text-align: center; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 14px; }
+    .outlined {
+      width: 120px; height: 80px; background: #0f3460; border-radius: 6px;
+      margin: 12px auto 0;
+      outline-width: 4px; outline-color: #e94560;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; color: #c0c0d0;
+    }
+    .d1 .outlined { outline-style: none; }
+    .d2 .outlined { outline-style: solid; }
+    .d3 .outlined { outline-style: dashed; }
+    .d4 .outlined { outline-style: dotted; }
+    .d5 .outlined { outline-style: double; outline-width: 5px; }
+    .d6 .outlined { outline-style: groove; outline-color: #7b68ee; }
+    .d7 .outlined { outline-style: ridge; outline-color: #00d2ff; }
+    .d8 .outlined { outline-style: inset; outline-color: #f5a623; }
+    .d9 .outlined { outline-style: outset; outline-color: #00cc66; }
+  </style>
+</head>
+<body>
+  <h1>Outline Style</h1>
+  <p class="prop-name">outline-style</p>
+  <div class="demos">
+    <div class="demo-box d1">
+      <div class="outlined">none</div>
+      <div class="label">outline-style: none</div>
+    </div>
+    <div class="demo-box d2">
+      <div class="outlined">solid</div>
+      <div class="label">outline-style: solid</div>
+    </div>
+    <div class="demo-box d3">
+      <div class="outlined">dashed</div>
+      <div class="label">outline-style: dashed</div>
+    </div>
+    <div class="demo-box d4">
+      <div class="outlined">dotted</div>
+      <div class="label">outline-style: dotted</div>
+    </div>
+    <div class="demo-box d5">
+      <div class="outlined">double</div>
+      <div class="label">outline-style: double</div>
+    </div>
+    <div class="demo-box d6">
+      <div class="outlined">groove</div>
+      <div class="label">outline-style: groove</div>
+    </div>
+    <div class="demo-box d7">
+      <div class="outlined">ridge</div>
+      <div class="label">outline-style: ridge</div>
+    </div>
+    <div class="demo-box d8">
+      <div class="outlined">inset</div>
+      <div class="label">outline-style: inset</div>
+    </div>
+    <div class="demo-box d9">
+      <div class="outlined">outset</div>
+      <div class="label">outline-style: outset</div>
+    </div>
+  </div>
+</body>
+</html>
