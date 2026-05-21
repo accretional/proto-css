@@ -16,8 +16,8 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 GEN_DIR="$SCRIPT_DIR/html/generated"
 SCREENSHOTS_DIR="$SCRIPT_DIR/screenshots/generated"
 GALLERY_DIR="$SCRIPT_DIR/gallery"
-GALLERY="$GALLERY_DIR/gen_screenshots_gallery.html"
-GEN_TEMPLATE_GALLERY="$GALLERY_DIR/gen_gallery.html"
+GALLERY="$GALLERY_DIR/generated_screenshots_gallery.html"
+GEN_TEMPLATE_GALLERY="$GALLERY_DIR/generated_gallery.html"
 
 # ── Generate HTML from EBNF grammar ─────────────────────────────────────────
 
@@ -51,7 +51,7 @@ fi
 
 mkdir -p "$GALLERY_DIR"
 
-echo "=== Generating gen_screenshots_gallery.html ==="
+echo "=== Generating generated_screenshots_gallery.html ==="
 
 cat > "$GALLERY" <<'GALLERY_HEAD'
 <!DOCTYPE html>
@@ -149,7 +149,7 @@ echo "Screenshots gallery generated: $GALLERY ($count properties)"
 
 # ── Generate template iframe gallery ────────────────────────────────────────
 
-echo "=== Generating gen_gallery.html ==="
+echo "=== Generating generated_gallery.html ==="
 
 cat > "$GEN_TEMPLATE_GALLERY" <<'TGALLERY_HEAD'
 <!DOCTYPE html>

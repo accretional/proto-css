@@ -1,14 +1,15 @@
 # CSS Properties Visual Reference — Usage Instructions
 
-A visual reference for all 525 CSS properties. Each property has a unique HTML template that demonstrates its values, screenshotted via headless Chrome and displayed in a browsable gallery.
+A visual reference for CSS properties. 525 hand-written HTML templates demonstrate each property, and 528 EBNF-generated templates show grammar-derived CSS values. Both sets are screenshotted via headless Chrome and displayed in browsable galleries.
 
 ---
 
 ## What this module does
 
-- **525 HTML templates** in `templates/` — one per CSS property, each with 3-6 labeled value demos
-- **525 PNG screenshots** in `screenshots/` — captured at 2560x1600 (1280x800 @ 2x scale)
-- **`gallery.html`** — responsive 5-column grid displaying all screenshots with property names
+- **525 hand-written HTML templates** in `html/template/` — one per CSS property, each with 3-6 labeled value demos
+- **528 EBNF-generated HTML templates** in `html/generated/` — cloned from hand-written templates with grammar-derived values
+- **Screenshots** in `screenshots/template/` and `screenshots/generated/` — captured at 2560x1600 (1280x800 @ 2x scale)
+- **Gallery pages** in `gallery/` — responsive 5-column grids (screenshot galleries + live iframe galleries)
 
 Screenshots are taken using [chromerpc](https://github.com/accretional/chromerpc), a gRPC bridge to Chrome DevTools Protocol.
 
@@ -17,7 +18,7 @@ Screenshots are taken using [chromerpc](https://github.com/accretional/chromerpc
 ## Prerequisites
 
 - **Google Chrome** installed on the system
-- **Go** (to build chromerpc from source)
+- **Go** (to build chromerpc from source + run EBNF generator)
 - **Python 3** (serves HTML files over HTTP for screenshotting)
 
 chromerpc is fetched and built automatically on first run.
@@ -26,29 +27,42 @@ chromerpc is fetched and built automatically on first run.
 
 ## Quick start
 
-### Full pipeline — screenshot all templates and generate gallery
+### Full pipeline — screenshot hand-written templates and generate galleries
 
 ```bash
 cd chrome-testing
 ./run.sh
 ```
 
-### Regenerate gallery from existing screenshots
+### EBNF generation pipeline — generate HTML from grammar, screenshot, and build galleries
+
+```bash
+./run_gen.sh
+```
+
+### Regenerate galleries from existing screenshots
 
 ```bash
 ./run.sh --gallery-only
+./run_gen.sh --gallery-only
+```
+
+### Batch EBNF generation (first 20 properties)
+
+```bash
+START=0 COUNT=20 ./run_gen.sh
 ```
 
 ### Screenshot a single template
 
 ```bash
-./snap.sh templates/flex-direction.html screenshots/flex-direction.png
+./snap.sh html/template/flex-direction.html screenshots/template/flex-direction.png
 ```
 
-### Screenshot all templates (without gallery)
+### Screenshot all hand-written templates (without gallery)
 
 ```bash
-./snap.sh templates/ screenshots/
+./snap.sh html/template/ screenshots/template/
 ```
 
 ### Screenshot an external URL
@@ -61,7 +75,7 @@ cd chrome-testing
 
 ## Adding a new CSS property
 
-1. Create `templates/{property-name}.html` — self-contained HTML with:
+1. Create `html/template/{property-name}.html` — self-contained HTML with:
    - Dark background (`#1a1a2e`), light text
    - Property name as `<h1>` + monospace `<p>` subtitle
    - 3-6 demo cards showing different values with labels
@@ -75,7 +89,7 @@ cd chrome-testing
    ./run.sh
    ```
 
-4. Verify the screenshot in `screenshots/{property-name}.png`
+4. Verify the screenshot in `screenshots/template/{property-name}.png`
 
 ---
 
@@ -96,10 +110,23 @@ cd chrome-testing
 
 ---
 
+## Gallery pages
+
+All galleries are in `gallery/`:
+
+| File | Description |
+|---|---|
+| `template_screenshots_gallery.html` | Screenshot grid of hand-written templates |
+| `template_gallery.html` | Live iframe gallery (click to expand) of hand-written templates |
+| `generated_screenshots_gallery.html` | Screenshot grid of EBNF-generated templates |
+| `generated_gallery.html` | Live iframe gallery of EBNF-generated templates |
+
+---
+
 ## Notes
 
 - All scripts are idempotent — safe to re-run at any time
 - chromerpc binaries are cached in `/tmp/chromerpc-testing/bin/`
 - Ports are auto-assigned (no conflicts with other services)
 - Scripts clean up child processes via `trap EXIT`
-- `gallery.html` is generated — do not edit it manually
+- Gallery HTML files are generated — do not edit them manually

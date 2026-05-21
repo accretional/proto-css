@@ -52,36 +52,31 @@ trap cleanup EXIT
 
 # ── Step 1: Setup ───────────────────────────────────────────────────────────
 
-echo "============ Step 1/5: Setup ============"
+echo "============ Step 1/4: Setup ============"
 "$ROOT/setup.sh"
 echo ""
 
-# ── Step 2: Code Generation ────────────────────────────────────────────────
+# ── Step 2: Build (screenshots + galleries for both template sets) ─────────
 
-echo "============ Step 2/5: Code Generation ============"
-"$ROOT/tools/gen.sh"
-echo ""
-
-# ── Step 3: Build ───────────────────────────────────────────────────────────
-
-echo "============ Step 3/5: Build ============"
+echo "============ Step 2/4: Build ============"
 "$ROOT/build.sh"
 echo ""
 
-# ── Step 4: Test ────────────────────────────────────────────────────────────
+# ── Step 3: Test ────────────────────────────────────────────────────────────
 
-echo "============ Step 4/5: Test ============"
+echo "============ Step 3/4: Test ============"
 "$ROOT/test.sh"
 echo ""
 
-# ── Step 5: Serve + Open Browser ────────────────────────────────────────────
+# ── Step 4: Serve + Open Browser ────────────────────────────────────────────
 
-echo "============ Step 5/5: Serve + Browser ============"
+echo "============ Step 4/4: Serve + Browser ============"
 
-GALLERY="$ROOT/chrome-testing/gallery.html"
+GALLERY_DIR="$ROOT/chrome-testing/gallery"
+GALLERY_FILE="$GALLERY_DIR/generated_screenshots_gallery.html"
 
-if [[ ! -f "$GALLERY" ]]; then
-  echo "WARNING: gallery.html not found. Skipping serve step."
+if [[ ! -f "$GALLERY_FILE" ]]; then
+  echo "WARNING: Gallery not found. Skipping serve step."
   echo ""
   echo "############################################"
   echo "#  LET IT RIP complete (no gallery to serve)"
@@ -89,7 +84,8 @@ if [[ ! -f "$GALLERY" ]]; then
   exit 0
 fi
 
-SERVE_DIR="$(dirname "$GALLERY")"
+# Serve the entire chrome-testing directory so relative paths to screenshots work
+SERVE_DIR="$ROOT/chrome-testing"
 
 echo "Starting HTTP server on port $SERVE_PORT..."
 python3 -m http.server "$SERVE_PORT" --directory "$SERVE_DIR" &>/dev/null &
@@ -104,7 +100,7 @@ for i in $(seq 1 20); do
   sleep 0.25
 done
 
-GALLERY_URL="http://localhost:$SERVE_PORT/gallery.html"
+GALLERY_URL="http://localhost:$SERVE_PORT/gallery/generated_screenshots_gallery.html"
 echo "Gallery serving at: $GALLERY_URL"
 
 # Open in browser (macOS: open, Linux: xdg-open)
@@ -123,6 +119,11 @@ echo "#  LET IT RIP complete                     #"
 echo "#                                          #"
 echo "#  Gallery: $GALLERY_URL"
 echo "#  Server PID: $SERVER_PID"
+echo "#                                          #"
+echo "#  Other galleries:                        #"
+echo "#  - /gallery/generated_gallery.html             #"
+echo "#  - /gallery/template_screenshots_gallery.html #"
+echo "#  - /gallery/template_gallery.html        #"
 echo "#                                          #"
 echo "#  Press Ctrl+C to stop the server.        #"
 echo "#                                          #"

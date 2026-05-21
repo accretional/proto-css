@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# setup.sh — Install proto plugins, download third-party protos, tidy modules,
-#             and ensure the local toolchain is ready.
+# setup.sh — Check prerequisites, build chromerpc, and tidy Go modules.
 #
 # Idempotent: safe to re-run at any time.
 
@@ -54,76 +53,7 @@ if [[ $MISSING -ne 0 ]]; then
   exit 1
 fi
 
-# ── Install / update proto plugins ──────────────────────────────────────────
-
-echo ""
-echo "--- Installing proto toolchain ---"
-
-install_go_tool() {
-  local pkg="$1"
-  local bin_name
-  bin_name="$(basename "$pkg")"
-  if command -v "$bin_name" &>/dev/null; then
-    echo "  [ok] $bin_name already installed"
-  else
-    echo "  Installing $bin_name ..."
-    go install "$pkg"
-    echo "  [ok] $bin_name installed"
-  fi
-}
-
-# protoc-gen-go and gRPC plugins
-install_go_tool "google.golang.org/protobuf/cmd/protoc-gen-go@latest"
-install_go_tool "google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest"
-
-# grpc-gateway and OpenAPI plugins
-install_go_tool "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@latest"
-install_go_tool "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@latest"
-
-# buf (proto linter/builder) — optional but recommended
-if command -v buf &>/dev/null; then
-  echo "  [ok] buf already installed"
-else
-  echo "  Installing buf ..."
-  go install github.com/bufbuild/buf/cmd/buf@latest
-  echo "  [ok] buf installed"
-fi
-
-# ── Download third-party protos ─────────────────────────────────────────────
-
-echo ""
-echo "--- Downloading third-party protos ---"
-
-THIRD_PARTY="$ROOT/third_party"
-mkdir -p "$THIRD_PARTY"
-
-# Google API protos (googleapis) — needed for grpc-gateway annotations
-GOOGLEAPIS_DIR="$THIRD_PARTY/googleapis"
-if [[ -d "$GOOGLEAPIS_DIR/.git" ]]; then
-  echo "  Updating googleapis..."
-  git -C "$GOOGLEAPIS_DIR" pull --quiet 2>/dev/null || true
-  echo "  [ok] googleapis updated"
-else
-  echo "  Cloning googleapis..."
-  rm -rf "$GOOGLEAPIS_DIR"
-  git clone --quiet --depth 1 https://github.com/googleapis/googleapis.git "$GOOGLEAPIS_DIR"
-  echo "  [ok] googleapis cloned"
-fi
-
-# protoc-gen-openapiv2 proto definitions
-OPENAPIV2_DIR="$THIRD_PARTY/protoc-gen-openapiv2"
-if [[ -d "$OPENAPIV2_DIR/.git" ]]; then
-  echo "  Updating protoc-gen-openapiv2 protos..."
-  git -C "$OPENAPIV2_DIR" pull --quiet 2>/dev/null || true
-  echo "  [ok] protoc-gen-openapiv2 updated"
-else
-  echo "  Cloning grpc-gateway (for openapiv2 protos)..."
-  rm -rf "$OPENAPIV2_DIR"
-  git clone --quiet --depth 1 https://github.com/grpc-ecosystem/grpc-gateway.git "$OPENAPIV2_DIR"
-  echo "  [ok] protoc-gen-openapiv2 cloned"
-fi
-
-# ── Build chromerpc (for screenshot testing) ────────────────────────────────
+# ── Build chromerpc (for screenshots) ──────────────────────────────────────
 
 echo ""
 echo "--- Setting up chromerpc ---"
@@ -157,6 +87,35 @@ if [[ -f "$ROOT/go.mod" ]]; then
   echo "  [ok] go mod tidy complete"
 else
   echo "  [skip] No go.mod found yet"
+fi
+
+# ── Verify EBNF grammar files ─────────────────────────────────────────────
+
+echo ""
+echo "--- Checking EBNF grammar ---"
+
+LANG_DIR="$ROOT/lang"
+if [[ -d "$LANG_DIR" ]]; then
+  EBNF_COUNT=$(find "$LANG_DIR" -name '*.ebnf' | wc -l | tr -d ' ')
+  echo "  [ok] $EBNF_COUNT EBNF grammar files found in lang/"
+else
+  echo "  [warn] No lang/ directory found"
+fi
+
+# ── Verify Go generator builds ─────────────────────────────────────────────
+
+echo ""
+echo "--- Checking EBNF generator builds ---"
+
+GEN_CMD="$ROOT/chrome-testing/cmd/generate"
+if [[ -d "$GEN_CMD" ]]; then
+  if (cd "$ROOT" && go build ./chrome-testing/cmd/generate/); then
+    echo "  [ok] EBNF generator builds successfully"
+  else
+    echo "  [FAIL] EBNF generator build failed" >&2
+  fi
+else
+  echo "  [skip] No chrome-testing/cmd/generate/ directory found"
 fi
 
 # ── Done ────────────────────────────────────────────────────────────────────

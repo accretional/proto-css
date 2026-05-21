@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# test.sh — Vet, test, build-check, and smoke-test the project.
+# test.sh — Validate templates, screenshots, galleries, and smoke-test the project.
 #
 # This is the ONLY way to validate before committing. Never use bare `go test`
 # as final validation — always run this script.
@@ -69,18 +69,18 @@ else
   echo "  [skip] No go.mod found yet"
 fi
 
-# ── Template validation ─────────────────────────────────────────────────────
+# ── Hand-written template validation ───────────────────────────────────────
 
 echo ""
-echo "--- Template validation ---"
+echo "--- Hand-written template validation ---"
 
-TEMPLATES_DIR="$ROOT/chrome-testing/templates"
-PROPERTIES="$ROOT/properties.txt"
+TEMPLATES_DIR="$ROOT/chrome-testing/html/template"
+PROPERTIES="$ROOT/chrome-testing/properties.txt"
 
 if [[ -d "$TEMPLATES_DIR" ]]; then
   TEMPLATE_COUNT=$(find "$TEMPLATES_DIR" -name '*.html' | wc -l | tr -d ' ')
   if [[ "$TEMPLATE_COUNT" -gt 0 ]]; then
-    pass "$TEMPLATE_COUNT HTML templates found"
+    pass "$TEMPLATE_COUNT hand-written HTML templates found"
   else
     fail "No HTML templates in $TEMPLATES_DIR"
   fi
@@ -95,15 +95,15 @@ if [[ -d "$TEMPLATES_DIR" ]]; then
   done < <(find "$TEMPLATES_DIR" -name '*.html' -print0)
 
   if [[ $BAD_TEMPLATES -eq 0 ]]; then
-    pass "All templates have DOCTYPE"
+    pass "All hand-written templates have DOCTYPE"
   else
-    fail "$BAD_TEMPLATES template(s) missing DOCTYPE"
+    fail "$BAD_TEMPLATES hand-written template(s) missing DOCTYPE"
   fi
 else
-  fail "Templates directory not found: $TEMPLATES_DIR"
+  fail "Hand-written templates directory not found: $TEMPLATES_DIR"
 fi
 
-# Cross-check properties.txt against templates
+# Cross-check properties.txt against hand-written templates
 if [[ -f "$PROPERTIES" && -d "$TEMPLATES_DIR" ]]; then
   MISSING_TEMPLATES=0
   while IFS= read -r prop; do
@@ -115,23 +115,41 @@ if [[ -f "$PROPERTIES" && -d "$TEMPLATES_DIR" ]]; then
   done < "$PROPERTIES"
 
   if [[ $MISSING_TEMPLATES -eq 0 ]]; then
-    pass "All properties in properties.txt have templates"
+    pass "All properties in properties.txt have hand-written templates"
   else
-    echo "  [warn] $MISSING_TEMPLATES properties in properties.txt lack templates (may be expected)"
+    echo "  [warn] $MISSING_TEMPLATES properties in properties.txt lack hand-written templates (may be expected)"
   fi
 fi
 
-# ── Screenshot validation ───────────────────────────────────────────────────
+# ── EBNF-generated template validation ─────────────────────────────────────
 
 echo ""
-echo "--- Screenshot validation ---"
+echo "--- EBNF-generated template validation ---"
 
-SCREENSHOTS_DIR="$ROOT/chrome-testing/screenshots"
+GEN_TEMPLATES_DIR="$ROOT/chrome-testing/html/generated"
+
+if [[ -d "$GEN_TEMPLATES_DIR" ]]; then
+  GEN_COUNT=$(find "$GEN_TEMPLATES_DIR" -name '*.html' | wc -l | tr -d ' ')
+  if [[ "$GEN_COUNT" -gt 0 ]]; then
+    pass "$GEN_COUNT EBNF-generated HTML templates found"
+  else
+    echo "  [warn] No generated templates in $GEN_TEMPLATES_DIR (run ./tools/gen.sh)"
+  fi
+else
+  echo "  [warn] Generated templates directory not found: $GEN_TEMPLATES_DIR (run ./tools/gen.sh)"
+fi
+
+# ── Hand-written screenshot validation ─────────────────────────────────────
+
+echo ""
+echo "--- Hand-written screenshot validation ---"
+
+SCREENSHOTS_DIR="$ROOT/chrome-testing/screenshots/template"
 
 if [[ -d "$SCREENSHOTS_DIR" ]]; then
   SCREENSHOT_COUNT=$(find "$SCREENSHOTS_DIR" -name '*.png' | wc -l | tr -d ' ')
   if [[ "$SCREENSHOT_COUNT" -gt 0 ]]; then
-    pass "$SCREENSHOT_COUNT screenshots found"
+    pass "$SCREENSHOT_COUNT hand-written template screenshots found"
   else
     fail "No screenshots in $SCREENSHOTS_DIR"
   fi
@@ -146,12 +164,30 @@ if [[ -d "$SCREENSHOTS_DIR" ]]; then
   done < <(find "$SCREENSHOTS_DIR" -name '*.png' -print0)
 
   if [[ $EMPTY_SCREENSHOTS -eq 0 ]]; then
-    pass "All screenshots are non-empty"
+    pass "All hand-written screenshots are non-empty"
   else
-    fail "$EMPTY_SCREENSHOTS empty screenshot(s)"
+    fail "$EMPTY_SCREENSHOTS empty hand-written screenshot(s)"
   fi
 else
-  fail "Screenshots directory not found: $SCREENSHOTS_DIR"
+  fail "Hand-written screenshots directory not found: $SCREENSHOTS_DIR"
+fi
+
+# ── Generated screenshot validation ────────────────────────────────────────
+
+echo ""
+echo "--- Generated screenshot validation ---"
+
+GEN_SCREENSHOTS_DIR="$ROOT/chrome-testing/screenshots/generated"
+
+if [[ -d "$GEN_SCREENSHOTS_DIR" ]]; then
+  GEN_SS_COUNT=$(find "$GEN_SCREENSHOTS_DIR" -name '*.png' | wc -l | tr -d ' ')
+  if [[ "$GEN_SS_COUNT" -gt 0 ]]; then
+    pass "$GEN_SS_COUNT generated template screenshots found"
+  else
+    echo "  [warn] No generated screenshots in $GEN_SCREENSHOTS_DIR (run ./tools/gen.sh)"
+  fi
+else
+  echo "  [warn] Generated screenshots directory not found (run ./tools/gen.sh)"
 fi
 
 # ── Gallery validation ──────────────────────────────────────────────────────
@@ -159,16 +195,31 @@ fi
 echo ""
 echo "--- Gallery validation ---"
 
-GALLERY="$ROOT/chrome-testing/gallery.html"
+GALLERY_DIR="$ROOT/chrome-testing/gallery"
 
-if [[ -f "$GALLERY" ]]; then
-  if [[ -s "$GALLERY" ]]; then
-    pass "gallery.html exists and is non-empty"
+check_gallery() {
+  local path="$1"
+  local name="$2"
+  if [[ -f "$path" ]]; then
+    if [[ -s "$path" ]]; then
+      pass "$name exists and is non-empty"
+    else
+      fail "$name exists but is empty"
+    fi
   else
-    fail "gallery.html exists but is empty"
+    fail "$name not found — run ./build.sh first"
   fi
+}
+
+check_gallery "$GALLERY_DIR/template_screenshots_gallery.html" "template_screenshots_gallery.html"
+check_gallery "$GALLERY_DIR/template_gallery.html" "template_gallery.html"
+
+# Generated galleries are optional (only exist after tools/gen.sh)
+if [[ -f "$GALLERY_DIR/generated_screenshots_gallery.html" ]]; then
+  check_gallery "$GALLERY_DIR/generated_screenshots_gallery.html" "generated_screenshots_gallery.html"
+  check_gallery "$GALLERY_DIR/generated_gallery.html" "generated_gallery.html"
 else
-  fail "gallery.html not found — run ./build.sh first"
+  echo "  [warn] Generated galleries not found (run ./tools/gen.sh)"
 fi
 
 # ── Smoke test: serve gallery and check HTTP response ───────────────────────
@@ -184,11 +235,12 @@ smoke_cleanup() {
 }
 trap smoke_cleanup EXIT
 
-if [[ -f "$GALLERY" ]]; then
-  SMOKE_PORT="$(python3 -c "import socket; s=socket.socket(); s.bind(('',0)); p=s.getsockname()[1]; s.close(); print(p)")"
-  SERVE_DIR="$(dirname "$GALLERY")"
+GALLERY_FILE="$GALLERY_DIR/generated_screenshots_gallery.html"
 
-  python3 -m http.server "$SMOKE_PORT" --directory "$SERVE_DIR" &>/dev/null &
+if [[ -f "$GALLERY_FILE" ]]; then
+  SMOKE_PORT="$(python3 -c "import socket; s=socket.socket(); s.bind(('',0)); p=s.getsockname()[1]; s.close(); print(p)")"
+
+  python3 -m http.server "$SMOKE_PORT" --directory "$GALLERY_DIR" &>/dev/null &
   SMOKE_PID=$!
   disown "$SMOKE_PID"
 
@@ -201,17 +253,17 @@ if [[ -f "$GALLERY" ]]; then
   done
 
   # Check HTTP response
-  HTTP_STATUS="$(curl -s -o /dev/null -w '%{http_code}' "http://localhost:$SMOKE_PORT/gallery.html" 2>/dev/null || echo "000")"
+  HTTP_STATUS="$(curl -s -o /dev/null -w '%{http_code}' "http://localhost:$SMOKE_PORT/generated_screenshots_gallery.html" 2>/dev/null || echo "000")"
   if [[ "$HTTP_STATUS" == "200" ]]; then
-    pass "Smoke test: gallery.html served OK (HTTP $HTTP_STATUS)"
+    pass "Smoke test: generated_screenshots_gallery.html served OK (HTTP $HTTP_STATUS)"
   else
-    fail "Smoke test: gallery.html returned HTTP $HTTP_STATUS"
+    fail "Smoke test: generated_screenshots_gallery.html returned HTTP $HTTP_STATUS"
   fi
 
   kill "$SMOKE_PID" 2>/dev/null || true
   SMOKE_PID=""
 else
-  echo "  [skip] No gallery.html to smoke-test"
+  echo "  [skip] No generated gallery to smoke-test"
 fi
 
 # ── Summary ─────────────────────────────────────────────────────────────────
