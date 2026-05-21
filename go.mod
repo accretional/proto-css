@@ -1,4 +1,4 @@
-module github.com/accretional/proto-css-new
+module github.com/accretional/proto-css
 
 go 1.25.5
 

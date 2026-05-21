@@ -147,7 +147,7 @@ const file_chrome_testing_cmd_generate_propertydesc_proto_rawDesc = "" +
 	"\x13PropertyDescriptors\x12:\n" +
 	"\n" +
 	"properties\x18\x01 \x03(\v2\x1a.cssgen.PropertyDescriptorR\n" +
-	"propertiesBBZ@github.com/accretional/proto-css-new/chrome-testing/cmd/generateb\x06proto3"
+	"propertiesBBZ@github.com/accretional/proto-css/chrome-testing/cmd/generateb\x06proto3"
 
 var (
 	file_chrome_testing_cmd_generate_propertydesc_proto_rawDescOnce sync.Once
