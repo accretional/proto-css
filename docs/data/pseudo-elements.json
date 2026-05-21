@@ -1,0 +1,316 @@
+{
+  "::after": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::after",
+    "syntax": "::after {\n  content: /* value */;\n  /* properties */\n}",
+    "formal_syntax": null,
+    "intro": "In CSS, ::after creates a pseudo-element that is the last child of the selected element. It is often used to add cosmetic content to an element with the content property. It is inline by default.",
+    "description": "The ::after pseudo-element is an inline box generated as an immediate child of the element it is associated with, or the \"originating element\". It is often used to add cosmetic content to an element via the content property, such as icons, quote marks, or other decoration.\n\n::after pseudo-elements can't be applied to replaced elements such as <img>, whose contents are determined by external resources and not affected by the current document's styles.\n\nAn ::after pseudo-element with a display value of list-item behaves like a list item, and can therefore generate a ::marker pseudo-element just like an <li> element.\n\nIf the content property is not specified, has an invalid value, or has normal or none as a value, then the ::after pseudo-element is not rendered. It behaves as if display: none is set.\n\nNote:\nThe Selectors Level 3 specification introduced the double-colon notation ::after to distinguish pseudo-classes from pseudo-elements. Browsers also accept single-colon notation :after, introduced in CSS2.\n\nBy default, the ::before and ::after pseudo-elements share the same stacking context as their parent. If no z-index is explicitly set, the ::after pseudo-element's generated content will appear above the ::before pseudo-element's generated content because ::after is rendered later in the DOM flow.",
+    "parameters": null,
+    "allowable_properties": null
+  },
+  "::backdrop": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::backdrop",
+    "syntax": "::backdrop {\n  /* ... */\n}",
+    "formal_syntax": null,
+    "intro": "The ::backdrop CSS pseudo-element is a box the size of the viewport, which is rendered immediately beneath any element being presented in the top layer.",
+    "description": "Backdrops appear in the following instances:\n\nWhen multiple elements have been placed into the top layer, each one has its own ::backdrop pseudo-element.\n\nElements are placed in a last-in/first out (LIFO) stack in the top layer. The ::backdrop pseudo-element makes it possible to obscure, style, or completely hide everything located below a top layer element.\n\n::backdrop neither inherits from nor is inherited by any other elements. No restrictions are made on what properties apply to this pseudo-element.",
+    "parameters": null,
+    "allowable_properties": null
+  },
+  "::before": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::before",
+    "syntax": "::before {\n  content: /* value */;\n  /* properties */\n}",
+    "formal_syntax": null,
+    "intro": "In CSS, ::before creates a pseudo-element that is the first child of the selected element. It is often used to add cosmetic content to an element with the content property. It is inline by default.",
+    "description": "The ::before pseudo-element is an inline box generated as an immediate child of the element it is associated with, or the \"originating element\". It is often used to add cosmetic content to an element via the content property, such as icons, quote marks, or other decoration.\n\n::before pseudo-elements can't be applied to replaced elements such as <img>, whose contents are determined by external resources and not affected by the current document's styles.\n\nA ::before pseudo-element with a display value of list-item behaves like a list item, and can therefore generate a ::marker pseudo-element just like an <li> element.\n\nIf the content property is not specified, has an invalid value, or has normal or none as a value, then the ::before pseudo-element is not rendered. It behaves as if display: none is set.\n\nNote:\nThe Selectors Level 3 specification introduced the double-colon notation ::before to distinguish pseudo-classes from pseudo-elements. Browsers also accept single-colon notation :before, introduced in CSS2.\n\nBy default, the ::before and ::after pseudo-elements share the same stacking context as their parent. If no z-index is explicitly set, the ::after pseudo-element's generated content will appear above the ::before pseudo-element's generated content because ::after is rendered later in the DOM flow.",
+    "parameters": null,
+    "allowable_properties": null
+  },
+  "::checkmark": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::checkmark",
+    "syntax": "::checkmark {\n  /* ... */\n}",
+    "formal_syntax": null,
+    "intro": "The ::checkmark CSS pseudo-element targets the checkmark placed inside the currently-selected <option> element of a customizable select element. It can be used to provide a visual indication of which option is selected.",
+    "description": "The ::checkmark pseudo-element targets the checkmark placed inside a customizable select element's currently-selected <option>.\n\nIt is only available to target when the originating element has a picker and has base appearance set on it via the appearance property base-select value. Its generated box appears before any boxes generated by the ::before pseudo-element. The icon can be customized using the content property.\n\nThe ::checkmark selector is useful for example if you want to hide the checkmark, use a custom icon, or adjust the checkmark's rendering position inside <option> elements.\n\nNote:\nThe ::checkmark pseudo-element is not included in the accessibility tree, so any generated content set on it will not be announced by assistive technologies. You should still make sure that any new icon you set visually makes sense for its intended purpose.",
+    "parameters": null,
+    "allowable_properties": null
+  },
+  "::column": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::column",
+    "syntax": "::column {\n  /* ... */\n}",
+    "formal_syntax": null,
+    "intro": "The ::column CSS pseudo-element represents the individual columns generated when a container is set to display its content in multiple columns via CSS multi-column layout. The ::column pseudo-element enables applying styles that do not affect the layout to these generated fragments.",
+    "description": "When CSS multi-column layout is used to lay out a container's content in multiple columns (for example, using the column-count property), ::column pseudo-elements are generated to contain each individual column.\n\nThe ::column pseudo-element only accepts scroll snap properties that apply to elements inside a scroll container, including scroll-margin, scroll-snap-align, and scroll-snap-stop.\n\nThe ::column pseudo-element can have a ::scroll-marker pseudo-element. Other pseudo-elements like ::before and ::after are not generated on ::column. Applying ::column::scroll-marker creates a marker for every column of the originating scroll container, with the ::scroll-marker pseudo-elements inheriting from the ::column pseudo-element's originating element rather than the ::column itself.\n\nThis is useful for CSS carousels — ::column can be used to generate ::scroll-marker pseudo-elements for each column, and set them as snap targets using CSS scroll snap.\n\nWhile the styling that can be applied to ::column is very limited, it may be expanded in the future. Any properties and values supported in the future will be limited to ones that do not affect layout.",
+    "parameters": null,
+    "allowable_properties": null
+  },
+  "::cue": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::cue",
+    "syntax": "::cue | ::cue(<selector>) {\n  /* ... */\n}",
+    "formal_syntax": null,
+    "intro": "The ::cue CSS pseudo-element matches WebVTT cues within a selected element.\nThis can be used to style captions and other cues in media with VTT tracks.",
+    "description": null,
+    "parameters": null,
+    "allowable_properties": null
+  },
+  "::details-content": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::details-content",
+    "syntax": "selector::details-content",
+    "formal_syntax": null,
+    "intro": "The ::details-content CSS pseudo-element represents the expandable/collapsible contents of a <details> element.",
+    "description": null,
+    "parameters": null,
+    "allowable_properties": null
+  },
+  "::file-selector-button": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::file-selector-button",
+    "syntax": "::file-selector-button {\n  /* ... */\n}",
+    "formal_syntax": null,
+    "intro": "The ::file-selector-button CSS pseudo-element represents the button of an <input> of type=\"file\".",
+    "description": null,
+    "parameters": null,
+    "allowable_properties": null
+  },
+  "::first-letter": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::first-letter",
+    "syntax": "::first-letter {\n  /* ... */\n}",
+    "formal_syntax": null,
+    "intro": "The ::first-letter CSS pseudo-element applies styles to the first letter of the first line of a block container, but only when not preceded by other content (such as images or inline tables).",
+    "description": null,
+    "parameters": null,
+    "allowable_properties": [
+      "All font properties: font, font-style, font-feature-settings, font-kerning, font-language-override, font-stretch, font-synthesis, font-variant, font-variant-alternates, font-variant-caps, font-variant-east-asian, font-variant-ligatures, font-variant-numeric, font-variant-position, font-weight, font-size, font-size-adjust, line-height and font-family",
+      "All background properties: background, background-color, background-image, background-clip, background-origin, background-position, background-repeat, background-size, background-attachment, and background-blend-mode",
+      "All margin properties: margin, margin-top, margin-right, margin-bottom, margin-left",
+      "All padding properties: padding, padding-top, padding-right, padding-bottom, padding-left",
+      "All border properties: the shorthands border, border-style, border-color, border-width, border-radius, border-image, and the longhands properties",
+      "The color property",
+      "The text-decoration, text-shadow, text-transform, letter-spacing, word-spacing (when appropriate), line-height, text-decoration-color, text-decoration-line, text-decoration-style, box-shadow, float, vertical-align (only if float is none) CSS properties"
+    ]
+  },
+  "::first-line": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::first-line",
+    "syntax": "::first-line {\n  /* ... */\n}",
+    "formal_syntax": null,
+    "intro": "The ::first-line CSS pseudo-element applies styles to the first line of a block container.",
+    "description": null,
+    "parameters": null,
+    "allowable_properties": [
+      "All font-related properties: font, font-kerning, font-style, font-variant, font-variant-numeric, font-variant-position, font-variant-east-asian, font-variant-caps, font-variant-alternates, font-variant-ligatures, font-synthesis, font-feature-settings, font-language-override, font-weight, font-size, font-size-adjust, font-stretch, and font-family",
+      "All background-related properties: background-color, background-clip, background-image, background-origin, background-position, background-repeat, background-size, background-attachment, and background-blend-mode",
+      "The color property",
+      "word-spacing, letter-spacing, text-decoration, text-transform, and line-height",
+      "text-shadow, text-decoration, text-decoration-color, text-decoration-line, text-decoration-style, and vertical-align."
+    ]
+  },
+  "::grammar-error": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::grammar-error",
+    "syntax": "::grammar-error {\n  /* ... */\n}",
+    "formal_syntax": null,
+    "intro": "The ::grammar-error CSS pseudo-element represents a text segment which the user agent has flagged as grammatically incorrect.\n\nThe ::grammar-error pseudo-element follows a special inheritance model common to all highlight pseudo-elements. For more details on how this inheritance works, see the Highlight pseudo-elements inheritance section.",
+    "description": null,
+    "parameters": null,
+    "allowable_properties": [
+      "color",
+      "background-color",
+      "cursor",
+      "caret-color",
+      "outline and its longhands",
+      "text-decoration and its associated properties",
+      "text-emphasis-color",
+      "text-shadow"
+    ]
+  },
+  "::highlight": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::highlight",
+    "syntax": "::highlight(custom-highlight-name)",
+    "formal_syntax": null,
+    "intro": "The ::highlight() CSS pseudo-element applies styles to a custom highlight.\n\nA custom highlight is a collection of AbstractRange objects and is registered on a webpage using the HighlightRegistry.\n\nThe ::highlight() pseudo-element follows a special inheritance model common to all highlight pseudo-elements. For more details on how this inheritance works, see the Highlight pseudo-elements inheritance section.",
+    "description": null,
+    "parameters": null,
+    "allowable_properties": [
+      "color",
+      "background-color",
+      "text-decoration and its associated properties",
+      "text-shadow",
+      "-webkit-text-stroke-color, -webkit-text-fill-color and -webkit-text-stroke-width"
+    ]
+  },
+  "::marker": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::marker",
+    "syntax": "::marker {\n  /* ... */\n}",
+    "formal_syntax": null,
+    "intro": "The ::marker CSS pseudo-element selects the marker box of a list item, which typically contains a bullet or number. It works on any element or pseudo-element set to display: list-item, such as the <li> and <summary> elements.",
+    "description": null,
+    "parameters": null,
+    "allowable_properties": [
+      "All animation and transition properties",
+      "All font properties",
+      "color",
+      "content",
+      "counter-increment, counter-reset, and counter-set",
+      "quotes",
+      "text-combine-upright, unicode-bidi, and direction",
+      "white-space"
+    ]
+  },
+  "::part": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::part",
+    "syntax": "::part(<ident>+) {\n  /* ... */\n}",
+    "formal_syntax": null,
+    "intro": "The ::part CSS pseudo-element represents any element within a shadow tree that has a matching part attribute.",
+    "description": "The global part attribute makes a shadow tree element visible to its parent DOM. The part names declared using the part attribute are used as the parameter of the ::part() pseudo-element. In this way, you can apply CSS styles to elements in the shadow tree from outside of it.\n\nPart names are similar to CSS classes: multiple elements can have the same part name, and a single element can have multiple part names. All part names used in ::part() pseudo-element must be present in the part value declared on the shadow tree element but the order of the part names doesn't matter, i.e., the selectors ::part(tab active) and ::part(active tab) are the same.\n\nThe ::part() pseudo-element is only visible to the parent DOM. This means that when a shadow tree is nested, the parts are not visible to any ancestors other than the direct parent. The exportparts attribute solves this limitation by explicitly exporting already defined part names, making them globally stylable.\n\nPseudo-classes (such as ::part(label):hover) can be appended to the ::part() selector, but structural pseudo-classes that match based on tree information, such as :empty and :last-child, cannot be appended.\n\nAdditional pseudo-elements, such as ::before, can be appended to the ::part() selector, but additional ::part() element can't be appended. For example, ::part(confirm-button)::part(active) never matches anything, i.e, it is not the same as ::part(confirm-button active). This is because doing so would expose more structural information than is intended.",
+    "parameters": null,
+    "allowable_properties": null
+  },
+  "::picker": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::picker",
+    "syntax": "::picker(<ident>) {\n  /* ... */\n}",
+    "formal_syntax": null,
+    "intro": "The ::picker() CSS pseudo-element targets the picker part of an element, for example the drop-down picker of a customizable select element.",
+    "description": "The ::picker() pseudo-element targets the picker part of a form control, that is, the pop-up part that appears to allow you to make a selection when you press the control button. It is only available to target when the originating element has a picker and has base appearance set on it via the appearance property base-select value.\n\nThe ::picker(select) selector targets all descendants of customizable <select> element except for the first <button> child; these descendants are grouped together by the browser and rendered as the picker. The first <button> child represents the control button that opens the picker when pressed.\n\nThis allows you to target all of the picker contents as a single entity, for example if you want to customize its border, animate it when it appears and disappears, or position it somewhere different to the default position. Our customizable select elements guide shows many examples of ::picker(select) usage.\n\nThe <select> element and the picker have an implicit invoker/popover relationship assigned to them automatically, as specified by the Popover API. See Using the Popover API for more details of popover behavior, and see Animating the picker drop-down using popover states for a typical use case allowed by the implicit popover association.\n\nA further side-effect of the implicit invoker/popover relationship mentioned above is that the <select> element and the picker also have an implicit anchor reference, meaning that the picker is automatically associated with the select via CSS anchor positioning. This has several advantages, most notably:\n\nThe browser default styles position the picker relative to the button (the anchor) and you can customize this position as explained in Positioning elements relative to their anchor. For reference, the related default styles are as follows:\n\nThe browser default styles also define some position-try fallbacks that reposition the picker if it is in danger of overflowing the viewport. Position-try fallbacks are explained in the Fallback options and conditional hiding for overflow guide. For reference, the related default fallback styles are as follows:\n\nNote:\nIf you want to remove the implicit anchor reference to stop the picker from being anchored to the <select> element, you can do so by setting the position-anchor property of the picker to an anchor name that doesn't exist in the current document, such as --not-an-anchor-name. See also removing an anchor association.",
+    "parameters": "<ident>\n\nA string representing the element whose picker you want to target. The following values are available:\n\nselect\n\nThe drop-down picker of customizable select elements.",
+    "allowable_properties": null
+  },
+  "::picker-icon": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::picker-icon",
+    "syntax": "::picker-icon {\n  /* ... */\n}",
+    "formal_syntax": null,
+    "intro": "The ::picker-icon CSS pseudo-element targets the picker icon inside form controls that have an icon associated with them. In the case of a customizable select element, it selects the arrow icon shown on the <select> element that points down when it is closed.",
+    "description": "The ::picker-icon pseudo-element targets the picker icon of form controls, that is, the icon shown on the control button. It is only available to target when the originating element has a picker and has base appearance set on it via the appearance property base-select value. Its generated box appears after any boxes generated by the ::after pseudo-element, with the icon specified in default browser stylesheet; you can customize it using the content property.\n\nThe ::picker-icon selector can be used to select the down-facing arrow on the inline-end side of a customizable select element. This is useful for example if you want to customize the color or size of the icon, use a different icon (using content or SVG), or animate it when the picker is opened and closed.\n\nSelecting customizable <select> picker icons is the only current use case for ::picker-icon, but more may be added in the future.\n\nNote:\nThe ::picker-icon pseudo-element is not included in the accessibility tree, so any generated content set on it will not be announced by assistive technologies. You should still make sure that any new icon you set visually makes sense for its intended purpose.",
+    "parameters": null,
+    "allowable_properties": null
+  },
+  "::placeholder": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::placeholder",
+    "syntax": "::placeholder {\n  /* ... */\n}",
+    "formal_syntax": null,
+    "intro": "The ::placeholder CSS pseudo-element represents the placeholder text in an <input> or <textarea> element.",
+    "description": null,
+    "parameters": null,
+    "allowable_properties": null
+  },
+  "::scroll-button": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::scroll-button",
+    "syntax": "::scroll-button(<scroll-button-direction>) {\n  /* ... */\n}",
+    "formal_syntax": null,
+    "intro": "The ::scroll-button() CSS pseudo-element represents a button for controlling the scrolling of a scroll container. They are generated on scroll containers when their content value is not none. The direction of the scrolling is determined by the parameter value.",
+    "description": "The ::scroll-button() pseudo-elements are generated inside a scroll container only when their content properties are set to a value other than none. They are generated as siblings of the scroll container's child DOM elements, immediately preceding them and any ::scroll-marker-group generated on the container.\n\nYou can generate up to four scroll buttons per scroll container, which will scroll the content towards the start and end of the block and inline axes. The selector's argument specifies which scrolling direction is selected. You can also specify a value of * to target all of the ::scroll-button() pseudo-elements, providing styles to all the buttons in a single rule.\n\nThe generated buttons behave just like regular <button> elements, including sharing their default browser styles. They are focusable, accessible, and can be activated like regular buttons. When a scroll button is pressed, the scroll container's content is scrolled in the specified direction by one \"page,\" or approximately the dimension of the scroll container, similar to pressing PgUp and PgDn keys.\n\nThe recommendation is to set up CSS scroll snapping on the scroll container and set each separate item of content you want to scroll to as a snap target. This being the case, activating a scroll button will scroll the content to the snap target that is one \"page\" away. While the scroll buttons will work without scroll snapping, you might not get the desired effect.\n\nWhen it is not possible to scroll any further in a particular scroll button's scrolling direction, the button is automatically disabled, otherwise it is enabled. You can style the scroll buttons in their enabled and disabled states using the :enabled and :disabled pseudo-classes.",
+    "parameters": "<scroll-button-direction>\n\nA value representing which direction of scroll button you want to select. The following values are available:\n\n*\n\nSelects all the originating element's scroll buttons, allowing styles to be applied to each of them in a single rule.\n\ndown\n\nSelects the button that will scroll the content downward.\n\nleft\n\nSelects the button that will scroll the content left.\n\nright\n\nSelects the button that will scroll the content right.\n\nup\n\nSelects the button that will scroll the content upward.\n\nblock-end\n\nSelects the button that will scroll the content in the block-end direction.\n\nblock-start\n\nSelects the button that will scroll the content in the block-start direction.\n\ninline-end\n\nSelects the button that will scroll the content in the inline-end direction.\n\ninline-start\n\nSelects the button that will scroll the content in the inline-start direction.\n\nThe specification also defines two other values — next and prev — but these are not currently supported in any browser.",
+    "allowable_properties": null
+  },
+  "::scroll-marker": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::scroll-marker",
+    "syntax": "::scroll-marker {\n  /* ... */\n}",
+    "formal_syntax": null,
+    "intro": "The ::scroll-marker CSS pseudo-element can be generated inside any element and represents its scroll marker. All elements can have a ::scroll-marker pseudo-element, which is placed into the ::scroll-marker-group of the nearest scroll container ancestor. A scroll marker behaves like an anchor (<a> element) whose scroll target is the marker's originating element — and scrolls the scroll container to that element when activated.",
+    "description": "A ::scroll-marker is generated on an element when the ::scroll-marker's content property is set to a non-none value, and its has an ancestor scroll container with a non-none scroll-marker-group property value (meaning that it will generate a ::scroll-marker-group pseudo-element).\n\nThe scroll container's ::scroll-marker-group pseudo-element automatically contains any ::scroll-marker pseudo-elements generated on the scroll container or its descendants. This allows them to be positioned and laid out as a group and is typically used when creating a CSS carousel to create a scroll position indicator. The individual scroll markers can be used to navigate to their associated content items.\n\nNote:\nAlternatively, a scroll marker group container can be created from an existing element container using scroll-target-group; any contained <a> elements with fragment identifiers linking to sections of the page automatically behave like scroll markers.\n\nWhen a scroll marker group container is created on a scroll container using the scroll-marker-group property, the scroll container is rendered with tablist/tab semantics. You can Tab to it with the keyboard, then move between the different \"pages\" using the left and right (or up and down) cursor keys, which also changes the state of the associated scroll markers and scroll buttons as expected. The scroll markers can also be tabbed between normally, as expected.",
+    "parameters": null,
+    "allowable_properties": null
+  },
+  "::scroll-marker-group": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::scroll-marker-group",
+    "syntax": "::scroll-marker-group {\n  /* ... */\n}",
+    "formal_syntax": null,
+    "intro": "The ::scroll-marker-group CSS pseudo-element is generated inside a scroll container and contains any ::scroll-marker pseudo-elements generated on descendants of the scroll container.",
+    "description": "A scroll container's ::scroll-marker-group pseudo-element represents a scroll marker group container. This is a container that automatically contains any ::scroll-marker pseudo-elements generated on itself or its descendants. This allows them to be positioned and styled as a group. This pseudo-element is typically used when creating a CSS carousel to provide a scroll position indicator. The individual scroll markers can be used to navigate to their associated content items.\n\nThe scroll container must have its scroll-marker-group property set to a non-none value for the ::scroll-marker-group pseudo-element to be generated. The scroll-marker-group value determines where the scroll marker group container appears in the carousel's tab order and layout box order (but not DOM structure) — before puts it at the start, while after puts it at the end.\n\nNote:\nAlternatively, a scroll marker group container can be created from an existing element containing a set of <a> elements using scroll-target-group.\n\nAs an accessibility best practice, match the visual rendering position of the scroll marker group container with the tab order. When positioning the group at the start of the content, put it at the beginning of the tab order using before. When positioning the group at the end of the content, put it at the end of the tab order using after.\n\nWhen a scroll marker group container is created on a scroll container using the scroll-marker-group property, the scroll container is rendered with tablist/tab semantics. You can Tab to it with the keyboard, then move between the different \"pages\" using the left and right (or up and down) cursor keys, which also changes the state of the associated scroll markers and scroll buttons as expected. The scroll markers can also be tabbed between normally, as expected.",
+    "parameters": null,
+    "allowable_properties": null
+  },
+  "::selection": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::selection",
+    "syntax": "::selection {\n  /* ... */\n}",
+    "formal_syntax": null,
+    "intro": "The ::selection CSS pseudo-element applies styles to the part of a document that has been highlighted by the user (such as clicking and dragging the mouse across text).\n\nThe ::selection pseudo-element follows a special inheritance model common to all highlight pseudo-elements. For more details on how this inheritance works, see the Highlight pseudo-elements inheritance section.",
+    "description": null,
+    "parameters": null,
+    "allowable_properties": [
+      "color",
+      "background-color",
+      "text-decoration and its associated properties",
+      "text-shadow",
+      "-webkit-text-stroke-color, -webkit-text-fill-color and -webkit-text-stroke-width"
+    ]
+  },
+  "::slotted": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::slotted",
+    "syntax": "::slotted(<compound-selector>) {\n  /* ... */\n}",
+    "formal_syntax": null,
+    "intro": "The ::slotted() CSS pseudo-element represents any element that has been placed into a slot inside an HTML template (see Using templates and slots for more information).\n\nThis only works when used inside CSS placed within a shadow DOM. Note that this selector won't select a text node placed into a slot; it only targets actual elements.",
+    "description": null,
+    "parameters": null,
+    "allowable_properties": null
+  },
+  "::spelling-error": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::spelling-error",
+    "syntax": "::spelling-error {\n  /* ... */\n}",
+    "formal_syntax": null,
+    "intro": "The ::spelling-error CSS pseudo-element represents a text segment which the user agent has flagged as incorrectly spelled.\n\nThe ::spelling-error pseudo-element follows a special inheritance model common to all highlight pseudo-elements. For more details on how this inheritance works, see the Highlight pseudo-elements inheritance section.",
+    "description": null,
+    "parameters": null,
+    "allowable_properties": [
+      "color",
+      "background-color",
+      "cursor",
+      "caret-color",
+      "outline and its longhands",
+      "text-decoration and its associated properties",
+      "text-emphasis-color",
+      "text-shadow"
+    ]
+  },
+  "::target-text": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::target-text",
+    "syntax": "::target-text {\n  /* ... */\n}",
+    "formal_syntax": null,
+    "intro": "The ::target-text CSS pseudo-element represents the text that has been scrolled to if the browser supports text fragments. It allows authors to choose how to highlight that section of text.\n\nThe ::target-text pseudo-element follows a special inheritance model common to all highlight pseudo-elements. For more details on how this inheritance works, see the Highlight pseudo-elements inheritance section.",
+    "description": null,
+    "parameters": null,
+    "allowable_properties": null
+  },
+  "::view-transition": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::view-transition",
+    "syntax": "::view-transition {\n  /* ... */\n}",
+    "formal_syntax": null,
+    "intro": "The ::view-transition CSS pseudo-element represents the root of the view transitions overlay, which contains all view transition snapshot groups and sits over the top of all other page content.\n\nDuring a view transition, ::view-transition is included in the associated pseudo-element tree as explained in The view transition pseudo-element tree. It is the top-level node of this tree, and has one or more ::view-transition-group()s as children.\n\n::view-transition is given the following default styling in the UA stylesheet:\n\nAll ::view-transition-group() pseudo-elements are positioned relative to the view transition root.",
+    "description": null,
+    "parameters": null,
+    "allowable_properties": null
+  },
+  "::view-transition-group": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::view-transition-group",
+    "syntax": "::view-transition-group([ <pt-name-selector> <pt-class-selector>? ] | <pt-class-selector>) {\n  /* ... */\n}",
+    "formal_syntax": null,
+    "intro": "The ::view-transition-group() CSS pseudo-element represents a single view transition snapshot group.\n\nDuring a view transition, ::view-transition-group() is included in the associated pseudo-element tree as explained in The view transition pseudo-element tree. It is only ever a child of ::view-transition, and has a ::view-transition-image-pair() as a child.\n\n::view-transition-group() is given the following default styling in the UA stylesheet:\n\nBy default, selected elements initially mirror the size and position of the ::view-transition-old() pseudo-element representing the \"old\" view state, or the ::view-transition-new() pseudo-element representing the \"new\" view state if there isn't an \"old\" view state.\n\nIf there's both an \"old\" and \"new\" view state, styles in the view transition style sheet animate this pseudo-element's width and height from the size of the \"old\" view state's border box to that of the \"new\" view state's border box.\n\nNote:\nView transition styles are dynamically generated during the view transition; see the specification setup transition pseudo-elements and update pseudo-element styles sections for more details.\n\nIn addition, the element's transform is animated from the \"old\" view state's screen space transform to the new view state's screen space transform. This style is generated dynamically since the values of animated properties are determined at the time that the transition begins.",
+    "description": null,
+    "parameters": "*\n\nThe universal selector (*); selects all view transition groups on a page.\n\nroot\n\nThe view-transition-name applied to :root causes the pseudo-element to match the default root view transition group. This is the snapshot group created by the user agent to contain the view transition for the overall page. This group includes any element not assigned to its own specific view transition snapshot group via the view-transition-name property.\n\n<pt-name-selector>\n\nThe <custom-ident> set as the value of the view-transition-name property.\n\n<pt-class-selector>\n\nThe <custom-ident> set as the value of the view-transition-class property, preceded by a period (.).\n\nThe specificity of the named view transition pseudo-element is equal to the specificity of the type selector, unless the parameter used is the universal selector is used, in which case the specificity is zero.",
+    "allowable_properties": null
+  },
+  "::view-transition-image-pair": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::view-transition-image-pair",
+    "syntax": "::view-transition-image-pair([ <pt-name-selector> <pt-class-selector>? ] | <pt-class-selector>) {\n  /* ... */\n}",
+    "formal_syntax": null,
+    "intro": "The ::view-transition-image-pair() CSS pseudo-element represents a container for a view transition's \"old\" and \"new\" view states — before and after the transition.\n\nDuring a view transition, ::view-transition-image-pair() is included in the associated pseudo-element tree as explained in The view transition pseudo-element tree. It is only ever a child of a ::view-transition-group(). In terms of children, it can have a ::view-transition-new() or a ::view-transition-old(), or both.\n\n::view-transition-image-pair() is given the following default styling in the UA stylesheet:\n\nDuring a view transition, ::view-transition-image-pair() has isolation: isolate set on it in the view transition style sheet so that its children can be blended with non-normal blend modes without affecting other visual outputs.",
+    "description": null,
+    "parameters": "*\n\nThe universal selector (*); selects all view transition groups on a page.\n\nroot\n\nCauses the pseudo-element to match the default root view transition snapshot group created by the user agent to contain the view transition for the overall page. This group includes any element not assigned to its own specific view transition snapshot group via the view-transition-name property.\n\n<pt-name-selector>\n\nThe <custom-ident> set as the value of the view-transition-name property.\n\n<pt-class-selector>\n\nThe <custom-ident> set as the value of the view-transition-class property preceded by a period (.).",
+    "allowable_properties": null
+  },
+  "::view-transition-new": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::view-transition-new",
+    "syntax": "::view-transition-new([ <pt-name-selector> <pt-class-selector>? ] | <pt-class-selector>) {\n  /* ... */\n}",
+    "formal_syntax": null,
+    "intro": "The ::view-transition-new() CSS pseudo-element represents the \"new\" view state of a view transition — a snapshot live representation of the state after the transition.\n\nDuring a view transition, ::view-transition-new() is included in the associated pseudo-element tree as explained in The view transition pseudo-element tree. It is only ever a child of a ::view-transition-image-pair(), and never has any children.\n\nIt is a replaced element and therefore can be manipulated with properties such as object-fit and object-position. It has natural dimensions equal to the content's size.\n\nThe following default styling is included in the UA stylesheet:\n\nNote:\nAdditional view transition styles are also setup to animate ::view-transition-new(). These are dynamically generated during the view transition; see the specification setup transition pseudo-elements and update pseudo-element styles sections for more details.",
+    "description": null,
+    "parameters": "*\n\nThe universal selector (*); selects all view transition groups on a page.\n\nroot\n\nCauses the pseudo-element to match the default root view transition snapshot group created by the user agent to contain the view transition for the overall page. This group includes any element not assigned to its own specific view transition snapshot group via the view-transition-name property.\n\n<pt-name-selector>\n\nThe <custom-ident> set as the value of the view-transition-name property.\n\n<pt-class-selector>\n\nThe <custom-ident> set as the value of the view-transition-class property preceded by a period (.).",
+    "allowable_properties": null
+  },
+  "::view-transition-old": {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::view-transition-old",
+    "syntax": "::view-transition-old([ <pt-name-selector> <pt-class-selector>? ] | <pt-class-selector>) {\n  /* ... */\n}",
+    "formal_syntax": null,
+    "intro": "The ::view-transition-old() CSS pseudo-element represents the \"old\" view state of a view transition — a static snapshot of the old view, before the transition.\n\nDuring a view transition, ::view-transition-old() is included in the associated pseudo-element tree as explained in The view transition pseudo-element tree, provided there's an \"old\" view state to represent. It is only ever a child of a ::view-transition-image-pair(), and never has any children.\n\nIt is a replaced element and therefore can be manipulated with properties such as object-fit and object-position. It has natural dimensions equal to the content's size.\n\nThe following default styling is included in the UA stylesheet:\n\nNote:\nAdditional view transition styles are also setup to animate ::view-transition-old(). These are dynamically generated during the view transition; see the specification setup transition pseudo-elements and update pseudo-element styles sections for more details.",
+    "description": null,
+    "parameters": "*\n\nThe universal selector (*) selects all view transition groups on a page.\n\nroot\n\nCauses the pseudo-element to match the default root view transition snapshot group created by the user agent to contain the view transition for the overall page. This group includes any element not assigned to its own specific view transition snapshot group via the view-transition-name property.\n\n<pt-name-selector>\n\nThe <custom-ident> set as the value of the view-transition-name property.\n\n<pt-class-selector>\n\nThe <custom-ident> set as the value of the view-transition-class property preceded by a period (.).",
+    "allowable_properties": null
+  }
+}
