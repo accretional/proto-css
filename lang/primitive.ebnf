@@ -1,0 +1,26 @@
+(* Some really useful primitives *)
+
+non_zero = "1" ... "9" ;
+digit = "0" ... "9" ;
+natural_number = non_zero , { digit } ;
+whole_number   = digit , { digit } ;
+
+uppercase_letter = "A" ... "Z" ;
+
+lowercase_letter = "a" ... "z" ;
+
+letter = uppercase_letter | lowercase_letter ;
+
+hex_digit = "0" ... "9" | "a" ... "f" | "A" ... "F" ;
+
+(* <string> — CSS quoted string. Any printable ASCII character (0x20–0x7E) except
+   the enclosing quote character may appear unescaped. Escape sequences (\<hex>)
+   are not modelled here; they are legal per spec but rare in practice.
+   Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/string *)
+string_literal       = double_quoted_string | single_quoted_string ;
+double_quoted_string = quotation_mark_symbol , { string_char_dq } , quotation_mark_symbol ;
+single_quoted_string = apostrophe_symbol     , { string_char_sq } , apostrophe_symbol ;
+(* Printable ASCII 0x20–0x7E excluding " (0x22), plus Unicode U+0080–U+FFFF and U+10000–U+10FFFF *)
+string_char_dq = " " ... "!" | "#" ... "~" | "" ... "￿" | "𐀀" ... "􏿿" ;
+(* Printable ASCII 0x20–0x7E excluding ' (0x27), plus Unicode U+0080–U+FFFF and U+10000–U+10FFFF *)
+string_char_sq = " " ... "&" | "(" ... "~" | "" ... "￿" | "𐀀" ... "􏿿" ;

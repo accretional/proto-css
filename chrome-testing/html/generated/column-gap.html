@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>column-gap</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-direction: column; gap: 16px; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 10px;
+      padding: 14px 20px;
+      border: 1px solid #2a2a4a;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 10px; }
+    .grid-container {
+      display: flex;
+    }
+    .grid-item {
+      flex: 1;
+      height: 60px;
+      background: linear-gradient(135deg, #e94560, #c23152);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .gap-line {
+      position: relative;
+    }
+    .gap-indicator {
+      font-size: 10px;
+      color: #e94560;
+      font-family: monospace;
+      text-align: center;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Column Gap</h1>
+  <p class="prop-name">column-gap</p>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="label">column-gap: hairline</div>
+      <div class="grid-container" style="column-gap: hairline;">
+        <div class="grid-item">A</div>
+        <div class="grid-item">B</div>
+        <div class="grid-item">C</div>
+        <div class="grid-item">D</div>
+        <div class="grid-item">E</div>
+      </div>
+    </div>
+    <div class="demo-card">
+      <div class="label">column-gap: thick ! important</div>
+      <div class="grid-container" style="column-gap: thick ! important;">
+        <div class="grid-item">A</div>
+        <div class="grid-item">B</div>
+        <div class="grid-item">C</div>
+        <div class="grid-item">D</div>
+        <div class="grid-item">E</div>
+      </div>
+    </div>
+    <div class="demo-card">
+      <div class="label">column-gap: thick</div>
+      <div class="grid-container" style="column-gap: thick;">
+        <div class="grid-item">A</div>
+        <div class="grid-item">B</div>
+        <div class="grid-item">C</div>
+        <div class="grid-item">D</div>
+        <div class="grid-item">E</div>
+      </div>
+    </div>
+    <div class="demo-card">
+      <div class="label">column-gap: normal ! important</div>
+      <div class="grid-container" style="column-gap: normal ! important;">
+        <div class="grid-item">A</div>
+        <div class="grid-item">B</div>
+        <div class="grid-item">C</div>
+        <div class="grid-item">D</div>
+        <div class="grid-item">E</div>
+      </div>
+    </div>
+    <div class="demo-card">
+      <div class="label">column-gap: calc-size(-58.6e04 / anchor-size(--塼), anchor-size(--񒫿) - -infinity)</div>
+      <div class="grid-container" style="column-gap: calc-size(-58.6e04 / anchor-size(--塼), anchor-size(--񒫿) - -infinity);">
+        <div class="grid-item">A</div>
+        <div class="grid-item">B</div>
+        <div class="grid-item">C</div>
+        <div class="grid-item">D</div>
+        <div class="grid-item">E</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

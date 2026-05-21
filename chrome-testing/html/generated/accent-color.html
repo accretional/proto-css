@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>accent-color</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-box {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      min-width: 200px;
+    }
+    .demo-box input[type="checkbox"],
+    .demo-box input[type="radio"] {
+      width: 20px;
+      height: 20px;
+    }
+    .demo-box input[type="range"] {
+      width: 160px;
+    }
+    .controls { display: flex; flex-direction: column; gap: 10px; }
+    .control-row { display: flex; align-items: center; gap: 10px; }
+    .control-row span { font-size: 13px; color: #ccc; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+    .auto { accent-color: currentcolor; }
+    .red { accent-color: auto ! important; }
+    .blue { accent-color: var(--_Y); }
+    .green { accent-color: auto; }
+    .orange { accent-color: device-cmyk(var(--᫻, 34) none none none); }
+  </style>
+</head>
+<body>
+  <h1>Accent Color</h1>
+  <p class="prop-name">accent-color</p>
+  <div class="demos">
+    <div class="demo-box auto">
+      <div class="controls">
+        <div class="control-row"><input type="checkbox" checked><span>Checkbox</span></div>
+        <div class="control-row"><input type="radio" name="auto" checked><span>Radio</span></div>
+        <div class="control-row"><input type="range" value="60"></div>
+      </div>
+      <div class="label">accent-color: currentcolor</div>
+    </div>
+    <div class="demo-box red">
+      <div class="controls">
+        <div class="control-row"><input type="checkbox" checked><span>Checkbox</span></div>
+        <div class="control-row"><input type="radio" name="red" checked><span>Radio</span></div>
+        <div class="control-row"><input type="range" value="60"></div>
+      </div>
+      <div class="label">accent-color: auto ! important</div>
+    </div>
+    <div class="demo-box blue">
+      <div class="controls">
+        <div class="control-row"><input type="checkbox" checked><span>Checkbox</span></div>
+        <div class="control-row"><input type="radio" name="blue" checked><span>Radio</span></div>
+        <div class="control-row"><input type="range" value="60"></div>
+      </div>
+      <div class="label">accent-color: var(--_Y)</div>
+    </div>
+    <div class="demo-box green">
+      <div class="controls">
+        <div class="control-row"><input type="checkbox" checked><span>Checkbox</span></div>
+        <div class="control-row"><input type="radio" name="green" checked><span>Radio</span></div>
+        <div class="control-row"><input type="range" value="60"></div>
+      </div>
+      <div class="label">accent-color: auto</div>
+    </div>
+    <div class="demo-box orange">
+      <div class="controls">
+        <div class="control-row"><input type="checkbox" checked><span>Checkbox</span></div>
+        <div class="control-row"><input type="radio" name="orange" checked><span>Radio</span></div>
+        <div class="control-row"><input type="range" value="60"></div>
+      </div>
+      <div class="label">accent-color: device-cmyk(var(--᫻, 34) none none none)</div>
+    </div>
+  </div>
+</body>
+</html>

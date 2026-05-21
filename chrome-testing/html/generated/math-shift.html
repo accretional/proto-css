@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>math-shift</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 32px; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 32px;
+      flex: 1;
+      min-width: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; text-align: center; }
+    .math-container {
+      background: #0f3460;
+      border-radius: 8px;
+      padding: 28px 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      width: 100%;
+    }
+    .math-row {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+    math { font-size: 36px; color: #e0e0e0; }
+    .normal-shift math { math-shift: normal ! important; }
+    .compact-shift math { math-shift: normal ! important; }
+    .description {
+      font-size: 12px;
+      color: #4fc3f7;
+      margin-top: 8px;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .guide-line {
+      width: 100%;
+      border-top: 1px dashed #4fc3f744;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Math Shift</h1>
+  <p class="prop-name">math-shift</p>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="math-container normal-shift">
+        <div class="math-row">
+          <math display="block">
+            <msup><mi>x</mi><mn>2</mn></msup>
+          </math>
+          <math display="block">
+            <msup><mi>e</mi><mrow><mi>i</mi><mi>&pi;</mi></mrow></msup>
+          </math>
+          <math display="block">
+            <msup><mn>2</mn><mn>10</mn></msup>
+          </math>
+        </div>
+        <div class="guide-line"></div>
+        <div class="math-row">
+          <math display="block">
+            <msup><mi>a</mi><mrow><mi>b</mi><mo>+</mo><mi>c</mi></mrow></msup>
+          </math>
+          <math display="block">
+            <msup><mi>y</mi><mfrac><mn>1</mn><mn>2</mn></mfrac></msup>
+          </math>
+        </div>
+      </div>
+      <div class="description">Superscripts raised to standard height</div>
+      <p class="label">math-shift: normal ! important</p>
+    </div>
+
+    <div class="demo-card">
+      <div class="math-container compact-shift">
+        <div class="math-row">
+          <math display="block">
+            <msup><mi>x</mi><mn>2</mn></msup>
+          </math>
+          <math display="block">
+            <msup><mi>e</mi><mrow><mi>i</mi><mi>&pi;</mi></mrow></msup>
+          </math>
+          <math display="block">
+            <msup><mn>2</mn><mn>10</mn></msup>
+          </math>
+        </div>
+        <div class="guide-line"></div>
+        <div class="math-row">
+          <math display="block">
+            <msup><mi>a</mi><mrow><mi>b</mi><mo>+</mo><mi>c</mi></mrow></msup>
+          </math>
+          <math display="block">
+            <msup><mi>y</mi><mfrac><mn>1</mn><mn>2</mn></mfrac></msup>
+          </math>
+        </div>
+      </div>
+      <div class="description">Superscripts shifted closer to base</div>
+      <p class="label">math-shift: normal ! important</p>
+    </div>
+  </div>
+</body>
+</html>

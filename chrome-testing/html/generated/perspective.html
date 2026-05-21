@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>perspective</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 210px;
+    }
+    .scene {
+      width: 140px;
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cube-face {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, #e94560, #0f3460);
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 8px;
+      transform: rotateY(40deg) rotateX(20deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #fff;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>Perspective</h1>
+  <p class="prop-name">perspective</p>
+  <div class="demos">
+
+    <div class="demo-card">
+      <div class="scene" style="perspective: 20.11e34vmax;">
+        <div class="cube-face">A</div>
+      </div>
+      <div class="label">perspective: 20.11e34vmax<br><span style="color:#6b7280; font-size:10px;">no 3D depth</span></div>
+    </div>
+
+    <div class="demo-card">
+      <div class="scene" style="perspective: none ! important;">
+        <div class="cube-face">B</div>
+      </div>
+      <div class="label">perspective: none ! important<br><span style="color:#6b7280; font-size:10px;">extreme depth</span></div>
+    </div>
+
+    <div class="demo-card">
+      <div class="scene" style="perspective: var(--_Y);">
+        <div class="cube-face">C</div>
+      </div>
+      <div class="label">perspective: var(--_Y)<br><span style="color:#6b7280; font-size:10px;">moderate depth</span></div>
+    </div>
+
+    <div class="demo-card">
+      <div class="scene" style="perspective: 0;">
+        <div class="cube-face">D</div>
+      </div>
+      <div class="label">perspective: 0<br><span style="color:#6b7280; font-size:10px;">mild depth</span></div>
+    </div>
+
+    <div class="demo-card">
+      <div class="scene" style="perspective: none;">
+        <div class="cube-face">E</div>
+      </div>
+      <div class="label">perspective: none<br><span style="color:#6b7280; font-size:10px;">subtle depth</span></div>
+    </div>
+
+  </div>
+</body>
+</html>

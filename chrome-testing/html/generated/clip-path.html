@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>clip-path</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 10px;
+      padding: 20px;
+      width: 270px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 14px; align-self: flex-start; word-break: break-all; }
+    .shape-box {
+      width: 180px;
+      height: 180px;
+      background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff);
+      position: relative;
+    }
+    .ghost {
+      width: 180px;
+      height: 180px;
+      border: 2px dashed #2a2a5a;
+      border-radius: 4px;
+      position: absolute;
+      top: 0; left: 0;
+    }
+    .shape-wrap {
+      position: relative;
+      width: 180px;
+      height: 180px;
+    }
+    .c-circle .shape-box { clip-path: none; }
+    .c-ellipse .shape-box { clip-path: url(''); }
+    .c-polygon .shape-box { clip-path: polygon(round var(--_, ""), -4e58svb 4.0e+7rex, anchor(--�_ end) anchor-size(inline,)); }
+    .c-inset .shape-box { clip-path: none ! important; }
+    .note { font-size: 10px; color: #6b7280; margin-top: 10px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>Clip Path</h1>
+  <p class="prop-name">clip-path</p>
+  <div class="demos">
+    <div class="demo-card c-circle">
+      <div class="label">clip-path: url("")</div>
+      <div class="shape-wrap">
+        <div class="ghost"></div>
+        <div class="shape-box"></div>
+      </div>
+      <p class="note">Circular clip at center</p>
+    </div>
+    <div class="demo-card c-ellipse">
+      <div class="label">clip-path: fill-box ! important</div>
+      <div class="shape-wrap">
+        <div class="ghost"></div>
+        <div class="shape-box"></div>
+      </div>
+      <p class="note">Horizontal ellipse</p>
+    </div>
+    <div class="demo-card c-polygon">
+      <div class="label">clip-path: stroke-box</div>
+      <div class="shape-wrap">
+        <div class="ghost"></div>
+        <div class="shape-box"></div>
+      </div>
+      <p class="note">Pentagon shape</p>
+    </div>
+    <div class="demo-card c-inset">
+      <div class="label">clip-path: url('񷰸')</div>
+      <div class="shape-wrap">
+        <div class="ghost"></div>
+        <div class="shape-box"></div>
+      </div>
+      <p class="note">Rounded inset rectangle</p>
+    </div>
+  </div>
+</body>
+</html>

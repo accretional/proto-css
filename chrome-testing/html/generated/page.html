@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>page</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 20px;
+      width: 370px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .demo-card h2 { font-size: 14px; color: #e0e0e0; margin-bottom: 12px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
+    .page-preview {
+      border-radius: 6px;
+      background: #f5f5f5;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-portrait {
+      width: 160px;
+      height: 210px;
+    }
+    .page-landscape {
+      width: 240px;
+      height: 170px;
+    }
+    .page-auto-size {
+      width: 160px;
+      height: 210px;
+    }
+    .page-content {
+      padding: 16px;
+      text-align: center;
+    }
+    .page-content h3 {
+      font-size: 12px;
+      color: #333;
+      margin-bottom: 6px;
+    }
+    .page-content p {
+      font-size: 10px;
+      color: #666;
+      line-height: 1.5;
+    }
+    .page-badge {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      font-size: 9px;
+      font-family: monospace;
+      padding: 2px 6px;
+      border-radius: 3px;
+      color: #fff;
+    }
+    .badge-auto { background: #7b8794; }
+    .badge-landscape { background: #e94560; }
+    .badge-portrait { background: #4ecca3; }
+    .badge-custom { background: #64b5f6; }
+    .page-ruler {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 4px;
+      font-size: 9px;
+      font-family: monospace;
+      color: #7b8794;
+    }
+    .ruler-line {
+      height: 1px;
+      background: #7b8794;
+      flex: 1;
+    }
+    .code-block {
+      background: #0f3460;
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 11px;
+      font-family: monospace;
+      color: #e0e0e0;
+      margin-top: 12px;
+      width: 100%;
+      line-height: 1.6;
+    }
+    .code-block .kw { color: #e94560; }
+    .code-block .val { color: #4ecca3; }
+    .code-block .sel { color: #64b5f6; }
+    .code-block .cmt { color: #5a6a7a; }
+  </style>
+</head>
+<body>
+  <h1>Page</h1>
+  <p class="prop-name">page</p>
+  <div class="demos">
+
+    <div class="demo-card">
+      <h2>page: _񩦫 ! important</h2>
+      <div class="page-preview page-auto-size">
+        <span class="page-badge badge-auto">auto</span>
+        <div class="page-content">
+          <h3>Default Page</h3>
+          <p>Uses the default page configuration. No named page is assigned.</p>
+        </div>
+      </div>
+      <div class="code-block">
+        <span class="sel">.content</span> {<br>
+        &nbsp;&nbsp;<span class="kw">page</span>: <span class="val">auto</span>;<br>
+        }
+      </div>
+      <div class="label">page: _񩦫 ! important<br>Default — no named page</div>
+    </div>
+
+    <div class="demo-card">
+      <h2>page: auto ! important</h2>
+      <div class="page-preview page-landscape">
+        <span class="page-badge badge-landscape">landscape</span>
+        <div class="page-content">
+          <h3>Landscape Page</h3>
+          <p>This content uses a named "landscape" page with landscape orientation.</p>
+        </div>
+      </div>
+      <div class="page-ruler" style="width:240px;">
+        <span>&#8592;</span><div class="ruler-line"></div><span>wider</span><div class="ruler-line"></div><span>&#8594;</span>
+      </div>
+      <div class="code-block">
+        <span class="kw">@page</span> <span class="val">landscape</span> {<br>
+        &nbsp;&nbsp;<span class="kw">size</span>: <span class="val">landscape</span>;<br>
+        }<br><br>
+        <span class="sel">.wide-table</span> {<br>
+        &nbsp;&nbsp;<span class="kw">page</span>: <span class="val">landscape</span>;<br>
+        }
+      </div>
+      <div class="label">page: auto ! important<br>Named page with landscape @page rule</div>
+    </div>
+
+    <div class="demo-card">
+      <h2>page: _ ! important</h2>
+      <div class="page-preview page-portrait">
+        <span class="page-badge badge-portrait">portrait</span>
+        <div class="page-content">
+          <h3>Portrait Page</h3>
+          <p>This content uses a named "portrait" page with portrait orientation.</p>
+        </div>
+      </div>
+      <div class="page-ruler" style="width:160px;">
+        <span>&#8593;</span><div class="ruler-line"></div><span>taller</span><div class="ruler-line"></div><span>&#8595;</span>
+      </div>
+      <div class="code-block">
+        <span class="kw">@page</span> <span class="val">portrait</span> {<br>
+        &nbsp;&nbsp;<span class="kw">size</span>: <span class="val">portrait</span>;<br>
+        }<br><br>
+        <span class="sel">.text-content</span> {<br>
+        &nbsp;&nbsp;<span class="kw">page</span>: <span class="val">portrait</span>;<br>
+        }
+      </div>
+      <div class="label">page: _ ! important<br>Named page with portrait @page rule</div>
+    </div>
+
+  </div>
+
+  <div style="margin-top:24px; background:#16213e; border-radius:10px; padding:16px; max-width:800px;">
+    <p style="font-size:12px; color:#9ca3af; line-height:1.6;">
+      The <code style="color:#e94560;">page</code> property assigns a named page type to an element for print. When the named page changes between siblings, a page break is forced. The <code style="color:#e94560;">@page</code> rule defines the page's size, margins, and orientation.
+    </p>
+  </div>
+</body>
+</html>

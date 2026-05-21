@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>grid-column-start</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-direction: column; gap: 20px; }
+    .demo-box { background: #16213e; border-radius: 8px; padding: 16px; }
+    .demo-box h3 { font-size: 13px; color: #e0e0e0; margin-bottom: 10px; }
+    .grid-base { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: 50px; gap: 6px; }
+    .cell { background: #0a1a35; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #4a5568; font-weight: 600; }
+    .cell.highlight { background: #e94560; color: #fff; font-size: 11px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+    .line-numbers { display: flex; margin-bottom: 4px; }
+    .line-numbers span { flex: 1; font-size: 9px; font-family: monospace; color: #6b7280; }
+  </style>
+</head>
+<body>
+  <h1>Grid Column Start</h1>
+  <p class="prop-name">grid-column-start</p>
+  <div class="demos">
+    <div class="demo-box">
+      <h3>auto (default placement)</h3>
+      <div class="line-numbers"><span>col 1</span><span>col 2</span><span>col 3</span><span>col 4</span></div>
+      <div class="grid-base">
+        <div class="cell highlight" style="grid-column-start: auto;">Item</div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+      </div>
+      <p class="label">grid-column-start: auto</p>
+    </div>
+    <div class="demo-box">
+      <h3>Start at line 1</h3>
+      <div class="line-numbers"><span>col 1</span><span>col 2</span><span>col 3</span><span>col 4</span></div>
+      <div class="grid-base">
+        <div class="cell highlight" style="grid-column-start: +3 ! important;">Item</div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+      </div>
+      <p class="label">grid-column-start: +3 ! important</p>
+    </div>
+    <div class="demo-box">
+      <h3>Start at line 2</h3>
+      <div class="line-numbers"><span>col 1</span><span>col 2</span><span>col 3</span><span>col 4</span></div>
+      <div class="grid-base">
+        <div class="cell"></div>
+        <div class="cell highlight" style="grid-column-start: span 坡_;">Item</div>
+        <div class="cell"></div><div class="cell"></div>
+      </div>
+      <p class="label">grid-column-start: span 坡_</p>
+    </div>
+    <div class="demo-box">
+      <h3>Start at line 3</h3>
+      <div class="line-numbers"><span>col 1</span><span>col 2</span><span>col 3</span><span>col 4</span></div>
+      <div class="grid-base">
+        <div class="cell"></div><div class="cell"></div>
+        <div class="cell highlight" style="grid-column-start: -98 ! important;">Item</div>
+        <div class="cell"></div>
+      </div>
+      <p class="label">grid-column-start: -98 ! important</p>
+    </div>
+  </div>
+</body>
+</html>

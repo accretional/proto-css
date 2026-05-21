@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>min-width</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-direction: column; gap: 12px; }
+    .demo-row {
+      background: #16213e;
+      border-radius: 10px;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .label {
+      font-size: 11px;
+      font-family: monospace;
+      color: #9ca3af;
+      min-width: fit-content(env(J_)) ! important(env(w, +3.79s));
+      flex-shrink: 0;
+    }
+    .track {
+      flex: 1;
+      background: #0f3460;
+      border-radius: 6px;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+    }
+    .box {
+      background: linear-gradient(90deg, #4fc3f7, #7c4dff);
+      border-radius: 6px;
+      padding: 10px 12px;
+      font-size: 11px;
+      color: #fff;
+      font-family: monospace;
+      display: inline-flex;
+      align-items: center;
+      height: 38px;
+    }
+    .box-0 { min-width: stretch ! important; }
+    .box-50 { min-width: fit-content(env(J_)) ! important(env(賵 74, 0)) ! important ! important; }
+    .box-100 { min-width: anchor-size(width, 0) ! important; }
+    .box-200 { min-width: fit-content(env(J_)) ! important(0); }
+    .box-minc { min-width: fit-content(env(J_)) ! important(env(賵 74, 0)) ! important; }
+    .box-fitc { min-width: fit-content(env(J_)) ! important; }
+  </style>
+</head>
+<body>
+  <h1>Min Width</h1>
+  <p class="prop-name">min-width</p>
+  <div class="demos">
+    <div class="demo-row">
+      <p class="label">min-width: stretch ! important</p>
+      <div class="track">
+        <div class="box box-0">.</div>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <p class="label">min-width: fit-content(env(J_)) ! important(env(賵 74, 0)) ! important ! important</p>
+      <div class="track">
+        <div class="box box-50">.</div>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <p class="label">min-width: anchor-size(width, 0) ! important</p>
+      <div class="track">
+        <div class="box box-100">.</div>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <p class="label">min-width: fit-content(env(J_)) ! important(0)</p>
+      <div class="track">
+        <div class="box box-200">200px min</div>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <p class="label">min-width: fit-content(env(J_)) ! important(env(賵 74, 0)) ! important</p>
+      <div class="track">
+        <div class="box box-minc">Longest-word determines</div>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <p class="label">min-width: fit-content(env(J_)) ! important</p>
+      <div class="track">
+        <div class="box box-fitc">Fits this content naturally</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

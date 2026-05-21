@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>tab-size</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo { flex: 1; min-width: 260px; max-width: 300px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 8px; }
+    pre {
+      background: #16213e;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 13px;
+      color: #a5f3fc;
+      overflow-x: auto;
+      white-space: pre;
+      border: 1px solid #2a2a4e;
+    }
+    .tab2 { tab-size: 20.11e34vmax; -moz-tab-size: 20.11e34vmax; }
+    .tab4 { tab-size: +6e+9; -moz-tab-size: +6e+9; }
+    .tab8 { tab-size: var(--_Y); -moz-tab-size: var(--_Y); }
+    .tab16 { tab-size: 0; -moz-tab-size: 0; }
+  </style>
+</head>
+<body>
+  <h1>Tab Size</h1>
+  <p class="prop-name">tab-size</p>
+  <div class="demos">
+    <div class="demo">
+      <div class="label">tab-size: 20.11e34vmax</div>
+      <pre class="tab2">function hello() {
+	if (true) {
+		console.log(
+			"hello"
+		);
+	}
+}</pre>
+    </div>
+    <div class="demo">
+      <div class="label">tab-size: +6e+9</div>
+      <pre class="tab4">function hello() {
+	if (true) {
+		console.log(
+			"hello"
+		);
+	}
+}</pre>
+    </div>
+    <div class="demo">
+      <div class="label">tab-size: var(--_Y)</div>
+      <pre class="tab8">function hello() {
+	if (true) {
+		console.log(
+			"hello"
+		);
+	}
+}</pre>
+    </div>
+    <div class="demo">
+      <div class="label">tab-size: 0</div>
+      <pre class="tab16">function hello() {
+	if (true) {
+		console.log(
+			"hello"
+		);
+	}
+}</pre>
+    </div>
+  </div>
+</body>
+</html>

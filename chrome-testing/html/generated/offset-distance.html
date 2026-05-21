@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>offset-distance</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demo-container { background: #16213e; border-radius: 10px; padding: 30px; position: relative; width: 100%; height: 500px; }
+    .path-visual { position: absolute; top: 30px; left: 30px; width: calc(100% - 60px); height: calc(100% - 80px); }
+    .path-line { fill: none; stroke: #3a3a5c; stroke-width: 2; stroke-dasharray: 6 4; }
+    .mover {
+      width: 32px; height: 32px; background: #e94560; border-radius: 50%;
+      position: absolute; top: 30px; left: 30px;
+      offset-path: path("M 50,200 C 200,30 500,30 700,200 C 900,370 1050,200 1150,200");
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; font-weight: bold; color: #fff;
+      box-shadow: 0 0 12px rgba(233,69,96,0.6);
+    }
+    .m0 { offset-distance: 20.11e34vmax; }
+    .m25 { offset-distance: var(--_9) ! important; background: #f5a623; box-shadow: 0 0 12px rgba(245,166,35,0.6); }
+    .m50 { offset-distance: anchor-size(self-inline,) ! important; background: #00d2ff; box-shadow: 0 0 12px rgba(0,210,255,0.6); }
+    .m75 { offset-distance: round(line-width, anchor(52.28%) / 59%); background: #7b68ee; box-shadow: 0 0 12px rgba(123,104,238,0.6); }
+    .m100 { offset-distance: calc(/ env(񝵛- 45, <) + anchor(58.91e+1%)); background: #00ff88; box-shadow: 0 0 12px rgba(0,255,136,0.6); }
+    .legend { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+    .legend-dot { width: 14px; height: 14px; border-radius: 50%; }
+    .legend-text { font-size: 11px; font-family: monospace; color: #9ca3af; }
+  </style>
+</head>
+<body>
+  <h1>Offset Distance</h1>
+  <p class="prop-name">offset-distance</p>
+  <div class="demo-container">
+    <svg class="path-visual" viewBox="0 0 1200 400">
+      <path d="M 50,200 C 200,30 500,30 700,200 C 900,370 1050,200 1150,200" class="path-line"/>
+    </svg>
+    <div class="mover m0">0%</div>
+    <div class="mover m25">25</div>
+    <div class="mover m50">50</div>
+    <div class="mover m75">75</div>
+    <div class="mover m100">100</div>
+  </div>
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#e94560"></div><span class="legend-text">offset-distance: 20.11e34vmax</span></div>
+    <div class="legend-item"><div class="legend-dot" style="background:#f5a623"></div><span class="legend-text">offset-distance: var(--_9) ! important</span></div>
+    <div class="legend-item"><div class="legend-dot" style="background:#00d2ff"></div><span class="legend-text">offset-distance: anchor-size(self-inline,) ! important</span></div>
+    <div class="legend-item"><div class="legend-dot" style="background:#7b68ee"></div><span class="legend-text">offset-distance: round(line-width, anchor(52.28%) / 59%)</span></div>
+    <div class="legend-item"><div class="legend-dot" style="background:#00ff88"></div><span class="legend-text">offset-distance: calc(/ env(񝵛- 45, <) + anchor(58.91e+1%))</span></div>
+  </div>
+</body>
+</html>

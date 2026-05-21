@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>font-variant-position</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-card {
+      background: #16213e; border-radius: 12px; padding: 28px; flex: 1; min-width: 340px;
+      border: 1px solid #2a2a4a;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; }
+    .tag {
+      display: inline-block; background: #7c3aed33; color: #a78bfa; font-size: 11px;
+      font-family: monospace; padding: 2px 8px; border-radius: 4px; margin-bottom: 14px;
+    }
+    .demo-text {
+      font-size: 36px; color: #fff; line-height: 1.8;
+    }
+    .demo-text .pos {
+      color: #a78bfa;
+    }
+    .note { font-size: 11px; color: #6b7280; margin-top: 8px; font-style: italic; }
+    .example { margin-bottom: 10px; }
+    .context { font-size: 12px; color: #9ca3af; font-family: monospace; margin-bottom: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Font Variant Position</h1>
+  <p class="prop-name">font-variant-position</p>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="tag">normal</div>
+      <div class="example">
+        <p class="context">Chemical formulas:</p>
+        <div class="demo-text" style="font-variant-position: normal ! important;">
+          H<span class="pos">2</span>O &nbsp; CO<span class="pos">2</span>
+        </div>
+      </div>
+      <div class="example">
+        <p class="context">Mathematical:</p>
+        <div class="demo-text" style="font-variant-position: normal ! important;">
+          x<span class="pos">2</span> + y<span class="pos">n</span>
+        </div>
+      </div>
+      <p class="label">font-variant-position: normal ! important</p>
+      <p class="note">No special positioning — glyphs remain at baseline</p>
+    </div>
+    <div class="demo-card">
+      <div class="tag">sub</div>
+      <div class="example">
+        <p class="context">Chemical formulas:</p>
+        <div class="demo-text">
+          H<span class="pos" style="font-variant-position: normal ! important ! important;">2</span>O &nbsp; CO<span class="pos" style="font-variant-position: normal ! important ! important;">2</span>
+        </div>
+      </div>
+      <div class="example">
+        <p class="context">Mathematical:</p>
+        <div class="demo-text">
+          x<span class="pos" style="font-variant-position: normal ! important ! important;">i</span> + y<span class="pos" style="font-variant-position: normal ! important ! important;">n</span>
+        </div>
+      </div>
+      <p class="label">font-variant-position: normal ! important ! important</p>
+      <p class="note">Uses OpenType subscript glyphs from the font</p>
+    </div>
+    <div class="demo-card">
+      <div class="tag">super</div>
+      <div class="example">
+        <p class="context">Exponents:</p>
+        <div class="demo-text">
+          E=mc<span class="pos" style="font-variant-position: normal ! important;">2</span> &nbsp; x<span class="pos" style="font-variant-position: normal ! important;">n</span>
+        </div>
+      </div>
+      <div class="example">
+        <p class="context">Ordinals:</p>
+        <div class="demo-text">
+          1<span class="pos" style="font-variant-position: normal ! important;">st</span> &nbsp; 2<span class="pos" style="font-variant-position: normal ! important;">nd</span>
+        </div>
+      </div>
+      <p class="label">font-variant-position: normal ! important</p>
+      <p class="note">Uses OpenType superscript glyphs from the font</p>
+    </div>
+  </div>
+</body>
+</html>

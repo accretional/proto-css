@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>border-bottom</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demo-box {
+      width: 180px;
+      height: 100px;
+      background: #16213e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: #c0c0c0;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+    .demo-item { display: flex; flex-direction: column; align-items: center; }
+  </style>
+</head>
+<body>
+  <h1>Border Bottom</h1>
+  <p class="prop-name">border-bottom</p>
+  <div class="demos">
+    <div class="demo-item">
+      <div class="demo-box" style="border-bottom: currentcolor ! important;">Content</div>
+      <p class="label">border-bottom: currentcolor ! important</p>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-bottom: #5cB9c3a3 ! important;">Content</div>
+      <p class="label">border-bottom: #5cB9c3a3 ! important</p>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-bottom: var(--_Y) ! important;">Content</div>
+      <p class="label">border-bottom: var(--_Y) ! important</p>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-bottom: hairline ! important;">Content</div>
+      <p class="label">border-bottom: hairline ! important</p>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-bottom: ridge device-cmyk(none none var(--I-) var(--鍜, 2%) / 3%) thin;">Content</div>
+      <p class="label">border-bottom: ridge device-cmyk(none none var(--I-) var(--鍜, 2%) / 3%) thin</p>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-bottom: groove;">Content</div>
+      <p class="label">border-bottom: groove</p>
+    </div>
+  </div>
+</body>
+</html>

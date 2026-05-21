@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>text-overflow</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-card { background: #16213e; border-radius: 12px; padding: 24px; min-width: 350px; flex: 1; }
+    .sample { font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
+    .note { font-size: 12px; color: #6b7280; margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Text Overflow</h1>
+  <p class="prop-name">text-overflow</p>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="sample" style="text-overflow: "" ellipsis ! important;">
+        This is a long text that will overflow the container and get clipped without any indicator
+      </div>
+      <p class="label">text-overflow: "" ellipsis ! important</p>
+      <p class="note">Text is clipped at the edge</p>
+    </div>
+    <div class="demo-card">
+      <div class="sample" style="text-overflow: clip ! important;">
+        This is a long text that will overflow the container and show an ellipsis at the end
+      </div>
+      <p class="label">text-overflow: clip ! important</p>
+      <p class="note">Shows "..." when text overflows</p>
+    </div>
+    <div class="demo-card">
+      <div class="sample" style="text-overflow: ellipsis clip;">
+        This is a long text that will overflow the container and show a custom string indicator
+      </div>
+      <p class="label">text-overflow: " [...]"</p>
+      <p class="note">Custom string (browser support varies)</p>
+    </div>
+  </div>
+</body>
+</html>

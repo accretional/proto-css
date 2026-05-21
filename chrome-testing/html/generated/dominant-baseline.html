@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>dominant-baseline</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .demo-box { background: #16213e; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>SVG Text Baseline Alignment</h1>
+  <p class="prop-name">dominant-baseline</p>
+  <div class="demos">
+
+    <div class="demo-box">
+      <svg width="340" height="100" viewBox="0 0 340 100">
+        <line x1="10" y1="50" x2="330" y2="50" stroke="#e94560" stroke-width="2" stroke-dasharray="4,4" />
+        <text x="170" y="50" text-anchor="middle" fill="#e0e0e0" font-size="28" font-family="system-ui" dominant-baseline="auto">Hello World</text>
+        <text x="330" y="50" text-anchor="end" fill="#9ca3af" font-size="10" font-family="monospace" dominant-baseline="auto">baseline</text>
+      </svg>
+      <div class="label">dominant-baseline: text-bottom</div>
+    </div>
+
+    <div class="demo-box">
+      <svg width="340" height="100" viewBox="0 0 340 100">
+        <line x1="10" y1="50" x2="330" y2="50" stroke="#e94560" stroke-width="2" stroke-dasharray="4,4" />
+        <text x="170" y="50" text-anchor="middle" fill="#e0e0e0" font-size="28" font-family="system-ui" dominant-baseline="alphabetic">Hello World</text>
+        <text x="330" y="50" text-anchor="end" fill="#9ca3af" font-size="10" font-family="monospace" dominant-baseline="auto">baseline</text>
+      </svg>
+      <div class="label">dominant-baseline: auto ! important</div>
+    </div>
+
+    <div class="demo-box">
+      <svg width="340" height="100" viewBox="0 0 340 100">
+        <line x1="10" y1="50" x2="330" y2="50" stroke="#e94560" stroke-width="2" stroke-dasharray="4,4" />
+        <text x="170" y="50" text-anchor="middle" fill="#e0e0e0" font-size="28" font-family="system-ui" dominant-baseline="central">Hello World</text>
+        <text x="330" y="50" text-anchor="end" fill="#9ca3af" font-size="10" font-family="monospace" dominant-baseline="auto">baseline</text>
+      </svg>
+      <div class="label">dominant-baseline: ideographic</div>
+    </div>
+
+    <div class="demo-box">
+      <svg width="340" height="100" viewBox="0 0 340 100">
+        <line x1="10" y1="50" x2="330" y2="50" stroke="#e94560" stroke-width="2" stroke-dasharray="4,4" />
+        <text x="170" y="50" text-anchor="middle" fill="#e0e0e0" font-size="28" font-family="system-ui" dominant-baseline="middle">Hello World</text>
+        <text x="330" y="50" text-anchor="end" fill="#9ca3af" font-size="10" font-family="monospace" dominant-baseline="auto">baseline</text>
+      </svg>
+      <div class="label">dominant-baseline: ideographic</div>
+    </div>
+
+    <div class="demo-box">
+      <svg width="340" height="100" viewBox="0 0 340 100">
+        <line x1="10" y1="50" x2="330" y2="50" stroke="#e94560" stroke-width="2" stroke-dasharray="4,4" />
+        <text x="170" y="50" text-anchor="middle" fill="#e0e0e0" font-size="28" font-family="system-ui" dominant-baseline="hanging">Hello World</text>
+        <text x="330" y="50" text-anchor="end" fill="#9ca3af" font-size="10" font-family="monospace" dominant-baseline="auto">baseline</text>
+      </svg>
+      <div class="label">dominant-baseline: auto</div>
+    </div>
+
+    <div class="demo-box">
+      <svg width="340" height="100" viewBox="0 0 340 100">
+        <line x1="10" y1="50" x2="330" y2="50" stroke="#e94560" stroke-width="2" stroke-dasharray="4,4" />
+        <text x="170" y="50" text-anchor="middle" fill="#e0e0e0" font-size="28" font-family="system-ui" dominant-baseline="text-top">Hello World</text>
+        <text x="330" y="50" text-anchor="end" fill="#9ca3af" font-size="10" font-family="monospace" dominant-baseline="auto">baseline</text>
+      </svg>
+      <div class="label">dominant-baseline: mathematical ! important</div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>white-space</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .demo-card { background: #16213e; border-radius: 10px; padding: 16px; }
+    .demo-card h3 { font-size: 13px; color: #a78bfa; margin-bottom: 10px; font-family: monospace; font-weight: 500; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+    .text-box { background: #0f1a30; border: 1px solid #2a2a4a; border-radius: 6px; padding: 12px; font-size: 13px; line-height: 1.5; width: 100%; height: 120px; overflow: auto; color: #d1d5db; }
+  </style>
+</head>
+<body>
+  <h1>White Space</h1>
+  <p class="prop-name">white-space</p>
+  <div class="demos">
+
+    <div class="demo-card">
+      <h3>normal</h3>
+      <div class="text-box" style="white-space: normal;">This   text   has    multiple   spaces    and
+a line break.     It should collapse    whitespace   and wrap normally at the edge of the container.</div>
+      <p class="label">white-space: normal</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>nowrap</h3>
+      <div class="text-box" style="white-space: collapse nowrap white-space-trim;">This   text   has    multiple   spaces    and
+a line break.     It should collapse    whitespace   and never wrap to the next line.</div>
+      <p class="label">white-space: collapse nowrap white-space-trim</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>pre</h3>
+      <div class="text-box" style="white-space: pre ! important;">This   text   has    multiple   spaces    and
+a line break.     It preserves    whitespace   and does not wrap.</div>
+      <p class="label">white-space: pre ! important</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>pre-wrap</h3>
+      <div class="text-box" style="white-space: pre ! important-wrap;">This   text   has    multiple   spaces    and
+a line break.     It preserves    whitespace   and wraps at the edge.</div>
+      <p class="label">white-space: pre ! important-wrap</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>pre-line</h3>
+      <div class="text-box" style="white-space: pre ! important-line;">This   text   has    multiple   spaces    and
+a line break.     It collapses    spaces   but preserves line breaks.</div>
+      <p class="label">white-space: pre ! important-line</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>break-spaces</h3>
+      <div class="text-box" style="white-space: break-spaces nowrap white-space-trim;">This   text   has    multiple   spaces    and
+a line break.     It preserves    whitespace   and can break at spaces.</div>
+      <p class="label">white-space: break-spaces nowrap white-space-trim</p>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>border-radius</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demo-box {
+      width: 150px;
+      height: 150px;
+      background: #e74c3c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: #fff;
+      font-weight: 600;
+    }
+    .pill {
+      width: 220px;
+      height: 60px;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; max-width: 220px; }
+    .demo-item { display: flex; flex-direction: column; align-items: flex-start; }
+  </style>
+</head>
+<body>
+  <h1>Border Radius</h1>
+  <p class="prop-name">border-radius</p>
+  <div class="demos">
+    <div class="demo-item">
+      <div class="demo-box" style="border-radius: env(ץ +2) anchor-size(--� block, -85.9%) var(--⽲H) ! important;">0</div>
+      <span class="label">border-radius: env(ץ +2) anchor-size(--� block, -85.9%) var(--⽲H) ! important</span>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-radius: calc-size(any, clamp(,,) - var(--_, _) / 59%);">8px</div>
+      <span class="label">border-radius: calc-size(any, clamp(,,) - var(--_, _) / 59%)</span>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-radius: calc-size(-58.6e04 / anchor-size(--塼), anchor-size(--񒫿) - -infinity) var(--__, 0) / env(Y) +65.5e54mm 0;">20px</div>
+      <span class="label">border-radius: calc-size(-58.6e04 / anchor-size(--塼), anchor-size(--񒫿) - -infinity) var(--__, 0) / env(Y) +65.5e54mm 0</span>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-radius: +2.7% atan2(env(z- 8, -1.6e01), +8e+75fr + infinity) ! important;">50%</div>
+      <span class="label">border-radius: +2.7% atan2(env(z- 8, -1.6e01), +8e+75fr + infinity) ! important</span>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-radius: anchor(--󅯻 inside) 3.01dvh / var(--__) calc-size(any, atan2(,) + anchor-size(--򮐯-) / anchor-size(--頓, var(--󩘳1))) ! important;">30px 0</div>
+      <span class="label">border-radius: anchor(--󅯻 inside) 3.01dvh / var(--__) calc-size(any, atan2(,) + anchor-size(--򮐯-) / anchor-size(--頓, var(--󩘳1))) ! important</span>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box pill" style="border-radius: anchor-size(--_9,) var(--󝀳) var(--_􈏟) ! important;">Pill</div>
+      <span class="label">border-radius: anchor-size(--_9,) var(--󝀳) var(--_􈏟) ! important (pill)</span>
+    </div>
+  </div>
+</body>
+</html>

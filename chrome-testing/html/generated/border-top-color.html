@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>border-top-color</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-box { display: flex; flex-direction: column; align-items: center; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+    .box {
+      width: 160px;
+      height: 100px;
+      background: #0f3460;
+      border-top: 6px solid;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+    }
+    .c1 { border-top-color: stripes(currentcolor, currentcolor abs(-4.80e47% / +94.26e+1)) ! important; }
+    .c2 { border-top-color: #5cB9c3a3; }
+    .c3 { border-top-color: stripes(currentcolor); }
+    .c4 { border-top-color: light-dark(, none); }
+    .c5 { border-top-color: currentcolor; }
+    .c6 { border-top-color: var(--_-); }
+  </style>
+</head>
+<body>
+  <h1>Border Top Color</h1>
+  <p class="prop-name">border-top-color</p>
+  <div class="demos">
+    <div class="demo-box">
+      <div class="box c1"></div>
+      <span class="label">border-top-color: stripes(currentcolor, currentcolor abs(-4.80e47% / +94.26e+1)) ! important</span>
+    </div>
+    <div class="demo-box">
+      <div class="box c2"></div>
+      <span class="label">border-top-color: #5cB9c3a3</span>
+    </div>
+    <div class="demo-box">
+      <div class="box c3"></div>
+      <span class="label">border-top-color: stripes(currentcolor)</span>
+    </div>
+    <div class="demo-box">
+      <div class="box c4"></div>
+      <span class="label">border-top-color: light-dark(, none)</span>
+    </div>
+    <div class="demo-box">
+      <div class="box c5"></div>
+      <span class="label">border-top-color: currentcolor</span>
+    </div>
+    <div class="demo-box">
+      <div class="box c6"></div>
+      <span class="label">border-top-color: var(--_-)</span>
+    </div>
+  </div>
+</body>
+</html>

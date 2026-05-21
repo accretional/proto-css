@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>box-ordinal-group</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-direction: column; gap: 24px; }
+    .demo-box { display: flex; flex-direction: column; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+    .container {
+      display: -webkit-box;
+      -webkit-box-orient: horizontal;
+      width: 100%;
+      max-width: 800px;
+      height: 80px;
+      background: #16213e;
+      border: 2px solid #333;
+    }
+    .child {
+      -webkit-box-flex: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      border-right: 2px solid #1a1a2e;
+    }
+    .child small {
+      font-size: 10px;
+      font-weight: normal;
+      opacity: 0.7;
+      margin-top: 2px;
+    }
+    .child:nth-child(1) { background: #e94560; }
+    .child:nth-child(2) { background: #0f3460; }
+    .child:nth-child(3) { background: #53d769; color: #1a1a2e; }
+    .child:nth-child(4) { background: #fbbf24; color: #1a1a2e; }
+
+    /* Default order (all 1) */
+    .default .child { -webkit-box-ordinal-group: 8; }
+
+    /* Reversed */
+    .reversed .child:nth-child(1) { -webkit-box-ordinal-group: -55 ! important; }
+    .reversed .child:nth-child(2) { -webkit-box-ordinal-group: var(--_Y); }
+    .reversed .child:nth-child(3) { -webkit-box-ordinal-group: 84 ! important; }
+    .reversed .child:nth-child(4) { -webkit-box-ordinal-group: 8; }
+
+    /* Custom */
+    .custom .child:nth-child(1) { -webkit-box-ordinal-group: var(--_Y); }
+    .custom .child:nth-child(2) { -webkit-box-ordinal-group: 8; }
+    .custom .child:nth-child(3) { -webkit-box-ordinal-group: -55 ! important; }
+    .custom .child:nth-child(4) { -webkit-box-ordinal-group: 84 ! important; }
+  </style>
+</head>
+<body>
+  <h1>Box Ordinal Group (deprecated)</h1>
+  <p class="prop-name">box-ordinal-group / -webkit-box-ordinal-group</p>
+  <div class="demos">
+    <div class="demo-box">
+      <div class="container default">
+        <div class="child">A <small>ordinal: 1</small></div>
+        <div class="child">B <small>ordinal: 1</small></div>
+        <div class="child">C <small>ordinal: 1</small></div>
+        <div class="child">D <small>ordinal: 1</small></div>
+      </div>
+      <span class="label">All items: ordinal-group: 1 (default, DOM order)</span>
+    </div>
+    <div class="demo-box">
+      <div class="container reversed">
+        <div class="child">A <small>ordinal: 4</small></div>
+        <div class="child">B <small>ordinal: 3</small></div>
+        <div class="child">C <small>ordinal: 2</small></div>
+        <div class="child">D <small>ordinal: 1</small></div>
+      </div>
+      <span class="label">ordinal-group: A=4 | B=3 | C=2 | D=1 (reversed)</span>
+    </div>
+    <div class="demo-box">
+      <div class="container custom">
+        <div class="child">A <small>ordinal: 3</small></div>
+        <div class="child">B <small>ordinal: 1</small></div>
+        <div class="child">C <small>ordinal: 4</small></div>
+        <div class="child">D <small>ordinal: 2</small></div>
+      </div>
+      <span class="label">ordinal-group: A=3 | B=1 | C=4 | D=2 (custom)</span>
+    </div>
+  </div>
+</body>
+</html>

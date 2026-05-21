@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>corner-shape</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 4px; }
+    .experimental { font-size: 12px; color: #e94560; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
+    .demo-card { text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>Corner Shape (Shorthand)</h1>
+  <p class="prop-name">corner-shape</p>
+  <p class="experimental">Experimental shorthand &mdash; applies shape to all corners</p>
+  <div class="demos">
+    <!-- round -->
+    <div class="demo-card">
+      <svg width="150" height="150" viewBox="0 0 150 150" fill="none">
+        <rect x="3" y="3" width="144" height="144" rx="28" fill="#16213e" stroke="#e94560" stroke-width="3"/>
+        <text x="75" y="80" fill="#e0e0e0" text-anchor="middle" font-size="14" font-family="system-ui">round</text>
+      </svg>
+      <p class="label">corner-shape: scoop superellipse(var(--kޭ, --_)) superellipse(-infinity) round ! important</p>
+    </div>
+
+    <!-- scoop -->
+    <div class="demo-card">
+      <svg width="150" height="150" viewBox="0 0 150 150" fill="none">
+        <path d="M28 3 H122 Q122 28 147 28 V122 Q122 122 122 147 H28 Q28 122 3 122 V28 Q28 28 28 3Z" fill="#16213e" stroke="#00d2ff" stroke-width="3"/>
+        <text x="75" y="80" fill="#e0e0e0" text-anchor="middle" font-size="14" font-family="system-ui">scoop</text>
+      </svg>
+      <p class="label">corner-shape: scoop scoop notch bevel ! important bevel squircle</p>
+    </div>
+
+    <!-- notch -->
+    <div class="demo-card">
+      <svg width="150" height="150" viewBox="0 0 150 150" fill="none">
+        <path d="M28 3 H122 L147 28 V122 L122 147 H28 L3 122 V28 L28 3Z" fill="#16213e" stroke="#10b981" stroke-width="3"/>
+        <text x="75" y="80" fill="#e0e0e0" text-anchor="middle" font-size="14" font-family="system-ui">notch</text>
+      </svg>
+      <p class="label">corner-shape: scoop square superellipse(infinity)</p>
+    </div>
+
+    <!-- bevel -->
+    <div class="demo-card">
+      <svg width="150" height="150" viewBox="0 0 150 150" fill="none">
+        <path d="M28 3 H122 L147 28 V122 L122 147 H28 L3 122 V28 Z" fill="#16213e" stroke="#f59e0b" stroke-width="3"/>
+        <text x="75" y="80" fill="#e0e0e0" text-anchor="middle" font-size="14" font-family="system-ui">bevel</text>
+      </svg>
+      <p class="label">corner-shape: scoop scoop notch bevel ! important</p>
+    </div>
+
+    <!-- squircle -->
+    <div class="demo-card">
+      <svg width="150" height="150" viewBox="0 0 150 150" fill="none">
+        <path d="M3 50 C3 14 14 3 50 3 H100 C136 3 147 14 147 50 V100 C147 136 136 147 100 147 H50 C14 147 3 136 3 100 Z" fill="#16213e" stroke="#a855f7" stroke-width="3"/>
+        <text x="75" y="80" fill="#e0e0e0" text-anchor="middle" font-size="14" font-family="system-ui">squircle</text>
+      </svg>
+      <p class="label">corner-shape: scoop</p>
+    </div>
+  </div>
+</body>
+</html>

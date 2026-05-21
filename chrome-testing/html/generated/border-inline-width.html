@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>border-inline-width</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demo-box {
+      width: 200px;
+      height: 100px;
+      background: #16213e;
+      border-inline-style: solid;
+      border-inline-color: #3498db;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: #c0c0c0;
+      border-radius: 4px;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+    .demo-item { display: flex; flex-direction: column; align-items: flex-start; }
+  </style>
+</head>
+<body>
+  <h1>Border Inline Width</h1>
+  <p class="prop-name">border-inline-width</p>
+  <div class="demos">
+    <div class="demo-item">
+      <div class="demo-box" style="border-inline-width: thin thin ! important;">Content</div>
+      <span class="label">border-inline-width: thin thin ! important</span>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-inline-width: +9.9cm hairline;">Content</div>
+      <span class="label">border-inline-width: +9.9cm hairline</span>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-inline-width: hairline var(--ꆉ);">Content</div>
+      <span class="label">border-inline-width: hairline var(--ꆉ)</span>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-inline-width: hairline thick ! important;">Content</div>
+      <span class="label">border-inline-width: hairline thick ! important</span>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-inline-width: medium;">Content</div>
+      <span class="label">border-inline-width: medium</span>
+    </div>
+  </div>
+</body>
+</html>

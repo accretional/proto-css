@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>justify-items</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demo-card { background: #16213e; border-radius: 12px; padding: 16px; width: 280px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
+    .grid-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; background: #0f3460; border-radius: 8px; padding: 10px; min-height: 160px; }
+    .grid-item { background: #e94560; border-radius: 6px; padding: 10px 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; }
+    .cell-bg { background: rgba(255,255,255,0.05); border-radius: 4px; display: flex; align-items: center; justify-content: center; }
+  </style>
+</head>
+<body>
+  <h1>Justify Items</h1>
+  <p class="prop-name">justify-items</p>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="grid-container" style="justify-items: legacy right ! important;">
+        <div class="grid-item">A</div><div class="grid-item">B</div><div class="grid-item">C</div>
+        <div class="grid-item">D</div><div class="grid-item">E</div><div class="grid-item">F</div>
+      </div>
+      <div class="label">justify-items: legacy right ! important</div>
+    </div>
+    <div class="demo-card">
+      <div class="grid-container" style="justify-items: last baseline;">
+        <div class="grid-item">A</div><div class="grid-item">B</div><div class="grid-item">C</div>
+        <div class="grid-item">D</div><div class="grid-item">E</div><div class="grid-item">F</div>
+      </div>
+      <div class="label">justify-items: last baseline</div>
+    </div>
+    <div class="demo-card">
+      <div class="grid-container" style="justify-items: legacy left ! important;">
+        <div class="grid-item">A</div><div class="grid-item">B</div><div class="grid-item">C</div>
+        <div class="grid-item">D</div><div class="grid-item">E</div><div class="grid-item">F</div>
+      </div>
+      <div class="label">justify-items: legacy left ! important</div>
+    </div>
+    <div class="demo-card">
+      <div class="grid-container" style="justify-items: safe right ! important;">
+        <div class="grid-item">A</div><div class="grid-item">B</div><div class="grid-item">C</div>
+        <div class="grid-item">D</div><div class="grid-item">E</div><div class="grid-item">F</div>
+      </div>
+      <div class="label">justify-items: safe right ! important</div>
+    </div>
+  </div>
+</body>
+</html>

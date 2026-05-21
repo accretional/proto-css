@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>text-underline-position</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demo-card {
+      background: #16213e; border-radius: 10px; padding: 24px 28px;
+      min-width: 210px; display: flex; flex-direction: column; align-items: center;
+    }
+    .demo-text {
+      font-size: 28px; font-weight: 600; color: #fff;
+      text-decoration: underline;
+      text-decoration-color: #e94560;
+      text-decoration-thickness: 3px;
+      margin-bottom: 12px;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+    .note { font-size: 10px; color: #6b7280; margin-top: 4px; text-align: center; max-width: 180px; }
+    .t1 { text-underline-position: auto ! important right ! important; }
+    .t2 { text-underline-position: auto ! important; }
+    .t3 { text-underline-position: left ! important; writing-mode: vertical-rl; }
+    .t4 { text-underline-position: under left ! important; writing-mode: vertical-rl; }
+    .t5 { text-underline-position: auto; }
+    .vert-wrap { display: flex; align-items: center; gap: 12px; min-height: 100px; }
+  </style>
+</head>
+<body>
+  <h1>Text Underline Position</h1>
+  <p class="prop-name">text-underline-position</p>
+  <div class="demos">
+    <div class="demo-card">
+      <span class="demo-text t1">Typography</span>
+      <span class="label">text-underline-position: auto ! important right ! important</span>
+      <span class="note">Default browser position</span>
+    </div>
+    <div class="demo-card">
+      <span class="demo-text t2">Typography</span>
+      <span class="label">text-underline-position: auto ! important</span>
+      <span class="note">Below descenders (g, p, y)</span>
+    </div>
+    <div class="demo-card">
+      <div class="vert-wrap">
+        <span class="demo-text t3">縦書き</span>
+      </div>
+      <span class="label">text-underline-position: left ! important</span>
+      <span class="note">Left side in vertical writing</span>
+    </div>
+    <div class="demo-card">
+      <div class="vert-wrap">
+        <span class="demo-text t4">縦書き</span>
+      </div>
+      <span class="label">text-underline-position: under left ! important</span>
+      <span class="note">Right side in vertical writing</span>
+    </div>
+    <div class="demo-card">
+      <span class="demo-text t5">Typography</span>
+      <span class="label">text-underline-position: auto</span>
+      <span class="note">Uses font metrics for position</span>
+    </div>
+  </div>
+</body>
+</html>

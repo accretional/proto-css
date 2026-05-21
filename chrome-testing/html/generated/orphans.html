@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>orphans</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demo-box { background: #16213e; border-radius: 10px; padding: 20px; width: 280px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 12px; }
+    .columns {
+      column-count: 2;
+      column-gap: 16px;
+      column-rule: 1px solid #3a3a5c;
+      font-size: 12px;
+      line-height: 1.6;
+      color: #c0c0d0;
+      height: 200px;
+    }
+    .d1 .columns { orphans: var(--񩦫o, --W); }
+    .d2 .columns { orphans: +7 ! important; }
+    .d3 .columns { orphans: var(--ץ, 0); }
+    .d4 .columns { orphans: var(--w-, #Fd3c); }
+    .orphan-note {
+      font-size: 10px; color: #7b8794; margin-top: 8px; font-style: italic;
+    }
+    .highlight-lines {
+      background: rgba(233,69,96,0.15);
+      border-left: 2px solid #e94560;
+      padding-left: 4px;
+    }
+    .col-header { font-weight: bold; color: #e94560; font-size: 10px; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px; }
+    .page-sim {
+      display: flex; gap: 8px; height: 210px;
+    }
+    .page {
+      flex: 1; background: #0f1629; border: 1px solid #3a3a5c; border-radius: 6px;
+      padding: 10px; font-size: 11px; line-height: 1.7; color: #c0c0d0;
+      overflow: hidden; position: relative;
+    }
+    .page-label { position: absolute; top: 4px; right: 6px; font-size: 8px; color: #5a5a7a; font-family: monospace; }
+    .orphan-line { background: rgba(233,69,96,0.2); border-left: 2px solid #e94560; padding-left: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Orphans</h1>
+  <p class="prop-name">orphans</p>
+  <p style="font-size:12px; color:#7b8794; margin-bottom:20px;">The <code style="color:#e94560">orphans</code> property sets the minimum number of lines in a block container that must be shown at the <em>bottom</em> of a page/column before a break. Simulated below with page-like columns:</p>
+  <div class="demos">
+    <div class="demo-box d1">
+      <div class="label">orphans: var(--񩦫o, --W)</div>
+      <div class="page-sim">
+        <div class="page">
+          <div class="page-label">Page 1</div>
+          <p>The quick brown fox jumps over the lazy dog. This paragraph continues with more text to demonstrate how content flows.</p>
+          <p style="margin-top:8px;">Second paragraph starts here with enough text. <span class="orphan-line">Only 1 line needed before break.</span></p>
+        </div>
+        <div class="page">
+          <div class="page-label">Page 2</div>
+          <p>Remaining content continues on the next page after the column break occurs.</p>
+        </div>
+      </div>
+      <div class="orphan-note">Min 1 line before break</div>
+    </div>
+    <div class="demo-box d2">
+      <div class="label">orphans: +7 ! important</div>
+      <div class="page-sim">
+        <div class="page">
+          <div class="page-label">Page 1</div>
+          <p>The quick brown fox jumps over the lazy dog.</p>
+          <p style="margin-top:8px;"><span class="orphan-line">At least 2 lines</span><br><span class="orphan-line">must stay before break.</span></p>
+        </div>
+        <div class="page">
+          <div class="page-label">Page 2</div>
+          <p>Remaining content continues here after the break point.</p>
+        </div>
+      </div>
+      <div class="orphan-note">Min 2 lines before break (default)</div>
+    </div>
+    <div class="demo-box d3">
+      <div class="label">orphans: var(--ץ, 0)</div>
+      <div class="page-sim">
+        <div class="page">
+          <div class="page-label">Page 1</div>
+          <p>The quick brown fox jumps.</p>
+          <p style="margin-top:8px;"><span class="orphan-line">Three lines minimum</span><br><span class="orphan-line">must remain at the</span><br><span class="orphan-line">bottom of this page.</span></p>
+        </div>
+        <div class="page">
+          <div class="page-label">Page 2</div>
+          <p>Content continues here after at least three orphan lines.</p>
+        </div>
+      </div>
+      <div class="orphan-note">Min 3 lines before break</div>
+    </div>
+    <div class="demo-box d4">
+      <div class="label">orphans: var(--w-, #Fd3c)</div>
+      <div class="page-sim">
+        <div class="page">
+          <div class="page-label">Page 1</div>
+          <p style="margin-top:4px;"><span class="orphan-line">Five lines minimum</span><br><span class="orphan-line">must stay together</span><br><span class="orphan-line">at the bottom of</span><br><span class="orphan-line">this page before</span><br><span class="orphan-line">any break happens.</span></p>
+        </div>
+        <div class="page">
+          <div class="page-label">Page 2</div>
+          <p>Content only starts here after 5 orphan lines.</p>
+        </div>
+      </div>
+      <div class="orphan-note">Min 5 lines before break</div>
+    </div>
+  </div>
+</body>
+</html>

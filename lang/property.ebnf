@@ -1,0 +1,4279 @@
+(* CSS Property value definitions
+   Generated from docs/syntax/properties.txt by scripts/properties_to_ebnf.py
+
+   Each Property is named <property_name>_prop.
+   Inline sub-types not already defined in other EBNF files are also included here.
+*)
+
+
+Property =
+    AccentColorExpr | AlignContentExpr | AlignItemsExpr
+    | AlignSelfExpr | AlignmentBaselineExpr | AllExpr
+    | AnchorNameExpr | AnchorScopeExpr | AnimationCompositionExpr
+    | AnimationDelayExpr | AnimationDirectionExpr | AnimationDurationExpr
+    | AnimationFillModeExpr | AnimationIterationCountExpr | AnimationNameExpr
+    | AnimationPlayStateExpr | AnimationRangeEndExpr | AnimationRangeStartExpr
+    | AnimationRangeExpr | AnimationTimelineExpr | AnimationTimingFunctionExpr
+    | AnimationExpr | AppearanceExpr | AspectRatioExpr
+    | BackdropFilterExpr | BackfaceVisibilityExpr | BackgroundAttachmentExpr
+    | BackgroundBlendModeExpr | BackgroundClipExpr | BackgroundColorExpr
+    | BackgroundImageExpr | BackgroundOriginExpr | BackgroundPositionXExpr
+    | BackgroundPositionYExpr | BackgroundPositionExpr | BackgroundRepeatExpr
+    | BackgroundRepeatXExpr | BackgroundRepeatYExpr | BackgroundSizeExpr
+    | BackgroundExpr | BaselineShiftExpr | BaselineSourceExpr
+    | BlockSizeExpr | BorderBlockColorExpr | BorderBlockEndColorExpr
+    | BorderBlockEndStyleExpr | BorderBlockEndWidthExpr | BorderBlockEndExpr
+    | BorderBlockStartColorExpr | BorderBlockStartStyleExpr | BorderBlockStartWidthExpr
+    | BorderBlockStartExpr | BorderBlockStyleExpr | BorderBlockWidthExpr
+    | BorderBlockExpr | BorderBottomColorExpr | BorderBottomLeftRadiusExpr
+    | BorderBottomRightRadiusExpr | BorderBottomStyleExpr | BorderBottomWidthExpr
+    | BorderBottomExpr | BorderCollapseExpr | BorderColorExpr
+    | BorderEndEndRadiusExpr | BorderEndStartRadiusExpr | BorderImageOutsetExpr
+    | BorderImageRepeatExpr | BorderImageSliceExpr | BorderImageSourceExpr
+    | BorderImageWidthExpr | BorderImageExpr | BorderInlineColorExpr
+    | BorderInlineEndColorExpr | BorderInlineEndStyleExpr | BorderInlineEndWidthExpr
+    | BorderInlineEndExpr | BorderInlineStartColorExpr | BorderInlineStartStyleExpr
+    | BorderInlineStartWidthExpr | BorderInlineStartExpr | BorderInlineStyleExpr
+    | BorderInlineWidthExpr | BorderInlineExpr | BorderLeftColorExpr
+    | BorderLeftStyleExpr | BorderLeftWidthExpr | BorderLeftExpr
+    | BorderRadiusExpr | BorderRightColorExpr | BorderRightStyleExpr
+    | BorderRightWidthExpr | BorderRightExpr | BorderSpacingExpr
+    | BorderStartEndRadiusExpr | BorderStartStartRadiusExpr | BorderStyleExpr
+    | BorderTopColorExpr | BorderTopLeftRadiusExpr | BorderTopRightRadiusExpr
+    | BorderTopStyleExpr | BorderTopWidthExpr | BorderTopExpr
+    | BorderWidthExpr | BorderExpr | BottomExpr
+    | BoxAlignExpr | BoxDecorationBreakExpr | BoxDirectionExpr
+    | BoxFlexGroupExpr | BoxFlexExpr | BoxLinesExpr
+    | BoxOrdinalGroupExpr | BoxOrientExpr | BoxPackExpr
+    | BoxShadowExpr | BoxSizingExpr | BreakAfterExpr
+    | BreakBeforeExpr | BreakInsideExpr | CaptionSideExpr
+    | CaretAnimationExpr | CaretColorExpr | CaretShapeExpr
+    | CaretExpr | ClearExpr | ClipPathExpr
+    | ClipRuleExpr | ClipExpr | ColorInterpolationFiltersExpr
+    | ColorInterpolationExpr | ColorSchemeExpr | ColorExpr
+    | ColumnCountExpr | ColumnFillExpr | ColumnGapExpr
+    | ColumnHeightExpr | ColumnRuleColorExpr | ColumnRuleStyleExpr
+    | ColumnRuleWidthExpr | ColumnRuleExpr | ColumnSpanExpr
+    | ColumnWidthExpr | ColumnWrapExpr | ColumnsExpr
+    | ContainIntrinsicBlockSizeExpr | ContainIntrinsicHeightExpr | ContainIntrinsicInlineSizeExpr
+    | ContainIntrinsicSizeExpr | ContainIntrinsicWidthExpr | ContainExpr
+    | ContainerNameExpr | ContainerTypeExpr | ContainerExpr
+    | ContentVisibilityExpr | ContentExpr | CornerBlockEndShapeExpr
+    | CornerBlockStartShapeExpr | CornerBottomLeftShapeExpr | CornerBottomRightShapeExpr
+    | CornerBottomShapeExpr | CornerEndEndShapeExpr | CornerEndStartShapeExpr
+    | CornerInlineEndShapeExpr | CornerInlineStartShapeExpr | CornerLeftShapeExpr
+    | CornerRightShapeExpr | CornerShapeExpr | CornerStartEndShapeExpr
+    | CornerStartStartShapeExpr | CornerTopLeftShapeExpr | CornerTopRightShapeExpr
+    | CornerTopShapeExpr | CounterIncrementExpr | CounterResetExpr
+    | CounterSetExpr | CursorExpr | CxExpr
+    | CyExpr | DExpr | DirectionExpr
+    | DisplayExpr | DominantBaselineExpr | DynamicRangeLimitExpr
+    | EmptyCellsExpr | FieldSizingExpr | FillOpacityExpr
+    | FillRuleExpr | FillExpr | FilterExpr
+    | FlexBasisExpr | FlexDirectionExpr | FlexFlowExpr
+    | FlexGrowExpr | FlexShrinkExpr | FlexWrapExpr
+    | FlexExpr | FloatExpr | FloodColorExpr
+    | FloodOpacityExpr | FontFamilyExpr | FontFeatureSettingsExpr
+    | FontKerningExpr | FontLanguageOverrideExpr | FontOpticalSizingExpr
+    | FontPaletteExpr | FontSizeAdjustExpr | FontSizeExpr
+    | FontSmoothExpr | FontStretchExpr | FontStyleExpr
+    | FontSynthesisPositionExpr | FontSynthesisSmallCapsExpr | FontSynthesisStyleExpr
+    | FontSynthesisWeightExpr | FontSynthesisExpr | FontVariantAlternatesExpr
+    | FontVariantCapsExpr | FontVariantEastAsianExpr | FontVariantEmojiExpr
+    | FontVariantLigaturesExpr | FontVariantNumericExpr | FontVariantPositionExpr
+    | FontVariantExpr | FontVariationSettingsExpr | FontWeightExpr
+    | FontWidthExpr | FontExpr | ForcedColorAdjustExpr
+    | GapExpr | GridAreaExpr | GridAutoColumnsExpr
+    | GridAutoFlowExpr | GridAutoRowsExpr | GridColumnEndExpr
+    | GridColumnStartExpr | GridColumnExpr | GridRowEndExpr
+    | GridRowStartExpr | GridRowExpr | GridTemplateAreasExpr
+    | GridTemplateColumnsExpr | GridTemplateRowsExpr | GridTemplateExpr
+    | GridExpr | HangingPunctuationExpr | HeightExpr
+    | HyphenateCharacterExpr | HyphenateLimitCharsExpr | HyphensExpr
+    | ImageOrientationExpr | ImageRenderingExpr | ImageResolutionExpr
+    | InitialLetterExpr | InlineSizeExpr | InsetBlockEndExpr
+    | InsetBlockStartExpr | InsetBlockExpr | InsetInlineEndExpr
+    | InsetInlineStartExpr | InsetInlineExpr | InsetExpr
+    | InteractivityExpr | InterestDelayExpr | InterestDelayEndExpr
+    | InterestDelayStartExpr | InterpolateSizeExpr | IsolationExpr
+    | JustifyContentExpr | JustifyItemsExpr | JustifySelfExpr
+    | LeftExpr | LetterSpacingExpr | LightingColorExpr
+    | LineBreakExpr | LineClampExpr | LineHeightStepExpr
+    | LineHeightExpr | ListStyleImageExpr | ListStylePositionExpr
+    | ListStyleTypeExpr | ListStyleExpr | MarginBlockEndExpr
+    | MarginBlockStartExpr | MarginBlockExpr | MarginBottomExpr
+    | MarginInlineEndExpr | MarginInlineStartExpr | MarginInlineExpr
+    | MarginLeftExpr | MarginRightExpr | MarginTopExpr
+    | MarginTrimExpr | MarginExpr | MarkerEndExpr
+    | MarkerMidExpr | MarkerStartExpr | MarkerExpr
+    | MaskBorderModeExpr | MaskBorderOutsetExpr | MaskBorderRepeatExpr
+    | MaskBorderSliceExpr | MaskBorderSourceExpr | MaskBorderWidthExpr
+    | MaskBorderExpr | MaskClipExpr | MaskCompositeExpr
+    | MaskImageExpr | MaskModeExpr | MaskOriginExpr
+    | MaskPositionExpr | MaskRepeatExpr | MaskSizeExpr
+    | MaskTypeExpr | MaskExpr | MathDepthExpr
+    | MathShiftExpr | MathStyleExpr | MaxBlockSizeExpr
+    | MaxHeightExpr | MaxInlineSizeExpr | MaxWidthExpr
+    | MinBlockSizeExpr | MinHeightExpr | MinInlineSizeExpr
+    | MinWidthExpr | MixBlendModeExpr | ObjectFitExpr
+    | ObjectPositionExpr | ObjectViewBoxExpr | OffsetAnchorExpr
+    | OffsetDistanceExpr | OffsetPathExpr | OffsetPositionExpr
+    | OffsetRotateExpr | OffsetExpr | OpacityExpr
+    | OrderExpr | OrphansExpr | OutlineColorExpr
+    | OutlineOffsetExpr | OutlineStyleExpr | OutlineWidthExpr
+    | OutlineExpr | OverflowAnchorExpr | OverflowBlockExpr
+    | OverflowClipMarginExpr | OverflowInlineExpr | OverflowWrapExpr
+    | OverflowXExpr | OverflowYExpr | OverflowExpr
+    | OverlayExpr | OverscrollBehaviorBlockExpr | OverscrollBehaviorInlineExpr
+    | OverscrollBehaviorXExpr | OverscrollBehaviorYExpr | OverscrollBehaviorExpr
+    | PaddingBlockEndExpr | PaddingBlockStartExpr | PaddingBlockExpr
+    | PaddingBottomExpr | PaddingInlineEndExpr | PaddingInlineStartExpr
+    | PaddingInlineExpr | PaddingLeftExpr | PaddingRightExpr
+    | PaddingTopExpr | PaddingExpr | PageBreakAfterExpr
+    | PageBreakBeforeExpr | PageBreakInsideExpr | PageExpr
+    | PaintOrderExpr | PerspectiveOriginExpr | PerspectiveExpr
+    | PlaceContentExpr | PlaceItemsExpr | PlaceSelfExpr
+    | PointerEventsExpr | PositionAnchorExpr | PositionAreaExpr
+    | PositionTryFallbacksExpr | PositionTryOrderExpr | PositionTryExpr
+    | PositionVisibilityExpr | PositionExpr | PrintColorAdjustExpr
+    | QuotesExpr | RExpr | ResizeExpr
+    | RightExpr | RotateExpr | RowGapExpr
+    | RubyAlignExpr | RubyOverhangExpr | RubyPositionExpr
+    | RxExpr | RyExpr | ScaleExpr
+    | ScrollBehaviorExpr | ScrollInitialTargetExpr | ScrollMarginBlockEndExpr
+    | ScrollMarginBlockStartExpr | ScrollMarginBlockExpr | ScrollMarginBottomExpr
+    | ScrollMarginInlineEndExpr | ScrollMarginInlineStartExpr | ScrollMarginInlineExpr
+    | ScrollMarginLeftExpr | ScrollMarginRightExpr | ScrollMarginTopExpr
+    | ScrollMarginExpr | ScrollMarkerGroupExpr | ScrollPaddingBlockEndExpr
+    | ScrollPaddingBlockStartExpr | ScrollPaddingBlockExpr | ScrollPaddingBottomExpr
+    | ScrollPaddingInlineEndExpr | ScrollPaddingInlineStartExpr | ScrollPaddingInlineExpr
+    | ScrollPaddingLeftExpr | ScrollPaddingRightExpr | ScrollPaddingTopExpr
+    | ScrollPaddingExpr | ScrollSnapAlignExpr | ScrollSnapStopExpr
+    | ScrollSnapTypeExpr | ScrollTargetGroupExpr | ScrollTimelineAxisExpr
+    | ScrollTimelineNameExpr | ScrollTimelineExpr | ScrollbarColorExpr
+    | ScrollbarGutterExpr | ScrollbarWidthExpr | ShapeImageThresholdExpr
+    | ShapeMarginExpr | ShapeOutsideExpr | ShapeRenderingExpr
+    | SpeakAsExpr | StopColorExpr | StopOpacityExpr
+    | StrokeDasharrayExpr | StrokeDashoffsetExpr | StrokeLinecapExpr
+    | StrokeLinejoinExpr | StrokeMiterlimitExpr | StrokeOpacityExpr
+    | StrokeWidthExpr | StrokeExpr | TabSizeExpr
+    | TableLayoutExpr | TextAlignLastExpr | TextAlignExpr
+    | TextAnchorExpr | TextAutospaceExpr | TextBoxEdgeExpr
+    | TextBoxTrimExpr | TextBoxExpr | TextCombineUprightExpr
+    | TextDecorationColorExpr | TextDecorationInsetExpr | TextDecorationLineExpr
+    | TextDecorationSkipInkExpr | TextDecorationSkipExpr | TextDecorationStyleExpr
+    | TextDecorationThicknessExpr | TextDecorationExpr | TextEmphasisColorExpr
+    | TextEmphasisPositionExpr | TextEmphasisStyleExpr | TextEmphasisExpr
+    | TextIndentExpr | TextJustifyExpr | TextOrientationExpr
+    | TextOverflowExpr | TextRenderingExpr | TextShadowExpr
+    | TextSizeAdjustExpr | TextSpacingTrimExpr | TextTransformExpr
+    | TextUnderlineOffsetExpr | TextUnderlinePositionExpr | TextWrapModeExpr
+    | TextWrapStyleExpr | TextWrapExpr | TimelineScopeExpr
+    | TopExpr | TouchActionExpr | TransformBoxExpr
+    | TransformOriginExpr | TransformStyleExpr | TransformExpr
+    | TransitionBehaviorExpr | TransitionDelayExpr | TransitionDurationExpr
+    | TransitionPropertyExpr | TransitionTimingFunctionExpr | TransitionExpr
+    | TranslateExpr | UnicodeBidiExpr | UserModifyExpr
+    | UserSelectExpr | VectorEffectExpr | VerticalAlignExpr
+    | ViewTimelineAxisExpr | ViewTimelineInsetExpr | ViewTimelineNameExpr
+    | ViewTimelineExpr | ViewTransitionClassExpr | ViewTransitionNameExpr
+    | VisibilityExpr | WhiteSpaceCollapseExpr | WhiteSpaceExpr
+    | WidowsExpr | WidthExpr | WillChangeExpr
+    | WordBreakExpr | WordSpacingExpr | WordWrapExpr | WritingModeExpr
+    | XExpr | YExpr | ZIndexExpr
+    | ZoomExpr
+    | GridGapExpr | GridRowGapExpr | GridColumnGapExpr
+    | VendorPropExpr ;      (* 523 properties + grid-gap aliases + vendor-prefixed *)
+
+(* ── CSS Property declarations (name : value ;) ─────────────────────────── *)
+
+(* accent-color *)
+AccentColorExpr = accent_color , colon_symbol , ( AccentColorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* align-content *)
+AlignContentExpr = align_content , colon_symbol , ( AlignContentProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* align-items *)
+AlignItemsExpr = align_items , colon_symbol , ( AlignItemsProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* align-self *)
+AlignSelfExpr = align_self , colon_symbol , ( AlignSelfProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* alignment-baseline *)
+AlignmentBaselineExpr = alignment_baseline , colon_symbol , ( AlignmentBaselineProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* all *)
+AllExpr = all , colon_symbol , AllProp , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* anchor-name *)
+AnchorNameExpr = anchor_name , colon_symbol , ( AnchorNameProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* anchor-scope *)
+AnchorScopeExpr = anchor_scope , colon_symbol , ( AnchorScopeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* animation-composition *)
+AnimationCompositionExpr = animation_composition , colon_symbol , ( AnimationCompositionProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* animation-delay *)
+AnimationDelayExpr = animation_delay , colon_symbol , ( AnimationDelayProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* animation-direction *)
+AnimationDirectionExpr = animation_direction , colon_symbol , ( AnimationDirectionProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* animation-duration *)
+AnimationDurationExpr = animation_duration , colon_symbol , ( AnimationDurationProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* animation-fill-mode *)
+AnimationFillModeExpr = animation_fill_mode , colon_symbol , ( AnimationFillModeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* animation-iteration-count *)
+AnimationIterationCountExpr = animation_iteration_count , colon_symbol , ( AnimationIterationCountProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* animation-name *)
+AnimationNameExpr = animation_name , colon_symbol , ( AnimationNameProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* animation-play-state *)
+AnimationPlayStateExpr = animation_play_state , colon_symbol , ( AnimationPlayStateProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* animation-range-end *)
+AnimationRangeEndExpr = animation_range_end , colon_symbol , ( AnimationRangeEndProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* animation-range-start *)
+AnimationRangeStartExpr = animation_range_start , colon_symbol , ( AnimationRangeStartProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* animation-range *)
+AnimationRangeExpr = animation_range , colon_symbol , ( AnimationRangeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* animation-timeline *)
+AnimationTimelineExpr = animation_timeline , colon_symbol , ( AnimationTimelineProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* animation-timing-function *)
+AnimationTimingFunctionExpr = animation_timing_function , colon_symbol , ( AnimationTimingFunctionProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* animation *)
+AnimationExpr = animation , colon_symbol , ( AnimationProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* appearance *)
+AppearanceExpr = appearance , colon_symbol , ( AppearanceProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* aspect-ratio *)
+AspectRatioExpr = aspect_ratio , colon_symbol , ( AspectRatioProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* backdrop-filter *)
+BackdropFilterExpr = backdrop_filter , colon_symbol , ( BackdropFilterProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* backface-visibility *)
+BackfaceVisibilityExpr = backface_visibility , colon_symbol , ( BackfaceVisibilityProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* background-attachment *)
+BackgroundAttachmentExpr = background_attachment , colon_symbol , ( BackgroundAttachmentProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* background-blend-mode *)
+BackgroundBlendModeExpr = background_blend_mode , colon_symbol , ( BackgroundBlendModeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* background-clip *)
+BackgroundClipExpr = background_clip , colon_symbol , ( BackgroundClipProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* background-color *)
+BackgroundColorExpr = background_color , colon_symbol , ( BackgroundColorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* background-image *)
+BackgroundImageExpr = background_image , colon_symbol , ( BackgroundImageProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* background-origin *)
+BackgroundOriginExpr = background_origin , colon_symbol , ( BackgroundOriginProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* background-position-x *)
+BackgroundPositionXExpr = background_position_x , colon_symbol , ( BackgroundPositionXProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* background-position-y *)
+BackgroundPositionYExpr = background_position_y , colon_symbol , ( BackgroundPositionYProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* background-position *)
+BackgroundPositionExpr = background_position , colon_symbol , ( BackgroundPositionProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* background-repeat *)
+BackgroundRepeatExpr = background_repeat , colon_symbol , ( BackgroundRepeatProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* background-repeat-x *)
+BackgroundRepeatXExpr = background_repeat_x , colon_symbol , ( BackgroundRepeatXProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* background-repeat-y *)
+BackgroundRepeatYExpr = background_repeat_y , colon_symbol , ( BackgroundRepeatYProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* background-size *)
+BackgroundSizeExpr = background_size , colon_symbol , ( BackgroundSizeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* background *)
+BackgroundExpr = background , colon_symbol , ( BackgroundProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* baseline-shift *)
+BaselineShiftExpr = baseline_shift , colon_symbol , ( BaselineShiftProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* baseline-source *)
+BaselineSourceExpr = baseline_source , colon_symbol , ( BaselineSourceProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* block-size *)
+BlockSizeExpr = block_size , colon_symbol , ( BlockSizeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-block-color *)
+BorderBlockColorExpr = border_block_color , colon_symbol , ( BorderBlockColorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-block-end-color *)
+BorderBlockEndColorExpr = border_block_end_color , colon_symbol , ( BorderBlockEndColorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-block-end-style *)
+BorderBlockEndStyleExpr = border_block_end_style , colon_symbol , ( BorderBlockEndStyleProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-block-end-width *)
+BorderBlockEndWidthExpr = border_block_end_width , colon_symbol , ( BorderBlockEndWidthProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-block-end *)
+BorderBlockEndExpr = border_block_end , colon_symbol , ( BorderBlockEndProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-block-start-color *)
+BorderBlockStartColorExpr = border_block_start_color , colon_symbol , ( BorderBlockStartColorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-block-start-style *)
+BorderBlockStartStyleExpr = border_block_start_style , colon_symbol , ( BorderBlockStartStyleProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-block-start-width *)
+BorderBlockStartWidthExpr = border_block_start_width , colon_symbol , ( BorderBlockStartWidthProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-block-start *)
+BorderBlockStartExpr = border_block_start , colon_symbol , ( BorderBlockStartProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-block-style *)
+BorderBlockStyleExpr = border_block_style , colon_symbol , ( BorderBlockStyleProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-block-width *)
+BorderBlockWidthExpr = border_block_width , colon_symbol , ( BorderBlockWidthProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-block *)
+BorderBlockExpr = border_block , colon_symbol , ( BorderBlockProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-bottom-color *)
+BorderBottomColorExpr = border_bottom_color , colon_symbol , ( BorderBottomColorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-bottom-left-radius *)
+BorderBottomLeftRadiusExpr = border_bottom_left_radius , colon_symbol , ( BorderBottomLeftRadiusProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-bottom-right-radius *)
+BorderBottomRightRadiusExpr = border_bottom_right_radius , colon_symbol , ( BorderBottomRightRadiusProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-bottom-style *)
+BorderBottomStyleExpr = border_bottom_style , colon_symbol , ( BorderBottomStyleProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-bottom-width *)
+BorderBottomWidthExpr = border_bottom_width , colon_symbol , ( BorderBottomWidthProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-bottom *)
+BorderBottomExpr = border_bottom , colon_symbol , ( BorderBottomProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-collapse *)
+BorderCollapseExpr = border_collapse , colon_symbol , ( BorderCollapseProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-color *)
+BorderColorExpr = border_color , colon_symbol , ( BorderColorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-end-end-radius *)
+BorderEndEndRadiusExpr = border_end_end_radius , colon_symbol , ( BorderEndEndRadiusProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-end-start-radius *)
+BorderEndStartRadiusExpr = border_end_start_radius , colon_symbol , ( BorderEndStartRadiusProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-image-outset *)
+BorderImageOutsetExpr = border_image_outset , colon_symbol , ( BorderImageOutsetProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-image-repeat *)
+BorderImageRepeatExpr = border_image_repeat , colon_symbol , ( BorderImageRepeatProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-image-slice *)
+BorderImageSliceExpr = border_image_slice , colon_symbol , ( BorderImageSliceProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-image-source *)
+BorderImageSourceExpr = border_image_source , colon_symbol , ( BorderImageSourceProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-image-width *)
+BorderImageWidthExpr = border_image_width , colon_symbol , ( BorderImageWidthProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-image *)
+BorderImageExpr = border_image , colon_symbol , ( BorderImageProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-inline-color *)
+BorderInlineColorExpr = border_inline_color , colon_symbol , ( BorderInlineColorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-inline-end-color *)
+BorderInlineEndColorExpr = border_inline_end_color , colon_symbol , ( BorderInlineEndColorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-inline-end-style *)
+BorderInlineEndStyleExpr = border_inline_end_style , colon_symbol , ( BorderInlineEndStyleProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-inline-end-width *)
+BorderInlineEndWidthExpr = border_inline_end_width , colon_symbol , ( BorderInlineEndWidthProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-inline-end *)
+BorderInlineEndExpr = border_inline_end , colon_symbol , ( BorderInlineEndProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-inline-start-color *)
+BorderInlineStartColorExpr = border_inline_start_color , colon_symbol , ( BorderInlineStartColorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-inline-start-style *)
+BorderInlineStartStyleExpr = border_inline_start_style , colon_symbol , ( BorderInlineStartStyleProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-inline-start-width *)
+BorderInlineStartWidthExpr = border_inline_start_width , colon_symbol , ( BorderInlineStartWidthProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-inline-start *)
+BorderInlineStartExpr = border_inline_start , colon_symbol , ( BorderInlineStartProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-inline-style *)
+BorderInlineStyleExpr = border_inline_style , colon_symbol , ( BorderInlineStyleProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-inline-width *)
+BorderInlineWidthExpr = border_inline_width , colon_symbol , ( BorderInlineWidthProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-inline *)
+BorderInlineExpr = border_inline , colon_symbol , ( BorderInlineProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-left-color *)
+BorderLeftColorExpr = border_left_color , colon_symbol , ( BorderLeftColorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-left-style *)
+BorderLeftStyleExpr = border_left_style , colon_symbol , ( BorderLeftStyleProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-left-width *)
+BorderLeftWidthExpr = border_left_width , colon_symbol , ( BorderLeftWidthProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-left *)
+BorderLeftExpr = border_left , colon_symbol , ( BorderLeftProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-radius *)
+BorderRadiusExpr = border_radius , colon_symbol , ( BorderRadiusProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-right-color *)
+BorderRightColorExpr = border_right_color , colon_symbol , ( BorderRightColorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-right-style *)
+BorderRightStyleExpr = border_right_style , colon_symbol , ( BorderRightStyleProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-right-width *)
+BorderRightWidthExpr = border_right_width , colon_symbol , ( BorderRightWidthProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-right *)
+BorderRightExpr = border_right , colon_symbol , ( BorderRightProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-spacing *)
+BorderSpacingExpr = border_spacing , colon_symbol , ( BorderSpacingProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-start-end-radius *)
+BorderStartEndRadiusExpr = border_start_end_radius , colon_symbol , ( BorderStartEndRadiusProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-start-start-radius *)
+BorderStartStartRadiusExpr = border_start_start_radius , colon_symbol , ( BorderStartStartRadiusProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-style *)
+BorderStyleExpr = border_style , colon_symbol , ( BorderStyleProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-top-color *)
+BorderTopColorExpr = border_top_color , colon_symbol , ( BorderTopColorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-top-left-radius *)
+BorderTopLeftRadiusExpr = border_top_left_radius , colon_symbol , ( BorderTopLeftRadiusProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-top-right-radius *)
+BorderTopRightRadiusExpr = border_top_right_radius , colon_symbol , ( BorderTopRightRadiusProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-top-style *)
+BorderTopStyleExpr = border_top_style , colon_symbol , ( BorderTopStyleProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-top-width *)
+BorderTopWidthExpr = border_top_width , colon_symbol , ( BorderTopWidthProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-top *)
+BorderTopExpr = border_top , colon_symbol , ( BorderTopProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border-width *)
+BorderWidthExpr = border_width , colon_symbol , ( BorderWidthProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* border *)
+BorderExpr = border , colon_symbol , ( BorderProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* bottom *)
+BottomExpr = bottom , colon_symbol , ( BottomProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* box-align *)
+BoxAlignExpr = box_align , colon_symbol , ( BoxAlignProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* box-decoration-break *)
+BoxDecorationBreakExpr = box_decoration_break , colon_symbol , ( BoxDecorationBreakProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* box-direction *)
+BoxDirectionExpr = box_direction , colon_symbol , ( BoxDirectionProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* box-flex-group *)
+BoxFlexGroupExpr = box_flex_group , colon_symbol , ( BoxFlexGroupProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* box-flex *)
+BoxFlexExpr = box_flex , colon_symbol , ( BoxFlexProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* box-lines *)
+BoxLinesExpr = box_lines , colon_symbol , ( BoxLinesProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* box-ordinal-group *)
+BoxOrdinalGroupExpr = box_ordinal_group , colon_symbol , ( BoxOrdinalGroupProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* box-orient *)
+BoxOrientExpr = box_orient , colon_symbol , ( BoxOrientProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* box-pack *)
+BoxPackExpr = box_pack , colon_symbol , ( BoxPackProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* box-shadow *)
+BoxShadowExpr = box_shadow , colon_symbol , ( BoxShadowProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* box-sizing *)
+BoxSizingExpr = box_sizing , colon_symbol , ( BoxSizingProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* break-after *)
+BreakAfterExpr = break_after , colon_symbol , ( BreakAfterProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* break-before *)
+BreakBeforeExpr = break_before , colon_symbol , ( BreakBeforeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* break-inside *)
+BreakInsideExpr = break_inside , colon_symbol , ( BreakInsideProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* caption-side *)
+CaptionSideExpr = caption_side , colon_symbol , ( CaptionSideProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* caret-animation *)
+CaretAnimationExpr = caret_animation , colon_symbol , ( CaretAnimationProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* caret-color *)
+CaretColorExpr = caret_color , colon_symbol , ( CaretColorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* caret-shape *)
+CaretShapeExpr = caret_shape , colon_symbol , ( CaretShapeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* caret *)
+CaretExpr = caret , colon_symbol , ( CaretProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* clear *)
+ClearExpr = clear , colon_symbol , ( ClearProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* clip-path *)
+ClipPathExpr = clip_path , colon_symbol , ( ClipPathProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* clip-rule *)
+ClipRuleExpr = clip_rule , colon_symbol , ( ClipRuleProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* clip *)
+ClipExpr = clip , colon_symbol , ( ClipProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* color-interpolation-filters *)
+ColorInterpolationFiltersExpr = color_interpolation_filters , colon_symbol , ( ColorInterpolationFiltersProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* color-interpolation *)
+ColorInterpolationExpr = color_interpolation , colon_symbol , ( ColorInterpolationProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* color-scheme *)
+ColorSchemeExpr = color_scheme , colon_symbol , ( ColorSchemeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* color *)
+ColorExpr = color , colon_symbol , ( ColorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* column-count *)
+ColumnCountExpr = column_count , colon_symbol , ( ColumnCountProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* column-fill *)
+ColumnFillExpr = column_fill , colon_symbol , ( ColumnFillProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* column-gap *)
+ColumnGapExpr = column_gap , colon_symbol , ( ColumnGapProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* column-height *)
+ColumnHeightExpr = column_height , colon_symbol , ( ColumnHeightProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* column-rule-color *)
+ColumnRuleColorExpr = column_rule_color , colon_symbol , ( ColumnRuleColorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* column-rule-style *)
+ColumnRuleStyleExpr = column_rule_style , colon_symbol , ( ColumnRuleStyleProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* column-rule-width *)
+ColumnRuleWidthExpr = column_rule_width , colon_symbol , ( ColumnRuleWidthProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* column-rule *)
+ColumnRuleExpr = column_rule , colon_symbol , ( ColumnRuleProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* column-span *)
+ColumnSpanExpr = column_span , colon_symbol , ( ColumnSpanProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* column-width *)
+ColumnWidthExpr = column_width , colon_symbol , ( ColumnWidthProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* column-wrap *)
+ColumnWrapExpr = column_wrap , colon_symbol , ( ColumnWrapProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* columns *)
+ColumnsExpr = columns , colon_symbol , ( ColumnsProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* contain-intrinsic-block-size *)
+ContainIntrinsicBlockSizeExpr = contain_intrinsic_block_size , colon_symbol , ( ContainIntrinsicBlockSizeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* contain-intrinsic-height *)
+ContainIntrinsicHeightExpr = contain_intrinsic_height , colon_symbol , ( ContainIntrinsicHeightProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* contain-intrinsic-inline-size *)
+ContainIntrinsicInlineSizeExpr = contain_intrinsic_inline_size , colon_symbol , ( ContainIntrinsicInlineSizeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* contain-intrinsic-size *)
+ContainIntrinsicSizeExpr = contain_intrinsic_size , colon_symbol , ( ContainIntrinsicSizeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* contain-intrinsic-width *)
+ContainIntrinsicWidthExpr = contain_intrinsic_width , colon_symbol , ( ContainIntrinsicWidthProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* contain *)
+ContainExpr = contain , colon_symbol , ( ContainProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* container-name *)
+ContainerNameExpr = container_name , colon_symbol , ( ContainerNameProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* container-type *)
+ContainerTypeExpr = container_type , colon_symbol , ( ContainerTypeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* container *)
+ContainerExpr = container , colon_symbol , ( ContainerProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* content-visibility *)
+ContentVisibilityExpr = content_visibility , colon_symbol , ( ContentVisibilityProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* content *)
+ContentExpr = content , colon_symbol , ( ContentProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* corner-block-end-shape *)
+CornerBlockEndShapeExpr = corner_block_end_shape , colon_symbol , ( CornerBlockEndShapeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* corner-block-start-shape *)
+CornerBlockStartShapeExpr = corner_block_start_shape , colon_symbol , ( CornerBlockStartShapeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* corner-bottom-left-shape *)
+CornerBottomLeftShapeExpr = corner_bottom_left_shape , colon_symbol , ( CornerBottomLeftShapeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* corner-bottom-right-shape *)
+CornerBottomRightShapeExpr = corner_bottom_right_shape , colon_symbol , ( CornerBottomRightShapeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* corner-bottom-shape *)
+CornerBottomShapeExpr = corner_bottom_shape , colon_symbol , ( CornerBottomShapeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* corner-end-end-shape *)
+CornerEndEndShapeExpr = corner_end_end_shape , colon_symbol , ( CornerEndEndShapeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* corner-end-start-shape *)
+CornerEndStartShapeExpr = corner_end_start_shape , colon_symbol , ( CornerEndStartShapeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* corner-inline-end-shape *)
+CornerInlineEndShapeExpr = corner_inline_end_shape , colon_symbol , ( CornerInlineEndShapeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* corner-inline-start-shape *)
+CornerInlineStartShapeExpr = corner_inline_start_shape , colon_symbol , ( CornerInlineStartShapeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* corner-left-shape *)
+CornerLeftShapeExpr = corner_left_shape , colon_symbol , ( CornerLeftShapeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* corner-right-shape *)
+CornerRightShapeExpr = corner_right_shape , colon_symbol , ( CornerRightShapeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* corner-shape *)
+CornerShapeExpr = corner_shape , colon_symbol , ( CornerShapeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* corner-start-end-shape *)
+CornerStartEndShapeExpr = corner_start_end_shape , colon_symbol , ( CornerStartEndShapeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* corner-start-start-shape *)
+CornerStartStartShapeExpr = corner_start_start_shape , colon_symbol , ( CornerStartStartShapeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* corner-top-left-shape *)
+CornerTopLeftShapeExpr = corner_top_left_shape , colon_symbol , ( CornerTopLeftShapeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* corner-top-right-shape *)
+CornerTopRightShapeExpr = corner_top_right_shape , colon_symbol , ( CornerTopRightShapeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* corner-top-shape *)
+CornerTopShapeExpr = corner_top_shape , colon_symbol , ( CornerTopShapeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* counter-increment *)
+CounterIncrementExpr = counter_increment , colon_symbol , ( CounterIncrementProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* counter-reset *)
+CounterResetExpr = counter_reset , colon_symbol , ( CounterResetProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* counter-set *)
+CounterSetExpr = counter_set , colon_symbol , ( CounterSetProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* cursor *)
+CursorExpr = cursor , colon_symbol , ( CursorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* cx *)
+CxExpr = cx , colon_symbol , ( CxProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* cy *)
+CyExpr = cy , colon_symbol , ( CyProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* d *)
+DExpr = "d" , colon_symbol , ( DProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* direction *)
+DirectionExpr = direction , colon_symbol , ( DirectionProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* display *)
+DisplayExpr = display , colon_symbol , ( DisplayProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* dominant-baseline *)
+DominantBaselineExpr = dominant_baseline , colon_symbol , ( DominantBaselineProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* dynamic-range-limit *)
+DynamicRangeLimitExpr = dynamic_range_limit , colon_symbol , ( DynamicRangeLimitProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* empty-cells *)
+EmptyCellsExpr = empty_cells , colon_symbol , ( EmptyCellsProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* field-sizing *)
+FieldSizingExpr = field_sizing , colon_symbol , ( FieldSizingProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* fill-opacity *)
+FillOpacityExpr = fill_opacity , colon_symbol , ( FillOpacityProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* fill-rule *)
+FillRuleExpr = fill_rule , colon_symbol , ( FillRuleProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* fill *)
+FillExpr = fill , colon_symbol , ( FillProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* filter *)
+FilterExpr = filter , colon_symbol , ( FilterProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* flex-basis *)
+FlexBasisExpr = flex_basis , colon_symbol , ( FlexBasisProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* flex-direction *)
+FlexDirectionExpr = flex_direction , colon_symbol , ( FlexDirectionProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* flex-flow *)
+FlexFlowExpr = flex_flow , colon_symbol , ( FlexFlowProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* flex-grow *)
+FlexGrowExpr = flex_grow , colon_symbol , ( FlexGrowProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* flex-shrink *)
+FlexShrinkExpr = flex_shrink , colon_symbol , ( FlexShrinkProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* flex-wrap *)
+FlexWrapExpr = flex_wrap , colon_symbol , ( FlexWrapProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* flex *)
+FlexExpr = flex , colon_symbol , ( FlexProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* float *)
+FloatExpr = float , colon_symbol , ( FloatProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* flood-color *)
+FloodColorExpr = flood_color , colon_symbol , ( FloodColorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* flood-opacity *)
+FloodOpacityExpr = flood_opacity , colon_symbol , ( FloodOpacityProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* font-family *)
+FontFamilyExpr = font_family , colon_symbol , ( FontFamilyProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* font-feature-settings *)
+FontFeatureSettingsExpr = font_feature_settings , colon_symbol , ( FontFeatureSettingsProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* font-kerning *)
+FontKerningExpr = font_kerning , colon_symbol , ( FontKerningProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* font-language-override *)
+FontLanguageOverrideExpr = font_language_override , colon_symbol , ( FontLanguageOverrideProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* font-optical-sizing *)
+FontOpticalSizingExpr = font_optical_sizing , colon_symbol , ( FontOpticalSizingProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* font-palette *)
+FontPaletteExpr = font_palette , colon_symbol , ( FontPaletteProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* font-size-adjust *)
+FontSizeAdjustExpr = font_size_adjust , colon_symbol , ( FontSizeAdjustProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* font-size *)
+FontSizeExpr = font_size , colon_symbol , ( FontSizeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* font-smooth *)
+FontSmoothExpr = font_smooth , colon_symbol , ( FontSmoothProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* font-stretch *)
+FontStretchExpr = font_stretch , colon_symbol , ( FontStretchProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* font-style *)
+FontStyleExpr = font_style , colon_symbol , ( FontStyleProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* font-synthesis-position *)
+FontSynthesisPositionExpr = font_synthesis_position , colon_symbol , ( FontSynthesisPositionProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* font-synthesis-small-caps *)
+FontSynthesisSmallCapsExpr = font_synthesis_small_caps , colon_symbol , ( FontSynthesisSmallCapsProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* font-synthesis-style *)
+FontSynthesisStyleExpr = font_synthesis_style , colon_symbol , ( FontSynthesisStyleProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* font-synthesis-weight *)
+FontSynthesisWeightExpr = font_synthesis_weight , colon_symbol , ( FontSynthesisWeightProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* font-synthesis *)
+FontSynthesisExpr = font_synthesis , colon_symbol , ( FontSynthesisProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* font-variant-alternates *)
+FontVariantAlternatesExpr = font_variant_alternates , colon_symbol , ( FontVariantAlternatesProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* font-variant-caps *)
+FontVariantCapsExpr = font_variant_caps , colon_symbol , ( FontVariantCapsProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* font-variant-east-asian *)
+FontVariantEastAsianExpr = font_variant_east_asian , colon_symbol , ( FontVariantEastAsianProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* font-variant-emoji *)
+FontVariantEmojiExpr = font_variant_emoji , colon_symbol , ( FontVariantEmojiProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* font-variant-ligatures *)
+FontVariantLigaturesExpr = font_variant_ligatures , colon_symbol , ( FontVariantLigaturesProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* font-variant-numeric *)
+FontVariantNumericExpr = font_variant_numeric , colon_symbol , ( FontVariantNumericProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* font-variant-position *)
+FontVariantPositionExpr = font_variant_position , colon_symbol , ( FontVariantPositionProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* font-variant *)
+FontVariantExpr = font_variant , colon_symbol , ( FontVariantProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* font-variation-settings *)
+FontVariationSettingsExpr = font_variation_settings , colon_symbol , ( FontVariationSettingsProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* font-weight *)
+FontWeightExpr = font_weight , colon_symbol , ( FontWeightProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* font-width *)
+FontWidthExpr = font_width , colon_symbol , ( FontWidthProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* font *)
+FontExpr = font , colon_symbol , ( FontProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* forced-color-adjust *)
+ForcedColorAdjustExpr = forced_color_adjust , colon_symbol , ( ForcedColorAdjustProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* gap *)
+GapExpr = gap , colon_symbol , ( GapProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* grid-area *)
+GridAreaExpr = grid_area , colon_symbol , ( GridAreaProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* grid-auto-columns *)
+GridAutoColumnsExpr = grid_auto_columns , colon_symbol , ( GridAutoColumnsProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* grid-auto-flow *)
+GridAutoFlowExpr = grid_auto_flow , colon_symbol , ( GridAutoFlowProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* grid-auto-rows *)
+GridAutoRowsExpr = grid_auto_rows , colon_symbol , ( GridAutoRowsProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* grid-column-end *)
+GridColumnEndExpr = grid_column_end , colon_symbol , ( GridColumnEndProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* grid-column-start *)
+GridColumnStartExpr = grid_column_start , colon_symbol , ( GridColumnStartProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* grid-column *)
+GridColumnExpr = grid_column , colon_symbol , ( GridColumnProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* grid-row-end *)
+GridRowEndExpr = grid_row_end , colon_symbol , ( GridRowEndProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* grid-row-start *)
+GridRowStartExpr = grid_row_start , colon_symbol , ( GridRowStartProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* grid-row *)
+GridRowExpr = grid_row , colon_symbol , ( GridRowProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* grid-template-areas *)
+GridTemplateAreasExpr = grid_template_areas , colon_symbol , ( GridTemplateAreasProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* grid-template-columns *)
+GridTemplateColumnsExpr = grid_template_columns , colon_symbol , ( GridTemplateColumnsProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* grid-template-rows *)
+GridTemplateRowsExpr = grid_template_rows , colon_symbol , ( GridTemplateRowsProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* grid-template *)
+GridTemplateExpr = grid_template , colon_symbol , ( GridTemplateProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* grid *)
+GridExpr = grid , colon_symbol , ( GridProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* hanging-punctuation *)
+HangingPunctuationExpr = hanging_punctuation , colon_symbol , ( HangingPunctuationProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* height *)
+HeightExpr = height , colon_symbol , ( HeightProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* hyphenate-character *)
+HyphenateCharacterExpr = hyphenate_character , colon_symbol , ( HyphenateCharacterProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* hyphenate-limit-chars *)
+HyphenateLimitCharsExpr = hyphenate_limit_chars , colon_symbol , ( HyphenateLimitCharsProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* hyphens *)
+HyphensExpr = hyphens , colon_symbol , ( HyphensProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* image-orientation *)
+ImageOrientationExpr = image_orientation , colon_symbol , ( ImageOrientationProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* image-rendering *)
+ImageRenderingExpr = image_rendering , colon_symbol , ( ImageRenderingProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* image-resolution *)
+ImageResolutionExpr = image_resolution , colon_symbol , ( ImageResolutionProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* initial-letter *)
+InitialLetterExpr = initial_letter , colon_symbol , ( InitialLetterProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* inline-size *)
+InlineSizeExpr = inline_size , colon_symbol , ( InlineSizeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* inset-block-end *)
+InsetBlockEndExpr = inset_block_end , colon_symbol , ( InsetBlockEndProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* inset-block-start *)
+InsetBlockStartExpr = inset_block_start , colon_symbol , ( InsetBlockStartProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* inset-block *)
+InsetBlockExpr = inset_block , colon_symbol , ( InsetBlockProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* inset-inline-end *)
+InsetInlineEndExpr = inset_inline_end , colon_symbol , ( InsetInlineEndProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* inset-inline-start *)
+InsetInlineStartExpr = inset_inline_start , colon_symbol , ( InsetInlineStartProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* inset-inline *)
+InsetInlineExpr = inset_inline , colon_symbol , ( InsetInlineProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* inset *)
+InsetExpr = inset , colon_symbol , ( InsetProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* interactivity *)
+InteractivityExpr = interactivity , colon_symbol , ( InteractivityProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* interest-delay *)
+InterestDelayExpr = interest_delay , colon_symbol , ( InterestDelayProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* interest-delay-end *)
+InterestDelayEndExpr = interest_delay_end , colon_symbol , ( InterestDelayEndProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* interest-delay-start *)
+InterestDelayStartExpr = interest_delay_start , colon_symbol , ( InterestDelayStartProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* interpolate-size *)
+InterpolateSizeExpr = interpolate_size , colon_symbol , ( InterpolateSizeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* isolation *)
+IsolationExpr = isolation , colon_symbol , ( IsolationProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* justify-content *)
+JustifyContentExpr = justify_content , colon_symbol , ( JustifyContentProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* justify-items *)
+JustifyItemsExpr = justify_items , colon_symbol , ( JustifyItemsProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* justify-self *)
+JustifySelfExpr = justify_self , colon_symbol , ( JustifySelfProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* left *)
+LeftExpr = left , colon_symbol , ( LeftProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* letter-spacing *)
+LetterSpacingExpr = letter_spacing , colon_symbol , ( LetterSpacingProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* lighting-color *)
+LightingColorExpr = lighting_color , colon_symbol , ( LightingColorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* line-break *)
+LineBreakExpr = line_break , colon_symbol , ( LineBreakProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* line-clamp *)
+LineClampExpr = line_clamp , colon_symbol , ( LineClampProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* line-height-step *)
+LineHeightStepExpr = line_height_step , colon_symbol , ( LineHeightStepProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* line-height *)
+LineHeightExpr = line_height , colon_symbol , ( LineHeightProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* list-style-image *)
+ListStyleImageExpr = list_style_image , colon_symbol , ( ListStyleImageProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* list-style-position *)
+ListStylePositionExpr = list_style_position , colon_symbol , ( ListStylePositionProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* list-style-type *)
+ListStyleTypeExpr = list_style_type , colon_symbol , ( ListStyleTypeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* list-style *)
+ListStyleExpr = list_style , colon_symbol , ( ListStyleProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* margin-block-end *)
+MarginBlockEndExpr = margin_block_end , colon_symbol , ( MarginBlockEndProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* margin-block-start *)
+MarginBlockStartExpr = margin_block_start , colon_symbol , ( MarginBlockStartProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* margin-block *)
+MarginBlockExpr = margin_block , colon_symbol , ( MarginBlockProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* margin-bottom *)
+MarginBottomExpr = margin_bottom , colon_symbol , ( MarginBottomProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* margin-inline-end *)
+MarginInlineEndExpr = margin_inline_end , colon_symbol , ( MarginInlineEndProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* margin-inline-start *)
+MarginInlineStartExpr = margin_inline_start , colon_symbol , ( MarginInlineStartProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* margin-inline *)
+MarginInlineExpr = margin_inline , colon_symbol , ( MarginInlineProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* margin-left *)
+MarginLeftExpr = margin_left , colon_symbol , ( MarginLeftProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* margin-right *)
+MarginRightExpr = margin_right , colon_symbol , ( MarginRightProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* margin-top *)
+MarginTopExpr = margin_top , colon_symbol , ( MarginTopProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* margin-trim *)
+MarginTrimExpr = margin_trim , colon_symbol , ( MarginTrimProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* margin *)
+MarginExpr = margin , colon_symbol , ( MarginProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* marker-end *)
+MarkerEndExpr = marker_end , colon_symbol , ( MarkerEndProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* marker-mid *)
+MarkerMidExpr = marker_mid , colon_symbol , ( MarkerMidProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* marker-start *)
+MarkerStartExpr = marker_start , colon_symbol , ( MarkerStartProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* marker *)
+MarkerExpr = marker , colon_symbol , ( MarkerProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* mask-border-mode *)
+MaskBorderModeExpr = mask_border_mode , colon_symbol , ( MaskBorderModeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* mask-border-outset *)
+MaskBorderOutsetExpr = mask_border_outset , colon_symbol , ( MaskBorderOutsetProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* mask-border-repeat *)
+MaskBorderRepeatExpr = mask_border_repeat , colon_symbol , ( MaskBorderRepeatProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* mask-border-slice *)
+MaskBorderSliceExpr = mask_border_slice , colon_symbol , ( MaskBorderSliceProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* mask-border-source *)
+MaskBorderSourceExpr = mask_border_source , colon_symbol , ( MaskBorderSourceProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* mask-border-width *)
+MaskBorderWidthExpr = mask_border_width , colon_symbol , ( MaskBorderWidthProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* mask-border *)
+MaskBorderExpr = mask_border , colon_symbol , ( MaskBorderProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* mask-clip *)
+MaskClipExpr = mask_clip , colon_symbol , ( MaskClipProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* mask-composite *)
+MaskCompositeExpr = mask_composite , colon_symbol , ( MaskCompositeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* mask-image *)
+MaskImageExpr = mask_image , colon_symbol , ( MaskImageProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* mask-mode *)
+MaskModeExpr = mask_mode , colon_symbol , ( MaskModeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* mask-origin *)
+MaskOriginExpr = mask_origin , colon_symbol , ( MaskOriginProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* mask-position *)
+MaskPositionExpr = mask_position , colon_symbol , ( MaskPositionProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* mask-repeat *)
+MaskRepeatExpr = mask_repeat , colon_symbol , ( MaskRepeatProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* mask-size *)
+MaskSizeExpr = mask_size , colon_symbol , ( MaskSizeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* mask-type *)
+MaskTypeExpr = mask_type , colon_symbol , ( MaskTypeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* mask *)
+MaskExpr = mask , colon_symbol , ( MaskProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* math-depth *)
+MathDepthExpr = math_depth , colon_symbol , ( MathDepthProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* math-shift *)
+MathShiftExpr = math_shift , colon_symbol , ( MathShiftProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* math-style *)
+MathStyleExpr = math_style , colon_symbol , ( MathStyleProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* max-block-size *)
+MaxBlockSizeExpr = max_block_size , colon_symbol , ( MaxBlockSizeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* max-height *)
+MaxHeightExpr = max_height , colon_symbol , ( MaxHeightProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* max-inline-size *)
+MaxInlineSizeExpr = max_inline_size , colon_symbol , ( MaxInlineSizeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* max-width *)
+MaxWidthExpr = max_width , colon_symbol , ( MaxWidthProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* min-block-size *)
+MinBlockSizeExpr = min_block_size , colon_symbol , ( MinBlockSizeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* min-height *)
+MinHeightExpr = min_height , colon_symbol , ( MinHeightProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* min-inline-size *)
+MinInlineSizeExpr = min_inline_size , colon_symbol , ( MinInlineSizeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* min-width *)
+MinWidthExpr = min_width , colon_symbol , ( MinWidthProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* mix-blend-mode *)
+MixBlendModeExpr = mix_blend_mode , colon_symbol , ( MixBlendModeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* object-fit *)
+ObjectFitExpr = object_fit , colon_symbol , ( ObjectFitProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* object-position *)
+ObjectPositionExpr = object_position , colon_symbol , ( ObjectPositionProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* object-view-box *)
+ObjectViewBoxExpr = object_view_box , colon_symbol , ( ObjectViewBoxProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* offset-anchor *)
+OffsetAnchorExpr = offset_anchor , colon_symbol , ( OffsetAnchorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* offset-distance *)
+OffsetDistanceExpr = offset_distance , colon_symbol , ( OffsetDistanceProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* offset-path *)
+OffsetPathExpr = offset_path , colon_symbol , ( OffsetPathProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* offset-position *)
+OffsetPositionExpr = offset_position , colon_symbol , ( OffsetPositionProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* offset-rotate *)
+OffsetRotateExpr = offset_rotate , colon_symbol , ( OffsetRotateProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* offset *)
+OffsetExpr = offset , colon_symbol , ( OffsetProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* opacity *)
+OpacityExpr = opacity , colon_symbol , ( OpacityProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* order *)
+OrderExpr = order , colon_symbol , ( OrderProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* orphans *)
+OrphansExpr = orphans , colon_symbol , ( OrphansProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* outline-color *)
+OutlineColorExpr = outline_color , colon_symbol , ( OutlineColorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* outline-offset *)
+OutlineOffsetExpr = outline_offset , colon_symbol , ( OutlineOffsetProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* outline-style *)
+OutlineStyleExpr = outline_style , colon_symbol , ( OutlineStyleProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* outline-width *)
+OutlineWidthExpr = outline_width , colon_symbol , ( OutlineWidthProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* outline *)
+OutlineExpr = outline , colon_symbol , ( OutlineProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* overflow-anchor *)
+OverflowAnchorExpr = overflow_anchor , colon_symbol , ( OverflowAnchorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* overflow-block *)
+OverflowBlockExpr = overflow_block , colon_symbol , ( OverflowBlockProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* overflow-clip-margin *)
+OverflowClipMarginExpr = overflow_clip_margin , colon_symbol , ( OverflowClipMarginProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* overflow-inline *)
+OverflowInlineExpr = overflow_inline , colon_symbol , ( OverflowInlineProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* overflow-wrap *)
+OverflowWrapExpr = overflow_wrap , colon_symbol , ( OverflowWrapProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* word-wrap — deprecated alias for overflow-wrap *)
+WordWrapExpr = word_wrap , colon_symbol , ( WordWrapProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* overflow-x *)
+OverflowXExpr = overflow_x , colon_symbol , ( OverflowXProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* overflow-y *)
+OverflowYExpr = overflow_y , colon_symbol , ( OverflowYProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* overflow *)
+OverflowExpr = overflow , colon_symbol , ( OverflowProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* overlay *)
+OverlayExpr = overlay , colon_symbol , ( OverlayProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* overscroll-behavior-block *)
+OverscrollBehaviorBlockExpr = overscroll_behavior_block , colon_symbol , ( OverscrollBehaviorBlockProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* overscroll-behavior-inline *)
+OverscrollBehaviorInlineExpr = overscroll_behavior_inline , colon_symbol , ( OverscrollBehaviorInlineProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* overscroll-behavior-x *)
+OverscrollBehaviorXExpr = overscroll_behavior_x , colon_symbol , ( OverscrollBehaviorXProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* overscroll-behavior-y *)
+OverscrollBehaviorYExpr = overscroll_behavior_y , colon_symbol , ( OverscrollBehaviorYProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* overscroll-behavior *)
+OverscrollBehaviorExpr = overscroll_behavior , colon_symbol , ( OverscrollBehaviorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* padding-block-end *)
+PaddingBlockEndExpr = padding_block_end , colon_symbol , ( PaddingBlockEndProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* padding-block-start *)
+PaddingBlockStartExpr = padding_block_start , colon_symbol , ( PaddingBlockStartProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* padding-block *)
+PaddingBlockExpr = padding_block , colon_symbol , ( PaddingBlockProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* padding-bottom *)
+PaddingBottomExpr = padding_bottom , colon_symbol , ( PaddingBottomProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* padding-inline-end *)
+PaddingInlineEndExpr = padding_inline_end , colon_symbol , ( PaddingInlineEndProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* padding-inline-start *)
+PaddingInlineStartExpr = padding_inline_start , colon_symbol , ( PaddingInlineStartProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* padding-inline *)
+PaddingInlineExpr = padding_inline , colon_symbol , ( PaddingInlineProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* padding-left *)
+PaddingLeftExpr = padding_left , colon_symbol , ( PaddingLeftProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* padding-right *)
+PaddingRightExpr = padding_right , colon_symbol , ( PaddingRightProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* padding-top *)
+PaddingTopExpr = padding_top , colon_symbol , ( PaddingTopProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* padding *)
+PaddingExpr = padding , colon_symbol , ( PaddingProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* page-break-after *)
+PageBreakAfterExpr = page_break_after , colon_symbol , ( PageBreakAfterProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* page-break-before *)
+PageBreakBeforeExpr = page_break_before , colon_symbol , ( PageBreakBeforeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* page-break-inside *)
+PageBreakInsideExpr = page_break_inside , colon_symbol , ( PageBreakInsideProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* page *)
+PageExpr = page , colon_symbol , ( PageProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* paint-order *)
+PaintOrderExpr = paint_order , colon_symbol , ( PaintOrderProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* perspective-origin *)
+PerspectiveOriginExpr = perspective_origin , colon_symbol , ( PerspectiveOriginProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* perspective *)
+PerspectiveExpr = perspective , colon_symbol , ( PerspectiveProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* place-content *)
+PlaceContentExpr = place_content , colon_symbol , ( PlaceContentProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* place-items *)
+PlaceItemsExpr = place_items , colon_symbol , ( PlaceItemsProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* place-self *)
+PlaceSelfExpr = place_self , colon_symbol , ( PlaceSelfProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* pointer-events *)
+PointerEventsExpr = pointer_events , colon_symbol , ( PointerEventsProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* position-anchor *)
+PositionAnchorExpr = position_anchor , colon_symbol , ( PositionAnchorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* position-area *)
+PositionAreaExpr = position_area , colon_symbol , ( PositionAreaProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* position-try-fallbacks *)
+PositionTryFallbacksExpr = position_try_fallbacks , colon_symbol , ( PositionTryFallbacksProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* position-try-order *)
+PositionTryOrderExpr = position_try_order , colon_symbol , ( PositionTryOrderProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* position-try *)
+PositionTryExpr = position_try , colon_symbol , ( PositionTryProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* position-visibility *)
+PositionVisibilityExpr = position_visibility , colon_symbol , ( PositionVisibilityProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* position *)
+PositionExpr = position , colon_symbol , ( PositionProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* print-color-adjust *)
+PrintColorAdjustExpr = print_color_adjust , colon_symbol , ( PrintColorAdjustProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* quotes *)
+QuotesExpr = quotes , colon_symbol , ( QuotesProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* r *)
+RExpr = "r" , colon_symbol , ( RProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* resize *)
+ResizeExpr = resize , colon_symbol , ( ResizeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* right *)
+RightExpr = right , colon_symbol , ( RightProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* rotate *)
+RotateExpr = rotate , colon_symbol , ( RotateProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* row-gap *)
+RowGapExpr = row_gap , colon_symbol , ( RowGapProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* ruby-align *)
+RubyAlignExpr = ruby_align , colon_symbol , ( RubyAlignProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* ruby-overhang *)
+RubyOverhangExpr = ruby_overhang , colon_symbol , ( RubyOverhangProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* ruby-position *)
+RubyPositionExpr = ruby_position , colon_symbol , ( RubyPositionProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* rx *)
+RxExpr = rx , colon_symbol , ( RxProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* ry *)
+RyExpr = ry , colon_symbol , ( RyProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scale *)
+ScaleExpr = scale , colon_symbol , ( ScaleProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-behavior *)
+ScrollBehaviorExpr = scroll_behavior , colon_symbol , ( ScrollBehaviorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-initial-target *)
+ScrollInitialTargetExpr = scroll_initial_target , colon_symbol , ( ScrollInitialTargetProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-margin-block-end *)
+ScrollMarginBlockEndExpr = scroll_margin_block_end , colon_symbol , ( ScrollMarginBlockEndProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-margin-block-start *)
+ScrollMarginBlockStartExpr = scroll_margin_block_start , colon_symbol , ( ScrollMarginBlockStartProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-margin-block *)
+ScrollMarginBlockExpr = scroll_margin_block , colon_symbol , ( ScrollMarginBlockProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-margin-bottom *)
+ScrollMarginBottomExpr = scroll_margin_bottom , colon_symbol , ( ScrollMarginBottomProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-margin-inline-end *)
+ScrollMarginInlineEndExpr = scroll_margin_inline_end , colon_symbol , ( ScrollMarginInlineEndProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-margin-inline-start *)
+ScrollMarginInlineStartExpr = scroll_margin_inline_start , colon_symbol , ( ScrollMarginInlineStartProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-margin-inline *)
+ScrollMarginInlineExpr = scroll_margin_inline , colon_symbol , ( ScrollMarginInlineProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-margin-left *)
+ScrollMarginLeftExpr = scroll_margin_left , colon_symbol , ( ScrollMarginLeftProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-margin-right *)
+ScrollMarginRightExpr = scroll_margin_right , colon_symbol , ( ScrollMarginRightProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-margin-top *)
+ScrollMarginTopExpr = scroll_margin_top , colon_symbol , ( ScrollMarginTopProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-margin *)
+ScrollMarginExpr = scroll_margin , colon_symbol , ( ScrollMarginProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-marker-group *)
+ScrollMarkerGroupExpr = scroll_marker_group , colon_symbol , ( ScrollMarkerGroupProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-padding-block-end *)
+ScrollPaddingBlockEndExpr = scroll_padding_block_end , colon_symbol , ( ScrollPaddingBlockEndProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-padding-block-start *)
+ScrollPaddingBlockStartExpr = scroll_padding_block_start , colon_symbol , ( ScrollPaddingBlockStartProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-padding-block *)
+ScrollPaddingBlockExpr = scroll_padding_block , colon_symbol , ( ScrollPaddingBlockProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-padding-bottom *)
+ScrollPaddingBottomExpr = scroll_padding_bottom , colon_symbol , ( ScrollPaddingBottomProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-padding-inline-end *)
+ScrollPaddingInlineEndExpr = scroll_padding_inline_end , colon_symbol , ( ScrollPaddingInlineEndProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-padding-inline-start *)
+ScrollPaddingInlineStartExpr = scroll_padding_inline_start , colon_symbol , ( ScrollPaddingInlineStartProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-padding-inline *)
+ScrollPaddingInlineExpr = scroll_padding_inline , colon_symbol , ( ScrollPaddingInlineProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-padding-left *)
+ScrollPaddingLeftExpr = scroll_padding_left , colon_symbol , ( ScrollPaddingLeftProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-padding-right *)
+ScrollPaddingRightExpr = scroll_padding_right , colon_symbol , ( ScrollPaddingRightProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-padding-top *)
+ScrollPaddingTopExpr = scroll_padding_top , colon_symbol , ( ScrollPaddingTopProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-padding *)
+ScrollPaddingExpr = scroll_padding , colon_symbol , ( ScrollPaddingProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-snap-align *)
+ScrollSnapAlignExpr = scroll_snap_align , colon_symbol , ( ScrollSnapAlignProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-snap-stop *)
+ScrollSnapStopExpr = scroll_snap_stop , colon_symbol , ( ScrollSnapStopProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-snap-type *)
+ScrollSnapTypeExpr = scroll_snap_type , colon_symbol , ( ScrollSnapTypeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-target-group *)
+ScrollTargetGroupExpr = scroll_target_group , colon_symbol , ( ScrollTargetGroupProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-timeline-axis *)
+ScrollTimelineAxisExpr = scroll_timeline_axis , colon_symbol , ( ScrollTimelineAxisProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-timeline-name *)
+ScrollTimelineNameExpr = scroll_timeline_name , colon_symbol , ( ScrollTimelineNameProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scroll-timeline *)
+ScrollTimelineExpr = scroll_timeline , colon_symbol , ( ScrollTimelineProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scrollbar-color *)
+ScrollbarColorExpr = scrollbar_color , colon_symbol , ( ScrollbarColorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scrollbar-gutter *)
+ScrollbarGutterExpr = scrollbar_gutter , colon_symbol , ( ScrollbarGutterProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* scrollbar-width *)
+ScrollbarWidthExpr = scrollbar_width , colon_symbol , ( ScrollbarWidthProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* shape-image-threshold *)
+ShapeImageThresholdExpr = shape_image_threshold , colon_symbol , ( ShapeImageThresholdProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* shape-margin *)
+ShapeMarginExpr = shape_margin , colon_symbol , ( ShapeMarginProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* shape-outside *)
+ShapeOutsideExpr = shape_outside , colon_symbol , ( ShapeOutsideProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* shape-rendering *)
+ShapeRenderingExpr = shape_rendering , colon_symbol , ( ShapeRenderingProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* speak-as *)
+SpeakAsExpr = speak_as , colon_symbol , ( SpeakAsProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* stop-color *)
+StopColorExpr = stop_color , colon_symbol , ( StopColorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* stop-opacity *)
+StopOpacityExpr = stop_opacity , colon_symbol , ( StopOpacityProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* stroke-dasharray *)
+StrokeDasharrayExpr = stroke_dasharray , colon_symbol , ( StrokeDasharrayProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* stroke-dashoffset *)
+StrokeDashoffsetExpr = stroke_dashoffset , colon_symbol , ( StrokeDashoffsetProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* stroke-linecap *)
+StrokeLinecapExpr = stroke_linecap , colon_symbol , ( StrokeLinecapProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* stroke-linejoin *)
+StrokeLinejoinExpr = stroke_linejoin , colon_symbol , ( StrokeLinejoinProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* stroke-miterlimit *)
+StrokeMiterlimitExpr = stroke_miterlimit , colon_symbol , ( StrokeMiterlimitProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* stroke-opacity *)
+StrokeOpacityExpr = stroke_opacity , colon_symbol , ( StrokeOpacityProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* stroke-width *)
+StrokeWidthExpr = stroke_width , colon_symbol , ( StrokeWidthProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* stroke *)
+StrokeExpr = stroke , colon_symbol , ( StrokeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* tab-size *)
+TabSizeExpr = tab_size , colon_symbol , ( TabSizeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* table-layout *)
+TableLayoutExpr = table_layout , colon_symbol , ( TableLayoutProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-align-last *)
+TextAlignLastExpr = text_align_last , colon_symbol , ( TextAlignLastProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-align *)
+TextAlignExpr = text_align , colon_symbol , ( TextAlignProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-anchor *)
+TextAnchorExpr = text_anchor , colon_symbol , ( TextAnchorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-autospace *)
+TextAutospaceExpr = text_autospace , colon_symbol , ( TextAutospaceProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-box-edge *)
+TextBoxEdgeExpr = text_box_edge , colon_symbol , ( TextBoxEdgeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-box-trim *)
+TextBoxTrimExpr = text_box_trim , colon_symbol , ( TextBoxTrimProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-box *)
+TextBoxExpr = text_box , colon_symbol , ( TextBoxProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-combine-upright *)
+TextCombineUprightExpr = text_combine_upright , colon_symbol , ( TextCombineUprightProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-decoration-color *)
+TextDecorationColorExpr = text_decoration_color , colon_symbol , ( TextDecorationColorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-decoration-inset *)
+TextDecorationInsetExpr = text_decoration_inset , colon_symbol , ( TextDecorationInsetProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-decoration-line *)
+TextDecorationLineExpr = text_decoration_line , colon_symbol , ( TextDecorationLineProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-decoration-skip-ink *)
+TextDecorationSkipInkExpr = text_decoration_skip_ink , colon_symbol , ( TextDecorationSkipInkProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-decoration-skip *)
+TextDecorationSkipExpr = text_decoration_skip , colon_symbol , ( TextDecorationSkipProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-decoration-style *)
+TextDecorationStyleExpr = text_decoration_style , colon_symbol , ( TextDecorationStyleProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-decoration-thickness *)
+TextDecorationThicknessExpr = text_decoration_thickness , colon_symbol , ( TextDecorationThicknessProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-decoration *)
+TextDecorationExpr = text_decoration , colon_symbol , ( TextDecorationProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-emphasis-color *)
+TextEmphasisColorExpr = text_emphasis_color , colon_symbol , ( TextEmphasisColorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-emphasis-position *)
+TextEmphasisPositionExpr = text_emphasis_position , colon_symbol , ( TextEmphasisPositionProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-emphasis-style *)
+TextEmphasisStyleExpr = text_emphasis_style , colon_symbol , ( TextEmphasisStyleProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-emphasis *)
+TextEmphasisExpr = text_emphasis , colon_symbol , ( TextEmphasisProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-indent *)
+TextIndentExpr = text_indent , colon_symbol , ( TextIndentProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-justify *)
+TextJustifyExpr = text_justify , colon_symbol , ( TextJustifyProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-orientation *)
+TextOrientationExpr = text_orientation , colon_symbol , ( TextOrientationProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-overflow *)
+TextOverflowExpr = text_overflow , colon_symbol , ( TextOverflowProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-rendering *)
+TextRenderingExpr = text_rendering , colon_symbol , ( TextRenderingProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-shadow *)
+TextShadowExpr = text_shadow , colon_symbol , ( TextShadowProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-size-adjust *)
+TextSizeAdjustExpr = text_size_adjust , colon_symbol , ( TextSizeAdjustProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-spacing-trim *)
+TextSpacingTrimExpr = text_spacing_trim , colon_symbol , ( TextSpacingTrimProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-transform *)
+TextTransformExpr = text_transform , colon_symbol , ( TextTransformProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-underline-offset *)
+TextUnderlineOffsetExpr = text_underline_offset , colon_symbol , ( TextUnderlineOffsetProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-underline-position *)
+TextUnderlinePositionExpr = text_underline_position , colon_symbol , ( TextUnderlinePositionProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-wrap-mode *)
+TextWrapModeExpr = text_wrap_mode , colon_symbol , ( TextWrapModeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-wrap-style *)
+TextWrapStyleExpr = text_wrap_style , colon_symbol , ( TextWrapStyleProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* text-wrap *)
+TextWrapExpr = text_wrap , colon_symbol , ( TextWrapProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* timeline-scope *)
+TimelineScopeExpr = timeline_scope , colon_symbol , ( TimelineScopeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* top *)
+TopExpr = top , colon_symbol , ( TopProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* touch-action *)
+TouchActionExpr = touch_action , colon_symbol , ( TouchActionProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* transform-box *)
+TransformBoxExpr = transform_box , colon_symbol , ( TransformBoxProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* transform-origin *)
+TransformOriginExpr = transform_origin , colon_symbol , ( TransformOriginProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* transform-style *)
+TransformStyleExpr = transform_style , colon_symbol , ( TransformStyleProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* transform *)
+TransformExpr = transform , colon_symbol , ( TransformProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* transition-behavior *)
+TransitionBehaviorExpr = transition_behavior , colon_symbol , ( TransitionBehaviorProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* transition-delay *)
+TransitionDelayExpr = transition_delay , colon_symbol , ( TransitionDelayProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* transition-duration *)
+TransitionDurationExpr = transition_duration , colon_symbol , ( TransitionDurationProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* transition-Property *)
+TransitionPropertyExpr = transition_property , colon_symbol , ( TransitionPropertyProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* transition-timing-function *)
+TransitionTimingFunctionExpr = transition_timing_function , colon_symbol , ( TransitionTimingFunctionProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* transition *)
+TransitionExpr = transition , colon_symbol , ( TransitionProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* translate *)
+TranslateExpr = translate , colon_symbol , ( TranslateProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* unicode-bidi *)
+UnicodeBidiExpr = unicode_bidi , colon_symbol , ( UnicodeBidiProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* user-modify *)
+UserModifyExpr = user_modify , colon_symbol , ( UserModifyProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* user-select *)
+UserSelectExpr = user_select , colon_symbol , ( UserSelectProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* vector-effect *)
+VectorEffectExpr = vector_effect , colon_symbol , ( VectorEffectProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* vertical-align *)
+VerticalAlignExpr = vertical_align , colon_symbol , ( VerticalAlignProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* view-timeline-axis *)
+ViewTimelineAxisExpr = view_timeline_axis , colon_symbol , ( ViewTimelineAxisProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* view-timeline-inset *)
+ViewTimelineInsetExpr = view_timeline_inset , colon_symbol , ( ViewTimelineInsetProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* view-timeline-name *)
+ViewTimelineNameExpr = view_timeline_name , colon_symbol , ( ViewTimelineNameProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* view-timeline *)
+ViewTimelineExpr = view_timeline , colon_symbol , ( ViewTimelineProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* view-transition-class *)
+ViewTransitionClassExpr = view_transition_class , colon_symbol , ( ViewTransitionClassProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* view-transition-name *)
+ViewTransitionNameExpr = view_transition_name , colon_symbol , ( ViewTransitionNameProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* visibility *)
+VisibilityExpr = visibility , colon_symbol , ( VisibilityProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* white-space-collapse *)
+WhiteSpaceCollapseExpr = white_space_collapse , colon_symbol , ( WhiteSpaceCollapseProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* white-space *)
+WhiteSpaceExpr = white_space , colon_symbol , ( WhiteSpaceProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* widows *)
+WidowsExpr = widows , colon_symbol , ( WidowsProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* width *)
+WidthExpr = width , colon_symbol , ( WidthProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* will-change *)
+WillChangeExpr = will_change , colon_symbol , ( WillChangeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* word-break *)
+WordBreakExpr = word_break , colon_symbol , ( WordBreakProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* word-spacing *)
+WordSpacingExpr = word_spacing , colon_symbol , ( WordSpacingProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* writing-mode *)
+WritingModeExpr = writing_mode , colon_symbol , ( WritingModeProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* x *)
+XExpr = "x" , colon_symbol , ( XProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* y *)
+YExpr = "y" , colon_symbol , ( YProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* z-index *)
+ZIndexExpr = z_index , colon_symbol , ( ZIndexProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* zoom *)
+ZoomExpr = zoom , colon_symbol , ( ZoomProp | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+
+(* ── Property-specific sub-types ──────────────────────────────────────── *)
+
+(* <baseline-metric> *)
+BaselineMetricType = text_bottom | alphabetic | ideographic | middle | central | mathematical | hanging | text_top ;
+
+(* <anchor-name> *)
+AnchorNameType = dashed_ident_type ;
+
+(* <single-animation-composition> *)
+SingleAnimationCompositionType = replace | add | accumulate ;
+
+(* <single-animation-direction> *)
+SingleAnimationDirectionType = normal | reverse | alternate | alternate_reverse ;
+
+(* <single-animation-fill-mode> *)
+SingleAnimationFillModeType = none | forwards | backwards | both ;
+
+(* <single-animation-iteration-count> *)
+SingleAnimationIterationCountType = infinite | NonNegativeNumberType ;
+
+(* <keyframes-name> *)
+KeyframesNameType = custom_ident_type | string_type ;
+
+(* <single-animation-play-state> *)
+SingleAnimationPlayStateType = running | paused ;
+
+(* <animation-range-start> *)
+AnimationRangeStartType = AnimationRangeStartTypeItem , { comma_symbol , AnimationRangeStartTypeItem } ;
+AnimationRangeStartTypeItem = ( normal | LengthPercentageType | TimelineRangeNameType , [ LengthPercentageType ] ) ;
+
+(* <animation-range-end> *)
+AnimationRangeEndType = AnimationRangeEndTypeItem , { comma_symbol , AnimationRangeEndTypeItem } ;
+AnimationRangeEndTypeItem = ( normal | LengthPercentageType | TimelineRangeNameType , [ LengthPercentageType ] ) ;
+
+(* <single-animation-timeline> *)
+SingleAnimationTimelineType = auto | none | dashed_ident_type | ScrollFn | ViewFn ;
+
+(* <single-animation>
+   CSS allows animation shorthand components in any order.
+   Dispatch via alternation so any order is accepted. *)
+SingleAnimationItem =
+    time_type                          (* duration (first) or delay (second) *)
+    | MathFunctionType                  (* calc() for duration/delay *)
+    | EasingFunctionType               (* ease, linear, steps(), etc. *)
+    | SingleAnimationIterationCountType (* infinite | <number> *)
+    | SingleAnimationDirectionType     (* normal | reverse | alternate | alternate-reverse *)
+    | SingleAnimationFillModeType      (* none | forwards | backwards | both *)
+    | SingleAnimationPlayStateType     (* running | paused *)
+    | SingleAnimationTimelineType      (* auto | none | <dashed-ident> | scroll() | view() *)
+    | ( none | KeyframesNameType )     (* animation name *)
+    ;
+SingleAnimationType = SingleAnimationItem , { SingleAnimationItem } ;
+
+(* <animation-duration> *)
+AnimationDurationType = AnimationDurationTypeItem , { comma_symbol , AnimationDurationTypeItem } ;
+AnimationDurationTypeItem = ( auto | TimeType ) ;
+
+(* <animation-delay> *)
+AnimationDelayType = TimeType , { comma_symbol , TimeType } ;
+
+(* <compat-auto> *)
+CompatAutoType = searchfield | textarea | checkbox | radio | menulist | listbox | meter | progress_bar | button ;
+
+(* <compat-special> *)
+CompatSpecialType = textfield | menulist_button ;
+
+(* <filter-value-list> *)
+FilterValueListType = FilterValueListTypeItem , { FilterValueListTypeItem } ;
+FilterValueListTypeItem = ( FilterFunctionType | UrlType ) ;
+
+(* <attachment> *)
+AttachmentType = scroll | fixed | local ;
+
+(* <mix-blend-mode> *)
+MixBlendModeType = BlendModeType | plus_lighter ;
+
+(* <bg-clip> *)
+BgClipType = VisualBoxType | ( [ border_area ] , [ text ] ) ;
+
+(* <bg-image> *)
+BgImageType = ImageType | none ;
+
+(* <bg-position> *)
+BgPositionType = PositionType | PositionThreeType ;
+
+(* <position-three> *)
+PositionThreeType = ( left | center | right ) , ( top | bottom ) , LengthPercentageType | ( left | right ) , LengthPercentageType , ( top | center | bottom ) ;
+
+(* <repeat-style> *)
+RepeatStyleType = repeat_x | repeat_y | repeat_block | repeat_inline | RepetitionType , [ RepetitionType ] ;
+
+(* <repetition> *)
+RepetitionType = repeat | space | round | no_repeat ;
+
+(* <bg-size> *)
+BgSizeType = BgSizeTypeItem , [ BgSizeTypeItem ] | cover | contain ;
+BgSizeTypeItem = ( NonNegativeLengthPercentageType | auto ) ;
+
+(* <bg-layer> — components in any order per spec *)
+BgLayerItem =
+    BgImageType
+    | ( BgPositionType , [ solidus_symbol , BgSizeType ] )
+    | RepeatStyleType
+    | AttachmentType
+    | BgClipType
+    | VisualBoxType
+    ;
+BgLayerType = { BgLayerItem } ;
+
+(* <final-bg-layer> — like <bg-layer> plus optional color in any position *)
+FinalBgLayerItem = BgLayerItem | ColorType ;
+FinalBgLayerType = { FinalBgLayerItem } ;
+
+(* <background-color> *)
+BackgroundColorType = ColorType ;
+
+(* <width> *)
+WidthType = auto | NonNegativeLengthPercentageType | min_content | max_content | FitContentFn | CalcSizeFn | AnchorSizeFn | stretch | fit_content | contain ;
+
+(* <anchor-size> *)
+AnchorSizeType = width | height | block | inline | self_block | self_inline ;
+
+(* <border-top-color> *)
+BorderTopColorType = ColorType | Image1dType ;
+
+(* <image-1D> *)
+Image1dType = StripesFn ;
+
+(* <stripes()> *)
+StripesFn = stripes , left_parenthesis_symbol , ColorStripeType , { comma_symbol , ColorStripeType } , right_parenthesis_symbol ;
+
+(* <color-stripe> *)
+ColorStripeType = ColorType , [ ( LengthPercentageType | FlexType ) ] ;
+
+(* <line-width> *)
+LineWidthType = NonNegativeLengthType | hairline | thin | medium | thick ;
+
+(* <border-top-style> *)
+BorderTopStyleType = LineStyleType ;
+
+(* <border-top-width> *)
+BorderTopWidthType = LineWidthType ;
+
+(* <border-block-start> *)
+BorderBlockStartType = [ LineWidthType ] , [ LineStyleType ] , [ ColorType ] ;
+
+(* <slash-separated-border-radius-syntax> *)
+SlashSeparatedBorderRadiusSyntaxType = LengthPercentageType , [ solidus_symbol , LengthPercentageType ] ;
+
+(* <legacy-border-radius-syntax> *)
+LegacyBorderRadiusSyntaxType = LengthPercentageType , [ LengthPercentageType ] ;
+
+(* <border-image-source> *)
+BorderImageSourceType = none | ImageType ;
+
+(* <border-image-slice> *)
+BorderImageSliceType = BorderImageSliceTypeItem , [ BorderImageSliceTypeItem ] , [ BorderImageSliceTypeItem ] , [ BorderImageSliceTypeItem ] , [ fill ] ;
+BorderImageSliceTypeItem = ( NumberType | PercentageType ) ;
+
+(* <border-image-width> *)
+BorderImageWidthType = BorderImageWidthTypeItem , [ BorderImageWidthTypeItem ] , [ BorderImageWidthTypeItem ] , [ BorderImageWidthTypeItem ] ;
+BorderImageWidthTypeItem = ( LengthPercentageType | NumberType | auto ) ;
+
+(* <border-image-outset> *)
+BorderImageOutsetType = BorderImageOutsetTypeItem , [ BorderImageOutsetTypeItem ] , [ BorderImageOutsetTypeItem ] , [ BorderImageOutsetTypeItem ] ;
+BorderImageOutsetTypeItem = ( LengthType | NumberType ) ;
+
+(* <border-image-repeat> *)
+BorderImageRepeatType = BorderImageRepeatTypeItem , [ BorderImageRepeatTypeItem ] ;
+BorderImageRepeatTypeItem = ( stretch | repeat | round | space ) ;
+
+(* <spread-shadow> — [ <color>? && [ <length>{2,4} && inset? ] ] *)
+SpreadShadowType = [ ColorType ] , [ inset ] , LengthType , LengthType , [ LengthType , [ LengthType ] ] , [ inset ] , [ ColorType ] ;
+
+(* <box-shadow-color> *)
+BoxShadowColorType = ColorType , { comma_symbol , ColorType } ;
+
+(* <box-shadow-blur> *)
+BoxShadowBlurType = LengthType , { comma_symbol , LengthType } ;
+
+(* <box-shadow-spread> *)
+BoxShadowSpreadType = LengthType , { comma_symbol , LengthType } ;
+
+(* <box-shadow-position> *)
+BoxShadowPositionType = BoxShadowPositionTypeItem , { comma_symbol , BoxShadowPositionTypeItem } ;
+BoxShadowPositionTypeItem = ( outset | inset ) ;
+
+(* <caret-color> *)
+CaretColorType = auto | ColorType , [ ( auto | ColorType ) ] ;
+
+(* <caret-animation> *)
+CaretAnimationType = auto | manual ;
+
+(* <caret-shape> *)
+CaretShapeType = auto | bar | block | underscore ;
+
+(* <clip-source> *)
+ClipSourceType = UrlType ;
+
+(* <basic-shape-rect> *)
+BasicShapeRectType = InsetFn | RectFn | XywhFn ;
+
+(* <line-color-list> *)
+LineColorListType = LineColorOrRepeatType , { comma_symbol , LineColorOrRepeatType } ;
+
+(* <auto-line-color-list> *)
+AutoLineColorListType = [ LineColorOrRepeatType , { comma_symbol , LineColorOrRepeatType } ] , comma_symbol , AutoRepeatLineColorType , comma_symbol , [ LineColorOrRepeatType , { comma_symbol , LineColorOrRepeatType } ] ;
+
+(* <line-color-or-repeat> *)
+LineColorOrRepeatType = ColorType | RepeatLineColorType ;
+
+(* <auto-repeat-line-color> *)
+AutoRepeatLineColorType = RepeatFn ;
+AutoRepeatLineColorTypeItem = ColorType ;
+
+(* <repeat-line-color> *)
+RepeatLineColorType = RepeatFn ;
+RepeatLineColorTypeItem = ColorType ;
+
+(* <line-style-list> *)
+LineStyleListType = LineStyleOrRepeatType , { comma_symbol , LineStyleOrRepeatType } ;
+
+(* <auto-line-style-list> *)
+AutoLineStyleListType = [ LineStyleOrRepeatType , { comma_symbol , LineStyleOrRepeatType } ] , comma_symbol , AutoRepeatLineStyleType , comma_symbol , [ LineStyleOrRepeatType , { comma_symbol , LineStyleOrRepeatType } ] ;
+
+(* <line-style-or-repeat> *)
+LineStyleOrRepeatType = LineStyleType | RepeatLineStyleType ;
+
+(* <auto-repeat-line-style> *)
+AutoRepeatLineStyleType = RepeatFn ;
+AutoRepeatLineStyleTypeItem = LineStyleType ;
+
+(* <repeat-line-style> *)
+RepeatLineStyleType = RepeatFn ;
+RepeatLineStyleTypeItem = LineStyleType ;
+
+(* <line-width-list> *)
+LineWidthListType = LineWidthOrRepeatType , { comma_symbol , LineWidthOrRepeatType } ;
+
+(* <auto-line-width-list> *)
+AutoLineWidthListType = [ LineWidthOrRepeatType , { comma_symbol , LineWidthOrRepeatType } ] , comma_symbol , AutoRepeatLineWidthType , comma_symbol , [ LineWidthOrRepeatType , { comma_symbol , LineWidthOrRepeatType } ] ;
+
+(* <line-width-or-repeat> *)
+LineWidthOrRepeatType = LineWidthType | RepeatLineWidthType ;
+
+(* <auto-repeat-line-width> *)
+AutoRepeatLineWidthType = RepeatFn ;
+AutoRepeatLineWidthTypeItem = LineWidthType ;
+
+(* <repeat-line-width> *)
+RepeatLineWidthType = RepeatFn ;
+RepeatLineWidthTypeItem = LineWidthType ;
+
+(* <gap-rule-list> *)
+GapRuleListType = GapRuleOrRepeatType , { comma_symbol , GapRuleOrRepeatType } ;
+
+(* <gap-auto-rule-list> *)
+GapAutoRuleListType = [ GapRuleOrRepeatType , { comma_symbol , GapRuleOrRepeatType } ] , comma_symbol , GapAutoRepeatRuleType , comma_symbol , [ GapRuleOrRepeatType , { comma_symbol , GapRuleOrRepeatType } ] ;
+
+(* <gap-rule-or-repeat> *)
+GapRuleOrRepeatType = GapRuleType | GapRepeatRuleType ;
+
+(* <gap-auto-repeat-rule> *)
+GapAutoRepeatRuleType = RepeatFn ;
+
+(* <gap-rule> — components in any order per spec *)
+GapRuleType =
+    LineWidthType , [ LineStyleType , [ ColorType ] | ColorType , [ LineStyleType ] ]
+    | LineStyleType , [ LineWidthType , [ ColorType ] | ColorType , [ LineWidthType ] ]
+    | ColorType , [ LineWidthType , [ LineStyleType ] | LineStyleType , [ LineWidthType ] ] ;
+
+(* <gap-repeat-rule> *)
+GapRepeatRuleType = RepeatFn ;
+
+(* <column-width> *)
+ColumnWidthType = auto | LengthType | min_content | max_content | FitContentFn ;
+
+(* <column-count> *)
+ColumnCountType = auto | IntegerType ;
+
+(* <column-height> *)
+ColumnHeightType = auto | LengthType ;
+
+(* <container-name> *)
+ContainerNameType = none | custom_ident_type , { custom_ident_type } ;
+
+(* <container-type> *)
+ContainerTypeType = normal | ( [ ( size | inline_size ) ] , [ scroll_state ] ) ;
+
+(* <content-replacement> *)
+ContentReplacementType = ImageType ;
+
+(* <content-list> *)
+ContentListType = ContentListTypeItem , { ContentListTypeItem } ;
+ContentListTypeItem = ( string_type | ImageType | AttrFn | contents | QuoteType | LeaderFn | TargetType | StringFn | ContentFn | CounterType ) ;
+
+(* <counter> *)
+CounterType = CounterFn | CountersFn ;
+
+(* <quote> *)
+QuoteType = open_quote | close_quote | no_open_quote | no_close_quote ;
+
+(* <leader()> *)
+LeaderFn = leader , left_parenthesis_symbol , LeaderTypeType , right_parenthesis_symbol ;
+
+(* <target> *)
+TargetType = TargetCounterFn | TargetCountersFn | TargetTextFn ;
+
+(* <string()> *)
+StringFn = string , left_parenthesis_symbol , custom_ident_type , comma_symbol , [ ( first | start | last | first_except ) ] , right_parenthesis_symbol ;
+
+(* <content()> *)
+ContentFn = content , left_parenthesis_symbol , [ ( text | before | after | first_letter | marker ) ] , right_parenthesis_symbol ;
+
+(* <leader-type> *)
+LeaderTypeType = dotted | solid | space | string_type ;
+
+(* <target-counter()> *)
+TargetCounterFn = target_counter , left_parenthesis_symbol , ( string_type | UrlType ) , comma_symbol , custom_ident_type , comma_symbol , [ CounterStyleType ] , right_parenthesis_symbol ;
+
+(* <target-counters()> *)
+TargetCountersFn = target_counters , left_parenthesis_symbol , ( string_type | UrlType ) , comma_symbol , custom_ident_type , comma_symbol , string_type , comma_symbol , [ CounterStyleType ] , right_parenthesis_symbol ;
+
+(* <target-text()> *)
+TargetTextFn = target_text , left_parenthesis_symbol , ( string_type | UrlType ) , comma_symbol , [ ( content | before | after | first_letter ) ] , right_parenthesis_symbol ;
+
+(* <counter-name> *)
+CounterNameType = custom_ident_type ;
+
+(* <syntax> *)
+SyntaxType = (* skip: * *) | SyntaxComponentType , { SyntaxCombinatorType , SyntaxComponentType } | SyntaxStringType ;
+
+(* <attr-unit> *)
+AttrUnitType = custom_ident_type ;
+
+(* <counter-style-name> *)
+CounterStyleNameType = custom_ident_type ;
+
+(* <syntax-component> *)
+SyntaxComponentType = SyntaxSingleComponentType , [ SyntaxMultiplierType ] | transform_list ;
+
+(* <syntax-Combinator> *)
+SyntaxCombinatorType = (* empty *) | (* empty *) ;
+
+(* <syntax-string> *)
+SyntaxStringType = string_type ;
+
+(* <symbols-type> *)
+SymbolsTypeType = cyclic | numeric | alphabetic | symbolic | fixed ;
+
+(* <syntax-single-component> *)
+SyntaxSingleComponentType = SyntaxTypeNameType | ident_type ;
+
+(* <syntax-multiplier> *)
+SyntaxMultiplierType = (* skip: # *) | (* skip: + *) ;
+
+(* <syntax-type-name> *)
+SyntaxTypeNameType = angle | color | custom_ident | image | integer | length | length_percentage | number | percentage | resolution | string | time | url | transform_function ;
+
+(* <corner-top-left-shape> *)
+CornerTopLeftShapeType = CornerShapeValueType ;
+
+(* <reversed-counter-name> *)
+ReversedCounterNameType = reversed , left_parenthesis_symbol , CounterNameType , right_parenthesis_symbol ;
+
+(* <cursor-image> *)
+CursorImageType = ( UrlType | UrlSetType ) , NumberType , NumberType , (* skip: ? *) ;
+
+(* <cursor-predefined> *)
+CursorPredefinedType = auto | default | none | context_menu | help | pointer | progress | wait | cell | crosshair | text | vertical_text | alias | copy | move | no_drop | not_allowed | grab | grabbing | e_resize | n_resize | ne_resize | nw_resize | s_resize | se_resize | sw_resize | w_resize | ew_resize | ns_resize | nesw_resize | nwse_resize | col_resize | row_resize | all_scroll | zoom_in | zoom_out ;
+
+(* <opacity> *)
+OpacityType = OpacityValueType ;
+
+(* <opacity-value> *)
+OpacityValueType = NonNegativeNumberType | PercentageType ;
+
+(* <paint> *)
+PaintType = none | ImageType | SvgPaintType ;
+
+(* <svg-paint> *)
+SvgPaintType = child , [ left_parenthesis_symbol , IntegerType , right_parenthesis_symbol ] ;
+
+(* <flex-direction> *)
+FlexDirectionType = row | row_reverse | column | column_reverse ;
+
+(* <flex-wrap> *)
+FlexWrapType = nowrap | wrap | wrap_reverse ;
+
+(* <flex-grow> *)
+FlexGrowType = NumberType ;
+
+(* <flex-shrink> *)
+FlexShrinkType = NumberType ;
+
+(* <flex-basis> *)
+FlexBasisType = content | width ;
+
+(* <snap-block()> *)
+SnapBlockFn = snap_block , left_parenthesis_symbol , LengthType , comma_symbol , [ ( start | end | near ) ] , right_parenthesis_symbol ;
+
+(* <snap-inline()> *)
+SnapInlineFn = snap_inline , left_parenthesis_symbol , LengthType , comma_symbol , [ ( left | right | near ) ] , right_parenthesis_symbol ;
+
+(* <font-family-name> *)
+FontFamilyNameType = string_type | custom_ident_type , { custom_ident_type } ;
+
+(* <generic-font-family> *)
+GenericFontFamilyType = GenericFontScriptSpecificType | GenericFontCompleteType | GenericFontIncompleteType ;
+
+(* <generic-font-script-specific> *)
+GenericFontScriptSpecificType = generic , left_parenthesis_symbol , ( fangsong | kai | khmer_mul | nastaliq ) , right_parenthesis_symbol ;
+
+(* <generic-font-complete> *)
+GenericFontCompleteType = serif | sans_serif | system_ui | cursive | fantasy | math | monospace ;
+
+(* <generic-font-incomplete> *)
+GenericFontIncompleteType = ui_serif | ui_sans_serif | ui_monospace | ui_rounded ;
+
+(* <feature-tag-value> *)
+FeatureTagValueType = OpentypeTagType , [ ( IntegerType | on | off ) ] ;
+
+(* <opentype-tag> *)
+OpentypeTagType = string_type ;
+
+(* <palette-identifier> *)
+PaletteIdentifierType = dashed_ident_type ;
+
+(* <font-feature-value-name> *)
+FontFeatureValueNameType = ident_type ;
+
+(* <east-asian-variant-values> *)
+EastAsianVariantValuesType = jis78 | jis83 | jis90 | jis04 | simplified | traditional ;
+
+(* <east-asian-width-values> *)
+EastAsianWidthValuesType = full_width | proportional_width ;
+
+(* <common-lig-values> *)
+CommonLigValuesType = common_ligatures | no_common_ligatures ;
+
+(* <discretionary-lig-values> *)
+DiscretionaryLigValuesType = discretionary_ligatures | no_discretionary_ligatures ;
+
+(* <historical-lig-values> *)
+HistoricalLigValuesType = historical_ligatures | no_historical_ligatures ;
+
+(* <contextual-alt-values> *)
+ContextualAltValuesType = contextual | no_contextual ;
+
+(* <numeric-figure-values> *)
+NumericFigureValuesType = lining_nums | oldstyle_nums ;
+
+(* <numeric-spacing-values> *)
+NumericSpacingValuesType = proportional_nums | tabular_nums ;
+
+(* <numeric-fraction-values> *)
+NumericFractionValuesType = diagonal_fractions | stacked_fractions ;
+
+(* <font-weight-absolute> *)
+FontWeightAbsoluteType = normal | bold | NumberType ;
+
+(* <font-style> *)
+FontStyleType = normal | italic | left | right | oblique , [ AngleType ] ;
+
+(* <font-variant-css2> *)
+FontVariantCss2Type = normal | small_caps ;
+
+(* <font-weight> *)
+FontWeightType = FontWeightAbsoluteType | bolder | lighter ;
+
+(* <font-width-css3> *)
+FontWidthCss3Type = normal | ultra_condensed | extra_condensed | condensed | semi_condensed | semi_expanded | expanded | extra_expanded | ultra_expanded ;
+
+(* <font-size> *)
+FontSizeType = AbsoluteSizeType | RelativeSizeType | LengthPercentageType | math ;
+
+(* <line-height> *)
+LineHeightType = normal | NumberType | LengthPercentageType ;
+
+(* <font-family> *)
+FontFamilyType = FontFamilyTypeItem , { comma_symbol , FontFamilyTypeItem } ;
+FontFamilyTypeItem = ( FontFamilyNameType | GenericFontFamilyType ) ;
+
+(* <system-font-family-name> *)
+SystemFontFamilyNameType = caption | icon | menu | message_box | small_caption | status_bar ;
+
+(* <row-gap> *)
+RowGapType = normal | LengthPercentageType | LineWidthType ;
+
+(* <column-gap> *)
+ColumnGapType = normal | LengthPercentageType | LineWidthType ;
+
+(* <grid-line> *)
+GridLineType = auto | custom_ident_type | ( ( positive_integer_type | negative_integer_type ) , [ custom_ident_type ] ) | ( span , ( [ positive_integer_type ] , [ custom_ident_type ] ) ) ;
+
+(* <track-list> *)
+TrackListType = TrackListTypeItem , { TrackListTypeItem } , [ LineNamesType ] ;
+TrackListTypeItem = [ LineNamesType ] , ( TrackSizeType | TrackRepeatType ) ;
+
+(* <auto-track-list> *)
+AutoTrackListType = { [ LineNamesType ] , ( FixedSizeType | FixedRepeatType ) } , [ LineNamesType ] , AutoRepeatType , { [ LineNamesType ] , ( FixedSizeType | FixedRepeatType ) } , [ LineNamesType ] ;
+
+(* <line-name-list> *)
+LineNameListType = LineNameListTypeItem , { LineNameListTypeItem } ;
+LineNameListTypeItem = ( LineNamesType | NameRepeatType ) ;
+
+(* <track-repeat> *)
+TrackRepeatType = RepeatFn ;
+TrackRepeatTypeItem = [ LineNamesType ] , TrackSizeType ;
+
+(* <fixed-size> *)
+FixedSizeType = FixedBreadthType | MinmaxFn ;
+
+(* <fixed-repeat> *)
+FixedRepeatType = RepeatFn ;
+FixedRepeatTypeItem = [ LineNamesType ] , FixedSizeType ;
+
+(* <auto-repeat> *)
+AutoRepeatType = RepeatFn ;
+AutoRepeatTypeItem = [ LineNamesType ] , TrackSizeType ;
+
+(* <name-repeat> *)
+NameRepeatType = NameRepeatFn ;
+
+(* <grid-template-rows> *)
+GridTemplateRowsType = none | TrackListType | AutoTrackListType | subgrid , [ LineNameListType ] ;
+
+(* <grid-template-columns> *)
+GridTemplateColumnsType = none | TrackListType | AutoTrackListType | subgrid , [ LineNameListType ] ;
+
+(* <explicit-track-list> *)
+ExplicitTrackListType = ExplicitTrackListTypeItem , { ExplicitTrackListTypeItem } , [ LineNamesType ] ;
+ExplicitTrackListTypeItem = [ LineNamesType ] , TrackSizeType ;
+
+(* <grid-template> *)
+GridTemplateType = none | grid_template_rows , solidus_symbol , grid_template_columns | GridTemplateTypeItem , { GridTemplateTypeItem } , [ solidus_symbol , ExplicitTrackListType ] ;
+GridTemplateTypeItem = [ LineNamesType ] , string_type , [ TrackSizeType ] , [ LineNamesType ] ;
+
+(* <grid-auto-columns> *)
+GridAutoColumnsType = TrackSizeType , { TrackSizeType } ;
+
+(* <grid-auto-rows> *)
+GridAutoRowsType = TrackSizeType , { TrackSizeType } ;
+
+(* <top> *)
+TopType = auto | LengthPercentageType | AnchorFn | AnchorSizeFn ;
+
+(* <interest-delay-start> *)
+InterestDelayStartType = normal | TimeType ;
+
+(* <isolation-mode> *)
+IsolationModeType = auto | isolate ;
+
+(* <block-ellipsis> *)
+BlockEllipsisType = no_ellipsis | auto | string_type ;
+
+(* <list-style-position> *)
+ListStylePositionType = inside | outside ;
+
+(* <list-style-image> *)
+ListStyleImageType = ImageType | none ;
+
+(* <list-style-type> *)
+ListStyleTypeType = CounterStyleType | string_type | none ;
+
+(* <margin-top> *)
+MarginTopType = LengthPercentageType | auto | AnchorSizeFn ;
+
+(* <marker-ref> *)
+MarkerRefType = UrlType ;
+
+(* <mask-border-source> *)
+MaskBorderSourceType = border_image_source ;
+
+(* <mask-border-slice> *)
+MaskBorderSliceType = border_image_slice ;
+
+(* <mask-border-width> *)
+MaskBorderWidthType = border_image_width ;
+
+(* <mask-border-outset> *)
+MaskBorderOutsetType = border_image_outset ;
+
+(* <mask-border-repeat> *)
+MaskBorderRepeatType = border_image_repeat ;
+
+(* <mask-border-mode> *)
+MaskBorderModeType = luminance | alpha ;
+
+(* <compositing-operator> *)
+CompositingOperatorType = add | subtract | intersect | exclude ;
+
+(* <mask-reference> *)
+MaskReferenceType = none | ImageType | MaskSourceType ;
+
+(* <mask-source> *)
+MaskSourceType = UrlType ;
+
+(* <masking-mode> *)
+MaskingModeType = alpha | luminance | match_source ;
+
+(* <mask-layer> *)
+MaskLayerType = [ MaskReferenceType ] , [ PositionType , [ solidus_symbol , BgSizeType ] ] , [ RepeatStyleType ] , [ GeometryBoxType ] , [ ( GeometryBoxType | no_clip ) ] , [ CompositingOperatorType ] , [ MaskingModeType ] ;
+
+(* <max-width> *)
+MaxWidthType = none | NonNegativeLengthPercentageType | min_content | max_content | FitContentFn | CalcSizeFn | AnchorSizeFn | stretch | fit_content | contain ;
+
+(* <min-width> *)
+MinWidthType = auto | NonNegativeLengthPercentageType | min_content | max_content | FitContentFn | CalcSizeFn | AnchorSizeFn | stretch | fit_content | contain ;
+
+(* <offset-path> *)
+OffsetPathType = RayFn | UrlType | BasicShapeType ;
+
+(* <offset-position> *)
+OffsetPositionType = normal | auto | PositionType ;
+
+(* <offset-distance> *)
+OffsetDistanceType = LengthPercentageType ;
+
+(* <offset-rotate> *)
+OffsetRotateType = [ ( auto | reverse ) ] , [ AngleType ] ;
+
+(* <offset-anchor> *)
+OffsetAnchorType = auto | PositionType ;
+
+(* <outline-line-style> *)
+OutlineLineStyleType = none | auto | dotted | dashed | solid | double | groove | ridge | inset | outset ;
+
+(* <outline-width> *)
+OutlineWidthType = LineWidthType ;
+
+(* <outline-style> *)
+OutlineStyleType = auto | OutlineLineStyleType ;
+
+(* <outline-color> *)
+OutlineColorType = auto | border_top_color ;
+
+(* <overflow-block> *)
+OverflowBlockType = visible | hidden | clip | scroll | auto ;
+
+(* <padding-top> *)
+PaddingTopType = LengthPercentageType ;
+
+(* <align-content> *)
+AlignContentType = normal | BaselinePositionType | ContentDistributionType | [ OverflowPositionType ] , ContentPositionType ;
+
+(* <justify-content> *)
+JustifyContentType = normal | ContentDistributionType | [ OverflowPositionType ] , ( ContentPositionType | left | right ) ;
+
+(* <align-items> *)
+AlignItemsType = normal | stretch | BaselinePositionType | [ OverflowPositionType ] , SelfPositionType ;
+
+(* <justify-items> *)
+JustifyItemsType = normal | stretch | BaselinePositionType | [ OverflowPositionType ] , ( SelfPositionType | left | right ) | legacy | legacy , ( left | right | center ) ;
+
+(* <align-self> *)
+AlignSelfType = auto | [ OverflowPositionType ] , ( normal | SelfPositionType ) | stretch | BaselinePositionType | anchor_center ;
+
+(* <justify-self> *)
+JustifySelfType = auto | [ OverflowPositionType ] , ( normal | SelfPositionType | left | right ) | stretch | BaselinePositionType | anchor_center ;
+
+(* <try-tactic> *)
+TryTacticType = [ flip_block ] , [ flip_inline ] , [ flip_start ] , [ flip_x ] , [ flip_y ] ;
+
+(* <try-size> *)
+TrySizeType = most_width | most_height | most_block_size | most_inline_size ;
+
+(* <position-try-order> *)
+PositionTryOrderType = normal | TrySizeType ;
+
+(* <position-try-fallbacks> *)
+PositionTryFallbacksType = none | PositionTryFallbacksTypeItem , { comma_symbol , PositionTryFallbacksTypeItem } ;
+PositionTryFallbacksTypeItem = ( ( [ dashed_ident_type ] , [ TryTacticType ] ) | PositionAreaType ) ;
+
+(* <running()> *)
+RunningFn = running , left_parenthesis_symbol , custom_ident_type , right_parenthesis_symbol ;
+
+(* <scroll-timeline-name> *)
+ScrollTimelineNameType = ScrollTimelineNameTypeItem , { comma_symbol , ScrollTimelineNameTypeItem } ;
+ScrollTimelineNameTypeItem = ( none | dashed_ident_type ) ;
+
+(* <scroll-timeline-axis> *)
+ScrollTimelineAxisType = ScrollTimelineAxisTypeItem , { comma_symbol , ScrollTimelineAxisTypeItem } ;
+ScrollTimelineAxisTypeItem = ( block | inline | "x" | "y" | horizontal | vertical ) ;
+
+(* <autospace> *)
+AutospaceType = no_autospace | [ ( [ ideograph_alpha ] , [ ideograph_numeric ] , [ punctuation ] ) ] , [ ( insert | replace ) ] ;
+
+(* <text-box-trim> *)
+TextBoxTrimType = none | trim_start | trim_end | trim_both ;
+
+(* <text-box-edge> *)
+TextBoxEdgeType = auto | TextEdgeType ;
+
+(* <text-decoration-line> *)
+TextDecorationLineType = none | ( [ underline ] , [ overline ] , [ line_through ] , [ blink ] ) | spelling_error | grammar_error ;
+
+(* <text-decoration-thickness> *)
+TextDecorationThicknessType = auto | from_font | LengthPercentageType | LineWidthType ;
+
+(* <text-decoration-style> *)
+TextDecorationStyleType = solid | double | dotted | dashed | wavy ;
+
+(* <text-decoration-color> *)
+TextDecorationColorType = ColorType ;
+
+(* <text-emphasis-style> *)
+TextEmphasisStyleType = none | ( [ ( filled | open ) ] , [ ( dot | circle | double_circle | triangle | sesame ) ] ) | string_type ;
+
+(* <text-emphasis-color> *)
+TextEmphasisColorType = ColorType ;
+
+(* <fade()> *)
+FadeFn = fade , left_parenthesis_symbol , LengthPercentageType , right_parenthesis_symbol ;
+
+(* <shadow> — color may appear before or after the lengths *)
+ShadowType = [ ColorType ] , LengthType , LengthType , [ LengthType , [ LengthType ] ] , [ ColorType ] ;
+
+(* <spacing-trim> *)
+SpacingTrimType = space_all | normal | space_first | trim_start | trim_both | trim_all ;
+
+(* <text-wrap-mode> *)
+TextWrapModeType = wrap | nowrap ;
+
+(* <text-wrap-style> *)
+TextWrapStyleType = auto | balance | stable | pretty | avoid_orphans ;
+
+(* <transition-behavior-value> *)
+TransitionBehaviorValueType = normal | allow_discrete ;
+
+(* <single-transition-Property> *)
+SingleTransitionPropertyType = all | custom_ident_type ;
+
+(* <single-transition> *)
+SingleTransitionType = [ ( none | SingleTransitionPropertyType ) ] , [ TimeType ] , [ EasingFunctionType ] , [ TimeType ] , [ TransitionBehaviorValueType ] ;
+
+(* <alignment-baseline> *)
+AlignmentBaselineType = baseline | BaselineMetricType ;
+
+(* <baseline-shift> *)
+BaselineShiftType = LengthPercentageType | sub | super | top | center | bottom ;
+
+(* <view-timeline-name> *)
+ViewTimelineNameType = ViewTimelineNameTypeItem , { comma_symbol , ViewTimelineNameTypeItem } ;
+ViewTimelineNameTypeItem = ( none | dashed_ident_type ) ;
+
+(* <view-timeline-axis> *)
+ViewTimelineAxisType = ViewTimelineAxisTypeItem , { comma_symbol , ViewTimelineAxisTypeItem } ;
+ViewTimelineAxisTypeItem = ( block | inline | "x" | "y" | horizontal | vertical ) ;
+
+(* <white-space-collapse> *)
+WhiteSpaceCollapseType = collapse | discard | preserve | preserve_breaks | preserve_spaces | break_spaces ;
+
+(* <white-space-trim> *)
+WhiteSpaceTrimType = none | [ discard_before ] , [ discard_after ] , [ discard_inner ] ;
+
+(* <animateable-feature> *)
+AnimateableFeatureType = scroll_position | contents | custom_ident_type ;
+
+(* <border-width> *)
+BorderWidthType = border_top_width , [ border_top_width ] , [ border_top_width ] , [ border_top_width ] ;
+
+(* <border-style> *)
+BorderStyleType = border_top_style , [ border_top_style ] , [ border_top_style ] , [ border_top_style ] ;
+
+
+(* ── CSS Properties ────────────────────────────────────────────────────── *)
+
+(* accent-color *)
+AccentColorProp = auto | ColorType ;
+
+(* align-content *)
+AlignContentProp = normal | BaselinePositionType | ContentDistributionType | [ OverflowPositionType ] , ContentPositionType ;
+
+(* align-items *)
+AlignItemsProp = normal | stretch | BaselinePositionType | [ OverflowPositionType ] , SelfPositionType ;
+
+(* align-self *)
+AlignSelfProp = auto | [ OverflowPositionType ] , ( normal | SelfPositionType ) | stretch | BaselinePositionType | anchor_center ;
+
+(* alignment-baseline *)
+AlignmentBaselineProp = baseline | BaselineMetricType ;
+
+(* all *)
+AllProp = initial | inherit | unset | revert | revert_layer | revert_rule ;
+
+(* anchor-name *)
+AnchorNameProp = none | AnchorNameType , { comma_symbol , AnchorNameType } ;
+
+(* anchor-scope *)
+AnchorScopeProp = none | all | AnchorNameType , { comma_symbol , AnchorNameType } ;
+
+(* animation-composition *)
+AnimationCompositionProp = SingleAnimationCompositionType , { comma_symbol , SingleAnimationCompositionType } ;
+
+(* animation-delay *)
+AnimationDelayProp = TimeType , { comma_symbol , TimeType } ;
+
+(* animation-direction *)
+AnimationDirectionProp = SingleAnimationDirectionType , { comma_symbol , SingleAnimationDirectionType } ;
+
+(* animation-duration *)
+AnimationDurationProp = AnimationDurationPropItem , { comma_symbol , AnimationDurationPropItem } ;
+AnimationDurationPropItem = ( auto | NonNegativeTimeType | MathFunctionType ) ;
+
+(* animation-fill-mode *)
+AnimationFillModeProp = SingleAnimationFillModeType , { comma_symbol , SingleAnimationFillModeType } ;
+
+(* animation-iteration-count *)
+AnimationIterationCountProp = SingleAnimationIterationCountType , { comma_symbol , SingleAnimationIterationCountType } ;
+
+(* animation-name *)
+AnimationNameProp = AnimationNamePropItem , { comma_symbol , AnimationNamePropItem } ;
+AnimationNamePropItem = ( none | KeyframesNameType ) ;
+
+(* animation-play-state *)
+AnimationPlayStateProp = SingleAnimationPlayStateType , { comma_symbol , SingleAnimationPlayStateType } ;
+
+(* animation-range-end *)
+AnimationRangeEndProp = AnimationRangeEndPropItem , { comma_symbol , AnimationRangeEndPropItem } ;
+AnimationRangeEndPropItem = ( normal | LengthPercentageType | TimelineRangeNameType , [ LengthPercentageType ] ) ;
+
+(* animation-range-start *)
+AnimationRangeStartProp = AnimationRangeStartPropItem , { comma_symbol , AnimationRangeStartPropItem } ;
+AnimationRangeStartPropItem = ( normal | LengthPercentageType | TimelineRangeNameType , [ LengthPercentageType ] ) ;
+
+(* animation-range *)
+AnimationRangeProp = AnimationRangePropItem , { comma_symbol , AnimationRangePropItem } ;
+AnimationRangePropItem = AnimationRangeStartTypeItem , [ AnimationRangeEndTypeItem ] ;
+
+(* animation-timeline *)
+AnimationTimelineProp = SingleAnimationTimelineType , { comma_symbol , SingleAnimationTimelineType } ;
+
+(* animation-timing-function *)
+AnimationTimingFunctionProp = EasingFunctionType , { comma_symbol , EasingFunctionType } ;
+
+(* animation *)
+AnimationProp = SingleAnimationType , { comma_symbol , SingleAnimationType } ;
+
+(* appearance *)
+AppearanceProp = none | auto | base | base_select | CompatAutoType | CompatSpecialType | base ;
+
+(* aspect-ratio *)
+AspectRatioProp =
+    auto , [ RatioType ] | RatioType , [ auto ] ;
+
+(* backdrop-filter *)
+BackdropFilterProp = none | FilterValueListType ;
+
+(* backface-visibility *)
+BackfaceVisibilityProp = visible | hidden ;
+
+(* background-attachment *)
+BackgroundAttachmentProp = AttachmentType , { comma_symbol , AttachmentType } ;
+
+(* background-blend-mode *)
+BackgroundBlendModeProp = MixBlendModeProp , { comma_symbol , MixBlendModeProp } ;
+
+(* background-clip *)
+BackgroundClipProp = BgClipType , { comma_symbol , BgClipType } ;
+
+(* background-color *)
+BackgroundColorProp = ColorType ;
+
+(* background-image *)
+BackgroundImageProp = BgImageType , { comma_symbol , BgImageType } ;
+
+(* background-origin *)
+BackgroundOriginProp = VisualBoxType , { comma_symbol , VisualBoxType } ;
+
+(* background-position-x *)
+BackgroundPositionXProp = BackgroundPositionXPropItem , { comma_symbol , BackgroundPositionXPropItem } ;
+BackgroundPositionXPropItem = center
+    | ( left | right | x_start | x_end ) , [ LengthPercentageType ]
+    | LengthPercentageType ;
+
+(* background-position-y *)
+BackgroundPositionYProp = BackgroundPositionYPropItem , { comma_symbol , BackgroundPositionYPropItem } ;
+BackgroundPositionYPropItem = center
+    | ( top | bottom | y_start | y_end ) , [ LengthPercentageType ]
+    | LengthPercentageType ;
+
+(* background-position *)
+BackgroundPositionProp = BgPositionType , { comma_symbol , BgPositionType } ;
+
+(* background-repeat *)
+BackgroundRepeatProp = RepeatStyleType , { comma_symbol , RepeatStyleType } ;
+
+(* background-repeat-x *)
+BackgroundRepeatXProp = RepetitionType , { comma_symbol , RepetitionType } ;
+
+(* background-repeat-y *)
+BackgroundRepeatYProp = RepetitionType , { comma_symbol , RepetitionType } ;
+
+(* background-size *)
+BackgroundSizeProp = BgSizeType , { comma_symbol , BgSizeType } ;
+
+(* background *)
+BackgroundProp = { BgLayerType , comma_symbol } , FinalBgLayerType ;
+
+(* baseline-shift *)
+BaselineShiftProp = LengthPercentageType | sub | super | top | center | bottom ;
+
+(* baseline-source *)
+BaselineSourceProp = auto | first | last ;
+
+(* block-size *)
+BlockSizeProp = WidthProp ;
+
+(* border-block-color *)
+BorderBlockColorProp = BorderTopColorProp , [ BorderTopColorProp ] ;
+
+(* border-block-end-color *)
+BorderBlockEndColorProp = ColorType | Image1dType ;
+
+(* border-block-end-style *)
+BorderBlockEndStyleProp = LineStyleType ;
+
+(* border-block-end-width *)
+BorderBlockEndWidthProp = LineWidthType ;
+
+(* border-block-end *)
+BorderBlockEndProp = [ LineWidthType ] , [ LineStyleType ] , [ ColorType ] ;
+
+(* border-block-start-color *)
+BorderBlockStartColorProp = ColorType | Image1dType ;
+
+(* border-block-start-style *)
+BorderBlockStartStyleProp = LineStyleType ;
+
+(* border-block-start-width *)
+BorderBlockStartWidthProp = LineWidthType ;
+
+(* border-block-start *)
+BorderBlockStartProp = [ LineWidthType ] , [ LineStyleType ] , [ ColorType ] ;
+
+(* border-block-style *)
+BorderBlockStyleProp = BorderTopStyleProp , [ BorderTopStyleProp ] ;
+
+(* border-block-width *)
+BorderBlockWidthProp = BorderTopWidthProp , [ BorderTopWidthProp ] ;
+
+(* border-block *)
+BorderBlockProp = BorderBlockStartProp ;
+
+(* border-bottom-color *)
+BorderBottomColorProp = ColorType | Image1dType ;
+
+(* border-bottom-left-radius *)
+BorderBottomLeftRadiusProp = BorderRadiusType ;
+
+(* border-bottom-right-radius *)
+BorderBottomRightRadiusProp = BorderRadiusType ;
+
+(* border-bottom-style *)
+BorderBottomStyleProp = LineStyleType ;
+
+(* border-bottom-width *)
+BorderBottomWidthProp = LineWidthType ;
+
+(* border-bottom *)
+BorderBottomProp =
+    LineWidthType , [ LineStyleType , [ ColorType ] | ColorType , [ LineStyleType ] ]
+    | LineStyleType , [ LineWidthType , [ ColorType ] | ColorType , [ LineWidthType ] ]
+    | ColorType , [ LineWidthType , [ LineStyleType ] | LineStyleType , [ LineWidthType ] ] ;
+
+(* border-collapse *)
+BorderCollapseProp = separate | collapse ;
+
+(* border-color *)
+BorderColorProp = BorderColorPropItem , [ BorderColorPropItem ] , [ BorderColorPropItem ] , [ BorderColorPropItem ] ;
+BorderColorPropItem = ( ColorType | Image1dType ) ;
+
+(* border-end-end-radius *)
+BorderEndEndRadiusProp = BorderRadiusType ;
+
+(* border-end-start-radius *)
+BorderEndStartRadiusProp = BorderRadiusType ;
+
+(* border-image-outset *)
+BorderImageOutsetProp = BorderImageOutsetPropItem , [ BorderImageOutsetPropItem ] , [ BorderImageOutsetPropItem ] , [ BorderImageOutsetPropItem ] ;
+BorderImageOutsetPropItem = ( LengthType | NonNegativeNumberType ) ;
+
+(* border-image-repeat *)
+BorderImageRepeatProp = BorderImageRepeatPropItem , [ BorderImageRepeatPropItem ] ;
+BorderImageRepeatPropItem = ( stretch | repeat | round | space ) ;
+
+(* border-image-slice *)
+BorderImageSliceProp = BorderImageSlicePropItem , [ BorderImageSlicePropItem ] , [ BorderImageSlicePropItem ] , [ BorderImageSlicePropItem ] , [ fill ] ;
+BorderImageSlicePropItem = ( NonNegativeNumberType | PercentageType ) ;
+
+(* border-image-source *)
+BorderImageSourceProp = none | ImageType ;
+
+(* border-image-width *)
+BorderImageWidthProp = BorderImageWidthPropItem , [ BorderImageWidthPropItem ] , [ BorderImageWidthPropItem ] , [ BorderImageWidthPropItem ] ;
+BorderImageWidthPropItem = ( NonNegativeLengthPercentageType | NonNegativeNumberType | auto ) ;
+
+(* border-image *)
+BorderImageProp = [ BorderImageSourceProp ] , [ BorderImageSliceProp , [ ( solidus_symbol , BorderImageWidthProp | solidus_symbol , [ BorderImageWidthProp ] , solidus_symbol , BorderImageOutsetProp ) ] ] , [ BorderImageRepeatProp ] ;
+
+(* border-inline-color *)
+BorderInlineColorProp = BorderTopColorProp , [ BorderTopColorProp ] ;
+
+(* border-inline-end-color *)
+BorderInlineEndColorProp = ColorType | Image1dType ;
+
+(* border-inline-end-style *)
+BorderInlineEndStyleProp = LineStyleType ;
+
+(* border-inline-end-width *)
+BorderInlineEndWidthProp = LineWidthType ;
+
+(* border-inline-end *)
+BorderInlineEndProp = [ LineWidthType ] , [ LineStyleType ] , [ ColorType ] ;
+
+(* border-inline-start-color *)
+BorderInlineStartColorProp = ColorType | Image1dType ;
+
+(* border-inline-start-style *)
+BorderInlineStartStyleProp = LineStyleType ;
+
+(* border-inline-start-width *)
+BorderInlineStartWidthProp = LineWidthType ;
+
+(* border-inline-start *)
+BorderInlineStartProp = [ LineWidthType ] , [ LineStyleType ] , [ ColorType ] ;
+
+(* border-inline-style *)
+BorderInlineStyleProp = BorderTopStyleProp , [ BorderTopStyleProp ] ;
+
+(* border-inline-width *)
+BorderInlineWidthProp = BorderTopWidthProp , [ BorderTopWidthProp ] ;
+
+(* border-inline *)
+BorderInlineProp = BorderBlockStartProp ;
+
+(* border-left-color *)
+BorderLeftColorProp = ColorType | Image1dType ;
+
+(* border-left-style *)
+BorderLeftStyleProp = LineStyleType ;
+
+(* border-left-width *)
+BorderLeftWidthProp = LineWidthType ;
+
+(* border-left *)
+BorderLeftProp = [ LineWidthType ] , [ LineStyleType ] , [ ColorType ] ;
+
+(* border-radius *)
+BorderRadiusProp = NonNegativeLengthPercentageType , [ NonNegativeLengthPercentageType ] , [ NonNegativeLengthPercentageType ] , [ NonNegativeLengthPercentageType ] , [ solidus_symbol , NonNegativeLengthPercentageType , [ NonNegativeLengthPercentageType ] , [ NonNegativeLengthPercentageType ] , [ NonNegativeLengthPercentageType ] ] ;
+
+(* border-right-color *)
+BorderRightColorProp = ColorType | Image1dType ;
+
+(* border-right-style *)
+BorderRightStyleProp = LineStyleType ;
+
+(* border-right-width *)
+BorderRightWidthProp = LineWidthType ;
+
+(* border-right *)
+BorderRightProp = [ LineWidthType ] , [ LineStyleType ] , [ ColorType ] ;
+
+(* border-spacing *)
+BorderSpacingProp = NonNegativeLengthType , [ NonNegativeLengthType ] ;
+
+(* border-start-end-radius *)
+BorderStartEndRadiusProp = BorderRadiusType ;
+
+(* border-start-start-radius *)
+BorderStartStartRadiusProp = BorderRadiusType ;
+
+(* border-style *)
+BorderStyleProp = BorderTopStyleProp , [ BorderTopStyleProp ] , [ BorderTopStyleProp ] , [ BorderTopStyleProp ] ;
+
+(* border-top-color *)
+BorderTopColorProp = ColorType | Image1dType ;
+
+(* border-top-left-radius *)
+BorderTopLeftRadiusProp = BorderRadiusType ;
+
+(* border-top-right-radius *)
+BorderTopRightRadiusProp = BorderRadiusType ;
+
+(* border-top-style *)
+BorderTopStyleProp = LineStyleType ;
+
+(* border-top-width *)
+BorderTopWidthProp = LineWidthType ;
+
+(* border-top *)
+BorderTopProp =
+    LineWidthType , [ LineStyleType , [ ColorType ] | ColorType , [ LineStyleType ] ]
+    | LineStyleType , [ LineWidthType , [ ColorType ] | ColorType , [ LineWidthType ] ]
+    | ColorType , [ LineWidthType , [ LineStyleType ] | LineStyleType , [ LineWidthType ] ] ;
+
+(* border-width *)
+BorderWidthProp = BorderTopWidthProp , [ BorderTopWidthProp ] , [ BorderTopWidthProp ] , [ BorderTopWidthProp ] ;
+
+(* border — components in any order per spec *)
+BorderProp =
+    LineWidthType , [ LineStyleType , [ ColorType ] | ColorType , [ LineStyleType ] ]
+    | LineStyleType , [ LineWidthType , [ ColorType ] | ColorType , [ LineWidthType ] ]
+    | ColorType , [ LineWidthType , [ LineStyleType ] | LineStyleType , [ LineWidthType ] ] ;
+
+(* bottom *)
+BottomProp = auto | LengthPercentageType | AnchorFn | AnchorSizeFn ;
+
+(* box-align *)
+BoxAlignProp = start | center | end | baseline | stretch ;
+
+(* box-decoration-break *)
+BoxDecorationBreakProp = slice | clone ;
+
+(* box-direction *)
+BoxDirectionProp = normal | reverse ;
+
+(* box-flex-group *)
+BoxFlexGroupProp = IntegerType ;
+
+(* box-flex *)
+BoxFlexProp = NumberType ;
+
+(* box-lines *)
+BoxLinesProp = single | multiple ;
+
+(* box-ordinal-group *)
+BoxOrdinalGroupProp = IntegerType ;
+
+(* box-orient *)
+BoxOrientProp = horizontal | vertical | inline_axis | block_axis ;
+
+(* box-pack *)
+BoxPackProp = start | center | end | justify ;
+
+(* box-shadow *)
+BoxShadowProp = none | SpreadShadowType , { comma_symbol , SpreadShadowType } ;
+
+(* box-sizing *)
+BoxSizingProp = content_box | border_box ;
+
+(* break-after *)
+BreakAfterProp = auto | avoid | always | all | avoid_page | page | left | right | recto | verso | avoid_column | column | avoid_region | region ;
+
+(* break-before *)
+BreakBeforeProp = auto | avoid | always | all | avoid_page | page | left | right | recto | verso | avoid_column | column | avoid_region | region ;
+
+(* break-inside *)
+BreakInsideProp = auto | avoid | avoid_page | avoid_column | avoid_region ;
+
+(* caption-side *)
+CaptionSideProp = top | bottom ;
+
+(* caret-animation *)
+CaretAnimationProp = auto | manual ;
+
+(* caret-color *)
+CaretColorProp = auto | ColorType , [ ( auto | ColorType ) ] ;
+
+(* caret-shape *)
+CaretShapeProp = auto | bar | block | underscore ;
+
+(* caret *)
+CaretProp =
+    CaretColorProp , [ CaretAnimationProp , [ CaretShapeProp ] | CaretShapeProp , [ CaretAnimationProp ] ]
+    | CaretAnimationProp , [ CaretColorProp , [ CaretShapeProp ] | CaretShapeProp , [ CaretColorProp ] ]
+    | CaretShapeProp , [ CaretColorProp , [ CaretAnimationProp ] | CaretAnimationProp , [ CaretColorProp ] ] ;
+
+(* clear *)
+ClearProp = inline_start | inline_end | block_start | block_end | left | right | top | bottom | both_inline | both_block | both | none ;
+
+(* clip-path *)
+ClipPathProp =
+    ClipSourceType
+    | BasicShapeType , [ GeometryBoxType ] | GeometryBoxType , [ BasicShapeType ]
+    | none ;
+
+(* clip-rule *)
+ClipRuleProp = nonzero | evenodd ;
+
+(* clip *)
+ClipProp = RectFn | auto ;
+
+(* color-interpolation-filters *)
+ColorInterpolationFiltersProp = auto | sRGB | linearrgb ;
+
+(* color-interpolation *)
+ColorInterpolationProp = auto | sRGB | linearrgb ;
+
+(* color-scheme *)
+ColorSchemeProp = normal | ColorSchemePropItem , { ColorSchemePropItem } , [ only ] ;
+ColorSchemePropItem = ( light | dark | custom_ident_type ) ;
+
+(* color *)
+ColorProp = ColorType ;
+
+(* column-count *)
+ColumnCountProp = auto | positive_integer_type | VarFn ;
+
+(* column-fill *)
+ColumnFillProp = auto | balance | balance_all ;
+
+(* column-gap *)
+ColumnGapProp = normal | NonNegativeLengthPercentageType | LineWidthType ;
+
+(* column-height *)
+ColumnHeightProp = auto | LengthType ;
+
+(* column-rule-color *)
+ColumnRuleColorProp = LineColorListType | AutoLineColorListType ;
+
+(* column-rule-style *)
+ColumnRuleStyleProp = LineStyleListType | AutoLineStyleListType ;
+
+(* column-rule-width *)
+ColumnRuleWidthProp = LineWidthListType | AutoLineWidthListType ;
+
+(* column-rule *)
+ColumnRuleProp = GapRuleListType | GapAutoRuleListType ;
+
+(* column-span *)
+ColumnSpanProp = none | IntegerType | all | auto ;
+
+(* column-width *)
+ColumnWidthProp = auto | NonNegativeLengthType | min_content | max_content | FitContentFn ;
+
+(* column-wrap *)
+ColumnWrapProp = auto | nowrap | wrap ;
+
+(* columns *)
+ColumnsProp = ( ( [ ColumnWidthProp ] , [ ColumnCountProp ] ) | ( [ ColumnCountProp ] , [ ColumnWidthProp ] ) ) , [ solidus_symbol , ColumnHeightProp ] ;
+
+(* contain-intrinsic-block-size *)
+ContainIntrinsicBlockSizeProp = [ auto ] , ( none | NonNegativeLengthType ) ;
+
+(* contain-intrinsic-height *)
+ContainIntrinsicHeightProp = [ auto ] , ( none | NonNegativeLengthType ) ;
+
+(* contain-intrinsic-inline-size *)
+ContainIntrinsicInlineSizeProp = [ auto ] , ( none | NonNegativeLengthType ) ;
+
+(* contain-intrinsic-size *)
+ContainIntrinsicSizeProp = ContainIntrinsicSizePropItem , [ ContainIntrinsicSizePropItem ] ;
+ContainIntrinsicSizePropItem = [ auto ] , ( none | NonNegativeLengthType ) ;
+
+(* contain-intrinsic-width *)
+ContainIntrinsicWidthProp = [ auto ] , ( none | NonNegativeLengthType ) ;
+
+(* contain *)
+ContainProp = none | strict | content | ( [ ( size | inline_size ) ] , [ layout ] , [ style ] , [ paint ] ) ;
+
+(* container-name *)
+ContainerNameProp = none | custom_ident_type , { custom_ident_type } ;
+
+(* container-type *)
+ContainerTypeProp = normal | ( [ ( size | inline_size ) ] , [ scroll_state ] ) ;
+
+(* container *)
+ContainerProp = ContainerNameProp , [ solidus_symbol , ContainerTypeProp ] ;
+
+(* content-visibility *)
+ContentVisibilityProp = visible | auto | hidden ;
+
+(* content *)
+ContentProp = normal | none | ( ContentReplacementType | ContentListType ) , [ solidus_symbol , ContentPropItem , { ContentPropItem } ] | ElementFn ;
+ContentPropItem = ( string_type | CounterType | AttrFn ) ;
+
+(* corner-block-end-shape *)
+CornerBlockEndShapeProp = CornerTopLeftShapeProp , [ CornerTopLeftShapeProp ] ;
+
+(* corner-block-start-shape *)
+CornerBlockStartShapeProp = CornerTopLeftShapeProp , [ CornerTopLeftShapeProp ] ;
+
+(* corner-bottom-left-shape *)
+CornerBottomLeftShapeProp = CornerShapeValueType ;
+
+(* corner-bottom-right-shape *)
+CornerBottomRightShapeProp = CornerShapeValueType ;
+
+(* corner-bottom-shape *)
+CornerBottomShapeProp = CornerTopLeftShapeProp , [ CornerTopLeftShapeProp ] ;
+
+(* corner-end-end-shape *)
+CornerEndEndShapeProp = CornerShapeValueType ;
+
+(* corner-end-start-shape *)
+CornerEndStartShapeProp = CornerShapeValueType ;
+
+(* corner-inline-end-shape *)
+CornerInlineEndShapeProp = CornerTopLeftShapeProp , [ CornerTopLeftShapeProp ] ;
+
+(* corner-inline-start-shape *)
+CornerInlineStartShapeProp = CornerTopLeftShapeProp , [ CornerTopLeftShapeProp ] ;
+
+(* corner-left-shape *)
+CornerLeftShapeProp = CornerTopLeftShapeProp , [ CornerTopLeftShapeProp ] ;
+
+(* corner-right-shape *)
+CornerRightShapeProp = CornerTopLeftShapeProp , [ CornerTopLeftShapeProp ] ;
+
+(* corner-shape *)
+CornerShapeProp = CornerTopLeftShapeProp , [ CornerTopLeftShapeProp ] , [ CornerTopLeftShapeProp ] , [ CornerTopLeftShapeProp ] ;
+
+(* corner-start-end-shape *)
+CornerStartEndShapeProp = CornerShapeValueType ;
+
+(* corner-start-start-shape *)
+CornerStartStartShapeProp = CornerShapeValueType ;
+
+(* corner-top-left-shape *)
+CornerTopLeftShapeProp = CornerShapeValueType ;
+
+(* corner-top-right-shape *)
+CornerTopRightShapeProp = CornerShapeValueType ;
+
+(* corner-top-shape *)
+CornerTopShapeProp = CornerTopLeftShapeProp , [ CornerTopLeftShapeProp ] ;
+
+(* counter-increment *)
+CounterIncrementProp = CounterIncrementPropItem , { CounterIncrementPropItem } | none ;
+CounterIncrementPropItem = CounterNameType , [ IntegerType ] ;
+
+(* counter-reset *)
+CounterResetProp = CounterResetPropItem , { CounterResetPropItem } | none ;
+CounterResetPropItem = ( CounterNameType , [ IntegerType ] | ReversedCounterNameType , [ IntegerType ] ) ;
+
+(* counter-set *)
+CounterSetProp = CounterSetPropItem , { CounterSetPropItem } | none ;
+CounterSetPropItem = CounterNameType , [ IntegerType ] ;
+
+(* cursor *)
+CursorProp = { CursorImageType , comma_symbol } , CursorPredefinedType ;
+
+(* cx *)
+CxProp = LengthPercentageType ;
+
+(* cy *)
+CyProp = LengthPercentageType ;
+
+(* d *)
+DProp = none | string_type ;
+
+(* direction *)
+DirectionProp = ltr | rtl ;
+
+(* display *)
+DisplayProp = ( [ DisplayOutsideType ] , [ DisplayInsideType ] ) | DisplayListitemType | DisplayInternalType | DisplayBoxType | DisplayLegacyType | grid_lanes | inline_grid_lanes | [ DisplayOutsideType ] , [ ( DisplayInsideType | math ) ] ;
+
+(* dominant-baseline *)
+DominantBaselineProp = auto | BaselineMetricType ;
+
+(* dynamic-range-limit *)
+DynamicRangeLimitProp = standard | no_limit | constrained | DynamicRangeLimitMixFn ;
+
+(* empty-cells *)
+EmptyCellsProp = show | hide ;
+
+(* field-sizing *)
+FieldSizingProp = fixed | content ;
+
+(* fill-opacity *)
+FillOpacityProp = OpacityProp ;
+
+(* fill-rule *)
+FillRuleProp = nonzero | evenodd ;
+
+(* fill *)
+FillProp = PaintType ;
+
+(* filter *)
+FilterProp = none | FilterValueListType ;
+
+(* flex-basis *)
+FlexBasisProp = content | WidthProp ;
+
+(* flex-direction *)
+FlexDirectionProp = row | row_reverse | column | column_reverse ;
+
+(* flex-flow *)
+FlexFlowProp =
+    FlexDirectionProp , [ FlexWrapProp ] | FlexWrapProp , [ FlexDirectionProp ] ;
+
+(* flex-grow *)
+FlexGrowProp = NonNegativeNumberType ;
+
+(* flex-shrink *)
+FlexShrinkProp = NonNegativeNumberType ;
+
+(* flex-wrap *)
+FlexWrapProp = nowrap | wrap | wrap_reverse ;
+
+(* flex *)
+FlexProp = none
+    | FlexGrowProp , FlexShrinkProp , FlexBasisProp
+    | FlexGrowProp , FlexShrinkProp
+    | FlexGrowProp , FlexBasisProp
+    | FlexBasisProp
+    | FlexGrowProp ;
+
+(* float *)
+FloatProp = block_start | block_end | inline_start | inline_end | snap_block | SnapBlockFn | snap_inline | SnapInlineFn | left | right | top | bottom | none | footnote ;
+
+(* flood-color *)
+FloodColorProp = ColorType ;
+
+(* flood-opacity *)
+FloodOpacityProp = OpacityProp ;
+
+(* font-family *)
+FontFamilyProp = FontFamilyPropItem , { comma_symbol , FontFamilyPropItem } ;
+FontFamilyPropItem = ( FontFamilyNameType | GenericFontFamilyType ) ;
+
+(* font-feature-settings *)
+FontFeatureSettingsProp = normal | FeatureTagValueType , { comma_symbol , FeatureTagValueType } ;
+
+(* font-kerning *)
+FontKerningProp = auto | normal | none ;
+
+(* font-language-override *)
+FontLanguageOverrideProp = normal | string_type ;
+
+(* font-optical-sizing *)
+FontOpticalSizingProp = auto | none ;
+
+(* font-palette *)
+FontPaletteProp = normal | light | dark | PaletteIdentifierType | PaletteMixFn ;
+
+(* font-size-adjust *)
+FontSizeAdjustProp = none | VarFn | [ ( ex_height | cap_height | ch_width | ic_width | ic_height ) ] , ( from_font | NonNegativeNumberType ) ;
+
+(* font-size *)
+FontSizeProp = AbsoluteSizeType | RelativeSizeType | NonNegativeLengthPercentageType | math ;
+
+(* font-smooth *)
+FontSmoothProp = auto | never | always | AbsoluteSizeType | LengthType ;
+
+(* font-stretch *)
+FontStretchProp = normal | PercentageType | ultra_condensed | extra_condensed | condensed | semi_condensed | semi_expanded | expanded | extra_expanded | ultra_expanded ;
+
+(* font-style *)
+FontStyleProp = normal | italic | left | right | oblique , [ AngleType ] ;
+
+(* font-synthesis-position *)
+FontSynthesisPositionProp = auto | none ;
+
+(* font-synthesis-small-caps *)
+FontSynthesisSmallCapsProp = auto | none ;
+
+(* font-synthesis-style *)
+FontSynthesisStyleProp = auto | none | oblique_only ;
+
+(* font-synthesis-weight *)
+FontSynthesisWeightProp = auto | none ;
+
+(* font-synthesis *)
+FontSynthesisBCD =
+    style , [ small_caps , [ position ] | position , [ small_caps ] ]
+    | small_caps , [ style , [ position ] | position , [ style ] ]
+    | position , [ style , [ small_caps ] | small_caps , [ style ] ] ;
+
+FontSynthesisACD =
+    weight , [ small_caps , [ position ] | position , [ small_caps ] ]
+    | small_caps , [ weight , [ position ] | position , [ weight ] ]
+    | position , [ weight , [ small_caps ] | small_caps , [ weight ] ] ;
+
+FontSynthesisABD =
+    weight , [ style , [ position ] | position , [ style ] ]
+    | style , [ weight , [ position ] | position , [ weight ] ]
+    | position , [ weight , [ style ] | style , [ weight ] ] ;
+
+FontSynthesisABC =
+    weight , [ style , [ small_caps ] | small_caps , [ style ] ]
+    | style , [ weight , [ small_caps ] | small_caps , [ weight ] ]
+    | small_caps , [ weight , [ style ] | style , [ weight ] ] ;
+
+FontSynthesisProp =
+    none
+    | weight , [ FontSynthesisBCD ]
+    | style , [ FontSynthesisACD ]
+    | small_caps , [ FontSynthesisABD ]
+    | position , [ FontSynthesisABC ] ;
+
+(* font-variant-alternates — functional notation helpers *)
+FontVariantAlternatesStylisticFn       = stylistic        , left_parenthesis_symbol , FontFeatureValueNameType , right_parenthesis_symbol ;
+FontVariantAlternatesSwashFn           = swash            , left_parenthesis_symbol , FontFeatureValueNameType , right_parenthesis_symbol ;
+FontVariantAlternatesOrnamentsFn       = ornaments        , left_parenthesis_symbol , FontFeatureValueNameType , right_parenthesis_symbol ;
+FontVariantAlternatesAnnotationFn      = annotation       , left_parenthesis_symbol , FontFeatureValueNameType , right_parenthesis_symbol ;
+FontVariantAlternatesStylesetFn        = styleset         , left_parenthesis_symbol , FontFeatureValueNameType , { comma_symbol , FontFeatureValueNameType } , right_parenthesis_symbol ;
+FontVariantAlternatesCharacterVariantFn = character_variant , left_parenthesis_symbol , FontFeatureValueNameType , { comma_symbol , FontFeatureValueNameType } , right_parenthesis_symbol ;
+FontVariantAlternatesFnType = FontVariantAlternatesStylisticFn | FontVariantAlternatesSwashFn | FontVariantAlternatesOrnamentsFn | FontVariantAlternatesAnnotationFn | FontVariantAlternatesStylesetFn | FontVariantAlternatesCharacterVariantFn ;
+
+(* font-variant-alternates — normal | one-or-more of historical-forms / functional notations, in any order *)
+FontVariantAlternatesPropItem = historical_forms | FontVariantAlternatesFnType ;
+FontVariantAlternatesProp = normal | FontVariantAlternatesPropItem , { FontVariantAlternatesPropItem } ;
+
+(* font-variant-caps *)
+FontVariantCapsProp = normal | small_caps | all_small_caps | petite_caps | all_petite_caps | unicase | titling_caps ;
+
+(* font-variant-east-asian *)
+FontVariantEastAsianProp = normal | ( [ EastAsianVariantValuesType ] , [ EastAsianWidthValuesType ] , [ ruby ] ) ;
+
+(* font-variant-emoji *)
+FontVariantEmojiProp = normal | text | emoji | unicode ;
+
+(* font-variant-ligatures *)
+FontVariantLigaturesProp = normal | none | ( [ CommonLigValuesType ] , [ DiscretionaryLigValuesType ] , [ HistoricalLigValuesType ] , [ ContextualAltValuesType ] ) ;
+
+(* font-variant-numeric *)
+FontVariantNumericProp = normal | ( [ NumericFigureValuesType ] , [ NumericSpacingValuesType ] , [ NumericFractionValuesType ] , [ ordinal ] , [ slashed_zero ] ) ;
+
+(* font-variant-position *)
+FontVariantPositionProp = normal | sub | super ;
+
+(* font-variant *)
+FontVariantProp = normal | none | ( [ ( [ CommonLigValuesType ] , [ DiscretionaryLigValuesType ] , [ HistoricalLigValuesType ] , [ ContextualAltValuesType ] ) ] , [ ( small_caps | all_small_caps | petite_caps | all_petite_caps | unicase | titling_caps ) ] , [ FontVariantAlternatesPropItem , { FontVariantAlternatesPropItem } ] , [ ( [ NumericFigureValuesType ] , [ NumericSpacingValuesType ] , [ NumericFractionValuesType ] , [ ordinal ] , [ slashed_zero ] ) ] , [ ( [ EastAsianVariantValuesType ] , [ EastAsianWidthValuesType ] , [ ruby ] ) ] , [ ( sub | super ) ] , [ ( text | emoji | unicode ) ] ) ;
+
+(* font-variation-settings *)
+FontVariationSettingsProp = normal | FontVariationSettingsPropItem , { comma_symbol , FontVariationSettingsPropItem } ;
+FontVariationSettingsPropItem = OpentypeTagType , NumberType ;
+
+(* font-weight *)
+FontWeightProp = FontWeightAbsoluteType | bolder | lighter ;
+
+(* font-width *)
+FontWidthProp = normal | PercentageType | ultra_condensed | extra_condensed | condensed | semi_condensed | semi_expanded | expanded | extra_expanded | ultra_expanded ;
+
+(* font *)
+FontProp = [ ( [ FontStyleProp ] , [ FontVariantCss2Type ] , [ FontWeightProp ] , [ FontWidthCss3Type ] ) ] , FontSizeProp , [ solidus_symbol , LineHeightProp ] , FontFamilyProp , { comma_symbol , FontFamilyProp } | SystemFontFamilyNameType ;
+
+(* forced-color-adjust *)
+ForcedColorAdjustProp = auto | none | preserve_parent_color ;
+
+(* gap *)
+GapProp = RowGapProp , [ ColumnGapProp ] ;
+
+(* grid-area *)
+GridAreaProp = GridLineType , [ GridAreaPropItem ] , [ GridAreaPropItem ] , [ GridAreaPropItem ] ;
+GridAreaPropItem = solidus_symbol , GridLineType ;
+
+(* grid-auto-columns *)
+GridAutoColumnsProp = TrackSizeType , { TrackSizeType } ;
+
+(* grid-auto-flow *)
+GridAutoFlowProp =
+    ( row | column ) , [ dense ] | dense , [ ( row | column ) ] ;
+
+(* grid-auto-rows *)
+GridAutoRowsProp = TrackSizeType , { TrackSizeType } ;
+
+(* grid-column-end *)
+GridColumnEndProp = GridLineType ;
+
+(* grid-column-start *)
+GridColumnStartProp = GridLineType ;
+
+(* grid-column *)
+GridColumnProp = GridLineType , [ solidus_symbol , GridLineType ] ;
+
+(* grid-row-end *)
+GridRowEndProp = GridLineType ;
+
+(* grid-row-start *)
+GridRowStartProp = GridLineType ;
+
+(* grid-row *)
+GridRowProp = GridLineType , [ solidus_symbol , GridLineType ] ;
+
+(* grid-template-areas *)
+GridTemplateAreasProp = none | string_type , { string_type } ;
+
+(* grid-template-columns *)
+GridTemplateColumnsProp = none | TrackListType | AutoTrackListType | subgrid , [ LineNameListType ] ;
+
+(* grid-template-rows *)
+GridTemplateRowsProp = none | TrackListType | AutoTrackListType | subgrid , [ LineNameListType ] ;
+
+(* grid-template *)
+GridTemplateProp = none | GridTemplateRowsProp , solidus_symbol , GridTemplateColumnsProp | GridTemplatePropItem , { GridTemplatePropItem } , [ solidus_symbol , ExplicitTrackListType ] ;
+GridTemplatePropItem = [ LineNamesType ] , string_type , [ TrackSizeType ] , [ LineNamesType ] ;
+
+(* grid *)
+GridProp = GridTemplateProp | GridTemplateRowsProp , solidus_symbol , ( auto_flow , [ dense ] ) , [ GridAutoColumnsProp ] | ( auto_flow , [ dense ] ) , [ GridAutoRowsProp ] , solidus_symbol , GridTemplateColumnsProp ;
+
+(* hanging-punctuation *)
+HangingPunctuationProp = none | ( [ first ] , [ ( force_end | allow_end ) ] , [ last ] ) ;
+
+(* height *)
+HeightProp = auto | NonNegativeLengthPercentageType | min_content | max_content | FitContentFn | CalcSizeFn | AnchorSizeFn | stretch | fit_content | contain ;
+
+(* hyphenate-character *)
+HyphenateCharacterProp = auto | string_type ;
+
+(* hyphenate-limit-chars *)
+HyphenateLimitCharsProp = HyphenateLimitCharsPropItem , [ HyphenateLimitCharsPropItem ] , [ HyphenateLimitCharsPropItem ] ;
+HyphenateLimitCharsPropItem = ( auto | IntegerType ) ;
+
+(* hyphens *)
+HyphensProp = none | manual | auto ;
+
+(* image-orientation *)
+ImageOrientationProp = from_image | none | ( [ AngleType ] , [ flip ] ) ;
+
+(* image-rendering *)
+ImageRenderingProp = auto | smooth | high_quality | pixelated | crisp_edges ;
+
+(* image-resolution *)
+ImageResolutionProp = ( [ from_image ] , [ ResolutionType ] ) , [ snap ] ;
+
+(* initial-letter *)
+InitialLetterProp = normal | NumberType , IntegerType | NumberType , [ ( drop | raise ) ] ;
+
+(* inline-size *)
+InlineSizeProp = WidthProp ;
+
+(* inset-block-end *)
+InsetBlockEndProp = auto | LengthPercentageType ;
+
+(* inset-block-start *)
+InsetBlockStartProp = auto | LengthPercentageType ;
+
+(* inset-block *)
+InsetBlockProp = TopProp , [ TopProp ] ;
+
+(* inset-inline-end *)
+InsetInlineEndProp = auto | LengthPercentageType ;
+
+(* inset-inline-start *)
+InsetInlineStartProp = auto | LengthPercentageType ;
+
+(* inset-inline *)
+InsetInlineProp = TopProp , [ TopProp ] ;
+
+(* inset *)
+InsetProp = TopProp , [ TopProp ] , [ TopProp ] , [ TopProp ] ;
+
+(* interactivity *)
+InteractivityProp = auto | inert ;
+
+(* interest-delay *)
+InterestDelayProp = InterestDelayStartProp , [ InterestDelayStartProp ] ;
+
+(* interest-delay-end *)
+InterestDelayEndProp = normal | TimeType ;
+
+(* interest-delay-start *)
+InterestDelayStartProp = normal | TimeType ;
+
+(* interpolate-size *)
+InterpolateSizeProp = numeric_only | allow_keywords ;
+
+(* isolation *)
+IsolationProp = IsolationModeType ;
+
+(* justify-content *)
+JustifyContentProp = normal | ContentDistributionType | [ OverflowPositionType ] , ( ContentPositionType | left | right ) ;
+
+(* justify-items *)
+JustifyItemsProp = normal | stretch | BaselinePositionType | [ OverflowPositionType ] , ( SelfPositionType | left | right ) | legacy | legacy , ( left | right | center ) ;
+
+(* justify-self *)
+JustifySelfProp = auto | [ OverflowPositionType ] , ( normal | SelfPositionType | left | right ) | stretch | BaselinePositionType | anchor_center ;
+
+(* left *)
+LeftProp = auto | LengthPercentageType | AnchorFn | AnchorSizeFn ;
+
+(* letter-spacing *)
+LetterSpacingProp = normal | LengthPercentageType ;
+
+(* lighting-color *)
+LightingColorProp = ColorType ;
+
+(* line-break *)
+LineBreakProp = auto | loose | normal | strict | anywhere ;
+
+(* line-clamp *)
+LineClampProp = none | ( [ IntegerType ] , [ block_ellipsis ] ) , [ _webkit_legacy ] ;
+
+(* line-height-step *)
+LineHeightStepProp = LengthType ;
+
+(* line-height *)
+LineHeightProp = normal | NumberType | NonNegativeLengthPercentageType ;
+
+(* list-style-image *)
+ListStyleImageProp = ImageType | none ;
+
+(* list-style-position *)
+ListStylePositionProp = inside | outside ;
+
+(* list-style-type *)
+ListStyleTypeProp = CounterStyleType | string_type | none ;
+
+(* list-style — components in any order per spec *)
+ListStyleProp =
+    ListStylePositionProp , [ ListStyleImageProp , [ ListStyleTypeProp ] | ListStyleTypeProp , [ ListStyleImageProp ] ]
+    | ListStyleImageProp , [ ListStylePositionProp , [ ListStyleTypeProp ] | ListStyleTypeProp , [ ListStylePositionProp ] ]
+    | ListStyleTypeProp , [ ListStylePositionProp , [ ListStyleImageProp ] | ListStyleImageProp , [ ListStylePositionProp ] ] ;
+
+(* margin-block-end *)
+MarginBlockEndProp = MarginTopProp ;
+
+(* margin-block-start *)
+MarginBlockStartProp = MarginTopProp ;
+
+(* margin-block *)
+MarginBlockProp = MarginTopProp , [ MarginTopProp ] ;
+
+(* margin-bottom *)
+MarginBottomProp = LengthPercentageType | auto | AnchorSizeFn ;
+
+(* margin-inline-end *)
+MarginInlineEndProp = MarginTopProp ;
+
+(* margin-inline-start *)
+MarginInlineStartProp = MarginTopProp ;
+
+(* margin-inline *)
+MarginInlineProp = MarginTopProp , [ MarginTopProp ] ;
+
+(* margin-left *)
+MarginLeftProp = LengthPercentageType | auto | AnchorSizeFn ;
+
+(* margin-right *)
+MarginRightProp = LengthPercentageType | auto | AnchorSizeFn ;
+
+(* margin-top *)
+MarginTopProp = LengthPercentageType | auto | AnchorSizeFn ;
+
+(* margin-trim *)
+MarginTrimProp = none | ( [ block ] , [ inline ] ) | ( [ block_start ] , [ inline_start ] , [ block_end ] , [ inline_end ] ) ;
+
+(* margin *)
+MarginProp = MarginTopProp , [ MarginTopProp ] , [ MarginTopProp ] , [ MarginTopProp ] ;
+
+(* marker-end *)
+MarkerEndProp = none | MarkerRefType ;
+
+(* marker-mid *)
+MarkerMidProp = none | MarkerRefType ;
+
+(* marker-start *)
+MarkerStartProp = none | MarkerRefType ;
+
+(* marker *)
+MarkerProp = none | MarkerRefType ;
+
+(* mask-border-mode *)
+MaskBorderModeProp = luminance | alpha ;
+
+(* mask-border-outset *)
+MaskBorderOutsetProp = BorderImageOutsetProp ;
+
+(* mask-border-repeat *)
+MaskBorderRepeatProp = BorderImageRepeatProp ;
+
+(* mask-border-slice *)
+MaskBorderSliceProp = BorderImageSliceProp ;
+
+(* mask-border-source *)
+MaskBorderSourceProp = BorderImageSourceProp ;
+
+(* mask-border-width *)
+MaskBorderWidthProp = BorderImageWidthProp ;
+
+(* mask-border *)
+MaskBorderProp = [ MaskBorderSourceProp ] , [ MaskBorderSliceProp , [ solidus_symbol , [ MaskBorderWidthProp ] , [ solidus_symbol , MaskBorderOutsetProp ] ] ] , [ MaskBorderRepeatProp ] , [ MaskBorderModeProp ] ;
+
+(* mask-clip *)
+MaskClipProp = MaskClipPropItem , { comma_symbol , MaskClipPropItem } ;
+MaskClipPropItem = ( CoordBoxType | no_clip ) ;
+
+(* mask-composite *)
+MaskCompositeProp = CompositingOperatorType , { comma_symbol , CompositingOperatorType } ;
+
+(* mask-image *)
+MaskImageProp = MaskReferenceType , { comma_symbol , MaskReferenceType } ;
+
+(* mask-mode *)
+MaskModeProp = MaskingModeType , { comma_symbol , MaskingModeType } ;
+
+(* mask-origin *)
+MaskOriginProp = CoordBoxType , { comma_symbol , CoordBoxType } ;
+
+(* mask-position *)
+MaskPositionProp = PositionType , { comma_symbol , PositionType } ;
+
+(* mask-repeat *)
+MaskRepeatProp = RepeatStyleType , { comma_symbol , RepeatStyleType } ;
+
+(* mask-size *)
+MaskSizeProp = BgSizeType , { comma_symbol , BgSizeType } ;
+
+(* mask-type *)
+MaskTypeProp = luminance | alpha ;
+
+(* mask *)
+MaskProp = MaskLayerType , { comma_symbol , MaskLayerType } ;
+
+(* math-depth *)
+MathDepthProp = auto_add | add , left_parenthesis_symbol , IntegerType , right_parenthesis_symbol | IntegerType ;
+
+(* math-shift *)
+MathShiftProp = normal | compact ;
+
+(* math-style *)
+MathStyleProp = normal | compact ;
+
+(* max-block-size *)
+MaxBlockSizeProp = MaxWidthProp ;
+
+(* max-height *)
+MaxHeightProp = none | NonNegativeLengthPercentageType | min_content | max_content | FitContentFn | CalcSizeFn | AnchorSizeFn | stretch | fit_content | contain ;
+
+(* max-inline-size *)
+MaxInlineSizeProp = MaxWidthProp ;
+
+(* max-width *)
+MaxWidthProp = none | NonNegativeLengthPercentageType | min_content | max_content | FitContentFn | CalcSizeFn | AnchorSizeFn | stretch | fit_content | contain ;
+
+(* min-block-size *)
+MinBlockSizeProp = MinWidthProp ;
+
+(* min-height *)
+MinHeightProp = auto | NonNegativeLengthPercentageType | min_content | max_content | FitContentFn | CalcSizeFn | AnchorSizeFn | stretch | fit_content | contain ;
+
+(* min-inline-size *)
+MinInlineSizeProp = MinWidthProp ;
+
+(* min-width *)
+MinWidthProp = auto | NonNegativeLengthPercentageType | min_content | max_content | FitContentFn | CalcSizeFn | AnchorSizeFn | stretch | fit_content | contain ;
+
+(* mix-blend-mode *)
+MixBlendModeProp = BlendModeType | plus_lighter ;
+
+(* object-fit *)
+ObjectFitProp = fill | none | [ ( contain | cover ) ] , [ scale_down ] ;
+
+(* object-position *)
+ObjectPositionProp = PositionType ;
+
+(* object-view-box *)
+ObjectViewBoxProp = none | BasicShapeRectType ;
+
+(* offset-anchor *)
+OffsetAnchorProp = auto | PositionType ;
+
+(* offset-distance *)
+OffsetDistanceProp = LengthPercentageType ;
+
+(* offset-path *)
+OffsetPathProp =
+    none
+    | OffsetPathType , [ CoordBoxType ] | CoordBoxType , [ OffsetPathType ] ;
+
+(* offset-position *)
+OffsetPositionProp = normal | auto | PositionType ;
+
+(* offset-rotate *)
+OffsetRotateProp =
+    ( auto | reverse ) , [ angle_type ] | angle_type , [ ( auto | reverse ) ] ;
+
+(* offset — [ <offset-position>? [ <offset-path> [...] ]? ]! : at least one of position or path must be present *)
+OffsetPathGroup = OffsetPathProp , [ ( [ OffsetDistanceProp ] , [ OffsetRotateProp ] ) ] ;
+OffsetProp =
+    ( OffsetPositionProp , [ OffsetPathGroup ] | OffsetPathGroup ) ,
+    [ solidus_symbol , OffsetAnchorProp ] ;
+
+(* opacity *)
+OpacityProp = OpacityValueType ;
+
+(* order *)
+OrderProp = IntegerType ;
+
+(* orphans *)
+OrphansProp = positive_integer_type | VarFn ;
+
+(* outline-color *)
+OutlineColorProp = auto | BorderTopColorProp ;
+
+(* outline-offset *)
+OutlineOffsetProp = NonNegativeLengthType ;
+
+(* outline-style *)
+OutlineStyleProp = auto | OutlineLineStyleType ;
+
+(* outline-width *)
+OutlineWidthProp = LineWidthType ;
+
+(* outline *)
+OutlineProp =
+    OutlineWidthProp , [ OutlineStyleProp , [ OutlineColorProp ] | OutlineColorProp , [ OutlineStyleProp ] ]
+    | OutlineStyleProp , [ OutlineWidthProp , [ OutlineColorProp ] | OutlineColorProp , [ OutlineWidthProp ] ]
+    | OutlineColorProp , [ OutlineWidthProp , [ OutlineStyleProp ] | OutlineStyleProp , [ OutlineWidthProp ] ] ;
+
+(* overflow-anchor *)
+OverflowAnchorProp = auto | none ;
+
+(* overflow-block *)
+OverflowBlockProp = visible | hidden | clip | scroll | auto | overlay ;
+
+(* overflow-clip-margin *)
+OverflowClipMarginProp =
+    VisualBoxType , [ length_type ] | length_type , [ VisualBoxType ] ;
+
+(* overflow-inline *)
+OverflowInlineProp = visible | hidden | clip | scroll | auto ;
+
+(* overflow-wrap *)
+OverflowWrapProp = normal | break_word | anywhere ;
+
+(* word-wrap — deprecated alias for overflow-wrap; same value set *)
+WordWrapProp = normal | break_word | anywhere ;
+
+(* overflow-x *)
+OverflowXProp = visible | hidden | clip | scroll | auto ;
+
+(* overflow-y *)
+OverflowYProp = visible | hidden | clip | scroll | auto ;
+
+(* overflow *)
+OverflowProp = OverflowBlockProp , [ OverflowBlockProp ] ;
+
+(* overlay *)
+OverlayProp = none | auto ;
+
+(* overscroll-behavior-block *)
+OverscrollBehaviorBlockProp = contain | none | auto | chain ;
+
+(* overscroll-behavior-inline *)
+OverscrollBehaviorInlineProp = contain | none | auto | chain ;
+
+(* overscroll-behavior-x *)
+OverscrollBehaviorXProp = contain | none | auto | chain ;
+
+(* overscroll-behavior-y *)
+OverscrollBehaviorYProp = contain | none | auto | chain ;
+
+(* overscroll-behavior *)
+OverscrollBehaviorProp = OverscrollBehaviorPropItem , [ OverscrollBehaviorPropItem ] ;
+OverscrollBehaviorPropItem = ( contain | none | auto | chain ) ;
+
+(* padding-block-end *)
+PaddingBlockEndProp = PaddingTopProp ;
+
+(* padding-block-start *)
+PaddingBlockStartProp = PaddingTopProp ;
+
+(* padding-block *)
+PaddingBlockProp = PaddingTopProp , [ PaddingTopProp ] ;
+
+(* padding-bottom *)
+PaddingBottomProp = NonNegativeLengthPercentageType ;
+
+(* padding-inline-end *)
+PaddingInlineEndProp = PaddingTopProp ;
+
+(* padding-inline-start *)
+PaddingInlineStartProp = PaddingTopProp ;
+
+(* padding-inline *)
+PaddingInlineProp = PaddingTopProp , [ PaddingTopProp ] ;
+
+(* padding-left *)
+PaddingLeftProp = NonNegativeLengthPercentageType ;
+
+(* padding-right *)
+PaddingRightProp = NonNegativeLengthPercentageType ;
+
+(* padding-top *)
+PaddingTopProp = NonNegativeLengthPercentageType ;
+
+(* padding *)
+PaddingProp = PaddingTopProp , [ PaddingTopProp ] , [ PaddingTopProp ] , [ PaddingTopProp ] ;
+
+(* page-break-after *)
+PageBreakAfterProp = auto | always | avoid | left | right | inherit ;
+
+(* page-break-before *)
+PageBreakBeforeProp = auto | always | avoid | left | right | inherit ;
+
+(* page-break-inside *)
+PageBreakInsideProp = avoid | auto | inherit ;
+
+(* page *)
+PageProp = auto | custom_ident_type ;
+
+(* paint-order *)
+PaintOrderProp =
+    normal
+    | fill , [ stroke , [ markers ] | markers , [ stroke ] ]
+    | stroke , [ fill , [ markers ] | markers , [ fill ] ]
+    | markers , [ fill , [ stroke ] | stroke , [ fill ] ] ;
+
+(* perspective-origin *)
+PerspectiveOriginProp = PositionType ;
+
+(* perspective *)
+PerspectiveProp = none | NonNegativeLengthType ;
+
+(* place-content *)
+PlaceContentProp = AlignContentProp , [ JustifyContentProp ] ;
+
+(* place-items *)
+PlaceItemsProp = AlignItemsProp , [ JustifyItemsProp ] ;
+
+(* place-self *)
+PlaceSelfProp = AlignSelfProp , [ JustifySelfProp ] ;
+
+(* pointer-events *)
+PointerEventsProp = auto | bounding_box | visiblePainted | visibleFill | visibleStroke | visible | painted | fill | stroke | all | none ;
+
+(* position-anchor *)
+PositionAnchorProp = normal | none | auto | AnchorNameType | match_parent ;
+
+(* position-area *)
+PositionAreaProp = none | PositionAreaType ;
+
+(* position-try-fallbacks *)
+PositionTryFallbacksProp = none | PositionTryFallbacksPropItem , { comma_symbol , PositionTryFallbacksPropItem } ;
+PositionTryFallbacksPropItem = ( ( [ dashed_ident_type ] , [ TryTacticType ] ) | PositionAreaType ) ;
+
+(* position-try-order *)
+PositionTryOrderProp = normal | TrySizeType ;
+
+(* position-try *)
+PositionTryProp = [ PositionTryOrderProp ] , PositionTryFallbacksProp ;
+
+(* position-visibility *)
+PositionVisibilityProp =
+    always
+    | anchors_valid , [ anchors_visible , [ no_overflow ] | no_overflow , [ anchors_visible ] ]
+    | anchors_visible , [ anchors_valid , [ no_overflow ] | no_overflow , [ anchors_valid ] ]
+    | no_overflow , [ anchors_valid , [ anchors_visible ] | anchors_visible , [ anchors_valid ] ] ;
+
+(* position *)
+PositionProp = static | relative | absolute | sticky | fixed | RunningFn ;
+
+(* print-color-adjust *)
+PrintColorAdjustProp = economy | exact ;
+
+(* quotes *)
+QuotesProp = auto | none | match_parent | QuotesPropItem , { QuotesPropItem } ;
+QuotesPropItem = string_type , string_type ;
+
+(* r *)
+RProp = LengthPercentageType ;
+
+(* resize *)
+ResizeProp = none | both | horizontal | vertical | block | inline ;
+
+(* right *)
+RightProp = auto | LengthPercentageType | AnchorFn | AnchorSizeFn ;
+
+(* rotate *)
+RotateProp = none | AngleType | AttrFn | ( "x" | "y" | "z" | NumberType , NumberType , NumberType ) , AngleType ;
+
+(* row-gap *)
+RowGapProp = normal | NonNegativeLengthPercentageType | LineWidthType ;
+
+(* ruby-align *)
+RubyAlignProp = start | center | space_between | space_around ;
+
+(* ruby-overhang *)
+RubyOverhangProp = auto | spaces ;
+
+(* ruby-position *)
+RubyPositionProp = ( [ alternate ] , [ ( over | under ) ] ) | inter_character ;
+
+(* rx *)
+RxProp = LengthPercentageType | auto ;
+
+(* ry *)
+RyProp = LengthPercentageType | auto ;
+
+(* scale *)
+ScaleProp = none | ScalePropItem , [ ScalePropItem ] , [ ScalePropItem ] ;
+ScalePropItem = ( NumberType | PercentageType ) ;
+
+(* scroll-behavior *)
+ScrollBehaviorProp = auto | smooth ;
+
+(* scroll-initial-target *)
+ScrollInitialTargetProp = none | nearest ;
+
+(* scroll-margin-block-end *)
+ScrollMarginBlockEndProp = LengthType ;
+
+(* scroll-margin-block-start *)
+ScrollMarginBlockStartProp = LengthType ;
+
+(* scroll-margin-block *)
+ScrollMarginBlockProp = LengthType , [ LengthType ] ;
+
+(* scroll-margin-bottom *)
+ScrollMarginBottomProp = LengthType ;
+
+(* scroll-margin-inline-end *)
+ScrollMarginInlineEndProp = LengthType ;
+
+(* scroll-margin-inline-start *)
+ScrollMarginInlineStartProp = LengthType ;
+
+(* scroll-margin-inline *)
+ScrollMarginInlineProp = LengthType , [ LengthType ] ;
+
+(* scroll-margin-left *)
+ScrollMarginLeftProp = LengthType ;
+
+(* scroll-margin-right *)
+ScrollMarginRightProp = LengthType ;
+
+(* scroll-margin-top *)
+ScrollMarginTopProp = LengthType ;
+
+(* scroll-margin *)
+ScrollMarginProp = LengthType , [ LengthType ] , [ LengthType ] , [ LengthType ] ;
+
+(* scroll-marker-group *)
+ScrollMarkerGroupProp = none | ( [ ( before | after ) ] , [ ( links | tabs ) ] ) ;
+
+(* scroll-padding-block-end *)
+ScrollPaddingBlockEndProp = auto | LengthPercentageType ;
+
+(* scroll-padding-block-start *)
+ScrollPaddingBlockStartProp = auto | LengthPercentageType ;
+
+(* scroll-padding-block *)
+ScrollPaddingBlockProp = ScrollPaddingBlockPropItem , [ ScrollPaddingBlockPropItem ] ;
+ScrollPaddingBlockPropItem = ( auto | LengthPercentageType ) ;
+
+(* scroll-padding-bottom *)
+ScrollPaddingBottomProp = auto | LengthPercentageType ;
+
+(* scroll-padding-inline-end *)
+ScrollPaddingInlineEndProp = auto | LengthPercentageType ;
+
+(* scroll-padding-inline-start *)
+ScrollPaddingInlineStartProp = auto | LengthPercentageType ;
+
+(* scroll-padding-inline *)
+ScrollPaddingInlineProp = ScrollPaddingInlinePropItem , [ ScrollPaddingInlinePropItem ] ;
+ScrollPaddingInlinePropItem = ( auto | LengthPercentageType ) ;
+
+(* scroll-padding-left *)
+ScrollPaddingLeftProp = auto | LengthPercentageType ;
+
+(* scroll-padding-right *)
+ScrollPaddingRightProp = auto | LengthPercentageType ;
+
+(* scroll-padding-top *)
+ScrollPaddingTopProp = auto | LengthPercentageType ;
+
+(* scroll-padding *)
+ScrollPaddingProp = ScrollPaddingPropItem , [ ScrollPaddingPropItem ] , [ ScrollPaddingPropItem ] , [ ScrollPaddingPropItem ] ;
+ScrollPaddingPropItem = ( auto | LengthPercentageType ) ;
+
+(* scroll-snap-align *)
+ScrollSnapAlignProp = ScrollSnapAlignPropItem , [ ScrollSnapAlignPropItem ] ;
+ScrollSnapAlignPropItem = ( none | start | end | center ) ;
+
+(* scroll-snap-stop *)
+ScrollSnapStopProp = normal | always ;
+
+(* scroll-snap-type *)
+ScrollSnapTypeProp = none | ( "x" | "y" | block | inline | both ) , [ ( mandatory | proximity ) ] ;
+
+(* scroll-target-group *)
+ScrollTargetGroupProp = none | auto ;
+
+(* scroll-timeline-axis *)
+ScrollTimelineAxisProp = ScrollTimelineAxisPropItem , { comma_symbol , ScrollTimelineAxisPropItem } ;
+ScrollTimelineAxisPropItem = ( block | inline | "x" | "y" | horizontal | vertical ) ;
+
+(* scroll-timeline-name *)
+ScrollTimelineNameProp = ScrollTimelineNamePropItem , { comma_symbol , ScrollTimelineNamePropItem } ;
+ScrollTimelineNamePropItem = ( none | dashed_ident_type ) ;
+
+(* scroll-timeline *)
+ScrollTimelineProp = ScrollTimelinePropItem , { comma_symbol , ScrollTimelinePropItem } ;
+ScrollTimelinePropItem = ScrollTimelineNamePropItem , [ ScrollTimelineAxisPropItem ] ;
+
+(* scrollbar-color *)
+ScrollbarColorProp = auto | ColorType , ColorType ;
+
+(* scrollbar-gutter *)
+ScrollbarGutterProp = auto | stable , [ both_edges ] ;
+
+(* scrollbar-width *)
+ScrollbarWidthProp = auto | thin | none ;
+
+(* shape-image-threshold *)
+ShapeImageThresholdProp = OpacityValueType ;
+
+(* shape-margin *)
+ShapeMarginProp = NonNegativeLengthPercentageType ;
+
+(* shape-outside *)
+ShapeOutsideProp =
+    none
+    | BasicShapeType , [ ShapeBoxType ] | ShapeBoxType , [ BasicShapeType ]
+    | ImageType ;
+
+(* shape-rendering *)
+ShapeRenderingProp = auto | optimizeSpeed | crispedges | geometricPrecision ;
+
+(* speak-as *)
+SpeakAsProp =
+    normal
+    | spell_out , [ digits , [ ( literal_punctuation | no_punctuation ) ] | ( literal_punctuation | no_punctuation ) , [ digits ] ]
+    | digits , [ spell_out , [ ( literal_punctuation | no_punctuation ) ] | ( literal_punctuation | no_punctuation ) , [ spell_out ] ]
+    | ( literal_punctuation | no_punctuation ) , [ spell_out , [ digits ] | digits , [ spell_out ] ] ;
+
+(* stop-color *)
+StopColorProp = ColorType ;
+
+(* stop-opacity *)
+StopOpacityProp = NumberType | PercentageType ;
+
+(* stroke-dasharray *)
+StrokeDasharrayProp = none | StrokeDasharrayPropItem , { StrokeDasharrayPropItem } , (* skip: # *) ;
+StrokeDasharrayPropItem = ( LengthPercentageType | NumberType ) ;
+
+(* stroke-dashoffset *)
+StrokeDashoffsetProp = LengthPercentageType | NumberType ;
+
+(* stroke-linecap *)
+StrokeLinecapProp = butt | round | square ;
+
+(* stroke-linejoin *)
+StrokeLinejoinProp =
+    ( crop | arcs | miter ) , [ ( bevel | round | fallback ) ] | ( bevel | round | fallback ) , [ ( crop | arcs | miter ) ] ;
+
+(* stroke-miterlimit *)
+StrokeMiterlimitProp = NumberType ;
+
+(* stroke-opacity *)
+StrokeOpacityProp = OpacityProp ;
+
+(* stroke-width *)
+StrokeWidthProp = StrokeWidthPropItem , { comma_symbol , StrokeWidthPropItem } ;
+StrokeWidthPropItem = ( LengthPercentageType | LineWidthType | NumberType ) ;
+
+(* stroke *)
+StrokeProp = PaintType ;
+
+(* tab-size *)
+TabSizeProp = NumberType | NonNegativeLengthType ;
+
+(* table-layout *)
+TableLayoutProp = auto | fixed ;
+
+(* text-align-last *)
+TextAlignLastProp = auto | start | end | left | right | center | justify | match_parent ;
+
+(* text-align *)
+TextAlignProp = start | end | left | right | center | string_type | justify | match_parent | justify_all ;
+
+(* text-anchor *)
+TextAnchorProp = start | middle | end ;
+
+(* text-autospace *)
+TextAutospaceProp = normal | AutospaceType | auto ;
+
+(* text-box-edge *)
+TextBoxEdgeProp = auto | TextEdgeType ;
+
+(* text-box-trim *)
+TextBoxTrimProp = none | trim_start | trim_end | trim_both ;
+
+(* text-box *)
+TextBoxProp = normal | [ TextBoxTrimProp ] , [ TextBoxEdgeProp ] ;
+
+(* text-combine-upright *)
+TextCombineUprightProp = none | all | digits , [ IntegerType ] ;
+
+(* text-decoration-color *)
+TextDecorationColorProp = ColorType ;
+
+(* text-decoration-inset *)
+TextDecorationInsetProp = LengthType , [ LengthType ] | auto ;
+
+(* text-decoration-line *)
+TextDecorationLineKeyword = underline | overline | line_through | blink ;
+TextDecorationLineProp = none | TextDecorationLineKeyword , { TextDecorationLineKeyword } | spelling_error | grammar_error ;
+
+(* text-decoration-skip-ink *)
+TextDecorationSkipInkProp = auto | none | all ;
+
+(* text-decoration-skip *)
+TextDecorationSkipProp = none | auto ;
+
+(* text-decoration-style *)
+TextDecorationStyleProp = solid | double | dotted | dashed | wavy ;
+
+(* text-decoration-thickness *)
+TextDecorationThicknessProp = auto | from_font | LengthPercentageType | LineWidthType ;
+
+(* text-decoration — components in any order per spec *)
+TextDecorationBCD =
+    TextDecorationThicknessProp , [ TextDecorationStyleProp , [ TextDecorationColorProp ] | TextDecorationColorProp , [ TextDecorationStyleProp ] ]
+    | TextDecorationStyleProp , [ TextDecorationThicknessProp , [ TextDecorationColorProp ] | TextDecorationColorProp , [ TextDecorationThicknessProp ] ]
+    | TextDecorationColorProp , [ TextDecorationThicknessProp , [ TextDecorationStyleProp ] | TextDecorationStyleProp , [ TextDecorationThicknessProp ] ] ;
+
+TextDecorationACD =
+    TextDecorationLineProp , [ TextDecorationStyleProp , [ TextDecorationColorProp ] | TextDecorationColorProp , [ TextDecorationStyleProp ] ]
+    | TextDecorationStyleProp , [ TextDecorationLineProp , [ TextDecorationColorProp ] | TextDecorationColorProp , [ TextDecorationLineProp ] ]
+    | TextDecorationColorProp , [ TextDecorationLineProp , [ TextDecorationStyleProp ] | TextDecorationStyleProp , [ TextDecorationLineProp ] ] ;
+
+TextDecorationABD =
+    TextDecorationLineProp , [ TextDecorationThicknessProp , [ TextDecorationColorProp ] | TextDecorationColorProp , [ TextDecorationThicknessProp ] ]
+    | TextDecorationThicknessProp , [ TextDecorationLineProp , [ TextDecorationColorProp ] | TextDecorationColorProp , [ TextDecorationLineProp ] ]
+    | TextDecorationColorProp , [ TextDecorationLineProp , [ TextDecorationThicknessProp ] | TextDecorationThicknessProp , [ TextDecorationLineProp ] ] ;
+
+TextDecorationABC =
+    TextDecorationLineProp , [ TextDecorationThicknessProp , [ TextDecorationStyleProp ] | TextDecorationStyleProp , [ TextDecorationThicknessProp ] ]
+    | TextDecorationThicknessProp , [ TextDecorationLineProp , [ TextDecorationStyleProp ] | TextDecorationStyleProp , [ TextDecorationLineProp ] ]
+    | TextDecorationStyleProp , [ TextDecorationLineProp , [ TextDecorationThicknessProp ] | TextDecorationThicknessProp , [ TextDecorationLineProp ] ] ;
+
+TextDecorationProp =
+    TextDecorationLineProp , [ TextDecorationBCD ]
+    | TextDecorationThicknessProp , [ TextDecorationACD ]
+    | TextDecorationStyleProp , [ TextDecorationABD ]
+    | TextDecorationColorProp , [ TextDecorationABC ] ;
+
+(* text-emphasis-color *)
+TextEmphasisColorProp = ColorType ;
+
+(* text-emphasis-position *)
+TextEmphasisPositionProp =
+    auto
+    | ( over | under ) , [ ( right | left ) ]
+    | ( right | left ) , ( over | under ) ;
+
+(* text-emphasis-style *)
+TextEmphasisStyleProp = none | ( [ ( filled | open ) ] , [ ( dot | circle | double_circle | triangle | sesame ) ] ) | string_type ;
+
+(* text-emphasis *)
+TextEmphasisProp =
+    TextEmphasisStyleProp , [ TextEmphasisColorProp ] | TextEmphasisColorProp , [ TextEmphasisStyleProp ] ;
+
+(* text-indent *)
+TextIndentProp = LengthPercentageType , [ hanging ] , [ each_line ] ;
+
+(* text-justify *)
+TextJustifyProp =
+    ( auto | none | inter_word | inter_character | inter_ideograph | distribute | ruby ) , [ no_compress ]
+    | no_compress , [ ( auto | none | inter_word | inter_character | inter_ideograph | distribute | ruby ) ] ;
+
+(* text-orientation *)
+TextOrientationProp = mixed | upright | sideways ;
+
+(* text-overflow *)
+TextOverflowProp = TextOverflowPropItem , [ TextOverflowPropItem ] ;
+TextOverflowPropItem = ( clip | ellipsis | string_type | fade | FadeFn ) ;
+
+(* text-rendering *)
+TextRenderingProp = auto | optimizeSpeed | optimizeLegibility | geometricPrecision ;
+
+(* text-shadow *)
+TextShadowProp = none | ShadowType , { comma_symbol , ShadowType } ;
+
+(* text-size-adjust *)
+TextSizeAdjustProp = auto | none | PercentageType ;
+
+(* text-spacing-trim *)
+TextSpacingTrimProp = SpacingTrimType | auto ;
+
+(* text-transform *)
+TextTransformProp = none | [ ( capitalize | uppercase | lowercase ) ] , [ full_width ] , [ full_size_kana ] | math_auto ;
+
+(* text-underline-offset *)
+TextUnderlineOffsetProp = auto | LengthPercentageType ;
+
+(* text-underline-position *)
+TextUnderlinePositionProp = auto | [ ( from_font | under ) ] , [ ( left | right ) ] ;
+
+(* text-wrap-mode *)
+TextWrapModeProp = wrap | nowrap ;
+
+(* text-wrap-style *)
+TextWrapStyleProp = auto | balance | stable | pretty | avoid_orphans ;
+
+(* text-wrap *)
+TextWrapProp = [ TextWrapModeProp ] , [ TextWrapStyleProp ] ;
+
+(* timeline-scope *)
+TimelineScopeProp = none | all | dashed_ident_type , { comma_symbol , dashed_ident_type } ;
+
+(* top *)
+TopProp = auto | LengthPercentageType | AnchorFn | AnchorSizeFn ;
+
+(* touch-action *)
+TouchActionProp = auto | none | ( [ ( pan_x | pan_left | pan_right ) ] , [ ( pan_y | pan_up | pan_down ) ] , [ pinch_zoom ] ) | manipulation ;
+
+(* transform-box *)
+TransformBoxProp = content_box | border_box | fill_box | stroke_box | view_box ;
+
+(* transform-origin *)
+TransformOriginProp = ( left | center | right | top | bottom | LengthPercentageType ) | ( left | center | right | LengthPercentageType ) , ( top | center | bottom | LengthPercentageType ) , [ LengthType ] | ( ( center | left | right ) , ( center | top | bottom ) ) , [ LengthType ] ;
+
+(* transform-style *)
+TransformStyleProp = flat | preserve_3d ;
+
+(* transform *)
+TransformProp = none | TransformListType ;
+
+(* transition-behavior *)
+TransitionBehaviorProp = TransitionBehaviorValueType , { comma_symbol , TransitionBehaviorValueType } ;
+
+(* transition-delay *)
+TransitionDelayProp = TimeType , { comma_symbol , TimeType } ;
+
+(* transition-duration *)
+TransitionDurationProp = NonNegativeTimeType , { comma_symbol , NonNegativeTimeType } ;
+
+(* transition-Property *)
+TransitionPropertyProp = none | SingleTransitionPropertyType , { comma_symbol , SingleTransitionPropertyType } ;
+
+(* transition-timing-function *)
+TransitionTimingFunctionProp = EasingFunctionType , { comma_symbol , EasingFunctionType } ;
+
+(* transition *)
+TransitionProp = SingleTransitionType , { comma_symbol , SingleTransitionType } ;
+
+(* translate *)
+TranslateProp = none | LengthPercentageType , [ LengthPercentageType , [ LengthType ] ] ;
+
+(* unicode-bidi *)
+UnicodeBidiProp = normal | embed | isolate | bidi_override | isolate_override | plaintext ;
+
+(* user-modify *)
+UserModifyProp = read_only | read_write | read_write_plaintext_only | write_only ;
+
+(* user-select *)
+UserSelectProp = auto | text | none | contain | all ;
+
+(* vector-effect *)
+VectorEffectProp = none | non_scaling_stroke | non_scaling_size | non_rotation | fixed_position ;
+
+(* vertical-align *)
+VerticalAlignProp =
+    ( first | last ) , [ AlignmentBaselineProp , [ BaselineShiftProp ] | BaselineShiftProp , [ AlignmentBaselineProp ] ]
+    | AlignmentBaselineProp , [ ( first | last ) , [ BaselineShiftProp ] | BaselineShiftProp , [ ( first | last ) ] ]
+    | BaselineShiftProp , [ ( first | last ) , [ AlignmentBaselineProp ] | AlignmentBaselineProp , [ ( first | last ) ] ] ;
+
+(* view-timeline-axis *)
+ViewTimelineAxisProp = ViewTimelineAxisPropItem , { comma_symbol , ViewTimelineAxisPropItem } ;
+ViewTimelineAxisPropItem = ( block | inline | "x" | "y" | horizontal | vertical ) ;
+
+(* view-timeline-inset *)
+ViewTimelineInsetProp = ViewTimelineInsetPropItem , { comma_symbol , ViewTimelineInsetPropItem } ;
+ViewTimelineInsetPropItem2 = ( auto | LengthPercentageType ) ;
+ViewTimelineInsetPropItem = ViewTimelineInsetPropItem2 , [ ViewTimelineInsetPropItem2 ] ;
+
+(* view-timeline-name *)
+ViewTimelineNameProp = ViewTimelineNamePropItem , { comma_symbol , ViewTimelineNamePropItem } ;
+ViewTimelineNamePropItem = ( none | dashed_ident_type ) ;
+
+(* view-timeline *)
+ViewTimelineProp = ViewTimelinePropItem , { comma_symbol , ViewTimelinePropItem } ;
+ViewTimelinePropItem = ViewTimelineNamePropItem , [ ViewTimelineAxisPropItem ] , [ ViewTimelineInsetPropItem ] ;
+
+(* view-transition-class *)
+ViewTransitionClassProp = none | custom_ident_type , { custom_ident_type } ;
+
+(* view-transition-name *)
+ViewTransitionNameProp = none | custom_ident_type ;
+
+(* visibility *)
+VisibilityProp = visible | hidden | force_hidden | collapse ;
+
+(* white-space-collapse *)
+WhiteSpaceCollapseProp = collapse | discard | preserve | preserve_breaks | preserve_spaces | break_spaces ;
+
+(* white-space *)
+WhiteSpaceProp = normal | pre | pre_wrap | pre_line | [ WhiteSpaceCollapseProp ] , [ TextWrapModeProp ] , [ white_space_trim ] ;
+
+(* widows *)
+WidowsProp = positive_integer_type | VarFn ;
+
+(* width *)
+WidthProp = auto | NonNegativeLengthPercentageType | min_content | max_content | FitContentFn | CalcSizeFn | AnchorSizeFn | stretch | fit_content | contain ;
+
+(* will-change *)
+WillChangeProp = auto | AnimateableFeatureType , { comma_symbol , AnimateableFeatureType } ;
+
+(* word-break *)
+WordBreakProp = normal | break_all | keep_all | manual | auto_phrase | break_word ;
+
+(* word-spacing *)
+WordSpacingProp = normal | NonNegativeLengthPercentageType ;
+
+(* writing-mode *)
+WritingModeProp = horizontal_tb | vertical_rl | vertical_lr | sideways_rl | sideways_lr ;
+
+(* x *)
+XProp = LengthPercentageType ;
+
+(* y *)
+YProp = LengthPercentageType ;
+
+(* z-index *)
+ZIndexProp = auto | IntegerType | inherit ;
+
+(* zoom *)
+ZoomProp = NonNegativeNumberType | PercentageType ;
+
+(* grid-gap / grid-row-gap / grid-column-gap — deprecated gap shorthands *)
+GridGapExpr    = grid_gap    , colon_symbol , ( GridGapProp    | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+GridRowGapExpr    = grid_row_gap    , colon_symbol , ( GridGapProp    | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+GridColumnGapExpr = grid_column_gap , colon_symbol , ( GridGapProp    | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+GridGapProp = ( LengthPercentageType | normal ) , [ LengthPercentageType | normal ] ;
+
+(* Vendor-prefixed property — -vendor-name: <value> ; *)
+VendorPropExpr = hyphen_symbol , ident_type , colon_symbol , VendorPropValue , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+VendorPropValue = string_type | ColorType | LengthPercentageType | NumberType | ident_type ;
+

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>baseline-source</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 40px; }
+    .demo-item { display: flex; flex-direction: column; gap: 8px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; }
+    .flex-container {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      background: #2d2d4e;
+      border-radius: 8px;
+      border: 2px solid rgba(255,255,255,0.1);
+      padding: 20px;
+      width: 500px;
+      height: 260px;
+    }
+    .flex-item {
+      border-radius: 6px;
+      padding: 10px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .item-a {
+      background: rgba(102, 126, 234, 0.4);
+      border: 2px solid #667eea;
+      font-size: 14px;
+      height: 80px;
+      width: 100px;
+    }
+    .item-b {
+      background: rgba(240, 147, 251, 0.4);
+      border: 2px solid #f093fb;
+      font-size: 28px;
+      height: 160px;
+      width: 120px;
+    }
+    .item-c {
+      background: rgba(254, 202, 87, 0.4);
+      border: 2px solid #feca57;
+      font-size: 14px;
+      height: 120px;
+      width: 100px;
+    }
+    .first .item-b { baseline-source: last ! important; }
+    .last .item-b { baseline-source: last ! important; }
+    .item-label { font-size: 10px; color: rgba(255,255,255,0.6); }
+  </style>
+</head>
+<body>
+  <h1>Baseline Source</h1>
+  <p class="prop-name">baseline-source</p>
+  <div class="demos">
+    <div class="demo-item">
+      <div class="label">baseline-source: last ! important (default)</div>
+      <div class="flex-container first">
+        <div class="flex-item item-a">
+          <span>First</span>
+          <span class="item-label">14px</span>
+        </div>
+        <div class="flex-item item-b">
+          <span>Top</span>
+          <span class="item-label">baseline-source: last ! important</span>
+          <span>Bottom</span>
+        </div>
+        <div class="flex-item item-c">
+          <span>First</span>
+          <span class="item-label">14px</span>
+        </div>
+      </div>
+    </div>
+    <div class="demo-item">
+      <div class="label">baseline-source: last ! important</div>
+      <div class="flex-container last">
+        <div class="flex-item item-a">
+          <span>First</span>
+          <span class="item-label">14px</span>
+        </div>
+        <div class="flex-item item-b">
+          <span>Top</span>
+          <span class="item-label">baseline-source: last ! important</span>
+          <span>Bottom</span>
+        </div>
+        <div class="flex-item item-c">
+          <span>First</span>
+          <span class="item-label">14px</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

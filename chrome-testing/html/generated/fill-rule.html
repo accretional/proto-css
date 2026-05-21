@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>fill-rule</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; gap: 32px; }
+    .demo-box { background: #16213e; border-radius: 12px; padding: 24px; flex: 1; display: flex; flex-direction: column; align-items: center; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; text-align: center; }
+    .desc { font-size: 12px; color: #6b7280; margin-top: 10px; text-align: center; line-height: 1.5; max-width: 300px; }
+    .sub-title { font-size: 13px; color: #e94560; margin-bottom: 16px; font-weight: 600; }
+    .shapes { display: flex; flex-direction: column; gap: 20px; align-items: center; }
+  </style>
+</head>
+<body>
+  <h1>SVG Fill Rule</h1>
+  <p class="prop-name">fill-rule</p>
+  <div class="demos">
+
+    <div class="demo-box">
+      <div class="sub-title">nonzero</div>
+      <div class="shapes">
+        <!-- Star with self-intersecting path -->
+        <svg width="200" height="200" viewBox="0 0 200 200">
+          <path d="M100,10 L130,80 L195,80 L140,125 L160,190 L100,150 L40,190 L60,125 L5,80 L70,80 Z"
+                fill="#e94560" fill-rule="nonzero" stroke="#fff" stroke-width="1" />
+        </svg>
+        <div class="label">fill-rule: nonzero ! important<br>(star - self-intersecting)</div>
+
+        <!-- Concentric rectangles -->
+        <svg width="200" height="200" viewBox="0 0 200 200">
+          <path d="M20,20 L180,20 L180,180 L20,180 Z M50,50 L150,50 L150,150 L50,150 Z M75,75 L125,75 L125,125 L75,125 Z"
+                fill="#533483" fill-rule="nonzero" stroke="#fff" stroke-width="1" />
+        </svg>
+        <div class="label">fill-rule: nonzero ! important<br>(concentric rectangles)</div>
+      </div>
+      <p class="desc">Interior regions are filled based on winding direction count. All enclosed areas filled when paths wind the same way.</p>
+    </div>
+
+    <div class="demo-box">
+      <div class="sub-title">evenodd</div>
+      <div class="shapes">
+        <!-- Star with self-intersecting path -->
+        <svg width="200" height="200" viewBox="0 0 200 200">
+          <path d="M100,10 L130,80 L195,80 L140,125 L160,190 L100,150 L40,190 L60,125 L5,80 L70,80 Z"
+                fill="#e94560" fill-rule="evenodd" stroke="#fff" stroke-width="1" />
+        </svg>
+        <div class="label">fill-rule: nonzero ! important<br>(star - center is unfilled)</div>
+
+        <!-- Concentric rectangles -->
+        <svg width="200" height="200" viewBox="0 0 200 200">
+          <path d="M20,20 L180,20 L180,180 L20,180 Z M50,50 L150,50 L150,150 L50,150 Z M75,75 L125,75 L125,125 L75,125 Z"
+                fill="#533483" fill-rule="evenodd" stroke="#fff" stroke-width="1" />
+        </svg>
+        <div class="label">fill-rule: nonzero ! important<br>(alternating fill/unfill)</div>
+      </div>
+      <p class="desc">Interior regions alternate between filled and unfilled based on number of path crossings. Creates ring and cutout effects.</p>
+    </div>
+
+  </div>
+</body>
+</html>

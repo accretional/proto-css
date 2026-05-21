@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>contain-intrinsic-height</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; gap: 18px; align-items: flex-start; }
+    .demo-card {
+      flex: 1;
+      background: #16213e;
+      border-radius: 10px;
+      padding: 16px 18px;
+      border: 1px solid #2a2a4a;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 10px; }
+    .size-box {
+      contain: size layout;
+      background: #0f1a30;
+      border: 2px solid #2a2a4a;
+      border-radius: 6px;
+      padding: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .inner {
+      font-size: 11px;
+      color: #c0c8d4;
+      line-height: 1.5;
+    }
+    .ruler {
+      position: relative;
+      width: 4px;
+      background: linear-gradient(180deg, #e94560, #c23152);
+      border-radius: 2px;
+      margin: 8px auto 0;
+    }
+    .ruler-label {
+      font-size: 10px;
+      color: #e94560;
+      font-family: monospace;
+      text-align: center;
+      margin-top: 4px;
+    }
+    .ruler-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Contain Intrinsic Height</h1>
+  <p class="prop-name">contain-intrinsic-height</p>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="label">contain-intrinsic-height: auto none ! important</div>
+      <div class="size-box" style="contain-intrinsic-height: auto none ! important;">
+        <div class="inner">No height hint. Box collapses.</div>
+      </div>
+      <div class="ruler-container">
+        <div class="ruler" style="height: 4px;"></div>
+        <div class="ruler-label">0px</div>
+      </div>
+    </div>
+    <div class="demo-card">
+      <div class="label">contain-intrinsic-height: auto 0</div>
+      <div class="size-box" style="contain-intrinsic-height: auto 0;">
+        <div class="inner">Height hint of 60px. Compact placeholder for small content areas.</div>
+      </div>
+      <div class="ruler-container">
+        <div class="ruler" style="height: 20px;"></div>
+        <div class="ruler-label">60px</div>
+      </div>
+    </div>
+    <div class="demo-card">
+      <div class="label">contain-intrinsic-height: none ! important</div>
+      <div class="size-box" style="contain-intrinsic-height: none ! important;">
+        <div class="inner">Height hint of 120px. A medium placeholder that reduces layout shift for typical content blocks.</div>
+      </div>
+      <div class="ruler-container">
+        <div class="ruler" style="height: 36px;"></div>
+        <div class="ruler-label">120px</div>
+      </div>
+    </div>
+    <div class="demo-card">
+      <div class="label">contain-intrinsic-height: none</div>
+      <div class="size-box" style="contain-intrinsic-height: none;">
+        <div class="inner">Height hint of 200px. Larger placeholder for content-heavy sections like articles or cards with images.</div>
+      </div>
+      <div class="ruler-container">
+        <div class="ruler" style="height: 52px;"></div>
+        <div class="ruler-label">200px</div>
+      </div>
+    </div>
+    <div class="demo-card">
+      <div class="label">contain-intrinsic-height: auto 77rex ! important</div>
+      <div class="size-box" style="contain-intrinsic-height: auto 77rex ! important;">
+        <div class="inner">Auto with 150px fallback. Remembers last rendered height, uses 150px initially.</div>
+      </div>
+      <div class="ruler-container">
+        <div class="ruler" style="height: 44px;"></div>
+        <div class="ruler-label">auto 150px</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

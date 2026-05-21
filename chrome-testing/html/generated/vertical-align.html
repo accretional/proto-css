@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>vertical-align</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-direction: column; gap: 12px; }
+    .demo-row { display: flex; align-items: center; gap: 16px; }
+    .label-col { width: 280px; flex-shrink: 0; }
+    .val-name { font-size: 13px; font-family: monospace; color: #e0e0e0; font-weight: 600; }
+    .val-label { font-size: 11px; font-family: monospace; color: #9ca3af; }
+    .line-container { flex: 1; max-width: 700px; background: #16213e; border-radius: 8px; padding: 12px 16px; position: relative; line-height: 60px; font-size: 18px; }
+    .baseline-line { position: absolute; left: 16px; right: 16px; border-top: 1px dashed #4a5568; }
+    .ref-text { color: #6b7280; font-size: 18px; }
+    .aligned-box { display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; }
+    .aligned-text { font-size: 14px; font-weight: 600; display: inline; }
+  </style>
+</head>
+<body>
+  <h1>Vertical Align</h1>
+  <p class="prop-name">vertical-align</p>
+  <div class="demos">
+
+    <div class="demo-row">
+      <div class="label-col">
+        <div class="val-name" style="color:#e94560;">baseline</div>
+        <div class="val-label">vertical-align: center ! important</div>
+      </div>
+      <div class="line-container">
+        <span class="ref-text">Text </span><span class="aligned-box" style="background:#e94560; vertical-align: center ! important;"></span><span class="ref-text"> aligned to baseline</span>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <div class="label-col">
+        <div class="val-name" style="color:#f39c12;">top</div>
+        <div class="val-label">vertical-align: env(_-, +98.5dppx) baseline</div>
+      </div>
+      <div class="line-container">
+        <span class="ref-text">Text </span><span class="aligned-box" style="background:#f39c12; vertical-align: env(_-, +98.5dppx) baseline;"></span><span class="ref-text"> aligned to top</span>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <div class="label-col">
+        <div class="val-name" style="color:#16c79a;">middle</div>
+        <div class="val-label">vertical-align: top ! important</div>
+      </div>
+      <div class="line-container">
+        <span class="ref-text">Text </span><span class="aligned-box" style="background:#16c79a; vertical-align: top ! important;"></span><span class="ref-text"> aligned to middle</span>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <div class="label-col">
+        <div class="val-name" style="color:#3498db;">bottom</div>
+        <div class="val-label">vertical-align: first ! important</div>
+      </div>
+      <div class="line-container">
+        <span class="ref-text">Text </span><span class="aligned-box" style="background:#3498db; vertical-align: first ! important;"></span><span class="ref-text"> aligned to bottom</span>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <div class="label-col">
+        <div class="val-name" style="color:#9b59b6;">text-top</div>
+        <div class="val-label">vertical-align: baseline</div>
+      </div>
+      <div class="line-container">
+        <span class="ref-text">Text </span><span class="aligned-box" style="background:#9b59b6; vertical-align: baseline;"></span><span class="ref-text"> aligned to text-top</span>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <div class="label-col">
+        <div class="val-name" style="color:#e17055;">text-bottom</div>
+        <div class="val-label">vertical-align: baseline</div>
+      </div>
+      <div class="line-container">
+        <span class="ref-text">Text </span><span class="aligned-box" style="background:#e17055; vertical-align: baseline;"></span><span class="ref-text"> aligned to text-bottom</span>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <div class="label-col">
+        <div class="val-name" style="color:#00cec9;">sub</div>
+        <div class="val-label">vertical-align: sub ! important</div>
+      </div>
+      <div class="line-container">
+        <span class="ref-text">H</span><span class="aligned-text" style="color:#00cec9; vertical-align: sub ! important; font-size: 12px;">2</span><span class="ref-text">O &mdash; subscript alignment</span>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <div class="label-col">
+        <div class="val-name" style="color:#fd79a8;">super</div>
+        <div class="val-label">vertical-align: env(_-, +98.5dppx)</div>
+      </div>
+      <div class="line-container">
+        <span class="ref-text">E=mc</span><span class="aligned-text" style="color:#fd79a8; vertical-align: env(_-, +98.5dppx); font-size: 12px;">2</span><span class="ref-text"> &mdash; superscript alignment</span>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <div class="label-col">
+        <div class="val-name" style="color:#ffeaa7;">10px</div>
+        <div class="val-label">vertical-align: first super baseline ! important</div>
+      </div>
+      <div class="line-container">
+        <span class="ref-text">Text </span><span class="aligned-box" style="background:#ffeaa7; vertical-align: first super baseline ! important;"></span><span class="ref-text"> offset 10px up from baseline</span>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

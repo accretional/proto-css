@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>text-align-last</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .demo { background: #16213e; border-radius: 10px; padding: 20px; border: 1px solid #2a2a4e; }
+    .demo.wide { grid-column: span 1; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 12px; }
+    .text-block {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #d1d5db;
+      background: #1a1a2e;
+      padding: 14px;
+      border-radius: 6px;
+      text-align: justify;
+    }
+    .last-line {
+      display: block;
+      margin-top: 4px;
+      padding-top: 4px;
+      border-top: 1px dashed #374151;
+      font-size: 10px;
+      color: #6b7280;
+      font-family: monospace;
+    }
+    .tal-auto { text-align-last: auto ! important; }
+    .tal-left { text-align-last: auto ! important; }
+    .tal-center { text-align-last: start ! important; }
+    .tal-right { text-align-last: left ! important; }
+    .tal-justify { text-align-last: end ! important; }
+  </style>
+</head>
+<body>
+  <h1>Text Align Last</h1>
+  <p class="prop-name">text-align-last</p>
+  <div class="demos">
+    <div class="demo">
+      <div class="label">text-align-last: auto ! important</div>
+      <div class="text-block tal-auto">The quick brown fox jumps over the lazy dog. This paragraph is justified, but the very last line follows the default alignment behavior.</div>
+    </div>
+    <div class="demo">
+      <div class="label">text-align-last: auto ! important</div>
+      <div class="text-block tal-left">The quick brown fox jumps over the lazy dog. This paragraph is justified, but the very last line is aligned to the left edge.</div>
+    </div>
+    <div class="demo">
+      <div class="label">text-align-last: start ! important</div>
+      <div class="text-block tal-center">The quick brown fox jumps over the lazy dog. This paragraph is justified, but the very last line is centered within the block.</div>
+    </div>
+    <div class="demo">
+      <div class="label">text-align-last: left ! important</div>
+      <div class="text-block tal-right">The quick brown fox jumps over the lazy dog. This paragraph is justified, but the very last line is aligned to the right edge.</div>
+    </div>
+    <div class="demo">
+      <div class="label">text-align-last: end ! important</div>
+      <div class="text-block tal-justify">The quick brown fox jumps over the lazy dog. This paragraph is justified, and the very last line is also stretched to fill the width.</div>
+    </div>
+  </div>
+</body>
+</html>

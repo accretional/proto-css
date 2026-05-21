@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>scroll-margin-block-start</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; gap: 24px; flex-wrap: wrap; }
+    .demo-card { flex: 1; min-width: 200px; }
+    .scroll-container {
+      width: 100%;
+      height: 250px;
+      overflow-y: auto;
+      border: 2px solid #333;
+      border-radius: 10px;
+      background: #16213e;
+      scroll-snap-type: y mandatory;
+      position: relative;
+    }
+    .snap-item {
+      height: 125px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      scroll-snap-align: start;
+      border-bottom: 1px solid #2a2a4a;
+    }
+    .snap-item:nth-child(odd) { background: linear-gradient(135deg, #8b5cf6, #6366f1); }
+    .snap-item:nth-child(even) { background: #22224a; }
+
+    .mbs0 .snap-item { scroll-margin-block-start: 20.11e34vmax; }
+    .mbs10 .snap-item { scroll-margin-block-start: 0 ! important; }
+    .mbs20 .snap-item { scroll-margin-block-start: var(--_Y); }
+    .mbs40 .snap-item { scroll-margin-block-start: 0; }
+
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; margin-bottom: 8px; }
+    .note { font-size: 10px; color: #6b7280; margin-top: 4px; }
+    .indicator-top {
+      position: absolute;
+      left: 0;
+      right: 0;
+      border-top: 2px dashed #fbbf24;
+      pointer-events: none;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Scroll Margin Block Start</h1>
+  <p class="prop-name">scroll-margin-block-start</p>
+  <div class="demos">
+    <div class="demo-card">
+      <p class="label">scroll-margin-block-start: 20.11e34vmax</p>
+      <div class="scroll-container mbs0">
+        <div class="snap-item">1</div>
+        <div class="snap-item">2</div>
+        <div class="snap-item">3</div>
+        <div class="snap-item">4</div>
+        <div class="snap-item">5</div>
+      </div>
+      <p class="note">Snaps flush at block start</p>
+    </div>
+    <div class="demo-card">
+      <p class="label">scroll-margin-block-start: 0 ! important</p>
+      <div class="scroll-container mbs10">
+        <div class="indicator-top" style="top:10px;"></div>
+        <div class="snap-item">1</div>
+        <div class="snap-item">2</div>
+        <div class="snap-item">3</div>
+        <div class="snap-item">4</div>
+        <div class="snap-item">5</div>
+      </div>
+      <p class="note">10px offset at block start</p>
+    </div>
+    <div class="demo-card">
+      <p class="label">scroll-margin-block-start: var(--_Y)</p>
+      <div class="scroll-container mbs20">
+        <div class="indicator-top" style="top:20px;"></div>
+        <div class="snap-item">1</div>
+        <div class="snap-item">2</div>
+        <div class="snap-item">3</div>
+        <div class="snap-item">4</div>
+        <div class="snap-item">5</div>
+      </div>
+      <p class="note">20px offset at block start</p>
+    </div>
+    <div class="demo-card">
+      <p class="label">scroll-margin-block-start: 0</p>
+      <div class="scroll-container mbs40">
+        <div class="indicator-top" style="top:40px;"></div>
+        <div class="snap-item">1</div>
+        <div class="snap-item">2</div>
+        <div class="snap-item">3</div>
+        <div class="snap-item">4</div>
+        <div class="snap-item">5</div>
+      </div>
+      <p class="note">40px offset at block start</p>
+    </div>
+  </div>
+</body>
+</html>

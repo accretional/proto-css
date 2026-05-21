@@ -1,0 +1,312 @@
+(* pseudo-class.ebnf — CSS pseudo-class selectors
+   Sources: 
+     MDN pseudo-class reference : https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Pseudo-classes 
+     CSS Selectors Level 4 spec : 
+
+   Naming convention: pc_ prefix for every pseudo-class rule.
+
+   Circular-reference note:
+     Functional pseudo-classes like :is(), :not(), :has(), :where(),
+     and the [of <selector-list>] clause in :nth-child() take selector
+     lists as arguments. Because PseudoClass is itself part of the
+     selector grammar (via SimpleSelector → CompoundSelector → ...) this
+     creates mutual recursion. The types are aliased at the bottom of this
+     file and resolve to their real definitions in selector.ebnf.
+
+   An+B note:
+     The <An+B> microsyntax is defined locally as AnPlusBType.
+     "even" and "odd" are shorthands and are listed explicitly.
+*)
+
+
+(* ── Top-level union ─────────────────────────────────────────────────────── *)
+
+PseudoClass =
+    (* Elemental / general *)
+    PcDefined | PcHeading
+    (* Element-display-state *)
+    | PcOpen | PcPopoverOpen | PcModal | PcFullscreen
+    | PcPictureInPicture | PcXrOverlay
+    (* Input *)
+    | PcEnabled | PcDisabled | PcReadOnly | PcReadWrite
+    | PcPlaceholderShown | PcAutofill
+    | PcDefault | PcChecked | PcIndeterminate | PcBlank
+    | PcValid | PcInvalid | PcInRange | PcOutOfRange
+    | PcRequired | PcOptional | PcUserValid | PcUserInvalid
+    (* Linguistic *)
+    | PcDir | PcLang
+    (* Location *)
+    | PcAnyLink | PcVisited | PcLink | PcLocalLink
+    | PcTarget | PcScope
+    (* Resource state (media) *)
+    | PcPlaying | PcPaused | PcSeeking | PcBuffering
+    | PcStalled | PcMuted | PcVolumeLocked
+    (* Time-dimensional *)
+    | PcCurrent | PcPast | PcFuture
+    (* Tree-structural *)
+    | PcRoot | PcEmpty
+    | PcNthChild | PcNthLastChild
+    | PcFirstChild | PcLastChild | PcOnlyChild
+    | PcNthOfType | PcNthLastOfType
+    | PcFirstOfType | PcLastOfType | PcOnlyOfType
+    (* Shadow DOM *)
+    | PcHost | PcHostContext | PcHasSlotted
+    (* User-action *)
+    | PcHover | PcActive | PcFocus | PcFocusVisible | PcFocusWithin
+    (* Scroll-target *)
+    | PcTargetCurrent
+    (* Logical combination *)
+    | PcIs | PcNot | PcWhere | PcHas
+    (* Custom state *)
+    | PcState
+    (* @page *)
+    | PcLeft | PcRight | PcFirst
+    (* View-transition *)
+    | PcActiveViewTransition | PcActiveViewTransitionType
+    (* Experimental / future *)
+    | PcInterestSource | PcInterestTarget
+    | PcTargetAfter | PcTargetBefore
+    (* Vendor-prefixed (Firefox /-moz-/) *)
+    | PcMozBroken | PcMozDragOver | PcMozFirstNode
+    | PcMozHandlerBlocked | PcMozHandlerCrashed | PcMozHandlerDisabled
+    | PcMozLastNode | PcMozLoading | PcMozLocaleDir
+    | PcMozOnlyWhitespace | PcMozSubmitInvalid | PcMozSuppressed
+    | PcMozUserDisabled | PcMozWindowInactive
+    (* Generic vendor-prefixed: :-webkit-*, :-moz-*, :-ms-*, etc. *)
+    | PcVendor ;
+
+
+(* ── Elemental / general ─────────────────────────────────────────────────── *)
+
+PcDefined         = colon_symbol , defined ;
+(* :heading — also has a functional form :heading(<integer>#) handled below *)
+PcHeading         = colon_symbol , heading , [ left_parenthesis_symbol , IntegerType , { comma_symbol , IntegerType } , right_parenthesis_symbol ] ;
+
+
+(* ── Element-display-state ───────────────────────────────────────────────── *)
+
+PcOpen              = colon_symbol , open ;
+PcPopoverOpen      = colon_symbol , popover_open ;
+PcModal             = colon_symbol , modal ;
+PcFullscreen        = colon_symbol , fullscreen ;
+PcPictureInPicture = colon_symbol , picture_in_picture ;
+PcXrOverlay        = colon_symbol , xr_overlay ;
+
+
+(* ── Input pseudo-classes ────────────────────────────────────────────────── *)
+
+PcEnabled           = colon_symbol , enabled ;
+PcDisabled          = colon_symbol , disabled ;
+PcReadOnly         = colon_symbol , read_only ;
+PcReadWrite        = colon_symbol , read_write ;
+PcPlaceholderShown = colon_symbol , placeholder_shown ;
+PcAutofill          = colon_symbol , autofill ;
+PcDefault           = colon_symbol , default ;
+PcChecked           = colon_symbol , checked ;
+PcIndeterminate     = colon_symbol , indeterminate ;
+PcBlank             = colon_symbol , blank ;
+PcValid             = colon_symbol , valid ;
+PcInvalid           = colon_symbol , invalid ;
+PcInRange          = colon_symbol , in_range ;
+PcOutOfRange      = colon_symbol , out_of_range ;
+PcRequired          = colon_symbol , required ;
+PcOptional          = colon_symbol , optional ;
+PcUserValid        = colon_symbol , user_valid ;
+PcUserInvalid      = colon_symbol , user_invalid ;
+
+
+(* ── Linguistic ──────────────────────────────────────────────────────────── *)
+
+(* :dir(ltr | rtl) *)
+PcDir  = colon_symbol , dir , left_parenthesis_symbol , ( ltr | rtl ) , right_parenthesis_symbol ;
+
+(* :lang(<language-code>[,<language-code>]* ) — language code is an ident or string *)
+PcLang = colon_symbol , lang , left_parenthesis_symbol , LanguageCodeType , { comma_symbol , LanguageCodeType } , right_parenthesis_symbol ;
+
+
+(* ── Location ────────────────────────────────────────────────────────────── *)
+
+PcAnyLink   = colon_symbol , any_link ;
+PcVisited    = colon_symbol , visited ;
+PcLink       = colon_symbol , link ;
+PcLocalLink = colon_symbol , local_link ;
+PcTarget     = colon_symbol , target ;
+PcScope      = colon_symbol , scope ;
+
+
+(* ── Resource-state (media playback) ─────────────────────────────────────── *)
+
+PcPlaying      = colon_symbol , playing ;
+PcPaused       = colon_symbol , paused ;
+PcSeeking      = colon_symbol , seeking ;
+PcBuffering    = colon_symbol , buffering ;
+PcStalled      = colon_symbol , stalled ;
+PcMuted        = colon_symbol , muted ;
+PcVolumeLocked = colon_symbol , volume_locked ;
+
+
+(* ── Time-dimensional (WebVTT) ───────────────────────────────────────────── *)
+
+(* :current — also accepts an optional compound-selector-list argument *)
+PcCurrent = colon_symbol , current , [ left_parenthesis_symbol , CompoundSelectorListType , right_parenthesis_symbol ] ;
+PcPast    = colon_symbol , past ;
+PcFuture  = colon_symbol , future , [ left_parenthesis_symbol , ForgivingSelectorListType , right_parenthesis_symbol ] ;
+
+
+(* ── Tree-structural ─────────────────────────────────────────────────────── *)
+
+PcRoot  = colon_symbol , root ;
+PcEmpty = colon_symbol , empty ;
+
+(* :nth-child([ <An+B> | even | odd ] [of <complex-selector-list>]?) *)
+PcNthChild      = colon_symbol , nth_child , left_parenthesis_symbol ,
+                      ( AnPlusBType | even | odd ) ,
+                      [ of , ComplexSelectorListType ] ,
+                      right_parenthesis_symbol ;
+
+(* :nth-last-child(<nth> [of <complex-selector-list>]?) *)
+PcNthLastChild = colon_symbol , nth_last_child , left_parenthesis_symbol ,
+                      ( AnPlusBType | even | odd ) ,
+                      [ of , ComplexSelectorListType ] ,
+                      right_parenthesis_symbol ;
+
+PcFirstChild = colon_symbol , first_child ;
+PcLastChild  = colon_symbol , last_child ;
+PcOnlyChild  = colon_symbol , only_child ;
+
+(* :nth-of-type(<An+B> | even | odd) *)
+PcNthOfType      = colon_symbol , nth_of_type , left_parenthesis_symbol ,
+                        ( AnPlusBType | even | odd ) ,
+                        right_parenthesis_symbol ;
+
+(* :nth-last-of-type(<An+B> | even | odd) *)
+PcNthLastOfType = colon_symbol , nth_last_of_type , left_parenthesis_symbol ,
+                        ( AnPlusBType | even | odd ) ,
+                        right_parenthesis_symbol ;
+
+PcFirstOfType = colon_symbol , first_of_type ;
+PcLastOfType  = colon_symbol , last_of_type ;
+PcOnlyOfType  = colon_symbol , only_of_type ;
+
+
+(* ── Shadow DOM ──────────────────────────────────────────────────────────── *)
+
+(* :host — also has functional form :host(<compound-selector>) *)
+PcHost         = colon_symbol , host , [ left_parenthesis_symbol , CompoundSelectorType , right_parenthesis_symbol ] ;
+PcHostContext = colon_symbol , host_context , left_parenthesis_symbol , CompoundSelectorType , right_parenthesis_symbol ;
+PcHasSlotted  = colon_symbol , has_slotted ;
+
+
+(* ── User-action ─────────────────────────────────────────────────────────── *)
+
+PcHover         = colon_symbol , hover ;
+PcActive        = colon_symbol , active ;
+PcFocus         = colon_symbol , focus ;
+PcFocusVisible = colon_symbol , focus_visible ;
+PcFocusWithin  = colon_symbol , focus_within ;
+
+
+(* ── Scroll-target ───────────────────────────────────────────────────────── *)
+
+PcTargetCurrent = colon_symbol , target_current ;
+
+
+(* ── Logical combination ─────────────────────────────────────────────────── *)
+
+(* :is(<forgiving-selector-list>) — invalid selectors silently ignored *)
+PcIs    = colon_symbol , is    , left_parenthesis_symbol , ForgivingSelectorListType , right_parenthesis_symbol ;
+
+(* :not(<complex-selector-list>) *)
+PcNot   = colon_symbol , not   , left_parenthesis_symbol , ComplexSelectorListType   , right_parenthesis_symbol ;
+
+(* :where(<complex-selector-list>) — like :is() but zero specificity *)
+PcWhere = colon_symbol , where , left_parenthesis_symbol , ComplexSelectorListType   , right_parenthesis_symbol ;
+
+(* :has(<relative-selector-list>) *)
+PcHas   = colon_symbol , has   , left_parenthesis_symbol , RelativeSelectorListType  , right_parenthesis_symbol ;
+
+
+(* ── Custom state ────────────────────────────────────────────────────────── *)
+
+(* :state(<custom-ident>) — custom element internal state *)
+PcState = colon_symbol , state , left_parenthesis_symbol , custom_ident_type , right_parenthesis_symbol ;
+
+
+(* ── @page pseudo-classes ───────────────────────────────────────────────── *)
+
+PcLeft  = colon_symbol , left ;
+PcRight = colon_symbol , right ;
+PcFirst = colon_symbol , first ;
+
+
+(* ── View-transition ─────────────────────────────────────────────────────── *)
+
+PcActiveViewTransition      = colon_symbol , active_view_transition ;
+PcActiveViewTransitionType = colon_symbol , active_view_transition_type ,
+                                   left_parenthesis_symbol ,
+                                   custom_ident_type , { comma_symbol , custom_ident_type } ,
+                                   right_parenthesis_symbol ;
+
+
+(* ── Experimental / future ───────────────────────────────────────────────── *)
+
+PcInterestSource = colon_symbol , interest_source ;
+PcInterestTarget = colon_symbol , interest_target ;
+PcTargetAfter    = colon_symbol , target_after ;
+PcTargetBefore   = colon_symbol , target_before ;
+
+
+(* ── Vendor-prefixed: Firefox (-moz-) ───────────────────────────────────── *)
+
+PcMozBroken          = colon_symbol , moz_broken ;
+PcMozDragOver       = colon_symbol , moz_drag_over ;
+PcMozFirstNode      = colon_symbol , moz_first_node ;
+PcMozHandlerBlocked = colon_symbol , moz_handler_blocked ;
+PcMozHandlerCrashed = colon_symbol , moz_handler_crashed ;
+PcMozHandlerDisabled = colon_symbol , moz_handler_disabled ;
+PcMozLastNode       = colon_symbol , moz_last_node ;
+PcMozLoading         = colon_symbol , moz_loading ;
+(* :-moz-locale-dir(ltr | rtl) *)
+PcMozLocaleDir      = colon_symbol , moz_locale_dir , left_parenthesis_symbol , ( ltr | rtl ) , right_parenthesis_symbol ;
+PcMozOnlyWhitespace = colon_symbol , moz_only_whitespace ;
+PcMozSubmitInvalid  = colon_symbol , moz_submit_invalid ;
+PcMozSuppressed      = colon_symbol , moz_suppressed ;
+PcMozUserDisabled   = colon_symbol , moz_user_disabled ;
+PcMozWindowInactive = colon_symbol , moz_window_inactive ;
+
+(* Generic vendor-prefixed pseudo-class: colon + hyphen + ident (+ optional arg)
+   Matches :-webkit-any-link, :-moz-placeholder, :-ms-input-placeholder, etc. *)
+PcVendor = colon_symbol , hyphen_symbol , ident_type ,
+           [ left_parenthesis_symbol , { DeclarationValueInParensType } , right_parenthesis_symbol ] ;
+
+
+(* ── Supporting types ────────────────────────────────────────────────────── *)
+
+(* <An+B> microsyntax: 2n+1, -n+3, 3n, 5, even, odd
+   A and B are integers; A may be omitted (= 1), B may be omitted (= 0).
+   The sign between A*n and B is written as + or -.
+   "even" = 2n, "odd" = 2n+1 are handled as keywords in the caller. *)
+AnPlusBType =
+    integer_type , [ "n" , [ ( plus_sign_symbol | hyphen_symbol ) , whole_number ] ]
+    | "n" , [ ( plus_sign_symbol | hyphen_symbol ) , whole_number ]
+    | hyphen_symbol , "n" , [ ( plus_sign_symbol | hyphen_symbol ) , whole_number ] ;
+
+(* Language code: BCP 47 tag — <ident> or <string> per CSS Selectors 4 spec, e.g. en, "en", "zh-hans" *)
+LanguageCodeType = ident_type | string_type ;
+
+(* ── Circular-reference note ─────────────────────────────────────────────── *)
+(* These types are defined in selector.ebnf, which in turn includes PseudoClass
+   (via SimpleSelector). This creates a mutual recursion:
+     PseudoClass → :is() → ForgivingSelectorList → ComplexSelector
+                  → CompoundSelector → SimpleSelector → PseudoClass
+   EBNF permits mutual recursion; gluon compiles all files together so the
+   references resolve at grammar-compile time. *)
+
+(* :not() uses _no_pe — pseudo-elements excluded per spec *)
+ComplexSelectorListType    = ComplexSelectorListNoPe ;    (* <complex-selector-list> — no pseudo-elements *)
+(* :is()/:where() use the full forgiving list — pseudo-elements are valid per CSS Selectors 4 *)
+ForgivingSelectorListType  = ForgivingSelectorList ;
+(* :has() and :current() use the full types — pseudo-elements are allowed there *)
+RelativeSelectorListType   = RelativeSelectorList ;         (* <relative-selector-list> *)
+CompoundSelectorType        = CompoundSelector ;              (* <compound-selector> *)
+CompoundSelectorListType   = CompoundSelectorList ;         (* <compound-selector-list> *)

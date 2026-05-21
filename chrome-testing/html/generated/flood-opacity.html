@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>flood-opacity</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demo-block { display: flex; flex-direction: column; align-items: center; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>Flood Opacity</h1>
+  <p class="prop-name">flood-opacity (SVG filter)</p>
+  <div class="demos">
+    <div class="demo-block">
+      <svg width="210" height="150" viewBox="0 0 210 150">
+        <defs>
+          <filter id="fo0" x="0" y="0" width="100%" height="100%">
+            <feFlood flood-color="#e94560" flood-opacity="0" result="flood"/>
+            <feComposite in="flood" in2="SourceGraphic" operator="over"/>
+          </filter>
+        </defs>
+        <rect x="5" y="5" width="200" height="140" rx="10" fill="#16213e"/>
+        <text x="105" y="60" text-anchor="middle" fill="#555" font-size="12" font-family="monospace">background visible</text>
+        <rect x="25" y="30" width="160" height="90" rx="8" filter="url(#fo0)"/>
+      </svg>
+      <div class="label">flood-opacity: var(--S󧘔, x잖) ! important</div>
+    </div>
+    <div class="demo-block">
+      <svg width="210" height="150" viewBox="0 0 210 150">
+        <defs>
+          <filter id="fo25" x="0" y="0" width="100%" height="100%">
+            <feFlood flood-color="#e94560" flood-opacity="0.25" result="flood"/>
+            <feComposite in="flood" in2="SourceGraphic" operator="over"/>
+          </filter>
+        </defs>
+        <rect x="5" y="5" width="200" height="140" rx="10" fill="#16213e"/>
+        <text x="105" y="60" text-anchor="middle" fill="#555" font-size="12" font-family="monospace">background visible</text>
+        <rect x="25" y="30" width="160" height="90" rx="8" filter="url(#fo25)"/>
+      </svg>
+      <div class="label">flood-opacity: var(--S󧘔, x잖) ! important.25</div>
+    </div>
+    <div class="demo-block">
+      <svg width="210" height="150" viewBox="0 0 210 150">
+        <defs>
+          <filter id="fo50" x="0" y="0" width="100%" height="100%">
+            <feFlood flood-color="#e94560" flood-opacity="0.5" result="flood"/>
+            <feComposite in="flood" in2="SourceGraphic" operator="over"/>
+          </filter>
+        </defs>
+        <rect x="5" y="5" width="200" height="140" rx="10" fill="#16213e"/>
+        <text x="105" y="60" text-anchor="middle" fill="#555" font-size="12" font-family="monospace">background visible</text>
+        <rect x="25" y="30" width="160" height="90" rx="8" filter="url(#fo50)"/>
+      </svg>
+      <div class="label">flood-opacity: var(--S󧘔, x잖) ! important.5</div>
+    </div>
+    <div class="demo-block">
+      <svg width="210" height="150" viewBox="0 0 210 150">
+        <defs>
+          <filter id="fo75" x="0" y="0" width="100%" height="100%">
+            <feFlood flood-color="#e94560" flood-opacity="0.75" result="flood"/>
+            <feComposite in="flood" in2="SourceGraphic" operator="over"/>
+          </filter>
+        </defs>
+        <rect x="5" y="5" width="200" height="140" rx="10" fill="#16213e"/>
+        <text x="105" y="60" text-anchor="middle" fill="#555" font-size="12" font-family="monospace">background visible</text>
+        <rect x="25" y="30" width="160" height="90" rx="8" filter="url(#fo75)"/>
+      </svg>
+      <div class="label">flood-opacity: var(--S󧘔, x잖) ! important.75</div>
+    </div>
+    <div class="demo-block">
+      <svg width="210" height="150" viewBox="0 0 210 150">
+        <defs>
+          <filter id="fo100" x="0" y="0" width="100%" height="100%">
+            <feFlood flood-color="#e94560" flood-opacity="1" result="flood"/>
+            <feComposite in="flood" in2="SourceGraphic" operator="over"/>
+          </filter>
+        </defs>
+        <rect x="5" y="5" width="200" height="140" rx="10" fill="#16213e"/>
+        <text x="105" y="60" text-anchor="middle" fill="#555" font-size="12" font-family="monospace">background visible</text>
+        <rect x="25" y="30" width="160" height="90" rx="8" filter="url(#fo100)"/>
+      </svg>
+      <div class="label">flood-opacity: 1.58e+7</div>
+    </div>
+  </div>
+</body>
+</html>

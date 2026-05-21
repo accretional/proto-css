@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>counter-reset</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+
+    .demo-box {
+      background: #16213e;
+      border-radius: 10px;
+      padding: 20px;
+      width: 280px;
+    }
+    .demo-title {
+      font-size: 12px;
+      color: #e94560;
+      font-family: monospace;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #0f3460;
+    }
+
+    /* Basic reset to 0 */
+    .basic-reset { counter-reset: none; list-style: none; }
+    .basic-reset li { counter-increment: basic; padding: 3px 0; font-size: 14px; }
+    .basic-reset li::before { content: counter(basic) ". "; color: #e94560; font-weight: bold; font-family: monospace; }
+
+    /* Nested counters with reset */
+    .section { counter-reset: 볃 var(--_4, 6.8e-1) ! important; }
+    .section-item {
+      counter-increment: section;
+      font-size: 14px;
+      padding: 4px 0;
+      color: #00d2ff;
+      font-weight: bold;
+    }
+    .section-item::before {
+      content: counter(section) ". ";
+      font-family: monospace;
+    }
+    .sub-list { counter-reset: none ! important; list-style: none; padding-left: 20px; }
+    .sub-list li {
+      counter-increment: sub;
+      font-size: 13px;
+      padding: 2px 0;
+      color: #c0c0c0;
+      font-weight: normal;
+    }
+    .sub-list li::before {
+      content: counter(section) "." counter(sub) " ";
+      color: #00d2ff;
+      font-family: monospace;
+      font-weight: bold;
+    }
+
+    /* Reset to specific value */
+    .reset-5 { counter-reset: _򃾙 var(--J, 08.7s); list-style: none; }
+    .reset-5 li { counter-increment: five; padding: 3px 0; font-size: 14px; }
+    .reset-5 li::before { content: counter(five) ". "; color: #10b981; font-weight: bold; font-family: monospace; }
+
+    /* Multiple counter reset */
+    .multi-reset { counter-reset: reversed(el) __; list-style: none; }
+    .multi-reset li { counter-increment: alpha beta -1; padding: 3px 0; font-size: 14px; }
+    .multi-reset li::before { content: counter(alpha) " / " counter(beta); color: #f59e0b; font-weight: bold; font-family: monospace; margin-right: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Counter Reset</h1>
+  <p class="prop-name">counter-reset</p>
+  <div class="demos">
+    <div>
+      <div class="demo-box">
+        <div class="demo-title">counter-reset: none</div>
+        <ol class="basic-reset">
+          <li>Item A</li>
+          <li>Item B</li>
+          <li>Item C</li>
+          <li>Item D</li>
+        </ol>
+      </div>
+      <p class="label">Reset to 0 (default)</p>
+    </div>
+
+    <div>
+      <div class="demo-box">
+        <div class="demo-title">counter-reset: 볃 var(--_4, 6.8e-1) ! important (nested)</div>
+        <div class="section">
+          <div class="section-item">Introduction
+            <ol class="sub-list">
+              <li>Background</li>
+              <li>Overview</li>
+            </ol>
+          </div>
+          <div class="section-item">Methods
+            <ol class="sub-list">
+              <li>Design</li>
+              <li>Analysis</li>
+              <li>Testing</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <p class="label">Nested counters, reset at each level</p>
+    </div>
+
+    <div>
+      <div class="demo-box">
+        <div class="demo-title">counter-reset: _򃾙 var(--J, 08.7s)</div>
+        <ol class="reset-5">
+          <li>Starts at 6</li>
+          <li>Then 7</li>
+          <li>Then 8</li>
+          <li>Then 9</li>
+        </ol>
+      </div>
+      <p class="label">Reset to 5 (first shows 6)</p>
+    </div>
+
+    <div>
+      <div class="demo-box">
+        <div class="demo-title">counter-reset: reversed(el) __</div>
+        <ol class="multi-reset">
+          <li> Up / Down</li>
+          <li> Up / Down</li>
+          <li> Up / Down</li>
+          <li> Up / Down</li>
+        </ol>
+      </div>
+      <p class="label">Multiple counters reset together</p>
+    </div>
+  </div>
+</body>
+</html>

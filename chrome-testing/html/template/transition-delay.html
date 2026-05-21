@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>transition-delay</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-direction: column; gap: 14px; }
+    .demo-row { display: flex; align-items: center; gap: 16px; }
+    .label { font-size: 12px; font-family: monospace; color: #9ca3af; width: 280px; flex-shrink: 0; }
+    .timeline { position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; }
+    .delay-zone { position: absolute; top: 0; left: 0; height: 100%; background: repeating-linear-gradient(90deg, #1e2a45 0px, #1e2a45 10px, #16213e 10px, #16213e 20px); }
+    .active-zone { position: absolute; top: 0; height: 100%; background: linear-gradient(90deg, #e94560, #ff6b6b); border-radius: 0 8px 8px 0; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; }
+    .marker { position: absolute; top: 0; height: 100%; width: 2px; background: #ffd700; }
+    .marker-label { position: absolute; top: -16px; font-size: 9px; font-family: monospace; color: #ffd700; transform: translateX(-50%); }
+    .dot { width: 24px; height: 24px; border-radius: 50%; position: absolute; top: 8px; display: flex; align-items: center; justify-content: center; }
+    .legend { display: flex; gap: 24px; margin-top: 20px; }
+    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 11px; font-family: monospace; color: #9ca3af; }
+    .legend-swatch { width: 16px; height: 12px; border-radius: 3px; }
+    .time-axis { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; padding-left: 296px; }
+    .time-tick { font-size: 10px; font-family: monospace; color: #6b7280; }
+  </style>
+</head>
+<body>
+  <h1>Transition Delay</h1>
+  <p class="prop-name">transition-delay</p>
+
+  <div class="time-axis">
+    <span class="time-tick" style="width: 0;">0s</span>
+    <span class="time-tick" style="margin-left: 60px;">0.5s</span>
+    <span class="time-tick" style="margin-left: 60px;">1.0s</span>
+    <span class="time-tick" style="margin-left: 60px;">1.5s</span>
+    <span class="time-tick" style="margin-left: 60px;">2.0s</span>
+    <span class="time-tick" style="margin-left: 60px;">2.5s</span>
+    <span class="time-tick" style="margin-left: 30px;">3.0s</span>
+  </div>
+
+  <div class="demos">
+
+    <div class="demo-row">
+      <div class="label">transition-delay: <span style="color:#e94560">0s</span></div>
+      <div class="timeline">
+        <div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <div class="label">transition-delay: <span style="color:#f39c12">0.2s</span></div>
+      <div class="timeline">
+        <div class="delay-zone" style="width: 6.6%;"></div>
+        <div class="marker" style="left: 6.6%;"><span class="marker-label">0.2s</span></div>
+        <div class="active-zone" style="left: 6.6%; width: 33%; background: linear-gradient(90deg, #f39c12, #f1c40f);">transition runs</div>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <div class="label">transition-delay: <span style="color:#16c79a">0.5s</span></div>
+      <div class="timeline">
+        <div class="delay-zone" style="width: 16.6%;"></div>
+        <div class="marker" style="left: 16.6%;"><span class="marker-label">0.5s</span></div>
+        <div class="active-zone" style="left: 16.6%; width: 33%; background: linear-gradient(90deg, #16c79a, #2ecc71);">transition runs</div>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <div class="label">transition-delay: <span style="color:#3498db">1s</span></div>
+      <div class="timeline">
+        <div class="delay-zone" style="width: 33%;"></div>
+        <div class="marker" style="left: 33%;"><span class="marker-label">1s</span></div>
+        <div class="active-zone" style="left: 33%; width: 33%; background: linear-gradient(90deg, #3498db, #5dade2);">transition runs</div>
+      </div>
+    </div>
+
+    <div class="demo-row">
+      <div class="label">transition-delay: <span style="color:#9b59b6">2s</span></div>
+      <div class="timeline">
+        <div class="delay-zone" style="width: 66%;"></div>
+        <div class="marker" style="left: 66%;"><span class="marker-label">2s</span></div>
+        <div class="active-zone" style="left: 66%; width: 33%; background: linear-gradient(90deg, #9b59b6, #bb8fce);">transition runs</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="legend">
+    <div class="legend-item">
+      <div class="legend-swatch" style="background: repeating-linear-gradient(90deg, #1e2a45 0px, #1e2a45 4px, #16213e 4px, #16213e 8px);"></div>
+      Delay period (waiting)
+    </div>
+    <div class="legend-item">
+      <div class="legend-swatch" style="background: linear-gradient(90deg, #e94560, #ff6b6b);"></div>
+      Transition active
+    </div>
+    <div class="legend-item">
+      <div class="legend-swatch" style="background: #ffd700;"></div>
+      Transition start marker
+    </div>
+  </div>
+</body>
+</html>

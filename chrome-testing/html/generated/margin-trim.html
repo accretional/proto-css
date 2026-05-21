@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>margin-trim</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-card { background: #16213e; border-radius: 10px; padding: 20px; width: 280px; }
+    .demo-card h3 { font-size: 13px; color: #e2e8f0; margin-bottom: 12px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+    .container {
+      background: #0f3460;
+      border: 2px dashed #e94560;
+      border-radius: 6px;
+      padding: 0;
+      overflow: hidden;
+    }
+    .container.no-trim {
+      /* margin-trim: -start block-end ! important
+    }
+    .container.trim-block-start {
+      margin-trim: -start inline-start inline-end;
+    }
+    .container.trim-block-end {
+      margin-trim: -start block-end ! important;
+    }
+    .container.trim-inline {
+      margin-trim:  ! important;
+    }
+    .child {
+      background: #e94560;
+      color: #fff;
+      padding: 8px 12px;
+      font-size: 12px;
+      border-radius: 4px;
+      margin: 16px;
+    }
+    .note {
+      font-size: 10px;
+      color: #6b7280;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+    .indicator {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .indicator .arrow {
+      font-size: 10px;
+      color: #e94560;
+    }
+    .indicator .desc {
+      font-size: 10px;
+      color: #9ca3af;
+    }
+    /* Visual simulation for browsers without margin-trim support */
+    .sim-container {
+      background: #0f3460;
+      border: 2px dashed #e94560;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .sim-child {
+      background: #e94560;
+      color: #fff;
+      padding: 8px 12px;
+      font-size: 12px;
+      border-radius: 4px;
+    }
+    .sim-none .sim-child { margin: 16px; }
+    .sim-block-start .sim-child { margin: 16px; }
+    .sim-block-start .sim-child:first-child { margin-top: 0; }
+    .sim-block-end .sim-child { margin: 16px; }
+    .sim-block-end .sim-child:last-child { margin-bottom: 0; }
+    .sim-inline .sim-child { margin: 16px; margin-left: 0; margin-right: 0; }
+    .sim-block .sim-child { margin: 16px; }
+    .sim-block .sim-child:first-child { margin-top: 0; }
+    .sim-block .sim-child:last-child { margin-bottom: 0; }
+  </style>
+</head>
+<body>
+  <h1>Margin Trim</h1>
+  <p class="prop-name">margin-trim</p>
+  <div class="demos">
+
+    <div class="demo-card">
+      <h3>none (default)</h3>
+      <div class="sim-container sim-none">
+        <div class="sim-child">Child 1</div>
+        <div class="sim-child">Child 2</div>
+        <div class="sim-child">Child 3</div>
+      </div>
+      <p class="label">margin-trim: </p>
+      <div class="indicator">
+        <span class="arrow">&#9650;&#9660;</span>
+        <span class="desc">All child margins preserved</span>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <h3>block-start</h3>
+      <div class="sim-container sim-block-start">
+        <div class="sim-child">Child 1</div>
+        <div class="sim-child">Child 2</div>
+        <div class="sim-child">Child 3</div>
+      </div>
+      <p class="label">margin-trim: -start inline-start inline-end</p>
+      <div class="indicator">
+        <span class="arrow">&#9650;</span>
+        <span class="desc">Top margin of first child trimmed</span>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <h3>block-end</h3>
+      <div class="sim-container sim-block-end">
+        <div class="sim-child">Child 1</div>
+        <div class="sim-child">Child 2</div>
+        <div class="sim-child">Child 3</div>
+      </div>
+      <p class="label">margin-trim: -start block-end ! important</p>
+      <div class="indicator">
+        <span class="arrow">&#9660;</span>
+        <span class="desc">Bottom margin of last child trimmed</span>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <h3>block</h3>
+      <div class="sim-container sim-block">
+        <div class="sim-child">Child 1</div>
+        <div class="sim-child">Child 2</div>
+        <div class="sim-child">Child 3</div>
+      </div>
+      <p class="label">margin-trim: </p>
+      <div class="indicator">
+        <span class="arrow">&#9650;&#9660;</span>
+        <span class="desc">Both block-start and block-end trimmed</span>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <h3>inline</h3>
+      <div class="sim-container sim-inline" style="display: flex; flex-direction: column;">
+        <div class="sim-child">Child 1</div>
+        <div class="sim-child">Child 2</div>
+        <div class="sim-child">Child 3</div>
+      </div>
+      <p class="label">margin-trim:  ! important</p>
+      <div class="indicator">
+        <span class="arrow">&#9664;&#9654;</span>
+        <span class="desc">Inline (left/right) margins trimmed</span>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

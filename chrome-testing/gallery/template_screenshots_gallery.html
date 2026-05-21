@@ -1,0 +1,2172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Properties Visual Reference</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f0f0f;
+      color: #e0e0e0;
+      padding: 24px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 32px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      max-width: 1800px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #1a1a1a;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #333;
+      transition: border-color 0.2s;
+    }
+    .card:hover {
+      border-color: #666;
+    }
+    .card img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      object-position: top left;
+      display: block;
+      background: #222;
+    }
+    .card .label {
+      padding: 8px 12px;
+      font-size: 12px;
+      font-family: "SF Mono", "Fira Code", monospace;
+      color: #a0cfff;
+      background: #111;
+      border-top: 1px solid #333;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    @media (max-width: 1200px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+</head>
+<body>
+  <h1>CSS Properties Visual Reference</h1>
+  <p class="subtitle">525 properties</p>
+  <div class="grid">
+    <div class="card">
+      <img src="../screenshots/template/accent-color.png" alt="accent-color" loading="lazy">
+      <div class="label">accent-color</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/align-content.png" alt="align-content" loading="lazy">
+      <div class="label">align-content</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/align-items.png" alt="align-items" loading="lazy">
+      <div class="label">align-items</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/align-self.png" alt="align-self" loading="lazy">
+      <div class="label">align-self</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/alignment-baseline.png" alt="alignment-baseline" loading="lazy">
+      <div class="label">alignment-baseline</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/all.png" alt="all" loading="lazy">
+      <div class="label">all</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/anchor-name.png" alt="anchor-name" loading="lazy">
+      <div class="label">anchor-name</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/anchor-scope.png" alt="anchor-scope" loading="lazy">
+      <div class="label">anchor-scope</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/animation-composition.png" alt="animation-composition" loading="lazy">
+      <div class="label">animation-composition</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/animation-delay.png" alt="animation-delay" loading="lazy">
+      <div class="label">animation-delay</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/animation-direction.png" alt="animation-direction" loading="lazy">
+      <div class="label">animation-direction</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/animation-duration.png" alt="animation-duration" loading="lazy">
+      <div class="label">animation-duration</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/animation-fill-mode.png" alt="animation-fill-mode" loading="lazy">
+      <div class="label">animation-fill-mode</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/animation-iteration-count.png" alt="animation-iteration-count" loading="lazy">
+      <div class="label">animation-iteration-count</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/animation-name.png" alt="animation-name" loading="lazy">
+      <div class="label">animation-name</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/animation-play-state.png" alt="animation-play-state" loading="lazy">
+      <div class="label">animation-play-state</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/animation-range-end.png" alt="animation-range-end" loading="lazy">
+      <div class="label">animation-range-end</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/animation-range-start.png" alt="animation-range-start" loading="lazy">
+      <div class="label">animation-range-start</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/animation-range.png" alt="animation-range" loading="lazy">
+      <div class="label">animation-range</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/animation-timeline.png" alt="animation-timeline" loading="lazy">
+      <div class="label">animation-timeline</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/animation-timing-function.png" alt="animation-timing-function" loading="lazy">
+      <div class="label">animation-timing-function</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/animation.png" alt="animation" loading="lazy">
+      <div class="label">animation</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/appearance.png" alt="appearance" loading="lazy">
+      <div class="label">appearance</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/aspect-ratio.png" alt="aspect-ratio" loading="lazy">
+      <div class="label">aspect-ratio</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/backdrop-filter.png" alt="backdrop-filter" loading="lazy">
+      <div class="label">backdrop-filter</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/backface-visibility.png" alt="backface-visibility" loading="lazy">
+      <div class="label">backface-visibility</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/background-attachment.png" alt="background-attachment" loading="lazy">
+      <div class="label">background-attachment</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/background-blend-mode.png" alt="background-blend-mode" loading="lazy">
+      <div class="label">background-blend-mode</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/background-clip.png" alt="background-clip" loading="lazy">
+      <div class="label">background-clip</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/background-color.png" alt="background-color" loading="lazy">
+      <div class="label">background-color</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/background-image.png" alt="background-image" loading="lazy">
+      <div class="label">background-image</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/background-origin.png" alt="background-origin" loading="lazy">
+      <div class="label">background-origin</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/background-position-x.png" alt="background-position-x" loading="lazy">
+      <div class="label">background-position-x</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/background-position-y.png" alt="background-position-y" loading="lazy">
+      <div class="label">background-position-y</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/background-position.png" alt="background-position" loading="lazy">
+      <div class="label">background-position</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/background-repeat-x.png" alt="background-repeat-x" loading="lazy">
+      <div class="label">background-repeat-x</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/background-repeat-y.png" alt="background-repeat-y" loading="lazy">
+      <div class="label">background-repeat-y</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/background-repeat.png" alt="background-repeat" loading="lazy">
+      <div class="label">background-repeat</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/background-size.png" alt="background-size" loading="lazy">
+      <div class="label">background-size</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/background.png" alt="background" loading="lazy">
+      <div class="label">background</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/baseline-shift.png" alt="baseline-shift" loading="lazy">
+      <div class="label">baseline-shift</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/baseline-source.png" alt="baseline-source" loading="lazy">
+      <div class="label">baseline-source</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/block-size.png" alt="block-size" loading="lazy">
+      <div class="label">block-size</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-block-color.png" alt="border-block-color" loading="lazy">
+      <div class="label">border-block-color</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-block-end-color.png" alt="border-block-end-color" loading="lazy">
+      <div class="label">border-block-end-color</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-block-end-style.png" alt="border-block-end-style" loading="lazy">
+      <div class="label">border-block-end-style</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-block-end-width.png" alt="border-block-end-width" loading="lazy">
+      <div class="label">border-block-end-width</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-block-end.png" alt="border-block-end" loading="lazy">
+      <div class="label">border-block-end</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-block-start-color.png" alt="border-block-start-color" loading="lazy">
+      <div class="label">border-block-start-color</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-block-start-style.png" alt="border-block-start-style" loading="lazy">
+      <div class="label">border-block-start-style</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-block-start-width.png" alt="border-block-start-width" loading="lazy">
+      <div class="label">border-block-start-width</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-block-start.png" alt="border-block-start" loading="lazy">
+      <div class="label">border-block-start</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-block-style.png" alt="border-block-style" loading="lazy">
+      <div class="label">border-block-style</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-block-width.png" alt="border-block-width" loading="lazy">
+      <div class="label">border-block-width</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-block.png" alt="border-block" loading="lazy">
+      <div class="label">border-block</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-bottom-color.png" alt="border-bottom-color" loading="lazy">
+      <div class="label">border-bottom-color</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-bottom-left-radius.png" alt="border-bottom-left-radius" loading="lazy">
+      <div class="label">border-bottom-left-radius</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-bottom-right-radius.png" alt="border-bottom-right-radius" loading="lazy">
+      <div class="label">border-bottom-right-radius</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-bottom-style.png" alt="border-bottom-style" loading="lazy">
+      <div class="label">border-bottom-style</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-bottom-width.png" alt="border-bottom-width" loading="lazy">
+      <div class="label">border-bottom-width</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-bottom.png" alt="border-bottom" loading="lazy">
+      <div class="label">border-bottom</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-collapse.png" alt="border-collapse" loading="lazy">
+      <div class="label">border-collapse</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-color.png" alt="border-color" loading="lazy">
+      <div class="label">border-color</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-end-end-radius.png" alt="border-end-end-radius" loading="lazy">
+      <div class="label">border-end-end-radius</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-end-start-radius.png" alt="border-end-start-radius" loading="lazy">
+      <div class="label">border-end-start-radius</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-image-outset.png" alt="border-image-outset" loading="lazy">
+      <div class="label">border-image-outset</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-image-repeat.png" alt="border-image-repeat" loading="lazy">
+      <div class="label">border-image-repeat</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-image-slice.png" alt="border-image-slice" loading="lazy">
+      <div class="label">border-image-slice</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-image-source.png" alt="border-image-source" loading="lazy">
+      <div class="label">border-image-source</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-image-width.png" alt="border-image-width" loading="lazy">
+      <div class="label">border-image-width</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-image.png" alt="border-image" loading="lazy">
+      <div class="label">border-image</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-inline-color.png" alt="border-inline-color" loading="lazy">
+      <div class="label">border-inline-color</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-inline-end-color.png" alt="border-inline-end-color" loading="lazy">
+      <div class="label">border-inline-end-color</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-inline-end-style.png" alt="border-inline-end-style" loading="lazy">
+      <div class="label">border-inline-end-style</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-inline-end-width.png" alt="border-inline-end-width" loading="lazy">
+      <div class="label">border-inline-end-width</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-inline-end.png" alt="border-inline-end" loading="lazy">
+      <div class="label">border-inline-end</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-inline-start-color.png" alt="border-inline-start-color" loading="lazy">
+      <div class="label">border-inline-start-color</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-inline-start-style.png" alt="border-inline-start-style" loading="lazy">
+      <div class="label">border-inline-start-style</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-inline-start-width.png" alt="border-inline-start-width" loading="lazy">
+      <div class="label">border-inline-start-width</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-inline-start.png" alt="border-inline-start" loading="lazy">
+      <div class="label">border-inline-start</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-inline-style.png" alt="border-inline-style" loading="lazy">
+      <div class="label">border-inline-style</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-inline-width.png" alt="border-inline-width" loading="lazy">
+      <div class="label">border-inline-width</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-inline.png" alt="border-inline" loading="lazy">
+      <div class="label">border-inline</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-left-color.png" alt="border-left-color" loading="lazy">
+      <div class="label">border-left-color</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-left-style.png" alt="border-left-style" loading="lazy">
+      <div class="label">border-left-style</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-left-width.png" alt="border-left-width" loading="lazy">
+      <div class="label">border-left-width</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-left.png" alt="border-left" loading="lazy">
+      <div class="label">border-left</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-radius.png" alt="border-radius" loading="lazy">
+      <div class="label">border-radius</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-right-color.png" alt="border-right-color" loading="lazy">
+      <div class="label">border-right-color</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-right-style.png" alt="border-right-style" loading="lazy">
+      <div class="label">border-right-style</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-right-width.png" alt="border-right-width" loading="lazy">
+      <div class="label">border-right-width</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-right.png" alt="border-right" loading="lazy">
+      <div class="label">border-right</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-spacing.png" alt="border-spacing" loading="lazy">
+      <div class="label">border-spacing</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-start-end-radius.png" alt="border-start-end-radius" loading="lazy">
+      <div class="label">border-start-end-radius</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-start-start-radius.png" alt="border-start-start-radius" loading="lazy">
+      <div class="label">border-start-start-radius</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-style.png" alt="border-style" loading="lazy">
+      <div class="label">border-style</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-top-color.png" alt="border-top-color" loading="lazy">
+      <div class="label">border-top-color</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-top-left-radius.png" alt="border-top-left-radius" loading="lazy">
+      <div class="label">border-top-left-radius</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-top-right-radius.png" alt="border-top-right-radius" loading="lazy">
+      <div class="label">border-top-right-radius</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-top-style.png" alt="border-top-style" loading="lazy">
+      <div class="label">border-top-style</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-top-width.png" alt="border-top-width" loading="lazy">
+      <div class="label">border-top-width</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-top.png" alt="border-top" loading="lazy">
+      <div class="label">border-top</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border-width.png" alt="border-width" loading="lazy">
+      <div class="label">border-width</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/border.png" alt="border" loading="lazy">
+      <div class="label">border</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/bottom.png" alt="bottom" loading="lazy">
+      <div class="label">bottom</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/box-align.png" alt="box-align" loading="lazy">
+      <div class="label">box-align</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/box-decoration-break.png" alt="box-decoration-break" loading="lazy">
+      <div class="label">box-decoration-break</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/box-direction.png" alt="box-direction" loading="lazy">
+      <div class="label">box-direction</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/box-flex-group.png" alt="box-flex-group" loading="lazy">
+      <div class="label">box-flex-group</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/box-flex.png" alt="box-flex" loading="lazy">
+      <div class="label">box-flex</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/box-lines.png" alt="box-lines" loading="lazy">
+      <div class="label">box-lines</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/box-ordinal-group.png" alt="box-ordinal-group" loading="lazy">
+      <div class="label">box-ordinal-group</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/box-orient.png" alt="box-orient" loading="lazy">
+      <div class="label">box-orient</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/box-pack.png" alt="box-pack" loading="lazy">
+      <div class="label">box-pack</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/box-shadow.png" alt="box-shadow" loading="lazy">
+      <div class="label">box-shadow</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/box-sizing.png" alt="box-sizing" loading="lazy">
+      <div class="label">box-sizing</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/break-after.png" alt="break-after" loading="lazy">
+      <div class="label">break-after</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/break-before.png" alt="break-before" loading="lazy">
+      <div class="label">break-before</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/break-inside.png" alt="break-inside" loading="lazy">
+      <div class="label">break-inside</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/caption-side.png" alt="caption-side" loading="lazy">
+      <div class="label">caption-side</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/caret-animation.png" alt="caret-animation" loading="lazy">
+      <div class="label">caret-animation</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/caret-color.png" alt="caret-color" loading="lazy">
+      <div class="label">caret-color</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/caret-shape.png" alt="caret-shape" loading="lazy">
+      <div class="label">caret-shape</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/caret.png" alt="caret" loading="lazy">
+      <div class="label">caret</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/clear.png" alt="clear" loading="lazy">
+      <div class="label">clear</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/clip-path.png" alt="clip-path" loading="lazy">
+      <div class="label">clip-path</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/clip-rule.png" alt="clip-rule" loading="lazy">
+      <div class="label">clip-rule</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/clip.png" alt="clip" loading="lazy">
+      <div class="label">clip</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/color-interpolation-filters.png" alt="color-interpolation-filters" loading="lazy">
+      <div class="label">color-interpolation-filters</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/color-interpolation.png" alt="color-interpolation" loading="lazy">
+      <div class="label">color-interpolation</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/color-scheme.png" alt="color-scheme" loading="lazy">
+      <div class="label">color-scheme</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/color.png" alt="color" loading="lazy">
+      <div class="label">color</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/column-count.png" alt="column-count" loading="lazy">
+      <div class="label">column-count</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/column-fill.png" alt="column-fill" loading="lazy">
+      <div class="label">column-fill</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/column-gap.png" alt="column-gap" loading="lazy">
+      <div class="label">column-gap</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/column-height.png" alt="column-height" loading="lazy">
+      <div class="label">column-height</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/column-rule-color.png" alt="column-rule-color" loading="lazy">
+      <div class="label">column-rule-color</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/column-rule-style.png" alt="column-rule-style" loading="lazy">
+      <div class="label">column-rule-style</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/column-rule-width.png" alt="column-rule-width" loading="lazy">
+      <div class="label">column-rule-width</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/column-rule.png" alt="column-rule" loading="lazy">
+      <div class="label">column-rule</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/column-span.png" alt="column-span" loading="lazy">
+      <div class="label">column-span</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/column-width.png" alt="column-width" loading="lazy">
+      <div class="label">column-width</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/column-wrap.png" alt="column-wrap" loading="lazy">
+      <div class="label">column-wrap</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/columns.png" alt="columns" loading="lazy">
+      <div class="label">columns</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/contain-intrinsic-block-size.png" alt="contain-intrinsic-block-size" loading="lazy">
+      <div class="label">contain-intrinsic-block-size</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/contain-intrinsic-height.png" alt="contain-intrinsic-height" loading="lazy">
+      <div class="label">contain-intrinsic-height</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/contain-intrinsic-inline-size.png" alt="contain-intrinsic-inline-size" loading="lazy">
+      <div class="label">contain-intrinsic-inline-size</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/contain-intrinsic-size.png" alt="contain-intrinsic-size" loading="lazy">
+      <div class="label">contain-intrinsic-size</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/contain-intrinsic-width.png" alt="contain-intrinsic-width" loading="lazy">
+      <div class="label">contain-intrinsic-width</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/contain.png" alt="contain" loading="lazy">
+      <div class="label">contain</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/container-name.png" alt="container-name" loading="lazy">
+      <div class="label">container-name</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/container-type.png" alt="container-type" loading="lazy">
+      <div class="label">container-type</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/container.png" alt="container" loading="lazy">
+      <div class="label">container</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/content-visibility.png" alt="content-visibility" loading="lazy">
+      <div class="label">content-visibility</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/content.png" alt="content" loading="lazy">
+      <div class="label">content</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/corner-block-end-shape.png" alt="corner-block-end-shape" loading="lazy">
+      <div class="label">corner-block-end-shape</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/corner-block-start-shape.png" alt="corner-block-start-shape" loading="lazy">
+      <div class="label">corner-block-start-shape</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/corner-bottom-left-shape.png" alt="corner-bottom-left-shape" loading="lazy">
+      <div class="label">corner-bottom-left-shape</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/corner-bottom-right-shape.png" alt="corner-bottom-right-shape" loading="lazy">
+      <div class="label">corner-bottom-right-shape</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/corner-bottom-shape.png" alt="corner-bottom-shape" loading="lazy">
+      <div class="label">corner-bottom-shape</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/corner-end-end-shape.png" alt="corner-end-end-shape" loading="lazy">
+      <div class="label">corner-end-end-shape</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/corner-end-start-shape.png" alt="corner-end-start-shape" loading="lazy">
+      <div class="label">corner-end-start-shape</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/corner-inline-end-shape.png" alt="corner-inline-end-shape" loading="lazy">
+      <div class="label">corner-inline-end-shape</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/corner-inline-start-shape.png" alt="corner-inline-start-shape" loading="lazy">
+      <div class="label">corner-inline-start-shape</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/corner-left-shape.png" alt="corner-left-shape" loading="lazy">
+      <div class="label">corner-left-shape</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/corner-right-shape.png" alt="corner-right-shape" loading="lazy">
+      <div class="label">corner-right-shape</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/corner-shape.png" alt="corner-shape" loading="lazy">
+      <div class="label">corner-shape</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/corner-start-end-shape.png" alt="corner-start-end-shape" loading="lazy">
+      <div class="label">corner-start-end-shape</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/corner-start-start-shape.png" alt="corner-start-start-shape" loading="lazy">
+      <div class="label">corner-start-start-shape</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/corner-top-left-shape.png" alt="corner-top-left-shape" loading="lazy">
+      <div class="label">corner-top-left-shape</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/corner-top-right-shape.png" alt="corner-top-right-shape" loading="lazy">
+      <div class="label">corner-top-right-shape</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/corner-top-shape.png" alt="corner-top-shape" loading="lazy">
+      <div class="label">corner-top-shape</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/counter-increment.png" alt="counter-increment" loading="lazy">
+      <div class="label">counter-increment</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/counter-reset.png" alt="counter-reset" loading="lazy">
+      <div class="label">counter-reset</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/counter-set.png" alt="counter-set" loading="lazy">
+      <div class="label">counter-set</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/cursor.png" alt="cursor" loading="lazy">
+      <div class="label">cursor</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/cx.png" alt="cx" loading="lazy">
+      <div class="label">cx</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/cy.png" alt="cy" loading="lazy">
+      <div class="label">cy</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/d.png" alt="d" loading="lazy">
+      <div class="label">d</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/direction.png" alt="direction" loading="lazy">
+      <div class="label">direction</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/display.png" alt="display" loading="lazy">
+      <div class="label">display</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/dominant-baseline.png" alt="dominant-baseline" loading="lazy">
+      <div class="label">dominant-baseline</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/dynamic-range-limit.png" alt="dynamic-range-limit" loading="lazy">
+      <div class="label">dynamic-range-limit</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/empty-cells.png" alt="empty-cells" loading="lazy">
+      <div class="label">empty-cells</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/field-sizing.png" alt="field-sizing" loading="lazy">
+      <div class="label">field-sizing</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/fill-opacity.png" alt="fill-opacity" loading="lazy">
+      <div class="label">fill-opacity</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/fill-rule.png" alt="fill-rule" loading="lazy">
+      <div class="label">fill-rule</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/fill.png" alt="fill" loading="lazy">
+      <div class="label">fill</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/filter.png" alt="filter" loading="lazy">
+      <div class="label">filter</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/flex-basis.png" alt="flex-basis" loading="lazy">
+      <div class="label">flex-basis</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/flex-direction.png" alt="flex-direction" loading="lazy">
+      <div class="label">flex-direction</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/flex-flow.png" alt="flex-flow" loading="lazy">
+      <div class="label">flex-flow</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/flex-grow.png" alt="flex-grow" loading="lazy">
+      <div class="label">flex-grow</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/flex-shrink.png" alt="flex-shrink" loading="lazy">
+      <div class="label">flex-shrink</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/flex-wrap.png" alt="flex-wrap" loading="lazy">
+      <div class="label">flex-wrap</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/flex.png" alt="flex" loading="lazy">
+      <div class="label">flex</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/float.png" alt="float" loading="lazy">
+      <div class="label">float</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/flood-color.png" alt="flood-color" loading="lazy">
+      <div class="label">flood-color</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/flood-opacity.png" alt="flood-opacity" loading="lazy">
+      <div class="label">flood-opacity</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/font-family.png" alt="font-family" loading="lazy">
+      <div class="label">font-family</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/font-feature-settings.png" alt="font-feature-settings" loading="lazy">
+      <div class="label">font-feature-settings</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/font-kerning.png" alt="font-kerning" loading="lazy">
+      <div class="label">font-kerning</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/font-language-override.png" alt="font-language-override" loading="lazy">
+      <div class="label">font-language-override</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/font-optical-sizing.png" alt="font-optical-sizing" loading="lazy">
+      <div class="label">font-optical-sizing</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/font-palette.png" alt="font-palette" loading="lazy">
+      <div class="label">font-palette</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/font-size-adjust.png" alt="font-size-adjust" loading="lazy">
+      <div class="label">font-size-adjust</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/font-size.png" alt="font-size" loading="lazy">
+      <div class="label">font-size</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/font-smooth.png" alt="font-smooth" loading="lazy">
+      <div class="label">font-smooth</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/font-stretch.png" alt="font-stretch" loading="lazy">
+      <div class="label">font-stretch</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/font-style.png" alt="font-style" loading="lazy">
+      <div class="label">font-style</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/font-synthesis-position.png" alt="font-synthesis-position" loading="lazy">
+      <div class="label">font-synthesis-position</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/font-synthesis-small-caps.png" alt="font-synthesis-small-caps" loading="lazy">
+      <div class="label">font-synthesis-small-caps</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/font-synthesis-style.png" alt="font-synthesis-style" loading="lazy">
+      <div class="label">font-synthesis-style</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/font-synthesis-weight.png" alt="font-synthesis-weight" loading="lazy">
+      <div class="label">font-synthesis-weight</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/font-synthesis.png" alt="font-synthesis" loading="lazy">
+      <div class="label">font-synthesis</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/font-variant-alternates.png" alt="font-variant-alternates" loading="lazy">
+      <div class="label">font-variant-alternates</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/font-variant-caps.png" alt="font-variant-caps" loading="lazy">
+      <div class="label">font-variant-caps</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/font-variant-east-asian.png" alt="font-variant-east-asian" loading="lazy">
+      <div class="label">font-variant-east-asian</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/font-variant-emoji.png" alt="font-variant-emoji" loading="lazy">
+      <div class="label">font-variant-emoji</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/font-variant-ligatures.png" alt="font-variant-ligatures" loading="lazy">
+      <div class="label">font-variant-ligatures</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/font-variant-numeric.png" alt="font-variant-numeric" loading="lazy">
+      <div class="label">font-variant-numeric</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/font-variant-position.png" alt="font-variant-position" loading="lazy">
+      <div class="label">font-variant-position</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/font-variant.png" alt="font-variant" loading="lazy">
+      <div class="label">font-variant</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/font-variation-settings.png" alt="font-variation-settings" loading="lazy">
+      <div class="label">font-variation-settings</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/font-weight.png" alt="font-weight" loading="lazy">
+      <div class="label">font-weight</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/font-width.png" alt="font-width" loading="lazy">
+      <div class="label">font-width</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/font.png" alt="font" loading="lazy">
+      <div class="label">font</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/forced-color-adjust.png" alt="forced-color-adjust" loading="lazy">
+      <div class="label">forced-color-adjust</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/gap.png" alt="gap" loading="lazy">
+      <div class="label">gap</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/grid-area.png" alt="grid-area" loading="lazy">
+      <div class="label">grid-area</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/grid-auto-columns.png" alt="grid-auto-columns" loading="lazy">
+      <div class="label">grid-auto-columns</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/grid-auto-flow.png" alt="grid-auto-flow" loading="lazy">
+      <div class="label">grid-auto-flow</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/grid-auto-rows.png" alt="grid-auto-rows" loading="lazy">
+      <div class="label">grid-auto-rows</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/grid-column-end.png" alt="grid-column-end" loading="lazy">
+      <div class="label">grid-column-end</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/grid-column-start.png" alt="grid-column-start" loading="lazy">
+      <div class="label">grid-column-start</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/grid-column.png" alt="grid-column" loading="lazy">
+      <div class="label">grid-column</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/grid-row-end.png" alt="grid-row-end" loading="lazy">
+      <div class="label">grid-row-end</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/grid-row-start.png" alt="grid-row-start" loading="lazy">
+      <div class="label">grid-row-start</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/grid-row.png" alt="grid-row" loading="lazy">
+      <div class="label">grid-row</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/grid-template-areas.png" alt="grid-template-areas" loading="lazy">
+      <div class="label">grid-template-areas</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/grid-template-columns.png" alt="grid-template-columns" loading="lazy">
+      <div class="label">grid-template-columns</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/grid-template-rows.png" alt="grid-template-rows" loading="lazy">
+      <div class="label">grid-template-rows</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/grid-template.png" alt="grid-template" loading="lazy">
+      <div class="label">grid-template</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/grid.png" alt="grid" loading="lazy">
+      <div class="label">grid</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/hanging-punctuation.png" alt="hanging-punctuation" loading="lazy">
+      <div class="label">hanging-punctuation</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/height.png" alt="height" loading="lazy">
+      <div class="label">height</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/hyphenate-character.png" alt="hyphenate-character" loading="lazy">
+      <div class="label">hyphenate-character</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/hyphenate-limit-chars.png" alt="hyphenate-limit-chars" loading="lazy">
+      <div class="label">hyphenate-limit-chars</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/hyphens.png" alt="hyphens" loading="lazy">
+      <div class="label">hyphens</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/image-orientation.png" alt="image-orientation" loading="lazy">
+      <div class="label">image-orientation</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/image-rendering.png" alt="image-rendering" loading="lazy">
+      <div class="label">image-rendering</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/image-resolution.png" alt="image-resolution" loading="lazy">
+      <div class="label">image-resolution</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/initial-letter.png" alt="initial-letter" loading="lazy">
+      <div class="label">initial-letter</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/inline-size.png" alt="inline-size" loading="lazy">
+      <div class="label">inline-size</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/inset-block-end.png" alt="inset-block-end" loading="lazy">
+      <div class="label">inset-block-end</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/inset-block-start.png" alt="inset-block-start" loading="lazy">
+      <div class="label">inset-block-start</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/inset-block.png" alt="inset-block" loading="lazy">
+      <div class="label">inset-block</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/inset-inline-end.png" alt="inset-inline-end" loading="lazy">
+      <div class="label">inset-inline-end</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/inset-inline-start.png" alt="inset-inline-start" loading="lazy">
+      <div class="label">inset-inline-start</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/inset-inline.png" alt="inset-inline" loading="lazy">
+      <div class="label">inset-inline</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/inset.png" alt="inset" loading="lazy">
+      <div class="label">inset</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/interactivity.png" alt="interactivity" loading="lazy">
+      <div class="label">interactivity</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/interest-delay-end.png" alt="interest-delay-end" loading="lazy">
+      <div class="label">interest-delay-end</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/interest-delay-start.png" alt="interest-delay-start" loading="lazy">
+      <div class="label">interest-delay-start</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/interest-delay.png" alt="interest-delay" loading="lazy">
+      <div class="label">interest-delay</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/interpolate-size.png" alt="interpolate-size" loading="lazy">
+      <div class="label">interpolate-size</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/isolation.png" alt="isolation" loading="lazy">
+      <div class="label">isolation</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/justify-content.png" alt="justify-content" loading="lazy">
+      <div class="label">justify-content</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/justify-items.png" alt="justify-items" loading="lazy">
+      <div class="label">justify-items</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/justify-self.png" alt="justify-self" loading="lazy">
+      <div class="label">justify-self</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/left.png" alt="left" loading="lazy">
+      <div class="label">left</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/letter-spacing.png" alt="letter-spacing" loading="lazy">
+      <div class="label">letter-spacing</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/lighting-color.png" alt="lighting-color" loading="lazy">
+      <div class="label">lighting-color</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/line-break.png" alt="line-break" loading="lazy">
+      <div class="label">line-break</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/line-clamp.png" alt="line-clamp" loading="lazy">
+      <div class="label">line-clamp</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/line-height-step.png" alt="line-height-step" loading="lazy">
+      <div class="label">line-height-step</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/line-height.png" alt="line-height" loading="lazy">
+      <div class="label">line-height</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/list-style-image.png" alt="list-style-image" loading="lazy">
+      <div class="label">list-style-image</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/list-style-position.png" alt="list-style-position" loading="lazy">
+      <div class="label">list-style-position</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/list-style-type.png" alt="list-style-type" loading="lazy">
+      <div class="label">list-style-type</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/list-style.png" alt="list-style" loading="lazy">
+      <div class="label">list-style</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/margin-block-end.png" alt="margin-block-end" loading="lazy">
+      <div class="label">margin-block-end</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/margin-block-start.png" alt="margin-block-start" loading="lazy">
+      <div class="label">margin-block-start</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/margin-block.png" alt="margin-block" loading="lazy">
+      <div class="label">margin-block</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/margin-bottom.png" alt="margin-bottom" loading="lazy">
+      <div class="label">margin-bottom</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/margin-inline-end.png" alt="margin-inline-end" loading="lazy">
+      <div class="label">margin-inline-end</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/margin-inline-start.png" alt="margin-inline-start" loading="lazy">
+      <div class="label">margin-inline-start</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/margin-inline.png" alt="margin-inline" loading="lazy">
+      <div class="label">margin-inline</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/margin-left.png" alt="margin-left" loading="lazy">
+      <div class="label">margin-left</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/margin-right.png" alt="margin-right" loading="lazy">
+      <div class="label">margin-right</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/margin-top.png" alt="margin-top" loading="lazy">
+      <div class="label">margin-top</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/margin-trim.png" alt="margin-trim" loading="lazy">
+      <div class="label">margin-trim</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/margin.png" alt="margin" loading="lazy">
+      <div class="label">margin</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/marker-end.png" alt="marker-end" loading="lazy">
+      <div class="label">marker-end</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/marker-mid.png" alt="marker-mid" loading="lazy">
+      <div class="label">marker-mid</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/marker-start.png" alt="marker-start" loading="lazy">
+      <div class="label">marker-start</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/marker.png" alt="marker" loading="lazy">
+      <div class="label">marker</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/mask-border-mode.png" alt="mask-border-mode" loading="lazy">
+      <div class="label">mask-border-mode</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/mask-border-outset.png" alt="mask-border-outset" loading="lazy">
+      <div class="label">mask-border-outset</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/mask-border-repeat.png" alt="mask-border-repeat" loading="lazy">
+      <div class="label">mask-border-repeat</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/mask-border-slice.png" alt="mask-border-slice" loading="lazy">
+      <div class="label">mask-border-slice</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/mask-border-source.png" alt="mask-border-source" loading="lazy">
+      <div class="label">mask-border-source</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/mask-border-width.png" alt="mask-border-width" loading="lazy">
+      <div class="label">mask-border-width</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/mask-border.png" alt="mask-border" loading="lazy">
+      <div class="label">mask-border</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/mask-clip.png" alt="mask-clip" loading="lazy">
+      <div class="label">mask-clip</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/mask-composite.png" alt="mask-composite" loading="lazy">
+      <div class="label">mask-composite</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/mask-image.png" alt="mask-image" loading="lazy">
+      <div class="label">mask-image</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/mask-mode.png" alt="mask-mode" loading="lazy">
+      <div class="label">mask-mode</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/mask-origin.png" alt="mask-origin" loading="lazy">
+      <div class="label">mask-origin</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/mask-position.png" alt="mask-position" loading="lazy">
+      <div class="label">mask-position</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/mask-repeat.png" alt="mask-repeat" loading="lazy">
+      <div class="label">mask-repeat</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/mask-size.png" alt="mask-size" loading="lazy">
+      <div class="label">mask-size</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/mask-type.png" alt="mask-type" loading="lazy">
+      <div class="label">mask-type</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/mask.png" alt="mask" loading="lazy">
+      <div class="label">mask</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/math-depth.png" alt="math-depth" loading="lazy">
+      <div class="label">math-depth</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/math-shift.png" alt="math-shift" loading="lazy">
+      <div class="label">math-shift</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/math-style.png" alt="math-style" loading="lazy">
+      <div class="label">math-style</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/max-block-size.png" alt="max-block-size" loading="lazy">
+      <div class="label">max-block-size</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/max-height.png" alt="max-height" loading="lazy">
+      <div class="label">max-height</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/max-inline-size.png" alt="max-inline-size" loading="lazy">
+      <div class="label">max-inline-size</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/max-width.png" alt="max-width" loading="lazy">
+      <div class="label">max-width</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/min-block-size.png" alt="min-block-size" loading="lazy">
+      <div class="label">min-block-size</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/min-height.png" alt="min-height" loading="lazy">
+      <div class="label">min-height</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/min-inline-size.png" alt="min-inline-size" loading="lazy">
+      <div class="label">min-inline-size</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/min-width.png" alt="min-width" loading="lazy">
+      <div class="label">min-width</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/mix-blend-mode.png" alt="mix-blend-mode" loading="lazy">
+      <div class="label">mix-blend-mode</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/object-fit.png" alt="object-fit" loading="lazy">
+      <div class="label">object-fit</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/object-position.png" alt="object-position" loading="lazy">
+      <div class="label">object-position</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/object-view-box.png" alt="object-view-box" loading="lazy">
+      <div class="label">object-view-box</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/offset-anchor.png" alt="offset-anchor" loading="lazy">
+      <div class="label">offset-anchor</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/offset-distance.png" alt="offset-distance" loading="lazy">
+      <div class="label">offset-distance</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/offset-path.png" alt="offset-path" loading="lazy">
+      <div class="label">offset-path</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/offset-position.png" alt="offset-position" loading="lazy">
+      <div class="label">offset-position</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/offset-rotate.png" alt="offset-rotate" loading="lazy">
+      <div class="label">offset-rotate</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/offset.png" alt="offset" loading="lazy">
+      <div class="label">offset</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/opacity.png" alt="opacity" loading="lazy">
+      <div class="label">opacity</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/order.png" alt="order" loading="lazy">
+      <div class="label">order</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/orphans.png" alt="orphans" loading="lazy">
+      <div class="label">orphans</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/outline-color.png" alt="outline-color" loading="lazy">
+      <div class="label">outline-color</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/outline-offset.png" alt="outline-offset" loading="lazy">
+      <div class="label">outline-offset</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/outline-style.png" alt="outline-style" loading="lazy">
+      <div class="label">outline-style</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/outline-width.png" alt="outline-width" loading="lazy">
+      <div class="label">outline-width</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/outline.png" alt="outline" loading="lazy">
+      <div class="label">outline</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/overflow-anchor.png" alt="overflow-anchor" loading="lazy">
+      <div class="label">overflow-anchor</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/overflow-block.png" alt="overflow-block" loading="lazy">
+      <div class="label">overflow-block</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/overflow-clip-margin.png" alt="overflow-clip-margin" loading="lazy">
+      <div class="label">overflow-clip-margin</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/overflow-inline.png" alt="overflow-inline" loading="lazy">
+      <div class="label">overflow-inline</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/overflow-wrap.png" alt="overflow-wrap" loading="lazy">
+      <div class="label">overflow-wrap</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/overflow-x.png" alt="overflow-x" loading="lazy">
+      <div class="label">overflow-x</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/overflow-y.png" alt="overflow-y" loading="lazy">
+      <div class="label">overflow-y</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/overflow.png" alt="overflow" loading="lazy">
+      <div class="label">overflow</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/overlay.png" alt="overlay" loading="lazy">
+      <div class="label">overlay</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/overscroll-behavior-block.png" alt="overscroll-behavior-block" loading="lazy">
+      <div class="label">overscroll-behavior-block</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/overscroll-behavior-inline.png" alt="overscroll-behavior-inline" loading="lazy">
+      <div class="label">overscroll-behavior-inline</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/overscroll-behavior-x.png" alt="overscroll-behavior-x" loading="lazy">
+      <div class="label">overscroll-behavior-x</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/overscroll-behavior-y.png" alt="overscroll-behavior-y" loading="lazy">
+      <div class="label">overscroll-behavior-y</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/overscroll-behavior.png" alt="overscroll-behavior" loading="lazy">
+      <div class="label">overscroll-behavior</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/padding-block-end.png" alt="padding-block-end" loading="lazy">
+      <div class="label">padding-block-end</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/padding-block-start.png" alt="padding-block-start" loading="lazy">
+      <div class="label">padding-block-start</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/padding-block.png" alt="padding-block" loading="lazy">
+      <div class="label">padding-block</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/padding-bottom.png" alt="padding-bottom" loading="lazy">
+      <div class="label">padding-bottom</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/padding-inline-end.png" alt="padding-inline-end" loading="lazy">
+      <div class="label">padding-inline-end</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/padding-inline-start.png" alt="padding-inline-start" loading="lazy">
+      <div class="label">padding-inline-start</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/padding-inline.png" alt="padding-inline" loading="lazy">
+      <div class="label">padding-inline</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/padding-left.png" alt="padding-left" loading="lazy">
+      <div class="label">padding-left</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/padding-right.png" alt="padding-right" loading="lazy">
+      <div class="label">padding-right</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/padding-top.png" alt="padding-top" loading="lazy">
+      <div class="label">padding-top</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/padding.png" alt="padding" loading="lazy">
+      <div class="label">padding</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/page-break-after.png" alt="page-break-after" loading="lazy">
+      <div class="label">page-break-after</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/page-break-before.png" alt="page-break-before" loading="lazy">
+      <div class="label">page-break-before</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/page-break-inside.png" alt="page-break-inside" loading="lazy">
+      <div class="label">page-break-inside</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/page.png" alt="page" loading="lazy">
+      <div class="label">page</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/paint-order.png" alt="paint-order" loading="lazy">
+      <div class="label">paint-order</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/perspective-origin.png" alt="perspective-origin" loading="lazy">
+      <div class="label">perspective-origin</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/perspective.png" alt="perspective" loading="lazy">
+      <div class="label">perspective</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/place-content.png" alt="place-content" loading="lazy">
+      <div class="label">place-content</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/place-items.png" alt="place-items" loading="lazy">
+      <div class="label">place-items</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/place-self.png" alt="place-self" loading="lazy">
+      <div class="label">place-self</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/pointer-events.png" alt="pointer-events" loading="lazy">
+      <div class="label">pointer-events</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/position-anchor.png" alt="position-anchor" loading="lazy">
+      <div class="label">position-anchor</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/position-area.png" alt="position-area" loading="lazy">
+      <div class="label">position-area</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/position-try-fallbacks.png" alt="position-try-fallbacks" loading="lazy">
+      <div class="label">position-try-fallbacks</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/position-try-order.png" alt="position-try-order" loading="lazy">
+      <div class="label">position-try-order</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/position-try.png" alt="position-try" loading="lazy">
+      <div class="label">position-try</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/position-visibility.png" alt="position-visibility" loading="lazy">
+      <div class="label">position-visibility</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/position.png" alt="position" loading="lazy">
+      <div class="label">position</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/print-color-adjust.png" alt="print-color-adjust" loading="lazy">
+      <div class="label">print-color-adjust</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/quotes.png" alt="quotes" loading="lazy">
+      <div class="label">quotes</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/r.png" alt="r" loading="lazy">
+      <div class="label">r</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/reading-flow.png" alt="reading-flow" loading="lazy">
+      <div class="label">reading-flow</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/reading-order.png" alt="reading-order" loading="lazy">
+      <div class="label">reading-order</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/resize.png" alt="resize" loading="lazy">
+      <div class="label">resize</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/right.png" alt="right" loading="lazy">
+      <div class="label">right</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/rotate.png" alt="rotate" loading="lazy">
+      <div class="label">rotate</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/row-gap.png" alt="row-gap" loading="lazy">
+      <div class="label">row-gap</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/ruby-align.png" alt="ruby-align" loading="lazy">
+      <div class="label">ruby-align</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/ruby-overhang.png" alt="ruby-overhang" loading="lazy">
+      <div class="label">ruby-overhang</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/ruby-position.png" alt="ruby-position" loading="lazy">
+      <div class="label">ruby-position</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/rx.png" alt="rx" loading="lazy">
+      <div class="label">rx</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/ry.png" alt="ry" loading="lazy">
+      <div class="label">ry</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scale.png" alt="scale" loading="lazy">
+      <div class="label">scale</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-behavior.png" alt="scroll-behavior" loading="lazy">
+      <div class="label">scroll-behavior</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-initial-target.png" alt="scroll-initial-target" loading="lazy">
+      <div class="label">scroll-initial-target</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-margin-block-end.png" alt="scroll-margin-block-end" loading="lazy">
+      <div class="label">scroll-margin-block-end</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-margin-block-start.png" alt="scroll-margin-block-start" loading="lazy">
+      <div class="label">scroll-margin-block-start</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-margin-block.png" alt="scroll-margin-block" loading="lazy">
+      <div class="label">scroll-margin-block</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-margin-bottom.png" alt="scroll-margin-bottom" loading="lazy">
+      <div class="label">scroll-margin-bottom</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-margin-inline-end.png" alt="scroll-margin-inline-end" loading="lazy">
+      <div class="label">scroll-margin-inline-end</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-margin-inline-start.png" alt="scroll-margin-inline-start" loading="lazy">
+      <div class="label">scroll-margin-inline-start</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-margin-inline.png" alt="scroll-margin-inline" loading="lazy">
+      <div class="label">scroll-margin-inline</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-margin-left.png" alt="scroll-margin-left" loading="lazy">
+      <div class="label">scroll-margin-left</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-margin-right.png" alt="scroll-margin-right" loading="lazy">
+      <div class="label">scroll-margin-right</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-margin-top.png" alt="scroll-margin-top" loading="lazy">
+      <div class="label">scroll-margin-top</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-margin.png" alt="scroll-margin" loading="lazy">
+      <div class="label">scroll-margin</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-marker-group.png" alt="scroll-marker-group" loading="lazy">
+      <div class="label">scroll-marker-group</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-padding-block-end.png" alt="scroll-padding-block-end" loading="lazy">
+      <div class="label">scroll-padding-block-end</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-padding-block-start.png" alt="scroll-padding-block-start" loading="lazy">
+      <div class="label">scroll-padding-block-start</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-padding-block.png" alt="scroll-padding-block" loading="lazy">
+      <div class="label">scroll-padding-block</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-padding-bottom.png" alt="scroll-padding-bottom" loading="lazy">
+      <div class="label">scroll-padding-bottom</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-padding-inline-end.png" alt="scroll-padding-inline-end" loading="lazy">
+      <div class="label">scroll-padding-inline-end</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-padding-inline-start.png" alt="scroll-padding-inline-start" loading="lazy">
+      <div class="label">scroll-padding-inline-start</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-padding-inline.png" alt="scroll-padding-inline" loading="lazy">
+      <div class="label">scroll-padding-inline</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-padding-left.png" alt="scroll-padding-left" loading="lazy">
+      <div class="label">scroll-padding-left</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-padding-right.png" alt="scroll-padding-right" loading="lazy">
+      <div class="label">scroll-padding-right</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-padding-top.png" alt="scroll-padding-top" loading="lazy">
+      <div class="label">scroll-padding-top</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-padding.png" alt="scroll-padding" loading="lazy">
+      <div class="label">scroll-padding</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-snap-align.png" alt="scroll-snap-align" loading="lazy">
+      <div class="label">scroll-snap-align</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-snap-stop.png" alt="scroll-snap-stop" loading="lazy">
+      <div class="label">scroll-snap-stop</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-snap-type.png" alt="scroll-snap-type" loading="lazy">
+      <div class="label">scroll-snap-type</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-target-group.png" alt="scroll-target-group" loading="lazy">
+      <div class="label">scroll-target-group</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-timeline-axis.png" alt="scroll-timeline-axis" loading="lazy">
+      <div class="label">scroll-timeline-axis</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-timeline-name.png" alt="scroll-timeline-name" loading="lazy">
+      <div class="label">scroll-timeline-name</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scroll-timeline.png" alt="scroll-timeline" loading="lazy">
+      <div class="label">scroll-timeline</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scrollbar-color.png" alt="scrollbar-color" loading="lazy">
+      <div class="label">scrollbar-color</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scrollbar-gutter.png" alt="scrollbar-gutter" loading="lazy">
+      <div class="label">scrollbar-gutter</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/scrollbar-width.png" alt="scrollbar-width" loading="lazy">
+      <div class="label">scrollbar-width</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/shape-image-threshold.png" alt="shape-image-threshold" loading="lazy">
+      <div class="label">shape-image-threshold</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/shape-margin.png" alt="shape-margin" loading="lazy">
+      <div class="label">shape-margin</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/shape-outside.png" alt="shape-outside" loading="lazy">
+      <div class="label">shape-outside</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/shape-rendering.png" alt="shape-rendering" loading="lazy">
+      <div class="label">shape-rendering</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/speak-as.png" alt="speak-as" loading="lazy">
+      <div class="label">speak-as</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/stop-color.png" alt="stop-color" loading="lazy">
+      <div class="label">stop-color</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/stop-opacity.png" alt="stop-opacity" loading="lazy">
+      <div class="label">stop-opacity</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/stroke-dasharray.png" alt="stroke-dasharray" loading="lazy">
+      <div class="label">stroke-dasharray</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/stroke-dashoffset.png" alt="stroke-dashoffset" loading="lazy">
+      <div class="label">stroke-dashoffset</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/stroke-linecap.png" alt="stroke-linecap" loading="lazy">
+      <div class="label">stroke-linecap</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/stroke-linejoin.png" alt="stroke-linejoin" loading="lazy">
+      <div class="label">stroke-linejoin</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/stroke-miterlimit.png" alt="stroke-miterlimit" loading="lazy">
+      <div class="label">stroke-miterlimit</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/stroke-opacity.png" alt="stroke-opacity" loading="lazy">
+      <div class="label">stroke-opacity</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/stroke-width.png" alt="stroke-width" loading="lazy">
+      <div class="label">stroke-width</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/stroke.png" alt="stroke" loading="lazy">
+      <div class="label">stroke</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/tab-size.png" alt="tab-size" loading="lazy">
+      <div class="label">tab-size</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/table-layout.png" alt="table-layout" loading="lazy">
+      <div class="label">table-layout</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-align-last.png" alt="text-align-last" loading="lazy">
+      <div class="label">text-align-last</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-align.png" alt="text-align" loading="lazy">
+      <div class="label">text-align</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-anchor.png" alt="text-anchor" loading="lazy">
+      <div class="label">text-anchor</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-autospace.png" alt="text-autospace" loading="lazy">
+      <div class="label">text-autospace</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-box-edge.png" alt="text-box-edge" loading="lazy">
+      <div class="label">text-box-edge</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-box-trim.png" alt="text-box-trim" loading="lazy">
+      <div class="label">text-box-trim</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-box.png" alt="text-box" loading="lazy">
+      <div class="label">text-box</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-combine-upright.png" alt="text-combine-upright" loading="lazy">
+      <div class="label">text-combine-upright</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-decoration-color.png" alt="text-decoration-color" loading="lazy">
+      <div class="label">text-decoration-color</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-decoration-inset.png" alt="text-decoration-inset" loading="lazy">
+      <div class="label">text-decoration-inset</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-decoration-line.png" alt="text-decoration-line" loading="lazy">
+      <div class="label">text-decoration-line</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-decoration-skip-ink.png" alt="text-decoration-skip-ink" loading="lazy">
+      <div class="label">text-decoration-skip-ink</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-decoration-skip.png" alt="text-decoration-skip" loading="lazy">
+      <div class="label">text-decoration-skip</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-decoration-style.png" alt="text-decoration-style" loading="lazy">
+      <div class="label">text-decoration-style</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-decoration-thickness.png" alt="text-decoration-thickness" loading="lazy">
+      <div class="label">text-decoration-thickness</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-decoration.png" alt="text-decoration" loading="lazy">
+      <div class="label">text-decoration</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-emphasis-color.png" alt="text-emphasis-color" loading="lazy">
+      <div class="label">text-emphasis-color</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-emphasis-position.png" alt="text-emphasis-position" loading="lazy">
+      <div class="label">text-emphasis-position</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-emphasis-style.png" alt="text-emphasis-style" loading="lazy">
+      <div class="label">text-emphasis-style</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-emphasis.png" alt="text-emphasis" loading="lazy">
+      <div class="label">text-emphasis</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-indent.png" alt="text-indent" loading="lazy">
+      <div class="label">text-indent</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-justify.png" alt="text-justify" loading="lazy">
+      <div class="label">text-justify</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-orientation.png" alt="text-orientation" loading="lazy">
+      <div class="label">text-orientation</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-overflow.png" alt="text-overflow" loading="lazy">
+      <div class="label">text-overflow</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-rendering.png" alt="text-rendering" loading="lazy">
+      <div class="label">text-rendering</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-shadow.png" alt="text-shadow" loading="lazy">
+      <div class="label">text-shadow</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-size-adjust.png" alt="text-size-adjust" loading="lazy">
+      <div class="label">text-size-adjust</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-spacing-trim.png" alt="text-spacing-trim" loading="lazy">
+      <div class="label">text-spacing-trim</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-transform.png" alt="text-transform" loading="lazy">
+      <div class="label">text-transform</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-underline-offset.png" alt="text-underline-offset" loading="lazy">
+      <div class="label">text-underline-offset</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-underline-position.png" alt="text-underline-position" loading="lazy">
+      <div class="label">text-underline-position</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-wrap-mode.png" alt="text-wrap-mode" loading="lazy">
+      <div class="label">text-wrap-mode</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-wrap-style.png" alt="text-wrap-style" loading="lazy">
+      <div class="label">text-wrap-style</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/text-wrap.png" alt="text-wrap" loading="lazy">
+      <div class="label">text-wrap</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/timeline-scope.png" alt="timeline-scope" loading="lazy">
+      <div class="label">timeline-scope</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/top.png" alt="top" loading="lazy">
+      <div class="label">top</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/touch-action.png" alt="touch-action" loading="lazy">
+      <div class="label">touch-action</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/transform-box.png" alt="transform-box" loading="lazy">
+      <div class="label">transform-box</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/transform-origin.png" alt="transform-origin" loading="lazy">
+      <div class="label">transform-origin</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/transform-style.png" alt="transform-style" loading="lazy">
+      <div class="label">transform-style</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/transform.png" alt="transform" loading="lazy">
+      <div class="label">transform</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/transition-behavior.png" alt="transition-behavior" loading="lazy">
+      <div class="label">transition-behavior</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/transition-delay.png" alt="transition-delay" loading="lazy">
+      <div class="label">transition-delay</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/transition-duration.png" alt="transition-duration" loading="lazy">
+      <div class="label">transition-duration</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/transition-property.png" alt="transition-property" loading="lazy">
+      <div class="label">transition-property</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/transition-timing-function.png" alt="transition-timing-function" loading="lazy">
+      <div class="label">transition-timing-function</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/transition.png" alt="transition" loading="lazy">
+      <div class="label">transition</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/translate.png" alt="translate" loading="lazy">
+      <div class="label">translate</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/unicode-bidi.png" alt="unicode-bidi" loading="lazy">
+      <div class="label">unicode-bidi</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/user-modify.png" alt="user-modify" loading="lazy">
+      <div class="label">user-modify</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/user-select.png" alt="user-select" loading="lazy">
+      <div class="label">user-select</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/vector-effect.png" alt="vector-effect" loading="lazy">
+      <div class="label">vector-effect</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/vertical-align.png" alt="vertical-align" loading="lazy">
+      <div class="label">vertical-align</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/view-timeline-axis.png" alt="view-timeline-axis" loading="lazy">
+      <div class="label">view-timeline-axis</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/view-timeline-inset.png" alt="view-timeline-inset" loading="lazy">
+      <div class="label">view-timeline-inset</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/view-timeline-name.png" alt="view-timeline-name" loading="lazy">
+      <div class="label">view-timeline-name</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/view-timeline.png" alt="view-timeline" loading="lazy">
+      <div class="label">view-timeline</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/view-transition-class.png" alt="view-transition-class" loading="lazy">
+      <div class="label">view-transition-class</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/view-transition-name.png" alt="view-transition-name" loading="lazy">
+      <div class="label">view-transition-name</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/visibility.png" alt="visibility" loading="lazy">
+      <div class="label">visibility</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/white-space-collapse.png" alt="white-space-collapse" loading="lazy">
+      <div class="label">white-space-collapse</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/white-space.png" alt="white-space" loading="lazy">
+      <div class="label">white-space</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/widows.png" alt="widows" loading="lazy">
+      <div class="label">widows</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/width.png" alt="width" loading="lazy">
+      <div class="label">width</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/will-change.png" alt="will-change" loading="lazy">
+      <div class="label">will-change</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/word-break.png" alt="word-break" loading="lazy">
+      <div class="label">word-break</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/word-spacing.png" alt="word-spacing" loading="lazy">
+      <div class="label">word-spacing</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/writing-mode.png" alt="writing-mode" loading="lazy">
+      <div class="label">writing-mode</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/x.png" alt="x" loading="lazy">
+      <div class="label">x</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/y.png" alt="y" loading="lazy">
+      <div class="label">y</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/z-index.png" alt="z-index" loading="lazy">
+      <div class="label">z-index</div>
+    </div>
+    <div class="card">
+      <img src="../screenshots/template/zoom.png" alt="zoom" loading="lazy">
+      <div class="label">zoom</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>corner-bottom-shape</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 4px; }
+    .experimental { font-size: 12px; color: #e94560; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 36px; align-items: flex-start; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
+    .demo-card { text-align: center; }
+
+    .shape-box {
+      width: 180px;
+      height: 170px;
+      background: linear-gradient(180deg, #0f3460, #16213e);
+      border: 3px solid #a855f7;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .corner-dot {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+    }
+    .active { background: #a855f7; box-shadow: 0 0 8px #a855f788; }
+    .inactive { background: #444; opacity: 0.3; }
+  </style>
+</head>
+<body>
+  <h1>Corner Bottom Shape</h1>
+  <p class="prop-name">corner-bottom-shape</p>
+  <p class="experimental">Experimental property</p>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="shape-box">
+        <span style="font-size:14px;color:#c0c0c0;">round</span>
+        <div class="corner-dot inactive" style="top:-8px;left:-8px;"></div>
+        <div class="corner-dot inactive" style="top:-8px;right:-8px;"></div>
+        <div class="corner-dot active" style="bottom:-8px;left:-8px;"></div>
+        <div class="corner-dot active" style="bottom:-8px;right:-8px;"></div>
+      </div>
+      <p class="label">corner-bottom-shape: squircle superellipse(var(--kޭ, --_)) ! important</p>
+    </div>
+
+    <div class="demo-card">
+      <svg width="180" height="170" viewBox="0 0 180 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30 3 H150 Q177 3 177 30 V120 Q150 140 150 167 H30 Q30 140 3 120 V30 Q3 3 30 3Z" fill="#16213e" stroke="#a855f7" stroke-width="3"/>
+        <text x="90" y="90" fill="#c0c0c0" text-anchor="middle" font-size="14" font-family="system-ui">scoop</text>
+        <circle cx="3" cy="167" r="7" fill="#a855f7"/>
+        <circle cx="177" cy="167" r="7" fill="#a855f7"/>
+        <circle cx="3" cy="3" r="6" fill="#444" opacity="0.3"/>
+        <circle cx="177" cy="3" r="6" fill="#444" opacity="0.3"/>
+      </svg>
+      <p class="label">corner-bottom-shape: bevel ! important</p>
+    </div>
+
+    <div class="demo-card">
+      <div style="background:#16213e; border-radius:10px; padding:16px; width: 240px; text-align: left;">
+        <p style="font-size:12px; color:#7b8794; margin-bottom:12px; font-family:monospace;">Affects both bottom corners<br>(bottom-left + bottom-right):</p>
+        <svg width="200" height="110" viewBox="0 0 200 110">
+          <rect x="10" y="10" width="180" height="90" rx="4" fill="none" stroke="#444" stroke-width="1" stroke-dasharray="4"/>
+          <rect x="10" y="10" width="45" height="45" fill="none" stroke="#444" stroke-width="1" opacity="0.3"/>
+          <rect x="145" y="10" width="45" height="45" fill="none" stroke="#444" stroke-width="1" opacity="0.3"/>
+          <rect x="10" y="55" width="45" height="45" fill="#a855f733" stroke="#a855f7" stroke-width="2"/>
+          <rect x="145" y="55" width="45" height="45" fill="#a855f733" stroke="#a855f7" stroke-width="2"/>
+          <text x="32" y="82" fill="#a855f7" text-anchor="middle" font-size="9" font-family="monospace">BL</text>
+          <text x="167" y="82" fill="#a855f7" text-anchor="middle" font-size="9" font-family="monospace">BR</text>
+          <text x="32" y="37" fill="#666" text-anchor="middle" font-size="9" font-family="monospace">TL</text>
+          <text x="167" y="37" fill="#666" text-anchor="middle" font-size="9" font-family="monospace">TR</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

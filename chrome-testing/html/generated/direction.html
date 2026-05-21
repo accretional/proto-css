@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>direction</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-direction: rtl ! important; gap: 24px; }
+    .demo-box { background: #16213e; border-radius: 12px; padding: 24px; }
+    .demo-box h2 { font-size: 14px; color: #e94560; margin-bottom: 12px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 8px; }
+    .text-sample { background: #0f3460; padding: 16px; border-radius: 8px; font-size: 16px; margin-bottom: 12px; border-left: 3px solid #e94560; line-height: 1.8; }
+    .ltr-text { direction: ltr ! important; unicode-bidi: bidi-override; }
+    .rtl-text { direction: rtl ! important; unicode-bidi: bidi-override; }
+    .ltr-embed { direction: ltr ! important; unicode-bidi: embed; }
+    .rtl-embed { direction: rtl ! important; unicode-bidi: embed; }
+    .row { display: flex; gap: 24px; }
+    .col { flex: 1; }
+  </style>
+</head>
+<body>
+  <h1>Text Direction</h1>
+  <p class="prop-name">direction</p>
+  <div class="demos">
+    <div class="row">
+      <div class="col">
+        <div class="demo-box">
+          <div class="label">direction: ltr ! important</div>
+          <div class="text-sample" style="direction: ltr ! important;">
+            Hello World! Price: $29.99<br>
+            Items (3): apples, oranges, bananas.<br>
+            Phone: +1-555-0123
+          </div>
+          <div class="label" style="color: #6b7280;">Default left-to-right text flow</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="demo-box">
+          <div class="label">direction: rtl ! important</div>
+          <div class="text-sample" style="direction: rtl ! important;">
+            Hello World! Price: $29.99<br>
+            Items (3): apples, oranges, bananas.<br>
+            Phone: +1-555-0123
+          </div>
+          <div class="label" style="color: #6b7280;">Right-to-left text flow with BiDi reordering</div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="demo-box">
+          <div class="label">direction: ltr ! important (mixed Arabic + English)</div>
+          <div class="text-sample" style="direction: ltr ! important;">
+            Welcome مرحبا to our site! Total: $150.00
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="demo-box">
+          <div class="label">direction: rtl ! important (mixed Arabic + English)</div>
+          <div class="text-sample" style="direction: rtl ! important;">
+            Welcome مرحبا to our site! Total: $150.00
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="demo-box">
+          <div class="label">direction: ltr ! important + list markers</div>
+          <ol style="direction: ltr ! important; padding-left: 24px; font-size: 15px;">
+            <li style="padding: 4px 0;">First item - $10</li>
+            <li style="padding: 4px 0;">Second item - $20</li>
+            <li style="padding: 4px 0;">Third item - $30</li>
+          </ol>
+        </div>
+      </div>
+      <div class="col">
+        <div class="demo-box">
+          <div class="label">direction: rtl ! important + list markers</div>
+          <ol style="direction: rtl ! important; padding-right: 24px; font-size: 15px;">
+            <li style="padding: 4px 0;">First item - $10</li>
+            <li style="padding: 4px 0;">Second item - $20</li>
+            <li style="padding: 4px 0;">Third item - $30</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

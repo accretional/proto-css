@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>transition-timing-function</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-direction: column; gap: 18px; }
+    .demo-row { display: flex; align-items: center; gap: 16px; }
+    .label-col { width: 320px; flex-shrink: 0; }
+    .fn-name { font-size: 13px; font-family: monospace; color: #e0e0e0; font-weight: 600; }
+    .fn-desc { font-size: 10px; font-family: monospace; color: #6b7280; margin-top: 2px; }
+    .track { position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; }
+    .progress { position: absolute; top: 0; left: 0; height: 100%; border-radius: 6px; }
+    .curve-icon { position: relative; width: 50px; height: 50px; flex-shrink: 0; }
+    .curve-svg { width: 50px; height: 50px; }
+    .ball { position: absolute; width: 20px; height: 20px; border-radius: 50%; background: #fff; top: 6px; box-shadow: 0 0 6px rgba(255,255,255,0.4); }
+  </style>
+</head>
+<body>
+  <h1>Transition Timing Function</h1>
+  <p class="prop-name">transition-timing-function</p>
+  <div class="demos">
+
+    <div class="demo-row">
+      <div class="label-col">
+        <div class="fn-name" style="color:#e94560;">ease</div>
+        <div class="fn-desc">cubic-bezier(0.25, 0.1, 0.25, 1.0) - slow start, fast, slow end</div>
+      </div>
+      <div class="track">
+        <div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);">
+          <div class="ball" style="left: calc(65% - 10px);"></div>
+        </div>
+      </div>
+      <svg class="curve-svg" viewBox="0 0 50 50">
+        <rect fill="#16213e" width="50" height="50" rx="4"/>
+        <path d="M5,45 C17,44 17,6 45,5" stroke="#e94560" stroke-width="2" fill="none"/>
+        <line x1="5" y1="45" x2="45" y2="5" stroke="#4a5568" stroke-width="0.5" stroke-dasharray="2"/>
+      </svg>
+    </div>
+
+    <div class="demo-row">
+      <div class="label-col">
+        <div class="fn-name" style="color:#f39c12;">linear</div>
+        <div class="fn-desc">cubic-bezier(0, 0, 1, 1) - constant speed</div>
+      </div>
+      <div class="track">
+        <div class="progress" style="width: 65%; background: linear-gradient(90deg, #f39c12, #f1c40f);">
+          <div class="ball" style="left: calc(65% - 10px);"></div>
+        </div>
+      </div>
+      <svg class="curve-svg" viewBox="0 0 50 50">
+        <rect fill="#16213e" width="50" height="50" rx="4"/>
+        <line x1="5" y1="45" x2="45" y2="5" stroke="#f39c12" stroke-width="2"/>
+      </svg>
+    </div>
+
+    <div class="demo-row">
+      <div class="label-col">
+        <div class="fn-name" style="color:#16c79a;">ease-in</div>
+        <div class="fn-desc">cubic-bezier(0.42, 0, 1, 1) - starts slow, accelerates</div>
+      </div>
+      <div class="track">
+        <div class="progress" style="width: 65%; background: linear-gradient(90deg, #16c79a 0%, #16c79a 40%, #2ecc71 80%, #2ecc71 100%);">
+          <div class="ball" style="left: calc(65% - 10px);"></div>
+        </div>
+      </div>
+      <svg class="curve-svg" viewBox="0 0 50 50">
+        <rect fill="#16213e" width="50" height="50" rx="4"/>
+        <path d="M5,45 C26,45 45,5 45,5" stroke="#16c79a" stroke-width="2" fill="none"/>
+        <line x1="5" y1="45" x2="45" y2="5" stroke="#4a5568" stroke-width="0.5" stroke-dasharray="2"/>
+      </svg>
+    </div>
+
+    <div class="demo-row">
+      <div class="label-col">
+        <div class="fn-name" style="color:#3498db;">ease-out</div>
+        <div class="fn-desc">cubic-bezier(0, 0, 0.58, 1) - starts fast, decelerates</div>
+      </div>
+      <div class="track">
+        <div class="progress" style="width: 65%; background: linear-gradient(90deg, #3498db 0%, #5dade2 20%, #3498db 60%, #3498db 100%);">
+          <div class="ball" style="left: calc(65% - 10px);"></div>
+        </div>
+      </div>
+      <svg class="curve-svg" viewBox="0 0 50 50">
+        <rect fill="#16213e" width="50" height="50" rx="4"/>
+        <path d="M5,45 C5,5 24,5 45,5" stroke="#3498db" stroke-width="2" fill="none"/>
+        <line x1="5" y1="45" x2="45" y2="5" stroke="#4a5568" stroke-width="0.5" stroke-dasharray="2"/>
+      </svg>
+    </div>
+
+    <div class="demo-row">
+      <div class="label-col">
+        <div class="fn-name" style="color:#9b59b6;">ease-in-out</div>
+        <div class="fn-desc">cubic-bezier(0.42, 0, 0.58, 1) - slow start and end</div>
+      </div>
+      <div class="track">
+        <div class="progress" style="width: 65%; background: linear-gradient(90deg, #9b59b6 0%, #9b59b6 15%, #bb8fce 35%, #bb8fce 65%, #9b59b6 85%, #9b59b6 100%);">
+          <div class="ball" style="left: calc(65% - 10px);"></div>
+        </div>
+      </div>
+      <svg class="curve-svg" viewBox="0 0 50 50">
+        <rect fill="#16213e" width="50" height="50" rx="4"/>
+        <path d="M5,45 C26,45 24,5 45,5" stroke="#9b59b6" stroke-width="2" fill="none"/>
+        <line x1="5" y1="45" x2="45" y2="5" stroke="#4a5568" stroke-width="0.5" stroke-dasharray="2"/>
+      </svg>
+    </div>
+
+    <div class="demo-row">
+      <div class="label-col">
+        <div class="fn-name" style="color:#e17055;">steps(4)</div>
+        <div class="fn-desc">Jumps in 4 discrete steps</div>
+      </div>
+      <div class="track">
+        <div class="progress" style="width: 65%; background: repeating-linear-gradient(90deg, #e17055 0%, #e17055 24%, transparent 24%, transparent 25%, #e17055 25%, #e17055 49%, transparent 49%, transparent 50%, #e17055 50%, #e17055 74%, transparent 74%, transparent 75%, #e17055 75%, #e17055 100%);">
+          <div class="ball" style="left: calc(65% - 10px);"></div>
+        </div>
+      </div>
+      <svg class="curve-svg" viewBox="0 0 50 50">
+        <rect fill="#16213e" width="50" height="50" rx="4"/>
+        <path d="M5,45 L5,35 L15,35 L15,25 L25,25 L25,15 L35,15 L35,5 L45,5" stroke="#e17055" stroke-width="2" fill="none"/>
+        <line x1="5" y1="45" x2="45" y2="5" stroke="#4a5568" stroke-width="0.5" stroke-dasharray="2"/>
+      </svg>
+    </div>
+
+  </div>
+</body>
+</html>

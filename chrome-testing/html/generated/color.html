@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>color</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: currentcolor; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #5cB9c3a3; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: var(--_Y); font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 10px;
+      padding: 22px;
+      width: 370px;
+    }
+    .label { font-size: 11px; font-family: monospace; color: light-dark(, none); margin-bottom: 12px; }
+    .sample-text {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
+    }
+    .sample-body {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .c1 .sample-text, .c1 .sample-body { color: var(--_-); }
+    .c2 .sample-text, .c2 .sample-body { color: currentcolor ! important; }
+    .c3 .sample-text, .c3 .sample-body { color: device-cmyk(var(--᫻, 34) none none none); }
+    .c4 .sample-text, .c4 .sample-body { color: color-mix(in lch, var(--扉B, 0)); }
+    .c5 .sample-text, .c5 .sample-body { color: revert-rule; }
+    .c6 { color: light-dark(none, none); }
+    .c6 .sample-text, .c6 .sample-body { color: light-dark(none, url("")) ! important; }
+    .c6 .current-note { font-size: 10px; color: device-cmyk(var(--, 4), 3e-1, -35.9, -8e+4); margin-top: 6px; }
+  </style>
+</head>
+<body>
+  <h1>Color</h1>
+  <p class="prop-name">color</p>
+  <div class="demos">
+    <div class="demo-card c1">
+      <div class="label">color: var(--_-)</div>
+      <p class="sample-text">Named Color</p>
+      <p class="sample-body">Text rendered in the CSS named color "tomato".</p>
+    </div>
+    <div class="demo-card c2">
+      <div class="label">color: currentcolor ! important</div>
+      <p class="sample-text">Hex Color</p>
+      <p class="sample-body">Text rendered using a hexadecimal color value.</p>
+    </div>
+    <div class="demo-card c3">
+      <div class="label">color: device-cmyk(var(--᫻, 34) none none none)</div>
+      <p class="sample-text">RGB Color</p>
+      <p class="sample-body">Text rendered using the rgb() functional notation.</p>
+    </div>
+    <div class="demo-card c4">
+      <div class="label">color: color-mix(in lch, var(--扉B, 0))</div>
+      <p class="sample-text">HSL Color</p>
+      <p class="sample-body">Text rendered using hue, saturation, and lightness.</p>
+    </div>
+    <div class="demo-card c5">
+      <div class="label">color: revert-rule</div>
+      <p class="sample-text">OKLCH Color</p>
+      <p class="sample-body">Text rendered in the perceptual OKLCH color space.</p>
+    </div>
+    <div class="demo-card c6">
+      <div class="label">color: light-dark(none, url("")) ! important</div>
+      <p class="sample-text">currentColor</p>
+      <p class="sample-body">Inherits the parent's computed color value.</p>
+      <p class="current-note">Parent color is #e94560</p>
+    </div>
+  </div>
+</body>
+</html>

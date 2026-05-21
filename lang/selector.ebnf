@@ -1,0 +1,147 @@
+(* selector.ebnf — CSS selector structure
+   Sources:
+     MDN Selector Definition - https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors
+     MDN Selector structure — https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Selectors/Selector_structure
+     MDN Selectors and combinators — https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Selectors/Selectors_and_combinators
+*)
+
+
+(* ── Selector lists ───────────────────────────────────────────────────────── *)
+(* A complex selector list (<complex-selector-list>) is a comma-separated list
+   of complex selectors. An element matches if it matches any one of them.
+   If any selector in a non-forgiving list is invalid, the entire list is
+   invalidated. *)
+
+ComplexSelectorList = ComplexSelector , { comma_symbol , ComplexSelector } ;
+
+(* Forgiving selector list: structurally identical to ComplexSelectorList.
+   Used by :is() and :where() — invalid individual selectors are silently
+   ignored rather than invalidating the whole list. *)
+
+ForgivingSelectorList = ComplexSelector , { comma_symbol , ComplexSelector } ;
+
+(* Compound selector list: comma-separated compound selectors.
+   Used by :current(). Narrower than ComplexSelectorList — no combinators
+   allowed within each item. *)
+
+CompoundSelectorList = CompoundSelector , { comma_symbol , CompoundSelector } ;
+
+(* Relative selector list: used by :has(). *)
+
+RelativeSelectorList = RelativeSelector , { comma_symbol , RelativeSelector } ;
+
+(* Nested selector list: used by CSS Nesting. & is valid in place of a
+   simple selector at the start of a compound selector. *)
+
+NestedComplexSelectorList = NestedComplexSelector , { comma_symbol , NestedComplexSelector } ;
+
+
+(* ── No-pseudo-element selector lists ────────────────────────────────────── *)
+(* Used by :is(), :not(), :where() whose argument lists must not contain
+   pseudo-elements. *)
+
+ComplexSelectorListNoPe   = ComplexSelectorNoPe , { comma_symbol , ComplexSelectorNoPe } ;
+ForgivingSelectorListNoPe = ComplexSelectorNoPe , { comma_symbol , ComplexSelectorNoPe } ;
+
+
+(* ── Complex selectors ────────────────────────────────────────────────────── *)
+(* A complex selector is one or more compound selectors joined by combinators.
+   It represents simultaneous conditions on a set of elements.
+
+   Descendant combinator — implicit encoding:
+     The CSS spec defines the descendant combinator as "one or more whitespace
+     characters between two selectors in the absence of another combinator"
+     (whitespace may also contain CSS block comments).  Because the parser skips
+     whitespace and comments automatically between syntactic productions, we encode
+     this implicitly: the Combinator inside the repetition is optional.  When the
+     parser consumes whitespace and finds *no* explicit Combinator token (>, +, ~,
+     ||), the relationship between the two compound selectors is descendant.
+     When an explicit Combinator is present it takes precedence as usual.
+
+     Examples that parse correctly under this model:
+       div span          — whitespace only → descendant (Combinator absent)
+       div > span        — child combinator (Combinator = ChildCombinator)
+       div /* c */ span  — comment inside whitespace → still descendant
+       div.foo           — no whitespace → single compound selector (not two) *)
+
+ComplexSelector = CompoundSelector , { [ Combinator ] , CompoundSelector } ;
+
+(* A relative selector represents an element relative to one or more anchor
+   elements, optionally preceded by a Combinator. When the leading Combinator
+   is omitted, a descendant Combinator is implied. Used inside :has(). *)
+
+RelativeSelector = [ Combinator ] , ComplexSelector ;
+
+NestedComplexSelector = NestedCompoundSelector , { [ Combinator ] , NestedCompoundSelector } ;
+
+ComplexSelectorNoPe = CompoundSelectorNoPe , { [ Combinator ] , CompoundSelectorNoPe } ;
+
+
+(* ── Compound selectors ───────────────────────────────────────────────────── *)
+(* A compound selector is a sequence of simple selectors with no Combinator
+   between them. It represents simultaneous conditions on a single element.
+   Rules:
+     - type or universal selector may appear at most once, and must come first
+     - QualifyingSelector excludes type/universal, so they can only be the first
+       component (via SimpleSelector) — the at-most-once constraint is structural
+     - no whitespace between components (whitespace = descendant Combinator) *)
+
+CompoundSelector = SimpleSelector , { QualifyingSelector } ;
+
+(* & is valid in place of a simple selector at the start of a nested compound selector. *)
+NestedCompoundSelector = ( ampersand_symbol | SimpleSelector ) , { QualifyingSelector } ;
+
+CompoundSelectorNoPe = SimpleSelectorNoPe , { QualifyingSelectorNoPe } ;
+
+
+(* ── Simple selectors ─────────────────────────────────────────────────────── *)
+(* A simple selector is a selector with a single component: a basic selector,
+   a pseudo-class, or a pseudo-element.
+   "Any selector that contains a single basic selector, attribute selector,
+   pseudo-class, or pseudo-element selector is a simple selector." — MDN *)
+
+SimpleSelector = BasicSelector | PseudoClass | PseudoElement ;
+
+(* No-pseudo-element variant: used inside :is()/:not()/:where() argument lists. *)
+SimpleSelectorNoPe = BasicSelector | PseudoClass ;
+
+(* Qualifying selectors: may follow a type or universal selector inside a
+   compound selector (i.e., everything except type and universal). *)
+
+QualifyingSelector = ClassSelector | IdSelector | AttributeSelector
+                    | PseudoClass | PseudoElement ;
+
+QualifyingSelectorNoPe = ClassSelector | IdSelector | AttributeSelector | PseudoClass ;
+
+
+(* ── Basic selectors ──────────────────────────────────────────────────────── *)
+(* The four fundamental selector types defined in MDN "Basic selectors":
+   type, universal, class, and ID. Attribute selectors also belong here. *)
+
+BasicSelector = TypeSelector | UniversalSelector | ClassSelector | IdSelector | AttributeSelector ;
+
+(* Namespace prefix: svg|, *|, or just | (no namespace).
+   Lexical rule — no whitespace allowed between the prefix and the pipe. *)
+ns_prefix = ident_type , vertical_line_symbol
+          | asterisk_symbol , vertical_line_symbol ;
+
+TypeSelector = [ ns_prefix ] , ElementName ;
+(* For now ElementName is any <ident> string. When HTML elements are defined,
+   this will be replaced with an enum. proto-html will constrain this boundary. *)
+ElementName = ident_type ;
+
+UniversalSelector = [ ns_prefix ] , asterisk_symbol ;
+
+ClassSelector = full_stop_symbol , ident_type ;
+
+IdSelector = number_sign_symbol , ident_type ;
+
+AttributeSelector = left_square_bracket_symbol , AttrName ,
+                     [ AttrMatcher , AttrValue , [ AttrModifier ] ] ,
+                     right_square_bracket_symbol ;
+
+AttrName     = ident_type ;
+AttrMatcher  = [ tilde_symbol | vertical_line_symbol | circumflex_accent_symbol
+               | dollar_sign_symbol | asterisk_symbol ] , equals_sign_symbol ;
+AttrValue    = string_type | ident_type ;
+AttrModifier = "i" | "s" ;

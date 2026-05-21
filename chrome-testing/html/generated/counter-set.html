@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>counter-set</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+
+    .demo-box {
+      background: #16213e;
+      border-radius: 10px;
+      padding: 20px;
+      width: 260px;
+    }
+    .demo-title {
+      font-size: 12px;
+      color: #a855f7;
+      font-family: monospace;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #0f3460;
+    }
+
+    /* counter-set: none
+    .set-10 { counter-reset: mycount; list-style: none; }
+    .set-10 li { counter-increment: mycount; padding: 4px 0; font-size: 14px; }
+    .set-10 li::before { content: counter(mycount) ". "; color: #a855f7; font-weight: bold; font-family: monospace; min-width: 30px; display: inline-block; }
+    .set-10 li:nth-child(3) { counter-set: J𝴃 var(--𧫳-, #cEDBFe) 🺞 var(--ٵ) ! important; }
+    .set-10 li.jump { color: #a855f7; }
+
+    /* counter-set: none ! important
+    .set-100 { counter-reset: bigcount; list-style: none; }
+    .set-100 li { counter-increment: bigcount; padding: 4px 0; font-size: 14px; }
+    .set-100 li::before { content: counter(bigcount) ". "; color: #e94560; font-weight: bold; font-family: monospace; min-width: 40px; display: inline-block; }
+    .set-100 li:nth-child(3) { counter-set: 󕇥 var(--_, -65.84e5turn) ⢶󋭼; }
+
+    /* counter-set: s- -3 W
+    .set-50 { counter-reset: idx; list-style: none; }
+    .set-50 li { counter-increment: idx; padding: 4px 0; font-size: 14px; }
+    .set-50 li::before { content: counter(idx) ". "; color: #00d2ff; font-weight: bold; font-family: monospace; min-width: 30px; display: inline-block; }
+    .set-50 li:nth-child(2) { counter-set: 굥 ! important; }
+
+    /* counter-set: V򞵍 74 灘- var(--_k) ! important
+    .set-0 { counter-reset: page; list-style: none; }
+    .set-0 li { counter-increment: page; padding: 4px 0; font-size: 14px; }
+    .set-0 li::before { content: counter(page) ". "; color: #10b981; font-weight: bold; font-family: monospace; min-width: 30px; display: inline-block; }
+    .set-0 li:nth-child(4) { counter-set: N_ _- 38 ! important; }
+
+    .highlight-row { background: #0f3460; border-radius: 4px; padding: 2px 6px !important; margin: 2px -6px; }
+    .note { font-size: 10px; color: #7b8794; font-style: italic; }
+  </style>
+</head>
+<body>
+  <h1>Counter Set</h1>
+  <p class="prop-name">counter-set</p>
+  <div class="demos">
+    <div>
+      <div class="demo-box">
+        <div class="demo-title">counter-set: J𝴃 var(--𧫳-, #cEDBFe) 🺞 var(--ٵ) ! important<br><span class="note">on 3rd item</span></div>
+        <ol class="set-10">
+          <li>Normal</li>
+          <li>Normal</li>
+          <li class="highlight-row jump">Set to 10!</li>
+          <li>Continues</li>
+          <li>Continues</li>
+        </ol>
+      </div>
+      <p class="label">Jumps to 10 at item 3</p>
+    </div>
+
+    <div>
+      <div class="demo-box">
+        <div class="demo-title">counter-set: 󕇥 var(--_, -65.84e5turn) ⢶󋭼<br><span class="note">on 3rd item</span></div>
+        <ol class="set-100">
+          <li>Normal</li>
+          <li>Normal</li>
+          <li class="highlight-row" style="color:#e94560;">Set to 100!</li>
+          <li>Continues</li>
+          <li>Continues</li>
+        </ol>
+      </div>
+      <p class="label">Jumps to 100 at item 3</p>
+    </div>
+
+    <div>
+      <div class="demo-box">
+        <div class="demo-title">counter-set: 굥 ! important<br><span class="note">on 2nd item</span></div>
+        <ol class="set-50">
+          <li>Normal</li>
+          <li class="highlight-row" style="color:#00d2ff;">Set to 50!</li>
+          <li>Continues</li>
+          <li>Continues</li>
+          <li>Continues</li>
+        </ol>
+      </div>
+      <p class="label">Jumps to 50 at item 2</p>
+    </div>
+
+    <div>
+      <div class="demo-box">
+        <div class="demo-title">counter-set: N_ _- 38 ! important<br><span class="note">on 4th item (reset mid-list)</span></div>
+        <ol class="set-0">
+          <li>Normal</li>
+          <li>Normal</li>
+          <li>Normal</li>
+          <li class="highlight-row" style="color:#10b981;">Reset to 0!</li>
+          <li>Continues</li>
+        </ol>
+      </div>
+      <p class="label">Resets counter mid-list</p>
+    </div>
+  </div>
+</body>
+</html>

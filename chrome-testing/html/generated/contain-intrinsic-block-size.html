@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>contain-intrinsic-block-size</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demo-card {
+      flex: 1;
+      min-width: 220px;
+      background: #16213e;
+      border-radius: 10px;
+      padding: 16px 20px;
+      border: 1px solid #2a2a4a;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 10px; }
+    .desc { font-size: 10px; color: #6b7a8d; margin-bottom: 10px; line-height: 1.4; }
+    .size-box {
+      contain: size layout;
+      background: #0f1a30;
+      border: 2px solid #2a2a4a;
+      border-radius: 6px;
+      padding: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .size-box::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 24px;
+      background: linear-gradient(transparent, #0f1a30);
+    }
+    .inner {
+      font-size: 11px;
+      color: #c0c8d4;
+      line-height: 1.5;
+    }
+    .measure {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .measure-bar {
+      height: 4px;
+      background: linear-gradient(90deg, #e94560, #c23152);
+      border-radius: 2px;
+      flex: 1;
+    }
+    .measure-label {
+      font-size: 10px;
+      color: #e94560;
+      font-family: monospace;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>Contain Intrinsic Block Size</h1>
+  <p class="prop-name">contain-intrinsic-block-size</p>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="label">contain-intrinsic-block-size: auto none ! important</div>
+      <div class="desc">No intrinsic block size hint. Element collapses when size-contained.</div>
+      <div class="size-box" style="contain-intrinsic-block-size: auto none ! important;">
+        <div class="inner">No intrinsic size hint provided. The element has zero height when size-contained with no explicit height set.</div>
+      </div>
+      <div class="measure"><div class="measure-bar" style="max-width: 10%;"></div><div class="measure-label">none (0)</div></div>
+    </div>
+    <div class="demo-card">
+      <div class="label">contain-intrinsic-block-size: auto 0</div>
+      <div class="desc">Fixed 80px block size hint for the element.</div>
+      <div class="size-box" style="contain-intrinsic-block-size: auto 0;">
+        <div class="inner">This element has an intrinsic block size of 80px. The browser uses this as the height when size containment is active, preventing layout shift.</div>
+      </div>
+      <div class="measure"><div class="measure-bar" style="max-width: 30%;"></div><div class="measure-label">80px</div></div>
+    </div>
+    <div class="demo-card">
+      <div class="label">contain-intrinsic-block-size: none ! important</div>
+      <div class="desc">Fixed 150px block size hint for the element.</div>
+      <div class="size-box" style="contain-intrinsic-block-size: none ! important;">
+        <div class="inner">A 150px intrinsic block size provides a taller placeholder. This is useful for content-visibility: auto elements where you want to estimate the rendered height before the content is actually laid out by the browser.</div>
+      </div>
+      <div class="measure"><div class="measure-bar" style="max-width: 55%;"></div><div class="measure-label">150px</div></div>
+    </div>
+    <div class="demo-card">
+      <div class="label">contain-intrinsic-block-size: none</div>
+      <div class="desc">Uses last rendered size, falling back to 120px.</div>
+      <div class="size-box" style="contain-intrinsic-block-size: none;">
+        <div class="inner">The auto keyword remembers the last rendered size. If the element has not been rendered yet, 120px is used as the fallback. This provides the best user experience for dynamic content.</div>
+      </div>
+      <div class="measure"><div class="measure-bar" style="max-width: 45%;"></div><div class="measure-label">auto 120px</div></div>
+    </div>
+  </div>
+</body>
+</html>

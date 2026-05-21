@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>view-transition-class</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-card { background: #16213e; border-radius: 12px; padding: 24px; width: 560px; }
+    .demo-title { font-size: 15px; font-weight: 600; color: #e0e0e0; margin-bottom: 6px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 14px; }
+    .desc { font-size: 12px; color: #6b7280; margin-bottom: 16px; line-height: 1.5; }
+    .badge { display: inline-block; font-size: 10px; font-family: monospace; padding: 3px 8px; border-radius: 10px; background: rgba(243,156,18,0.15); color: #f39c12; margin-bottom: 10px; }
+    .code-block { background: #0d1117; border-radius: 8px; padding: 14px 18px; font-family: monospace; font-size: 11px; line-height: 1.7; }
+    .keyword { color: #ff7b72; }
+    .value { color: #79c0ff; }
+    .comment { color: #6b7280; }
+    .selector { color: #7ee787; }
+    .visual-group { display: flex; gap: 12px; margin-top: 14px; }
+    .vt-element { background: #0d1117; border-radius: 8px; padding: 14px; flex: 1; text-align: center; border: 2px solid; }
+    .vt-name { font-size: 11px; font-family: monospace; margin-bottom: 4px; }
+    .vt-class-badge { font-size: 10px; font-family: monospace; padding: 2px 8px; border-radius: 10px; display: inline-block; }
+    .arrow-group { display: flex; align-items: center; justify-content: center; gap: 4px; margin-top: 10px; font-size: 10px; font-family: monospace; color: #6b7280; }
+  </style>
+</head>
+<body>
+  <h1>View Transition Class</h1>
+  <p class="prop-name">view-transition-class (experimental)</p>
+  <div class="demos">
+
+    <div class="demo-card">
+      <div class="demo-title">Grouping Elements by Class</div>
+      <div class="badge">Experimental</div>
+      <div class="desc">
+        <code>view-transition-class</code> allows grouping multiple view transition elements under a shared class name, so you can style their transition pseudo-elements with a single rule instead of targeting each individually.
+      </div>
+      <div class="code-block">
+        <span class="selector">.card-1</span> {<br>
+        &nbsp;&nbsp;<span class="keyword">view-transition-name:</span> <span class="value">card-1</span>;<br>
+        &nbsp;&nbsp;<span class="keyword">view-transition-class:</span> <span class="value">card</span>;<br>
+        }<br>
+        <span class="selector">.card-2</span> {<br>
+        &nbsp;&nbsp;<span class="keyword">view-transition-name:</span> <span class="value">card-2</span>;<br>
+        &nbsp;&nbsp;<span class="keyword">view-transition-class:</span> <span class="value">card</span>;<br>
+        }<br><br>
+        <span class="comment">/* Style all cards at once */</span><br>
+        <span class="selector">::view-transition-group(.card)</span> {<br>
+        &nbsp;&nbsp;<span class="keyword">animation-duration:</span> <span class="value">0.5s</span>;<br>
+        }
+      </div>
+      <div class="visual-group">
+        <div class="vt-element" style="border-color: #e94560;">
+          <div class="vt-name" style="color: #e94560;">card-1</div>
+          <div class="vt-class-badge" style="background: rgba(243,156,18,0.15); color: #f39c12;">class: card</div>
+        </div>
+        <div class="vt-element" style="border-color: #3498db;">
+          <div class="vt-name" style="color: #3498db;">card-2</div>
+          <div class="vt-class-badge" style="background: rgba(243,156,18,0.15); color: #f39c12;">class: card</div>
+        </div>
+        <div class="vt-element" style="border-color: #16c79a;">
+          <div class="vt-name" style="color: #16c79a;">card-3</div>
+          <div class="vt-class-badge" style="background: rgba(243,156,18,0.15); color: #f39c12;">class: card</div>
+        </div>
+      </div>
+      <div class="arrow-group">
+        all share <span style="color: #f39c12;">view-transition-class: _񩦫 俢N ! important</span> for unified styling
+      </div>
+      <div class="label">view-transition-class: _񩦫 俢N ! important</div>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-title">Multiple Classes</div>
+      <div class="badge">Experimental</div>
+      <div class="desc">Elements can have multiple view transition classes, allowing flexible styling combinations.</div>
+      <div class="code-block">
+        <span class="selector">.hero</span> {<br>
+        &nbsp;&nbsp;<span class="keyword">view-transition-name:</span> <span class="value">hero</span>;<br>
+        &nbsp;&nbsp;<span class="keyword">view-transition-class:</span> <span class="value">animated fade-in</span>;<br>
+        }<br><br>
+        <span class="comment">/* Target by any class */</span><br>
+        <span class="selector">::view-transition-group(.animated)</span> { ... }<br>
+        <span class="selector">::view-transition-group(.fade-in)</span> { ... }
+      </div>
+      <div class="visual-group">
+        <div class="vt-element" style="border-color: #9b59b6;">
+          <div class="vt-name" style="color: #9b59b6;">hero</div>
+          <div style="display: flex; gap: 4px; justify-content: center; flex-wrap: wrap; margin-top: 4px;">
+            <div class="vt-class-badge" style="background: rgba(155,89,182,0.15); color: #9b59b6;">animated</div>
+            <div class="vt-class-badge" style="background: rgba(52,152,219,0.15); color: #3498db;">fade-in</div>
+          </div>
+        </div>
+        <div class="vt-element" style="border-color: #e17055;">
+          <div class="vt-name" style="color: #e17055;">sidebar</div>
+          <div style="display: flex; gap: 4px; justify-content: center; flex-wrap: wrap; margin-top: 4px;">
+            <div class="vt-class-badge" style="background: rgba(155,89,182,0.15); color: #9b59b6;">animated</div>
+            <div class="vt-class-badge" style="background: rgba(22,199,154,0.15); color: #16c79a;">slide</div>
+          </div>
+        </div>
+      </div>
+      <div class="label">view-transition-class: none ! important</div>
+    </div>
+
+  </div>
+</body>
+</html>

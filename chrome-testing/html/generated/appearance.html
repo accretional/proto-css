@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>appearance</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; gap: 28px; flex-wrap: wrap; }
+    .demo-box { background: #16213e; border-radius: 12px; padding: 28px; flex: 1; min-width: 280px; }
+    .demo-title { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 20px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; }
+    .control-group { margin-bottom: 20px; }
+    .control-label { font-size: 12px; color: #7b8794; margin-bottom: 6px; }
+
+    .appear-none { appearance: none; -webkit-appearance: none; }
+    .appear-auto { appearance: base ! important; -webkit-appearance: base ! important; }
+
+    .demo-btn {
+      padding: 10px 24px;
+      font-size: 14px;
+      border: 2px solid #e94560;
+      background: #e94560;
+      color: #fff;
+      cursor: pointer;
+      margin-bottom: 4px;
+      display: block;
+      width: 100%;
+    }
+    .demo-input {
+      padding: 10px 14px;
+      font-size: 14px;
+      border: 2px solid #533bdb;
+      background: #0f3460;
+      color: #fff;
+      width: 100%;
+      margin-bottom: 4px;
+      display: block;
+    }
+    .demo-select {
+      padding: 10px 14px;
+      font-size: 14px;
+      border: 2px solid #0ea5e9;
+      background: #0f3460;
+      color: #fff;
+      width: 100%;
+      margin-bottom: 4px;
+      display: block;
+    }
+    .demo-checkbox {
+      width: 24px;
+      height: 24px;
+      border: 2px solid #10b981;
+      margin-bottom: 4px;
+    }
+    .demo-range {
+      width: 100%;
+      height: 24px;
+      margin-bottom: 4px;
+    }
+
+    .none-btn { appearance: none; -webkit-appearance: none; border-radius: 0; }
+    .none-input { appearance: none; -webkit-appearance: none; border-radius: 0; }
+    .none-select { appearance: none; -webkit-appearance: none; border-radius: 0; }
+    .none-checkbox { appearance: none; -webkit-appearance: none; background: #0f3460; border: 2px solid #10b981; border-radius: 0; }
+    .none-range { appearance: none; -webkit-appearance: none; background: #0f3460; border: 2px solid #f59205; border-radius: 0; height: 8px; }
+
+    .auto-checkbox { appearance: base ! important; -webkit-appearance: base ! important; }
+    .auto-range { appearance: base ! important; -webkit-appearance: base ! important; }
+  </style>
+</head>
+<body>
+  <h1>Appearance</h1>
+  <p class="prop-name">appearance</p>
+  <div class="demos">
+    <div class="demo-box">
+      <div class="demo-title">appearance: none</div>
+      <div class="control-group">
+        <div class="control-label">Button</div>
+        <button class="demo-btn none-btn">Submit</button>
+        <p class="label">appearance: none</p>
+      </div>
+      <div class="control-group">
+        <div class="control-label">Text Input</div>
+        <input class="demo-input none-input" type="text" value="Type here..." />
+        <p class="label">appearance: none</p>
+      </div>
+      <div class="control-group">
+        <div class="control-label">Select</div>
+        <select class="demo-select none-select">
+          <option>Choose option</option>
+        </select>
+        <p class="label">appearance: none</p>
+      </div>
+      <div class="control-group" style="display:flex;gap:20px;">
+        <div>
+          <div class="control-label">Checkbox</div>
+          <input type="checkbox" class="demo-checkbox none-checkbox" checked />
+          <p class="label">none</p>
+        </div>
+        <div style="flex:1;">
+          <div class="control-label">Range</div>
+          <input type="range" class="demo-range none-range" value="50" />
+          <p class="label">none</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-box">
+      <div class="demo-title">appearance: base ! important</div>
+      <div class="control-group">
+        <div class="control-label">Button</div>
+        <button class="demo-btn" style="appearance:base ! important;-webkit-appearance:base ! important;">Submit</button>
+        <p class="label">appearance: base ! important</p>
+      </div>
+      <div class="control-group">
+        <div class="control-label">Text Input</div>
+        <input class="demo-input" type="text" value="Type here..." style="appearance:base ! important;-webkit-appearance:base ! important;" />
+        <p class="label">appearance: base ! important</p>
+      </div>
+      <div class="control-group">
+        <div class="control-label">Select</div>
+        <select class="demo-select" style="appearance:base ! important;-webkit-appearance:base ! important;">
+          <option>Choose option</option>
+        </select>
+        <p class="label">appearance: base ! important</p>
+      </div>
+      <div class="control-group" style="display:flex;gap:20px;">
+        <div>
+          <div class="control-label">Checkbox</div>
+          <input type="checkbox" class="demo-checkbox auto-checkbox" checked />
+          <p class="label">auto</p>
+        </div>
+        <div style="flex:1;">
+          <div class="control-label">Range</div>
+          <input type="range" class="demo-range auto-range" value="50" />
+          <p class="label">auto</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

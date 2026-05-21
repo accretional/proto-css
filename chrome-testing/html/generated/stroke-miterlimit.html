@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>stroke-miterlimit</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 28px; justify-content: center; }
+    .demo { display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px; }
+    .label { font-size: 12px; font-family: monospace; color: #9ca3af; margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <h1>Stroke Miter Limit</h1>
+  <p class="prop-name">stroke-miterlimit</p>
+  <div class="demos">
+    <div class="demo">
+      <svg width="220" height="200">
+        <!-- Sharp angle path to show miter effect -->
+        <polyline points="30,170 110,20 190,170 110,90 30,170"
+          fill="none" stroke="#06b6d4" stroke-width="14" stroke-linejoin="miter" stroke-miterlimit="1"/>
+        <polyline points="30,170 110,20 190,170 110,90 30,170"
+          fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="3 3"/>
+      </svg>
+      <div class="label">stroke-miterlimit: +20.11e34</div>
+    </div>
+    <div class="demo">
+      <svg width="220" height="200">
+        <polyline points="30,170 110,20 190,170 110,90 30,170"
+          fill="none" stroke="#06b6d4" stroke-width="14" stroke-linejoin="miter" stroke-miterlimit="4"/>
+        <polyline points="30,170 110,20 190,170 110,90 30,170"
+          fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="3 3"/>
+      </svg>
+      <div class="label">stroke-miterlimit: +6e+9</div>
+    </div>
+    <div class="demo">
+      <svg width="220" height="200">
+        <polyline points="30,170 110,20 190,170 110,90 30,170"
+          fill="none" stroke="#06b6d4" stroke-width="14" stroke-linejoin="miter" stroke-miterlimit="8"/>
+        <polyline points="30,170 110,20 190,170 110,90 30,170"
+          fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="3 3"/>
+      </svg>
+      <div class="label">stroke-miterlimit: var(--_Y)</div>
+    </div>
+    <div class="demo">
+      <svg width="220" height="200">
+        <polyline points="30,170 110,20 190,170 110,90 30,170"
+          fill="none" stroke="#06b6d4" stroke-width="14" stroke-linejoin="miter" stroke-miterlimit="20"/>
+        <polyline points="30,170 110,20 190,170 110,90 30,170"
+          fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="3 3"/>
+      </svg>
+      <div class="label">stroke-miterlimit: +48.55</div>
+    </div>
+  </div>
+</body>
+</html>

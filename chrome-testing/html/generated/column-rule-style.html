@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>column-rule-style</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 10px;
+      padding: 16px 20px;
+      border: 1px solid #2a2a4a;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 10px; }
+    .col-text {
+      column-count: 3;
+      column-rule-color: #e94560;
+      column-rule-width: 3px;
+      font-size: 11px;
+      line-height: 1.5;
+      color: #c0c8d4;
+    }
+  </style>
+</head>
+<body>
+  <h1>Column Rule Style</h1>
+  <p class="prop-name">column-rule-style</p>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="label">column-rule-style: , repeat(-51, [ ] fit-content(0) [ ] min-content [ ]), ridge, repeat(var(--呆ޱ, "+"), [ ]) ! important</div>
+      <div class="col-text" style="column-rule-style: , repeat(-51, [ ] fit-content(0) [ ] min-content [ ]), ridge, repeat(var(--呆ޱ, "+"), [ ]) ! important;">
+        A solid rule creates a continuous, unbroken line between columns. This is the most common style for column separators and provides a clean, clear division. Solid rules work well for most layouts.
+      </div>
+    </div>
+    <div class="demo-card">
+      <div class="label">column-rule-style: solid, repeat(auto-fill, [ 񋁄륬 ])</div>
+      <div class="col-text" style="column-rule-style: solid, repeat(auto-fill, [ 񋁄륬 ]);">
+        Dashed rules create a series of rectangular dashes. The pattern of dashes and gaps adds a lighter visual weight compared to solid rules. Dashed style suggests a softer boundary between columns.
+      </div>
+    </div>
+    <div class="demo-card">
+      <div class="label">column-rule-style: repeat(77, [ ] [ ]), repeat(auto-fit, [ ] minmax(auto, max-content)), dashed, repeat(auto-fill, fit-content(env(_, +5.3e1kHz)) [ ⽲H ] anchor-size(--sN) [ ]), ! important</div>
+      <div class="col-text" style="column-rule-style: repeat(77, [ ] [ ]), repeat(auto-fit, [ ] minmax(auto, max-content)), dashed, repeat(auto-fill, fit-content(env(_, +5.3e1kHz)) [ ⽲H ] anchor-size(--sN) [ ]), ! important;">
+        Dotted rules display as a series of circular dots. This creates the lightest visual weight among the basic rule styles. Dotted rules are often used for decorative purposes or to indicate secondary boundaries.
+      </div>
+    </div>
+    <div class="demo-card">
+      <div class="label">column-rule-style: solid, inset, repeat(auto-fill, fit-content(var(--򡅁ᄈ, 5.59))),</div>
+      <div class="col-text" style="column-rule-style: solid, inset, repeat(auto-fill, fit-content(var(--򡅁ᄈ, 5.59))),; column-rule-width: 4px;">
+        Double rules render two parallel lines with a gap between them. This style needs sufficient width to display both lines clearly. Double rules create a more formal, structured appearance.
+      </div>
+    </div>
+    <div class="demo-card">
+      <div class="label">column-rule-style: none</div>
+      <div class="col-text" style="column-rule-style: none; column-rule-width: 4px;">
+        Groove rules create a carved, 3D effect that appears inset into the surface. The appearance depends on the column-rule-color. Groove works best with wider rule widths where the dimensionality can be appreciated.
+      </div>
+    </div>
+    <div class="demo-card">
+      <div class="label">column-rule-style: repeat(77, [ ] [ ]), repeat(auto-fit, [ ] minmax(auto, max-content))</div>
+      <div class="col-text" style="column-rule-style: repeat(77, [ ] [ ]), repeat(auto-fit, [ ] minmax(auto, max-content)); column-rule-width: 4px;">
+        Ridge rules are the opposite of groove, appearing to protrude from the surface. Like groove, the effect is more visible with wider rules. Ridge creates a raised, three-dimensional line between the columns.
+      </div>
+    </div>
+  </div>
+</body>
+</html>

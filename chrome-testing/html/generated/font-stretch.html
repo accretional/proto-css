@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>font-stretch</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-direction: column; gap: 12px; }
+    .demo-row {
+      display: flex; align-items: center; gap: 20px;
+      background: #16213e; border-radius: 10px; padding: 16px 24px;
+      border: 1px solid #2a2a4a;
+    }
+    .label {
+      font-size: 11px; font-family: monospace; color: #9ca3af;
+      min-width: 280px; flex-shrink: 0;
+    }
+    .demo-text { color: #fff; font-size: 28px; white-space: nowrap; }
+    .bar {
+      height: 4px; border-radius: 2px; margin-top: 4px;
+    }
+    .pct {
+      font-size: 10px; color: #6b7280; font-family: monospace; min-width: 40px; text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <h1>Font Stretch</h1>
+  <p class="prop-name">font-stretch</p>
+  <div class="demos">
+    <div class="demo-row">
+      <p class="label">font-stretch: semi-condensed</p>
+      <span class="pct">50%</span>
+      <span class="demo-text" style="font-stretch: semi-condensed;">Hamburgefonstiv</span>
+    </div>
+    <div class="demo-row">
+      <p class="label">font-stretch: condensed ! important</p>
+      <span class="pct">75%</span>
+      <span class="demo-text" style="font-stretch: condensed ! important;">Hamburgefonstiv</span>
+    </div>
+    <div class="demo-row">
+      <p class="label">font-stretch: ultra-condensed ! important ! important</p>
+      <span class="pct">100%</span>
+      <span class="demo-text" style="font-stretch: ultra-condensed ! important ! important;">Hamburgefonstiv</span>
+    </div>
+    <div class="demo-row">
+      <p class="label">font-stretch: ultra-condensed ! important</p>
+      <span class="pct">125%</span>
+      <span class="demo-text" style="font-stretch: ultra-condensed ! important;">Hamburgefonstiv</span>
+    </div>
+    <div class="demo-row">
+      <p class="label">font-stretch: semi-expanded</p>
+      <span class="pct">200%</span>
+      <span class="demo-text" style="font-stretch: semi-expanded;">Hamburgefonstiv</span>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>shape-image-threshold</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 18px; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 16px;
+      width: 228px;
+    }
+    .card-title {
+      font-size: 13px;
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .card-desc {
+      font-size: 10px;
+      color: #7b8794;
+      margin-bottom: 10px;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+    .shape-demo {
+      background: #0a0a1a;
+      border-radius: 8px;
+      padding: 12px;
+      min-height: 130px;
+      overflow: hidden;
+      font-size: 11px;
+      color: #9ca3af;
+      line-height: 1.5;
+    }
+    .float-shape {
+      float: left;
+      width: 80px;
+      height: 80px;
+      shape-outside: linear-gradient(135deg, rgba(233,69,96,1) 0%, rgba(233,69,96,0) 100%);
+      background: linear-gradient(135deg, rgba(233,69,96,1) 0%, rgba(233,69,96,0) 100%);
+      border-radius: 4px;
+      margin-right: 8px;
+      margin-bottom: 4px;
+    }
+    .threshold-0 { shape-image-threshold: var(--Ni, -07.80e47ms); }
+    .threshold-25 { shape-image-threshold: var(--Ni, -07.80e47ms).25; }
+    .threshold-50 { shape-image-threshold: var(--Ni, -07.80e47ms).5; }
+    .threshold-75 { shape-image-threshold: var(--Ni, -07.80e47ms).75; }
+    .threshold-100 { shape-image-threshold: 1.58e+7%; }
+    .threshold-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .tb-track {
+      flex: 1;
+      height: 6px;
+      background: #333;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .tb-fill {
+      height: 100%;
+      background: #e94560;
+      border-radius: 3px;
+    }
+    .tb-value {
+      font-size: 12px;
+      font-weight: 700;
+      color: #e94560;
+      min-width: 28px;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <h1>Shape Image Threshold</h1>
+  <p class="prop-name">shape-image-threshold</p>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="card-title">Threshold: 0</div>
+      <div class="card-desc">Any non-transparent pixel is part of the shape</div>
+      <div class="shape-demo">
+        <div class="float-shape threshold-0"></div>
+        Text wraps tightly around even the faintest parts of the gradient. Almost all pixels contribute to the shape boundary.
+      </div>
+      <div class="threshold-bar">
+        <div class="tb-track"><div class="tb-fill" style="width: 2%;"></div></div>
+        <span class="tb-value">0</span>
+      </div>
+      <p class="label">shape-image-threshold: var(--Ni, -07.80e47ms)</p>
+    </div>
+    <div class="demo-card">
+      <div class="card-title">Threshold: 0.25</div>
+      <div class="card-desc">Pixels with alpha > 0.25 form the shape</div>
+      <div class="shape-demo">
+        <div class="float-shape threshold-25"></div>
+        Text wraps around pixels above 25% opacity. The faint tail of the gradient is excluded from the shape boundary.
+      </div>
+      <div class="threshold-bar">
+        <div class="tb-track"><div class="tb-fill" style="width: 25%;"></div></div>
+        <span class="tb-value">0.25</span>
+      </div>
+      <p class="label">shape-image-threshold: var(--Ni, -07.80e47ms).25</p>
+    </div>
+    <div class="demo-card">
+      <div class="card-title">Threshold: 0.5</div>
+      <div class="card-desc">Only pixels with alpha > 0.5 form the shape</div>
+      <div class="shape-demo">
+        <div class="float-shape threshold-50"></div>
+        Text wraps only around the more opaque half of the gradient. The shape boundary is roughly at the midpoint.
+      </div>
+      <div class="threshold-bar">
+        <div class="tb-track"><div class="tb-fill" style="width: 50%;"></div></div>
+        <span class="tb-value">0.5</span>
+      </div>
+      <p class="label">shape-image-threshold: var(--Ni, -07.80e47ms).5</p>
+    </div>
+    <div class="demo-card">
+      <div class="card-title">Threshold: 0.75</div>
+      <div class="card-desc">Only very opaque pixels form the shape</div>
+      <div class="shape-demo">
+        <div class="float-shape threshold-75"></div>
+        Text wraps around only the densest area of the gradient. Most of the gradient does not contribute to the shape.
+      </div>
+      <div class="threshold-bar">
+        <div class="tb-track"><div class="tb-fill" style="width: 75%;"></div></div>
+        <span class="tb-value">0.75</span>
+      </div>
+      <p class="label">shape-image-threshold: var(--Ni, -07.80e47ms).75</p>
+    </div>
+    <div class="demo-card">
+      <div class="card-title">Threshold: 1</div>
+      <div class="card-desc">Only fully opaque pixels form the shape</div>
+      <div class="shape-demo">
+        <div class="float-shape threshold-100"></div>
+        Text wraps as a rectangle since only the fully opaque origin pixel counts. The gradient shape is almost entirely ignored.
+      </div>
+      <div class="threshold-bar">
+        <div class="tb-track"><div class="tb-fill" style="width: 100%;"></div></div>
+        <span class="tb-value">1</span>
+      </div>
+      <p class="label">shape-image-threshold: 1.58e+7%</p>
+    </div>
+  </div>
+</body>
+</html>

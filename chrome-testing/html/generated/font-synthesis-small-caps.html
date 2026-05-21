@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>font-synthesis-small-caps</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; gap: 24px; }
+    .demo-card {
+      background: #16213e; border-radius: 12px; padding: 28px; flex: 1;
+      border: 1px solid #2a2a4a;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; }
+    .tag {
+      display: inline-block; background: #7c3aed33; color: #a78bfa; font-size: 11px;
+      font-family: monospace; padding: 2px 8px; border-radius: 4px; margin-bottom: 14px;
+    }
+    .demo-text {
+      font-size: 28px; color: #fff; line-height: 1.8;
+      font-variant: small-caps;
+    }
+    .note { font-size: 11px; color: #6b7280; margin-top: 8px; font-style: italic; }
+    .compare {
+      display: flex; gap: 12px; align-items: baseline; margin-bottom: 8px;
+    }
+    .compare-label {
+      font-size: 10px; color: #6b7280; font-family: monospace; min-width: 80px;
+    }
+    .highlight {
+      background: #7c3aed22; padding: 8px 12px; border-radius: 6px; margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Font Synthesis Small Caps</h1>
+  <p class="prop-name">font-synthesis-small-caps</p>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="tag">auto</div>
+      <div class="highlight">
+        <div class="demo-text" style="font-synthesis-small-caps: auto ! important;">
+          Small Caps Text
+        </div>
+      </div>
+      <div class="highlight">
+        <div class="demo-text" style="font-synthesis-small-caps: auto ! important;">
+          Typography Design
+        </div>
+      </div>
+      <div class="highlight">
+        <div class="demo-text" style="font-synthesis-small-caps: auto ! important;">
+          OpenType Features
+        </div>
+      </div>
+      <p class="label">font-synthesis-small-caps: auto ! important</p>
+      <p class="note">Browser synthesizes small-caps by scaling down uppercase glyphs</p>
+    </div>
+    <div class="demo-card">
+      <div class="tag">none</div>
+      <div class="highlight">
+        <div class="demo-text" style="font-synthesis-small-caps: auto ! important;">
+          Small Caps Text
+        </div>
+      </div>
+      <div class="highlight">
+        <div class="demo-text" style="font-synthesis-small-caps: auto ! important;">
+          Typography Design
+        </div>
+      </div>
+      <div class="highlight">
+        <div class="demo-text" style="font-synthesis-small-caps: auto ! important;">
+          OpenType Features
+        </div>
+      </div>
+      <p class="label">font-synthesis-small-caps: auto ! important</p>
+      <p class="note">No synthesis — only uses actual small-caps glyphs from the font</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>border-block-color</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demo-box {
+      width: 180px;
+      height: 100px;
+      background: #16213e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: #c0c0c0;
+      border-block-style: solid;
+      border-block-width: 5px;
+      border-inline: none;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+    .demo-item { display: flex; flex-direction: column; align-items: center; }
+  </style>
+</head>
+<body>
+  <h1>Border Block Color</h1>
+  <p class="prop-name">border-block-color</p>
+  <div class="demos">
+    <div class="demo-item">
+      <div class="demo-box" style="border-block-color: light-dark(none,) ! important;">Content</div>
+      <p class="label">border-block-color: light-dark(none,) ! important</p>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-block-color: buttonface stripes(light-dark(none,), var(--s-)) ! important;">Content</div>
+      <p class="label">border-block-color: buttonface stripes(light-dark(none,), var(--s-)) ! important</p>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-block-color: stripes(device-cmyk(1e-2 none var(--򝹹6) 8)) var(--⽲H);">Content</div>
+      <p class="label">border-block-color: stripes(device-cmyk(1e-2 none var(--򝹹6) 8)) var(--⽲H)</p>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-block-color: stripes(#9cC68B env(䋂0 +7), currentcolor +3fr) stripes(transparent anchor-size(,)) ! important;">Content</div>
+      <p class="label">border-block-color: stripes(#9cC68B env(䋂0 +7), currentcolor +3fr) stripes(transparent anchor-size(,)) ! important</p>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-block-start-color: #e94560; border-block-end-color: #3498db;">Content</div>
+      <p class="label">border-block-color: light-dark(none,) ! important #3498db</p>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-block-start-color: #2ecc71; border-block-end-color: #f39c12;">Content</div>
+      <p class="label">border-block-color: stripes(device-cmyk(1e-2 none var(--򝹹6) 8)) var(--⽲H) #f39c12</p>
+    </div>
+  </div>
+</body>
+</html>

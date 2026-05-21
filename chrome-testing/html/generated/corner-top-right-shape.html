@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>corner-top-right-shape</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 4px; }
+    .experimental { font-size: 12px; color: #e94560; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 36px; align-items: flex-start; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
+    .demo-card { text-align: center; }
+
+    .shape-box {
+      width: 170px;
+      height: 170px;
+      background: linear-gradient(45deg, #0f3460, #16213e);
+      border: 3px solid #22d3ee;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .dot {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+    }
+    .on { background: #22d3ee; box-shadow: 0 0 10px #22d3ee88; }
+    .off { background: #444; opacity: 0.3; }
+  </style>
+</head>
+<body>
+  <h1>Corner Top Right Shape</h1>
+  <p class="prop-name">corner-top-right-shape</p>
+  <p class="experimental">Experimental property</p>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="shape-box">
+        <span style="font-size:14px;color:#c0c0c0;">round</span>
+        <div class="dot off" style="top:-9px;left:-9px;"></div>
+        <div class="dot on" style="top:-9px;right:-9px;"></div>
+        <div class="dot off" style="bottom:-9px;left:-9px;"></div>
+        <div class="dot off" style="bottom:-9px;right:-9px;"></div>
+      </div>
+      <p class="label">corner-top-right-shape: round ! important</p>
+    </div>
+
+    <div class="demo-card">
+      <svg width="170" height="170" viewBox="0 0 170 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30 3 H140 Q140 30 167 30 V140 Q167 167 140 167 H30 Q3 167 3 140 V30 Q3 3 30 3Z" fill="#16213e" stroke="#22d3ee" stroke-width="3"/>
+        <text x="85" y="90" fill="#c0c0c0" text-anchor="middle" font-size="14" font-family="system-ui">scoop</text>
+        <circle cx="167" cy="3" r="9" fill="#22d3ee">
+          <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="3" cy="3" r="6" fill="#444" opacity="0.3"/>
+        <circle cx="3" cy="167" r="6" fill="#444" opacity="0.3"/>
+        <circle cx="167" cy="167" r="6" fill="#444" opacity="0.3"/>
+      </svg>
+      <p class="label">corner-top-right-shape: round ! important</p>
+    </div>
+
+    <div class="demo-card">
+      <div style="background:#16213e; border-radius:10px; padding:16px; width: 220px; text-align: left;">
+        <p style="font-size:12px; color:#7b8794; margin-bottom:10px; font-family:monospace;">Targets only the<br>top-right corner:</p>
+        <svg width="180" height="100" viewBox="0 0 180 100">
+          <rect x="10" y="10" width="160" height="80" rx="4" fill="none" stroke="#444" stroke-width="1" stroke-dasharray="4"/>
+          <rect x="10" y="10" width="40" height="40" fill="none" stroke="#444" stroke-width="1" opacity="0.3"/>
+          <rect x="130" y="10" width="40" height="40" fill="#22d3ee33" stroke="#22d3ee" stroke-width="2"/>
+          <rect x="10" y="50" width="40" height="40" fill="none" stroke="#444" stroke-width="1" opacity="0.3"/>
+          <rect x="130" y="50" width="40" height="40" fill="none" stroke="#444" stroke-width="1" opacity="0.3"/>
+          <text x="30" y="35" fill="#666" text-anchor="middle" font-size="9" font-family="monospace">TL</text>
+          <text x="150" y="35" fill="#22d3ee" text-anchor="middle" font-size="9" font-family="monospace">TR</text>
+          <text x="30" y="75" fill="#666" text-anchor="middle" font-size="9" font-family="monospace">BL</text>
+          <text x="150" y="75" fill="#666" text-anchor="middle" font-size="9" font-family="monospace">BR</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

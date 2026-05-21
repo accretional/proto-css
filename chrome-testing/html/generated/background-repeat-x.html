@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>background-repeat-x</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 40px; }
+    .demo-item { display: flex; flex-direction: column; align-items: center; }
+    .box {
+      width: 400px;
+      height: 200px;
+      border-radius: 8px;
+      border: 2px solid rgba(255,255,255,0.15);
+      background-color: #2d2d4e;
+      background-image: radial-gradient(circle 15px, #f5576c 60%, transparent 61%);
+      background-size: 40px 40px;
+      background-position: 0 0;
+      background-repeat-y: no-repeat;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; }
+    .b1 { background-repeat-x: repeat ! important; }
+    .b2 { background-repeat-x: round, round; }
+  </style>
+</head>
+<body>
+  <h1>Background Repeat X</h1>
+  <p class="prop-name">background-repeat-x</p>
+  <div class="demos">
+    <div class="demo-item">
+      <div class="box b1"></div>
+      <div class="label">background-repeat-x: repeat ! important</div>
+    </div>
+    <div class="demo-item">
+      <div class="box b2"></div>
+      <div class="label">background-repeat-x: round, round</div>
+    </div>
+  </div>
+</body>
+</html>

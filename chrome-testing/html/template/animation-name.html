@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>animation-name</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-box { background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center; min-width: 200px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; text-align: center; }
+    .anim-target { width: 80px; height: 80px; background: #e94560; border-radius: 8px; }
+
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      50% { transform: translateX(40px); }
+      100% { transform: translateX(0); }
+    }
+    @keyframes fade {
+      0% { opacity: 1; }
+      50% { opacity: 0.2; }
+      100% { opacity: 1; }
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-30px); }
+    }
+
+    .slide-box { animation: slide 2s ease infinite; }
+    .fade-box { animation: fade 2s ease infinite; }
+    .spin-box { animation: spin 2s linear infinite; }
+    .bounce-box { animation: bounce 2s ease infinite; }
+  </style>
+</head>
+<body>
+  <h1>Animation Name</h1>
+  <p class="prop-name">animation-name</p>
+  <div class="demos">
+    <div class="demo-box">
+      <div class="anim-target slide-box"></div>
+      <p class="label">animation-name: slide</p>
+    </div>
+    <div class="demo-box">
+      <div class="anim-target fade-box"></div>
+      <p class="label">animation-name: fade</p>
+    </div>
+    <div class="demo-box">
+      <div class="anim-target spin-box"></div>
+      <p class="label">animation-name: spin</p>
+    </div>
+    <div class="demo-box">
+      <div class="anim-target bounce-box"></div>
+      <p class="label">animation-name: bounce</p>
+    </div>
+  </div>
+</body>
+</html>

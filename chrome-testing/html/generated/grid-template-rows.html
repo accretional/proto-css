@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>grid-template-rows</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-box { background: #16213e; border-radius: 8px; padding: 16px; width: 280px; }
+    .demo-box h3 { font-size: 13px; color: #e0e0e0; margin-bottom: 10px; }
+    .cell { background: #0f3460; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #e94560; font-weight: 600; padding: 6px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+
+    .g1 { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: subgrid; gap: 6px; }
+    .g2 { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: none ! important; gap: 6px; height: 220px; }
+    .g3 { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: +3.20e9fr [ ] ! important; gap: 6px; }
+    .g4 { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: subgrid [ 󇍼2 ] repeat(32, [ ] [ y ]); gap: 6px; height: 220px; }
+    .g5 { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(auto-fit, minmax(0, 37e44fr) [ ]) [ ] repeat(auto-fill, minmax(auto, 2.4%) [ 𢷤- ] auto [ ]) ! important; gap: 6px; }
+    .g6 { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: none; gap: 6px; height: 220px; }
+  </style>
+</head>
+<body>
+  <h1>Grid Template Rows</h1>
+  <p class="prop-name">grid-template-rows</p>
+  <div class="demos">
+    <div class="demo-box">
+      <h3>Fixed pixel heights</h3>
+      <div class="g1">
+        <div class="cell">50px</div><div class="cell">50px</div>
+        <div class="cell">100px</div><div class="cell">100px</div>
+        <div class="cell">50px</div><div class="cell">50px</div>
+      </div>
+      <p class="label">grid-template-rows: subgrid</p>
+    </div>
+    <div class="demo-box">
+      <h3>Equal fractions</h3>
+      <div class="g2">
+        <div class="cell">1fr</div><div class="cell">1fr</div>
+        <div class="cell">1fr</div><div class="cell">1fr</div>
+        <div class="cell">1fr</div><div class="cell">1fr</div>
+      </div>
+      <p class="label">grid-template-rows: none ! important</p>
+    </div>
+    <div class="demo-box">
+      <h3>Auto-sized rows</h3>
+      <div class="g3">
+        <div class="cell">Short</div><div class="cell">Short</div>
+        <div class="cell" style="padding: 16px;">Taller row with more content here</div><div class="cell">auto</div>
+        <div class="cell">Short</div><div class="cell">Short</div>
+      </div>
+      <p class="label">grid-template-rows: +3.20e9fr [ ] ! important</p>
+    </div>
+    <div class="demo-box">
+      <h3>Fixed header/footer, flex middle</h3>
+      <div class="g4">
+        <div class="cell">40px</div><div class="cell">40px</div>
+        <div class="cell">1fr</div><div class="cell">1fr</div>
+        <div class="cell">40px</div><div class="cell">40px</div>
+      </div>
+      <p class="label">grid-template-rows: subgrid [ 󇍼2 ] repeat(32, [ ] [ y ])</p>
+    </div>
+    <div class="demo-box">
+      <h3>Minmax rows</h3>
+      <div class="g5">
+        <div class="cell">min 40px</div><div class="cell">min 40px</div>
+        <div class="cell" style="padding: 16px;">This row grows with content</div><div class="cell">grows</div>
+        <div class="cell">min 40px</div><div class="cell">min 40px</div>
+      </div>
+      <p class="label">grid-template-rows: repeat(auto-fit, minmax(0, 37e44fr) [ ]) [ ] repeat(auto-fill, minmax(auto, 2.4%) [ 𢷤- ] auto [ ]) ! important</p>
+    </div>
+    <div class="demo-box">
+      <h3>Proportional fractions</h3>
+      <div class="g6">
+        <div class="cell">1fr</div><div class="cell">1fr</div>
+        <div class="cell">2fr</div><div class="cell">2fr</div>
+        <div class="cell">1fr</div><div class="cell">1fr</div>
+      </div>
+      <p class="label">grid-template-rows: none</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>background-color</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demo-item { display: flex; flex-direction: column; align-items: center; }
+    .box {
+      width: 180px;
+      height: 120px;
+      border-radius: 8px;
+      border: 2px solid rgba(255,255,255,0.1);
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; }
+    .b1 { background-color: currentcolor; }
+    .b2 { background-color: #5cB9c3a3; }
+    .b3 { background-color: var(--_Y); }
+    .b4 { background-color: light-dark(, none); }
+    .b5 { background-color: var(--_-); }
+    .b6 { background-color: currentcolor ! important; }
+  </style>
+</head>
+<body>
+  <h1>Background Color</h1>
+  <p class="prop-name">background-color</p>
+  <div class="demos">
+    <div class="demo-item">
+      <div class="box b1"></div>
+      <div class="label">background-color: currentcolor</div>
+    </div>
+    <div class="demo-item">
+      <div class="box b2"></div>
+      <div class="label">background-color: #5cB9c3a3</div>
+    </div>
+    <div class="demo-item">
+      <div class="box b3"></div>
+      <div class="label">background-color: var(--_Y)</div>
+    </div>
+    <div class="demo-item">
+      <div class="box b4"></div>
+      <div class="label">background-color: light-dark(, none)</div>
+    </div>
+    <div class="demo-item">
+      <div class="box b5"></div>
+      <div class="label">background-color: var(--_-)</div>
+    </div>
+    <div class="demo-item">
+      <div class="box b6"></div>
+      <div class="label">background-color: currentcolor ! important</div>
+    </div>
+  </div>
+</body>
+</html>

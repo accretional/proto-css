@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>grid-auto-rows</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-box { background: #16213e; border-radius: 8px; padding: 16px; width: 280px; }
+    .demo-box h3 { font-size: 13px; color: #e0e0e0; margin-bottom: 10px; }
+    .cell { background: #0f3460; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #e94560; font-weight: 600; padding: 6px; }
+    .cell:nth-child(n+4) { background: #1a4a7a; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+    .note { font-size: 10px; color: #6b7280; margin-top: 2px; }
+
+    .g1 { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; grid-auto-rows: minmax(anchor-size(--󧘔񸓪 height), auto) fit-content(anchor(--Z_ self-start)) ! important; gap: 6px; }
+    .g2 { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; grid-auto-rows: fit-content(0) ! important; gap: 6px; }
+    .g3 { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; grid-auto-rows: var(--坡_) ! important; gap: 6px; }
+    .g4 { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; grid-auto-rows: minmax(7.1cap, min-content); gap: 6px; }
+  </style>
+</head>
+<body>
+  <h1>Grid Auto Rows</h1>
+  <p class="prop-name">grid-auto-rows</p>
+  <div class="demos">
+    <div class="demo-box">
+      <h3>auto</h3>
+      <div class="g1">
+        <div class="cell">Defined row</div><div class="cell">40px</div><div class="cell">40px</div>
+        <div class="cell">Auto</div><div class="cell">Auto</div><div class="cell">Auto</div>
+        <div class="cell">Auto</div><div class="cell">Auto</div><div class="cell">Auto</div>
+      </div>
+      <p class="label">grid-auto-rows: minmax(anchor-size(--󧘔񸓪 height), auto) fit-content(anchor(--Z_ self-start)) ! important</p>
+      <p class="note">Implicit rows size to content</p>
+    </div>
+    <div class="demo-box">
+      <h3>50px</h3>
+      <div class="g2">
+        <div class="cell">Defined row</div><div class="cell">40px</div><div class="cell">40px</div>
+        <div class="cell">50px</div><div class="cell">50px</div><div class="cell">50px</div>
+        <div class="cell">50px</div><div class="cell">50px</div><div class="cell">50px</div>
+      </div>
+      <p class="label">grid-auto-rows: fit-content(0) ! important</p>
+      <p class="note">Each implicit row is exactly 50px</p>
+    </div>
+    <div class="demo-box">
+      <h3>100px</h3>
+      <div class="g3">
+        <div class="cell">Defined row</div><div class="cell">40px</div><div class="cell">40px</div>
+        <div class="cell">100px</div><div class="cell">100px</div><div class="cell">100px</div>
+      </div>
+      <p class="label">grid-auto-rows: var(--坡_) ! important</p>
+      <p class="note">Implicit rows are tall at 100px</p>
+    </div>
+    <div class="demo-box">
+      <h3>minmax(50px, auto)</h3>
+      <div class="g4">
+        <div class="cell">Defined row</div><div class="cell">40px</div><div class="cell">40px</div>
+        <div class="cell">Min 50px</div><div class="cell">Min 50px</div><div class="cell" style="padding: 12px;">This cell has more content so the row grows</div>
+      </div>
+      <p class="label">grid-auto-rows: minmax(7.1cap, min-content)</p>
+      <p class="note">Rows are at least 50px, grow with content</p>
+    </div>
+  </div>
+</body>
+</html>

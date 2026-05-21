@@ -1,0 +1,32 @@
+(* Combinator covers only the four *explicit* combinators written as punctuation.
+   The descendant combinator is intentionally absent.
+
+   Per the CSS spec, the descendant combinator is "one or more CSS whitespace
+   characters — the space character and/or carriage return, form feed, newline,
+   or tab — between two selectors in the absence of another combinator."
+   Those whitespace characters may contain any number of CSS comments.
+
+   Because the parser (gluon) skips whitespace and block comments automatically
+   between syntactic productions, the descendant relationship does not need an
+   explicit token. It is encoded implicitly in selector.ebnf: wherever
+   ComplexSelector, NestedComplexSelector, or ComplexSelectorNoPe writes
+
+       { [ Combinator ] , CompoundSelector }
+
+   an absent Combinator — with the whitespace already consumed by the parser —
+   represents a descendant relationship. An explicit Combinator present at that
+   position represents child (>), next-sibling (+), subsequent-sibling (~), or
+   column (||).
+
+   This matches the CSS spec's definition exactly: the descendant combinator is
+   whitespace *in the absence of another combinator*, not a distinct token. *)
+
+Combinator = ChildCombinator | ColumnCombinator | NextSiblingCombinator | SubsequentSiblingCombinator ;
+
+ChildCombinator = greater_than_sign_symbol ;
+
+ColumnCombinator = double_vertical_line_symbol ;
+
+NextSiblingCombinator = plus_sign_symbol ;
+
+SubsequentSiblingCombinator = tilde_symbol ;

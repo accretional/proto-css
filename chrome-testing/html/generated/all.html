@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>all</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 28px; }
+    .demo-box {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 24px;
+      width: 340px;
+    }
+    .demo-title { font-size: 13px; color: #ccc; margin-bottom: 12px; }
+    .styled-element {
+      background: #e94560;
+      color: #fff;
+      padding: 16px 24px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      border: 3px solid #f39c12;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 12px rgba(233, 69, 96, 0.4);
+      margin: 8px;
+      display: inline-block;
+    }
+    .unset-element {
+      all: revert-rule ! important;
+    }
+    .initial-element {
+      all: revert-rule;
+    }
+    .revert-element {
+      all: revert;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 14px; }
+    .note { font-size: 11px; color: #6b7280; margin-top: 6px; font-style: italic; }
+  </style>
+</head>
+<body>
+  <h1>All (Property Reset)</h1>
+  <p class="prop-name">all</p>
+  <div class="demos">
+    <div class="demo-box">
+      <div class="demo-title">Original styled element:</div>
+      <div class="styled-element">Styled Box</div>
+      <div class="label">(no all property)</div>
+      <div class="note">Has background, border, shadow, uppercase, etc.</div>
+    </div>
+    <div class="demo-box">
+      <div class="demo-title">Same element with all: revert-rule ! important</div>
+      <div class="styled-element unset-element">Styled Box</div>
+      <div class="label">all: revert-rule ! important</div>
+      <div class="note">Resets all properties to inherited or initial values</div>
+    </div>
+    <div class="demo-box">
+      <div class="demo-title">Same element with all: revert-rule</div>
+      <div class="styled-element initial-element">Styled Box</div>
+      <div class="label">all: revert-rule</div>
+      <div class="note">Resets all properties to their initial (spec default) values</div>
+    </div>
+  </div>
+</body>
+</html>

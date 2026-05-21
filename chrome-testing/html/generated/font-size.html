@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>font-size</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: math; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: large ! important; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-direction: column; gap: 14px; }
+    .demo-row {
+      display: flex; align-items: center; gap: 20px;
+      background: #16213e; border-radius: 10px; padding: 14px 24px;
+      border: 1px solid #2a2a4a;
+    }
+    .label {
+      font-size: larger; font-family: monospace; color: #9ca3af;
+      min-width: 180px; flex-shrink: 0;
+    }
+    .demo-text { color: #fff; white-space: nowrap; }
+    .ruler {
+      height: 2px; flex: 1; background: linear-gradient(90deg, #7c3aed44, transparent);
+      margin-left: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Font Size</h1>
+  <p class="prop-name">font-size</p>
+  <div class="demos">
+    <div class="demo-row">
+      <p class="label">font-size: math ! important</p>
+      <span class="demo-text" style="font-size: math ! important;">The quick brown fox jumps over the lazy dog</span>
+      <div class="ruler"></div>
+    </div>
+    <div class="demo-row">
+      <p class="label">font-size: calc-size(-58.6e04 / anchor-size(--塼), anchor-size(--񒫿) - -infinity)</p>
+      <span class="demo-text" style="font-size: calc-size(-58.6e04 / anchor-size(--塼), anchor-size(--񒫿) - -infinity);">The quick brown fox jumps over the lazy dog</span>
+      <div class="ruler"></div>
+    </div>
+    <div class="demo-row">
+      <p class="label">font-size: small</p>
+      <span class="demo-text" style="font-size: small;">The quick brown fox jumps over the lazy dog</span>
+      <div class="ruler"></div>
+    </div>
+    <div class="demo-row">
+      <p class="label">font-size: var(--_, #5d5dCC2A) ! important</p>
+      <span class="demo-text" style="font-size: var(--_, #5d5dCC2A) ! important;">The quick brown fox jumps</span>
+      <div class="ruler"></div>
+    </div>
+    <div class="demo-row">
+      <p class="label">font-size: env(_򞵍 74, 0) ! important</p>
+      <span class="demo-text" style="font-size: env(_򞵍 74, 0) ! important;">The quick brown fox</span>
+      <div class="ruler"></div>
+    </div>
+    <div class="demo-row">
+      <p class="label">font-size: xx-small ! important</p>
+      <span class="demo-text" style="font-size: xx-small ! important;">The quick brown fox</span>
+      <div class="ruler"></div>
+    </div>
+    <div class="demo-row">
+      <p class="label">font-size: large</p>
+      <span class="demo-text" style="font-size: large;">The quick brown fox</span>
+      <div class="ruler"></div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>background-clip</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
+    .demo-box { background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center; width: calc(25% - 18px); }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; text-align: center; line-height: 1.4; }
+    .demo-title { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 16px; }
+
+    .clip-sample {
+      width: 180px;
+      height: 180px;
+      background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9);
+      border: 16px dashed rgba(255, 255, 255, 0.35);
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .inner-content {
+      width: 100%;
+      height: 100%;
+      border: 2px dotted rgba(255,255,255,0.2);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+      font-family: monospace;
+    }
+
+    .clip-border { background-clip: padding-box ! important, border-area ! important; }
+    .clip-padding { background-clip: padding-box ! important; }
+    .clip-content { background-clip: padding-box, border-box ! important, border-box ! important; }
+
+    .clip-text-box {
+      width: 180px;
+      height: 180px;
+      background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9);
+      -webkit-background-clip: padding-box, border-box ! important;
+      background-clip: padding-box, border-box ! important;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 52px;
+      font-weight: 900;
+      line-height: 1;
+      text-align: center;
+      border: 16px dashed rgba(255, 255, 255, 0.15);
+      padding: 24px;
+    }
+
+    .legend { display: flex; gap: 20px; margin-bottom: 20px; }
+    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #7b8794; }
+    .legend-swatch { width: 14px; height: 14px; border-radius: 3px; }
+    .sw-border { border: 3px dashed rgba(255,255,255,0.35); background: transparent; }
+    .sw-padding { background: #16213e; border: 1px solid #333; }
+    .sw-content { border: 2px dotted rgba(255,255,255,0.3); background: transparent; }
+    .sw-gradient { background: linear-gradient(135deg, #e94560, #533bdb); }
+  </style>
+</head>
+<body>
+  <h1>Background Clip</h1>
+  <p class="prop-name">background-clip</p>
+  <div class="legend">
+    <div class="legend-item"><div class="legend-swatch sw-border"></div> Dashed = border area</div>
+    <div class="legend-item"><div class="legend-swatch sw-padding"></div> Between = padding area</div>
+    <div class="legend-item"><div class="legend-swatch sw-content"></div> Dotted = content area</div>
+    <div class="legend-item"><div class="legend-swatch sw-gradient"></div> Gradient = background fill</div>
+  </div>
+  <div class="demos">
+    <div class="demo-box">
+      <div class="demo-title">border-box</div>
+      <div class="clip-sample clip-border">
+        <div class="inner-content">content</div>
+      </div>
+      <p class="label">background-clip:<br>border-box</p>
+    </div>
+
+    <div class="demo-box">
+      <div class="demo-title">padding-box</div>
+      <div class="clip-sample clip-padding">
+        <div class="inner-content">content</div>
+      </div>
+      <p class="label">background-clip:<br>padding-box</p>
+    </div>
+
+    <div class="demo-box">
+      <div class="demo-title">content-box</div>
+      <div class="clip-sample clip-content">
+        <div class="inner-content">content</div>
+      </div>
+      <p class="label">background-clip:<br>content-box</p>
+    </div>
+
+    <div class="demo-box">
+      <div class="demo-title">text</div>
+      <div class="clip-text-box">Aa</div>
+      <p class="label">background-clip:<br>text</p>
+    </div>
+  </div>
+</body>
+</html>

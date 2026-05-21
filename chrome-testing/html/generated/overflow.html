@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>overflow</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demo-box { background: #16213e; border-radius: 10px; padding: 20px; width: 225px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 10px; }
+    .container {
+      width: 185px; height: 150px; background: #0f3460; border-radius: 6px;
+      border: 2px solid #3a3a5c; position: relative;
+    }
+    .content {
+      font-size: 12px; line-height: 1.6; color: #c0c0d0; padding: 10px;
+    }
+    .wide-content {
+      width: 300px;
+      white-space: nowrap;
+    }
+    .d1 .container { overflow: scroll scroll ! important; }
+    .d2 .container { overflow: auto visible; }
+    .d3 .container { overflow: scroll ! important; }
+    .d4 .container { overflow: scroll scroll; }
+    .d5 .container { overflow: auto; }
+    .overflow-indicator {
+      background: #e94560; color: #fff; padding: 4px 8px; border-radius: 4px;
+      font-size: 10px; font-weight: bold; display: inline-block; margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Overflow</h1>
+  <p class="prop-name">overflow</p>
+  <div class="demos">
+    <div class="demo-box d1">
+      <div class="label">overflow: scroll scroll ! important</div>
+      <div class="container">
+        <div class="content">
+          <p>This content overflows the container boundaries and remains visible outside the box.</p>
+          <p>More text that continues to overflow past the edges of this element.</p>
+          <p>Even more content here to make it really obvious.</p>
+          <p>And yet another line of text.</p>
+        </div>
+      </div>
+    </div>
+    <div class="demo-box d2">
+      <div class="label">overflow: auto visible</div>
+      <div class="container">
+        <div class="content">
+          <p>This content overflows but is hidden. You cannot see text past the container edge.</p>
+          <p>More text that is clipped and hidden from view entirely.</p>
+          <p>Even more content here that is invisible.</p>
+          <p>And yet another line of hidden text.</p>
+        </div>
+      </div>
+    </div>
+    <div class="demo-box d3">
+      <div class="label">overflow: scroll ! important</div>
+      <div class="container">
+        <div class="content">
+          <p>This content can be scrolled. Scrollbars are always visible.</p>
+          <p>More text that can be reached by scrolling down.</p>
+          <p>Even more content here to scroll through.</p>
+          <p>And yet another line.</p>
+        </div>
+      </div>
+    </div>
+    <div class="demo-box d4">
+      <div class="label">overflow: scroll scroll</div>
+      <div class="container">
+        <div class="content">
+          <p>Scrollbars appear only when needed. This content overflows.</p>
+          <p>More text to demonstrate auto scrollbar behavior.</p>
+          <p>Even more content that causes scrollbar to appear.</p>
+          <p>And yet another line.</p>
+        </div>
+      </div>
+    </div>
+    <div class="demo-box d5">
+      <div class="label">overflow: auto</div>
+      <div class="container">
+        <div class="content">
+          <p>Content is clipped like hidden, but no programmatic scrolling allowed.</p>
+          <p>More text that is clipped. No scroll mechanism at all.</p>
+          <p>Even more hidden content.</p>
+          <p>And yet another line.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

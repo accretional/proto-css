@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>place-items</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 28px; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 370px;
+    }
+    .grid-container {
+      width: 310px;
+      height: 200px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 4px;
+      border: 2px dashed rgba(255,255,255,0.2);
+      border-radius: 6px;
+    }
+    .grid-cell {
+      background: rgba(255,255,255,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .grid-item {
+      background: linear-gradient(135deg, #0f3460, #533483);
+      border-radius: 6px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>Place Items</h1>
+  <p class="prop-name">place-items</p>
+  <div class="demos">
+
+    <div class="demo-card">
+      <div class="grid-container" style="place-items: normal ! important;">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+      </div>
+      <div class="label">place-items: normal ! important<br><span style="color:#6b7280; font-size:10px;">items centered in their cells</span></div>
+    </div>
+
+    <div class="demo-card">
+      <div class="grid-container" style="place-items: first baseline ! important;">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+      </div>
+      <div class="label">place-items: first baseline ! important<br><span style="color:#6b7280; font-size:10px;">align-items: start, justify-items: end</span></div>
+    </div>
+
+    <div class="demo-card">
+      <div class="grid-container" style="place-items: unsafe start;">
+        <div class="grid-item" style="width:auto; height:auto;">1</div>
+        <div class="grid-item" style="width:auto; height:auto;">2</div>
+        <div class="grid-item" style="width:auto; height:auto;">3</div>
+        <div class="grid-item" style="width:auto; height:auto;">4</div>
+        <div class="grid-item" style="width:auto; height:auto;">5</div>
+        <div class="grid-item" style="width:auto; height:auto;">6</div>
+      </div>
+      <div class="label">place-items: unsafe start<br><span style="color:#6b7280; font-size:10px;">items fill their cells</span></div>
+    </div>
+
+  </div>
+</body>
+</html>

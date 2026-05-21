@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>alignment-baseline</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-box {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 20px;
+      width: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    svg { background: #0f3460; border-radius: 8px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>Alignment Baseline</h1>
+  <p class="prop-name">alignment-baseline</p>
+  <div class="demos">
+    <div class="demo-box">
+      <svg width="180" height="120" viewBox="0 0 180 120">
+        <line x1="10" y1="70" x2="170" y2="70" stroke="#4a5568" stroke-width="1" stroke-dasharray="4"/>
+        <text x="10" y="70" font-size="32" fill="#e94560" font-family="system-ui">Big</text>
+        <text x="80" y="70" font-size="14" fill="#3498db" font-family="system-ui" alignment-baseline="auto">small</text>
+      </svg>
+      <div class="label">alignment-baseline: baseline</div>
+    </div>
+    <div class="demo-box">
+      <svg width="180" height="120" viewBox="0 0 180 120">
+        <line x1="10" y1="70" x2="170" y2="70" stroke="#4a5568" stroke-width="1" stroke-dasharray="4"/>
+        <text x="10" y="70" font-size="32" fill="#e94560" font-family="system-ui">Big</text>
+        <text x="80" y="70" font-size="14" fill="#3498db" font-family="system-ui" alignment-baseline="baseline">small</text>
+      </svg>
+      <div class="label">alignment-baseline: baseline ! important</div>
+    </div>
+    <div class="demo-box">
+      <svg width="180" height="120" viewBox="0 0 180 120">
+        <line x1="10" y1="70" x2="170" y2="70" stroke="#4a5568" stroke-width="1" stroke-dasharray="4"/>
+        <text x="10" y="70" font-size="32" fill="#e94560" font-family="system-ui">Big</text>
+        <text x="80" y="70" font-size="14" fill="#3498db" font-family="system-ui" alignment-baseline="middle">small</text>
+      </svg>
+      <div class="label">alignment-baseline: middle</div>
+    </div>
+    <div class="demo-box">
+      <svg width="180" height="120" viewBox="0 0 180 120">
+        <line x1="10" y1="70" x2="170" y2="70" stroke="#4a5568" stroke-width="1" stroke-dasharray="4"/>
+        <text x="10" y="70" font-size="32" fill="#e94560" font-family="system-ui">Big</text>
+        <text x="80" y="70" font-size="14" fill="#3498db" font-family="system-ui" alignment-baseline="central">small</text>
+      </svg>
+      <div class="label">alignment-baseline: ideographic</div>
+    </div>
+    <div class="demo-box">
+      <svg width="180" height="120" viewBox="0 0 180 120">
+        <line x1="10" y1="70" x2="170" y2="70" stroke="#4a5568" stroke-width="1" stroke-dasharray="4"/>
+        <text x="10" y="70" font-size="32" fill="#e94560" font-family="system-ui">Big</text>
+        <text x="80" y="70" font-size="14" fill="#3498db" font-family="system-ui" alignment-baseline="text-bottom">small</text>
+      </svg>
+      <div class="label">alignment-baseline: baseline</div>
+    </div>
+  </div>
+</body>
+</html>

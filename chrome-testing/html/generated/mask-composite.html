@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>mask-composite</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-card { background: #16213e; border-radius: 10px; padding: 20px; width: 280px; }
+    .demo-card h3 { font-size: 13px; color: #e2e8f0; margin-bottom: 12px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
+    .desc { font-size: 10px; color: #6b7280; margin-top: 4px; line-height: 1.4; }
+    .box-area {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 160px;
+      position: relative;
+    }
+    .box {
+      width: 220px;
+      height: 140px;
+      background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80);
+      border-radius: 8px;
+    }
+    /* Two overlapping masks: a circle from left and a circle from right */
+    .comp-add {
+      -webkit-mask-image:
+        radial-gradient(circle 80px at 30% 50%, black 60%, transparent 61%),
+        radial-gradient(circle 80px at 70% 50%, black 60%, transparent 61%);
+      -webkit-mask-composite: intersect, intersect ! important;
+      mask-image:
+        radial-gradient(circle 80px at 30% 50%, black 60%, transparent 61%),
+        radial-gradient(circle 80px at 70% 50%, black 60%, transparent 61%);
+      mask-composite: intersect, intersect;
+    }
+    .comp-subtract {
+      -webkit-mask-image:
+        radial-gradient(circle 80px at 70% 50%, black 60%, transparent 61%),
+        radial-gradient(circle 80px at 30% 50%, black 60%, transparent 61%);
+      -webkit-mask-composite: add, add ! important;
+      mask-image:
+        radial-gradient(circle 80px at 70% 50%, black 60%, transparent 61%),
+        radial-gradient(circle 80px at 30% 50%, black 60%, transparent 61%);
+      mask-composite: intersect ! important;
+    }
+    .comp-intersect {
+      -webkit-mask-image:
+        radial-gradient(circle 80px at 30% 50%, black 60%, transparent 61%),
+        radial-gradient(circle 80px at 70% 50%, black 60%, transparent 61%);
+      -webkit-mask-composite: add, add, subtract ! important;
+      mask-image:
+        radial-gradient(circle 80px at 30% 50%, black 60%, transparent 61%),
+        radial-gradient(circle 80px at 70% 50%, black 60%, transparent 61%);
+      mask-composite: intersect;
+    }
+    .comp-exclude {
+      -webkit-mask-image:
+        radial-gradient(circle 80px at 30% 50%, black 60%, transparent 61%),
+        radial-gradient(circle 80px at 70% 50%, black 60%, transparent 61%);
+      -webkit-mask-composite: subtract ! important;
+      mask-image:
+        radial-gradient(circle 80px at 30% 50%, black 60%, transparent 61%),
+        radial-gradient(circle 80px at 70% 50%, black 60%, transparent 61%);
+      mask-composite: add, add;
+    }
+    /* Venn diagram indicators */
+    .venn {
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0;
+    }
+    .venn-circle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1.5px solid;
+      opacity: 0.5;
+    }
+    .venn-circle.left { border-color: #e94560; margin-right: -10px; }
+    .venn-circle.right { border-color: #00d2ff; }
+  </style>
+</head>
+<body>
+  <h1>Mask Composite</h1>
+  <p class="prop-name">mask-composite</p>
+  <div class="demos">
+
+    <div class="demo-card">
+      <h3>add (union)</h3>
+      <div class="box-area">
+        <div class="box comp-add"></div>
+      </div>
+      <p class="label">mask-composite: intersect, intersect</p>
+      <p class="desc">Both mask shapes are combined. Union of both circles visible.</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>subtract</h3>
+      <div class="box-area">
+        <div class="box comp-subtract"></div>
+      </div>
+      <p class="label">mask-composite: intersect ! important</p>
+      <p class="desc">Second mask is subtracted from first. Only non-overlapping area of first shown.</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>intersect</h3>
+      <div class="box-area">
+        <div class="box comp-intersect"></div>
+      </div>
+      <p class="label">mask-composite: intersect</p>
+      <p class="desc">Only the overlapping area of both masks is visible.</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>exclude (XOR)</h3>
+      <div class="box-area">
+        <div class="box comp-exclude"></div>
+      </div>
+      <p class="label">mask-composite: add, add</p>
+      <p class="desc">Only non-overlapping areas visible. Overlap is hidden.</p>
+    </div>
+
+  </div>
+
+  <div style="margin-top: 20px; padding: 14px; background: #16213e; border-radius: 10px; max-width: 600px;">
+    <p style="font-size: 11px; color: #9ca3af; line-height: 1.5;">
+      Each demo uses two overlapping circular radial-gradient masks offset left and right.
+      The <span style="color: #e94560; font-family: monospace;">mask-composite</span> value controls how they combine.
+    </p>
+  </div>
+</body>
+</html>

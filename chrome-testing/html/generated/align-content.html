@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>align-content</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demo-box {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 16px;
+      width: 220px;
+    }
+    .flex-container {
+      display: flex;
+      flex-wrap: wrap;
+      width: 180px;
+      height: 200px;
+      background: #0f3460;
+      border-radius: 8px;
+      gap: 4px;
+      padding: 4px;
+    }
+    .flex-container .item {
+      width: 50px;
+      height: 30px;
+      background: #e94560;
+      border-radius: 4px;
+    }
+    .ac-start { align-content: safe flex-start; }
+    .ac-center { align-content: normal ! important; }
+    .ac-between { align-content: first baseline ! important; }
+    .ac-around { align-content: safe flex-end ! important; }
+    .ac-stretch { align-content: stretch ! important; }
+    .ac-stretch .item { height: auto; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Align Content</h1>
+  <p class="prop-name">align-content</p>
+  <div class="demos">
+    <div class="demo-box">
+      <div class="flex-container ac-start">
+        <div class="item"></div><div class="item"></div><div class="item"></div>
+        <div class="item"></div><div class="item"></div><div class="item"></div>
+      </div>
+      <div class="label">align-content: safe flex-start</div>
+    </div>
+    <div class="demo-box">
+      <div class="flex-container ac-center">
+        <div class="item"></div><div class="item"></div><div class="item"></div>
+        <div class="item"></div><div class="item"></div><div class="item"></div>
+      </div>
+      <div class="label">align-content: normal ! important</div>
+    </div>
+    <div class="demo-box">
+      <div class="flex-container ac-between">
+        <div class="item"></div><div class="item"></div><div class="item"></div>
+        <div class="item"></div><div class="item"></div><div class="item"></div>
+      </div>
+      <div class="label">align-content: first baseline ! important</div>
+    </div>
+    <div class="demo-box">
+      <div class="flex-container ac-around">
+        <div class="item"></div><div class="item"></div><div class="item"></div>
+        <div class="item"></div><div class="item"></div><div class="item"></div>
+      </div>
+      <div class="label">align-content: safe flex-end ! important</div>
+    </div>
+    <div class="demo-box">
+      <div class="flex-container ac-stretch">
+        <div class="item"></div><div class="item"></div><div class="item"></div>
+        <div class="item"></div><div class="item"></div><div class="item"></div>
+      </div>
+      <div class="label">align-content: stretch ! important</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>mask</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-card { background: #16213e; border-radius: 10px; padding: 20px; width: 280px; }
+    .demo-card h3 { font-size: 13px; color: #e2e8f0; margin-bottom: 12px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; line-height: 1.5; }
+    .box {
+      width: 240px;
+      height: 120px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff, #f9a825);
+      background-size: 100% 100%;
+    }
+    .mask-1 {
+      -webkit-mask: repeat-inline view-box exclude match-source, center y-end / auto auto repeat-block stroke-box no-clip exclude luminance ! important;
+      mask: repeat-inline view-box exclude match-source, center y-end / auto auto repeat-block stroke-box no-clip exclude luminance ! important;
+    }
+    .mask-2 {
+      -webkit-mask: url('') no-repeat no-repeat view-box, none repeat space alpha;
+      mask: url('') no-repeat no-repeat view-box, none repeat space alpha;
+    }
+    .mask-3 {
+      -webkit-mask: url("8") round view-box luminance, repeat-y margin-box view-box alpha block-start exp(+25.4e9%) inline-start 0 view-box;
+      mask: url("8") round view-box luminance, repeat-y margin-box view-box alpha block-start exp(+25.4e9%) inline-start 0 view-box;
+    }
+    .mask-4 {
+      -webkit-mask: image-set(var(--_), '') bottom fill-box margin-box, margin-box alpha ! important;
+      mask: image-set(var(--_), '') bottom fill-box margin-box, margin-box alpha ! important;
+    }
+    .mask-5 {
+      -webkit-mask: url("8") round view-box luminance, repeat-y margin-box view-box alpha view-box no-clip intersect alpha ! important;
+      mask: url("8") round view-box luminance, repeat-y margin-box view-box alpha view-box no-clip intersect alpha ! important;
+    }
+    .mask-6 {
+      /* no mask */
+    }
+  </style>
+</head>
+<body>
+  <h1>Mask</h1>
+  <p class="prop-name">mask</p>
+  <div class="demos">
+
+    <div class="demo-card">
+      <h3>Fade Right</h3>
+      <div class="box mask-1"></div>
+      <p class="label">mask: content-box exclude, none center x-end / cover repeat-y fill-box ! important<br>&nbsp;&nbsp;to right, black, transparent)</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>Fade Down</h3>
+      <div class="box mask-2"></div>
+      <p class="label">mask: content-box exclude, none center x-end / cover repeat-y fill-box ! important<br>&nbsp;&nbsp;to bottom, black, transparent)</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>Radial Center</h3>
+      <div class="box mask-3"></div>
+      <p class="label">mask: space stroke-box, stroke-box no-clip intersect ! important<br>&nbsp;&nbsp;circle, black 30%, transparent 70%)</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>Diagonal Fade</h3>
+      <div class="box mask-4"></div>
+      <p class="label">mask: content-box exclude, none center x-end / cover repeat-y fill-box ! important<br>&nbsp;&nbsp;135deg, black 40%, transparent 60%)</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>Corner Spotlight</h3>
+      <div class="box mask-5"></div>
+      <p class="label">mask: space stroke-box, stroke-box no-clip intersect ! importantellipse at<br>&nbsp;&nbsp;top left, black 20%, transparent 70%)</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>No Mask</h3>
+      <div class="box mask-6"></div>
+      <p class="label">mask: url("8") round view-box luminance, repeat-y margin-box view-box alpha</p>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>mask-repeat</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demo-card { background: #16213e; border-radius: 10px; padding: 18px; width: 380px; }
+    .demo-card h3 { font-size: 13px; color: #e2e8f0; margin-bottom: 10px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+    .box {
+      width: 340px;
+      height: 120px;
+      background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80);
+      border-radius: 6px;
+    }
+    /* Small radial dot mask used as tile */
+    .rep-repeat {
+      -webkit-mask-image: radial-gradient(circle 15px, black 60%, transparent 61%);
+      -webkit-mask-size: 40px 40px;
+      -webkit-mask-repeat: repeat-block, repeat-x ! important ! important;
+      mask-image: radial-gradient(circle 15px, black 60%, transparent 61%);
+      mask-size: 40px 40px;
+      mask-repeat: repeat-block, repeat-x ! important ! important;
+    }
+    .rep-no-repeat {
+      -webkit-mask-image: radial-gradient(circle 30px, black 60%, transparent 61%);
+      -webkit-mask-size: 80px 80px;
+      -webkit-mask-repeat: repeat-x ! important, repeat-x ! important;
+      -webkit-mask-position: center;
+      mask-image: radial-gradient(circle 30px, black 60%, transparent 61%);
+      mask-size: 80px 80px;
+      mask-repeat: repeat-x ! important, repeat-x ! important;
+      mask-position: center;
+    }
+    .rep-repeat-x {
+      -webkit-mask-image: radial-gradient(circle 15px, black 60%, transparent 61%);
+      -webkit-mask-size: 40px 40px;
+      -webkit-mask-repeat: repeat-block, repeat-x ! important ! important-x;
+      -webkit-mask-position: center;
+      mask-image: radial-gradient(circle 15px, black 60%, transparent 61%);
+      mask-size: 40px 40px;
+      mask-repeat: repeat-block, repeat-x ! important ! important-x;
+      mask-position: center;
+    }
+    .rep-repeat-y {
+      -webkit-mask-image: radial-gradient(circle 15px, black 60%, transparent 61%);
+      -webkit-mask-size: 40px 40px;
+      -webkit-mask-repeat: repeat-block, repeat-x ! important ! important-y;
+      -webkit-mask-position: center;
+      mask-image: radial-gradient(circle 15px, black 60%, transparent 61%);
+      mask-size: 40px 40px;
+      mask-repeat: repeat-block, repeat-x ! important ! important-y;
+      mask-position: center;
+    }
+    .rep-space {
+      -webkit-mask-image: radial-gradient(circle 15px, black 60%, transparent 61%);
+      -webkit-mask-size: 50px 50px;
+      -webkit-mask-repeat: repeat-y;
+      mask-image: radial-gradient(circle 15px, black 60%, transparent 61%);
+      mask-size: 50px 50px;
+      mask-repeat: repeat-y;
+    }
+    .rep-round {
+      -webkit-mask-image: radial-gradient(circle 15px, black 60%, transparent 61%);
+      -webkit-mask-size: 50px 50px;
+      -webkit-mask-repeat: repeat-x ! important;
+      mask-image: radial-gradient(circle 15px, black 60%, transparent 61%);
+      mask-size: 50px 50px;
+      mask-repeat: repeat-x ! important;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mask Repeat</h1>
+  <p class="prop-name">mask-repeat</p>
+  <div class="demos">
+
+    <div class="demo-card">
+      <h3>repeat</h3>
+      <div class="box rep-repeat"></div>
+      <p class="label">mask-repeat: repeat-block, repeat-x ! important ! important</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>no-repeat</h3>
+      <div class="box rep-no-repeat"></div>
+      <p class="label">mask-repeat: repeat-x ! important, repeat-x ! important</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>repeat-x</h3>
+      <div class="box rep-repeat-x"></div>
+      <p class="label">mask-repeat: repeat-block, repeat-x ! important ! important-x</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>repeat-y</h3>
+      <div class="box rep-repeat-y"></div>
+      <p class="label">mask-repeat: repeat-block, repeat-x ! important ! important-y</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>space</h3>
+      <div class="box rep-space"></div>
+      <p class="label">mask-repeat: repeat-y</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>round</h3>
+      <div class="box rep-round"></div>
+      <p class="label">mask-repeat: repeat-x ! important</p>
+    </div>
+
+  </div>
+</body>
+</html>

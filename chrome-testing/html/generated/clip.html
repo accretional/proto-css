@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>clip</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 4px; }
+    .deprecated { font-size: 11px; color: #e94560; font-style: italic; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 10px;
+      padding: 20px;
+      width: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 14px; align-self: flex-start; }
+    .clip-container {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      background: #0f3460;
+      border-radius: 8px;
+      overflow: visible;
+    }
+    .clip-ghost {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      border: 2px dashed #2a2a5a;
+      border-radius: 8px;
+    }
+    .clip-target {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #e94560, #7b61ff, #0f3460);
+      border-radius: 8px;
+    }
+    .c1 .clip-target { clip: auto; }
+    .c2 .clip-target { clip: auto ! important; }
+    .c3 .clip-target { clip: rect(77%, auto, var(--󜏩, "z"), auto) ! important; }
+    .c4 .clip-target { clip: rect(var(--) anchor(self-end) auto calc-size(any, infinity) round anchor-size(--z󺛖, env(鎨 +76, 91.51e+00)) var(--񽴕, --Q)) ! important; }
+    .c5 .clip-target { clip: rect(anchor(--� right), cos(5e93 - var(--𳥚󿜑, 슭)), auto, 18cqb); }
+    .note { font-size: 10px; color: #6b7280; margin-top: 10px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>Clip (deprecated)</h1>
+  <p class="prop-name">clip</p>
+  <p class="deprecated">Deprecated: use clip-path instead. Requires position: absolute.</p>
+  <div class="demos">
+    <div class="demo-card c1">
+      <div class="label">clip: auto</div>
+      <div class="clip-container">
+        <div class="clip-ghost"></div>
+        <div class="clip-target"></div>
+      </div>
+      <p class="note">Full element visible</p>
+    </div>
+    <div class="demo-card c2">
+      <div class="label">clip: auto ! important</div>
+      <div class="clip-container">
+        <div class="clip-ghost"></div>
+        <div class="clip-target"></div>
+      </div>
+      <p class="note">20px inset on all sides</p>
+    </div>
+    <div class="demo-card c3">
+      <div class="label">clip: rect(77%, auto, var(--󜏩, "z"), auto) ! important</div>
+      <div class="clip-container">
+        <div class="clip-ghost"></div>
+        <div class="clip-target"></div>
+      </div>
+      <p class="note">Top half only</p>
+    </div>
+    <div class="demo-card c4">
+      <div class="label">clip: rect(var(--) anchor(self-end) auto calc-size(any, infinity) round anchor-size(--z󺛖, env(鎨 +76, 91.51e+00)) var(--񽴕, --Q)) ! important</div>
+      <div class="clip-container">
+        <div class="clip-ghost"></div>
+        <div class="clip-target"></div>
+      </div>
+      <p class="note">Center 60x60 window</p>
+    </div>
+  </div>
+</body>
+</html>

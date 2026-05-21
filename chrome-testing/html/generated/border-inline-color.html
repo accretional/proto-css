@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>border-inline-color</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .box {
+      width: 180px;
+      height: 110px;
+      background: #16213e;
+      border-inline-style: solid;
+      border-inline-width: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #ccc;
+      font-family: monospace;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; max-width: 220px; }
+    .note { font-size: 12px; color: #7b8794; margin-bottom: 16px; }
+  </style>
+</head>
+<body>
+  <h1>Border Inline Color</h1>
+  <p class="prop-name">border-inline-color</p>
+  <p class="note">Sets the color of inline-direction borders (left/right in LTR)</p>
+  <div class="demos">
+    <div class="demo-item">
+      <div class="box" style="border-inline-color: light-dark(none,) ! important;">single color<br>#e94560</div>
+      <div class="label">border-inline-color:<br>#e94560</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border-inline-color: buttonface stripes(light-dark(none,), var(--s-)) ! important;">single color<br>#53d8fb</div>
+      <div class="label">border-inline-color:<br>#53d8fb</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border-inline-color: stripes(device-cmyk(1e-2 none var(--򝹹6) 8)) var(--⽲H);">single color<br>#4ade80</div>
+      <div class="label">border-inline-color:<br>#4ade80</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border-inline-start-color: #e94560; border-inline-end-color: #53d8fb;">start: red<br>end: blue</div>
+      <div class="label">border-inline-start-color: #e94560<br>border-inline-end-color: #53d8fb</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border-inline-start-color: #fbbf24; border-inline-end-color: #a855f7;">start: yellow<br>end: purple</div>
+      <div class="label">border-inline-start-color: #fbbf24<br>border-inline-end-color: #a855f7</div>
+    </div>
+  </div>
+</body>
+</html>

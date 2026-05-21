@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>outline-color</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
+    .demo-box { background: #16213e; border-radius: 10px; padding: 24px; width: 210px; text-align: center; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 16px; }
+    .outlined {
+      width: 130px; height: 90px; background: #0f3460; border-radius: 8px;
+      margin: 16px auto 0;
+      outline-style: solid; outline-width: 4px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; color: #c0c0d0;
+    }
+    .d1 .outlined { outline-color: light-dark(none,); }
+    .d2 .outlined { outline-color: auto ! important; }
+    .d3 .outlined { outline-color: stripes(device-cmyk(1e-2 none var(--򝹹6) 8)) ! important; }
+    .d4 .outlined { outline-color: auto; }
+    .d5 .outlined { outline-color: stripes(alpha(from / var(--_-)) 5.84%); color: #c0c0d0; }
+  </style>
+</head>
+<body>
+  <h1>Outline Color</h1>
+  <p class="prop-name">outline-color</p>
+  <div class="demos">
+    <div class="demo-box d1">
+      <div class="outlined">Box</div>
+      <div class="label">outline-color: revert-rule</div>
+    </div>
+    <div class="demo-box d2">
+      <div class="outlined">Box</div>
+      <div class="label">outline-color: stripes(appworkspace) ! important</div>
+    </div>
+    <div class="demo-box d3">
+      <div class="outlined">Box</div>
+      <div class="label">outline-color: currentcolor ! important</div>
+    </div>
+    <div class="demo-box d4">
+      <div class="outlined">Box</div>
+      <div class="label">outline-color: currentcolor</div>
+    </div>
+    <div class="demo-box d5">
+      <div class="outlined">Box</div>
+      <div class="label">outline-color: stripes(alpha(from / var(--_-)) 5.84%)</div>
+    </div>
+  </div>
+</body>
+</html>

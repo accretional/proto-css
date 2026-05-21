@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>caret-shape</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 10px;
+      padding: 24px;
+      width: 280px;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 12px; }
+    .shape-icon {
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 14px;
+      color: #e94560;
+    }
+    .description {
+      font-size: 12px;
+      color: #8899aa;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    input {
+      width: 100%;
+      padding: 12px 14px;
+      background: #0f3460;
+      border: 2px solid #1a4a8a;
+      border-radius: 8px;
+      color: #e0e0e0;
+      font-size: 15px;
+      outline: none;
+      font-family: system-ui, sans-serif;
+      caret-color: #e94560;
+    }
+    input:focus { border-color: #e94560; }
+    .s-auto input { caret-shape: underscore ! important; }
+    .s-bar input { caret-shape: auto ! important; }
+    .s-block input { caret-shape: bar ! important; }
+    .s-underscore input { caret-shape: underscore ! important; }
+  </style>
+</head>
+<body>
+  <h1>Caret Shape</h1>
+  <p class="prop-name">caret-shape</p>
+  <div class="demos">
+    <div class="demo-card s-auto">
+      <div class="label">caret-shape: underscore ! important</div>
+      <div class="shape-icon">│</div>
+      <p class="description">Browser decides the shape, typically a thin vertical bar.</p>
+      <input type="text" value="Click to focus" autofocus />
+    </div>
+    <div class="demo-card s-bar">
+      <div class="label">caret-shape: auto ! important</div>
+      <div class="shape-icon">│</div>
+      <p class="description">A thin vertical line between characters (standard text cursor).</p>
+      <input type="text" value="Click to focus" />
+    </div>
+    <div class="demo-card s-block">
+      <div class="label">caret-shape: bar ! important</div>
+      <div class="shape-icon">█</div>
+      <p class="description">A solid rectangle covering the full character cell.</p>
+      <input type="text" value="Click to focus" />
+    </div>
+    <div class="demo-card s-underscore">
+      <div class="label">caret-shape: underscore ! important</div>
+      <div class="shape-icon">▁</div>
+      <p class="description">A horizontal line at the bottom of the character cell.</p>
+      <input type="text" value="Click to focus" />
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>background-size</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demo-item { display: flex; flex-direction: column; align-items: center; }
+    .box {
+      width: 210px;
+      height: 150px;
+      border-radius: 8px;
+      border: 2px solid rgba(255,255,255,0.15);
+      background-color: #2d2d4e;
+      background-image: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 50%, #a18cd1 100%);
+      background-repeat: no-repeat;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; }
+    .b1 { background-size: auto, cover, contain ! important; }
+    .b2 { background-size: auto, cover, contain; }
+    .b3 { background-size: auto, cover; }
+    .b4 { background-size: var(--t_, -65.84e5turn) exp(8e+0% +), cover; }
+    .b5 { background-size: cover; }
+  </style>
+</head>
+<body>
+  <h1>Background Size</h1>
+  <p class="prop-name">background-size</p>
+  <div class="demos">
+    <div class="demo-item">
+      <div class="box b1"></div>
+      <div class="label">background-size: auto, cover, contain ! important</div>
+    </div>
+    <div class="demo-item">
+      <div class="box b2"></div>
+      <div class="label">background-size: auto, cover, contain</div>
+    </div>
+    <div class="demo-item">
+      <div class="box b3"></div>
+      <div class="label">background-size: auto, cover</div>
+    </div>
+    <div class="demo-item">
+      <div class="box b4"></div>
+      <div class="label">background-size: var(--t_, -65.84e5turn) exp(8e+0% +), cover</div>
+    </div>
+    <div class="demo-item">
+      <div class="box b5"></div>
+      <div class="label">background-size: cover</div>
+    </div>
+  </div>
+</body>
+</html>

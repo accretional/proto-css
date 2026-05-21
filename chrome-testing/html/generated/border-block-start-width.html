@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>border-block-start-width</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demo-box {
+      width: 180px;
+      height: 100px;
+      background: #16213e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: #c0c0c0;
+      border-block-start-style: solid;
+      border-block-start-color: #e94560;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+    .demo-item { display: flex; flex-direction: column; align-items: center; }
+  </style>
+</head>
+<body>
+  <h1>Border Block Start Width</h1>
+  <p class="prop-name">border-block-start-width</p>
+  <div class="demos">
+    <div class="demo-item">
+      <div class="demo-box" style="border-block-start-width: hairline;">Content</div>
+      <p class="label">border-block-start-width: hairline</p>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-block-start-width: thick ! important;">Content</div>
+      <p class="label">border-block-start-width: thick ! important</p>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-block-start-width: thick;">Content</div>
+      <p class="label">border-block-start-width: thick</p>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-block-start-width: thin ! important;">Content</div>
+      <p class="label">border-block-start-width: thin ! important</p>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-block-start-width: var(--_, #5d5dCC2A) ! important;">Content</div>
+      <p class="label">border-block-start-width: var(--_, #5d5dCC2A) ! important</p>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-block-start-width: hairline ! important;">Content</div>
+      <p class="label">border-block-start-width: hairline ! important</p>
+    </div>
+  </div>
+</body>
+</html>

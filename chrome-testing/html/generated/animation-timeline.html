@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>animation-timeline</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .demos { display: flex; gap: 24px; }
+    .demo-box { background: #16213e; border-radius: 12px; padding: 24px; flex: 1; display: flex; flex-direction: column; align-items: center; }
+    .demo-title { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; text-align: center; }
+
+    .viz { width: 100%; margin-top: 16px; }
+
+    /* Auto timeline - clock-based */
+    .auto-viz { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .clock-icon { width: 80px; height: 80px; border: 3px solid #e94560; border-radius: 50%; position: relative; }
+    .clock-hand { position: absolute; bottom: 50%; left: 50%; width: 3px; height: 30px; background: #e94560; border-radius: 2px; transform-origin: bottom center; transform: rotate(45deg); margin-left: -1.5px; }
+    .clock-hand.minute { height: 22px; background: #e94560; opacity: 0.6; transform: rotate(180deg); }
+    .auto-desc { font-size: 12px; color: #9ca3af; text-align: center; line-height: 1.5; }
+
+    /* Scroll timeline */
+    .scroll-viz { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .scroll-container { width: 100%; height: 180px; background: #0f3460; border-radius: 8px; position: relative; overflow: hidden; }
+    .scroll-track { position: absolute; right: 8px; top: 8px; bottom: 8px; width: 6px; background: #1a1a2e; border-radius: 3px; }
+    .scroll-thumb { position: absolute; top: 8px; width: 6px; height: 40px; background: #e94560; border-radius: 3px; }
+    .scroll-progress { position: absolute; bottom: 0; left: 0; right: 0; height: 4px; }
+    .scroll-progress-fill { height: 100%; width: 35%; background: linear-gradient(90deg, #e94560, #533bdb); border-radius: 0 2px 0 0; }
+    .scroll-content-line { height: 3px; background: #1a1a4e; margin: 8px 20px 8px 12px; border-radius: 2px; }
+    .scroll-desc { font-size: 12px; color: #9ca3af; text-align: center; line-height: 1.5; }
+
+    /* View timeline */
+    .view-viz { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .viewport-frame { width: 100%; height: 180px; border: 2px dashed #4b5563; border-radius: 8px; position: relative; overflow: hidden; background: #0f3460; }
+    .viewport-label-tag { position: absolute; top: 6px; left: 8px; font-size: 9px; color: #6b7280; font-family: monospace; }
+    .view-element { position: absolute; left: 20%; right: 20%; height: 50px; background: linear-gradient(135deg, #533bdb, #e94560); border-radius: 8px; top: 65px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #fff; }
+    .entry-zone { position: absolute; left: 0; right: 0; top: 0; height: 65px; background: linear-gradient(180deg, #6ee7b710, transparent); border-bottom: 1px dashed #6ee7b740; }
+    .exit-zone { position: absolute; left: 0; right: 0; bottom: 0; height: 65px; background: linear-gradient(0deg, #f8717110, transparent); border-top: 1px dashed #f8717140; }
+    .zone-label { position: absolute; font-size: 9px; font-family: monospace; }
+    .entry-label { color: #6ee7b7; top: 4px; right: 8px; }
+    .exit-label { color: #f87171; bottom: 4px; right: 8px; }
+    .view-desc { font-size: 12px; color: #9ca3af; text-align: center; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <h1>Animation Timeline</h1>
+  <p class="prop-name">animation-timeline</p>
+  <div class="demos">
+    <div class="demo-box">
+      <span class="demo-title">auto</span>
+      <div class="viz auto-viz">
+        <div class="clock-icon">
+          <div class="clock-hand"></div>
+          <div class="clock-hand minute"></div>
+        </div>
+        <p class="auto-desc">Uses the document's<br>default time-based<br>animation timeline</p>
+      </div>
+      <p class="label">animation-timeline: none ! important</p>
+    </div>
+
+    <div class="demo-box">
+      <span class="demo-title">scroll()</span>
+      <div class="viz scroll-viz">
+        <div class="scroll-container">
+          <div class="scroll-content-line" style="width: 70%;"></div>
+          <div class="scroll-content-line" style="width: 90%;"></div>
+          <div class="scroll-content-line" style="width: 60%;"></div>
+          <div class="scroll-content-line" style="width: 85%;"></div>
+          <div class="scroll-content-line" style="width: 50%;"></div>
+          <div class="scroll-content-line" style="width: 75%;"></div>
+          <div class="scroll-content-line" style="width: 65%;"></div>
+          <div class="scroll-content-line" style="width: 80%;"></div>
+          <div class="scroll-content-line" style="width: 55%;"></div>
+          <div class="scroll-content-line" style="width: 70%;"></div>
+          <div class="scroll-track">
+            <div class="scroll-thumb"></div>
+          </div>
+          <div class="scroll-progress">
+            <div class="scroll-progress-fill"></div>
+          </div>
+        </div>
+        <p class="scroll-desc">Progress tied to scroll<br>position of a container</p>
+      </div>
+      <p class="label">animation-timeline: view(y), view(x anchor(--__ -4%) anchor(--ٵ bottom,)) ! important</p>
+    </div>
+
+    <div class="demo-box">
+      <span class="demo-title">view()</span>
+      <div class="viz view-viz">
+        <div class="viewport-frame">
+          <span class="viewport-label-tag">viewport</span>
+          <div class="entry-zone"><span class="zone-label entry-label">entry</span></div>
+          <div class="view-element">Element</div>
+          <div class="exit-zone"><span class="zone-label exit-label">exit</span></div>
+        </div>
+        <p class="view-desc">Progress tied to element's<br>visibility in the viewport</p>
+      </div>
+      <p class="label">animation-timeline: view(var(--󭰙񒂏, -35.6%)), --l</p>
+    </div>
+  </div>
+</body>
+</html>

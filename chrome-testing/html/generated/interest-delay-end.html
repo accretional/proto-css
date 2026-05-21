@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>interest-delay-end</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+    .note { font-size: 12px; color: #f5c542; margin-bottom: 20px; padding: 10px 14px; background: rgba(245,197,66,0.1); border-radius: 6px; border-left: 3px solid #f5c542; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demo-card {
+      background: #16213e;
+      border-radius: 8px;
+      padding: 20px;
+      width: 260px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .scenario {
+      width: 220px;
+      background: #0f3460;
+      border-radius: 8px;
+      padding: 16px;
+      position: relative;
+    }
+    .tooltip-trigger {
+      width: 100%;
+      height: 40px;
+      background: #16213e;
+      border: 2px solid #3a3a5e;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #9ca3af;
+      cursor: pointer;
+    }
+    .tooltip-box {
+      margin-top: 8px;
+      background: #e94560;
+      color: #fff;
+      font-size: 11px;
+      padding: 8px 12px;
+      border-radius: 4px;
+      text-align: center;
+    }
+    .timeline {
+      width: 220px;
+      margin-top: 12px;
+    }
+    .timeline-row {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+    .timeline-row .tl-label {
+      font-size: 9px;
+      font-family: monospace;
+      color: #6b7280;
+      width: 55px;
+      text-align: right;
+    }
+    .timeline-row .tl-bar-container {
+      flex: 1;
+      height: 14px;
+      background: #0a0a1e;
+      border-radius: 3px;
+      position: relative;
+      overflow: hidden;
+    }
+    .tl-bar-container .visible-bar {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      background: rgba(83,166,83,0.4);
+      border-radius: 3px;
+    }
+    .tl-bar-container .hide-delay-bar {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      background: rgba(245,197,66,0.3);
+      border-right: 2px solid #f5c542;
+    }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
+    .hint { font-size: 10px; color: #6b7280; margin-top: 4px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>Interest Delay End</h1>
+  <p class="prop-name">interest-delay-end</p>
+  <p class="note">Experimental property. Controls the delay before hiding interest-triggered content after the user stops showing interest.</p>
+  <div class="demos">
+    <div class="demo-card">
+      <div class="scenario">
+        <div class="tooltip-trigger">Hover target</div>
+        <div class="tooltip-box">Tooltip (hides instantly)</div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-row">
+          <span class="tl-label">visible</span>
+          <div class="tl-bar-container">
+            <div class="visible-bar" style="left: 0; width: 50%;"></div>
+          </div>
+        </div>
+        <div class="timeline-row">
+          <span class="tl-label">hide delay</span>
+          <div class="tl-bar-container">
+          </div>
+        </div>
+      </div>
+      <p class="label">interest-delay-end: -6.62e40ms</p>
+      <p class="hint">Hides immediately on mouse leave</p>
+    </div>
+    <div class="demo-card">
+      <div class="scenario">
+        <div class="tooltip-trigger">Hover target</div>
+        <div class="tooltip-box">Tooltip (lingers 0.3s)</div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-row">
+          <span class="tl-label">visible</span>
+          <div class="tl-bar-container">
+            <div class="visible-bar" style="left: 0; width: 50%;"></div>
+          </div>
+        </div>
+        <div class="timeline-row">
+          <span class="tl-label">hide delay</span>
+          <div class="tl-bar-container">
+            <div class="hide-delay-bar" style="left: 50%; width: 15%;"></div>
+          </div>
+        </div>
+      </div>
+      <p class="label">interest-delay-end: normal ! important</p>
+      <p class="hint">Lingers 300ms after mouse leave</p>
+    </div>
+    <div class="demo-card">
+      <div class="scenario">
+        <div class="tooltip-trigger">Hover target</div>
+        <div class="tooltip-box">Tooltip (lingers 1s)</div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-row">
+          <span class="tl-label">visible</span>
+          <div class="tl-bar-container">
+            <div class="visible-bar" style="left: 0; width: 50%;"></div>
+          </div>
+        </div>
+        <div class="timeline-row">
+          <span class="tl-label">hide delay</span>
+          <div class="tl-bar-container">
+            <div class="hide-delay-bar" style="left: 50%; width: 40%;"></div>
+          </div>
+        </div>
+      </div>
+      <p class="label">interest-delay-end: var(--_Y)</p>
+      <p class="hint">Lingers 1 second after mouse leave</p>
+    </div>
+    <div class="demo-card">
+      <div class="scenario">
+        <div class="tooltip-trigger">Hover target</div>
+        <div class="tooltip-box">Tooltip (lingers 3s)</div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-row">
+          <span class="tl-label">visible</span>
+          <div class="tl-bar-container">
+            <div class="visible-bar" style="left: 0; width: 50%;"></div>
+          </div>
+        </div>
+        <div class="timeline-row">
+          <span class="tl-label">hide delay</span>
+          <div class="tl-bar-container">
+            <div class="hide-delay-bar" style="left: 50%; width: 50%;"></div>
+          </div>
+        </div>
+      </div>
+      <p class="label">interest-delay-end: +80s ! important</p>
+      <p class="hint">Lingers 3 seconds after mouse leave</p>
+    </div>
+  </div>
+</body>
+</html>
