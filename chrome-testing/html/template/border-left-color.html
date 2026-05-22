@@ -8,8 +8,9 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-    .demo-box {
+    .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .demo-item { display: flex; flex-direction: column; align-items: center; }
+    .box {
       width: 180px;
       height: 100px;
       background: #16213e;
@@ -17,12 +18,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
-      color: #c0c0c0;
-      border-radius: 4px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
     }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
-    .demo-item { display: flex; flex-direction: column; align-items: flex-start; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; }
   </style>
 </head>
 <body>
@@ -30,20 +29,28 @@
   <p class="prop-name">border-left-color</p>
   <div class="demos">
     <div class="demo-item">
-      <div class="demo-box" style="border-left-color: red;">Content</div>
-      <span class="label">border-left-color: red</span>
+      <div class="box" style="border-left-color: #e94560;">#e94560</div>
+      <div class="label">border-left-color: #e94560</div>
     </div>
     <div class="demo-item">
-      <div class="demo-box" style="border-left-color: blue;">Content</div>
-      <span class="label">border-left-color: blue</span>
+      <div class="box" style="border-left-color: #00d2ff;">#00d2ff</div>
+      <div class="label">border-left-color: #00d2ff</div>
     </div>
     <div class="demo-item">
-      <div class="demo-box" style="border-left-color: #3498db;">Content</div>
-      <span class="label">border-left-color: #3498db</span>
+      <div class="box" style="border-left-color: #53d769;">#53d769</div>
+      <div class="label">border-left-color: #53d769</div>
     </div>
     <div class="demo-item">
-      <div class="demo-box" style="border-left-color: currentcolor;">Content</div>
-      <span class="label">border-left-color: currentcolor</span>
+      <div class="box" style="border-left-color: #fbbf24;">#fbbf24</div>
+      <div class="label">border-left-color: #fbbf24</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border-left-color: #c084fc;">#c084fc</div>
+      <div class="label">border-left-color: #c084fc</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border-left-color: transparent;">transparent</div>
+      <div class="label">border-left-color: transparent</div>
     </div>
   </div>
 </body>

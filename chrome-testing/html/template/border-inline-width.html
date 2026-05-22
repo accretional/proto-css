@@ -8,22 +8,22 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .demo-box {
+    .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .demo-item { display: flex; flex-direction: column; align-items: center; }
+    .box {
       width: 200px;
       height: 100px;
       background: #16213e;
       border-inline-style: solid;
-      border-inline-color: #3498db;
+      border-inline-color: #e94560;
+      border-block: none;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
-      color: #c0c0c0;
-      border-radius: 4px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
     }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
-    .demo-item { display: flex; flex-direction: column; align-items: flex-start; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; }
   </style>
 </head>
 <body>
@@ -31,28 +31,20 @@
   <p class="prop-name">border-inline-width</p>
   <div class="demos">
     <div class="demo-item">
-      <div class="demo-box" style="border-inline-width: 0;">Content</div>
-      <span class="label">border-inline-width: 0</span>
+      <div class="box" style="border-inline-width: 1px;">1px</div>
+      <div class="label">border-inline-width: 1px</div>
     </div>
     <div class="demo-item">
-      <div class="demo-box" style="border-inline-width: 1px;">Content</div>
-      <span class="label">border-inline-width: 1px</span>
+      <div class="box" style="border-inline-width: 3px;">3px</div>
+      <div class="label">border-inline-width: 3px</div>
     </div>
     <div class="demo-item">
-      <div class="demo-box" style="border-inline-width: 2px;">Content</div>
-      <span class="label">border-inline-width: 2px</span>
+      <div class="box" style="border-inline-width: 6px;">6px</div>
+      <div class="label">border-inline-width: 6px</div>
     </div>
     <div class="demo-item">
-      <div class="demo-box" style="border-inline-width: thin;">Content</div>
-      <span class="label">border-inline-width: thin</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-inline-width: medium;">Content</div>
-      <span class="label">border-inline-width: medium</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-inline-width: thick;">Content</div>
-      <span class="label">border-inline-width: thick</span>
+      <div class="box" style="border-inline-width: 10px;">10px</div>
+      <div class="label">border-inline-width: 10px</div>
     </div>
   </div>
 </body>

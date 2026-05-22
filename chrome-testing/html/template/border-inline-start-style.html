@@ -8,21 +8,21 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
-    .demo-box {
+    .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .demo-item { display: flex; flex-direction: column; align-items: center; }
+    .box {
       width: 180px;
       height: 100px;
       background: #16213e;
-      border-inline-start: 3px solid #e74c3c;
+      border-inline-start-color: #e94560;
+      border-inline-start-width: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
-      color: #c0c0c0;
-      border-radius: 4px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
     }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
-    .demo-item { display: flex; flex-direction: column; align-items: flex-start; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; }
   </style>
 </head>
 <body>
@@ -30,44 +30,28 @@
   <p class="prop-name">border-inline-start-style</p>
   <div class="demos">
     <div class="demo-item">
-      <div class="demo-box" style="border-inline-start-style: none;">Content</div>
-      <span class="label">border-inline-start-style: none</span>
+      <div class="box" style="border-inline-start-style: none;">none</div>
+      <div class="label">border-inline-start-style: none</div>
     </div>
     <div class="demo-item">
-      <div class="demo-box" style="border-inline-start-style: hidden;">Content</div>
-      <span class="label">border-inline-start-style: hidden</span>
+      <div class="box" style="border-inline-start-style: solid;">solid</div>
+      <div class="label">border-inline-start-style: solid</div>
     </div>
     <div class="demo-item">
-      <div class="demo-box" style="border-inline-start-style: dotted;">Content</div>
-      <span class="label">border-inline-start-style: dotted</span>
+      <div class="box" style="border-inline-start-style: dashed;">dashed</div>
+      <div class="label">border-inline-start-style: dashed</div>
     </div>
     <div class="demo-item">
-      <div class="demo-box" style="border-inline-start-style: dashed;">Content</div>
-      <span class="label">border-inline-start-style: dashed</span>
+      <div class="box" style="border-inline-start-style: dotted;">dotted</div>
+      <div class="label">border-inline-start-style: dotted</div>
     </div>
     <div class="demo-item">
-      <div class="demo-box" style="border-inline-start-style: solid;">Content</div>
-      <span class="label">border-inline-start-style: solid</span>
+      <div class="box" style="border-inline-start-style: double;">double</div>
+      <div class="label">border-inline-start-style: double</div>
     </div>
     <div class="demo-item">
-      <div class="demo-box" style="border-inline-start-style: double; border-inline-start-width: 6px;">Content</div>
-      <span class="label">border-inline-start-style: double</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-inline-start-style: groove; border-inline-start-width: 6px;">Content</div>
-      <span class="label">border-inline-start-style: groove</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-inline-start-style: ridge; border-inline-start-width: 6px;">Content</div>
-      <span class="label">border-inline-start-style: ridge</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-inline-start-style: inset; border-inline-start-width: 6px;">Content</div>
-      <span class="label">border-inline-start-style: inset</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-inline-start-style: outset; border-inline-start-width: 6px;">Content</div>
-      <span class="label">border-inline-start-style: outset</span>
+      <div class="box" style="border-inline-start-style: groove;">groove</div>
+      <div class="label">border-inline-start-style: groove</div>
     </div>
   </div>
 </body>

@@ -8,36 +8,36 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .demo-card {
       background: #16213e;
       border-radius: 10px;
-      padding: 16px;
+      padding: 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-    .label { font-size: 10px; font-family: monospace; color: #9ca3af; margin-bottom: 10px; align-self: flex-start; word-break: break-all; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 12px; align-self: flex-start; word-break: break-all; }
     .shape-wrap {
       position: relative;
-      width: 120px;
-      height: 120px;
+      width: 150px;
+      height: 150px;
     }
     .ghost {
-      width: 120px;
-      height: 120px;
+      width: 150px;
+      height: 150px;
       border: 2px dashed #2a2a5a;
       border-radius: 4px;
       position: absolute;
       top: 0; left: 0;
     }
     .shape-box {
-      width: 120px;
-      height: 120px;
+      width: 150px;
+      height: 150px;
       background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff);
       position: relative;
     }
-    .note { font-size: 9px; color: #6b7280; margin-top: 8px; text-align: center; }
+    .note { font-size: 10px; color: #6b7280; margin-top: 10px; text-align: center; }
   </style>
 </head>
 <body>
@@ -50,7 +50,7 @@
         <div class="ghost"></div>
         <div class="shape-box" style="clip-path: none;"></div>
       </div>
-      <p class="note">No clipping</p>
+      <p class="note">No clipping applied</p>
     </div>
     <div class="demo-card">
       <div class="label">clip-path: circle(50%)</div>
@@ -58,15 +58,15 @@
         <div class="ghost"></div>
         <div class="shape-box" style="clip-path: circle(50%);"></div>
       </div>
-      <p class="note">Circle</p>
+      <p class="note">Perfect circle</p>
     </div>
     <div class="demo-card">
-      <div class="label">clip-path: ellipse(50% 30%)</div>
+      <div class="label">clip-path: ellipse(40% 60%)</div>
       <div class="shape-wrap">
         <div class="ghost"></div>
-        <div class="shape-box" style="clip-path: ellipse(50% 30%);"></div>
+        <div class="shape-box" style="clip-path: ellipse(40% 60%);"></div>
       </div>
-      <p class="note">Ellipse</p>
+      <p class="note">Tall ellipse</p>
     </div>
     <div class="demo-card">
       <div class="label">clip-path: polygon(50% 0%, 100% 100%, 0% 100%)</div>
@@ -77,68 +77,20 @@
       <p class="note">Triangle</p>
     </div>
     <div class="demo-card">
-      <div class="label">clip-path: inset(10px)</div>
+      <div class="label">clip-path: polygon(star)</div>
       <div class="shape-wrap">
         <div class="ghost"></div>
-        <div class="shape-box" style="clip-path: inset(10px);"></div>
+        <div class="shape-box" style="clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);"></div>
       </div>
-      <p class="note">Inset rect</p>
+      <p class="note">5-point star</p>
     </div>
     <div class="demo-card">
-      <div class="label">clip-path: content-box</div>
+      <div class="label">clip-path: inset(10% round 20px)</div>
       <div class="shape-wrap">
         <div class="ghost"></div>
-        <div class="shape-box" style="clip-path: content-box; padding: 10px;"></div>
+        <div class="shape-box" style="clip-path: inset(10% round 20px);"></div>
       </div>
-      <p class="note">Content box</p>
-    </div>
-    <div class="demo-card">
-      <div class="label">clip-path: padding-box</div>
-      <div class="shape-wrap">
-        <div class="ghost"></div>
-        <div class="shape-box" style="clip-path: padding-box; padding: 10px;"></div>
-      </div>
-      <p class="note">Padding box</p>
-    </div>
-    <div class="demo-card">
-      <div class="label">clip-path: border-box</div>
-      <div class="shape-wrap">
-        <div class="ghost"></div>
-        <div class="shape-box" style="clip-path: border-box; border: 5px solid transparent;"></div>
-      </div>
-      <p class="note">Border box</p>
-    </div>
-    <div class="demo-card">
-      <div class="label">clip-path: margin-box</div>
-      <div class="shape-wrap">
-        <div class="ghost"></div>
-        <div class="shape-box" style="clip-path: margin-box; margin: 5px;"></div>
-      </div>
-      <p class="note">Margin box</p>
-    </div>
-    <div class="demo-card">
-      <div class="label">clip-path: fill-box</div>
-      <div class="shape-wrap">
-        <div class="ghost"></div>
-        <div class="shape-box" style="clip-path: fill-box;"></div>
-      </div>
-      <p class="note">Fill box (SVG)</p>
-    </div>
-    <div class="demo-card">
-      <div class="label">clip-path: stroke-box</div>
-      <div class="shape-wrap">
-        <div class="ghost"></div>
-        <div class="shape-box" style="clip-path: stroke-box;"></div>
-      </div>
-      <p class="note">Stroke box (SVG)</p>
-    </div>
-    <div class="demo-card">
-      <div class="label">clip-path: view-box</div>
-      <div class="shape-wrap">
-        <div class="ghost"></div>
-        <div class="shape-box" style="clip-path: view-box;"></div>
-      </div>
-      <p class="note">View box (SVG)</p>
+      <p class="note">Rounded inset</p>
     </div>
   </div>
 </body>

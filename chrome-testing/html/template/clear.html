@@ -8,51 +8,57 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .demos > :last-child { grid-column: 2; }
     .demo-card {
       background: #16213e;
       border-radius: 10px;
       padding: 16px;
       overflow: hidden;
+      min-height: 180px;
     }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 10px; }
     .float-left {
       float: left;
-      width: 60px;
-      height: 50px;
-      background: #e94560;
+      width: 70px;
+      height: 55px;
+      background: linear-gradient(135deg, #e94560, #c23152);
       border-radius: 6px;
-      margin: 0 8px 6px 0;
+      margin: 0 10px 6px 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 9px;
-      font-weight: 600;
+      font-size: 10px;
+      font-weight: 700;
       color: #fff;
     }
     .float-right {
       float: right;
-      width: 60px;
-      height: 50px;
-      background: #0f3460;
-      border: 2px solid #3b82f6;
+      width: 70px;
+      height: 55px;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
       border-radius: 6px;
-      margin: 0 0 6px 8px;
+      margin: 0 0 6px 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 9px;
-      font-weight: 600;
-      color: #7ec8e3;
+      font-size: 10px;
+      font-weight: 700;
+      color: #fff;
     }
     .clear-el {
-      background: #22c55e33;
+      background: rgba(34, 197, 94, 0.15);
       border: 2px dashed #22c55e;
       border-radius: 6px;
-      padding: 8px;
-      font-size: 10px;
+      padding: 10px;
+      font-size: 11px;
       color: #22c55e;
-      font-weight: 500;
+      font-weight: 600;
+    }
+    .filler {
+      font-size: 11px;
+      color: #6b7a8d;
+      line-height: 1.4;
     }
   </style>
 </head>
@@ -61,76 +67,39 @@
   <p class="prop-name">clear</p>
   <div class="demos">
     <div class="demo-card">
-      <div class="label">clear: inline-start</div>
-      <div class="float-left">float:left</div>
-      <div class="float-right">float:right</div>
-      <div class="clear-el" style="clear: inline-start;">clear: inline-start</div>
-    </div>
-    <div class="demo-card">
-      <div class="label">clear: inline-end</div>
-      <div class="float-left">float:left</div>
-      <div class="float-right">float:right</div>
-      <div class="clear-el" style="clear: inline-end;">clear: inline-end</div>
-    </div>
-    <div class="demo-card">
-      <div class="label">clear: block-start</div>
-      <div class="float-left">float:left</div>
-      <div class="float-right">float:right</div>
-      <div class="clear-el" style="clear: block-start;">clear: block-start</div>
-    </div>
-    <div class="demo-card">
-      <div class="label">clear: block-end</div>
-      <div class="float-left">float:left</div>
-      <div class="float-right">float:right</div>
-      <div class="clear-el" style="clear: block-end;">clear: block-end</div>
+      <div class="label">clear: none</div>
+      <div class="float-left">LEFT</div>
+      <div class="float-right">RIGHT</div>
+      <div class="clear-el" style="clear: none;">clear: none (wraps around floats)</div>
+      <p class="filler">Text flows beside floated elements normally.</p>
     </div>
     <div class="demo-card">
       <div class="label">clear: left</div>
-      <div class="float-left">float:left</div>
-      <div class="float-right">float:right</div>
-      <div class="clear-el" style="clear: left;">clear: left</div>
+      <div class="float-left">LEFT</div>
+      <div class="float-right">RIGHT</div>
+      <div class="clear-el" style="clear: left;">clear: left (below left float)</div>
+      <p class="filler">Drops below the left float only.</p>
     </div>
     <div class="demo-card">
       <div class="label">clear: right</div>
-      <div class="float-left">float:left</div>
-      <div class="float-right">float:right</div>
-      <div class="clear-el" style="clear: right;">clear: right</div>
-    </div>
-    <div class="demo-card">
-      <div class="label">clear: top</div>
-      <div class="float-left">float:left</div>
-      <div class="float-right">float:right</div>
-      <div class="clear-el" style="clear: top;">clear: top</div>
-    </div>
-    <div class="demo-card">
-      <div class="label">clear: bottom</div>
-      <div class="float-left">float:left</div>
-      <div class="float-right">float:right</div>
-      <div class="clear-el" style="clear: bottom;">clear: bottom</div>
-    </div>
-    <div class="demo-card">
-      <div class="label">clear: both-inline</div>
-      <div class="float-left">float:left</div>
-      <div class="float-right">float:right</div>
-      <div class="clear-el" style="clear: both-inline;">clear: both-inline</div>
-    </div>
-    <div class="demo-card">
-      <div class="label">clear: both-block</div>
-      <div class="float-left">float:left</div>
-      <div class="float-right">float:right</div>
-      <div class="clear-el" style="clear: both-block;">clear: both-block</div>
+      <div class="float-left">LEFT</div>
+      <div class="float-right">RIGHT</div>
+      <div class="clear-el" style="clear: right;">clear: right (below right float)</div>
+      <p class="filler">Drops below the right float only.</p>
     </div>
     <div class="demo-card">
       <div class="label">clear: both</div>
-      <div class="float-left">float:left</div>
-      <div class="float-right">float:right</div>
-      <div class="clear-el" style="clear: both;">clear: both</div>
+      <div class="float-left">LEFT</div>
+      <div class="float-right">RIGHT</div>
+      <div class="clear-el" style="clear: both;">clear: both (below all floats)</div>
+      <p class="filler">Drops below both left and right floats.</p>
     </div>
     <div class="demo-card">
-      <div class="label">clear: none</div>
-      <div class="float-left">float:left</div>
-      <div class="float-right">float:right</div>
-      <div class="clear-el" style="clear: none;">clear: none</div>
+      <div class="label">clear: inline-start</div>
+      <div class="float-left">LEFT</div>
+      <div class="float-right">RIGHT</div>
+      <div class="clear-el" style="clear: inline-start;">clear: inline-start (logical)</div>
+      <p class="filler">Clears the inline-start side (left in LTR).</p>
     </div>
   </div>
 </body>

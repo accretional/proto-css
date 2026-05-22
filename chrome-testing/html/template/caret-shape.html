@@ -15,11 +15,45 @@
       padding: 24px;
     }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 12px; }
-    .shape-icon {
-      font-size: 36px;
-      text-align: center;
+    .shape-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 60px;
       margin-bottom: 14px;
-      color: #e94560;
+    }
+    .caret-bar {
+      width: 3px;
+      height: 40px;
+      background: #e94560;
+      border-radius: 1px;
+      animation: blink 1s step-end infinite;
+    }
+    .caret-block {
+      width: 24px;
+      height: 40px;
+      background: #e94560;
+      border-radius: 3px;
+      opacity: 0.85;
+      animation: blink 1s step-end infinite;
+    }
+    .caret-underscore {
+      width: 24px;
+      height: 4px;
+      background: #e94560;
+      border-radius: 1px;
+      margin-top: 36px;
+      animation: blink 1s step-end infinite;
+    }
+    .caret-auto {
+      width: 3px;
+      height: 40px;
+      background: #7b8794;
+      border-radius: 1px;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
     }
     .description {
       font-size: 12px;
@@ -48,25 +82,25 @@
   <div class="demos">
     <div class="demo-card">
       <div class="label">caret-shape: auto</div>
-      <div class="shape-icon">|</div>
+      <div class="shape-visual"><div class="caret-auto"></div></div>
       <p class="description">Browser decides the shape, typically a thin vertical bar.</p>
       <input type="text" style="caret-shape: auto;" value="Click to focus" autofocus />
     </div>
     <div class="demo-card">
       <div class="label">caret-shape: bar</div>
-      <div class="shape-icon">|</div>
+      <div class="shape-visual"><div class="caret-bar"></div></div>
       <p class="description">A thin vertical line between characters (standard text cursor).</p>
       <input type="text" style="caret-shape: bar;" value="Click to focus" />
     </div>
     <div class="demo-card">
       <div class="label">caret-shape: block</div>
-      <div class="shape-icon">&#x2588;</div>
+      <div class="shape-visual"><div class="caret-block"></div></div>
       <p class="description">A solid rectangle covering the full character cell.</p>
       <input type="text" style="caret-shape: block;" value="Click to focus" />
     </div>
     <div class="demo-card">
       <div class="label">caret-shape: underscore</div>
-      <div class="shape-icon">&#x2581;</div>
+      <div class="shape-visual"><div class="caret-underscore"></div></div>
       <p class="description">A horizontal line at the bottom of the character cell.</p>
       <input type="text" style="caret-shape: underscore;" value="Click to focus" />
     </div>
