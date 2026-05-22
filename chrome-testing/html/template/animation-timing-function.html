@@ -8,48 +8,31 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-direction: column; gap: 14px; }
-    .demo-row { display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 14px 20px; }
-    .fn-name { font-size: 12px; font-family: monospace; color: #9ca3af; width: 200px; flex-shrink: 0; }
-    .track { flex: 1; height: 32px; background: #0f3460; border-radius: 6px; position: relative; overflow: hidden; }
-    .progress { height: 100%; border-radius: 6px; }
-    .ball { width: 28px; height: 28px; border-radius: 50%; position: absolute; top: 2px; }
+    .demos { display: flex; flex-direction: column; gap: 10px; }
+    .demo-row { display: flex; align-items: center; gap: 14px; background: #16213e; border-radius: 10px; padding: 10px 16px; }
+    .fn-name { font-size: 11px; font-family: monospace; color: #9ca3af; width: 280px; flex-shrink: 0; }
+    .track { flex: 1; height: 28px; background: #0f3460; border-radius: 6px; position: relative; overflow: hidden; }
+    .ball { width: 24px; height: 24px; border-radius: 50%; position: absolute; top: 2px; }
 
     @keyframes moveRight {
       0% { left: 0; }
-      100% { left: calc(100% - 28px); }
+      100% { left: calc(100% - 24px); }
     }
 
-    .ease .ball {
-      background: #e94560;
-      animation: moveRight 3s ease infinite alternate;
-    }
-    .linear .ball {
-      background: #533bdb;
-      animation: moveRight 3s linear infinite alternate;
-    }
-    .ease-in .ball {
-      background: #0ea5e9;
-      animation: moveRight 3s ease-in infinite alternate;
-    }
-    .ease-out .ball {
-      background: #f59205;
-      animation: moveRight 3s ease-out infinite alternate;
-    }
-    .ease-in-out .ball {
-      background: #10b981;
-      animation: moveRight 3s ease-in-out infinite alternate;
-    }
-    .cubic .ball {
-      background: #ec4899;
-      animation: moveRight 3s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite alternate;
-    }
-
-    /* Curve visualization */
-    .curve-box { width: 56px; height: 56px; flex-shrink: 0; position: relative; }
+    .curve-box { width: 44px; height: 44px; flex-shrink: 0; position: relative; }
     .curve-box svg { width: 100%; height: 100%; }
     .curve-line { fill: none; stroke-width: 2.5; stroke-linecap: round; }
     .curve-bg { fill: none; stroke: #ffffff10; stroke-width: 1; }
+
+    .linear .ball { background: #533bdb; animation: moveRight 3s linear infinite alternate; }
+    .ease .ball { background: #e94560; animation: moveRight 3s ease infinite alternate; }
+    .ease-in .ball { background: #0ea5e9; animation: moveRight 3s ease-in infinite alternate; }
+    .ease-out .ball { background: #f59205; animation: moveRight 3s ease-out infinite alternate; }
+    .ease-in-out .ball { background: #10b981; animation: moveRight 3s ease-in-out infinite alternate; }
+    .step-start .ball { background: #ec4899; animation: moveRight 3s step-start infinite alternate; }
+    .step-end .ball { background: #a78bfa; animation: moveRight 3s step-end infinite alternate; }
+    .cubic .ball { background: #f97316; animation: moveRight 3s cubic-bezier(0.25, 0.1, 0.25, 1) infinite alternate; }
+    .steps .ball { background: #14b8a6; animation: moveRight 3s steps(4, end) infinite alternate; }
   </style>
 </head>
 <body>
@@ -58,21 +41,7 @@
   <div class="demos">
     <div class="demo-row">
       <div class="curve-box">
-        <svg viewBox="0 0 50 50">
-          <path d="M5 45 L45 5" class="curve-bg"/>
-          <path d="M5 45 C15 45 35 5 45 5" class="curve-line" stroke="#e94560"/>
-        </svg>
-      </div>
-      <span class="fn-name">ease</span>
-      <div class="track ease"><div class="ball"></div></div>
-    </div>
-
-    <div class="demo-row">
-      <div class="curve-box">
-        <svg viewBox="0 0 50 50">
-          <path d="M5 45 C15 45 35 5 45 5" class="curve-bg" style="visibility:hidden"/>
-          <path d="M5 45 L45 5" class="curve-line" stroke="#533bdb"/>
-        </svg>
+        <svg viewBox="0 0 50 50"><path d="M5 45 L45 5" class="curve-line" stroke="#533bdb"/></svg>
       </div>
       <span class="fn-name">linear</span>
       <div class="track linear"><div class="ball"></div></div>
@@ -80,10 +49,15 @@
 
     <div class="demo-row">
       <div class="curve-box">
-        <svg viewBox="0 0 50 50">
-          <path d="M5 45 L45 5" class="curve-bg"/>
-          <path d="M5 45 C30 45 40 10 45 5" class="curve-line" stroke="#0ea5e9"/>
-        </svg>
+        <svg viewBox="0 0 50 50"><path d="M5 45 C17 45 33 5 45 5" class="curve-line" stroke="#e94560"/></svg>
+      </div>
+      <span class="fn-name">ease</span>
+      <div class="track ease"><div class="ball"></div></div>
+    </div>
+
+    <div class="demo-row">
+      <div class="curve-box">
+        <svg viewBox="0 0 50 50"><path d="M5 45 C30 45 40 10 45 5" class="curve-line" stroke="#0ea5e9"/></svg>
       </div>
       <span class="fn-name">ease-in</span>
       <div class="track ease-in"><div class="ball"></div></div>
@@ -91,10 +65,7 @@
 
     <div class="demo-row">
       <div class="curve-box">
-        <svg viewBox="0 0 50 50">
-          <path d="M5 45 L45 5" class="curve-bg"/>
-          <path d="M5 45 C10 40 20 5 45 5" class="curve-line" stroke="#f59205"/>
-        </svg>
+        <svg viewBox="0 0 50 50"><path d="M5 45 C10 40 20 5 45 5" class="curve-line" stroke="#f59205"/></svg>
       </div>
       <span class="fn-name">ease-out</span>
       <div class="track ease-out"><div class="ball"></div></div>
@@ -102,10 +73,7 @@
 
     <div class="demo-row">
       <div class="curve-box">
-        <svg viewBox="0 0 50 50">
-          <path d="M5 45 L45 5" class="curve-bg"/>
-          <path d="M5 45 C25 45 25 5 45 5" class="curve-line" stroke="#10b981"/>
-        </svg>
+        <svg viewBox="0 0 50 50"><path d="M5 45 C25 45 25 5 45 5" class="curve-line" stroke="#10b981"/></svg>
       </div>
       <span class="fn-name">ease-in-out</span>
       <div class="track ease-in-out"><div class="ball"></div></div>
@@ -113,13 +81,34 @@
 
     <div class="demo-row">
       <div class="curve-box">
-        <svg viewBox="0 0 50 50">
-          <path d="M5 45 L45 5" class="curve-bg"/>
-          <path d="M5 45 C38 70 17 -20 45 5" class="curve-line" stroke="#ec4899"/>
-        </svg>
+        <svg viewBox="0 0 50 50"><path d="M5 45 L5 5 L45 5" class="curve-line" stroke="#ec4899"/></svg>
       </div>
-      <span class="fn-name">cubic-bezier(0.68, -0.55, 0.27, 1.55)</span>
+      <span class="fn-name">step-start</span>
+      <div class="track step-start"><div class="ball"></div></div>
+    </div>
+
+    <div class="demo-row">
+      <div class="curve-box">
+        <svg viewBox="0 0 50 50"><path d="M5 45 L45 45 L45 5" class="curve-line" stroke="#a78bfa"/></svg>
+      </div>
+      <span class="fn-name">step-end</span>
+      <div class="track step-end"><div class="ball"></div></div>
+    </div>
+
+    <div class="demo-row">
+      <div class="curve-box">
+        <svg viewBox="0 0 50 50"><path d="M5 45 C15 41 15 5 45 5" class="curve-line" stroke="#f97316"/></svg>
+      </div>
+      <span class="fn-name">cubic-bezier(0.25, 0.1, 0.25, 1)</span>
       <div class="track cubic"><div class="ball"></div></div>
+    </div>
+
+    <div class="demo-row">
+      <div class="curve-box">
+        <svg viewBox="0 0 50 50"><path d="M5 45 L15 45 L15 35 L25 35 L25 25 L35 25 L35 15 L45 15 L45 5" class="curve-line" stroke="#14b8a6"/></svg>
+      </div>
+      <span class="fn-name">steps(4, end)</span>
+      <div class="track steps"><div class="ball"></div></div>
     </div>
   </div>
 </body>

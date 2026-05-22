@@ -8,7 +8,7 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-direction: column; gap: 20px; }
+    .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .demo-box { background: #16213e; border-radius: 8px; padding: 16px; }
     .demo-box h3 { font-size: 13px; color: #e0e0e0; margin-bottom: 10px; }
     .grid-base { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: 50px; gap: 6px; }
@@ -60,6 +60,15 @@
         <div class="cell"></div>
       </div>
       <p class="label">grid-column-start: 3</p>
+    </div>
+    <div class="demo-box">
+      <h3>span 2</h3>
+      <div class="line-numbers"><span>col 1</span><span>col 2</span><span>col 3</span><span>col 4</span></div>
+      <div class="grid-base">
+        <div class="cell highlight" style="grid-column-start: span 2;">Span 2</div>
+        <div class="cell"></div><div class="cell"></div>
+      </div>
+      <p class="label">grid-column-start: span 2</p>
     </div>
   </div>
 </body>

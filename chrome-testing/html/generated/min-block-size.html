@@ -1,108 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>min-block-size</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-end; }
-    .demo-card {
-      background: #16213e;
-      border-radius: 12px;
-      padding: 20px;
-      width: 260px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
-    .box-area {
-      width: 100%;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      min-height: 240px;
-    }
-    .box {
-      background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%);
-      border-radius: 8px;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      color: #fff;
-      font-family: monospace;
-      padding: 8px;
-      position: relative;
-    }
-    .box-0 { min-block-size: anchor-size(--S󧘔 self-inline, anchor(--_ inside,)) ! important; }
-    .box-50 { min-block-size: fit-content(0); }
-    .box-100 { min-block-size: contain; }
-    .box-200 { min-block-size: anchor-size(--툠J height); }
-    .height-marker {
-      position: absolute;
-      right: -8px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: #ff6b6b;
-    }
-    .height-label {
-      font-size: 10px;
-      color: #4fc3f7;
-      font-family: monospace;
-      margin-top: 4px;
-    }
-    .tiny-content { font-size: 10px; }
-  </style>
+<meta charset="UTF-8">
+<title>min-block-size</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .tiny-content { font-size: 10px; }
+</style>
 </head>
 <body>
-  <h1>Min Block Size</h1>
-  <p class="prop-name">min-block-size</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="box-area">
-        <div class="box box-0">
-          <span class="tiny-content">Hi</span>
-        </div>
-      </div>
-      <p class="height-label">Collapses to content</p>
-      <p class="label">min-block-size: anchor-size(--S󧘔 self-inline, anchor(--_ inside,)) ! important</p>
+<h1>Min Block Size</h1>
+<p class="prop-name">min-block-size</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: auto;"><span class="tiny-content">Hi</span></div>
     </div>
-
-    <div class="demo-card">
-      <div class="box-area">
-        <div class="box box-50">
-          <span class="tiny-content">Hi</span>
-        </div>
-      </div>
-      <p class="height-label">At least 50px tall</p>
-      <p class="label">min-block-size: fit-content(0)</p>
-    </div>
-
-    <div class="demo-card">
-      <div class="box-area">
-        <div class="box box-100">
-          <span class="tiny-content">Hi</span>
-        </div>
-      </div>
-      <p class="height-label">At least 100px tall</p>
-      <p class="label">min-block-size: contain</p>
-    </div>
-
-    <div class="demo-card">
-      <div class="box-area">
-        <div class="box box-200">
-          <span class="tiny-content">Hi</span>
-        </div>
-      </div>
-      <p class="height-label">At least 200px tall</p>
-      <p class="label">min-block-size: anchor-size(--툠J height)</p>
-    </div>
+    <div class="label">min-block-size: auto</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: 0;"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: 10px;"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: 25%;"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: 50%;"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: min-content;"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: min-content</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: max-content;"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: max-content</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: fit-content(0);"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: fit-content(0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: fit-content(10px);"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: fit-content(10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: fit-content(25%);"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: fit-content(25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: fit-content(50%);"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: fit-content(50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: fit-content(100%);"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: fit-content(100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: calc-size(auto, 0);"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: calc-size(auto, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: calc-size(auto, 0 + 0);"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: calc-size(auto, 0 + 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: calc-size(auto, 0 + 0 * 0);"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: calc-size(auto, 0 + 0 * 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: calc-size(auto, 0 + 0 * 0e0);"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: calc-size(auto, 0 + 0 * 0e0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: calc-size(auto, 0 + 0 * 0cap);"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: calc-size(auto, 0 + 0 * 0cap)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: calc-size(auto, 0 + 0 * 0%);"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: calc-size(auto, 0 + 0 * 0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: calc-size(auto, 0 + 0 * 0e0%);"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: calc-size(auto, 0 + 0 * 0e0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: calc-size(auto, 0 + 0 * e);"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: calc-size(auto, 0 + 0 * e)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: calc-size(auto, 0 + 0 * pi);"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: calc-size(auto, 0 + 0 * pi)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: calc-size(auto, 0 + 0 * calc(50% + 20px));"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: calc-size(auto, 0 + 0 * calc(50% + 20px))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: calc-size(auto, 0 + 0 * var(--my-var));"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: calc-size(auto, 0 + 0 * var(--my-var))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: calc-size(auto, 0 + 0 * var(--my-var, my-ident));"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: calc-size(auto, 0 + 0 * var(--my-var, my-ident))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: calc-size(auto, 0 + 0 * env(my-custom));"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: calc-size(auto, 0 + 0 * env(my-custom))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: calc-size(auto, 0 + 0 * env(my-custom, my-ident));"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: calc-size(auto, 0 + 0 * env(my-custom, my-ident))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: calc-size(auto, 0 + 0 * anchor(inside));"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: calc-size(auto, 0 + 0 * anchor(inside))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: calc-size(auto, 0 + 0 * anchor(inside, 0));"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: calc-size(auto, 0 + 0 * anchor(inside, 0))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: anchor-size(, 0);"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: anchor-size(, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: anchor-size(, 10px);"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: anchor-size(, 10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: anchor-size(, 25%);"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: anchor-size(, 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: stretch;"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: stretch</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: fit-content;"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: fit-content</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100%; display: flex; align-items: flex-end; justify-content: center; min-height: 240px;">
+      <div style="background: linear-gradient(180deg, #4fc3f7 0%, #7c4dff 100%); border-radius: 8px; width: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-family: monospace; padding: 8px; min-block-size: contain;"><span class="tiny-content">Hi</span></div>
+    </div>
+    <div class="label">min-block-size: contain</div>
+  </div>
+</div>
 </body>
 </html>

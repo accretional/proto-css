@@ -1,151 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>content</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-box {
-      background: #16213e;
-      border-radius: 10px;
-      padding: 20px;
-      width: 180px;
-      min-height: 100px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: element(#񩦫o);
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; }
-
-    .demo-text {
-      font-size: 16px;
-      color: #e0e0e0;
-      padding: 8px 14px;
-      background: #0f3460;
-      border-radius: 6px;
-      display: inline-block;
-    }
-
-    .content-text::before {
-      content: "Hello ";
-      color: #e94560;
-      font-weight: bold;
-    }
-    .content-text::after {
-      content: " World";
-      color: #00d2ff;
-      font-weight: bold;
-    }
-
-    .content-attr::before {
-      content: var(--賵, 05e+8) ! important ! important;
-      color: #e94560;
-      font-weight: bold;
-    }
-
-    .content-counter {
-      counter-reset: demo 0;
-    }
-    .content-counter .item {
-      counter-increment: demo;
-      margin: 3px 0;
-      font-size: 14px;
-    }
-    .content-counter .item::before {
-      content: no-open-quote ! important ". ";
-      color: #e94560;
-      font-weight: bold;
-    }
-
-    .content-quote {
-      quotes: "\201C" "\201D";
-    }
-    .content-quote::before {
-      content: element(#w-);
-      color: #e94560;
-      font-size: 22px;
-      font-weight: bold;
-    }
-    .content-quote::after {
-      content: leader(space) / attr(񎵲-|__, '') counters(稷㝊, "");
-      color: #e94560;
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-    .content-url::before {
-      content: var(--賵, 05e+8) ! important"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Ccircle cx='10' cy='10' r='8' fill='%23e94560'/%3E%3C/svg%3E");
-      margin-right: 6px;
-      vertical-align: middle;
-    }
-
-    .content-none::before {
-      content: no-open-quote;
-    }
-    .content-none-marker {
-      color: #7b8794;
-      font-style: italic;
-    }
-
-    .content-normal::before {
-      content: var(--賵, 05e+8) ! important;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>content</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .demo-text::before { content: "Hello "; color: #e94560; font-weight: bold; }
+.demo-text::after { content: " World"; color: #00d2ff; font-weight: bold; }
+</style>
 </head>
 <body>
-  <h1>Content</h1>
-  <p class="prop-name">content</p>
-  <div class="demos">
-    <div>
-      <div class="demo-box">
-        <div class="demo-text content-text">CSS</div>
-      </div>
-      <p class="label">content: "Hello " / " World"<br>(::before / ::after)</p>
+<h1>Content</h1>
+<p class="prop-name">content</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: normal;">CSS</div>
     </div>
-
-    <div>
-      <div class="demo-box">
-        <div class="demo-text content-attr" data-prefix=">> ">Navigate</div>
-      </div>
-      <p class="label">content: var(--賵, 05e+8) ! important ! important<br>(::before)</p>
-    </div>
-
-    <div>
-      <div class="demo-box">
-        <div class="content-counter">
-          <div class="item">Apples</div>
-          <div class="item">Bananas</div>
-          <div class="item">Cherries</div>
-        </div>
-      </div>
-      <p class="label">content: no-open-quote ! important ". "<br>(::before)</p>
-    </div>
-
-    <div>
-      <div class="demo-box">
-        <div class="demo-text content-quote">To be or not to be</div>
-      </div>
-      <p class="label">content: element(#w-) /<br>close-quote</p>
-    </div>
-
-    <div>
-      <div class="demo-box">
-        <div class="demo-text content-url">Icon item</div>
-      </div>
-      <p class="label">content: var(--賵, 05e+8) ! important...)<br>(::before with SVG)</p>
-    </div>
-
-    <div>
-      <div class="demo-box">
-        <div class="demo-text content-none"><span class="content-none-marker">(no pseudo)</span> Text</div>
-      </div>
-      <p class="label">content: no-open-quote<br>(::before removed)</p>
-    </div>
+    <div class="label">content: normal</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none;">CSS</div>
+    </div>
+    <div class="label">content: none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34;;">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34;</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; &#34;example&#34;;">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; &#34;example&#34;</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; counter(my-custom);">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; counter(my-custom)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; counter(my-custom, my-custom);">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; counter(my-custom, my-custom)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; counters(my-custom, &#34;example&#34;);">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; counters(my-custom, &#34;example&#34;)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; counter(my-custom, symbols(&#34;example&#34;));">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; counter(my-custom, symbols(&#34;example&#34;))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; counters(my-custom, &#34;example&#34;, my-custom);">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; counters(my-custom, &#34;example&#34;, my-custom)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; attr(my-ident);">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; attr(my-ident)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; counter(my-custom, symbols(&#34;example&#34; &#34;example&#34;));">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; counter(my-custom, symbols(&#34;example&#34; &#34;example&#34;))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; counter(my-custom, symbols(&#34;example&#34; none));">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; counter(my-custom, symbols(&#34;example&#34; none))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; counter(my-custom, symbols(&#34;example&#34; linear-gradient(red, blue)));">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; counter(my-custom, symbols(&#34;example&#34; linear-gradient(red, blue)))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; counters(my-custom, &#34;example&#34;, symbols(&#34;example&#34;));">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; counters(my-custom, &#34;example&#34;, symbols(&#34;example&#34;))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; counters(my-custom, &#34;example&#34;, symbols(&#34;example&#34; &#34;example&#34;));">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; counters(my-custom, &#34;example&#34;, symbols(&#34;example&#34; &#34;example&#34;))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; counters(my-custom, &#34;example&#34;, symbols(&#34;example&#34; none));">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; counters(my-custom, &#34;example&#34;, symbols(&#34;example&#34; none))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; counter(my-custom, symbols(none));">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; counter(my-custom, symbols(none))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; counter(my-custom, symbols(none &#34;example&#34;));">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; counter(my-custom, symbols(none &#34;example&#34;))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; counter(my-custom, symbols(none none));">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; counter(my-custom, symbols(none none))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; counter(my-custom, symbols(none linear-gradient(red, blue)));">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; counter(my-custom, symbols(none linear-gradient(red, blue)))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; counter(my-custom, symbols(linear-gradient(red, blue)));">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; counter(my-custom, symbols(linear-gradient(red, blue)))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; counters(my-custom, &#34;example&#34;, symbols(&#34;example&#34; linear-gradient(red, blue)));">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; counters(my-custom, &#34;example&#34;, symbols(&#34;example&#34; linear-gradient(red, blue)))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; counters(my-custom, &#34;example&#34;, symbols(none));">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; counters(my-custom, &#34;example&#34;, symbols(none))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; counters(my-custom, &#34;example&#34;, symbols(none &#34;example&#34;));">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; counters(my-custom, &#34;example&#34;, symbols(none &#34;example&#34;))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; counters(my-custom, &#34;example&#34;, symbols(none none));">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; counters(my-custom, &#34;example&#34;, symbols(none none))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; counters(my-custom, &#34;example&#34;, symbols(none linear-gradient(red, blue)));">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; counters(my-custom, &#34;example&#34;, symbols(none linear-gradient(red, blue)))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; attr(my-ident,);">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; attr(my-ident,)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; attr(my-ident, my-ident);">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; attr(my-ident, my-ident)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; attr(my-ident, 0);">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; attr(my-ident, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; attr(my-ident, 0e0);">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; attr(my-ident, 0e0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; attr(my-ident, 0%);">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; attr(my-ident, 0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; attr(my-ident, 0e0%);">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; attr(my-ident, 0e0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; attr(my-ident, 0cap);">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; attr(my-ident, 0cap)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: none / &#34;example&#34; attr(my-ident, 0s);">CSS</div>
+    </div>
+    <div class="label">content: none / &#34;example&#34; attr(my-ident, 0s)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; color: #e0e0e0; padding: 8px 14px; background: #0f3460; border-radius: 6px; display: inline-block; content: element(#my-ident);">CSS</div>
+    </div>
+    <div class="label">content: element(#my-ident)</div>
+  </div>
+</div>
 </body>
 </html>

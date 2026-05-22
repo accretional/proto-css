@@ -8,7 +8,7 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .demo-box {
       width: 200px;
       height: 100px;
@@ -31,6 +31,18 @@
   <p class="prop-name">border-inline-width</p>
   <div class="demos">
     <div class="demo-item">
+      <div class="demo-box" style="border-inline-width: 0;">Content</div>
+      <span class="label">border-inline-width: 0</span>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-inline-width: 1px;">Content</div>
+      <span class="label">border-inline-width: 1px</span>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-inline-width: 2px;">Content</div>
+      <span class="label">border-inline-width: 2px</span>
+    </div>
+    <div class="demo-item">
       <div class="demo-box" style="border-inline-width: thin;">Content</div>
       <span class="label">border-inline-width: thin</span>
     </div>
@@ -41,14 +53,6 @@
     <div class="demo-item">
       <div class="demo-box" style="border-inline-width: thick;">Content</div>
       <span class="label">border-inline-width: thick</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-inline-width: 5px;">Content</div>
-      <span class="label">border-inline-width: 5px</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-inline-width: 10px;">Content</div>
-      <span class="label">border-inline-width: 10px</span>
     </div>
   </div>
 </body>

@@ -1,85 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>caption-side</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; gap: 40px; justify-content: center; }
-    .demo-card {
-      background: #16213e;
-      border-radius: 10px;
-      padding: 24px;
-      width: 480px;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 16px; }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-    }
-    caption {
-      font-size: 15px;
-      font-weight: 600;
-      color: #e94560;
-      padding: 10px 0;
-      text-align: left;
-    }
-    th {
-      background: #0f3460;
-      color: #7ec8e3;
-      text-align: left;
-      padding: 10px 14px;
-      font-weight: 600;
-      font-size: 12px;
-    }
-    td {
-      padding: 10px 14px;
-      border-bottom: 1px solid #2a2a4a;
-      color: #c0c0d0;
-    }
-    tr:last-child td { border-bottom: none; }
-    .top-demo table { caption-side: top ! important; }
-    .bottom-demo table { caption-side: top ! important; }
-  </style>
+<meta charset="UTF-8">
+<title>caption-side</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  caption { font-size: 15px; font-weight: 600; color: #e94560; padding: 10px 0; text-align: left; }
+th { background: #0f3460; color: #7ec8e3; text-align: left; padding: 10px 14px; font-weight: 600; font-size: 12px; }
+td { padding: 10px 14px; border-bottom: 1px solid #2a2a4a; color: #c0c0d0; }
+tr:last-child td { border-bottom: none; }
+</style>
 </head>
 <body>
-  <h1>Caption Side</h1>
-  <p class="prop-name">caption-side</p>
-  <div class="demos">
-    <div class="demo-card top-demo">
-      <div class="label">caption-side: top ! important</div>
-      <table>
-        <caption>Sales Report Q1</caption>
-        <thead>
-          <tr><th>Product</th><th>Units</th><th>Revenue</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Widget A</td><td>1,240</td><td>$24,800</td></tr>
-          <tr><td>Widget B</td><td>860</td><td>$17,200</td></tr>
-          <tr><td>Widget C</td><td>2,100</td><td>$42,000</td></tr>
-          <tr><td>Widget D</td><td>530</td><td>$10,600</td></tr>
-        </tbody>
-      </table>
+<h1>Caption Side</h1>
+<p class="prop-name">caption-side</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 24px; width: 480px;">
+      <table style="width: 100%; border-collapse: collapse; font-size: 13px; caption-side: top;"><caption>Sales Report Q1</caption><thead><tr><th>Product</th><th>Units</th><th>Revenue</th></tr></thead><tbody><tr><td>Widget A</td><td>1,240</td><td>$24,800</td></tr><tr><td>Widget B</td><td>860</td><td>$17,200</td></tr><tr><td>Widget C</td><td>2,100</td><td>$42,000</td></tr><tr><td>Widget D</td><td>530</td><td>$10,600</td></tr></tbody></table>
     </div>
-    <div class="demo-card bottom-demo">
-      <div class="label">caption-side: top ! important</div>
-      <table>
-        <caption>Sales Report Q1</caption>
-        <thead>
-          <tr><th>Product</th><th>Units</th><th>Revenue</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Widget A</td><td>1,240</td><td>$24,800</td></tr>
-          <tr><td>Widget B</td><td>860</td><td>$17,200</td></tr>
-          <tr><td>Widget C</td><td>2,100</td><td>$42,000</td></tr>
-          <tr><td>Widget D</td><td>530</td><td>$10,600</td></tr>
-        </tbody>
-      </table>
-    </div>
+    <div class="label">caption-side: top</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 24px; width: 480px;">
+      <table style="width: 100%; border-collapse: collapse; font-size: 13px; caption-side: bottom;"><caption>Sales Report Q1</caption><thead><tr><th>Product</th><th>Units</th><th>Revenue</th></tr></thead><tbody><tr><td>Widget A</td><td>1,240</td><td>$24,800</td></tr><tr><td>Widget B</td><td>860</td><td>$17,200</td></tr><tr><td>Widget C</td><td>2,100</td><td>$42,000</td></tr><tr><td>Widget D</td><td>530</td><td>$10,600</td></tr></tbody></table>
+    </div>
+    <div class="label">caption-side: bottom</div>
+  </div>
+</div>
 </body>
 </html>

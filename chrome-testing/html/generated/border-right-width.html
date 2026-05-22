@@ -1,55 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>border-right-width</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-box {
-      width: 180px;
-      height: 100px;
-      background: #16213e;
-      border-right-style: solid;
-      border-right-color: #3498db;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      color: #c0c0c0;
-      border-radius: 4px;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
-    .demo-item { display: flex; flex-direction: column; align-items: flex-start; }
-  </style>
+<meta charset="UTF-8">
+<title>border-right-width</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Border Right Width</h1>
-  <p class="prop-name">border-right-width</p>
-  <div class="demos">
-    <div class="demo-item">
-      <div class="demo-box" style="border-right-width: hairline;">Content</div>
-      <span class="label">border-right-width: hairline</span>
+<h1>Border Right Width</h1>
+<p class="prop-name">border-right-width</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right-style: solid; border-right-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-width: 0;">Content</div>
     </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-right-width: thick ! important;">Content</div>
-      <span class="label">border-right-width: thick ! important</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-right-width: thick;">Content</div>
-      <span class="label">border-right-width: thick</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-right-width: thin ! important;">Content</div>
-      <span class="label">border-right-width: thin ! important</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-right-width: var(--_, #5d5dCC2A) ! important;">Content</div>
-      <span class="label">border-right-width: var(--_, #5d5dCC2A) ! important</span>
-    </div>
+    <div class="label">border-right-width: 0</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right-style: solid; border-right-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-width: 4px;">Content</div>
+    </div>
+    <div class="label">border-right-width: 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right-style: solid; border-right-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-width: 10px;">Content</div>
+    </div>
+    <div class="label">border-right-width: 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right-style: solid; border-right-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-width: 20px;">Content</div>
+    </div>
+    <div class="label">border-right-width: 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right-style: solid; border-right-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-width: 50px;">Content</div>
+    </div>
+    <div class="label">border-right-width: 50px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right-style: solid; border-right-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-width: hairline;">Content</div>
+    </div>
+    <div class="label">border-right-width: hairline</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right-style: solid; border-right-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-width: thin;">Content</div>
+    </div>
+    <div class="label">border-right-width: thin</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right-style: solid; border-right-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-width: medium;">Content</div>
+    </div>
+    <div class="label">border-right-width: medium</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right-style: solid; border-right-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-width: thick;">Content</div>
+    </div>
+    <div class="label">border-right-width: thick</div>
+  </div>
+</div>
 </body>
 </html>

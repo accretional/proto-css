@@ -8,11 +8,11 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-box { background: #16213e; border-radius: 10px; padding: 20px; width: 280px; }
+    .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+    .demo-box { background: #16213e; border-radius: 10px; padding: 20px; }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 10px; }
     .container {
-      width: 240px; height: 160px; background: #0f3460; border-radius: 6px;
+      width: 100%; height: 160px; background: #0f3460; border-radius: 6px;
       border: 2px solid #3a3a5c; padding: 12px;
       overflow-x: hidden;
     }
@@ -31,8 +31,9 @@
     .b5 { background: #7b68ee; }
     .d1 .container { overflow-y: visible; }
     .d2 .container { overflow-y: hidden; }
-    .d3 .container { overflow-y: scroll; }
-    .d4 .container { overflow-y: auto; }
+    .d3 .container { overflow-y: clip; }
+    .d4 .container { overflow-y: scroll; }
+    .d5 .container { overflow-y: auto; }
     .arrow-indicator {
       display: flex; align-items: center; gap: 4px; margin-top: 8px;
       font-size: 10px; color: #5a5a7a;
@@ -70,6 +71,19 @@
       <div class="arrow-indicator">&#8595; Content clipped at bottom edge</div>
     </div>
     <div class="demo-box d3">
+      <div class="label">overflow-y: clip</div>
+      <div class="container">
+        <div class="tall-content">
+          <div class="block b1">Row 1</div>
+          <div class="block b2">Row 2</div>
+          <div class="block b3">Row 3</div>
+          <div class="block b4">Row 4</div>
+          <div class="block b5">Row 5</div>
+        </div>
+      </div>
+      <div class="arrow-indicator">&#8595; Content clipped, no scroll possible</div>
+    </div>
+    <div class="demo-box d4">
       <div class="label">overflow-y: scroll</div>
       <div class="container">
         <div class="tall-content">
@@ -82,7 +96,7 @@
       </div>
       <div class="arrow-indicator">&#8595; Vertical scrollbar always visible</div>
     </div>
-    <div class="demo-box d4">
+    <div class="demo-box d5">
       <div class="label">overflow-y: auto</div>
       <div class="container">
         <div class="tall-content">

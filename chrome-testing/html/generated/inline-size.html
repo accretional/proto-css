@@ -1,80 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>inline-size</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-direction: column; gap: 16px; }
-    .demo-row {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .container {
-      background: #16213e;
-      border-radius: 8px;
-      padding: 12px;
-      width: 800px;
-    }
-    .box {
-      height: 48px;
-      background: linear-gradient(90deg, #e94560, #0f3460);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      padding: 0 14px;
-      font-size: 12px;
-      font-family: monospace;
-      color: #fff;
-      white-space: nowrap;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; min-width: 220px; text-align: right; }
-  </style>
+<meta charset="UTF-8">
+<title>inline-size</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Inline Size</h1>
-  <p class="prop-name">inline-size</p>
-  <div class="demos">
-    <div class="demo-row">
-      <p class="label">inline-size: anchor-size(--S󧘔 self-inline, anchor(--_ inside,)) ! important</p>
-      <div class="container">
-        <div class="box" style="inline-size: anchor-size(--S󧘔 self-inline, anchor(--_ inside,)) ! important;">auto (fills container)</div>
-      </div>
+<h1>Inline Size</h1>
+<p class="prop-name">inline-size</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: auto;"></div>
     </div>
-    <div class="demo-row">
-      <p class="label">inline-size: anchor-size(--_񆨐,)(0)</p>
-      <div class="container">
-        <div class="box" style="inline-size: anchor-size(--_񆨐,)(0);">100px</div>
-      </div>
-    </div>
-    <div class="demo-row">
-      <p class="label">inline-size: contain</p>
-      <div class="container">
-        <div class="box" style="inline-size: contain;">200px</div>
-      </div>
-    </div>
-    <div class="demo-row">
-      <p class="label">inline-size: anchor-size(--툠J height)</p>
-      <div class="container">
-        <div class="box" style="inline-size: anchor-size(--툠J height);">50%</div>
-      </div>
-    </div>
-    <div class="demo-row">
-      <p class="label">inline-size: stretch ! important</p>
-      <div class="container">
-        <div class="box" style="inline-size: stretch ! important;">max-content (fits the content width exactly)</div>
-      </div>
-    </div>
-    <div class="demo-row">
-      <p class="label">inline-size: anchor-size(--_񆨐,)</p>
-      <div class="container">
-        <div class="box" style="inline-size: anchor-size(--_񆨐,);">fit-content</div>
-      </div>
-    </div>
+    <div class="label">inline-size: auto</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: 0;"></div>
+    </div>
+    <div class="label">inline-size: 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: 10px;"></div>
+    </div>
+    <div class="label">inline-size: 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: 25%;"></div>
+    </div>
+    <div class="label">inline-size: 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: 50%;"></div>
+    </div>
+    <div class="label">inline-size: 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: min-content;"></div>
+    </div>
+    <div class="label">inline-size: min-content</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: max-content;"></div>
+    </div>
+    <div class="label">inline-size: max-content</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: fit-content(0);"></div>
+    </div>
+    <div class="label">inline-size: fit-content(0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: fit-content(10px);"></div>
+    </div>
+    <div class="label">inline-size: fit-content(10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: fit-content(25%);"></div>
+    </div>
+    <div class="label">inline-size: fit-content(25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: fit-content(50%);"></div>
+    </div>
+    <div class="label">inline-size: fit-content(50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: fit-content(100%);"></div>
+    </div>
+    <div class="label">inline-size: fit-content(100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: calc-size(auto, 0);"></div>
+    </div>
+    <div class="label">inline-size: calc-size(auto, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: calc-size(auto, 0 + 0);"></div>
+    </div>
+    <div class="label">inline-size: calc-size(auto, 0 + 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: calc-size(auto, 0 + 0 * 0);"></div>
+    </div>
+    <div class="label">inline-size: calc-size(auto, 0 + 0 * 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: calc-size(auto, 0 + 0 * 0e0);"></div>
+    </div>
+    <div class="label">inline-size: calc-size(auto, 0 + 0 * 0e0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: calc-size(auto, 0 + 0 * 0cap);"></div>
+    </div>
+    <div class="label">inline-size: calc-size(auto, 0 + 0 * 0cap)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: calc-size(auto, 0 + 0 * 0%);"></div>
+    </div>
+    <div class="label">inline-size: calc-size(auto, 0 + 0 * 0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: calc-size(auto, 0 + 0 * 0e0%);"></div>
+    </div>
+    <div class="label">inline-size: calc-size(auto, 0 + 0 * 0e0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: calc-size(auto, 0 + 0 * e);"></div>
+    </div>
+    <div class="label">inline-size: calc-size(auto, 0 + 0 * e)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: calc-size(auto, 0 + 0 * pi);"></div>
+    </div>
+    <div class="label">inline-size: calc-size(auto, 0 + 0 * pi)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: calc-size(auto, 0 + 0 * calc(50% + 20px));"></div>
+    </div>
+    <div class="label">inline-size: calc-size(auto, 0 + 0 * calc(50% + 20px))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: calc-size(auto, 0 + 0 * var(--my-var));"></div>
+    </div>
+    <div class="label">inline-size: calc-size(auto, 0 + 0 * var(--my-var))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: calc-size(auto, 0 + 0 * var(--my-var, my-ident));"></div>
+    </div>
+    <div class="label">inline-size: calc-size(auto, 0 + 0 * var(--my-var, my-ident))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: calc-size(auto, 0 + 0 * env(my-custom));"></div>
+    </div>
+    <div class="label">inline-size: calc-size(auto, 0 + 0 * env(my-custom))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: calc-size(auto, 0 + 0 * env(my-custom, my-ident));"></div>
+    </div>
+    <div class="label">inline-size: calc-size(auto, 0 + 0 * env(my-custom, my-ident))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: calc-size(auto, 0 + 0 * anchor(inside));"></div>
+    </div>
+    <div class="label">inline-size: calc-size(auto, 0 + 0 * anchor(inside))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: calc-size(auto, 0 + 0 * anchor(inside, 0));"></div>
+    </div>
+    <div class="label">inline-size: calc-size(auto, 0 + 0 * anchor(inside, 0))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: anchor-size(, 0);"></div>
+    </div>
+    <div class="label">inline-size: anchor-size(, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: anchor-size(, 10px);"></div>
+    </div>
+    <div class="label">inline-size: anchor-size(, 10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: anchor-size(, 25%);"></div>
+    </div>
+    <div class="label">inline-size: anchor-size(, 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: stretch;"></div>
+    </div>
+    <div class="label">inline-size: stretch</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: fit-content;"></div>
+    </div>
+    <div class="label">inline-size: fit-content</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px; width: 700px;">
+      <div style="height: 48px; background: linear-gradient(90deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; white-space: nowrap; inline-size: contain;"></div>
+    </div>
+    <div class="label">inline-size: contain</div>
+  </div>
+</div>
 </body>
 </html>

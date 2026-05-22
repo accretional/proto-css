@@ -1,143 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>padding-top</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-start; }
-    .demo-card {
-      background: #16213e;
-      border-radius: 12px;
-      padding: 20px;
-      width: 200px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
-    .pad-outer {
-      background: rgba(46, 204, 113, 0.25);
-      border: 1px dashed rgba(46, 204, 113, 0.5);
-      border-radius: 6px;
-      width: 160px;
-    }
-    .pad-inner {
-      background: #0f3460;
-      border-radius: 4px;
-      min-height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      font-family: monospace;
-      color: #64b5f6;
-    }
-    .legend {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 20px;
-      font-size: 12px;
-    }
-    .legend-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .legend-swatch {
-      width: 14px;
-      height: 14px;
-      border-radius: 3px;
-    }
-    .arrow-label {
-      font-size: 10px;
-      color: #2ecc71;
-      font-family: monospace;
-      text-align: center;
-      margin-bottom: 2px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>padding-top</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .pad-inner { background: #0f3460; border-radius: 4px; min-height: 50px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: #64b5f6; }
+</style>
 </head>
 <body>
-  <h1>Padding Top</h1>
-  <p class="prop-name">padding-top</p>
-  <div class="legend">
-    <div class="legend-item">
-      <div class="legend-swatch" style="background:rgba(46,204,113,0.25); border:1px dashed rgba(46,204,113,0.5);"></div>
-      <span>Top padding area</span>
+<h1>Padding Top</h1>
+<p class="prop-name">padding-top</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: rgba(46, 204, 113, 0.25); border: 1px dashed rgba(46, 204, 113, 0.5); border-radius: 6px; width: 160px; padding-top: 0;"><div class="pad-inner">Content</div></div>
     </div>
-    <div class="legend-item">
-      <div class="legend-swatch" style="background:#0f3460;"></div>
-      <span>Content</span>
-    </div>
+    <div class="label">padding-top: 0</div>
   </div>
-  <div class="demos">
-
-    <div class="demo-card">
-      <div class="pad-outer" style="padding-top: var(--Ni, -07.80e47ms);">
-        <div class="pad-inner">Content</div>
-      </div>
-      <div class="label">padding-top: var(--Ni, -07.80e47ms)</div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: rgba(46, 204, 113, 0.25); border: 1px dashed rgba(46, 204, 113, 0.5); border-radius: 6px; width: 160px; padding-top: 10px;"><div class="pad-inner">Content</div></div>
     </div>
-
-    <div class="demo-card">
-      <div class="pad-outer" style="padding-top: 0;">
-        <div class="arrow-label">&#8593; 10px</div>
-        <div class="pad-inner">Content</div>
-      </div>
-      <div class="label">padding-top: 0</div>
-    </div>
-
-    <div class="demo-card">
-      <div class="pad-outer" style="padding-top: env(ץ +2) ! important;">
-        <div class="arrow-label">&#8593; 20px</div>
-        <div class="pad-inner">Content</div>
-      </div>
-      <div class="label">padding-top: env(ץ +2) ! important</div>
-    </div>
-
-    <div class="demo-card">
-      <div class="pad-outer" style="padding-top: calc-size(any, clamp(,,) - var(--_, _) / 59%);">
-        <div class="arrow-label">&#8593; 40px</div>
-        <div class="pad-inner">Content</div>
-      </div>
-      <div class="label">padding-top: calc-size(any, clamp(,,) - var(--_, _) / 59%)</div>
-    </div>
-
+    <div class="label">padding-top: 10px</div>
   </div>
-
-  <div style="margin-top:32px; background:#16213e; border-radius:10px; padding:20px; max-width:900px;">
-    <h2 style="font-size:14px; color:#fff; margin-bottom:16px;">Visual Scale Comparison</h2>
-    <div style="display:flex; gap:28px; align-items:flex-start; flex-wrap:wrap;">
-      <div style="text-align:center;">
-        <div style="background:rgba(46,204,113,0.25); border:1px dashed rgba(46,204,113,0.5); border-radius:6px; width:140px; padding-top:var(--Ni, -07.80e47ms);">
-          <div style="background:#0f3460; border-radius:4px; padding:12px; font-size:10px; font-family:monospace; color:#64b5f6;">0</div>
-        </div>
-        <div class="label">0</div>
-      </div>
-      <div style="text-align:center;">
-        <div style="background:rgba(46,204,113,0.25); border:1px dashed rgba(46,204,113,0.5); border-radius:6px; width:140px; padding-top:0;">
-          <div style="background:#0f3460; border-radius:4px; padding:12px; font-size:10px; font-family:monospace; color:#64b5f6;">10px</div>
-        </div>
-        <div class="label">10px</div>
-      </div>
-      <div style="text-align:center;">
-        <div style="background:rgba(46,204,113,0.25); border:1px dashed rgba(46,204,113,0.5); border-radius:6px; width:140px; padding-top:env(ץ +2) ! important;">
-          <div style="background:#0f3460; border-radius:4px; padding:12px; font-size:10px; font-family:monospace; color:#64b5f6;">20px</div>
-        </div>
-        <div class="label">20px</div>
-      </div>
-      <div style="text-align:center;">
-        <div style="background:rgba(46,204,113,0.25); border:1px dashed rgba(46,204,113,0.5); border-radius:6px; width:140px; padding-top:calc-size(any, clamp(,,) - var(--_, _) / 59%);">
-          <div style="background:#0f3460; border-radius:4px; padding:12px; font-size:10px; font-family:monospace; color:#64b5f6;">40px</div>
-        </div>
-        <div class="label">40px</div>
-      </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: rgba(46, 204, 113, 0.25); border: 1px dashed rgba(46, 204, 113, 0.5); border-radius: 6px; width: 160px; padding-top: 25%;"><div class="pad-inner">Content</div></div>
     </div>
+    <div class="label">padding-top: 25%</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: rgba(46, 204, 113, 0.25); border: 1px dashed rgba(46, 204, 113, 0.5); border-radius: 6px; width: 160px; padding-top: 50%;"><div class="pad-inner">Content</div></div>
+    </div>
+    <div class="label">padding-top: 50%</div>
+  </div>
+</div>
 </body>
 </html>

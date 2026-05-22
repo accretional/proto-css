@@ -1,47 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>text-decoration</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-card { background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1; }
-    .sample { font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
-  </style>
+<meta charset="UTF-8">
+<title>text-decoration</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Text Decoration</h1>
-  <p class="prop-name">text-decoration</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="sample" style="text-decoration: light-dark(none,) ! important;">Underlined Text</div>
-      <p class="label">text-decoration: light-dark(none,) ! important</p>
+<h1>Text Decoration</h1>
+<p class="prop-name">text-decoration</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: none;">Decorated Text</div>
     </div>
-    <div class="demo-card">
-      <div class="sample" style="text-decoration: hairline canvastext ! important;">Overlined Text</div>
-      <p class="label">text-decoration: hairline canvastext ! important</p>
-    </div>
-    <div class="demo-card">
-      <div class="sample" style="text-decoration: dotted blink;">Strikethrough</div>
-      <p class="label">text-decoration: dotted blink</p>
-    </div>
-    <div class="demo-card">
-      <div class="sample" style="text-decoration: light-dark(none,) ! important overline;">Both Lines</div>
-      <p class="label">text-decoration: light-dark(none,) ! important overline</p>
-    </div>
-    <div class="demo-card">
-      <div class="sample" style="text-decoration: light-dark(none,) ! important wavy red;">Wavy Red</div>
-      <p class="label">text-decoration: light-dark(none,) ! important wavy red</p>
-    </div>
-    <div class="demo-card">
-      <div class="sample" style="text-decoration: light-dark(none,) ! important dotted #3b82f6 3px;">Dotted Blue 3px</div>
-      <p class="label">text-decoration: light-dark(none,) ! important dotted #3b82f6 3px</p>
-    </div>
+    <div class="label">text-decoration: none</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: none auto;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: none auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: none auto solid;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: none auto solid</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: none auto solid red;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: none auto solid red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: none solid;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: none solid</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: none solid auto;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: none solid auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: none solid auto red;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: none solid auto red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: none red;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: none red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: none red auto;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: none red auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: auto;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: auto none;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: auto none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: auto none solid;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: auto none solid</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: auto none solid red;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: auto none solid red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: auto solid;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: auto solid</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: auto solid none;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: auto solid none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: auto solid none red;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: auto solid none red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: auto red;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: auto red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: auto red none;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: auto red none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: solid;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: solid</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: solid none;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: solid none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: solid none auto;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: solid none auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: solid none auto red;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: solid none auto red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: solid auto;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: solid auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: solid auto none;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: solid auto none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: solid auto none red;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: solid auto none red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: solid red;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: solid red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: solid red none;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: solid red none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: red;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: red none;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: red none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: red none auto;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: red none auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: red none auto solid;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: red none auto solid</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: red auto;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: red auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: red auto none;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: red auto none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: red auto none solid;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: red auto none solid</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: red solid;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: red solid</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
+      <div style="font-size: 28px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: red solid none;">Decorated Text</div>
+    </div>
+    <div class="label">text-decoration: red solid none</div>
+  </div>
+</div>
 </body>
 </html>

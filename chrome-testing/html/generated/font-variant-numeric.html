@@ -1,80 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>font-variant-numeric</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
-    .demo-card {
-      background: #16213e; border-radius: 12px; padding: 20px;
-      border: 1px solid #2a2a4a;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
-    .tag {
-      display: inline-block; background: #7c3aed33; color: #a78bfa; font-size: 10px;
-      font-family: monospace; padding: 2px 6px; border-radius: 4px; margin-bottom: 10px;
-    }
-    .demo-text {
-      font-size: 32px; color: #fff; line-height: 1.5;
-      font-family: Georgia, 'Times New Roman', serif;
-    }
-    .demo-numbers {
-      font-size: 24px; color: #b0b0b0; line-height: 1.5;
-      font-family: Georgia, 'Times New Roman', serif;
-    }
-    .note { font-size: 10px; color: #6b7280; margin-top: 6px; font-style: italic; }
-  </style>
+<meta charset="UTF-8">
+<title>font-variant-numeric</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Font Variant Numeric</h1>
-  <p class="prop-name">font-variant-numeric</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="tag">lining-nums</div>
-      <div class="demo-text" style="font-variant-numeric: diagonal-fractions slashed-zero;">0123456789</div>
-      <div class="demo-numbers" style="font-variant-numeric: diagonal-fractions slashed-zero;">$1,234.56</div>
-      <p class="label">font-variant-numeric: diagonal-fractions slashed-zero</p>
-      <p class="note">All digits sit on the baseline, same height</p>
+<h1>Font Variant Numeric</h1>
+<p class="prop-name">font-variant-numeric</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: normal;">0123456789</div>
     </div>
-    <div class="demo-card">
-      <div class="tag">oldstyle-nums</div>
-      <div class="demo-text" style="font-variant-numeric: normal ! important;">0123456789</div>
-      <div class="demo-numbers" style="font-variant-numeric: normal ! important;">$1,234.56</div>
-      <p class="label">font-variant-numeric: normal ! important</p>
-      <p class="note">Digits have ascenders and descenders</p>
-    </div>
-    <div class="demo-card">
-      <div class="tag">tabular-nums</div>
-      <div class="demo-text" style="font-variant-numeric: lining-nums tabular-nums diagonal-fractions ordinal;">0123456789</div>
-      <div class="demo-numbers" style="font-variant-numeric: lining-nums tabular-nums diagonal-fractions ordinal;">$1,234.56<br>$9,876.54<br>$&nbsp;&nbsp;100.00</div>
-      <p class="label">font-variant-numeric: lining-nums tabular-nums diagonal-fractions ordinal</p>
-      <p class="note">Equal-width digits for aligned columns</p>
-    </div>
-    <div class="demo-card">
-      <div class="tag">proportional-nums</div>
-      <div class="demo-text" style="font-variant-numeric: lining-nums tabular-nums diagonal-fractions ordinal ! important;">0123456789</div>
-      <div class="demo-numbers" style="font-variant-numeric: lining-nums tabular-nums diagonal-fractions ordinal ! important;">$1,234.56</div>
-      <p class="label">font-variant-numeric: lining-nums tabular-nums diagonal-fractions ordinal ! important</p>
-      <p class="note">Digits have natural proportional widths</p>
-    </div>
-    <div class="demo-card">
-      <div class="tag">slashed-zero</div>
-      <div class="demo-text" style="font-variant-numeric: normal;">0 vs O</div>
-      <div class="demo-numbers" style="font-variant-numeric: normal;">10203040</div>
-      <p class="label">font-variant-numeric: normal</p>
-      <p class="note">Zero gets a slash to distinguish from O</p>
-    </div>
-    <div class="demo-card">
-      <div class="tag">ordinal</div>
-      <div class="demo-text" style="font-variant-numeric: proportional-nums ordinal;">1st 2nd 3rd</div>
-      <div class="demo-numbers" style="font-variant-numeric: proportional-nums ordinal;">4th 5th 100th</div>
-      <p class="label">font-variant-numeric: proportional-nums ordinal</p>
-      <p class="note">Special ordinal indicator glyphs</p>
-    </div>
+    <div class="label">font-variant-numeric: normal</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: slashed-zero;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: slashed-zero</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: ordinal;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: ordinal</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: ordinal slashed-zero;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: ordinal slashed-zero</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: diagonal-fractions;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: diagonal-fractions</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: diagonal-fractions slashed-zero;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: diagonal-fractions slashed-zero</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: diagonal-fractions ordinal;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: diagonal-fractions ordinal</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: diagonal-fractions ordinal slashed-zero;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: diagonal-fractions ordinal slashed-zero</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: stacked-fractions;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: stacked-fractions</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: stacked-fractions slashed-zero;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: stacked-fractions slashed-zero</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: stacked-fractions ordinal;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: stacked-fractions ordinal</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: stacked-fractions ordinal slashed-zero;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: stacked-fractions ordinal slashed-zero</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: proportional-nums;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: proportional-nums</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: proportional-nums slashed-zero;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: proportional-nums slashed-zero</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: proportional-nums ordinal;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: proportional-nums ordinal</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: proportional-nums ordinal slashed-zero;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: proportional-nums ordinal slashed-zero</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: proportional-nums diagonal-fractions;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: proportional-nums diagonal-fractions</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: proportional-nums diagonal-fractions slashed-zero;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: proportional-nums diagonal-fractions slashed-zero</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: proportional-nums diagonal-fractions ordinal;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: proportional-nums diagonal-fractions ordinal</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: proportional-nums diagonal-fractions ordinal slashed-zero;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: proportional-nums diagonal-fractions ordinal slashed-zero</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: proportional-nums stacked-fractions;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: proportional-nums stacked-fractions</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: proportional-nums stacked-fractions slashed-zero;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: proportional-nums stacked-fractions slashed-zero</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: proportional-nums stacked-fractions ordinal;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: proportional-nums stacked-fractions ordinal</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: proportional-nums stacked-fractions ordinal slashed-zero;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: proportional-nums stacked-fractions ordinal slashed-zero</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: tabular-nums;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: tabular-nums</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: tabular-nums slashed-zero;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: tabular-nums slashed-zero</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: tabular-nums ordinal;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: tabular-nums ordinal</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: tabular-nums ordinal slashed-zero;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: tabular-nums ordinal slashed-zero</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: tabular-nums diagonal-fractions;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: tabular-nums diagonal-fractions</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: tabular-nums diagonal-fractions slashed-zero;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: tabular-nums diagonal-fractions slashed-zero</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: tabular-nums diagonal-fractions ordinal;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: tabular-nums diagonal-fractions ordinal</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: tabular-nums diagonal-fractions ordinal slashed-zero;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: tabular-nums diagonal-fractions ordinal slashed-zero</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: tabular-nums stacked-fractions;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: tabular-nums stacked-fractions</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: tabular-nums stacked-fractions slashed-zero;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: tabular-nums stacked-fractions slashed-zero</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 32px; color: #fff; line-height: 1.5; font-family: Georgia, &#39;Times New Roman&#39;, serif; font-variant-numeric: tabular-nums stacked-fractions ordinal;">0123456789</div>
+    </div>
+    <div class="label">font-variant-numeric: tabular-nums stacked-fractions ordinal</div>
+  </div>
+</div>
 </body>
 </html>

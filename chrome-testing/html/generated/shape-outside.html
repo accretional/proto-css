@@ -1,87 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>shape-outside</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px 40px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .demo-card {
-      background: #16213e;
-      border-radius: 12px;
-      padding: 20px;
-      border: 1px solid #2a2a4a;
-      overflow: hidden;
-    }
-    .label { font-size: 12px; font-family: monospace; color: #a78bfa; margin-bottom: 12px; background: #1a1a2e; display: inline-block; padding: 3px 8px; border-radius: 4px; }
-    .float-shape {
-      float: left;
-      width: 140px;
-      height: 140px;
-      margin-right: 12px;
-      margin-bottom: 4px;
-      background: rgba(139, 92, 246, 0.3);
-      border: 2px solid #8b5cf6;
-    }
-    .circle-shape {
-      shape-outside: url('俢') ! important;
-      clip-path: circle(50%);
-      border-radius: 50%;
-    }
-    .ellipse-shape {
-      shape-outside: none ! important;
-      clip-path: ellipse(40% 50%);
-    }
-    .polygon-shape {
-      shape-outside: polygon(round var(--_, ""), -4e58svb 4.0e+7rex, anchor(--�_ end) anchor-size(inline,));
-      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    }
-    .inset-shape {
-      shape-outside: image-set(55dppx type(''));
-      clip-path: inset(10px 10px 10px 10px round 20px);
-    }
-    .text-content {
-      font-size: 13px;
-      line-height: 1.5;
-      color: #c4b5fd;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>shape-outside</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .demos { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.label { font-size: 12px; font-family: monospace; color: #a78bfa; margin-bottom: 12px; background: #1a1a2e; display: inline-block; padding: 3px 8px; border-radius: 4px; }
+.text-content { font-size: 13px; line-height: 1.5; color: #c4b5fd; }
+</style>
 </head>
 <body>
-  <h1>Shape Outside</h1>
-  <p class="prop-name">shape-outside</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="label">shape-outside: url('俢') ! important</div>
-      <div>
-        <div class="float-shape circle-shape"></div>
-        <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
-      </div>
+<h1>Shape Outside</h1>
+<p class="prop-name">shape-outside</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a; overflow: hidden;">
+      <div style="float: left; width: 140px; height: 140px; margin-right: 12px; margin-bottom: 4px; background: rgba(139, 92, 246, 0.3); border: 2px solid #8b5cf6; shape-outside: none;"></div>
+      <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
     </div>
-    <div class="demo-card">
-      <div class="label">shape-outside: none ! important</div>
-      <div>
-        <div class="float-shape ellipse-shape"></div>
-        <p class="text-content">Text wraps around an ellipse shape with 40% horizontal and 50% vertical radius. The content flows along the curved elliptical edge. This creates an elegant layout effect for editorial-style designs. More text fills this area for the demo.</p>
-      </div>
-    </div>
-    <div class="demo-card">
-      <div class="label">shape-outside: polygon(round var(--_, ""), -4e58svb 4.0e+7rex, anchor(--�_ end) anchor-size(inline,))</div>
-      <div>
-        <div class="float-shape polygon-shape"></div>
-        <p class="text-content">Text wraps around a diamond polygon shape. The polygon creates sharp edges that text flows around precisely. This is a powerful feature for creative magazine-style layouts. Additional text demonstrates the wrapping behavior around each vertex.</p>
-      </div>
-    </div>
-    <div class="demo-card">
-      <div class="label">shape-outside: none</div>
-      <div>
-        <div class="float-shape inset-shape"></div>
-        <p class="text-content">Text wraps around an inset rectangle with rounded corners. The inset function creates a rectangular shape with customizable margins and corner radii. This allows text to flow around softer rectangular shapes with rounded edges.</p>
-      </div>
-    </div>
+    <div class="label">shape-outside: none</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a; overflow: hidden;">
+      <div style="float: left; width: 140px; height: 140px; margin-right: 12px; margin-bottom: 4px; background: rgba(139, 92, 246, 0.3); border: 2px solid #8b5cf6; shape-outside: inset(0);"></div>
+      <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
+    </div>
+    <div class="label">shape-outside: inset(0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a; overflow: hidden;">
+      <div style="float: left; width: 140px; height: 140px; margin-right: 12px; margin-bottom: 4px; background: rgba(139, 92, 246, 0.3); border: 2px solid #8b5cf6; shape-outside: inset(0) content-box;"></div>
+      <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
+    </div>
+    <div class="label">shape-outside: inset(0) content-box</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a; overflow: hidden;">
+      <div style="float: left; width: 140px; height: 140px; margin-right: 12px; margin-bottom: 4px; background: rgba(139, 92, 246, 0.3); border: 2px solid #8b5cf6; shape-outside: inset(0) padding-box;"></div>
+      <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
+    </div>
+    <div class="label">shape-outside: inset(0) padding-box</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a; overflow: hidden;">
+      <div style="float: left; width: 140px; height: 140px; margin-right: 12px; margin-bottom: 4px; background: rgba(139, 92, 246, 0.3); border: 2px solid #8b5cf6; shape-outside: inset(0) border-box;"></div>
+      <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
+    </div>
+    <div class="label">shape-outside: inset(0) border-box</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a; overflow: hidden;">
+      <div style="float: left; width: 140px; height: 140px; margin-right: 12px; margin-bottom: 4px; background: rgba(139, 92, 246, 0.3); border: 2px solid #8b5cf6; shape-outside: inset(0) margin-box;"></div>
+      <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
+    </div>
+    <div class="label">shape-outside: inset(0) margin-box</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a; overflow: hidden;">
+      <div style="float: left; width: 140px; height: 140px; margin-right: 12px; margin-bottom: 4px; background: rgba(139, 92, 246, 0.3); border: 2px solid #8b5cf6; shape-outside: inset(0 round 0);"></div>
+      <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
+    </div>
+    <div class="label">shape-outside: inset(0 round 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a; overflow: hidden;">
+      <div style="float: left; width: 140px; height: 140px; margin-right: 12px; margin-bottom: 4px; background: rgba(139, 92, 246, 0.3); border: 2px solid #8b5cf6; shape-outside: inset(0 round 0) content-box;"></div>
+      <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
+    </div>
+    <div class="label">shape-outside: inset(0 round 0) content-box</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a; overflow: hidden;">
+      <div style="float: left; width: 140px; height: 140px; margin-right: 12px; margin-bottom: 4px; background: rgba(139, 92, 246, 0.3); border: 2px solid #8b5cf6; shape-outside: inset(0 round 0) padding-box;"></div>
+      <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
+    </div>
+    <div class="label">shape-outside: inset(0 round 0) padding-box</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a; overflow: hidden;">
+      <div style="float: left; width: 140px; height: 140px; margin-right: 12px; margin-bottom: 4px; background: rgba(139, 92, 246, 0.3); border: 2px solid #8b5cf6; shape-outside: inset(0 round 0) border-box;"></div>
+      <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
+    </div>
+    <div class="label">shape-outside: inset(0 round 0) border-box</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a; overflow: hidden;">
+      <div style="float: left; width: 140px; height: 140px; margin-right: 12px; margin-bottom: 4px; background: rgba(139, 92, 246, 0.3); border: 2px solid #8b5cf6; shape-outside: inset(0 round 0) margin-box;"></div>
+      <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
+    </div>
+    <div class="label">shape-outside: inset(0 round 0) margin-box</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a; overflow: hidden;">
+      <div style="float: left; width: 140px; height: 140px; margin-right: 12px; margin-bottom: 4px; background: rgba(139, 92, 246, 0.3); border: 2px solid #8b5cf6; shape-outside: inset(0 round 4px);"></div>
+      <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
+    </div>
+    <div class="label">shape-outside: inset(0 round 4px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a; overflow: hidden;">
+      <div style="float: left; width: 140px; height: 140px; margin-right: 12px; margin-bottom: 4px; background: rgba(139, 92, 246, 0.3); border: 2px solid #8b5cf6; shape-outside: inset(0 round 4px) content-box;"></div>
+      <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
+    </div>
+    <div class="label">shape-outside: inset(0 round 4px) content-box</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a; overflow: hidden;">
+      <div style="float: left; width: 140px; height: 140px; margin-right: 12px; margin-bottom: 4px; background: rgba(139, 92, 246, 0.3); border: 2px solid #8b5cf6; shape-outside: inset(0 round 4px) padding-box;"></div>
+      <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
+    </div>
+    <div class="label">shape-outside: inset(0 round 4px) padding-box</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a; overflow: hidden;">
+      <div style="float: left; width: 140px; height: 140px; margin-right: 12px; margin-bottom: 4px; background: rgba(139, 92, 246, 0.3); border: 2px solid #8b5cf6; shape-outside: inset(0 round 4px) border-box;"></div>
+      <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
+    </div>
+    <div class="label">shape-outside: inset(0 round 4px) border-box</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a; overflow: hidden;">
+      <div style="float: left; width: 140px; height: 140px; margin-right: 12px; margin-bottom: 4px; background: rgba(139, 92, 246, 0.3); border: 2px solid #8b5cf6; shape-outside: inset(0 round 4px) margin-box;"></div>
+      <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
+    </div>
+    <div class="label">shape-outside: inset(0 round 4px) margin-box</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a; overflow: hidden;">
+      <div style="float: left; width: 140px; height: 140px; margin-right: 12px; margin-bottom: 4px; background: rgba(139, 92, 246, 0.3); border: 2px solid #8b5cf6; shape-outside: circle(at center);"></div>
+      <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
+    </div>
+    <div class="label">shape-outside: circle(at center)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a; overflow: hidden;">
+      <div style="float: left; width: 140px; height: 140px; margin-right: 12px; margin-bottom: 4px; background: rgba(139, 92, 246, 0.3); border: 2px solid #8b5cf6; shape-outside: circle(at center) content-box;"></div>
+      <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
+    </div>
+    <div class="label">shape-outside: circle(at center) content-box</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a; overflow: hidden;">
+      <div style="float: left; width: 140px; height: 140px; margin-right: 12px; margin-bottom: 4px; background: rgba(139, 92, 246, 0.3); border: 2px solid #8b5cf6; shape-outside: circle(at center) padding-box;"></div>
+      <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
+    </div>
+    <div class="label">shape-outside: circle(at center) padding-box</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a; overflow: hidden;">
+      <div style="float: left; width: 140px; height: 140px; margin-right: 12px; margin-bottom: 4px; background: rgba(139, 92, 246, 0.3); border: 2px solid #8b5cf6; shape-outside: circle(at center) border-box;"></div>
+      <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
+    </div>
+    <div class="label">shape-outside: circle(at center) border-box</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a; overflow: hidden;">
+      <div style="float: left; width: 140px; height: 140px; margin-right: 12px; margin-bottom: 4px; background: rgba(139, 92, 246, 0.3); border: 2px solid #8b5cf6; shape-outside: content-box;"></div>
+      <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
+    </div>
+    <div class="label">shape-outside: content-box</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a; overflow: hidden;">
+      <div style="float: left; width: 140px; height: 140px; margin-right: 12px; margin-bottom: 4px; background: rgba(139, 92, 246, 0.3); border: 2px solid #8b5cf6; shape-outside: content-box inset(0);"></div>
+      <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
+    </div>
+    <div class="label">shape-outside: content-box inset(0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a; overflow: hidden;">
+      <div style="float: left; width: 140px; height: 140px; margin-right: 12px; margin-bottom: 4px; background: rgba(139, 92, 246, 0.3); border: 2px solid #8b5cf6; shape-outside: content-box inset(0 round 0);"></div>
+      <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
+    </div>
+    <div class="label">shape-outside: content-box inset(0 round 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a; overflow: hidden;">
+      <div style="float: left; width: 140px; height: 140px; margin-right: 12px; margin-bottom: 4px; background: rgba(139, 92, 246, 0.3); border: 2px solid #8b5cf6; shape-outside: content-box circle(at center);"></div>
+      <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
+    </div>
+    <div class="label">shape-outside: content-box circle(at center)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a; overflow: hidden;">
+      <div style="float: left; width: 140px; height: 140px; margin-right: 12px; margin-bottom: 4px; background: rgba(139, 92, 246, 0.3); border: 2px solid #8b5cf6; shape-outside: content-box ellipse(at center);"></div>
+      <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
+    </div>
+    <div class="label">shape-outside: content-box ellipse(at center)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a; overflow: hidden;">
+      <div style="float: left; width: 140px; height: 140px; margin-right: 12px; margin-bottom: 4px; background: rgba(139, 92, 246, 0.3); border: 2px solid #8b5cf6; shape-outside: content-box polygon(0 0);"></div>
+      <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
+    </div>
+    <div class="label">shape-outside: content-box polygon(0 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a; overflow: hidden;">
+      <div style="float: left; width: 140px; height: 140px; margin-right: 12px; margin-bottom: 4px; background: rgba(139, 92, 246, 0.3); border: 2px solid #8b5cf6; shape-outside: content-box polygon(0 0, 0 0);"></div>
+      <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
+    </div>
+    <div class="label">shape-outside: content-box polygon(0 0, 0 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a; overflow: hidden;">
+      <div style="float: left; width: 140px; height: 140px; margin-right: 12px; margin-bottom: 4px; background: rgba(139, 92, 246, 0.3); border: 2px solid #8b5cf6; shape-outside: linear-gradient(red, blue);"></div>
+      <p class="text-content">Text wraps around a circle shape. The content flows along the curved edge of the circle, creating an organic layout. This demonstrates how CSS shapes allow text to flow around non-rectangular areas. More text to show the wrapping effect clearly in the demo.</p>
+    </div>
+    <div class="label">shape-outside: linear-gradient(red, blue)</div>
+  </div>
+</div>
 </body>
 </html>

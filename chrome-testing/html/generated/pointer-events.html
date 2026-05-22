@@ -1,112 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>pointer-events</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 28px; }
-    .demo-card {
-      background: #16213e;
-      border-radius: 12px;
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 350px;
-    }
-    .demo-area {
-      width: 280px;
-      height: 160px;
-      position: relative;
-      border: 2px dashed rgba(255,255,255,0.15);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .click-box {
-      width: 180px;
-      height: 80px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform 0.15s;
-    }
-    .click-box:hover {
-      transform: scale(1.05);
-    }
-    .clickable {
-      background: linear-gradient(135deg, #00b4d8, #0077b6);
-      color: #fff;
-      border: 2px solid rgba(255,255,255,0.3);
-    }
-    .not-clickable {
-      background: linear-gradient(135deg, #555, #444);
-      color: #999;
-      border: 2px solid rgba(255,255,255,0.1);
-      cursor: not-allowed;
-    }
-    .status {
-      display: inline-block;
-      padding: 3px 10px;
-      border-radius: 12px;
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-top: 8px;
-    }
-    .status-yes { background: rgba(34,197,94,0.2); color: #22c55e; }
-    .status-no { background: rgba(239,68,68,0.2); color: #ef4444; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
-  </style>
+<meta charset="UTF-8">
+<title>pointer-events</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Pointer Events</h1>
-  <p class="prop-name">pointer-events</p>
-  <div class="demos">
-
-    <div class="demo-card">
-      <div class="demo-area">
-        <div class="click-box clickable" style="pointer-events: visibleStroke;">
-          Click Me
-        </div>
-      </div>
-      <span class="status status-yes">clickable</span>
-      <div class="label">pointer-events: visibleStroke<br><span style="color:#6b7280; font-size:10px;">normal click behavior</span></div>
+<h1>Pointer Events</h1>
+<p class="prop-name">pointer-events</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="width: 280px; height: 160px; position: relative; border: 2px dashed rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 180px; height: 80px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; background: linear-gradient(135deg, #00b4d8, #0077b6); color: #fff; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; pointer-events: auto;">Click Me</div>
     </div>
-
-    <div class="demo-card">
-      <div class="demo-area">
-        <div class="click-box not-clickable" style="pointer-events: auto ! important;">
-          Can't Click
-        </div>
-      </div>
-      <span class="status status-no">not clickable</span>
-      <div class="label">pointer-events: auto ! important<br><span style="color:#6b7280; font-size:10px;">clicks pass through</span></div>
-    </div>
-
-    <div class="demo-card">
-      <div class="demo-area">
-        <svg width="280" height="160" viewBox="0 0 280 160">
-          <rect x="50" y="30" width="180" height="100" rx="10"
-            fill="#0077b6" stroke="#fff" stroke-width="2" opacity="0.8"
-            style="pointer-events: visibleStroke ! important;" />
-          <text x="140" y="85" text-anchor="middle" fill="#fff" font-size="14" font-weight="600" style="pointer-events: auto ! important;">SVG Element</text>
-        </svg>
-      </div>
-      <span class="status status-yes">clickable (fill &amp; stroke)</span>
-      <div class="label">pointer-events: visibleStroke ! important<br><span style="color:#6b7280; font-size:10px;">SVG: responds on painted areas</span></div>
-    </div>
-
+    <div class="label">pointer-events: auto</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 280px; height: 160px; position: relative; border: 2px dashed rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 180px; height: 80px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; background: linear-gradient(135deg, #00b4d8, #0077b6); color: #fff; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; pointer-events: bounding-box;">Click Me</div>
+    </div>
+    <div class="label">pointer-events: bounding-box</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 280px; height: 160px; position: relative; border: 2px dashed rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 180px; height: 80px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; background: linear-gradient(135deg, #00b4d8, #0077b6); color: #fff; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; pointer-events: visiblePainted;">Click Me</div>
+    </div>
+    <div class="label">pointer-events: visiblePainted</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 280px; height: 160px; position: relative; border: 2px dashed rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 180px; height: 80px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; background: linear-gradient(135deg, #00b4d8, #0077b6); color: #fff; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; pointer-events: visibleFill;">Click Me</div>
+    </div>
+    <div class="label">pointer-events: visibleFill</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 280px; height: 160px; position: relative; border: 2px dashed rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 180px; height: 80px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; background: linear-gradient(135deg, #00b4d8, #0077b6); color: #fff; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; pointer-events: visibleStroke;">Click Me</div>
+    </div>
+    <div class="label">pointer-events: visibleStroke</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 280px; height: 160px; position: relative; border: 2px dashed rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 180px; height: 80px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; background: linear-gradient(135deg, #00b4d8, #0077b6); color: #fff; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; pointer-events: visible;">Click Me</div>
+    </div>
+    <div class="label">pointer-events: visible</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 280px; height: 160px; position: relative; border: 2px dashed rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 180px; height: 80px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; background: linear-gradient(135deg, #00b4d8, #0077b6); color: #fff; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; pointer-events: painted;">Click Me</div>
+    </div>
+    <div class="label">pointer-events: painted</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 280px; height: 160px; position: relative; border: 2px dashed rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 180px; height: 80px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; background: linear-gradient(135deg, #00b4d8, #0077b6); color: #fff; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; pointer-events: fill;">Click Me</div>
+    </div>
+    <div class="label">pointer-events: fill</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 280px; height: 160px; position: relative; border: 2px dashed rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 180px; height: 80px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; background: linear-gradient(135deg, #00b4d8, #0077b6); color: #fff; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; pointer-events: stroke;">Click Me</div>
+    </div>
+    <div class="label">pointer-events: stroke</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 280px; height: 160px; position: relative; border: 2px dashed rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 180px; height: 80px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; background: linear-gradient(135deg, #00b4d8, #0077b6); color: #fff; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; pointer-events: all;">Click Me</div>
+    </div>
+    <div class="label">pointer-events: all</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 280px; height: 160px; position: relative; border: 2px dashed rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 180px; height: 80px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; background: linear-gradient(135deg, #00b4d8, #0077b6); color: #fff; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; pointer-events: none;">Click Me</div>
+    </div>
+    <div class="label">pointer-events: none</div>
+  </div>
+</div>
 </body>
 </html>

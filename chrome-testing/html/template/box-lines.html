@@ -8,7 +8,7 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 32px; }
+    .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
     .demo-box { display: flex; flex-direction: column; }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
     .container {
@@ -61,7 +61,7 @@
         <div class="child">5</div>
         <div class="child">6</div>
       </div>
-      <span class="label">-webkit-box-lines: single</span>
+      <span class="label">box-lines: single</span>
     </div>
     <div class="demo-box">
       <div class="container multiple">
@@ -72,7 +72,7 @@
         <div class="child">5</div>
         <div class="child">6</div>
       </div>
-      <span class="label">-webkit-box-lines: multiple</span>
+      <span class="label">box-lines: multiple</span>
     </div>
   </div>
   <p class="note">Note: box-lines is a deprecated property with very limited browser support. 'single' keeps items on one line (default), 'multiple' allows wrapping.</p>

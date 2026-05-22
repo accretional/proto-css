@@ -1,69 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>dynamic-range-limit</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 8px; }
-    .note { font-size: 12px; color: #e94560; margin-bottom: 24px; font-style: italic; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
-    .demo-box { background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 12px; }
-    .gradient-bar { height: 80px; border-radius: 8px; margin-bottom: 12px; }
-    .sdr { dynamic-range-limit: dynamic-range-limit-mix(standard var(--쭞, -8.47e47%), var(--_-), constrained var(--E-, --𚽷_)); background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); }
-    .hdr { dynamic-range-limit: standard ! important; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); }
-    .constrained { dynamic-range-limit: no-limit ! important; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); }
-    .color-swatches { display: flex; gap: 8px; margin-top: 12px; }
-    .swatch { width: 50px; height: 50px; border-radius: 8px; }
-    .info { font-size: 11px; color: #6b7280; margin-top: 8px; line-height: 1.5; }
-    .comparison { display: flex; gap: 16px; margin-top: 16px; }
-    .comp-box { flex: 1; padding: 16px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; }
-    .comp-sdr { background: color(display-p3 1 0.2 0.2); dynamic-range-limit: dynamic-range-limit-mix(standard var(--쭞, -8.47e47%), var(--_-), constrained var(--E-, --𚽷_)); color: #fff; }
-    .comp-hdr { background: color(display-p3 1 0.2 0.2); dynamic-range-limit: standard ! important; color: #fff; }
-  </style>
+<meta charset="UTF-8">
+<title>dynamic-range-limit</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Dynamic Range Limit</h1>
-  <p class="prop-name">dynamic-range-limit</p>
-  <p class="note">Experimental property -- affects HDR-capable displays only. On SDR displays, differences may not be visible.</p>
-  <div class="demos">
-
-    <div class="demo-box">
-      <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard var(--쭞, -8.47e47%), var(--_-), constrained var(--E-, --𚽷_))</div>
-      <div class="gradient-bar sdr"></div>
-      <p class="info">Limits content to Standard Dynamic Range (SDR). Colors are clamped to the SDR range, preventing use of HDR headroom.</p>
-      <div class="comparison">
-        <div class="comp-box comp-sdr">SDR Limited<br>Red</div>
-        <div class="comp-box" style="background: color(display-p3 0 0.9 0.3); dynamic-range-limit: dynamic-range-limit-mix(standard var(--쭞, -8.47e47%), var(--_-), constrained var(--E-, --𚽷_)); color: #000;">SDR Limited<br>Green</div>
-        <div class="comp-box" style="background: color(display-p3 0.2 0.4 1); dynamic-range-limit: dynamic-range-limit-mix(standard var(--쭞, -8.47e47%), var(--_-), constrained var(--E-, --𚽷_)); color: #fff;">SDR Limited<br>Blue</div>
-      </div>
+<h1>Dynamic Range Limit</h1>
+<p class="prop-name">dynamic-range-limit</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: standard;"></div>
     </div>
-
-    <div class="demo-box">
-      <div class="label">dynamic-range-limit: standard ! important</div>
-      <div class="gradient-bar hdr"></div>
-      <p class="info">Allows content to use the full High Dynamic Range (HDR) of the display. Colors can exceed SDR brightness.</p>
-      <div class="comparison">
-        <div class="comp-box comp-hdr">HDR Enabled<br>Red</div>
-        <div class="comp-box" style="background: color(display-p3 0 0.9 0.3); dynamic-range-limit: standard ! important; color: #000;">HDR Enabled<br>Green</div>
-        <div class="comp-box" style="background: color(display-p3 0.2 0.4 1); dynamic-range-limit: standard ! important; color: #fff;">HDR Enabled<br>Blue</div>
-      </div>
-    </div>
-
-    <div class="demo-box" style="min-width: 100%;">
-      <div class="label">dynamic-range-limit: no-limit ! important</div>
-      <div class="gradient-bar constrained"></div>
-      <p class="info">Allows some HDR headroom but constrains the upper brightness to avoid excessive power usage or visual discomfort. A middle ground between standard and high.</p>
-      <div class="comparison">
-        <div class="comp-box" style="background: color(display-p3 1 0.2 0.2); dynamic-range-limit: no-limit ! important; color: #fff;">Constrained<br>Red</div>
-        <div class="comp-box" style="background: color(display-p3 0 0.9 0.3); dynamic-range-limit: no-limit ! important; color: #000;">Constrained<br>Green</div>
-        <div class="comp-box" style="background: color(display-p3 0.2 0.4 1); dynamic-range-limit: no-limit ! important; color: #fff;">Constrained<br>Blue</div>
-      </div>
-    </div>
-
+    <div class="label">dynamic-range-limit: standard</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: no-limit;"></div>
+    </div>
+    <div class="label">dynamic-range-limit: no-limit</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: constrained;"></div>
+    </div>
+    <div class="label">dynamic-range-limit: constrained</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, standard 0%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, standard 0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, standard 25%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, standard 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, standard 50%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, standard 50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, standard 75%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, standard 75%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, standard 100%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, standard 100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, no-limit 0%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, no-limit 0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, no-limit 25%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, no-limit 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, no-limit 50%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, no-limit 50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, no-limit 75%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, no-limit 75%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, no-limit 100%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, no-limit 100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, constrained 0%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, constrained 0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, constrained 25%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, constrained 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, constrained 50%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, constrained 50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, constrained 75%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, constrained 75%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, constrained 100%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 0%, constrained 100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, standard 0%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, standard 0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, standard 25%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, standard 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, standard 50%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, standard 50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, standard 75%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, standard 75%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, standard 100%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, standard 100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, no-limit 0%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, no-limit 0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, no-limit 25%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, no-limit 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, no-limit 50%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, no-limit 50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, no-limit 75%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, no-limit 75%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, no-limit 100%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, no-limit 100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, constrained 0%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, constrained 0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, constrained 25%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, constrained 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, constrained 50%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, constrained 50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, constrained 75%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, constrained 75%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, constrained 100%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 25%, constrained 100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 360px;">
+      <div style="height: 80px; border-radius: 8px; background: linear-gradient(90deg, color(display-p3 0 0 0), color(display-p3 1 0 0), color(display-p3 1 1 0), color(display-p3 0 1 0), color(display-p3 0 1 1), color(display-p3 0 0 1), color(display-p3 1 0 1)); dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 50%);"></div>
+    </div>
+    <div class="label">dynamic-range-limit: dynamic-range-limit-mix(standard 0%, standard 50%)</div>
+  </div>
+</div>
 </body>
 </html>

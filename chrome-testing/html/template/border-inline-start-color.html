@@ -8,8 +8,13 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-box {
+    .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .demo-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .box {
       width: 180px;
       height: 100px;
       background: #16213e;
@@ -17,12 +22,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
-      color: #c0c0c0;
-      border-radius: 4px;
+      font-size: 12px;
+      color: #ccc;
+      font-family: monospace;
     }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
-    .demo-item { display: flex; flex-direction: column; align-items: flex-start; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; }
   </style>
 </head>
 <body>
@@ -30,28 +34,20 @@
   <p class="prop-name">border-inline-start-color</p>
   <div class="demos">
     <div class="demo-item">
-      <div class="demo-box" style="border-inline-start-color: #e74c3c;">Content</div>
-      <span class="label">border-inline-start-color: #e74c3c</span>
+      <div class="box" style="border-inline-start-color: red;">red</div>
+      <div class="label">border-inline-start-color: red</div>
     </div>
     <div class="demo-item">
-      <div class="demo-box" style="border-inline-start-color: #3498db;">Content</div>
-      <span class="label">border-inline-start-color: #3498db</span>
+      <div class="box" style="border-inline-start-color: blue;">blue</div>
+      <div class="label">border-inline-start-color: blue</div>
     </div>
     <div class="demo-item">
-      <div class="demo-box" style="border-inline-start-color: #2ecc71;">Content</div>
-      <span class="label">border-inline-start-color: #2ecc71</span>
+      <div class="box" style="border-inline-start-color: #3498db;">#3498db</div>
+      <div class="label">border-inline-start-color: #3498db</div>
     </div>
     <div class="demo-item">
-      <div class="demo-box" style="border-inline-start-color: #f39c12;">Content</div>
-      <span class="label">border-inline-start-color: #f39c12</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-inline-start-color: #9b59b6;">Content</div>
-      <span class="label">border-inline-start-color: #9b59b6</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-inline-start-color: transparent;">Content</div>
-      <span class="label">border-inline-start-color: transparent</span>
+      <div class="box" style="border-inline-start-color: currentcolor; color: #e94560;">currentcolor</div>
+      <div class="label">border-inline-start-color: currentcolor</div>
     </div>
   </div>
 </body>

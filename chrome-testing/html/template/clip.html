@@ -9,12 +9,11 @@
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 4px; }
     .deprecated { font-size: 11px; color: #e94560; font-style: italic; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demos { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .demo-card {
       background: #16213e;
       border-radius: 10px;
       padding: 20px;
-      width: 280px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -44,11 +43,6 @@
       background: linear-gradient(135deg, #e94560, #7b61ff, #0f3460);
       border-radius: 8px;
     }
-    .c1 .clip-target { clip: rect(0, 180px, 180px, 0); }
-    .c2 .clip-target { clip: rect(20px, 160px, 160px, 20px); }
-    .c3 .clip-target { clip: rect(0, 180px, 90px, 0); }
-    .c4 .clip-target { clip: rect(60px, 120px, 120px, 60px); }
-    .c5 .clip-target { clip: rect(0, 90px, 180px, 0); }
     .note { font-size: 10px; color: #6b7280; margin-top: 10px; text-align: center; }
   </style>
 </head>
@@ -57,37 +51,21 @@
   <p class="prop-name">clip</p>
   <p class="deprecated">Deprecated: use clip-path instead. Requires position: absolute.</p>
   <div class="demos">
-    <div class="demo-card c1">
-      <div class="label">clip: rect(0, 180px, 180px, 0)</div>
+    <div class="demo-card">
+      <div class="label">clip: auto</div>
       <div class="clip-container">
         <div class="clip-ghost"></div>
-        <div class="clip-target"></div>
+        <div class="clip-target" style="clip: auto;"></div>
       </div>
-      <p class="note">Full element visible</p>
+      <p class="note">No clipping, full element visible</p>
     </div>
-    <div class="demo-card c2">
-      <div class="label">clip: rect(20px, 160px, 160px, 20px)</div>
+    <div class="demo-card">
+      <div class="label">clip: rect(10px, 100px, 100px, 10px)</div>
       <div class="clip-container">
         <div class="clip-ghost"></div>
-        <div class="clip-target"></div>
+        <div class="clip-target" style="clip: rect(10px, 100px, 100px, 10px);"></div>
       </div>
-      <p class="note">20px inset on all sides</p>
-    </div>
-    <div class="demo-card c3">
-      <div class="label">clip: rect(0, 180px, 90px, 0)</div>
-      <div class="clip-container">
-        <div class="clip-ghost"></div>
-        <div class="clip-target"></div>
-      </div>
-      <p class="note">Top half only</p>
-    </div>
-    <div class="demo-card c4">
-      <div class="label">clip: rect(60px, 120px, 120px, 60px)</div>
-      <div class="clip-container">
-        <div class="clip-ghost"></div>
-        <div class="clip-target"></div>
-      </div>
-      <p class="note">Center 60x60 window</p>
+      <p class="note">Rectangular clip region with offsets</p>
     </div>
   </div>
 </body>

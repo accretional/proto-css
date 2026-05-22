@@ -1,91 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>block-size</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .section-title { font-size: 13px; color: #9ca3af; margin-bottom: 12px; font-family: monospace; }
-    .demos { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 28px; }
-    .demo-item { display: flex; flex-direction: column; align-items: flex-start; }
-    .box {
-      width: 140px;
-      background: rgba(102, 126, 234, 0.35);
-      border: 2px solid #667eea;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      color: rgba(255,255,255,0.8);
-      padding: 8px;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
-    .container { height: 200px; display: flex; gap: 16px; }
-    .container-v { display: flex; gap: 16px; }
-    .v-box {
-      writing-mode: vertical-rl;
-      background: rgba(240, 147, 251, 0.35);
-      border: 2px solid #f093fb;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      color: rgba(255,255,255,0.8);
-      padding: 8px;
-      width: 80px;
-    }
-    .b1 { block-size: anchor-size(--S󧘔 self-inline, anchor(--_ inside,)) ! important; }
-    .b2 { block-size: fit-content(0); }
-    .b3 { block-size: contain; }
-    .b4 { block-size: anchor-size(--툠J height); }
-    .vb1 { block-size: anchor-size(--S󧘔 self-inline, anchor(--_ inside,)) ! important; }
-    .vb2 { block-size: stretch ! important; }
-    .vb3 { block-size: anchor-size(--_񆨐,); }
-  </style>
+<meta charset="UTF-8">
+<title>block-size</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Block Size</h1>
-  <p class="prop-name">block-size</p>
-
-  <div class="section-title">writing-mode: horizontal-tb (block = vertical)</div>
-  <div class="container">
-    <div class="demo-item">
-      <div class="box b1">auto</div>
-      <div class="label">block-size: anchor-size(--S󧘔 self-inline, anchor(--_ inside,)) ! important</div>
+<h1>Block Size</h1>
+<p class="prop-name">block-size</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: auto;"></div>
     </div>
-    <div class="demo-item">
-      <div class="box b2">100px</div>
-      <div class="label">block-size: fit-content(0)</div>
-    </div>
-    <div class="demo-item">
-      <div class="box b3">50%</div>
-      <div class="label">block-size: contain</div>
-    </div>
-    <div class="demo-item">
-      <div class="box b4">160px</div>
-      <div class="label">block-size: anchor-size(--툠J height)</div>
-    </div>
+    <div class="label">block-size: auto</div>
   </div>
-
-  <div class="section-title" style="margin-top: 24px;">writing-mode: vertical-rl (block = horizontal)</div>
-  <div class="container-v">
-    <div class="demo-item">
-      <div class="v-box vb1">auto</div>
-      <div class="label">block-size: anchor-size(--S󧘔 self-inline, anchor(--_ inside,)) ! important</div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: 0;"></div>
     </div>
-    <div class="demo-item">
-      <div class="v-box vb2">120px</div>
-      <div class="label">block-size: stretch ! important</div>
-    </div>
-    <div class="demo-item">
-      <div class="v-box vb3">200px</div>
-      <div class="label">block-size: anchor-size(--_񆨐,)</div>
-    </div>
+    <div class="label">block-size: 0</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: 10px;"></div>
+    </div>
+    <div class="label">block-size: 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: 25%;"></div>
+    </div>
+    <div class="label">block-size: 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: 50%;"></div>
+    </div>
+    <div class="label">block-size: 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: min-content;"></div>
+    </div>
+    <div class="label">block-size: min-content</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: max-content;"></div>
+    </div>
+    <div class="label">block-size: max-content</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: fit-content(0);"></div>
+    </div>
+    <div class="label">block-size: fit-content(0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: fit-content(10px);"></div>
+    </div>
+    <div class="label">block-size: fit-content(10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: fit-content(25%);"></div>
+    </div>
+    <div class="label">block-size: fit-content(25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: fit-content(50%);"></div>
+    </div>
+    <div class="label">block-size: fit-content(50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: fit-content(100%);"></div>
+    </div>
+    <div class="label">block-size: fit-content(100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: calc-size(auto, 0);"></div>
+    </div>
+    <div class="label">block-size: calc-size(auto, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: calc-size(auto, 0 + 0);"></div>
+    </div>
+    <div class="label">block-size: calc-size(auto, 0 + 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: calc-size(auto, 0 + 0 * 0);"></div>
+    </div>
+    <div class="label">block-size: calc-size(auto, 0 + 0 * 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: calc-size(auto, 0 + 0 * 0e0);"></div>
+    </div>
+    <div class="label">block-size: calc-size(auto, 0 + 0 * 0e0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: calc-size(auto, 0 + 0 * 0cap);"></div>
+    </div>
+    <div class="label">block-size: calc-size(auto, 0 + 0 * 0cap)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: calc-size(auto, 0 + 0 * 0%);"></div>
+    </div>
+    <div class="label">block-size: calc-size(auto, 0 + 0 * 0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: calc-size(auto, 0 + 0 * 0e0%);"></div>
+    </div>
+    <div class="label">block-size: calc-size(auto, 0 + 0 * 0e0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: calc-size(auto, 0 + 0 * e);"></div>
+    </div>
+    <div class="label">block-size: calc-size(auto, 0 + 0 * e)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: calc-size(auto, 0 + 0 * pi);"></div>
+    </div>
+    <div class="label">block-size: calc-size(auto, 0 + 0 * pi)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: calc-size(auto, 0 + 0 * calc(50% + 20px));"></div>
+    </div>
+    <div class="label">block-size: calc-size(auto, 0 + 0 * calc(50% + 20px))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: calc-size(auto, 0 + 0 * var(--my-var));"></div>
+    </div>
+    <div class="label">block-size: calc-size(auto, 0 + 0 * var(--my-var))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: calc-size(auto, 0 + 0 * var(--my-var, my-ident));"></div>
+    </div>
+    <div class="label">block-size: calc-size(auto, 0 + 0 * var(--my-var, my-ident))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: calc-size(auto, 0 + 0 * env(my-custom));"></div>
+    </div>
+    <div class="label">block-size: calc-size(auto, 0 + 0 * env(my-custom))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: calc-size(auto, 0 + 0 * env(my-custom, my-ident));"></div>
+    </div>
+    <div class="label">block-size: calc-size(auto, 0 + 0 * env(my-custom, my-ident))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: calc-size(auto, 0 + 0 * anchor(inside));"></div>
+    </div>
+    <div class="label">block-size: calc-size(auto, 0 + 0 * anchor(inside))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: calc-size(auto, 0 + 0 * anchor(inside, 0));"></div>
+    </div>
+    <div class="label">block-size: calc-size(auto, 0 + 0 * anchor(inside, 0))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: anchor-size(, 0);"></div>
+    </div>
+    <div class="label">block-size: anchor-size(, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: anchor-size(, 10px);"></div>
+    </div>
+    <div class="label">block-size: anchor-size(, 10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: anchor-size(, 25%);"></div>
+    </div>
+    <div class="label">block-size: anchor-size(, 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: stretch;"></div>
+    </div>
+    <div class="label">block-size: stretch</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: fit-content;"></div>
+    </div>
+    <div class="label">block-size: fit-content</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="height: 180px; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 8px; display: flex; align-items: flex-start;">
+      <div style="width: 100%; background: rgba(102, 126, 234, 0.35); border: 2px solid #667eea; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.8); padding: 6px; overflow: hidden; block-size: contain;"></div>
+    </div>
+    <div class="label">block-size: contain</div>
+  </div>
+</div>
 </body>
 </html>

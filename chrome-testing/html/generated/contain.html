@@ -1,121 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>contain</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
-    .demo-card {
-      background: #16213e;
-      border-radius: 10px;
-      padding: 16px 18px;
-      border: 1px solid #2a2a4a;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 6px; }
-    .desc { font-size: 10px; color: #6b7a8d; margin-bottom: 12px; line-height: 1.4; }
-    .contain-box {
-      width: 100%;
-      min-height: 120px;
-      background: #0f1a30;
-      border-radius: 6px;
-      padding: 12px;
-      border: 2px solid #2a2a4a;
-      position: relative;
-    }
-    .inner-content {
-      font-size: 11px;
-      line-height: 1.5;
-      color: #c0c8d4;
-    }
-    .overflow-child {
-      width: 120%;
-      height: 30px;
-      background: linear-gradient(90deg, rgba(233, 69, 96, 0.4), rgba(233, 69, 96, 0.1));
-      border: 1px dashed #e94560;
-      border-radius: 4px;
-      margin-top: 8px;
-      display: flex;
-      align-items: center;
-      padding-left: 8px;
-      font-size: 10px;
-      color: #e94560;
-      font-family: monospace;
-    }
-    .badge {
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: 3px;
-      font-size: 9px;
-      font-family: monospace;
-      margin-top: 8px;
-    }
-    .badge-perf { background: rgba(102, 187, 106, 0.2); color: #66bb6a; }
-    .badge-visual { background: rgba(79, 195, 247, 0.2); color: #4fc3f7; }
-    .badge-layout { background: rgba(255, 183, 77, 0.2); color: #ffb74d; }
-  </style>
+<meta charset="UTF-8">
+<title>contain</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .inner-content { font-size: 11px; line-height: 1.5; color: #c0c8d4; }
+.overflow-child { width: 120%; height: 30px; background: linear-gradient(90deg, rgba(233, 69, 96, 0.4), rgba(233, 69, 96, 0.1)); border: 1px dashed #e94560; border-radius: 4px; margin-top: 8px; display: flex; align-items: center; padding-left: 8px; font-size: 10px; color: #e94560; font-family: monospace; }
+</style>
 </head>
 <body>
-  <h1>Contain</h1>
-  <p class="prop-name">contain</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="label">contain: style</div>
-      <div class="desc">No containment. Element affects and is affected by the rest of the page.</div>
-      <div class="contain-box" style="contain: style;">
-        <div class="inner-content">No containment applied. Overflow extends beyond the box.</div>
-        <div class="overflow-child">overflows parent</div>
-      </div>
-      <span class="badge badge-perf">default behavior</span>
+<h1>Contain</h1>
+<p class="prop-name">contain</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: none;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
-    <div class="demo-card">
-      <div class="label">contain: none ! important</div>
-      <div class="desc">Layout is isolated. Nothing outside affects internal layout.</div>
-      <div class="contain-box" style="contain: none ! important;">
-        <div class="inner-content">Layout containment. Internal layout is independent from the rest of the page.</div>
-        <div class="overflow-child">contained layout</div>
-      </div>
-      <span class="badge badge-layout">layout isolated</span>
-    </div>
-    <div class="demo-card">
-      <div class="label">contain: none ! important ! important</div>
-      <div class="desc">Clipping applied. Overflow content is not rendered outside.</div>
-      <div class="contain-box" style="contain: none ! important ! important;">
-        <div class="inner-content">Paint containment clips overflow. Content outside bounds is invisible.</div>
-        <div class="overflow-child">clipped by paint</div>
-      </div>
-      <span class="badge badge-visual">overflow clipped</span>
-    </div>
-    <div class="demo-card">
-      <div class="label">contain: size layout style paint ! important</div>
-      <div class="desc">Element size is not affected by children. Requires explicit sizing.</div>
-      <div class="contain-box" style="contain: size layout style paint ! important; height: 120px;">
-        <div class="inner-content">Size containment. This box height does not grow with content, it is fixed at 120px.</div>
-        <div class="overflow-child">size is fixed</div>
-      </div>
-      <span class="badge badge-layout">size independent</span>
-    </div>
-    <div class="demo-card">
-      <div class="label">contain: none ! important</div>
-      <div class="desc">Equivalent to size layout paint. Maximum containment.</div>
-      <div class="contain-box" style="contain: none ! important; height: 120px;">
-        <div class="inner-content">Strict containment combines size, layout, and paint. Full isolation from the page.</div>
-        <div class="overflow-child">fully contained</div>
-      </div>
-      <span class="badge badge-perf">max optimization</span>
-    </div>
-    <div class="demo-card">
-      <div class="label">contain: none</div>
-      <div class="desc">Equivalent to layout paint. Containment without size constraint.</div>
-      <div class="contain-box" style="contain: none;">
-        <div class="inner-content">Content containment combines layout and paint. Overflow is clipped but size adapts.</div>
-        <div class="overflow-child">content contained</div>
-      </div>
-      <span class="badge badge-visual">layout + paint</span>
-    </div>
+    <div class="label">contain: none</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: strict;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: strict</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: content;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: content</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: size;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: size</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: size layout;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: size layout</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: size layout style;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: size layout style</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: size style;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: size style</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: size style layout;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: size style layout</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: size layout style paint;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: size layout style paint</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: size layout paint;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: size layout paint</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: size layout paint style;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: size layout paint style</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: size style layout paint;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: size style layout paint</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: size style paint;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: size style paint</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: size style paint layout;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: size style paint layout</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: size paint;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: size paint</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: size paint layout;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: size paint layout</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: size paint layout style;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: size paint layout style</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: size paint style;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: size paint style</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: size paint style layout;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: size paint style layout</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: inline-size;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: inline-size</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: inline-size layout;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: inline-size layout</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: layout;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: layout</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: layout size;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: layout size</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: layout size style;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: layout size style</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: layout style;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: layout style</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: layout style size;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: layout style size</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: style;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: style</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: style size;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: style size</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: style size layout;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: style size layout</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: style layout;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: style layout</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: style layout size;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: style layout size</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: paint;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: paint</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: paint size;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: paint size</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: paint size layout;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: paint size layout</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: paint layout;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: paint layout</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: paint layout size;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
+    </div>
+    <div class="label">contain: paint layout size</div>
+  </div>
+</div>
 </body>
 </html>

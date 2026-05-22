@@ -1,90 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>visibility</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
-    .demo-card { background: #16213e; border-radius: 10px; padding: 20px; width: 280px; }
-    .demo-card h3 { font-size: 13px; color: #a78bfa; margin-bottom: 14px; font-family: monospace; font-weight: 500; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
-    .row { display: flex; gap: 10px; align-items: center; }
-    .box { width: 60px; height: 60px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; }
-    .box-a { background: #e94560; }
-    .box-b { background: #0f3460; border: 2px dashed #3a5a8c; }
-    .box-c { background: #533483; }
-    .ghost-outline { border: 2px dashed #4a4a6a; width: 60px; height: 60px; border-radius: 6px; position: relative; }
-    .note { font-size: 10px; color: #6b7280; margin-top: 6px; line-height: 1.4; }
-    table { border-collapse: collapse; margin-top: 8px; }
-    td { border: 1px solid #3a3a5c; padding: 6px 14px; font-size: 12px; color: #d1d5db; }
-    .section-label { font-size: 13px; color: #64748b; margin-bottom: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-  </style>
+<meta charset="UTF-8">
+<title>visibility</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .row { display: flex; gap: 10px; align-items: center; }
+.box { width: 60px; height: 60px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; }
+.box-a { background: #e94560; }
+.box-c { background: #533483; }
+.ghost-outline { border: 2px dashed #4a4a6a; width: 60px; height: 60px; border-radius: 6px; position: relative; }
+.note { font-size: 10px; color: #6b7280; margin-top: 6px; line-height: 1.4; }
+</style>
 </head>
 <body>
-  <h1>Visibility</h1>
-  <p class="prop-name">visibility</p>
-  <div class="demos">
-
-    <div class="demo-card">
-      <h3>visibility: collapse ! important</h3>
-      <div class="row">
-        <div class="box box-a">A</div>
-        <div class="box box-c" style="visibility: collapse ! important;">B</div>
-        <div class="box box-a">C</div>
-      </div>
-      <p class="note">Element is fully visible and takes up space.</p>
-      <p class="label">visibility: collapse ! important</p>
+<h1>Visibility</h1>
+<p class="prop-name">visibility</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 280px;">
+      <div class="box box-a">A</div>
+      <div style="width: 60px; height: 60px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; background: #533483; visibility: visible;">B</div>
+      <div class="box box-a">C</div>
     </div>
-
-    <div class="demo-card">
-      <h3>visibility: visible ! important</h3>
-      <div class="row">
-        <div class="box box-a">A</div>
-        <div class="box box-c" style="visibility: visible ! important;">B</div>
-        <div class="box box-a">C</div>
-      </div>
-      <p class="note">Element is invisible but still occupies space. Notice the gap between A and C.</p>
-      <p class="label">visibility: visible ! important</p>
-    </div>
-
-    <div class="demo-card">
-      <h3>vs display: none</h3>
-      <div class="row">
-        <div class="box box-a">A</div>
-        <div class="box box-c" style="display: none;">B</div>
-        <div class="box box-a">C</div>
-      </div>
-      <p class="note">With display:none, the element is removed from flow. A and C are adjacent.</p>
-      <p class="label">display: none (comparison)</p>
-    </div>
-
-    <div class="demo-card" style="width: 580px;">
-      <h3>visibility: hidden ! important</h3>
-      <table>
-        <tr>
-          <td>Row 1, Cell 1</td>
-          <td>Row 1, Cell 2</td>
-          <td>Row 1, Cell 3</td>
-        </tr>
-        <tr style="visibility: collapse ! important;">
-          <td>Row 2, Cell 1</td>
-          <td>Row 2, Cell 2</td>
-          <td>Row 2, Cell 3</td>
-        </tr>
-        <tr>
-          <td>Row 3, Cell 1</td>
-          <td>Row 3, Cell 2</td>
-          <td>Row 3, Cell 3</td>
-        </tr>
-      </table>
-      <p class="note">Row 2 has visibility: collapse ! important. In table context, the row is removed and space is reclaimed.</p>
-      <p class="label">visibility: collapse ! important</p>
-    </div>
-
+    <div class="label">visibility: visible</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 280px;">
+      <div class="box box-a">A</div>
+      <div style="width: 60px; height: 60px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; background: #533483; visibility: hidden;">B</div>
+      <div class="box box-a">C</div>
+    </div>
+    <div class="label">visibility: hidden</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 280px;">
+      <div class="box box-a">A</div>
+      <div style="width: 60px; height: 60px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; background: #533483; visibility: force-hidden;">B</div>
+      <div class="box box-a">C</div>
+    </div>
+    <div class="label">visibility: force-hidden</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 280px;">
+      <div class="box box-a">A</div>
+      <div style="width: 60px; height: 60px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; background: #533483; visibility: collapse;">B</div>
+      <div class="box box-a">C</div>
+    </div>
+    <div class="label">visibility: collapse</div>
+  </div>
+</div>
 </body>
 </html>

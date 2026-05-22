@@ -1,67 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>box-direction</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 32px; }
-    .demo-box { display: flex; flex-direction: column; align-items: flex-start; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
-    .container {
-      display: -webkit-box;
-      -webkit-box-orient: horizontal;
-      width: 400px;
-      height: 100px;
-      background: #16213e;
-      border: 2px solid #333;
-      padding: 8px;
-      gap: 8px;
-    }
-    .child {
-      -webkit-box-flex: 1;
-      height: 100%;
-      background: #e94560;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      font-weight: bold;
-      color: #fff;
-    }
-    .child:nth-child(2) { background: #0f3460; }
-    .child:nth-child(3) { background: #53d769; color: #1a1a2e; }
-    .child:nth-child(4) { background: #fbbf24; color: #1a1a2e; }
-    .dir-normal { -webkit-box-direction: normal ! important; }
-    .dir-reverse { -webkit-box-direction: normal ! important; }
-  </style>
+<meta charset="UTF-8">
+<title>box-direction</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .child { -webkit-box-flex: 1; height: 100%; background: #e94560; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: bold; color: #fff; }
+.child:nth-child(2) { background: #0f3460; }
+.child:nth-child(3) { background: #53d769; color: #1a1a2e; }
+.child:nth-child(4) { background: #fbbf24; color: #1a1a2e; }
+</style>
 </head>
 <body>
-  <h1>Box Direction (deprecated)</h1>
-  <p class="prop-name">box-direction / -webkit-box-direction</p>
-  <div class="demos">
-    <div class="demo-box">
-      <div class="container dir-normal">
-        <div class="child">1</div>
-        <div class="child">2</div>
-        <div class="child">3</div>
-        <div class="child">4</div>
-      </div>
-      <span class="label">-webkit-box-direction: normal ! important</span>
+<h1>Box Direction (deprecated)</h1>
+<p class="prop-name">box-direction</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: -webkit-box; -webkit-box-orient: horizontal; width: 400px; height: 100px; background: #16213e; border: 2px solid #333; padding: 8px; gap: 8px; box-direction: normal;"><div class="child">1</div><div class="child">2</div><div class="child">3</div><div class="child">4</div></div>
     </div>
-    <div class="demo-box">
-      <div class="container dir-reverse">
-        <div class="child">1</div>
-        <div class="child">2</div>
-        <div class="child">3</div>
-        <div class="child">4</div>
-      </div>
-      <span class="label">-webkit-box-direction: normal ! important</span>
-    </div>
+    <div class="label">box-direction: normal</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: -webkit-box; -webkit-box-orient: horizontal; width: 400px; height: 100px; background: #16213e; border: 2px solid #333; padding: 8px; gap: 8px; box-direction: reverse;"><div class="child">1</div><div class="child">2</div><div class="child">3</div><div class="child">4</div></div>
+    </div>
+    <div class="label">box-direction: reverse</div>
+  </div>
+</div>
 </body>
 </html>

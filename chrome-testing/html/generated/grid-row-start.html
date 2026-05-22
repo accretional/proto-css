@@ -1,78 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>grid-row-start</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
-    .demo-box { background: #16213e; border-radius: 8px; padding: 16px; width: 280px; }
-    .demo-box h3 { font-size: 13px; color: #e0e0e0; margin-bottom: 10px; }
-    .grid-base { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(4, 40px); gap: 5px; }
-    .cell { background: #0a1a35; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #4a5568; font-weight: 600; }
-    .cell.highlight { background: #e94560; color: #fff; font-size: 11px; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
-    .row-indicator { display: flex; flex-direction: column; gap: 5px; float: left; margin-right: 8px; }
-    .row-indicator span { height: 40px; display: flex; align-items: center; font-size: 9px; font-family: monospace; color: #6b7280; }
-  </style>
+<meta charset="UTF-8">
+<title>grid-row-start</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .cell { background: #0a1a35; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #4a5568; font-weight: 600; }
+.cell.highlight { background: #e94560; color: #fff; font-size: 11px; }
+</style>
 </head>
 <body>
-  <h1>Grid Row Start</h1>
-  <p class="prop-name">grid-row-start</p>
-  <div class="demos">
-    <div class="demo-box">
-      <h3>auto (default)</h3>
-      <div class="grid-base">
-        <div class="cell highlight" style="grid-row-start: auto;">Item</div><div class="cell"></div><div class="cell"></div>
-        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
-        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
-        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
-      </div>
-      <p class="label">grid-row-start: auto</p>
+<h1>Grid Row Start</h1>
+<p class="prop-name">grid-row-start</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(4, 40px); gap: 5px; grid-row-start: 1;"><div class="cell highlight">Item</div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div></div>
     </div>
-    <div class="demo-box">
-      <h3>Start at row 1</h3>
-      <div class="grid-base">
-        <div class="cell highlight" style="grid-row-start: +3 ! important;">Row 1</div><div class="cell"></div><div class="cell"></div>
-        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
-        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
-        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
-      </div>
-      <p class="label">grid-row-start: +3 ! important</p>
-    </div>
-    <div class="demo-box">
-      <h3>Start at row 2</h3>
-      <div class="grid-base">
-        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
-        <div class="cell highlight" style="grid-row-start: span 坡_;">Row 2</div><div class="cell"></div><div class="cell"></div>
-        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
-        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
-      </div>
-      <p class="label">grid-row-start: span 坡_</p>
-    </div>
-    <div class="demo-box">
-      <h3>Start at row 3</h3>
-      <div class="grid-base">
-        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
-        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
-        <div class="cell highlight" style="grid-row-start: -98 ! important;">Row 3</div><div class="cell"></div><div class="cell"></div>
-        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
-      </div>
-      <p class="label">grid-row-start: -98 ! important</p>
-    </div>
-    <div class="demo-box">
-      <h3>Start at row 4</h3>
-      <div class="grid-base">
-        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
-        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
-        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
-        <div class="cell highlight" style="grid-row-start: span;">Row 4</div><div class="cell"></div><div class="cell"></div>
-      </div>
-      <p class="label">grid-row-start: span</p>
-    </div>
+    <div class="label">grid-row-start: 1</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(4, 40px); gap: 5px; grid-row-start: span 2;"><div class="cell highlight">Item</div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div></div>
+    </div>
+    <div class="label">grid-row-start: span 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(4, 40px); gap: 5px; grid-row-start: auto;"><div class="cell highlight">Item</div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div></div>
+    </div>
+    <div class="label">grid-row-start: auto</div>
+  </div>
+</div>
 </body>
 </html>

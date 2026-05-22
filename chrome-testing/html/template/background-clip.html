@@ -8,14 +8,14 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
-    .demo-box { background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center; width: calc(25% - 18px); }
+    .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .demo-box { background: #16213e; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; align-items: center; }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; text-align: center; line-height: 1.4; }
     .demo-title { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 16px; }
 
     .clip-sample {
-      width: 180px;
-      height: 180px;
+      width: 200px;
+      height: 200px;
       background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9);
       border: 16px dashed rgba(255, 255, 255, 0.35);
       padding: 24px;
@@ -36,13 +36,9 @@
       font-family: monospace;
     }
 
-    .clip-border { background-clip: border-box; }
-    .clip-padding { background-clip: padding-box; }
-    .clip-content { background-clip: content-box; }
-
     .clip-text-box {
-      width: 180px;
-      height: 180px;
+      width: 200px;
+      height: 200px;
       background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9);
       -webkit-background-clip: text;
       background-clip: text;
@@ -78,33 +74,33 @@
   </div>
   <div class="demos">
     <div class="demo-box">
-      <div class="demo-title">border-box</div>
-      <div class="clip-sample clip-border">
+      <div class="demo-title">content-box</div>
+      <div class="clip-sample" style="background-clip: content-box;">
         <div class="inner-content">content</div>
       </div>
-      <p class="label">background-clip:<br>border-box</p>
+      <p class="label">background-clip: content-box</p>
     </div>
 
     <div class="demo-box">
       <div class="demo-title">padding-box</div>
-      <div class="clip-sample clip-padding">
+      <div class="clip-sample" style="background-clip: padding-box;">
         <div class="inner-content">content</div>
       </div>
-      <p class="label">background-clip:<br>padding-box</p>
+      <p class="label">background-clip: padding-box</p>
     </div>
 
     <div class="demo-box">
-      <div class="demo-title">content-box</div>
-      <div class="clip-sample clip-content">
+      <div class="demo-title">border-box</div>
+      <div class="clip-sample" style="background-clip: border-box;">
         <div class="inner-content">content</div>
       </div>
-      <p class="label">background-clip:<br>content-box</p>
+      <p class="label">background-clip: border-box</p>
     </div>
 
     <div class="demo-box">
       <div class="demo-title">text</div>
-      <div class="clip-text-box">Aa</div>
-      <p class="label">background-clip:<br>text</p>
+      <div class="clip-text-box" style="-webkit-background-clip: text; background-clip: text;">Aa</div>
+      <p class="label">background-clip: text</p>
     </div>
   </div>
 </body>

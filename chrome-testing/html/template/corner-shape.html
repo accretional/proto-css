@@ -9,7 +9,7 @@
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 4px; }
     .experimental { font-size: 12px; color: #e94560; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+    .grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
     .demo-card { text-align: center; }
   </style>
@@ -18,50 +18,50 @@
   <h1>Corner Shape (Shorthand)</h1>
   <p class="prop-name">corner-shape</p>
   <p class="experimental">Experimental shorthand &mdash; applies shape to all corners</p>
-  <div class="demos">
+  <div class="grid">
     <!-- round -->
     <div class="demo-card">
-      <svg width="150" height="150" viewBox="0 0 150 150" fill="none">
-        <rect x="3" y="3" width="144" height="144" rx="28" fill="#16213e" stroke="#e94560" stroke-width="3"/>
-        <text x="75" y="80" fill="#e0e0e0" text-anchor="middle" font-size="14" font-family="system-ui">round</text>
+      <svg width="140" height="140" viewBox="0 0 140 140" fill="none">
+        <rect x="3" y="3" width="134" height="134" rx="25" fill="#16213e" stroke="#e94560" stroke-width="3"/>
+        <text x="70" y="75" fill="#e0e0e0" text-anchor="middle" font-size="13" font-family="system-ui">round</text>
       </svg>
-      <p class="label">corner-shape: round</p>
+      <p class="label">round</p>
     </div>
 
     <!-- scoop -->
     <div class="demo-card">
-      <svg width="150" height="150" viewBox="0 0 150 150" fill="none">
-        <path d="M28 3 H122 Q122 28 147 28 V122 Q122 122 122 147 H28 Q28 122 3 122 V28 Q28 28 28 3Z" fill="#16213e" stroke="#00d2ff" stroke-width="3"/>
-        <text x="75" y="80" fill="#e0e0e0" text-anchor="middle" font-size="14" font-family="system-ui">scoop</text>
+      <svg width="140" height="140" viewBox="0 0 140 140" fill="none">
+        <path d="M25 3 H115 Q115 25 137 25 V115 Q115 115 115 137 H25 Q25 115 3 115 V25 Q25 25 25 3Z" fill="#16213e" stroke="#00d2ff" stroke-width="3"/>
+        <text x="70" y="75" fill="#e0e0e0" text-anchor="middle" font-size="13" font-family="system-ui">scoop</text>
       </svg>
-      <p class="label">corner-shape: scoop</p>
-    </div>
-
-    <!-- notch -->
-    <div class="demo-card">
-      <svg width="150" height="150" viewBox="0 0 150 150" fill="none">
-        <path d="M28 3 H122 L147 28 V122 L122 147 H28 L3 122 V28 L28 3Z" fill="#16213e" stroke="#10b981" stroke-width="3"/>
-        <text x="75" y="80" fill="#e0e0e0" text-anchor="middle" font-size="14" font-family="system-ui">notch</text>
-      </svg>
-      <p class="label">corner-shape: notch</p>
+      <p class="label">scoop</p>
     </div>
 
     <!-- bevel -->
     <div class="demo-card">
-      <svg width="150" height="150" viewBox="0 0 150 150" fill="none">
-        <path d="M28 3 H122 L147 28 V122 L122 147 H28 L3 122 V28 Z" fill="#16213e" stroke="#f59e0b" stroke-width="3"/>
-        <text x="75" y="80" fill="#e0e0e0" text-anchor="middle" font-size="14" font-family="system-ui">bevel</text>
+      <svg width="140" height="140" viewBox="0 0 140 140" fill="none">
+        <path d="M25 3 H115 L137 25 V115 L115 137 H25 L3 115 V25 Z" fill="#16213e" stroke="#10b981" stroke-width="3"/>
+        <text x="70" y="75" fill="#e0e0e0" text-anchor="middle" font-size="13" font-family="system-ui">bevel</text>
       </svg>
-      <p class="label">corner-shape: bevel</p>
+      <p class="label">bevel</p>
     </div>
 
-    <!-- squircle -->
+    <!-- notch -->
     <div class="demo-card">
-      <svg width="150" height="150" viewBox="0 0 150 150" fill="none">
-        <path d="M3 50 C3 14 14 3 50 3 H100 C136 3 147 14 147 50 V100 C147 136 136 147 100 147 H50 C14 147 3 136 3 100 Z" fill="#16213e" stroke="#a855f7" stroke-width="3"/>
-        <text x="75" y="80" fill="#e0e0e0" text-anchor="middle" font-size="14" font-family="system-ui">squircle</text>
+      <svg width="140" height="140" viewBox="0 0 140 140" fill="none">
+        <path d="M3 15 H15 V3 H125 V15 H137 V125 H125 V137 H15 V125 H3 Z" fill="#16213e" stroke="#f59e0b" stroke-width="3"/>
+        <text x="70" y="75" fill="#e0e0e0" text-anchor="middle" font-size="13" font-family="system-ui">notch</text>
       </svg>
-      <p class="label">corner-shape: squircle</p>
+      <p class="label">notch</p>
+    </div>
+
+    <!-- square -->
+    <div class="demo-card">
+      <svg width="140" height="140" viewBox="0 0 140 140" fill="none">
+        <rect x="3" y="3" width="134" height="134" fill="#16213e" stroke="#a855f7" stroke-width="3"/>
+        <text x="70" y="75" fill="#e0e0e0" text-anchor="middle" font-size="13" font-family="system-ui">square</text>
+      </svg>
+      <p class="label">square</p>
     </div>
   </div>
 </body>

@@ -17,7 +17,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 260px;
+      width: 240px;
     }
     .img-box {
       width: 200px;
@@ -63,7 +63,7 @@
       color: #9ca3af;
     }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
-    .hint { font-size: 10px; color: #6b7280; margin-top: 4px; text-align: center; max-width: 230px; }
+    .hint { font-size: 10px; color: #6b7280; margin-top: 4px; text-align: center; max-width: 220px; }
   </style>
 </head>
 <body>
@@ -73,27 +73,15 @@
   <div class="demos">
     <div class="demo-card">
       <div class="img-box">
-        <span class="res-label">1x</span>
-        <span class="dpi-overlay">96 dpi</span>
+        <span class="res-label">EXIF</span>
+        <span class="dpi-overlay">from-image</span>
       </div>
       <div class="size-indicator">
         <div class="bar" style="width: 200px;"></div>
         <span class="sz-text">200px</span>
       </div>
       <p class="label">image-resolution: from-image</p>
-      <p class="hint">Uses resolution info embedded in the image file (EXIF/DPI metadata)</p>
-    </div>
-    <div class="demo-card">
-      <div class="img-box" style="width: 140px; height: 140px;">
-        <span class="res-label">Hi</span>
-        <span class="dpi-overlay">300 dpi</span>
-      </div>
-      <div class="size-indicator">
-        <div class="bar" style="width: 140px;"></div>
-        <span class="sz-text">140px</span>
-      </div>
-      <p class="label">image-resolution: 300dpi</p>
-      <p class="hint">Higher DPI = image renders smaller on screen (more pixels per inch)</p>
+      <p class="hint">Uses resolution info embedded in the image file</p>
     </div>
     <div class="demo-card">
       <div class="img-box" style="width: 200px; height: 200px;">
@@ -105,7 +93,43 @@
         <span class="sz-text">200px</span>
       </div>
       <p class="label">image-resolution: 1dppx</p>
-      <p class="hint">1 device pixel per CSS pixel; standard screen resolution</p>
+      <p class="hint">1 device pixel per CSS pixel; standard resolution</p>
+    </div>
+    <div class="demo-card">
+      <div class="img-box" style="width: 140px; height: 140px;">
+        <span class="res-label">2x</span>
+        <span class="dpi-overlay">2 dppx</span>
+      </div>
+      <div class="size-indicator">
+        <div class="bar" style="width: 140px;"></div>
+        <span class="sz-text">140px</span>
+      </div>
+      <p class="label">image-resolution: 2dppx</p>
+      <p class="hint">2x resolution; image renders at half size</p>
+    </div>
+    <div class="demo-card">
+      <div class="img-box" style="width: 100px; height: 100px;">
+        <span class="res-label">Hi</span>
+        <span class="dpi-overlay">300 dpi</span>
+      </div>
+      <div class="size-indicator">
+        <div class="bar" style="width: 100px;"></div>
+        <span class="sz-text">100px</span>
+      </div>
+      <p class="label">image-resolution: 300dpi</p>
+      <p class="hint">Higher DPI = image renders smaller on screen</p>
+    </div>
+    <div class="demo-card">
+      <div class="img-box">
+        <span class="res-label">snap</span>
+        <span class="dpi-overlay">from-image snap</span>
+      </div>
+      <div class="size-indicator">
+        <div class="bar" style="width: 200px;"></div>
+        <span class="sz-text">snapped</span>
+      </div>
+      <p class="label">image-resolution: from-image snap</p>
+      <p class="hint">Snaps resolution to nearest supported value</p>
     </div>
   </div>
 </body>

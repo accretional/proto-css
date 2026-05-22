@@ -23,22 +23,9 @@
       border-radius: 4px;
       overflow: hidden;
     }
-    /* A tiny 8x8 pixel-art-like pattern using repeating gradients, scaled up */
-    .pixel-art canvas {
-      display: none;
-    }
-    .pixel-art .pattern {
-      width: 200px;
-      height: 200px;
-      background-image:
-        repeating-conic-gradient(#e94560 0% 25%, #0f3460 0% 50%) ;
-      background-size: 16px 16px;
-    }
-    /* Alternative: use an inline SVG data URI for a tiny pixel pattern scaled up */
     .pixel-art .img-demo {
       width: 200px;
       height: 200px;
-      /* A 4x4 pixel image scaled to 200x200 */
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect x='0' y='0' width='1' height='1' fill='%23e94560'/%3E%3Crect x='1' y='0' width='1' height='1' fill='%230f3460'/%3E%3Crect x='2' y='0' width='1' height='1' fill='%2353a653'/%3E%3Crect x='3' y='0' width='1' height='1' fill='%23f5c542'/%3E%3Crect x='0' y='1' width='1' height='1' fill='%230f3460'/%3E%3Crect x='1' y='1' width='1' height='1' fill='%23e94560'/%3E%3Crect x='2' y='1' width='1' height='1' fill='%23f5c542'/%3E%3Crect x='3' y='1' width='1' height='1' fill='%2353a653'/%3E%3Crect x='0' y='2' width='1' height='1' fill='%2353a653'/%3E%3Crect x='1' y='2' width='1' height='1' fill='%23f5c542'/%3E%3Crect x='2' y='2' width='1' height='1' fill='%23e94560'/%3E%3Crect x='3' y='2' width='1' height='1' fill='%230f3460'/%3E%3Crect x='0' y='3' width='1' height='1' fill='%23f5c542'/%3E%3Crect x='1' y='3' width='1' height='1' fill='%2353a653'/%3E%3Crect x='2' y='3' width='1' height='1' fill='%230f3460'/%3E%3Crect x='3' y='3' width='1' height='1' fill='%23e94560'/%3E%3C/svg%3E");
       background-size: 200px 200px;
       background-repeat: no-repeat;
@@ -56,14 +43,21 @@
         <div class="img-demo" style="image-rendering: auto;"></div>
       </div>
       <p class="label">image-rendering: auto</p>
-      <p class="hint">Smooth interpolation (bilinear); blurs pixel art</p>
+      <p class="hint">Smooth interpolation (bilinear)</p>
     </div>
     <div class="demo-card">
       <div class="pixel-art">
-        <div class="img-demo" style="image-rendering: crisp-edges;"></div>
+        <div class="img-demo" style="image-rendering: smooth;"></div>
       </div>
-      <p class="label">image-rendering: crisp-edges</p>
-      <p class="hint">Preserve contrast and edges; no blurring</p>
+      <p class="label">image-rendering: smooth</p>
+      <p class="hint">Maximize quality with bilinear interpolation</p>
+    </div>
+    <div class="demo-card">
+      <div class="pixel-art">
+        <div class="img-demo" style="image-rendering: high-quality;"></div>
+      </div>
+      <p class="label">image-rendering: high-quality</p>
+      <p class="hint">Highest quality scaling algorithm</p>
     </div>
     <div class="demo-card">
       <div class="pixel-art">
@@ -71,6 +65,13 @@
       </div>
       <p class="label">image-rendering: pixelated</p>
       <p class="hint">Nearest-neighbor; sharp pixel boundaries</p>
+    </div>
+    <div class="demo-card">
+      <div class="pixel-art">
+        <div class="img-demo" style="image-rendering: crisp-edges;"></div>
+      </div>
+      <p class="label">image-rendering: crisp-edges</p>
+      <p class="hint">Preserve contrast and edges; no blurring</p>
     </div>
   </div>
 </body>

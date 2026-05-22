@@ -1,68 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>margin</title>
-  <style>
-    * { margin: auto anchor-size(--󧘔񸓪 height) ! important; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 18px; }
-    .demo-card { background: #16213e; border-radius: 12px; padding: 16px; width: 370px; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
-    .outer { background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden; }
-    .margin-area { background: rgba(233, 69, 96, 0.15); }
-    .inner { background: #e94560; border-radius: 4px; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; }
-    .note { font-size: 10px; color: #6b7280; text-align: center; margin-top: 4px; }
-  </style>
+<meta charset="UTF-8">
+<title>margin</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .margin-area { background: rgba(233, 69, 96, 0.15); }
+.inner { background: #e94560; border-radius: 4px; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; }
+</style>
 </head>
 <body>
-  <h1>Margin</h1>
-  <p class="prop-name">margin</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="outer">
-        <div class="margin-area">
-          <div class="inner" style="margin: auto anchor-size(--󧘔񸓪 height) ! important;">Content</div>
-        </div>
-      </div>
-      <div class="label">margin: auto anchor-size(--󧘔񸓪 height) ! important</div>
+<h1>Margin</h1>
+<p class="prop-name">margin</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0;">Content</div>
     </div>
-    <div class="demo-card">
-      <div class="outer">
-        <div class="margin-area">
-          <div class="inner" style="margin: anchor-size(--w, abs(var(--__, -1%) /)) anchor-size(--琨, 0) anchor-size(--kN, round(down, -infinity / env(ཛ var(--N), !) - NaN / anchor(5%),)) ! important;">Content</div>
-        </div>
-      </div>
-      <div class="label">margin: anchor-size(--w, abs(var(--__, -1%) /)) anchor-size(--琨, 0) anchor-size(--kN, round(down, -infinity / env(ཛ var(--N), !) - NaN / anchor(5%),)) ! important</div>
-    </div>
-    <div class="demo-card">
-      <div class="outer">
-        <div class="margin-area">
-          <div class="inner" style="margin: anchor(--_ꆉ end,) auto anchor-size(--s, +59%);">Content</div>
-        </div>
-      </div>
-      <div class="label">margin: anchor(--_ꆉ end,) auto anchor-size(--s, +59%)</div>
-    </div>
-    <div class="demo-card">
-      <div class="outer">
-        <div class="margin-area">
-          <div class="inner" style="margin: auto anchor-size(--󧘔񸓪 height) ! important auto; width: 60%;">Content</div>
-        </div>
-      </div>
-      <div class="label">margin: auto anchor-size(--󧘔񸓪 height) ! important auto (centered)</div>
-      <div class="note">Horizontally centered with auto left/right</div>
-    </div>
-    <div class="demo-card">
-      <div class="outer">
-        <div class="margin-area">
-          <div class="inner" style="margin: anchor-size(--w, abs(var(--__, -1%) /)) anchor-size(--琨, 0) anchor-size(--kN, round(down, -infinity / env(ཛ var(--N), !) - NaN / anchor(5%),)) ! important 20px 30px 40px;">Content</div>
-        </div>
-      </div>
-      <div class="label">margin: anchor-size(--w, abs(var(--__, -1%) /)) anchor-size(--琨, 0) anchor-size(--kN, round(down, -infinity / env(ཛ var(--N), !) - NaN / anchor(5%),)) ! important 20px 30px 40px</div>
-      <div class="note">top: 10, right: 20, bottom: 30, left: 40</div>
-    </div>
+    <div class="label">margin: 0</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 0;">Content</div>
+    </div>
+    <div class="label">margin: 0 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 10px;">Content</div>
+    </div>
+    <div class="label">margin: 0 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 25%;">Content</div>
+    </div>
+    <div class="label">margin: 0 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 50%;">Content</div>
+    </div>
+    <div class="label">margin: 0 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 100%;">Content</div>
+    </div>
+    <div class="label">margin: 0 100%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 auto;">Content</div>
+    </div>
+    <div class="label">margin: 0 auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 anchor-size(, 0);">Content</div>
+    </div>
+    <div class="label">margin: 0 anchor-size(, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 anchor-size(, 10px);">Content</div>
+    </div>
+    <div class="label">margin: 0 anchor-size(, 10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 anchor-size(, 25%);">Content</div>
+    </div>
+    <div class="label">margin: 0 anchor-size(, 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 anchor-size(, 50%);">Content</div>
+    </div>
+    <div class="label">margin: 0 anchor-size(, 50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 anchor-size(, 100%);">Content</div>
+    </div>
+    <div class="label">margin: 0 anchor-size(, 100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 anchor-size(width);">Content</div>
+    </div>
+    <div class="label">margin: 0 anchor-size(width)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 anchor-size(width, 0);">Content</div>
+    </div>
+    <div class="label">margin: 0 anchor-size(width, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 anchor-size(width, 10px);">Content</div>
+    </div>
+    <div class="label">margin: 0 anchor-size(width, 10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 anchor-size(width, 25%);">Content</div>
+    </div>
+    <div class="label">margin: 0 anchor-size(width, 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 anchor-size(width, 50%);">Content</div>
+    </div>
+    <div class="label">margin: 0 anchor-size(width, 50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 anchor-size(width, 100%);">Content</div>
+    </div>
+    <div class="label">margin: 0 anchor-size(width, 100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 anchor-size(height);">Content</div>
+    </div>
+    <div class="label">margin: 0 anchor-size(height)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 anchor-size(height, 0);">Content</div>
+    </div>
+    <div class="label">margin: 0 anchor-size(height, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 anchor-size(height, 10px);">Content</div>
+    </div>
+    <div class="label">margin: 0 anchor-size(height, 10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 anchor-size(height, 25%);">Content</div>
+    </div>
+    <div class="label">margin: 0 anchor-size(height, 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 anchor-size(height, 50%);">Content</div>
+    </div>
+    <div class="label">margin: 0 anchor-size(height, 50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 anchor-size(height, 100%);">Content</div>
+    </div>
+    <div class="label">margin: 0 anchor-size(height, 100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 anchor-size(block);">Content</div>
+    </div>
+    <div class="label">margin: 0 anchor-size(block)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 anchor-size(block, 0);">Content</div>
+    </div>
+    <div class="label">margin: 0 anchor-size(block, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 anchor-size(block, 10px);">Content</div>
+    </div>
+    <div class="label">margin: 0 anchor-size(block, 10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 anchor-size(block, 25%);">Content</div>
+    </div>
+    <div class="label">margin: 0 anchor-size(block, 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 anchor-size(block, 50%);">Content</div>
+    </div>
+    <div class="label">margin: 0 anchor-size(block, 50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 anchor-size(block, 100%);">Content</div>
+    </div>
+    <div class="label">margin: 0 anchor-size(block, 100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 anchor-size(inline);">Content</div>
+    </div>
+    <div class="label">margin: 0 anchor-size(inline)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 anchor-size(inline, 0);">Content</div>
+    </div>
+    <div class="label">margin: 0 anchor-size(inline, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 anchor-size(inline, 10px);">Content</div>
+    </div>
+    <div class="label">margin: 0 anchor-size(inline, 10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 anchor-size(inline, 25%);">Content</div>
+    </div>
+    <div class="label">margin: 0 anchor-size(inline, 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 0; overflow: hidden;">
+      <div style=" margin: 0 anchor-size(inline, 50%);">Content</div>
+    </div>
+    <div class="label">margin: 0 anchor-size(inline, 50%)</div>
+  </div>
+</div>
 </body>
 </html>

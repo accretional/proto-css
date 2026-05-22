@@ -1,92 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>ry</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .section-title { font-size: 15px; color: #e2b714; margin-bottom: 16px; margin-top: 8px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; margin-bottom: 32px; align-items: flex-end; }
-    .demo-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
-    ellipse { fill: #818cf8; opacity: 0.85; }
-    rect.ry-rect { fill: #34d399; opacity: 0.85; }
-    .guide-line { stroke: #3a4a5e; stroke-width: 1; stroke-dasharray: 4 3; }
-  </style>
+<meta charset="UTF-8">
+<title>ry</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>SVG Vertical Radius</h1>
-  <p class="prop-name">ry</p>
-
-  <div class="section-title">Ellipses (rx fixed at 50)</div>
-  <div class="demos">
-    <div class="demo-card">
-      <svg width="120" height="120" viewBox="0 0 120 120">
-        <line class="guide-line" x1="60" y1="0" x2="60" y2="120" />
-        <line class="guide-line" x1="0" y1="60" x2="120" y2="60" />
-        <ellipse cx="60" cy="60" rx="50" ry="0" />
-      </svg>
-      <div class="label">ry: auto</div>
+<h1>SVG Vertical Radius</h1>
+<p class="prop-name">ry</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <svg style="width: 120px; height: 120px; ry: 0;"><line x1="60" y1="0" x2="60" y2="120" stroke="#3a4a5e" stroke-width="1" stroke-dasharray="4 3"/><line x1="0" y1="60" x2="120" y2="60" stroke="#3a4a5e" stroke-width="1" stroke-dasharray="4 3"/><ellipse cx="60" cy="60" rx="50" ry="50" fill="#818cf8" opacity="0.85"/></svg>
     </div>
-    <div class="demo-card">
-      <svg width="120" height="120" viewBox="0 0 120 120">
-        <line class="guide-line" x1="60" y1="0" x2="60" y2="120" />
-        <line class="guide-line" x1="0" y1="60" x2="120" y2="60" />
-        <ellipse cx="60" cy="60" rx="50" ry="10" />
-      </svg>
-      <div class="label">ry: var(--_9) ! important</div>
-    </div>
-    <div class="demo-card">
-      <svg width="120" height="120" viewBox="0 0 120 120">
-        <line class="guide-line" x1="60" y1="0" x2="60" y2="120" />
-        <line class="guide-line" x1="0" y1="60" x2="120" y2="60" />
-        <ellipse cx="60" cy="60" rx="50" ry="25" />
-      </svg>
-      <div class="label">ry: auto ! important</div>
-    </div>
-    <div class="demo-card">
-      <svg width="120" height="120" viewBox="0 0 120 120">
-        <line class="guide-line" x1="60" y1="0" x2="60" y2="120" />
-        <line class="guide-line" x1="0" y1="60" x2="120" y2="60" />
-        <ellipse cx="60" cy="60" rx="50" ry="50" />
-      </svg>
-      <div class="label">ry: calc(/ env(񝵛- 45, <) + anchor(58.91e+1%))</div>
-    </div>
+    <div class="label">ry: 0</div>
   </div>
-
-  <div class="section-title">Rectangles (corner rounding, rx fixed at 0)</div>
-  <div class="demos">
-    <div class="demo-card">
-      <svg width="130" height="90" viewBox="0 0 130 90">
-        <rect class="ry-rect" x="5" y="5" width="120" height="80" rx="0" ry="0" />
-      </svg>
-      <div class="label">ry: auto</div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <svg style="width: 120px; height: 120px; ry: 10px;"><line x1="60" y1="0" x2="60" y2="120" stroke="#3a4a5e" stroke-width="1" stroke-dasharray="4 3"/><line x1="0" y1="60" x2="120" y2="60" stroke="#3a4a5e" stroke-width="1" stroke-dasharray="4 3"/><ellipse cx="60" cy="60" rx="50" ry="50" fill="#818cf8" opacity="0.85"/></svg>
     </div>
-    <div class="demo-card">
-      <svg width="130" height="90" viewBox="0 0 130 90">
-        <rect class="ry-rect" x="5" y="5" width="120" height="80" rx="0" ry="10" />
-      </svg>
-      <div class="label">ry: var(--_9) ! important</div>
-    </div>
-    <div class="demo-card">
-      <svg width="130" height="90" viewBox="0 0 130 90">
-        <rect class="ry-rect" x="5" y="5" width="120" height="80" rx="0" ry="25" />
-      </svg>
-      <div class="label">ry: auto ! important</div>
-    </div>
-    <div class="demo-card">
-      <svg width="130" height="90" viewBox="0 0 130 90">
-        <rect class="ry-rect" x="5" y="5" width="120" height="80" rx="0" ry="50" />
-      </svg>
-      <div class="label">ry: calc(/ env(񝵛- 45, <) + anchor(58.91e+1%))</div>
-    </div>
+    <div class="label">ry: 10px</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <svg style="width: 120px; height: 120px; ry: 25%;"><line x1="60" y1="0" x2="60" y2="120" stroke="#3a4a5e" stroke-width="1" stroke-dasharray="4 3"/><line x1="0" y1="60" x2="120" y2="60" stroke="#3a4a5e" stroke-width="1" stroke-dasharray="4 3"/><ellipse cx="60" cy="60" rx="50" ry="50" fill="#818cf8" opacity="0.85"/></svg>
+    </div>
+    <div class="label">ry: 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <svg style="width: 120px; height: 120px; ry: 50%;"><line x1="60" y1="0" x2="60" y2="120" stroke="#3a4a5e" stroke-width="1" stroke-dasharray="4 3"/><line x1="0" y1="60" x2="120" y2="60" stroke="#3a4a5e" stroke-width="1" stroke-dasharray="4 3"/><ellipse cx="60" cy="60" rx="50" ry="50" fill="#818cf8" opacity="0.85"/></svg>
+    </div>
+    <div class="label">ry: 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <svg style="width: 120px; height: 120px; ry: 100%;"><line x1="60" y1="0" x2="60" y2="120" stroke="#3a4a5e" stroke-width="1" stroke-dasharray="4 3"/><line x1="0" y1="60" x2="120" y2="60" stroke="#3a4a5e" stroke-width="1" stroke-dasharray="4 3"/><ellipse cx="60" cy="60" rx="50" ry="50" fill="#818cf8" opacity="0.85"/></svg>
+    </div>
+    <div class="label">ry: 100%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <svg style="width: 120px; height: 120px; ry: auto;"><line x1="60" y1="0" x2="60" y2="120" stroke="#3a4a5e" stroke-width="1" stroke-dasharray="4 3"/><line x1="0" y1="60" x2="120" y2="60" stroke="#3a4a5e" stroke-width="1" stroke-dasharray="4 3"/><ellipse cx="60" cy="60" rx="50" ry="50" fill="#818cf8" opacity="0.85"/></svg>
+    </div>
+    <div class="label">ry: auto</div>
+  </div>
+</div>
 </body>
 </html>

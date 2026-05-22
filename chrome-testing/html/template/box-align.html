@@ -8,13 +8,13 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
     .demo-box { display: flex; flex-direction: column; align-items: center; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; }
     .container {
       display: -webkit-box;
       -webkit-box-orient: horizontal;
-      width: 240px;
+      width: 200px;
       height: 150px;
       background: #16213e;
       border: 2px solid #333;
@@ -36,6 +36,7 @@
     .a-start { -webkit-box-align: start; }
     .a-center { -webkit-box-align: center; }
     .a-end { -webkit-box-align: end; }
+    .a-baseline { -webkit-box-align: baseline; }
     .a-stretch { -webkit-box-align: stretch; }
     .a-stretch .child { height: auto; }
   </style>
@@ -50,7 +51,7 @@
         <div class="child medium">B</div>
         <div class="child tall">C</div>
       </div>
-      <span class="label">-webkit-box-align: start</span>
+      <span class="label">box-align: start</span>
     </div>
     <div class="demo-box">
       <div class="container a-center">
@@ -58,7 +59,7 @@
         <div class="child medium">B</div>
         <div class="child tall">C</div>
       </div>
-      <span class="label">-webkit-box-align: center</span>
+      <span class="label">box-align: center</span>
     </div>
     <div class="demo-box">
       <div class="container a-end">
@@ -66,7 +67,15 @@
         <div class="child medium">B</div>
         <div class="child tall">C</div>
       </div>
-      <span class="label">-webkit-box-align: end</span>
+      <span class="label">box-align: end</span>
+    </div>
+    <div class="demo-box">
+      <div class="container a-baseline">
+        <div class="child short">A</div>
+        <div class="child medium">B</div>
+        <div class="child tall">C</div>
+      </div>
+      <span class="label">box-align: baseline</span>
     </div>
     <div class="demo-box">
       <div class="container a-stretch">
@@ -74,7 +83,7 @@
         <div class="child">B</div>
         <div class="child">C</div>
       </div>
-      <span class="label">-webkit-box-align: stretch</span>
+      <span class="label">box-align: stretch</span>
     </div>
   </div>
 </body>

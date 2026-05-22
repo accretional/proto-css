@@ -19,7 +19,7 @@
     .desc { font-size: 10px; color: #6b7a8d; margin-bottom: 12px; line-height: 1.4; }
     .contain-box {
       width: 100%;
-      min-height: 120px;
+      min-height: 100px;
       background: #0f1a30;
       border-radius: 6px;
       padding: 12px;
@@ -72,36 +72,9 @@
       <span class="badge badge-perf">default behavior</span>
     </div>
     <div class="demo-card">
-      <div class="label">contain: layout</div>
-      <div class="desc">Layout is isolated. Nothing outside affects internal layout.</div>
-      <div class="contain-box" style="contain: layout;">
-        <div class="inner-content">Layout containment. Internal layout is independent from the rest of the page.</div>
-        <div class="overflow-child">contained layout</div>
-      </div>
-      <span class="badge badge-layout">layout isolated</span>
-    </div>
-    <div class="demo-card">
-      <div class="label">contain: paint</div>
-      <div class="desc">Clipping applied. Overflow content is not rendered outside.</div>
-      <div class="contain-box" style="contain: paint;">
-        <div class="inner-content">Paint containment clips overflow. Content outside bounds is invisible.</div>
-        <div class="overflow-child">clipped by paint</div>
-      </div>
-      <span class="badge badge-visual">overflow clipped</span>
-    </div>
-    <div class="demo-card">
-      <div class="label">contain: size</div>
-      <div class="desc">Element size is not affected by children. Requires explicit sizing.</div>
-      <div class="contain-box" style="contain: size; height: 120px;">
-        <div class="inner-content">Size containment. This box height does not grow with content, it is fixed at 120px.</div>
-        <div class="overflow-child">size is fixed</div>
-      </div>
-      <span class="badge badge-layout">size independent</span>
-    </div>
-    <div class="demo-card">
       <div class="label">contain: strict</div>
       <div class="desc">Equivalent to size layout paint. Maximum containment.</div>
-      <div class="contain-box" style="contain: strict; height: 120px;">
+      <div class="contain-box" style="contain: strict; height: 100px;">
         <div class="inner-content">Strict containment combines size, layout, and paint. Full isolation from the page.</div>
         <div class="overflow-child">fully contained</div>
       </div>
@@ -115,6 +88,60 @@
         <div class="overflow-child">content contained</div>
       </div>
       <span class="badge badge-visual">layout + paint</span>
+    </div>
+    <div class="demo-card">
+      <div class="label">contain: size</div>
+      <div class="desc">Element size is not affected by children. Requires explicit sizing.</div>
+      <div class="contain-box" style="contain: size; height: 100px;">
+        <div class="inner-content">Size containment. This box height does not grow with content, it is fixed.</div>
+        <div class="overflow-child">size is fixed</div>
+      </div>
+      <span class="badge badge-layout">size independent</span>
+    </div>
+    <div class="demo-card">
+      <div class="label">contain: layout</div>
+      <div class="desc">Layout is isolated. Nothing outside affects internal layout.</div>
+      <div class="contain-box" style="contain: layout;">
+        <div class="inner-content">Layout containment. Internal layout is independent from the rest of the page.</div>
+        <div class="overflow-child">contained layout</div>
+      </div>
+      <span class="badge badge-layout">layout isolated</span>
+    </div>
+    <div class="demo-card">
+      <div class="label">contain: style</div>
+      <div class="desc">Counter and quote styles are scoped to this subtree.</div>
+      <div class="contain-box" style="contain: style;">
+        <div class="inner-content">Style containment prevents counter increments and quotes from escaping this subtree.</div>
+        <div class="overflow-child">style scoped</div>
+      </div>
+      <span class="badge badge-visual">style scoped</span>
+    </div>
+    <div class="demo-card">
+      <div class="label">contain: paint</div>
+      <div class="desc">Clipping applied. Overflow content is not rendered outside.</div>
+      <div class="contain-box" style="contain: paint;">
+        <div class="inner-content">Paint containment clips overflow. Content outside bounds is invisible.</div>
+        <div class="overflow-child">clipped by paint</div>
+      </div>
+      <span class="badge badge-visual">overflow clipped</span>
+    </div>
+    <div class="demo-card">
+      <div class="label">contain: inline-size</div>
+      <div class="desc">Only inline size is contained. Block size still adapts to content.</div>
+      <div class="contain-box" style="contain: inline-size;">
+        <div class="inner-content">Inline-size containment. Width is independent of children but height still grows with content.</div>
+        <div class="overflow-child">inline contained</div>
+      </div>
+      <span class="badge badge-layout">inline-size only</span>
+    </div>
+    <div class="demo-card">
+      <div class="label">contain: size layout paint</div>
+      <div class="desc">Multiple values combined. Equivalent to strict.</div>
+      <div class="contain-box" style="contain: size layout paint; height: 100px;">
+        <div class="inner-content">Combining size, layout, and paint for maximum containment and performance optimization.</div>
+        <div class="overflow-child">all contained</div>
+      </div>
+      <span class="badge badge-perf">combined containment</span>
     </div>
   </div>
 </body>

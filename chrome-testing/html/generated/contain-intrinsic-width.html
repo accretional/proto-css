@@ -1,115 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>contain-intrinsic-width</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-direction: column; gap: 16px; }
-    .demo-card {
-      background: #16213e;
-      border-radius: 10px;
-      padding: 16px 20px;
-      border: 1px solid #2a2a4a;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 10px; }
-    .size-wrapper {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-    }
-    .size-box {
-      contain: size layout;
-      background: #0f1a30;
-      border: 2px solid #2a2a4a;
-      border-radius: 6px;
-      padding: 12px;
-      height: 60px;
-      overflow: hidden;
-      display: inline-block;
-    }
-    .inner {
-      font-size: 11px;
-      color: #c0c8d4;
-      line-height: 1.5;
-      white-space: nowrap;
-    }
-    .width-ruler {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      margin-top: 8px;
-    }
-    .ruler-track {
-      height: 6px;
-      background: linear-gradient(90deg, #66bb6a, #388e3c);
-      border-radius: 3px;
-    }
-    .ruler-text {
-      font-size: 10px;
-      color: #66bb6a;
-      font-family: monospace;
-      margin-top: 3px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>contain-intrinsic-width</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .inner { font-size: 11px; color: #c0c8d4; line-height: 1.5; white-space: nowrap; }
+</style>
 </head>
 <body>
-  <h1>Contain Intrinsic Width</h1>
-  <p class="prop-name">contain-intrinsic-width</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="label">contain-intrinsic-width: auto none ! important</div>
-      <div class="size-box" style="contain-intrinsic-width: auto none ! important;">
-        <div class="inner">Collapsed</div>
-      </div>
-      <div class="width-ruler">
-        <div class="ruler-track" style="width: 8px;"></div>
-        <div class="ruler-text">none (0px)</div>
-      </div>
+<h1>Contain Intrinsic Width</h1>
+<p class="prop-name">contain-intrinsic-width</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="contain: size layout; background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 6px; padding: 12px; height: 60px; overflow: hidden; display: inline-block; contain-intrinsic-width: none;"><div class="inner">Width placeholder</div></div>
     </div>
-    <div class="demo-card">
-      <div class="label">contain-intrinsic-width: auto 0</div>
-      <div class="size-box" style="contain-intrinsic-width: auto 0;">
-        <div class="inner">80px wide</div>
-      </div>
-      <div class="width-ruler">
-        <div class="ruler-track" style="width: 80px;"></div>
-        <div class="ruler-text">80px</div>
-      </div>
-    </div>
-    <div class="demo-card">
-      <div class="label">contain-intrinsic-width: none ! important</div>
-      <div class="size-box" style="contain-intrinsic-width: none ! important;">
-        <div class="inner">160px wide placeholder</div>
-      </div>
-      <div class="width-ruler">
-        <div class="ruler-track" style="width: 160px;"></div>
-        <div class="ruler-text">160px</div>
-      </div>
-    </div>
-    <div class="demo-card">
-      <div class="label">contain-intrinsic-width: none</div>
-      <div class="size-box" style="contain-intrinsic-width: none;">
-        <div class="inner">300px wide placeholder element</div>
-      </div>
-      <div class="width-ruler">
-        <div class="ruler-track" style="width: 300px;"></div>
-        <div class="ruler-text">300px</div>
-      </div>
-    </div>
-    <div class="demo-card">
-      <div class="label">contain-intrinsic-width: auto 77rex ! important</div>
-      <div class="size-box" style="contain-intrinsic-width: auto 77rex ! important;">
-        <div class="inner">Auto with 200px fallback</div>
-      </div>
-      <div class="width-ruler">
-        <div class="ruler-track" style="width: 200px;"></div>
-        <div class="ruler-text">auto 200px (remembers last rendered width)</div>
-      </div>
-    </div>
+    <div class="label">contain-intrinsic-width: none</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="contain: size layout; background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 6px; padding: 12px; height: 60px; overflow: hidden; display: inline-block; contain-intrinsic-width: 0;"><div class="inner">Width placeholder</div></div>
+    </div>
+    <div class="label">contain-intrinsic-width: 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="contain: size layout; background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 6px; padding: 12px; height: 60px; overflow: hidden; display: inline-block; contain-intrinsic-width: 4px;"><div class="inner">Width placeholder</div></div>
+    </div>
+    <div class="label">contain-intrinsic-width: 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="contain: size layout; background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 6px; padding: 12px; height: 60px; overflow: hidden; display: inline-block; contain-intrinsic-width: 10px;"><div class="inner">Width placeholder</div></div>
+    </div>
+    <div class="label">contain-intrinsic-width: 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="contain: size layout; background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 6px; padding: 12px; height: 60px; overflow: hidden; display: inline-block; contain-intrinsic-width: 20px;"><div class="inner">Width placeholder</div></div>
+    </div>
+    <div class="label">contain-intrinsic-width: 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="contain: size layout; background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 6px; padding: 12px; height: 60px; overflow: hidden; display: inline-block; contain-intrinsic-width: 50px;"><div class="inner">Width placeholder</div></div>
+    </div>
+    <div class="label">contain-intrinsic-width: 50px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="contain: size layout; background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 6px; padding: 12px; height: 60px; overflow: hidden; display: inline-block; contain-intrinsic-width: auto none;"><div class="inner">Width placeholder</div></div>
+    </div>
+    <div class="label">contain-intrinsic-width: auto none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="contain: size layout; background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 6px; padding: 12px; height: 60px; overflow: hidden; display: inline-block; contain-intrinsic-width: auto 0;"><div class="inner">Width placeholder</div></div>
+    </div>
+    <div class="label">contain-intrinsic-width: auto 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="contain: size layout; background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 6px; padding: 12px; height: 60px; overflow: hidden; display: inline-block; contain-intrinsic-width: auto 4px;"><div class="inner">Width placeholder</div></div>
+    </div>
+    <div class="label">contain-intrinsic-width: auto 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="contain: size layout; background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 6px; padding: 12px; height: 60px; overflow: hidden; display: inline-block; contain-intrinsic-width: auto 10px;"><div class="inner">Width placeholder</div></div>
+    </div>
+    <div class="label">contain-intrinsic-width: auto 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="contain: size layout; background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 6px; padding: 12px; height: 60px; overflow: hidden; display: inline-block; contain-intrinsic-width: auto 20px;"><div class="inner">Width placeholder</div></div>
+    </div>
+    <div class="label">contain-intrinsic-width: auto 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="contain: size layout; background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 6px; padding: 12px; height: 60px; overflow: hidden; display: inline-block; contain-intrinsic-width: auto 50px;"><div class="inner">Width placeholder</div></div>
+    </div>
+    <div class="label">contain-intrinsic-width: auto 50px</div>
+  </div>
+</div>
 </body>
 </html>

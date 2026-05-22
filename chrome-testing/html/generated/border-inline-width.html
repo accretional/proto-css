@@ -1,55 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>border-inline-width</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-box {
-      width: 200px;
-      height: 100px;
-      background: #16213e;
-      border-inline-style: solid;
-      border-inline-color: #3498db;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      color: #c0c0c0;
-      border-radius: 4px;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
-    .demo-item { display: flex; flex-direction: column; align-items: flex-start; }
-  </style>
+<meta charset="UTF-8">
+<title>border-inline-width</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Border Inline Width</h1>
-  <p class="prop-name">border-inline-width</p>
-  <div class="demos">
-    <div class="demo-item">
-      <div class="demo-box" style="border-inline-width: thin thin ! important;">Content</div>
-      <span class="label">border-inline-width: thin thin ! important</span>
+<h1>Border Inline Width</h1>
+<p class="prop-name">border-inline-width</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 0;">Content</div>
     </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-inline-width: +9.9cm hairline;">Content</div>
-      <span class="label">border-inline-width: +9.9cm hairline</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-inline-width: hairline var(--ꆉ);">Content</div>
-      <span class="label">border-inline-width: hairline var(--ꆉ)</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-inline-width: hairline thick ! important;">Content</div>
-      <span class="label">border-inline-width: hairline thick ! important</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-inline-width: medium;">Content</div>
-      <span class="label">border-inline-width: medium</span>
-    </div>
+    <div class="label">border-inline-width: 0</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 0 0;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 0 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 0 4px;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 0 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 0 10px;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 0 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 0 20px;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 0 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 0 50px;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 0 50px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 0 hairline;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 0 hairline</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 0 thin;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 0 thin</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 0 medium;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 0 medium</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 0 thick;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 0 thick</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 4px;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 4px 0;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 4px 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 4px 4px;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 4px 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 4px 10px;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 4px 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 4px 20px;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 4px 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 4px 50px;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 4px 50px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 4px hairline;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 4px hairline</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 4px thin;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 4px thin</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 4px medium;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 4px medium</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 4px thick;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 4px thick</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 10px;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 10px 0;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 10px 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 10px 4px;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 10px 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 10px 10px;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 10px 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 10px 20px;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 10px 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 10px 50px;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 10px 50px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 10px hairline;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 10px hairline</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 10px thin;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 10px thin</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 10px medium;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 10px medium</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 10px thick;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 10px thick</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 20px;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 20px 0;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 20px 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 20px 4px;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 20px 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 20px 10px;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 20px 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 20px 20px;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 20px 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 100px; background: #16213e; border-inline-style: solid; border-inline-color: #3498db; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-inline-width: 20px 50px;">Content</div>
+    </div>
+    <div class="label">border-inline-width: 20px 50px</div>
+  </div>
+</div>
 </body>
 </html>

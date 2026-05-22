@@ -8,10 +8,10 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
     .demo-box {
-      width: 150px;
-      height: 150px;
+      width: 120px;
+      height: 120px;
       background: #e74c3c;
       display: flex;
       align-items: center;
@@ -19,10 +19,6 @@
       font-size: 13px;
       color: #fff;
       font-weight: 600;
-    }
-    .pill {
-      width: 220px;
-      height: 60px;
     }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; max-width: 220px; }
     .demo-item { display: flex; flex-direction: column; align-items: flex-start; }
@@ -37,8 +33,12 @@
       <span class="label">border-radius: 0</span>
     </div>
     <div class="demo-item">
-      <div class="demo-box" style="border-radius: 8px;">8px</div>
-      <span class="label">border-radius: 8px</span>
+      <div class="demo-box" style="border-radius: 4px;">4px</div>
+      <span class="label">border-radius: 4px</span>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-radius: 10px;">10px</div>
+      <span class="label">border-radius: 10px</span>
     </div>
     <div class="demo-item">
       <div class="demo-box" style="border-radius: 20px;">20px</div>
@@ -49,12 +49,12 @@
       <span class="label">border-radius: 50%</span>
     </div>
     <div class="demo-item">
-      <div class="demo-box" style="border-radius: 30px 0 30px 0;">30px 0</div>
-      <span class="label">border-radius: 30px 0 30px 0</span>
+      <div class="demo-box" style="border-radius: 10px 20px;">10px 20px</div>
+      <span class="label">border-radius: 10px 20px</span>
     </div>
     <div class="demo-item">
-      <div class="demo-box pill" style="border-radius: 9999px;">Pill</div>
-      <span class="label">border-radius: 9999px (pill)</span>
+      <div class="demo-box" style="border-radius: 10px 20px 30px 40px;">10 20 30 40</div>
+      <span class="label">border-radius: 10px 20px 30px 40px</span>
     </div>
   </div>
 </body>

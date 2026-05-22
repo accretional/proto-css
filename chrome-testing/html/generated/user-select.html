@@ -1,80 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>user-select</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-card { background: #16213e; border-radius: 12px; padding: 22px; width: 230px; }
-    .demo-title { font-size: 14px; font-weight: 600; color: #e0e0e0; margin-bottom: 6px; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; }
-    .desc { font-size: 11px; color: #6b7280; margin-bottom: 12px; line-height: 1.4; }
-    .text-area { background: #0d1117; border-radius: 8px; padding: 14px; font-size: 13px; line-height: 1.6; min-height: 90px; position: relative; }
-    .cursor-icon { position: absolute; top: 8px; right: 8px; font-size: 16px; }
-    .highlight-sim { background: rgba(59, 130, 246, 0.3); padding: 1px 2px; border-radius: 2px; }
-    .no-highlight { color: #6b7280; }
-    .badge { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-family: monospace; padding: 3px 8px; border-radius: 12px; margin-bottom: 8px; }
-  </style>
+<meta charset="UTF-8">
+<title>user-select</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .highlight-sim { background: rgba(59, 130, 246, 0.3); padding: 1px 2px; border-radius: 2px; }
+.no-highlight { color: #6b7280; }
+.badge { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-family: monospace; padding: 3px 8px; border-radius: 12px; margin-bottom: 8px; }
+.desc { font-size: 11px; color: #6b7280; margin-bottom: 12px; line-height: 1.4; }
+</style>
 </head>
 <body>
-  <h1>User Select</h1>
-  <p class="prop-name">user-select</p>
-  <div class="demos">
-
-    <div class="demo-card">
-      <div class="demo-title">auto</div>
-      <div class="badge" style="background: rgba(59,130,246,0.2); color: #3b82f6;">default behavior</div>
-      <div class="desc">Text is selectable following normal browser rules.</div>
-      <div class="text-area" style="user-select: auto;">
-        <span class="highlight-sim">This text can be</span> selected normally, following the default browser selection behavior.
-      </div>
-      <div class="label">user-select: auto</div>
+<h1>User Select</h1>
+<p class="prop-name">user-select</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 22px; width: 230px;">
+      <div style="background: #0d1117; border-radius: 8px; padding: 14px; font-size: 13px; line-height: 1.6; min-height: 90px; position: relative; user-select: auto; user-select: auto;"><span class="highlight-sim">This text can be</span> selected normally, following the default browser selection behavior.</div>
     </div>
-
-    <div class="demo-card">
-      <div class="demo-title">none</div>
-      <div class="badge" style="background: rgba(233,69,96,0.2); color: #e94560;">not selectable</div>
-      <div class="desc">Prevents text from being selected by the user.</div>
-      <div class="text-area" style="user-select: text ! important;">
-        <span class="no-highlight">This text cannot be selected. Clicking and dragging will not highlight any text here.</span>
-      </div>
-      <div class="label">user-select: text ! important</div>
-    </div>
-
-    <div class="demo-card">
-      <div class="demo-title">text</div>
-      <div class="badge" style="background: rgba(22,199,154,0.2); color: #16c79a;">text selectable</div>
-      <div class="desc">Text can be selected by the user explicitly.</div>
-      <div class="text-area" style="user-select: none ! important;">
-        <span class="highlight-sim">This text is</span> explicitly set to be selectable, overriding any parent restrictions.
-      </div>
-      <div class="label">user-select: none ! important</div>
-    </div>
-
-    <div class="demo-card">
-      <div class="demo-title">all</div>
-      <div class="badge" style="background: rgba(243,156,18,0.2); color: #f39c12;">click to select all</div>
-      <div class="desc">A single click selects all content of the element at once.</div>
-      <div class="text-area" style="user-select: text;">
-        <span class="highlight-sim">Clicking once selects this entire block of text all at once, not just a word.</span>
-      </div>
-      <div class="label">user-select: text</div>
-    </div>
-
-    <div class="demo-card">
-      <div class="demo-title">contain</div>
-      <div class="badge" style="background: rgba(155,89,182,0.2); color: #9b59b6;">contained selection</div>
-      <div class="desc">Selection is contained within the element boundaries.</div>
-      <div class="text-area" style="user-select: all;">
-        <span class="highlight-sim">Selection stays within</span> this element and cannot extend beyond its boundaries.
-      </div>
-      <div class="label">user-select: all</div>
-    </div>
-
+    <div class="label">user-select: auto</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 22px; width: 230px;">
+      <div style="background: #0d1117; border-radius: 8px; padding: 14px; font-size: 13px; line-height: 1.6; min-height: 90px; position: relative; user-select: auto; user-select: text;"><span class="highlight-sim">This text can be</span> selected normally, following the default browser selection behavior.</div>
+    </div>
+    <div class="label">user-select: text</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 22px; width: 230px;">
+      <div style="background: #0d1117; border-radius: 8px; padding: 14px; font-size: 13px; line-height: 1.6; min-height: 90px; position: relative; user-select: auto; user-select: none;"><span class="highlight-sim">This text can be</span> selected normally, following the default browser selection behavior.</div>
+    </div>
+    <div class="label">user-select: none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 22px; width: 230px;">
+      <div style="background: #0d1117; border-radius: 8px; padding: 14px; font-size: 13px; line-height: 1.6; min-height: 90px; position: relative; user-select: auto; user-select: contain;"><span class="highlight-sim">This text can be</span> selected normally, following the default browser selection behavior.</div>
+    </div>
+    <div class="label">user-select: contain</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 22px; width: 230px;">
+      <div style="background: #0d1117; border-radius: 8px; padding: 14px; font-size: 13px; line-height: 1.6; min-height: 90px; position: relative; user-select: auto; user-select: all;"><span class="highlight-sim">This text can be</span> selected normally, following the default browser selection behavior.</div>
+    </div>
+    <div class="label">user-select: all</div>
+  </div>
+</div>
 </body>
 </html>

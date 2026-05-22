@@ -8,67 +8,67 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
-    .demo-card { background: #16213e; border-radius: 10px; padding: 20px; width: 370px; }
-    .demo-card h3 { font-size: 13px; color: #e2e8f0; margin-bottom: 12px; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
-    .desc { font-size: 10px; color: #6b7280; margin-top: 4px; line-height: 1.4; }
+    .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .demo-card { background: #16213e; border-radius: 10px; padding: 14px; }
+    .demo-card h3 { font-size: 11px; color: #e2e8f0; margin-bottom: 10px; }
+    .label { font-size: 10px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+    .desc { font-size: 9px; color: #6b7280; margin-top: 3px; line-height: 1.3; }
     .box-wrapper {
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 170px;
-      position: relative;
+      height: 110px;
     }
     .box {
-      width: 280px;
-      height: 140px;
+      width: 100%;
+      height: 100px;
       background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff);
-      border: 20px solid rgba(233, 69, 96, 0.35);
-      padding: 25px;
+      border: 12px solid rgba(233, 69, 96, 0.35);
+      padding: 15px;
       position: relative;
     }
-    .box .content {
-      width: 100%;
-      height: 100%;
-      border: 1px dashed rgba(255,255,255,0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      font-family: monospace;
-      color: rgba(255,255,255,0.7);
-    }
-    /* Common mask: radial gradient at top-left */
-    .origin-border {
-      -webkit-mask-image: radial-gradient(circle 100px at 0% 0%, black 40%, transparent 70%);
-      -webkit-mask-origin: border-box;
-      mask-image: radial-gradient(circle 100px at 0% 0%, black 40%, transparent 70%);
-      mask-origin: border-box;
-    }
-    .origin-padding {
-      -webkit-mask-image: radial-gradient(circle 100px at 0% 0%, black 40%, transparent 70%);
-      -webkit-mask-origin: padding-box;
-      mask-image: radial-gradient(circle 100px at 0% 0%, black 40%, transparent 70%);
-      mask-origin: padding-box;
-    }
     .origin-content {
-      -webkit-mask-image: radial-gradient(circle 100px at 0% 0%, black 40%, transparent 70%);
+      -webkit-mask-image: radial-gradient(circle 60px at 0% 0%, black 40%, transparent 70%);
       -webkit-mask-origin: content-box;
-      mask-image: radial-gradient(circle 100px at 0% 0%, black 40%, transparent 70%);
+      mask-image: radial-gradient(circle 60px at 0% 0%, black 40%, transparent 70%);
       mask-origin: content-box;
     }
-    .origin-indicator {
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #f9a825;
-      z-index: 10;
+    .origin-padding {
+      -webkit-mask-image: radial-gradient(circle 60px at 0% 0%, black 40%, transparent 70%);
+      -webkit-mask-origin: padding-box;
+      mask-image: radial-gradient(circle 60px at 0% 0%, black 40%, transparent 70%);
+      mask-origin: padding-box;
     }
-    .ind-border { top: 0; left: 0; }
-    .ind-padding { top: 20px; left: 20px; }
-    .ind-content { top: 45px; left: 45px; }
+    .origin-border {
+      -webkit-mask-image: radial-gradient(circle 60px at 0% 0%, black 40%, transparent 70%);
+      -webkit-mask-origin: border-box;
+      mask-image: radial-gradient(circle 60px at 0% 0%, black 40%, transparent 70%);
+      mask-origin: border-box;
+    }
+    .origin-margin {
+      -webkit-mask-image: radial-gradient(circle 60px at 0% 0%, black 40%, transparent 70%);
+      -webkit-mask-origin: margin-box;
+      mask-image: radial-gradient(circle 60px at 0% 0%, black 40%, transparent 70%);
+      mask-origin: margin-box;
+    }
+    .origin-fill {
+      -webkit-mask-image: radial-gradient(circle 60px at 0% 0%, black 40%, transparent 70%);
+      -webkit-mask-origin: fill-box;
+      mask-image: radial-gradient(circle 60px at 0% 0%, black 40%, transparent 70%);
+      mask-origin: fill-box;
+    }
+    .origin-stroke {
+      -webkit-mask-image: radial-gradient(circle 60px at 0% 0%, black 40%, transparent 70%);
+      -webkit-mask-origin: stroke-box;
+      mask-image: radial-gradient(circle 60px at 0% 0%, black 40%, transparent 70%);
+      mask-origin: stroke-box;
+    }
+    .origin-view {
+      -webkit-mask-image: radial-gradient(circle 60px at 0% 0%, black 40%, transparent 70%);
+      -webkit-mask-origin: view-box;
+      mask-image: radial-gradient(circle 60px at 0% 0%, black 40%, transparent 70%);
+      mask-origin: view-box;
+    }
   </style>
 </head>
 <body>
@@ -77,55 +77,68 @@
   <div class="demos">
 
     <div class="demo-card">
-      <h3>border-box</h3>
+      <h3>content-box</h3>
       <div class="box-wrapper">
-        <div style="position:relative;">
-          <div class="box origin-border">
-            <div class="content">content</div>
-          </div>
-          <div class="origin-indicator ind-border" title="Mask origin point"></div>
-        </div>
+        <div class="box origin-content"></div>
       </div>
-      <p class="label">mask-origin: border-box</p>
-      <p class="desc">Mask positioned relative to the border box. Origin at outer edge of border.</p>
+      <p class="label">mask-origin: content-box</p>
+      <p class="desc">Origin at content edge</p>
     </div>
 
     <div class="demo-card">
       <h3>padding-box</h3>
       <div class="box-wrapper">
-        <div style="position:relative;">
-          <div class="box origin-padding">
-            <div class="content">content</div>
-          </div>
-          <div class="origin-indicator ind-padding" title="Mask origin point"></div>
-        </div>
+        <div class="box origin-padding"></div>
       </div>
       <p class="label">mask-origin: padding-box</p>
-      <p class="desc">Mask positioned relative to the padding box. Origin at inner edge of border.</p>
+      <p class="desc">Origin at padding edge</p>
     </div>
 
     <div class="demo-card">
-      <h3>content-box</h3>
+      <h3>border-box</h3>
       <div class="box-wrapper">
-        <div style="position:relative;">
-          <div class="box origin-content">
-            <div class="content">content</div>
-          </div>
-          <div class="origin-indicator ind-content" title="Mask origin point"></div>
-        </div>
+        <div class="box origin-border"></div>
       </div>
-      <p class="label">mask-origin: content-box</p>
-      <p class="desc">Mask positioned relative to the content box. Origin at inner edge of padding.</p>
+      <p class="label">mask-origin: border-box</p>
+      <p class="desc">Origin at border edge</p>
     </div>
 
-  </div>
+    <div class="demo-card">
+      <h3>margin-box</h3>
+      <div class="box-wrapper">
+        <div class="box origin-margin"></div>
+      </div>
+      <p class="label">mask-origin: margin-box</p>
+      <p class="desc">Origin at margin edge</p>
+    </div>
 
-  <div style="margin-top: 20px; padding: 14px; background: #16213e; border-radius: 10px; max-width: 600px; display: flex; gap: 16px; align-items: center;">
-    <div style="width: 10px; height: 10px; border-radius: 50%; background: #f9a825; flex-shrink: 0;"></div>
-    <p style="font-size: 11px; color: #9ca3af; line-height: 1.4;">
-      Yellow dot marks the mask origin point (0%, 0%). A radial gradient mask emanates from this corner.
-      Notice how the visible area shifts as the origin reference box changes.
-    </p>
+    <div class="demo-card">
+      <h3>fill-box</h3>
+      <div class="box-wrapper">
+        <div class="box origin-fill"></div>
+      </div>
+      <p class="label">mask-origin: fill-box</p>
+      <p class="desc">SVG object bounding box</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>stroke-box</h3>
+      <div class="box-wrapper">
+        <div class="box origin-stroke"></div>
+      </div>
+      <p class="label">mask-origin: stroke-box</p>
+      <p class="desc">SVG stroke bounding box</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>view-box</h3>
+      <div class="box-wrapper">
+        <div class="box origin-view"></div>
+      </div>
+      <p class="label">mask-origin: view-box</p>
+      <p class="desc">SVG viewport reference</p>
+    </div>
+
   </div>
 </body>
 </html>

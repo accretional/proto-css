@@ -8,22 +8,22 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-box {
+    .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .demo-item { display: flex; flex-direction: column; align-items: center; }
+    .box {
       width: 180px;
-      height: 100px;
+      height: 90px;
       background: #16213e;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
-      color: #c0c0c0;
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
       border-block-style: solid;
       border-block-color: #e94560;
       border-inline: none;
     }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
-    .demo-item { display: flex; flex-direction: column; align-items: center; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; }
   </style>
 </head>
 <body>
@@ -31,28 +31,28 @@
   <p class="prop-name">border-block-width</p>
   <div class="demos">
     <div class="demo-item">
-      <div class="demo-box" style="border-block-width: thin;">Content</div>
-      <p class="label">border-block-width: thin</p>
+      <div class="box" style="border-block-width: 0;">0</div>
+      <div class="label">border-block-width: 0</div>
     </div>
     <div class="demo-item">
-      <div class="demo-box" style="border-block-width: medium;">Content</div>
-      <p class="label">border-block-width: medium</p>
+      <div class="box" style="border-block-width: 1px;">1px</div>
+      <div class="label">border-block-width: 1px</div>
     </div>
     <div class="demo-item">
-      <div class="demo-box" style="border-block-width: thick;">Content</div>
-      <p class="label">border-block-width: thick</p>
+      <div class="box" style="border-block-width: 2px;">2px</div>
+      <div class="label">border-block-width: 2px</div>
     </div>
     <div class="demo-item">
-      <div class="demo-box" style="border-block-width: 1px;">Content</div>
-      <p class="label">border-block-width: 1px</p>
+      <div class="box" style="border-block-width: thin;">thin</div>
+      <div class="label">border-block-width: thin</div>
     </div>
     <div class="demo-item">
-      <div class="demo-box" style="border-block-width: 5px;">Content</div>
-      <p class="label">border-block-width: 5px</p>
+      <div class="box" style="border-block-width: medium;">medium</div>
+      <div class="label">border-block-width: medium</div>
     </div>
     <div class="demo-item">
-      <div class="demo-box" style="border-block-width: 10px;">Content</div>
-      <p class="label">border-block-width: 10px</p>
+      <div class="box" style="border-block-width: thick;">thick</div>
+      <div class="label">border-block-width: thick</div>
     </div>
   </div>
 </body>

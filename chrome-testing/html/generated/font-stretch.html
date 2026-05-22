@@ -1,61 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>font-stretch</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-direction: column; gap: 12px; }
-    .demo-row {
-      display: flex; align-items: center; gap: 20px;
-      background: #16213e; border-radius: 10px; padding: 16px 24px;
-      border: 1px solid #2a2a4a;
-    }
-    .label {
-      font-size: 11px; font-family: monospace; color: #9ca3af;
-      min-width: 280px; flex-shrink: 0;
-    }
-    .demo-text { color: #fff; font-size: 28px; white-space: nowrap; }
-    .bar {
-      height: 4px; border-radius: 2px; margin-top: 4px;
-    }
-    .pct {
-      font-size: 10px; color: #6b7280; font-family: monospace; min-width: 40px; text-align: right;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>font-stretch</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .demo-text { color: #fff; font-size: 24px; white-space: nowrap; }
+</style>
 </head>
 <body>
-  <h1>Font Stretch</h1>
-  <p class="prop-name">font-stretch</p>
-  <div class="demos">
-    <div class="demo-row">
-      <p class="label">font-stretch: semi-condensed</p>
-      <span class="pct">50%</span>
-      <span class="demo-text" style="font-stretch: semi-condensed;">Hamburgefonstiv</span>
+<h1>Font Stretch</h1>
+<p class="prop-name">font-stretch</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 24px; white-space: nowrap; font-stretch: normal;">The quick brown fox jumps over the lazy dog</span>
     </div>
-    <div class="demo-row">
-      <p class="label">font-stretch: condensed ! important</p>
-      <span class="pct">75%</span>
-      <span class="demo-text" style="font-stretch: condensed ! important;">Hamburgefonstiv</span>
-    </div>
-    <div class="demo-row">
-      <p class="label">font-stretch: ultra-condensed ! important ! important</p>
-      <span class="pct">100%</span>
-      <span class="demo-text" style="font-stretch: ultra-condensed ! important ! important;">Hamburgefonstiv</span>
-    </div>
-    <div class="demo-row">
-      <p class="label">font-stretch: ultra-condensed ! important</p>
-      <span class="pct">125%</span>
-      <span class="demo-text" style="font-stretch: ultra-condensed ! important;">Hamburgefonstiv</span>
-    </div>
-    <div class="demo-row">
-      <p class="label">font-stretch: semi-expanded</p>
-      <span class="pct">200%</span>
-      <span class="demo-text" style="font-stretch: semi-expanded;">Hamburgefonstiv</span>
-    </div>
+    <div class="label">font-stretch: normal</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 24px; white-space: nowrap; font-stretch: 0%;">The quick brown fox jumps over the lazy dog</span>
+    </div>
+    <div class="label">font-stretch: 0%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 24px; white-space: nowrap; font-stretch: 25%;">The quick brown fox jumps over the lazy dog</span>
+    </div>
+    <div class="label">font-stretch: 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 24px; white-space: nowrap; font-stretch: 50%;">The quick brown fox jumps over the lazy dog</span>
+    </div>
+    <div class="label">font-stretch: 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 24px; white-space: nowrap; font-stretch: 100%;">The quick brown fox jumps over the lazy dog</span>
+    </div>
+    <div class="label">font-stretch: 100%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 24px; white-space: nowrap; font-stretch: ultra-condensed;">The quick brown fox jumps over the lazy dog</span>
+    </div>
+    <div class="label">font-stretch: ultra-condensed</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 24px; white-space: nowrap; font-stretch: extra-condensed;">The quick brown fox jumps over the lazy dog</span>
+    </div>
+    <div class="label">font-stretch: extra-condensed</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 24px; white-space: nowrap; font-stretch: condensed;">The quick brown fox jumps over the lazy dog</span>
+    </div>
+    <div class="label">font-stretch: condensed</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 24px; white-space: nowrap; font-stretch: semi-condensed;">The quick brown fox jumps over the lazy dog</span>
+    </div>
+    <div class="label">font-stretch: semi-condensed</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 24px; white-space: nowrap; font-stretch: semi-expanded;">The quick brown fox jumps over the lazy dog</span>
+    </div>
+    <div class="label">font-stretch: semi-expanded</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 24px; white-space: nowrap; font-stretch: expanded;">The quick brown fox jumps over the lazy dog</span>
+    </div>
+    <div class="label">font-stretch: expanded</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 24px; white-space: nowrap; font-stretch: extra-expanded;">The quick brown fox jumps over the lazy dog</span>
+    </div>
+    <div class="label">font-stretch: extra-expanded</div>
+  </div>
+</div>
 </body>
 </html>

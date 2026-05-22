@@ -1,66 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>background-repeat</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 16px; }
-    .demo-item { display: flex; flex-direction: column; align-items: center; }
-    .box {
-      width: 180px;
-      height: 140px;
-      border-radius: 8px;
-      border: 2px solid rgba(255,255,255,0.15);
-      background-color: #2d2d4e;
-      background-image:
-        linear-gradient(135deg, #667eea 25%, transparent 25%),
-        linear-gradient(225deg, #667eea 25%, transparent 25%),
-        linear-gradient(315deg, #667eea 25%, transparent 25%),
-        linear-gradient(45deg, #667eea 25%, transparent 25%);
-      background-size: 30px 30px;
-      background-position: 0 0, 0 0, 0 0, 0 0;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; }
-    .b1 { background-repeat: repeat-block, repeat-x ! important ! important; }
-    .b2 { background-repeat: repeat-x ! important, repeat-x ! important; }
-    .b3 { background-repeat: repeat-block, repeat-x ! important ! important-x; }
-    .b4 { background-repeat: repeat-block, repeat-x ! important ! important-y; }
-    .b5 { background-repeat: repeat-y; }
-    .b6 { background-repeat: repeat-x ! important; }
-  </style>
+<meta charset="UTF-8">
+<title>background-repeat</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Background Repeat</h1>
-  <p class="prop-name">background-repeat</p>
-  <div class="demos">
-    <div class="demo-item">
-      <div class="box b1"></div>
-      <div class="label">background-repeat: repeat-block, repeat-x ! important ! important</div>
+<h1>Background Repeat</h1>
+<p class="prop-name">background-repeat</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-x;"></div>
     </div>
-    <div class="demo-item">
-      <div class="box b2"></div>
-      <div class="label">background-repeat: repeat-x ! important, repeat-x ! important</div>
-    </div>
-    <div class="demo-item">
-      <div class="box b3"></div>
-      <div class="label">background-repeat: repeat-block, repeat-x ! important ! important-x</div>
-    </div>
-    <div class="demo-item">
-      <div class="box b4"></div>
-      <div class="label">background-repeat: repeat-block, repeat-x ! important ! important-y</div>
-    </div>
-    <div class="demo-item">
-      <div class="box b5"></div>
-      <div class="label">background-repeat: repeat-y</div>
-    </div>
-    <div class="demo-item">
-      <div class="box b6"></div>
-      <div class="label">background-repeat: repeat-x ! important</div>
-    </div>
+    <div class="label">background-repeat: repeat-x</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-x, repeat-x;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-x, repeat-x</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-x, repeat-y;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-x, repeat-y</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-x, repeat-block;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-x, repeat-block</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-x, repeat-inline;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-x, repeat-inline</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-x, repeat;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-x, repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-x, repeat repeat;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-x, repeat repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-x, repeat space;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-x, repeat space</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-x, repeat round;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-x, repeat round</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-x, repeat no-repeat;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-x, repeat no-repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-x, space;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-x, space</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-x, space repeat;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-x, space repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-x, space space;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-x, space space</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-x, space round;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-x, space round</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-x, space no-repeat;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-x, space no-repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-x, round;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-x, round</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-x, round repeat;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-x, round repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-x, round space;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-x, round space</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-x, round round;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-x, round round</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-x, round no-repeat;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-x, round no-repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-x, no-repeat;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-x, no-repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-x, no-repeat repeat;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-x, no-repeat repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-x, no-repeat space;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-x, no-repeat space</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-x, no-repeat round;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-x, no-repeat round</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-x, no-repeat no-repeat;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-x, no-repeat no-repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-y;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-y</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-y, repeat-x;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-y, repeat-x</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-y, repeat-y;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-y, repeat-y</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-y, repeat-block;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-y, repeat-block</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-y, repeat-inline;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-y, repeat-inline</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-y, repeat;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-y, repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-y, repeat repeat;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-y, repeat repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-y, repeat space;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-y, repeat space</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-y, repeat round;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-y, repeat round</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-y, repeat no-repeat;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-y, repeat no-repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: linear-gradient(135deg, #667eea 25%, transparent 25%), linear-gradient(225deg, #667eea 25%, transparent 25%), linear-gradient(315deg, #667eea 25%, transparent 25%), linear-gradient(45deg, #667eea 25%, transparent 25%); background-size: 30px 30px; background-position: 0 0, 0 0, 0 0, 0 0; background-repeat: repeat-y, space;"></div>
+    </div>
+    <div class="label">background-repeat: repeat-y, space</div>
+  </div>
+</div>
 </body>
 </html>

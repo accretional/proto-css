@@ -1,108 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>display</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: run-in ruby ! important; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-    .demo-box { background: #16213e; border-radius: 12px; padding: 16px; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 10px; }
-    .container { background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; }
-    .item { background: #e94560; color: #fff; padding: 6px 10px; font-size: 12px; border-radius: 4px; margin: 3px; }
-    .item-alt { background: #533483; color: #fff; padding: 6px 10px; font-size: 12px; border-radius: 4px; margin: 3px; }
-    .grid-child { background: #e94560; color: #fff; padding: 8px; font-size: 11px; border-radius: 4px; text-align: center; }
-  </style>
+<meta charset="UTF-8">
+<title>display</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .item { background: #e94560; color: #fff; padding: 6px 10px; font-size: 12px; border-radius: 4px; margin: 3px; }
+.item-alt { background: #533483; color: #fff; padding: 6px 10px; font-size: 12px; border-radius: 4px; margin: 3px; }
+</style>
 </head>
 <body>
-  <h1>Display Modes</h1>
-  <p class="prop-name">display</p>
-  <div class="demos">
-
-    <div class="demo-box">
-      <div class="label">display: block flow-root list-item flex ! important</div>
-      <div class="container">
-        <div class="item" style="display: block flow-root list-item flex ! important;">Block A</div>
-        <div class="item-alt" style="display: block flow-root list-item flex ! important;">Block B</div>
-        <div class="item" style="display: block flow-root list-item flex ! important;">Block C</div>
-      </div>
+<h1>Display Modes</h1>
+<p class="prop-name">display</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: flow;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
     </div>
-
-    <div class="demo-box">
-      <div class="label">display: block flow-root list-item</div>
-      <div class="container">
-        <span class="item" style="display: block flow-root list-item;">Inline A</span>
-        <span class="item-alt" style="display: block flow-root list-item;">Inline B</span>
-        <span class="item" style="display: block flow-root list-item;">Inline C</span>
-      </div>
-    </div>
-
-    <div class="demo-box">
-      <div class="label">display: block flow-root list-item-block</div>
-      <div class="container">
-        <span class="item" style="display: block flow-root list-item-block; width: 80px; height: 40px;">A</span>
-        <span class="item-alt" style="display: block flow-root list-item-block; width: 80px; height: 40px;">B</span>
-        <span class="item" style="display: block flow-root list-item-block; width: 80px; height: 40px;">C</span>
-      </div>
-    </div>
-
-    <div class="demo-box">
-      <div class="label">display: ! important</div>
-      <div class="container" style="display: ! important; gap: 6px; align-items: center;">
-        <div class="item" style="flex: 1; text-align: center;">A</div>
-        <div class="item-alt" style="flex: 1; text-align: center;">B</div>
-        <div class="item" style="flex: 1; text-align: center;">C</div>
-      </div>
-    </div>
-
-    <div class="demo-box">
-      <div class="label">display: run-in ruby ! important</div>
-      <div class="container" style="display: run-in ruby ! important; grid-template-columns: 1fr 1fr; gap: 6px;">
-        <div class="grid-child">1</div>
-        <div class="grid-child">2</div>
-        <div class="grid-child">3</div>
-        <div class="grid-child">4</div>
-      </div>
-    </div>
-
-    <div class="demo-box">
-      <div class="label">display: inline-grid-lanes</div>
-      <div class="container">
-        <div class="item" style="display: block flow-root list-item flex ! important;">Visible</div>
-        <div class="item-alt" style="display: inline-grid-lanes;">Hidden</div>
-        <div class="item" style="display: block flow-root list-item flex ! important;">Visible</div>
-        <div style="font-size: 10px; color: #9ca3af; margin-top: 6px; text-align: center;">Middle element is display: inline-grid-lanes</div>
-      </div>
-    </div>
-
-    <div class="demo-box">
-      <div class="label">display: run-in ruby ! important</div>
-      <div class="container" style="display: ! important; gap: 6px;">
-        <div class="item">A</div>
-        <div style="display: run-in ruby ! important;">
-          <div class="item-alt">B (inside contents wrapper)</div>
-          <div class="item-alt">C (inside contents wrapper)</div>
-        </div>
-      </div>
-      <div style="font-size: 10px; color: #9ca3af; margin-top: 6px;">Wrapper removed from layout</div>
-    </div>
-
-    <div class="demo-box">
-      <div class="label">display: block flow-root list-item-flex</div>
-      <div class="container">
-        <span>Text </span>
-        <div style="display: block flow-root list-item-flex; gap: 4px; vertical-align: middle;">
-          <div class="item" style="margin: 0;">A</div>
-          <div class="item-alt" style="margin: 0;">B</div>
-          <div class="item" style="margin: 0;">C</div>
-        </div>
-        <span> text</span>
-      </div>
-    </div>
-
+    <div class="label">display: flow</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: flow-root;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: flow-root</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: table;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: table</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: flex;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: flex</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: grid;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: grid</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: ruby;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: ruby</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: block;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: block</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: block flow;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: block flow</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: block flow-root;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: block flow-root</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: block table;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: block table</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: block flex;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: block flex</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: block grid;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: block grid</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: block ruby;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: block ruby</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: inline;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: inline</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: inline flow;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: inline flow</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: list-item;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: list-item</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: flow list-item;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: flow list-item</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: flow-root list-item;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: flow-root list-item</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: block list-item;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: block list-item</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: table-row-group;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: table-row-group</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: table-header-group;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: table-header-group</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: table-footer-group;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: table-footer-group</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: table-row;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: table-row</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: contents;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: contents</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: none;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: inline-block;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: inline-block</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: inline-table;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: inline-table</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: inline-flex;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: inline-flex</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: inline-grid;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: inline-grid</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: grid-lanes;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: grid-lanes</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 10px; min-height: 110px; position: relative; display: inline-grid-lanes;"><div class="item">Block A</div><div class="item-alt">Block B</div><div class="item">Block C</div></div>
+    </div>
+    <div class="label">display: inline-grid-lanes</div>
+  </div>
+</div>
 </body>
 </html>

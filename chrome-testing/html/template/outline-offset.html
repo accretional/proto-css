@@ -8,8 +8,8 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
-    .demo-box { background: #16213e; border-radius: 10px; padding: 30px; width: 210px; text-align: center; }
+    .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .demo-box { background: #16213e; border-radius: 10px; padding: 30px; text-align: center; }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 20px; }
     .outlined {
       width: 100px; height: 80px; background: #0f3460; border-radius: 8px;
@@ -19,10 +19,9 @@
       font-size: 12px; color: #c0c0d0;
     }
     .d1 .outlined { outline-offset: 0; }
-    .d2 .outlined { outline-offset: 5px; }
-    .d3 .outlined { outline-offset: 10px; }
-    .d4 .outlined { outline-offset: 20px; }
-    .d5 .outlined { outline-offset: -5px; }
+    .d2 .outlined { outline-offset: 2px; }
+    .d3 .outlined { outline-offset: 4px; }
+    .d4 .outlined { outline-offset: 10px; }
   </style>
 </head>
 <body>
@@ -35,19 +34,15 @@
     </div>
     <div class="demo-box d2">
       <div class="outlined">Box</div>
-      <div class="label">outline-offset: 5px</div>
+      <div class="label">outline-offset: 2px</div>
     </div>
     <div class="demo-box d3">
       <div class="outlined">Box</div>
-      <div class="label">outline-offset: 10px</div>
+      <div class="label">outline-offset: 4px</div>
     </div>
     <div class="demo-box d4">
       <div class="outlined">Box</div>
-      <div class="label">outline-offset: 20px</div>
-    </div>
-    <div class="demo-box d5">
-      <div class="outlined">Box</div>
-      <div class="label">outline-offset: -5px</div>
+      <div class="label">outline-offset: 10px</div>
     </div>
   </div>
 </body>

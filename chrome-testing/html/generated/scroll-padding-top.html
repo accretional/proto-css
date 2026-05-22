@@ -1,108 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>scroll-padding-top</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; gap: 24px; flex-wrap: wrap; }
-    .demo-card { flex: 1; min-width: 200px; }
-    .scroll-wrapper { position: relative; border-radius: 10px; overflow: hidden; }
-    .scroll-container {
-      width: 100%;
-      height: 250px;
-      overflow-y: auto;
-      border: 2px solid #333;
-      border-radius: 10px;
-      background: #16213e;
-      scroll-snap-type: y mandatory;
-    }
-    .snap-item {
-      height: 125px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      font-weight: 700;
-      scroll-snap-align: start;
-      border-bottom: 1px solid #2a2a4a;
-    }
-    .snap-item:nth-child(odd) { background: linear-gradient(135deg, #a855f7, #7c3aed); }
-    .snap-item:nth-child(even) { background: #22224a; color: #c4b5fd; }
-    .pad-top {
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      background: rgba(168, 85, 247, 0.15);
-      border-bottom: 2px dashed #a855f7;
-      pointer-events: none;
-      z-index: 2;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; margin-bottom: 8px; }
-    .note { font-size: 10px; color: #6b7280; margin-top: 4px; }
-  </style>
+<meta charset="UTF-8">
+<title>scroll-padding-top</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .snap-item { height: 125px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; scroll-snap-align: start; border-bottom: 1px solid #2a2a4a; }
+.snap-item:nth-child(odd) { background: linear-gradient(135deg, #a855f7, #7c3aed); }
+.snap-item:nth-child(even) { background: #22224a; color: #c4b5fd; }
+</style>
 </head>
 <body>
-  <h1>Scroll Padding Top</h1>
-  <p class="prop-name">scroll-padding-top</p>
-  <div class="demos">
-    <div class="demo-card">
-      <p class="label">scroll-padding-top: 20.11e34vmax</p>
-      <div class="scroll-wrapper">
-        <div class="scroll-container" style="scroll-padding-top: 20.11e34vmax;">
-          <div class="snap-item">1</div>
-          <div class="snap-item">2</div>
-          <div class="snap-item">3</div>
-          <div class="snap-item">4</div>
-          <div class="snap-item">5</div>
-        </div>
-      </div>
-      <p class="note">No top padding</p>
+<h1>Scroll Padding Top</h1>
+<p class="prop-name">scroll-padding-top</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 250px; overflow-y: auto; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: y mandatory; scroll-padding-top: auto;"><div class="snap-item">1</div><div class="snap-item">2</div><div class="snap-item">3</div><div class="snap-item">4</div><div class="snap-item">5</div></div>
     </div>
-    <div class="demo-card">
-      <p class="label">scroll-padding-top: auto ! important</p>
-      <div class="scroll-wrapper">
-        <div class="pad-top" style="height:20px;"></div>
-        <div class="scroll-container" style="scroll-padding-top: auto ! important;">
-          <div class="snap-item">1</div>
-          <div class="snap-item">2</div>
-          <div class="snap-item">3</div>
-          <div class="snap-item">4</div>
-          <div class="snap-item">5</div>
-        </div>
-      </div>
-      <p class="note">20px top offset</p>
-    </div>
-    <div class="demo-card">
-      <p class="label">scroll-padding-top: anchor-size(self-inline,) ! important</p>
-      <div class="scroll-wrapper">
-        <div class="pad-top" style="height:50px;"></div>
-        <div class="scroll-container" style="scroll-padding-top: anchor-size(self-inline,) ! important;">
-          <div class="snap-item">1</div>
-          <div class="snap-item">2</div>
-          <div class="snap-item">3</div>
-          <div class="snap-item">4</div>
-          <div class="snap-item">5</div>
-        </div>
-      </div>
-      <p class="note">50px top offset</p>
-    </div>
-    <div class="demo-card">
-      <p class="label">scroll-padding-top: round(line-width, anchor(52.28%) / 59%)</p>
-      <div class="scroll-wrapper">
-        <div class="pad-top" style="height:100px;"></div>
-        <div class="scroll-container" style="scroll-padding-top: round(line-width, anchor(52.28%) / 59%);">
-          <div class="snap-item">1</div>
-          <div class="snap-item">2</div>
-          <div class="snap-item">3</div>
-          <div class="snap-item">4</div>
-          <div class="snap-item">5</div>
-        </div>
-      </div>
-      <p class="note">100px top offset</p>
-    </div>
+    <div class="label">scroll-padding-top: auto</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 250px; overflow-y: auto; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: y mandatory; scroll-padding-top: 0;"><div class="snap-item">1</div><div class="snap-item">2</div><div class="snap-item">3</div><div class="snap-item">4</div><div class="snap-item">5</div></div>
+    </div>
+    <div class="label">scroll-padding-top: 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 250px; overflow-y: auto; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: y mandatory; scroll-padding-top: 10px;"><div class="snap-item">1</div><div class="snap-item">2</div><div class="snap-item">3</div><div class="snap-item">4</div><div class="snap-item">5</div></div>
+    </div>
+    <div class="label">scroll-padding-top: 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 250px; overflow-y: auto; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: y mandatory; scroll-padding-top: 25%;"><div class="snap-item">1</div><div class="snap-item">2</div><div class="snap-item">3</div><div class="snap-item">4</div><div class="snap-item">5</div></div>
+    </div>
+    <div class="label">scroll-padding-top: 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 250px; overflow-y: auto; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: y mandatory; scroll-padding-top: 50%;"><div class="snap-item">1</div><div class="snap-item">2</div><div class="snap-item">3</div><div class="snap-item">4</div><div class="snap-item">5</div></div>
+    </div>
+    <div class="label">scroll-padding-top: 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 250px; overflow-y: auto; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: y mandatory; scroll-padding-top: 100%;"><div class="snap-item">1</div><div class="snap-item">2</div><div class="snap-item">3</div><div class="snap-item">4</div><div class="snap-item">5</div></div>
+    </div>
+    <div class="label">scroll-padding-top: 100%</div>
+  </div>
+</div>
 </body>
 </html>

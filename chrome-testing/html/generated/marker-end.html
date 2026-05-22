@@ -1,97 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>marker-end</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
-    .demo-card { background: #16213e; border-radius: 10px; padding: 20px; width: 380px; }
-    .demo-card h3 { font-size: 13px; color: #e2e8f0; margin-bottom: 12px; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
-  </style>
+<meta charset="UTF-8">
+<title>marker-end</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  svg { display: block; margin: 0 auto; }
+</style>
 </head>
 <body>
-  <h1>Marker End</h1>
-  <p class="prop-name">marker-end</p>
-  <div class="demos">
-
-    <div class="demo-card">
-      <h3>Arrow End</h3>
-      <svg width="340" height="80" viewBox="0 0 340 80">
-        <defs>
-          <marker id="arrowEnd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
-            <path d="M 0 0 L 10 5 L 0 10 z" fill="#e94560"/>
-          </marker>
-        </defs>
-        <path d="M 20,40 C 80,10 160,70 320,40" fill="none" stroke="#e94560" stroke-width="2.5" marker-end="url(#arrowEnd)"/>
+<h1>Marker End</h1>
+<p class="prop-name">marker-end</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
+      <svg width="340" height="80" viewBox="0 0 340 80"><defs><marker id="arrowEnd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#e94560"/></marker></defs>
+      <path style="fill: none; stroke: #e94560; stroke-width: 2.5; marker-end: none;"></path>
       </svg>
-      <p class="label">marker-end: url('俢') ! important</p>
     </div>
-
-    <div class="demo-card">
-      <h3>Circle End</h3>
-      <svg width="340" height="80" viewBox="0 0 340 80">
-        <defs>
-          <marker id="circleEnd" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8">
-            <circle cx="5" cy="5" r="4" fill="#00d2ff" stroke="#0a1628" stroke-width="1"/>
-          </marker>
-        </defs>
-        <path d="M 20,60 Q 120,5 200,50 T 320,30" fill="none" stroke="#00d2ff" stroke-width="2.5" marker-end="url(#circleEnd)"/>
-      </svg>
-      <p class="label">marker-end: revert-rule ! important</p>
-    </div>
-
-    <div class="demo-card">
-      <h3>Square End</h3>
-      <svg width="340" height="80" viewBox="0 0 340 80">
-        <defs>
-          <marker id="squareEnd" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7">
-            <rect x="1" y="1" width="8" height="8" fill="#a855f7" rx="1"/>
-          </marker>
-        </defs>
-        <path d="M 20,40 L 100,20 L 200,60 L 320,35" fill="none" stroke="#a855f7" stroke-width="2.5" marker-end="url(#squareEnd)"/>
-      </svg>
-      <p class="label">marker-end: url('󇍼')</p>
-    </div>
-
-    <div class="demo-card">
-      <h3>Diamond End</h3>
-      <svg width="340" height="80" viewBox="0 0 340 80">
-        <defs>
-          <marker id="diamondEnd" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="9" markerHeight="9">
-            <polygon points="5,0 10,5 5,10 0,5" fill="#f9a825"/>
-          </marker>
-        </defs>
-        <path d="M 20,50 C 100,10 220,70 320,40" fill="none" stroke="#f9a825" stroke-width="2.5" marker-end="url(#diamondEnd)"/>
-      </svg>
-      <p class="label">marker-end: revert-rule</p>
-    </div>
-
-    <div class="demo-card">
-      <h3>Chevron End</h3>
-      <svg width="340" height="80" viewBox="0 0 340 80">
-        <defs>
-          <marker id="chevronEnd" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto">
-            <polyline points="0,0 8,5 0,10" fill="none" stroke="#4ade80" stroke-width="2"/>
-          </marker>
-        </defs>
-        <path d="M 20,30 Q 170,80 320,30" fill="none" stroke="#4ade80" stroke-width="2.5" marker-end="url(#chevronEnd)"/>
-      </svg>
-      <p class="label">marker-end: url("") ! important</p>
-    </div>
-
-    <div class="demo-card">
-      <h3>None</h3>
-      <svg width="340" height="80" viewBox="0 0 340 80">
-        <path d="M 20,40 C 80,10 260,70 320,40" fill="none" stroke="#6b7280" stroke-width="2.5"/>
-      </svg>
-      <p class="label">marker-end: revert-rule</p>
-    </div>
-
+    <div class="label">marker-end: none</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
+      <svg width="340" height="80" viewBox="0 0 340 80"><defs><marker id="arrowEnd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#e94560"/></marker></defs>
+      <path style="fill: none; stroke: #e94560; stroke-width: 2.5; marker-end: url(example.png);"></path>
+      </svg>
+    </div>
+    <div class="label">marker-end: url(example.png)</div>
+  </div>
+</div>
 </body>
 </html>

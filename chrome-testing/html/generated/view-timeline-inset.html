@@ -2,230 +2,326 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>view-timeline-inset</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    background: #1a1a2e;
-    color: #e0e0e0;
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    padding: 40px 50px;
-    min-height: 100vh;
-  }
-  h1 {
-    font-size: 36px;
-    font-weight: 700;
-    margin-bottom: 8px;
-    color: #ffffff;
-  }
-  .subtitle {
-    font-size: 14px;
-    color: #8888aa;
-    margin-bottom: 30px;
-  }
-  .badge {
-    display: inline-block;
-    background: #ff6b3520;
-    color: #ff6b35;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 3px 10px;
-    border-radius: 20px;
-    margin-left: 12px;
-    vertical-align: middle;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-  .demos {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-  .demo-card {
-    background: #16213e;
-    border-radius: 12px;
-    padding: 20px;
-    border: 1px solid #2a2a4a;
-  }
-  .demo-label {
-    font-size: 12px;
-    font-weight: 600;
-    color: #64ffda;
-    font-family: 'SF Mono', 'Fira Code', monospace;
-    margin-bottom: 10px;
-    background: #0d1117;
-    padding: 6px 10px;
-    border-radius: 6px;
-    display: inline-block;
-  }
-  .demo-desc {
-    font-size: 11px;
-    color: #8888aa;
-    margin-bottom: 12px;
-    line-height: 1.5;
-  }
-  .scroll-box {
-    height: 170px;
-    overflow-y: auto;
-    border-radius: 8px;
-    background: #0d1117;
-    position: relative;
-  }
-  .scroll-box::-webkit-scrollbar { width: 4px; }
-  .scroll-box::-webkit-scrollbar-track { background: #0d1117; }
-  .scroll-box::-webkit-scrollbar-thumb { background: #444; border-radius: 2px; }
-  .spacer { height: 50px; }
-  .filler {
-    padding: 10px; margin: 6px 8px; border-radius: 6px;
-    background: #2a2a4a; text-align: center; font-size: 11px; color: #666;
-  }
-  .target {
-    padding: 14px; margin: 6px 8px; border-radius: 8px;
-    text-align: center; font-size: 13px; font-weight: 600; color: #fff;
-    animation: reveal 1s linear both;
-    animation-range: entry 0% entry 100%;
-  }
-  .c1 { background: linear-gradient(135deg, #7b2ff7, #c471f5); }
-  .c2 { background: linear-gradient(135deg, #00b4d8, #0077b6); }
-  .c3 { background: linear-gradient(135deg, #ff6b35, #ff8c61); }
-  .c4 { background: linear-gradient(135deg, #06d6a0, #0ead8a); }
-  .c5 { background: linear-gradient(135deg, #e63946, #f77f8a); }
-  .c6 { background: linear-gradient(135deg, #ffd166, #fcbf49); color: #1a1a2e; }
-  .inset-auto { animation-timeline: view(); }
-  .inset-0 { animation-timeline: view(block 0px); }
-  .inset-20 { animation-timeline: view(block 20px); }
-  .inset-50 { animation-timeline: view(block 50px); }
-  .inset-10p { animation-timeline: view(block 10%); }
-  .inset-asym { animation-timeline: view(block 10px 40px); }
-  @keyframes reveal {
-    from { opacity: 0.1; transform: scale(0.8) translateY(10px); }
-    to { opacity: 1; transform: scale(1) translateY(0); }
-  }
-  .inset-visual {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 30px;
-    margin-bottom: 8px;
-    position: relative;
-  }
-  .inset-bar {
-    width: 100%;
-    height: 4px;
-    background: #2a2a4a;
-    border-radius: 2px;
-    position: relative;
-  }
-  .inset-active {
-    position: absolute;
-    height: 4px;
-    background: #64ffda;
-    border-radius: 2px;
-    top: 0;
-  }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.demo-label { font-size: 12px; font-weight: 600; color: #64ffda; font-family: 'SF Mono', 'Fira Code', monospace; margin-bottom: 10px; background: #0d1117; padding: 6px 10px; border-radius: 6px; display: inline-block; }
+.demo-desc { font-size: 11px; color: #8888aa; margin-bottom: 12px; line-height: 1.5; }
+.scroll-box { height: 170px; overflow-y: auto; border-radius: 8px; background: #0d1117; position: relative; }
+.scroll-box::-webkit-scrollbar { width: 4px; }
+.scroll-box::-webkit-scrollbar-track { background: #0d1117; }
+.scroll-box::-webkit-scrollbar-thumb { background: #444; border-radius: 2px; }
+.spacer { height: 50px; }
+.filler { padding: 10px; margin: 6px 8px; border-radius: 6px; background: #2a2a4a; text-align: center; font-size: 11px; color: #666; }
+.target { padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; animation: reveal 1s linear both; animation-range: entry 0% entry 100%; }
+.c1 { background: linear-gradient(135deg, #7b2ff7, #c471f5); }
+.inset-auto { animation-timeline: view(); }
+.inset-visual { display: flex; align-items: center; justify-content: center; height: 30px; margin-bottom: 8px; position: relative; }
+.inset-bar { width: 100%; height: 4px; background: #2a2a4a; border-radius: 2px; position: relative; }
+.inset-active { position: absolute; height: 4px; background: #64ffda; border-radius: 2px; top: 0; }
+@keyframes reveal { from { opacity: 0.1; transform: scale(0.8) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
 </style>
 </head>
 <body>
-  <h1>view-timeline-inset <span class="badge">Experimental</span></h1>
-  <p class="subtitle">Adjusts the scrollport edges (start/end inset) that determine when an element is considered visible for a view timeline.</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="demo-label">view-timeline-inset: 0 auto, anchor(--_ right) anchor(inside,) ! important</div>
-      <div class="demo-desc">Browser default inset. Typically 0, but may account for scroll padding.</div>
-      <div class="inset-visual">
-        <div class="inset-bar"><div class="inset-active" style="left:0;right:0;"></div></div>
-      </div>
-      <div class="scroll-box">
-        <div class="spacer"></div>
-        <div class="filler">...</div>
-        <div class="target c1 inset-auto">auto</div>
-        <div class="filler">...</div>
-        <div class="target c1 inset-auto">auto</div>
-        <div class="filler">...</div>
-        <div class="spacer"></div>
-      </div>
+<h1>View Timeline Inset</h1>
+<p class="prop-name">view-timeline-inset</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
     </div>
-    <div class="demo-card">
-      <div class="demo-label">view-timeline-inset: auto 0</div>
-      <div class="demo-desc">No inset. Animation triggers at the exact scrollport edge.</div>
-      <div class="inset-visual">
-        <div class="inset-bar"><div class="inset-active" style="left:0;right:0;"></div></div>
-      </div>
-      <div class="scroll-box">
-        <div class="spacer"></div>
-        <div class="filler">...</div>
-        <div class="target c2 inset-0">0px</div>
-        <div class="filler">...</div>
-        <div class="target c2 inset-0">0px</div>
-        <div class="filler">...</div>
-        <div class="spacer"></div>
-      </div>
-    </div>
-    <div class="demo-card">
-      <div class="demo-label">view-timeline-inset: -2svmin var(--__, #dAE), anchor-size(,) ! important</div>
-      <div class="demo-desc">20px inset on both sides. Animation range starts 20px inside the scrollport.</div>
-      <div class="inset-visual">
-        <div class="inset-bar"><div class="inset-active" style="left:12%;right:12%;"></div></div>
-      </div>
-      <div class="scroll-box">
-        <div class="spacer"></div>
-        <div class="filler">...</div>
-        <div class="target c3 inset-20">20px</div>
-        <div class="filler">...</div>
-        <div class="target c3 inset-20">20px</div>
-        <div class="filler">...</div>
-        <div class="spacer"></div>
-      </div>
-    </div>
-    <div class="demo-card">
-      <div class="demo-label">view-timeline-inset: 0 auto, calc-size(any, var(--_, _) / 59%)</div>
-      <div class="demo-desc">50px inset both sides. Much narrower active zone means faster animation.</div>
-      <div class="inset-visual">
-        <div class="inset-bar"><div class="inset-active" style="left:28%;right:28%;"></div></div>
-      </div>
-      <div class="scroll-box">
-        <div class="spacer"></div>
-        <div class="filler">...</div>
-        <div class="target c4 inset-50">50px</div>
-        <div class="filler">...</div>
-        <div class="target c4 inset-50">50px</div>
-        <div class="filler">...</div>
-        <div class="spacer"></div>
-      </div>
-    </div>
-    <div class="demo-card">
-      <div class="demo-label">view-timeline-inset: auto</div>
-      <div class="demo-desc">Percentage-based inset. 10% of the scrollport height on each side.</div>
-      <div class="inset-visual">
-        <div class="inset-bar"><div class="inset-active" style="left:10%;right:10%;"></div></div>
-      </div>
-      <div class="scroll-box">
-        <div class="spacer"></div>
-        <div class="filler">...</div>
-        <div class="target c5 inset-10p">10%</div>
-        <div class="filler">...</div>
-        <div class="target c5 inset-10p">10%</div>
-        <div class="filler">...</div>
-        <div class="spacer"></div>
-      </div>
-    </div>
-    <div class="demo-card">
-      <div class="demo-label">view-timeline-inset: env(_񆨐, 0), 0 anchor-size(block,) ! important</div>
-      <div class="demo-desc">Asymmetric inset: 10px start, 40px end. Different trigger points for entry and exit.</div>
-      <div class="inset-visual">
-        <div class="inset-bar"><div class="inset-active" style="left:6%;right:24%;"></div></div>
-      </div>
-      <div class="scroll-box">
-        <div class="spacer"></div>
-        <div class="filler">...</div>
-        <div class="target c6 inset-asym">10px 40px</div>
-        <div class="filler">...</div>
-        <div class="target c6 inset-asym">10px 40px</div>
-        <div class="filler">...</div>
-        <div class="spacer"></div>
-      </div>
-    </div>
+    <div class="label">view-timeline-inset: auto</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, auto;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, auto auto;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, auto auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, auto 0;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, auto 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, auto 10px;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, auto 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, auto 25%;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, auto 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, auto 50%;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, auto 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, auto 100%;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, auto 100%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, 0;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, 0 auto;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, 0 auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, 0 0;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, 0 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, 0 10px;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, 0 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, 0 25%;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, 0 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, 0 50%;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, 0 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, 0 100%;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, 0 100%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, 10px;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, 10px auto;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, 10px auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, 10px 0;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, 10px 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, 10px 10px;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, 10px 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, 10px 25%;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, 10px 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, 10px 50%;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, 10px 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, 10px 100%;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, 10px 100%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, 25%;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, 25% auto;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, 25% auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, 25% 0;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, 25% 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, 25% 10px;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, 25% 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, 25% 25%;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, 25% 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, 25% 50%;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, 25% 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, 25% 100%;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, 25% 100%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, 50%;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, 50% auto;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, 50% auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, 50% 0;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, 50% 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, 50% 10px;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, 50% 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, 50% 25%;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, 50% 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, 50% 50%;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, 50% 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <div class="spacer"></div><div class="filler">...</div>
+      <div style="padding: 14px; margin: 6px 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: reveal 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline-inset: auto, 50% 100%;">auto</div>
+      <div class="filler">...</div><div class="target c1 inset-auto">auto</div><div class="filler">...</div><div class="spacer"></div>
+    </div>
+    <div class="label">view-timeline-inset: auto, 50% 100%</div>
+  </div>
+</div>
 </body>
 </html>

@@ -1,59 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>border-block-style</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-box {
-      width: 180px;
-      height: 100px;
-      background: #16213e;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      color: #c0c0c0;
-      border-block-color: #e94560;
-      border-block-width: 4px;
-      border-inline: none;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
-    .demo-item { display: flex; flex-direction: column; align-items: center; }
-  </style>
+<meta charset="UTF-8">
+<title>border-block-style</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Border Block Style</h1>
-  <p class="prop-name">border-block-style</p>
-  <div class="demos">
-    <div class="demo-item">
-      <div class="demo-box" style="border-block-style: hidden ! important ridge ! important;">Content</div>
-      <p class="label">border-block-style: hidden ! important ridge ! important</p>
+<h1>Border Block Style</h1>
+<p class="prop-name">border-block-style</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: none;"></div>
     </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-block-style: none ! important;">Content</div>
-      <p class="label">border-block-style: none ! important</p>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-block-style: inset none;">Content</div>
-      <p class="label">border-block-style: inset none</p>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-block-style: inset solid ! important; border-block-width: 6px;">Content</div>
-      <p class="label">border-block-style: inset solid ! important</p>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-block-style: inset; border-block-width: 6px;">Content</div>
-      <p class="label">border-block-style: inset</p>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-block-style: hidden ! important; border-block-width: 6px;">Content</div>
-      <p class="label">border-block-style: hidden ! important</p>
-    </div>
+    <div class="label">border-block-style: none</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: none none;"></div>
+    </div>
+    <div class="label">border-block-style: none none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: none hidden;"></div>
+    </div>
+    <div class="label">border-block-style: none hidden</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: none dotted;"></div>
+    </div>
+    <div class="label">border-block-style: none dotted</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: none dashed;"></div>
+    </div>
+    <div class="label">border-block-style: none dashed</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: none solid;"></div>
+    </div>
+    <div class="label">border-block-style: none solid</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: none double;"></div>
+    </div>
+    <div class="label">border-block-style: none double</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: none groove;"></div>
+    </div>
+    <div class="label">border-block-style: none groove</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: none ridge;"></div>
+    </div>
+    <div class="label">border-block-style: none ridge</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: none inset;"></div>
+    </div>
+    <div class="label">border-block-style: none inset</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: none outset;"></div>
+    </div>
+    <div class="label">border-block-style: none outset</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: hidden;"></div>
+    </div>
+    <div class="label">border-block-style: hidden</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: hidden none;"></div>
+    </div>
+    <div class="label">border-block-style: hidden none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: hidden hidden;"></div>
+    </div>
+    <div class="label">border-block-style: hidden hidden</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: hidden dotted;"></div>
+    </div>
+    <div class="label">border-block-style: hidden dotted</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: hidden dashed;"></div>
+    </div>
+    <div class="label">border-block-style: hidden dashed</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: hidden solid;"></div>
+    </div>
+    <div class="label">border-block-style: hidden solid</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: hidden double;"></div>
+    </div>
+    <div class="label">border-block-style: hidden double</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: hidden groove;"></div>
+    </div>
+    <div class="label">border-block-style: hidden groove</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: hidden ridge;"></div>
+    </div>
+    <div class="label">border-block-style: hidden ridge</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: hidden inset;"></div>
+    </div>
+    <div class="label">border-block-style: hidden inset</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: hidden outset;"></div>
+    </div>
+    <div class="label">border-block-style: hidden outset</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: dotted;"></div>
+    </div>
+    <div class="label">border-block-style: dotted</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: dotted none;"></div>
+    </div>
+    <div class="label">border-block-style: dotted none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: dotted hidden;"></div>
+    </div>
+    <div class="label">border-block-style: dotted hidden</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: dotted dotted;"></div>
+    </div>
+    <div class="label">border-block-style: dotted dotted</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: dotted dashed;"></div>
+    </div>
+    <div class="label">border-block-style: dotted dashed</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: dotted solid;"></div>
+    </div>
+    <div class="label">border-block-style: dotted solid</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: dotted double;"></div>
+    </div>
+    <div class="label">border-block-style: dotted double</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: dotted groove;"></div>
+    </div>
+    <div class="label">border-block-style: dotted groove</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: dotted ridge;"></div>
+    </div>
+    <div class="label">border-block-style: dotted ridge</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: dotted inset;"></div>
+    </div>
+    <div class="label">border-block-style: dotted inset</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: dotted outset;"></div>
+    </div>
+    <div class="label">border-block-style: dotted outset</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: dashed;"></div>
+    </div>
+    <div class="label">border-block-style: dashed</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: dashed none;"></div>
+    </div>
+    <div class="label">border-block-style: dashed none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 90px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.7); border-block-color: #e94560; border-block-width: 3px; border-inline: none; border-block-style: dashed hidden;"></div>
+    </div>
+    <div class="label">border-block-style: dashed hidden</div>
+  </div>
+</div>
 </body>
 </html>

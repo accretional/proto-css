@@ -1,45 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>text-overflow</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
-    .demo-card { background: #16213e; border-radius: 12px; padding: 24px; min-width: 350px; flex: 1; }
-    .sample { font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
-    .note { font-size: 12px; color: #6b7280; margin-top: 4px; }
-  </style>
+<meta charset="UTF-8">
+<title>text-overflow</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Text Overflow</h1>
-  <p class="prop-name">text-overflow</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="sample" style="text-overflow: "" ellipsis ! important;">
-        This is a long text that will overflow the container and get clipped without any indicator
-      </div>
-      <p class="label">text-overflow: "" ellipsis ! important</p>
-      <p class="note">Text is clipped at the edge</p>
+<h1>Text Overflow</h1>
+<p class="prop-name">text-overflow</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: clip;">This is a long text that will overflow the container and get clipped without any indicator</div>
     </div>
-    <div class="demo-card">
-      <div class="sample" style="text-overflow: clip ! important;">
-        This is a long text that will overflow the container and show an ellipsis at the end
-      </div>
-      <p class="label">text-overflow: clip ! important</p>
-      <p class="note">Shows "..." when text overflows</p>
-    </div>
-    <div class="demo-card">
-      <div class="sample" style="text-overflow: ellipsis clip;">
-        This is a long text that will overflow the container and show a custom string indicator
-      </div>
-      <p class="label">text-overflow: " [...]"</p>
-      <p class="note">Custom string (browser support varies)</p>
-    </div>
+    <div class="label">text-overflow: clip</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: clip clip;">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: clip clip</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: clip ellipsis;">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: clip ellipsis</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: clip &#34;example&#34;;">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: clip &#34;example&#34;</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: clip fade;">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: clip fade</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: clip fade(0);">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: clip fade(0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: clip fade(10px);">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: clip fade(10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: clip fade(25%);">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: clip fade(25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: clip fade(50%);">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: clip fade(50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: clip fade(100%);">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: clip fade(100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: ellipsis;">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: ellipsis</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: ellipsis clip;">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: ellipsis clip</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: ellipsis ellipsis;">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: ellipsis ellipsis</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: ellipsis &#34;example&#34;;">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: ellipsis &#34;example&#34;</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: ellipsis fade;">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: ellipsis fade</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: ellipsis fade(0);">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: ellipsis fade(0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: ellipsis fade(10px);">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: ellipsis fade(10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: ellipsis fade(25%);">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: ellipsis fade(25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: ellipsis fade(50%);">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: ellipsis fade(50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: ellipsis fade(100%);">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: ellipsis fade(100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: &#34;example&#34;;">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: &#34;example&#34;</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: &#34;example&#34; clip;">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: &#34;example&#34; clip</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: &#34;example&#34; ellipsis;">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: &#34;example&#34; ellipsis</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: &#34;example&#34; &#34;example&#34;;">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: &#34;example&#34; &#34;example&#34;</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: &#34;example&#34; fade;">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: &#34;example&#34; fade</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: &#34;example&#34; fade(0);">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: &#34;example&#34; fade(0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: &#34;example&#34; fade(10px);">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: &#34;example&#34; fade(10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: &#34;example&#34; fade(25%);">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: &#34;example&#34; fade(25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: &#34;example&#34; fade(50%);">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: &#34;example&#34; fade(50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: &#34;example&#34; fade(100%);">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: &#34;example&#34; fade(100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: fade;">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: fade</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: fade clip;">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: fade clip</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: fade ellipsis;">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: fade ellipsis</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: fade &#34;example&#34;;">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: fade &#34;example&#34;</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: fade fade;">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: fade fade</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 100%; text-overflow: fade fade(0);">This is a long text that will overflow the container and get clipped without any indicator</div>
+    </div>
+    <div class="label">text-overflow: fade fade(0)</div>
+  </div>
+</div>
 </body>
 </html>

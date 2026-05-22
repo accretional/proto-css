@@ -8,29 +8,21 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; gap: 24px; }
-    .demo-card {
-      background: #16213e; border-radius: 12px; padding: 28px; flex: 1;
-      border: 1px solid #2a2a4a;
+    .demos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .demo-block {
+      background: #16213e;
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; }
-    .tag {
-      display: inline-block; background: #7c3aed33; color: #a78bfa; font-size: 11px;
-      font-family: monospace; padding: 2px 8px; border-radius: 4px; margin-bottom: 14px;
-    }
-    .demo-text {
-      font-size: 28px; color: #fff; line-height: 1.8;
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; }
+    .sample {
+      font-size: 24px;
+      color: #fff;
+      line-height: 1.5;
       font-variant: small-caps;
-    }
-    .note { font-size: 11px; color: #6b7280; margin-top: 8px; font-style: italic; }
-    .compare {
-      display: flex; gap: 12px; align-items: baseline; margin-bottom: 8px;
-    }
-    .compare-label {
-      font-size: 10px; color: #6b7280; font-family: monospace; min-width: 80px;
-    }
-    .highlight {
-      background: #7c3aed22; padding: 8px 12px; border-radius: 6px; margin-bottom: 10px;
     }
   </style>
 </head>
@@ -38,45 +30,13 @@
   <h1>Font Synthesis Small Caps</h1>
   <p class="prop-name">font-synthesis-small-caps</p>
   <div class="demos">
-    <div class="demo-card">
-      <div class="tag">auto</div>
-      <div class="highlight">
-        <div class="demo-text" style="font-synthesis-small-caps: auto;">
-          Small Caps Text
-        </div>
-      </div>
-      <div class="highlight">
-        <div class="demo-text" style="font-synthesis-small-caps: auto;">
-          Typography Design
-        </div>
-      </div>
-      <div class="highlight">
-        <div class="demo-text" style="font-synthesis-small-caps: auto;">
-          OpenType Features
-        </div>
-      </div>
-      <p class="label">font-synthesis-small-caps: auto</p>
-      <p class="note">Browser synthesizes small-caps by scaling down uppercase glyphs</p>
+    <div class="demo-block">
+      <div class="label">font-synthesis-small-caps: auto</div>
+      <div class="sample" style="font-synthesis-small-caps: auto;">The quick brown fox jumps over the lazy dog</div>
     </div>
-    <div class="demo-card">
-      <div class="tag">none</div>
-      <div class="highlight">
-        <div class="demo-text" style="font-synthesis-small-caps: none;">
-          Small Caps Text
-        </div>
-      </div>
-      <div class="highlight">
-        <div class="demo-text" style="font-synthesis-small-caps: none;">
-          Typography Design
-        </div>
-      </div>
-      <div class="highlight">
-        <div class="demo-text" style="font-synthesis-small-caps: none;">
-          OpenType Features
-        </div>
-      </div>
-      <p class="label">font-synthesis-small-caps: none</p>
-      <p class="note">No synthesis — only uses actual small-caps glyphs from the font</p>
+    <div class="demo-block">
+      <div class="label">font-synthesis-small-caps: none</div>
+      <div class="sample" style="font-synthesis-small-caps: none;">The quick brown fox jumps over the lazy dog</div>
     </div>
   </div>
 </body>

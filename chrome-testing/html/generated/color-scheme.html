@@ -1,146 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>color-scheme</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .demo-card {
-      border-radius: 10px;
-      padding: 24px;
-      border: 1px solid #2a2a4a;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 16px; }
-    .scheme-normal { color-scheme: light light ! important S󧘔 only ! important; background: #16213e; }
-    .scheme-light { color-scheme: normal ! important; background: #f0f0f0; }
-    .scheme-dark { color-scheme: light light ! important; background: #16213e; }
-    .scheme-both { color-scheme: normal ! important dark; background: #16213e; }
-    .form-group { margin-bottom: 12px; }
-    .form-group label {
-      display: block;
-      font-size: 12px;
-      margin-bottom: 4px;
-      font-weight: 500;
-    }
-    .form-group input[type="text"],
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 8px 10px;
-      border-radius: 6px;
-      font-size: 13px;
-      font-family: system-ui, sans-serif;
-    }
-    .form-group textarea {
-      height: 48px;
-      resize: none;
-    }
-    .form-group input[type="range"] {
-      width: 100%;
-    }
-    .form-group input[type="checkbox"] {
-      margin-right: 6px;
-    }
-    .checkbox-row {
-      display: flex;
-      align-items: center;
-      font-size: 12px;
-    }
-    .note {
-      font-size: 10px;
-      margin-top: 12px;
-      font-style: italic;
-      opacity: 0.7;
-    }
-    .scheme-light .label { color: #555; }
-    .scheme-light label { color: #333; }
-    .scheme-light .note { color: #666; }
-  </style>
+<meta charset="UTF-8">
+<title>color-scheme</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .form-group { margin-bottom: 12px; }
+.form-group label { display: block; font-size: 12px; margin-bottom: 4px; font-weight: 500; }
+.form-group input[type="text"], .form-group select, .form-group textarea { width: 100%; padding: 8px 10px; border-radius: 6px; font-size: 13px; font-family: system-ui, sans-serif; }
+.form-group input[type="range"] { width: 100%; }
+.form-group input[type="checkbox"] { margin-right: 6px; }
+.checkbox-row { display: flex; align-items: center; font-size: 12px; }
+</style>
 </head>
 <body>
-  <h1>Color Scheme</h1>
-  <p class="prop-name">color-scheme</p>
-  <div class="demos">
-    <div class="demo-card scheme-normal">
-      <div class="label">color-scheme: light light ! important S󧘔 only ! important</div>
-      <div class="form-group">
-        <label>Text Input</label>
-        <input type="text" value="Normal scheme" />
-      </div>
-      <div class="form-group">
-        <label>Select</label>
-        <select><option>Option A</option><option>Option B</option></select>
-      </div>
-      <div class="form-group">
-        <label>Range</label>
-        <input type="range" min="0" max="100" value="60" />
-      </div>
-      <div class="form-group">
-        <div class="checkbox-row"><input type="checkbox" checked /> <label>Checkbox</label></div>
-      </div>
-      <p class="note">No preference, uses browser default styling.</p>
+<h1>Color Scheme</h1>
+<p class="prop-name">color-scheme</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: normal;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
     </div>
-    <div class="demo-card scheme-light">
-      <div class="label">color-scheme: normal ! important</div>
-      <div class="form-group">
-        <label>Text Input</label>
-        <input type="text" value="Light scheme" />
-      </div>
-      <div class="form-group">
-        <label>Select</label>
-        <select><option>Option A</option><option>Option B</option></select>
-      </div>
-      <div class="form-group">
-        <label>Range</label>
-        <input type="range" min="0" max="100" value="60" />
-      </div>
-      <div class="form-group">
-        <div class="checkbox-row"><input type="checkbox" checked /> <label>Checkbox</label></div>
-      </div>
-      <p class="note">Forces light-themed UA form controls.</p>
-    </div>
-    <div class="demo-card scheme-dark">
-      <div class="label">color-scheme: light light ! important</div>
-      <div class="form-group">
-        <label>Text Input</label>
-        <input type="text" value="Dark scheme" />
-      </div>
-      <div class="form-group">
-        <label>Select</label>
-        <select><option>Option A</option><option>Option B</option></select>
-      </div>
-      <div class="form-group">
-        <label>Range</label>
-        <input type="range" min="0" max="100" value="60" />
-      </div>
-      <div class="form-group">
-        <div class="checkbox-row"><input type="checkbox" checked /> <label>Checkbox</label></div>
-      </div>
-      <p class="note">Forces dark-themed UA form controls.</p>
-    </div>
-    <div class="demo-card scheme-both">
-      <div class="label">color-scheme: normal ! important dark</div>
-      <div class="form-group">
-        <label>Text Input</label>
-        <input type="text" value="Light dark scheme" />
-      </div>
-      <div class="form-group">
-        <label>Select</label>
-        <select><option>Option A</option><option>Option B</option></select>
-      </div>
-      <div class="form-group">
-        <label>Range</label>
-        <input type="range" min="0" max="100" value="60" />
-      </div>
-      <div class="form-group">
-        <div class="checkbox-row"><input type="checkbox" checked /> <label>Checkbox</label></div>
-      </div>
-      <p class="note">Supports both; follows user's OS preference.</p>
-    </div>
+    <div class="label">color-scheme: normal</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: light;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: light</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: light only;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: light only</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: light light;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: light light</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: light light only;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: light light only</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: light dark;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: light dark</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: light dark only;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: light dark only</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: light my-custom;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: light my-custom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: light my-custom only;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: light my-custom only</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: dark;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: dark</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: dark only;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: dark only</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: dark light;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: dark light</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: dark light only;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: dark light only</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: dark dark;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: dark dark</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: dark dark only;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: dark dark only</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: dark my-custom;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: dark my-custom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: dark my-custom only;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: dark my-custom only</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: my-custom;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: my-custom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: my-custom only;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: my-custom only</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: my-custom light;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: my-custom light</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: my-custom light only;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: my-custom light only</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: my-custom dark;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: my-custom dark</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: my-custom dark only;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: my-custom dark only</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: my-custom my-custom;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: my-custom my-custom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: only light;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: only light</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: only light light;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: only light light</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: only light dark;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: only light dark</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: only light my-custom;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: only light my-custom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: only dark;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: only dark</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: only dark light;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: only dark light</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: only dark dark;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: only dark dark</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: only dark my-custom;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: only dark my-custom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: only my-custom;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: only my-custom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: only my-custom light;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: only my-custom light</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: only my-custom dark;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: only my-custom dark</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="border-radius: 10px; padding: 24px; border: 1px solid #2a2a4a; color-scheme: only my-custom my-custom;"><div class="form-group"><label>Text Input</label><input type="text" value="Sample text"/></div><div class="form-group"><label>Select</label><select><option>Option A</option><option>Option B</option></select></div><div class="form-group"><label>Range</label><input type="range" min="0" max="100" value="60"/></div><div class="form-group"><div class="checkbox-row"><input type="checkbox" checked/><label>Checkbox</label></div></div></div>
+    </div>
+    <div class="label">color-scheme: only my-custom my-custom</div>
+  </div>
+</div>
 </body>
 </html>

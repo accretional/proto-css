@@ -1,52 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>stroke-dashoffset</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 32px; justify-content: center; }
-    .demo { display: flex; flex-direction: column; align-items: center; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
-    svg circle { fill: none; stroke: #06b6d4; stroke-width: 5; stroke-dasharray: 30 10; }
-    .ghost { stroke: #2a2a4e !important; stroke-dasharray: none !important; stroke-width: 2 !important; }
-  </style>
+<meta charset="UTF-8">
+<title>stroke-dashoffset</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  svg circle { fill: none; stroke: #06b6d4; stroke-width: 5; stroke-dasharray: 30 10; }
+.ghost { stroke: #2a2a4e !important; stroke-dasharray: none !important; stroke-width: 2 !important; }
+</style>
 </head>
 <body>
-  <h1>Stroke Dash Offset</h1>
-  <p class="prop-name">stroke-dashoffset</p>
-  <div class="demos">
-    <div class="demo">
-      <svg width="160" height="160">
-        <circle class="ghost" cx="80" cy="80" r="60"/>
-        <circle cx="80" cy="80" r="60" stroke-dashoffset="0"/>
+<h1>Stroke Dash Offset</h1>
+<p class="prop-name">stroke-dashoffset</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
+      <svg width="160" height="160"><circle class="ghost" cx="80" cy="80" r="60"/>
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 5; stroke-dasharray: 30 10; stroke-dashoffset: 0;"></circle>
       </svg>
-      <div class="label">stroke-dashoffset: +20.11e34</div>
     </div>
-    <div class="demo">
-      <svg width="160" height="160">
-        <circle class="ghost" cx="80" cy="80" r="60"/>
-        <circle cx="80" cy="80" r="60" stroke-dashoffset="10"/>
-      </svg>
-      <div class="label">stroke-dashoffset: var(--_9) ! important</div>
-    </div>
-    <div class="demo">
-      <svg width="160" height="160">
-        <circle class="ghost" cx="80" cy="80" r="60"/>
-        <circle cx="80" cy="80" r="60" stroke-dashoffset="25"/>
-      </svg>
-      <div class="label">stroke-dashoffset: var(--_Y)</div>
-    </div>
-    <div class="demo">
-      <svg width="160" height="160">
-        <circle class="ghost" cx="80" cy="80" r="60"/>
-        <circle cx="80" cy="80" r="60" stroke-dashoffset="50"/>
-      </svg>
-      <div class="label">stroke-dashoffset: +48.55</div>
-    </div>
+    <div class="label">stroke-dashoffset: 0</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
+      <svg width="160" height="160"><circle class="ghost" cx="80" cy="80" r="60"/>
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 5; stroke-dasharray: 30 10; stroke-dashoffset: 10px;"></circle>
+      </svg>
+    </div>
+    <div class="label">stroke-dashoffset: 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
+      <svg width="160" height="160"><circle class="ghost" cx="80" cy="80" r="60"/>
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 5; stroke-dasharray: 30 10; stroke-dashoffset: 25%;"></circle>
+      </svg>
+    </div>
+    <div class="label">stroke-dashoffset: 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
+      <svg width="160" height="160"><circle class="ghost" cx="80" cy="80" r="60"/>
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 5; stroke-dasharray: 30 10; stroke-dashoffset: 50%;"></circle>
+      </svg>
+    </div>
+    <div class="label">stroke-dashoffset: 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
+      <svg width="160" height="160"><circle class="ghost" cx="80" cy="80" r="60"/>
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 5; stroke-dasharray: 30 10; stroke-dashoffset: 100%;"></circle>
+      </svg>
+    </div>
+    <div class="label">stroke-dashoffset: 100%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
+      <svg width="160" height="160"><circle class="ghost" cx="80" cy="80" r="60"/>
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 5; stroke-dasharray: 30 10; stroke-dashoffset: 0.5;"></circle>
+      </svg>
+    </div>
+    <div class="label">stroke-dashoffset: 0.5</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
+      <svg width="160" height="160"><circle class="ghost" cx="80" cy="80" r="60"/>
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 5; stroke-dasharray: 30 10; stroke-dashoffset: 1;"></circle>
+      </svg>
+    </div>
+    <div class="label">stroke-dashoffset: 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
+      <svg width="160" height="160"><circle class="ghost" cx="80" cy="80" r="60"/>
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 5; stroke-dasharray: 30 10; stroke-dashoffset: 2;"></circle>
+      </svg>
+    </div>
+    <div class="label">stroke-dashoffset: 2</div>
+  </div>
+</div>
 </body>
 </html>

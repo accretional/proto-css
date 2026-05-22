@@ -8,12 +8,11 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demos { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .demo-card {
       background: #16213e;
       border-radius: 10px;
       padding: 20px;
-      width: 280px;
     }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 12px; }
     input {
@@ -28,53 +27,32 @@
       font-family: system-ui, sans-serif;
     }
     input:focus { border-color: #e94560; }
-    .note {
-      font-size: 10px;
-      color: #6b7280;
-      margin-top: 8px;
-      font-style: italic;
-    }
-    .c1 input { caret: red bar; }
-    .c2 input { caret: #00ff88 block; }
-    .c3 input { caret: #7b61ff underscore; }
-    .c4 input { caret: #ff9f43 bar; }
-    .c5 input { caret: cyan block; }
-    .c6 input { caret: auto; }
+    .note { font-size: 10px; color: #6b7280; margin-top: 8px; font-style: italic; }
   </style>
 </head>
 <body>
-  <h1>Caret (Shorthand)</h1>
+  <h1>Caret</h1>
   <p class="prop-name">caret</p>
   <div class="demos">
-    <div class="demo-card c1">
+    <div class="demo-card">
+      <div class="label">caret: auto</div>
+      <input type="text" style="caret: auto;" value="Click to see caret" autofocus />
+      <p class="note">Browser default caret</p>
+    </div>
+    <div class="demo-card">
       <div class="label">caret: red bar</div>
-      <input type="text" value="Click to see caret" autofocus />
+      <input type="text" style="caret: red bar;" value="Click to see caret" />
       <p class="note">Red color, bar shape</p>
     </div>
-    <div class="demo-card c2">
-      <div class="label">caret: #00ff88 block</div>
-      <input type="text" value="Click to see caret" />
-      <p class="note">Green color, block shape</p>
+    <div class="demo-card">
+      <div class="label">caret: blue block</div>
+      <input type="text" style="caret: blue block;" value="Click to see caret" />
+      <p class="note">Blue color, block shape</p>
     </div>
-    <div class="demo-card c3">
-      <div class="label">caret: #7b61ff underscore</div>
-      <input type="text" value="Click to see caret" />
-      <p class="note">Purple color, underscore shape</p>
-    </div>
-    <div class="demo-card c4">
-      <div class="label">caret: #ff9f43 bar</div>
-      <input type="text" value="Click to see caret" />
-      <p class="note">Orange color, bar shape</p>
-    </div>
-    <div class="demo-card c5">
-      <div class="label">caret: cyan block</div>
-      <input type="text" value="Click to see caret" />
-      <p class="note">Cyan color, block shape</p>
-    </div>
-    <div class="demo-card c6">
-      <div class="label">caret: auto</div>
-      <input type="text" value="Click to see caret" />
-      <p class="note">Browser default caret</p>
+    <div class="demo-card">
+      <div class="label">caret: green underscore</div>
+      <input type="text" style="caret: green underscore;" value="Click to see caret" />
+      <p class="note">Green color, underscore shape</p>
     </div>
   </div>
 </body>

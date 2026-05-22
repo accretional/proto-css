@@ -1,70 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>border-image-outset</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 60px; justify-content: center; padding-top: 30px; }
-    .demo-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .wrapper {
-      padding: 25px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .box {
-      width: 140px;
-      height: 100px;
-      background: #16213e;
-      border: 10px solid transparent;
-      border-image-source: linear-gradient(45deg, #e94560, #53d8fb);
-      border-image-slice: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      color: #ccc;
-      font-family: monospace;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; }
-  </style>
+<meta charset="UTF-8">
+<title>border-image-outset</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Border Image Outset</h1>
-  <p class="prop-name">border-image-outset</p>
-  <div class="demos">
-    <div class="demo-item">
-      <div class="wrapper">
-        <div class="box" style="border-image-outset: var(--S󧘔, x잖) var(--K, 0) ! important;">0</div>
-      </div>
-      <div class="label">border-image-outset: var(--S󧘔, x잖) var(--K, 0) ! important</div>
+<h1>Border Image Outset</h1>
+<p class="prop-name">border-image-outset</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0;"></div>
     </div>
-    <div class="demo-item">
-      <div class="wrapper">
-        <div class="box" style="border-image-outset: +9.9cm +9.2e55 0 ! important;">5px</div>
-      </div>
-      <div class="label">border-image-outset: +9.9cm +9.2e55 0 ! important</div>
-    </div>
-    <div class="demo-item">
-      <div class="wrapper">
-        <div class="box" style="border-image-outset: var(--坡_) 26 +5.3e1;">10px</div>
-      </div>
-      <div class="label">border-image-outset: var(--坡_) 26 +5.3e1</div>
-    </div>
-    <div class="demo-item">
-      <div class="wrapper">
-        <div class="box" style="border-image-outset: var(--툠J, 31) 2e+9svw;">20px</div>
-      </div>
-      <div class="label">border-image-outset: var(--툠J, 31) 2e+9svw</div>
-    </div>
+    <div class="label">border-image-outset: 0</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 0;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 4px;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 10px;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 20px;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 2em;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 2em</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 50px;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 50px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 0.5;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 0.5</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 1;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 2;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 0 0;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 0 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 0 4px;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 0 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 0 10px;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 0 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 0 20px;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 0 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 0 2em;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 0 2em</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 0 50px;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 0 50px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 0 0.5;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 0 0.5</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 0 1;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 0 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 0 2;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 0 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 4px 0;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 4px 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 4px 4px;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 4px 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 4px 10px;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 4px 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 4px 20px;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 4px 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 4px 2em;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 4px 2em</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 4px 50px;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 4px 50px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 4px 0.5;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 4px 0.5</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 4px 1;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 4px 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 4px 2;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 4px 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 10px 0;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 10px 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="padding: 25px; display: flex; align-items: center; justify-content: center;">
+      <div style="width: 140px; height: 100px; background: #16213e; border: 10px solid transparent; border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #ccc; font-family: monospace; border-image-outset: 0 10px 4px;"></div>
+    </div>
+    <div class="label">border-image-outset: 0 10px 4px</div>
+  </div>
+</div>
 </body>
 </html>

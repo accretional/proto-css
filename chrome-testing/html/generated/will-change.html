@@ -1,77 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>will-change</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-    .demo-card { background: #16213e; border-radius: 10px; padding: 20px; text-align: center; }
-    .demo-card h3 { font-size: 13px; color: #a78bfa; margin-bottom: 14px; font-family: monospace; font-weight: 500; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; }
-    .note { font-size: 10px; color: #6b7280; margin-top: 6px; line-height: 1.4; }
-    .visual-box { width: 120px; height: 120px; border-radius: 10px; margin: 0 auto; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #fff; position: relative; }
-    .hint-badge { position: absolute; top: -8px; right: -8px; background: #e94560; color: #fff; font-size: 9px; padding: 2px 7px; border-radius: 10px; font-family: monospace; }
-    .layer-indicator { position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%); font-size: 8px; color: #64748b; font-family: monospace; background: #0f1a30; padding: 2px 8px; border-radius: 4px; border: 1px solid #2a2a4a; white-space: nowrap; }
-
-    @keyframes subtlePulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(168, 85, 247, 0); }
-      50% { box-shadow: 0 0 15px 3px rgba(168, 85, 247, 0.3); }
-    }
-    .promoted { animation: subtlePulse 2s ease-in-out infinite; }
-  </style>
+<meta charset="UTF-8">
+<title>will-change</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .hint-badge { position: absolute; top: -8px; right: -8px; background: #e94560; color: #fff; font-size: 9px; padding: 2px 7px; border-radius: 10px; font-family: monospace; }
+.layer-indicator { position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%); font-size: 8px; color: #64748b; font-family: monospace; background: #0f1a30; padding: 2px 8px; border-radius: 4px; border: 1px solid #2a2a4a; white-space: nowrap; }
+</style>
 </head>
 <body>
-  <h1>Will Change</h1>
-  <p class="prop-name">will-change</p>
-  <div class="demos">
-
-    <div class="demo-card">
-      <h3>auto</h3>
-      <div class="visual-box" style="background: #2a2a4a; will-change: contents ! important;">
-        No hint
-        <span class="layer-indicator">default layer</span>
-      </div>
-      <p class="note">No optimization hints. Browser applies standard rendering.</p>
-      <p class="label">will-change: contents ! important</p>
+<h1>Will Change</h1>
+<p class="prop-name">will-change</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; text-align: center;">
+      <div style="width: 120px; height: 120px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #533483, #0f3460); position: relative; will-change: auto;">Target</div>
     </div>
-
-    <div class="demo-card">
-      <h3>transform</h3>
-      <div class="visual-box promoted" style="background: linear-gradient(135deg, #533483, #0f3460); will-change: auto ! important; transform: rotate(3deg);">
-        Transform
-        <span class="hint-badge">GPU</span>
-        <span class="layer-indicator">own compositor layer</span>
-      </div>
-      <p class="note">Hints that transform will change. Creates a new stacking context and compositor layer.</p>
-      <p class="label">will-change: auto ! important</p>
-    </div>
-
-    <div class="demo-card">
-      <h3>opacity</h3>
-      <div class="visual-box promoted" style="background: linear-gradient(135deg, #e94560, #c23152); will-change: auto ! important; opacity: 0.85;">
-        Opacity
-        <span class="hint-badge">GPU</span>
-        <span class="layer-indicator">own compositor layer</span>
-      </div>
-      <p class="note">Hints that opacity will animate. Element promoted to its own layer for efficient compositing.</p>
-      <p class="label">will-change: auto ! important</p>
-    </div>
-
-    <div class="demo-card">
-      <h3>scroll-position</h3>
-      <div class="visual-box" style="background: linear-gradient(135deg, #0f3460, #16213e); border: 2px solid #3a5a8c; will-change: auto; overflow: auto;">
-        <div style="font-size: 10px; padding: 8px; line-height: 1.4;">Scroll<br>Position<br>Hint<br>...</div>
-        <span class="hint-badge">GPU</span>
-        <span class="layer-indicator">scroll optimized</span>
-      </div>
-      <p class="note">Hints that scroll position will change. Browser pre-renders content beyond visible area.</p>
-      <p class="label">will-change: auto</p>
-    </div>
-
+    <div class="label">will-change: auto</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; text-align: center;">
+      <div style="width: 120px; height: 120px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #533483, #0f3460); position: relative; will-change: scroll-position;">Target</div>
+    </div>
+    <div class="label">will-change: scroll-position</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; text-align: center;">
+      <div style="width: 120px; height: 120px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #533483, #0f3460); position: relative; will-change: scroll-position, scroll-position;">Target</div>
+    </div>
+    <div class="label">will-change: scroll-position, scroll-position</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; text-align: center;">
+      <div style="width: 120px; height: 120px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #533483, #0f3460); position: relative; will-change: scroll-position, contents;">Target</div>
+    </div>
+    <div class="label">will-change: scroll-position, contents</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; text-align: center;">
+      <div style="width: 120px; height: 120px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #533483, #0f3460); position: relative; will-change: scroll-position, my-custom;">Target</div>
+    </div>
+    <div class="label">will-change: scroll-position, my-custom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; text-align: center;">
+      <div style="width: 120px; height: 120px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #533483, #0f3460); position: relative; will-change: contents;">Target</div>
+    </div>
+    <div class="label">will-change: contents</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; text-align: center;">
+      <div style="width: 120px; height: 120px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #533483, #0f3460); position: relative; will-change: contents, scroll-position;">Target</div>
+    </div>
+    <div class="label">will-change: contents, scroll-position</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; text-align: center;">
+      <div style="width: 120px; height: 120px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #533483, #0f3460); position: relative; will-change: contents, contents;">Target</div>
+    </div>
+    <div class="label">will-change: contents, contents</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; text-align: center;">
+      <div style="width: 120px; height: 120px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #533483, #0f3460); position: relative; will-change: contents, my-custom;">Target</div>
+    </div>
+    <div class="label">will-change: contents, my-custom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; text-align: center;">
+      <div style="width: 120px; height: 120px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #533483, #0f3460); position: relative; will-change: my-custom;">Target</div>
+    </div>
+    <div class="label">will-change: my-custom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; text-align: center;">
+      <div style="width: 120px; height: 120px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #533483, #0f3460); position: relative; will-change: my-custom, scroll-position;">Target</div>
+    </div>
+    <div class="label">will-change: my-custom, scroll-position</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; text-align: center;">
+      <div style="width: 120px; height: 120px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #533483, #0f3460); position: relative; will-change: my-custom, contents;">Target</div>
+    </div>
+    <div class="label">will-change: my-custom, contents</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; text-align: center;">
+      <div style="width: 120px; height: 120px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #533483, #0f3460); position: relative; will-change: my-custom, my-custom;">Target</div>
+    </div>
+    <div class="label">will-change: my-custom, my-custom</div>
+  </div>
+</div>
 </body>
 </html>

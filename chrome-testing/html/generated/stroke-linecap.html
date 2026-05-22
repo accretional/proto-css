@@ -1,55 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>stroke-linecap</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; }
-    .demo { display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 32px 40px; }
-    .label { font-size: 12px; font-family: monospace; color: #9ca3af; margin-top: 16px; }
-    .guide { stroke: #f43f5e; stroke-width: 1; stroke-dasharray: 3 3; }
-  </style>
+<meta charset="UTF-8">
+<title>stroke-linecap</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .guide { stroke: #f43f5e; stroke-width: 1; stroke-dasharray: 3 3; }
+</style>
 </head>
 <body>
-  <h1>Stroke Line Cap</h1>
-  <p class="prop-name">stroke-linecap</p>
-  <div class="demos">
-    <div class="demo">
-      <svg width="240" height="200">
-        <!-- Guides showing actual line endpoints -->
-        <line class="guide" x1="40" y1="30" x2="40" y2="170"/>
-        <line class="guide" x1="200" y1="30" x2="200" y2="170"/>
-        <!-- Lines with butt linecap -->
-        <line x1="40" y1="50" x2="200" y2="50" stroke="#06b6d4" stroke-width="16" stroke-linecap="butt"/>
-        <line x1="40" y1="100" x2="200" y2="100" stroke="#06b6d4" stroke-width="24" stroke-linecap="butt"/>
-        <line x1="40" y1="155" x2="200" y2="155" stroke="#06b6d4" stroke-width="32" stroke-linecap="butt"/>
-      </svg>
-      <div class="label">stroke-linecap: butt ! important</div>
+<h1>Stroke Line Cap</h1>
+<p class="prop-name">stroke-linecap</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 32px 40px;">
+      <svg width="240" height="200"><line class="guide" x1="40" y1="30" x2="40" y2="170"/><line class="guide" x1="200" y1="30" x2="200" y2="170"/>
+      <line style="stroke: #06b6d4; stroke-width: 16; stroke-linecap: butt;"></line>
+      <line x1="40" y1="100" x2="200" y2="100" stroke="#06b6d4" stroke-width="24"/><line x1="40" y1="155" x2="200" y2="155" stroke="#06b6d4" stroke-width="32"/></svg>
     </div>
-    <div class="demo">
-      <svg width="240" height="200">
-        <line class="guide" x1="40" y1="30" x2="40" y2="170"/>
-        <line class="guide" x1="200" y1="30" x2="200" y2="170"/>
-        <line x1="40" y1="50" x2="200" y2="50" stroke="#06b6d4" stroke-width="16" stroke-linecap="round"/>
-        <line x1="40" y1="100" x2="200" y2="100" stroke="#06b6d4" stroke-width="24" stroke-linecap="round"/>
-        <line x1="40" y1="155" x2="200" y2="155" stroke="#06b6d4" stroke-width="32" stroke-linecap="round"/>
-      </svg>
-      <div class="label">stroke-linecap: butt ! important ! important</div>
-    </div>
-    <div class="demo">
-      <svg width="240" height="200">
-        <line class="guide" x1="40" y1="30" x2="40" y2="170"/>
-        <line class="guide" x1="200" y1="30" x2="200" y2="170"/>
-        <line x1="40" y1="50" x2="200" y2="50" stroke="#06b6d4" stroke-width="16" stroke-linecap="square"/>
-        <line x1="40" y1="100" x2="200" y2="100" stroke="#06b6d4" stroke-width="24" stroke-linecap="square"/>
-        <line x1="40" y1="155" x2="200" y2="155" stroke="#06b6d4" stroke-width="32" stroke-linecap="square"/>
-      </svg>
-      <div class="label">stroke-linecap: butt ! important</div>
-    </div>
+    <div class="label">stroke-linecap: butt</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 32px 40px;">
+      <svg width="240" height="200"><line class="guide" x1="40" y1="30" x2="40" y2="170"/><line class="guide" x1="200" y1="30" x2="200" y2="170"/>
+      <line style="stroke: #06b6d4; stroke-width: 16; stroke-linecap: round;"></line>
+      <line x1="40" y1="100" x2="200" y2="100" stroke="#06b6d4" stroke-width="24"/><line x1="40" y1="155" x2="200" y2="155" stroke="#06b6d4" stroke-width="32"/></svg>
+    </div>
+    <div class="label">stroke-linecap: round</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 32px 40px;">
+      <svg width="240" height="200"><line class="guide" x1="40" y1="30" x2="40" y2="170"/><line class="guide" x1="200" y1="30" x2="200" y2="170"/>
+      <line style="stroke: #06b6d4; stroke-width: 16; stroke-linecap: square;"></line>
+      <line x1="40" y1="100" x2="200" y2="100" stroke="#06b6d4" stroke-width="24"/><line x1="40" y1="155" x2="200" y2="155" stroke="#06b6d4" stroke-width="32"/></svg>
+    </div>
+    <div class="label">stroke-linecap: square</div>
+  </div>
+</div>
 </body>
 </html>

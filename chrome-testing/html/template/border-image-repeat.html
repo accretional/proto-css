@@ -8,7 +8,7 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 28px; }
+    .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
     .demo-item {
       display: flex;
       flex-direction: column;
@@ -51,6 +51,10 @@
     <div class="demo-item">
       <div class="box" style="border-image-repeat: space;">space</div>
       <div class="label">border-image-repeat: space</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border-image-repeat: round stretch;">round stretch</div>
+      <div class="label">border-image-repeat: round stretch</div>
     </div>
   </div>
 </body>

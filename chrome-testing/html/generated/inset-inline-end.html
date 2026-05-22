@@ -1,92 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>inset-inline-end</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-direction: column; gap: 16px; }
-    .demo-row {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .container {
-      width: 650px;
-      height: 56px;
-      background: #16213e;
-      border-radius: 8px;
-      position: relative;
-      border: 1px dashed #3a3a5e;
-    }
-    .positioned {
-      position: absolute;
-      top: 8px;
-      bottom: 8px;
-      width: 120px;
-      background: linear-gradient(90deg, rgba(233,69,96,0.8), rgba(15,52,96,0.8));
-      border: 2px solid #e94560;
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-      font-family: monospace;
-      color: #fff;
-    }
-    .end-edge {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      width: 2px;
-      background: #f5c542;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; min-width: 260px; text-align: right; }
-  </style>
+<meta charset="UTF-8">
+<title>inset-inline-end</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .end-edge { position: absolute; top: 0; bottom: 0; right: 0; width: 2px; background: #f5c542; }
+</style>
 </head>
 <body>
-  <h1>Inset Inline End</h1>
-  <p class="prop-name">inset-inline-end</p>
-  <div class="demos">
-    <div class="demo-row">
-      <p class="label">inset-inline-end: 20.11e34vmax</p>
-      <div class="container">
-        <div class="end-edge"></div>
-        <div class="positioned" style="inset-inline-end: 20.11e34vmax;">end: 0</div>
-      </div>
+<h1>Inset Inline End</h1>
+<p class="prop-name">inset-inline-end</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="width: 650px; height: 56px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
+      <div class="end-edge"></div>
+      <div style="position: absolute; top: 8px; bottom: 8px; width: 120px; background: linear-gradient(90deg, rgba(233,69,96,0.8), rgba(15,52,96,0.8)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-inline-end: auto;"></div>
     </div>
-    <div class="demo-row">
-      <p class="label">inset-inline-end: auto ! important</p>
-      <div class="container">
-        <div class="end-edge"></div>
-        <div class="positioned" style="inset-inline-end: auto ! important;">end: 10px</div>
-      </div>
-    </div>
-    <div class="demo-row">
-      <p class="label">inset-inline-end: anchor-size(self-inline,) ! important</p>
-      <div class="container">
-        <div class="end-edge"></div>
-        <div class="positioned" style="inset-inline-end: anchor-size(self-inline,) ! important;">end: 40px</div>
-      </div>
-    </div>
-    <div class="demo-row">
-      <p class="label">inset-inline-end: round(line-width, anchor(52.28%) / 59%)</p>
-      <div class="container">
-        <div class="end-edge"></div>
-        <div class="positioned" style="inset-inline-end: round(line-width, anchor(52.28%) / 59%);">end: 100px</div>
-      </div>
-    </div>
-    <div class="demo-row">
-      <p class="label">inset-inline-end: auto</p>
-      <div class="container">
-        <div class="end-edge"></div>
-        <div class="positioned" style="inset-inline-end: auto;">end: 50%</div>
-      </div>
-    </div>
+    <div class="label">inset-inline-end: auto</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 650px; height: 56px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
+      <div class="end-edge"></div>
+      <div style="position: absolute; top: 8px; bottom: 8px; width: 120px; background: linear-gradient(90deg, rgba(233,69,96,0.8), rgba(15,52,96,0.8)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-inline-end: 0;"></div>
+    </div>
+    <div class="label">inset-inline-end: 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 650px; height: 56px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
+      <div class="end-edge"></div>
+      <div style="position: absolute; top: 8px; bottom: 8px; width: 120px; background: linear-gradient(90deg, rgba(233,69,96,0.8), rgba(15,52,96,0.8)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-inline-end: 10px;"></div>
+    </div>
+    <div class="label">inset-inline-end: 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 650px; height: 56px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
+      <div class="end-edge"></div>
+      <div style="position: absolute; top: 8px; bottom: 8px; width: 120px; background: linear-gradient(90deg, rgba(233,69,96,0.8), rgba(15,52,96,0.8)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-inline-end: 25%;"></div>
+    </div>
+    <div class="label">inset-inline-end: 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 650px; height: 56px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
+      <div class="end-edge"></div>
+      <div style="position: absolute; top: 8px; bottom: 8px; width: 120px; background: linear-gradient(90deg, rgba(233,69,96,0.8), rgba(15,52,96,0.8)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-inline-end: 50%;"></div>
+    </div>
+    <div class="label">inset-inline-end: 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 650px; height: 56px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
+      <div class="end-edge"></div>
+      <div style="position: absolute; top: 8px; bottom: 8px; width: 120px; background: linear-gradient(90deg, rgba(233,69,96,0.8), rgba(15,52,96,0.8)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-inline-end: 100%;"></div>
+    </div>
+    <div class="label">inset-inline-end: 100%</div>
+  </div>
+</div>
 </body>
 </html>

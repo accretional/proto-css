@@ -8,7 +8,7 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
     .demo-item {
       display: flex;
       flex-direction: column;
@@ -18,7 +18,7 @@
       width: 120px;
       height: 70px;
       background: #16213e;
-      border-bottom: 4px solid #e94560;
+      border-bottom: 3px solid #e94560;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -38,16 +38,20 @@
       <div class="label">border-bottom-style: none</div>
     </div>
     <div class="demo-item">
-      <div class="box" style="border-bottom-style: solid;">solid</div>
-      <div class="label">border-bottom-style: solid</div>
+      <div class="box" style="border-bottom-style: hidden;">hidden</div>
+      <div class="label">border-bottom-style: hidden</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border-bottom-style: dotted;">dotted</div>
+      <div class="label">border-bottom-style: dotted</div>
     </div>
     <div class="demo-item">
       <div class="box" style="border-bottom-style: dashed;">dashed</div>
       <div class="label">border-bottom-style: dashed</div>
     </div>
     <div class="demo-item">
-      <div class="box" style="border-bottom-style: dotted;">dotted</div>
-      <div class="label">border-bottom-style: dotted</div>
+      <div class="box" style="border-bottom-style: solid;">solid</div>
+      <div class="label">border-bottom-style: solid</div>
     </div>
     <div class="demo-item">
       <div class="box" style="border-bottom-style: double; border-bottom-width: 6px;">double</div>

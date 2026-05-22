@@ -8,39 +8,28 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
-    .demo-card { background: #16213e; border-radius: 10px; padding: 20px; width: 280px; }
-    .demo-card h3 { font-size: 13px; color: #e2e8f0; margin-bottom: 12px; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; line-height: 1.5; }
+    .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .demo-card { background: #16213e; border-radius: 10px; padding: 20px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; line-height: 1.5; }
     .box {
-      width: 240px;
+      width: 100%;
       height: 120px;
       border-radius: 8px;
       background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff, #f9a825);
       background-size: 100% 100%;
     }
-    .mask-1 {
-      -webkit-mask: linear-gradient(to right, black, transparent);
-      mask: linear-gradient(to right, black, transparent);
-    }
-    .mask-2 {
-      -webkit-mask: linear-gradient(to bottom, black, transparent);
-      mask: linear-gradient(to bottom, black, transparent);
-    }
-    .mask-3 {
-      -webkit-mask: radial-gradient(circle at center, black 30%, transparent 70%);
-      mask: radial-gradient(circle at center, black 30%, transparent 70%);
-    }
-    .mask-4 {
-      -webkit-mask: linear-gradient(135deg, black 40%, transparent 60%);
-      mask: linear-gradient(135deg, black 40%, transparent 60%);
-    }
-    .mask-5 {
-      -webkit-mask: radial-gradient(ellipse at top left, black 20%, transparent 70%);
-      mask: radial-gradient(ellipse at top left, black 20%, transparent 70%);
-    }
-    .mask-6 {
+    .mask-none {
       /* no mask */
+    }
+    .mask-url {
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='black'/%3E%3C/svg%3E");
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='black'/%3E%3C/svg%3E");
+      -webkit-mask-size: cover;
+      mask-size: cover;
+    }
+    .mask-gradient {
+      -webkit-mask: linear-gradient(black, transparent);
+      mask: linear-gradient(black, transparent);
     }
   </style>
 </head>
@@ -50,39 +39,18 @@
   <div class="demos">
 
     <div class="demo-card">
-      <h3>Fade Right</h3>
-      <div class="box mask-1"></div>
-      <p class="label">mask: linear-gradient(<br>&nbsp;&nbsp;to right, black, transparent)</p>
+      <div class="box mask-none"></div>
+      <div class="label">mask: none</div>
     </div>
 
     <div class="demo-card">
-      <h3>Fade Down</h3>
-      <div class="box mask-2"></div>
-      <p class="label">mask: linear-gradient(<br>&nbsp;&nbsp;to bottom, black, transparent)</p>
+      <div class="box mask-url"></div>
+      <div class="label">mask: url(mask.svg)</div>
     </div>
 
     <div class="demo-card">
-      <h3>Radial Center</h3>
-      <div class="box mask-3"></div>
-      <p class="label">mask: radial-gradient(<br>&nbsp;&nbsp;circle, black 30%, transparent 70%)</p>
-    </div>
-
-    <div class="demo-card">
-      <h3>Diagonal Fade</h3>
-      <div class="box mask-4"></div>
-      <p class="label">mask: linear-gradient(<br>&nbsp;&nbsp;135deg, black 40%, transparent 60%)</p>
-    </div>
-
-    <div class="demo-card">
-      <h3>Corner Spotlight</h3>
-      <div class="box mask-5"></div>
-      <p class="label">mask: radial-gradient(ellipse at<br>&nbsp;&nbsp;top left, black 20%, transparent 70%)</p>
-    </div>
-
-    <div class="demo-card">
-      <h3>No Mask</h3>
-      <div class="box mask-6"></div>
-      <p class="label">mask: none</p>
+      <div class="box mask-gradient"></div>
+      <div class="label">mask: linear-gradient(<br>black, transparent)</div>
     </div>
 
   </div>

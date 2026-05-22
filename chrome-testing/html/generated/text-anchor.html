@@ -1,49 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>text-anchor</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
-    .demo-card { background: #16213e; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; align-items: center; min-width: 360px; flex: 1; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; text-align: center; }
-  </style>
+<meta charset="UTF-8">
+<title>text-anchor</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Text Anchor</h1>
-  <p class="prop-name">text-anchor</p>
-  <div class="demos">
-    <div class="demo-card">
-      <svg width="340" height="120" viewBox="0 0 340 120">
-        <line x1="170" y1="10" x2="170" y2="110" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,4" />
-        <circle cx="170" cy="40" r="4" fill="#ef4444" />
-        <text x="170" y="45" text-anchor="start" fill="#e0e0e0" font-size="18" font-family="system-ui, sans-serif">Hello World</text>
-        <text x="15" y="45" fill="#9ca3af" font-size="11" font-family="monospace">start</text>
+<h1>Text Anchor</h1>
+<p class="prop-name">text-anchor</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; align-items: center; min-width: 360px; flex: 1;">
+      <svg width="340" height="120" viewBox="0 0 340 120"><line x1="170" y1="10" x2="170" y2="110" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,4"/><circle cx="170" cy="40" r="4" fill="#ef4444"/>
+      <text style="fill: #e0e0e0; font-size: 18; font-family: system-ui, sans-serif; text-anchor: start;">Hello World</text>
       </svg>
-      <p class="label">text-anchor: start ! important</p>
     </div>
-    <div class="demo-card">
-      <svg width="340" height="120" viewBox="0 0 340 120">
-        <line x1="170" y1="10" x2="170" y2="110" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4,4" />
-        <circle cx="170" cy="40" r="4" fill="#3b82f6" />
-        <text x="170" y="45" text-anchor="middle" fill="#e0e0e0" font-size="18" font-family="system-ui, sans-serif">Hello World</text>
-        <text x="15" y="45" fill="#9ca3af" font-size="11" font-family="monospace">middle</text>
-      </svg>
-      <p class="label">text-anchor: start ! important ! important</p>
-    </div>
-    <div class="demo-card">
-      <svg width="340" height="120" viewBox="0 0 340 120">
-        <line x1="170" y1="10" x2="170" y2="110" stroke="#10b981" stroke-width="2" stroke-dasharray="4,4" />
-        <circle cx="170" cy="40" r="4" fill="#10b981" />
-        <text x="170" y="45" text-anchor="end" fill="#e0e0e0" font-size="18" font-family="system-ui, sans-serif">Hello World</text>
-        <text x="15" y="45" fill="#9ca3af" font-size="11" font-family="monospace">end</text>
-      </svg>
-      <p class="label">text-anchor: start ! important</p>
-    </div>
+    <div class="label">text-anchor: start</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; align-items: center; min-width: 360px; flex: 1;">
+      <svg width="340" height="120" viewBox="0 0 340 120"><line x1="170" y1="10" x2="170" y2="110" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,4"/><circle cx="170" cy="40" r="4" fill="#ef4444"/>
+      <text style="fill: #e0e0e0; font-size: 18; font-family: system-ui, sans-serif; text-anchor: middle;">Hello World</text>
+      </svg>
+    </div>
+    <div class="label">text-anchor: middle</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; align-items: center; min-width: 360px; flex: 1;">
+      <svg width="340" height="120" viewBox="0 0 340 120"><line x1="170" y1="10" x2="170" y2="110" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,4"/><circle cx="170" cy="40" r="4" fill="#ef4444"/>
+      <text style="fill: #e0e0e0; font-size: 18; font-family: system-ui, sans-serif; text-anchor: end;">Hello World</text>
+      </svg>
+    </div>
+    <div class="label">text-anchor: end</div>
+  </div>
+</div>
 </body>
 </html>

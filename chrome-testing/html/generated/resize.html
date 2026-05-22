@@ -1,124 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>resize</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .resize-box {
-      width: 160px;
-      height: 120px;
-      background: #16213e;
-      border: 2px solid #e94560;
-      border-radius: 8px;
-      overflow: auto;
-      padding: 12px;
-      font-size: 12px;
-      color: #9ca3af;
-      position: relative;
-    }
-    .resize-box::after {
-      content: '';
-      position: absolute;
-      bottom: 4px;
-      right: 4px;
-      width: 14px;
-      height: 14px;
-      border-right: 3px solid #e2b714;
-      border-bottom: 3px solid #e2b714;
-      opacity: 0.7;
-    }
-    .r-none { resize: block; }
-    .r-none::after { border-color: #555; }
-    .r-both { resize: block ! important ! important; }
-    .r-horizontal { resize: block ! important; }
-    .r-horizontal::after {
-      border-top: none;
-      border-bottom: 3px solid #e2b714;
-      border-right: 3px solid #e2b714;
-    }
-    .r-vertical { resize: vertical ! important; }
-    .r-vertical::after {
-      border-right: 3px solid #e2b714;
-      border-bottom: 3px solid #e2b714;
-    }
-    .r-block { resize: block ! important; }
-    .r-inline { resize: block; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
-    .arrow-indicator {
-      position: absolute;
-      bottom: 8px;
-      right: 8px;
-      font-size: 18px;
-      color: #e2b714;
-      line-height: 1;
-    }
-    .resize-box .direction {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 28px;
-      color: #e2b714;
-      opacity: 0.5;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>resize</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Resize</h1>
-  <p class="prop-name">resize</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="resize-box r-none">
-        <span class="direction" style="color:#555;">&#10005;</span>
-        Cannot be resized by the user
-      </div>
-      <div class="label">resize: block</div>
+<h1>Resize</h1>
+<p class="prop-name">resize</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 120px; background: #16213e; border: 2px solid #e94560; border-radius: 8px; overflow: auto; padding: 12px; font-size: 12px; color: #9ca3af; position: relative; resize: none;">Drag to resize this box</div>
     </div>
-    <div class="demo-card">
-      <div class="resize-box r-both">
-        <span class="direction">&#8690;</span>
-        Drag corner to resize in both directions
-      </div>
-      <div class="label">resize: block ! important ! important</div>
-    </div>
-    <div class="demo-card">
-      <div class="resize-box r-horizontal">
-        <span class="direction">&#8596;</span>
-        Drag to resize horizontally only
-      </div>
-      <div class="label">resize: block ! important</div>
-    </div>
-    <div class="demo-card">
-      <div class="resize-box r-vertical">
-        <span class="direction">&#8597;</span>
-        Drag to resize vertically only
-      </div>
-      <div class="label">resize: vertical ! important</div>
-    </div>
-    <div class="demo-card">
-      <div class="resize-box r-block">
-        <span class="direction">&#8597;</span>
-        Resize in block direction
-      </div>
-      <div class="label">resize: block ! important</div>
-    </div>
-    <div class="demo-card">
-      <div class="resize-box r-inline">
-        <span class="direction">&#8596;</span>
-        Resize in inline direction
-      </div>
-      <div class="label">resize: block</div>
-    </div>
+    <div class="label">resize: none</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 120px; background: #16213e; border: 2px solid #e94560; border-radius: 8px; overflow: auto; padding: 12px; font-size: 12px; color: #9ca3af; position: relative; resize: both;">Drag to resize this box</div>
+    </div>
+    <div class="label">resize: both</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 120px; background: #16213e; border: 2px solid #e94560; border-radius: 8px; overflow: auto; padding: 12px; font-size: 12px; color: #9ca3af; position: relative; resize: horizontal;">Drag to resize this box</div>
+    </div>
+    <div class="label">resize: horizontal</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 120px; background: #16213e; border: 2px solid #e94560; border-radius: 8px; overflow: auto; padding: 12px; font-size: 12px; color: #9ca3af; position: relative; resize: vertical;">Drag to resize this box</div>
+    </div>
+    <div class="label">resize: vertical</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 120px; background: #16213e; border: 2px solid #e94560; border-radius: 8px; overflow: auto; padding: 12px; font-size: 12px; color: #9ca3af; position: relative; resize: block;">Drag to resize this box</div>
+    </div>
+    <div class="label">resize: block</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 160px; height: 120px; background: #16213e; border: 2px solid #e94560; border-radius: 8px; overflow: auto; padding: 12px; font-size: 12px; color: #9ca3af; position: relative; resize: inline;">Drag to resize this box</div>
+    </div>
+    <div class="label">resize: inline</div>
+  </div>
+</div>
 </body>
 </html>

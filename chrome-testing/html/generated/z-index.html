@@ -1,105 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>z-index</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; gap: 32px; flex-wrap: wrap; }
-    .demo-card { background: #16213e; border-radius: 10px; padding: 20px; width: 560px; }
-    .demo-card h3 { font-size: 14px; color: #a78bfa; margin-bottom: 16px; font-family: monospace; font-weight: 500; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; }
-    .stack-area { position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; }
-    .stack-box { position: absolute; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); }
-    .stack-box .z-label { font-size: 11px; font-weight: 400; opacity: 0.8; margin-top: 4px; }
-    .legend { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
-    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; font-family: monospace; color: #9ca3af; }
-    .legend-swatch { width: 14px; height: 14px; border-radius: 3px; }
-  </style>
+<meta charset="UTF-8">
+<title>z-index</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .stack-box { position: absolute; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); }
+.z-label { font-size: 11px; font-weight: 400; opacity: 0.8; margin-top: 4px; }
+</style>
 </head>
 <body>
-  <h1>Z-Index</h1>
-  <p class="prop-name">z-index</p>
-  <div class="demos">
-
-    <div class="demo-card">
-      <h3>Overlapping elements with different z-index values</h3>
-      <div class="stack-area">
-        <!-- z-index: auto ! important
-        <div class="stack-box" style="z-index: var(--蔫); background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">
-          -1
-          <span class="z-label">z-index: var(--蔫)</span>
-        </div>
-        <!-- z-index: 37
-        <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">
-          auto
-          <span class="z-label">z-index: auto</span>
-        </div>
-        <!-- z-index: 3 ! important
-        <div class="stack-box" style="z-index: revert-rule; background: #0f3460; width: 180px; height: 140px; top: 80px; left: 100px;">
-          0
-          <span class="z-label">z-index: revert-rule</span>
-        </div>
-        <!-- z-index: var(--A, --䘎) ! important
-        <div class="stack-box" style="z-index: var(--󑲌-, 񈸃) ! important; background: #533483; width: 180px; height: 140px; top: 110px; left: 140px;">
-          1
-          <span class="z-label">z-index: var(--󑲌-, 񈸃) ! important</span>
-        </div>
-        <!-- z-index: var(--󑲌-, 񈸃) ! important0 -->
-        <div class="stack-box" style="z-index: var(--󑲌-, 񈸃) ! important0; background: #c23152; width: 180px; height: 140px; top: 140px; left: 180px;">
-          10
-          <span class="z-label">z-index: var(--󑲌-, 񈸃) ! important0</span>
-        </div>
-        <!-- z-index: var(--󑲌-, 񈸃) ! important00 -->
-        <div class="stack-box" style="z-index: var(--󑲌-, 񈸃) ! important00; background: #e94560; width: 180px; height: 140px; top: 170px; left: 220px;">
-          100
-          <span class="z-label">z-index: var(--󑲌-, 񈸃) ! important00</span>
-        </div>
-      </div>
-      <div class="legend">
-        <div class="legend-item"><div class="legend-swatch" style="background: #374151;"></div> z-index: var(--蔫) (behind)</div>
-        <div class="legend-item"><div class="legend-swatch" style="background: #6b7280;"></div> z-index: auto</div>
-        <div class="legend-item"><div class="legend-swatch" style="background: #0f3460;"></div> z-index: revert-rule</div>
-        <div class="legend-item"><div class="legend-swatch" style="background: #533483;"></div> z-index: var(--󑲌-, 񈸃) ! important</div>
-        <div class="legend-item"><div class="legend-swatch" style="background: #c23152;"></div> z-index: var(--󑲌-, 񈸃) ! important0</div>
-        <div class="legend-item"><div class="legend-swatch" style="background: #e94560;"></div> z-index: var(--󑲌-, 񈸃) ! important00 (on top)</div>
-      </div>
+<h1>Z-Index</h1>
+<p class="prop-name">z-index</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: auto;">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
     </div>
-
-    <div class="demo-card" style="width: 560px;">
-      <h3>Same elements, stacking order view</h3>
-      <div style="display: flex; align-items: flex-end; gap: 12px; height: 340px; padding: 20px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a;">
-        <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
-          <div style="width: 70px; height: 40px; background: #374151; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-family: monospace; color: #fff;">-1</div>
-          <span style="font-size: 9px; color: #6b7280; font-family: monospace;">back</span>
-        </div>
-        <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
-          <div style="width: 70px; height: 70px; background: #6b7280; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-family: monospace; color: #fff;">auto</div>
-          <span style="font-size: 9px; color: #6b7280; font-family: monospace;"></span>
-        </div>
-        <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
-          <div style="width: 70px; height: 100px; background: #0f3460; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-family: monospace; color: #fff;">0</div>
-          <span style="font-size: 9px; color: #6b7280; font-family: monospace;"></span>
-        </div>
-        <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
-          <div style="width: 70px; height: 150px; background: #533483; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-family: monospace; color: #fff;">1</div>
-          <span style="font-size: 9px; color: #6b7280; font-family: monospace;"></span>
-        </div>
-        <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
-          <div style="width: 70px; height: 220px; background: #c23152; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-family: monospace; color: #fff;">10</div>
-          <span style="font-size: 9px; color: #6b7280; font-family: monospace;"></span>
-        </div>
-        <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
-          <div style="width: 70px; height: 290px; background: #e94560; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-family: monospace; color: #fff;">100</div>
-          <span style="font-size: 9px; color: #6b7280; font-family: monospace;">front</span>
-        </div>
-      </div>
-      <p class="label">Higher z-index = closer to viewer</p>
-    </div>
-
+    <div class="label">z-index: auto</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: 0;">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: 00;">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: 00</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: 01;">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: 01</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: 02;">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: 02</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: 03;">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: 03</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: 04;">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: 04</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: var(--my-var);">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: var(--my-var)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: var(--my-var, my-ident);">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: var(--my-var, my-ident)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: var(--my-var, 0);">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: var(--my-var, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: var(--my-var, 0e0);">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: var(--my-var, 0e0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: var(--my-var, 0%);">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: var(--my-var, 0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: var(--my-var, 0e0%);">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: var(--my-var, 0e0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: 05;">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: 05</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: 06;">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: 06</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: 07;">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: 07</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: 08;">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: 08</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: 09;">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: 09</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: 1;">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: 10;">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: 10</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: 11;">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: 11</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: 12;">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: 12</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: 13;">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: 13</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: 14;">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: 14</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: var(--my-var, 0e00);">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: var(--my-var, 0e00)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: var(--my-var, 0e01);">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: var(--my-var, 0e01)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: var(--my-var, 0cap);">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: var(--my-var, 0cap)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: var(--my-var, 0s);">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: var(--my-var, 0s)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: var(--my-var, 0ms);">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: var(--my-var, 0ms)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: var(--my-var, 0deg);">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: var(--my-var, 0deg)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: var(--my-var, &#34;example&#34;);">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: var(--my-var, &#34;example&#34;)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: var(--my-var, #00000000);">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: var(--my-var, #00000000)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="position: relative; height: 340px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; overflow: hidden; width: 560px;">
+      <div class="stack-box" style="z-index: -1; background: #374151; width: 180px; height: 140px; top: 20px; left: 20px;">-1<span class="z-label">z-index: -1</span></div>
+      <div class="stack-box" style="z-index: auto; background: #6b7280; width: 180px; height: 140px; top: 50px; left: 60px;">auto<span class="z-label">z-index: auto</span></div>
+      <div style="position: absolute; width: 180px; height: 140px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 18px; color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.15); background: #e94560; top: 80px; left: 100px; z-index: var(--my-var, #00000001);">z</div>
+      <div class="stack-box" style="z-index: 100; background: #533483; width: 180px; height: 140px; top: 170px; left: 220px;">100<span class="z-label">z-index: 100</span></div>
+    </div>
+    <div class="label">z-index: var(--my-var, #00000001)</div>
+  </div>
+</div>
 </body>
 </html>

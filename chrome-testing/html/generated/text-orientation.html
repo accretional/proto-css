@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>text-orientation</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 28px; }
-    .demo-card { background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1; display: flex; flex-direction: column; align-items: center; }
-    .vertical-text { writing-mode: vertical-rl; font-size: 22px; line-height: 1.8; height: 440px; padding: 16px 20px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; text-align: center; }
-  </style>
+<meta charset="UTF-8">
+<title>text-orientation</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Text Orientation</h1>
-  <p class="prop-name">text-orientation</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="vertical-text" style="text-orientation: mixed ! important;">
-        Hello世界ABC漢字xyz
-      </div>
-      <p class="label">text-orientation: mixed ! important</p>
+<h1>Text Orientation</h1>
+<p class="prop-name">text-orientation</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="writing-mode: vertical-rl; font-size: 22px; line-height: 1.8; height: 440px; padding: 16px 20px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-orientation: mixed;">Hello世界ABC漢字xyz</div>
     </div>
-    <div class="demo-card">
-      <div class="vertical-text" style="text-orientation: mixed ! important ! important;">
-        Hello世界ABC漢字xyz
-      </div>
-      <p class="label">text-orientation: mixed ! important ! important</p>
-    </div>
-    <div class="demo-card">
-      <div class="vertical-text" style="text-orientation: mixed ! important;">
-        Hello世界ABC漢字xyz
-      </div>
-      <p class="label">text-orientation: mixed ! important</p>
-    </div>
+    <div class="label">text-orientation: mixed</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="writing-mode: vertical-rl; font-size: 22px; line-height: 1.8; height: 440px; padding: 16px 20px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-orientation: upright;">Hello世界ABC漢字xyz</div>
+    </div>
+    <div class="label">text-orientation: upright</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="writing-mode: vertical-rl; font-size: 22px; line-height: 1.8; height: 440px; padding: 16px 20px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-orientation: sideways;">Hello世界ABC漢字xyz</div>
+    </div>
+    <div class="label">text-orientation: sideways</div>
+  </div>
+</div>
 </body>
 </html>

@@ -1,49 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>text-decoration-inset</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .badge { display: inline-block; background: #7c3aed33; color: #a78bfa; font-size: 11px; font-family: monospace; padding: 2px 8px; border-radius: 4px; margin-bottom: 20px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-card { background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1; }
-    .sample { font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
-  </style>
+<meta charset="UTF-8">
+<title>text-decoration-inset</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Text Decoration Inset</h1>
-  <p class="prop-name">text-decoration-inset</p>
-  <span class="badge">Experimental Property</span>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="sample" style="text-decoration-inset: 0 0;">
-        Inset decoration example text
-      </div>
-      <p class="label">text-decoration-inset: 0 0</p>
+<h1>Text Decoration Inset</h1>
+<p class="prop-name">text-decoration-inset</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 0;">Inset decoration example text</div>
     </div>
-    <div class="demo-card">
-      <div class="sample" style="text-decoration-inset: 0 0;">
-        Inset decoration example text
-      </div>
-      <p class="label">text-decoration-inset: 0 0</p>
-    </div>
-    <div class="demo-card">
-      <div class="sample" style="text-decoration-inset: auto ! important;">
-        Inset decoration example text
-      </div>
-      <p class="label">text-decoration-inset: auto ! important</p>
-    </div>
-    <div class="demo-card">
-      <div class="sample" style="text-decoration-inset: var(--蔫);">
-        Inset decoration example text
-      </div>
-      <p class="label">text-decoration-inset: var(--蔫)</p>
-    </div>
+    <div class="label">text-decoration-inset: 0</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 0 0;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 0 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 0 4px;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 0 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 0 10px;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 0 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 0 20px;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 0 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 0 2em;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 0 2em</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 0 50px;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 0 50px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 4px;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 4px 0;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 4px 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 4px 4px;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 4px 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 4px 10px;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 4px 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 4px 20px;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 4px 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 4px 2em;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 4px 2em</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 4px 50px;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 4px 50px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 10px;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 10px 0;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 10px 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 10px 4px;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 10px 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 10px 10px;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 10px 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 10px 20px;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 10px 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 10px 2em;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 10px 2em</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 10px 50px;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 10px 50px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 20px;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 20px 0;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 20px 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 20px 4px;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 20px 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 20px 10px;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 20px 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 20px 20px;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 20px 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 20px 2em;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 20px 2em</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 20px 50px;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 20px 50px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 2em;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 2em</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 2em 0;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 2em 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 2em 4px;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 2em 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 2em 10px;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 2em 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 2em 20px;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 2em 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 2em 2em;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 2em 2em</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: 2em 50px;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: 2em 50px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 340px; flex: 1;">
+      <div style="font-size: 26px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-decoration: underline solid #ef4444 3px; text-decoration-inset: auto;">Inset decoration example text</div>
+    </div>
+    <div class="label">text-decoration-inset: auto</div>
+  </div>
+</div>
 </body>
 </html>

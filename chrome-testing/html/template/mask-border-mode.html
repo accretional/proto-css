@@ -8,14 +8,13 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 32px; }
-    .demo-card { background: #16213e; border-radius: 10px; padding: 24px; width: 560px; }
-    .demo-card h3 { font-size: 14px; color: #e2e8f0; margin-bottom: 14px; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; line-height: 1.5; }
-    .side-by-side { display: flex; gap: 24px; align-items: flex-start; }
+    .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .demo-card { background: #16213e; border-radius: 10px; padding: 24px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
+    .side-by-side { display: flex; gap: 20px; align-items: flex-start; }
     .box {
-      width: 240px;
-      height: 150px;
+      width: 200px;
+      height: 130px;
       background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff);
       display: flex;
       align-items: center;
@@ -40,24 +39,22 @@
       color: #e94560;
       margin: 4px 0;
     }
-    /* Luminance mode simulation - brightness of the mask source determines opacity */
     .luminance {
       -webkit-mask: linear-gradient(to right, white, gray, black);
       mask: linear-gradient(to right, white, gray, black);
     }
-    /* Alpha mode simulation - alpha channel of the mask source determines opacity */
     .alpha {
       -webkit-mask: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0.5), rgba(0,0,0,0));
       mask: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0.5), rgba(0,0,0,0));
     }
     .diagram {
-      margin-top: 12px;
+      margin-top: 10px;
       display: flex;
       gap: 0;
-      height: 24px;
+      height: 22px;
       border-radius: 4px;
       overflow: hidden;
-      width: 240px;
+      width: 200px;
     }
     .diagram div {
       flex: 1;
@@ -75,10 +72,9 @@
   <div class="demos">
 
     <div class="demo-card">
-      <h3>luminance</h3>
       <div class="side-by-side">
         <div>
-          <div class="box luminance">Luminance masking</div>
+          <div class="box luminance">Luminance</div>
           <div class="diagram">
             <div style="background: white; color: #000;">1.0</div>
             <div style="background: #aaa; color: #000;">0.6</div>
@@ -88,21 +84,17 @@
           </div>
         </div>
         <div class="explanation">
-          The <span class="key">luminance</span> value of each pixel in the mask image determines the masking level.
-          <br><br>
-          White = fully visible<br>
-          Black = fully hidden<br>
-          Gray = semi-transparent
+          <span class="key">luminance</span> -- brightness of each pixel determines masking.
+          White = visible, black = hidden.
         </div>
       </div>
-      <p class="label">mask-border-mode: luminance</p>
+      <div class="label">mask-border-mode: luminance</div>
     </div>
 
     <div class="demo-card">
-      <h3>alpha</h3>
       <div class="side-by-side">
         <div>
-          <div class="box alpha">Alpha masking</div>
+          <div class="box alpha">Alpha</div>
           <div class="diagram">
             <div style="background: rgba(0,0,0,1); color: #fff;">1.0</div>
             <div style="background: rgba(0,0,0,0.75); color: #fff;">0.75</div>
@@ -112,14 +104,11 @@
           </div>
         </div>
         <div class="explanation">
-          The <span class="key">alpha</span> channel of each pixel in the mask image determines the masking level.
-          <br><br>
-          Alpha 1 = fully visible<br>
-          Alpha 0 = fully hidden<br>
-          Color doesn't matter
+          <span class="key">alpha</span> -- alpha channel of each pixel determines masking.
+          Color is irrelevant.
         </div>
       </div>
-      <p class="label">mask-border-mode: alpha</p>
+      <div class="label">mask-border-mode: alpha</div>
     </div>
 
   </div>

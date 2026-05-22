@@ -8,12 +8,11 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; gap: 32px; justify-content: center; }
+    .demos { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .demo-card {
       background: #16213e;
       border-radius: 10px;
       padding: 28px;
-      width: 460px;
     }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 14px; }
     .description {
@@ -40,8 +39,6 @@
       resize: none;
     }
     input:focus, textarea:focus { border-color: #e94560; }
-    .auto-demo input, .auto-demo textarea { caret-animation: auto; }
-    .smooth-demo input, .smooth-demo textarea { caret-animation: smooth; }
     .note {
       font-size: 10px;
       color: #6b7280;
@@ -54,19 +51,19 @@
   <h1>Caret Animation</h1>
   <p class="prop-name">caret-animation</p>
   <div class="demos">
-    <div class="demo-card auto-demo">
+    <div class="demo-card">
       <div class="label">caret-animation: auto</div>
       <p class="description">The caret blinks with the platform's default animation (typically a hard on/off blink).</p>
-      <input type="text" value="Click here and watch the caret blink" autofocus />
-      <textarea>Type here to observe the default caret blinking behavior on your platform.</textarea>
+      <input type="text" style="caret-animation: auto;" value="Click here and watch the caret blink" autofocus />
+      <textarea style="caret-animation: auto;">Type here to observe the default caret blinking behavior on your platform.</textarea>
       <p class="note">Standard platform blink behavior</p>
     </div>
-    <div class="demo-card smooth-demo">
-      <div class="label">caret-animation: smooth</div>
-      <p class="description">The caret uses a smooth fade animation instead of a hard blink transition.</p>
-      <input type="text" value="Click here and watch the caret blink" />
-      <textarea>Type here to observe the smooth caret fading animation effect.</textarea>
-      <p class="note">Smooth fade-in/fade-out animation</p>
+    <div class="demo-card">
+      <div class="label">caret-animation: manual</div>
+      <p class="description">The caret does not blink automatically; animation is controlled manually or not at all.</p>
+      <input type="text" style="caret-animation: manual;" value="Click here and watch the caret" />
+      <textarea style="caret-animation: manual;">Type here to observe the manual (non-blinking) caret behavior.</textarea>
+      <p class="note">No automatic blinking; caret stays steady</p>
     </div>
   </div>
 </body>

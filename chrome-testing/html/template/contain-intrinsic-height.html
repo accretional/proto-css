@@ -8,9 +8,8 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; gap: 18px; align-items: flex-start; }
+    .demos { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; align-items: start; }
     .demo-card {
-      flex: 1;
       background: #16213e;
       border-radius: 10px;
       padding: 16px 18px;
@@ -31,6 +30,11 @@
       color: #c0c8d4;
       line-height: 1.5;
     }
+    .ruler-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     .ruler {
       position: relative;
       width: 4px;
@@ -45,11 +49,6 @@
       text-align: center;
       margin-top: 4px;
     }
-    .ruler-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
   </style>
 </head>
 <body>
@@ -63,27 +62,17 @@
       </div>
       <div class="ruler-container">
         <div class="ruler" style="height: 4px;"></div>
-        <div class="ruler-label">0px</div>
+        <div class="ruler-label">none (0px)</div>
       </div>
     </div>
     <div class="demo-card">
-      <div class="label">contain-intrinsic-height: 60px</div>
-      <div class="size-box" style="contain-intrinsic-height: 60px;">
-        <div class="inner">Height hint of 60px. Compact placeholder for small content areas.</div>
+      <div class="label">contain-intrinsic-height: 100px</div>
+      <div class="size-box" style="contain-intrinsic-height: 100px;">
+        <div class="inner">Height hint of 100px. A medium placeholder that reduces layout shift.</div>
       </div>
       <div class="ruler-container">
-        <div class="ruler" style="height: 20px;"></div>
-        <div class="ruler-label">60px</div>
-      </div>
-    </div>
-    <div class="demo-card">
-      <div class="label">contain-intrinsic-height: 120px</div>
-      <div class="size-box" style="contain-intrinsic-height: 120px;">
-        <div class="inner">Height hint of 120px. A medium placeholder that reduces layout shift for typical content blocks.</div>
-      </div>
-      <div class="ruler-container">
-        <div class="ruler" style="height: 36px;"></div>
-        <div class="ruler-label">120px</div>
+        <div class="ruler" style="height: 30px;"></div>
+        <div class="ruler-label">100px</div>
       </div>
     </div>
     <div class="demo-card">
@@ -97,13 +86,23 @@
       </div>
     </div>
     <div class="demo-card">
-      <div class="label">contain-intrinsic-height: auto 150px</div>
-      <div class="size-box" style="contain-intrinsic-height: auto 150px;">
-        <div class="inner">Auto with 150px fallback. Remembers last rendered height, uses 150px initially.</div>
+      <div class="label">contain-intrinsic-height: auto 100px</div>
+      <div class="size-box" style="contain-intrinsic-height: auto 100px;">
+        <div class="inner">Auto with 100px fallback. Remembers last rendered height, uses 100px initially.</div>
       </div>
       <div class="ruler-container">
-        <div class="ruler" style="height: 44px;"></div>
-        <div class="ruler-label">auto 150px</div>
+        <div class="ruler" style="height: 30px;"></div>
+        <div class="ruler-label">auto 100px</div>
+      </div>
+    </div>
+    <div class="demo-card">
+      <div class="label">contain-intrinsic-height: auto none</div>
+      <div class="size-box" style="contain-intrinsic-height: auto none;">
+        <div class="inner">Auto with none fallback. Uses last rendered height if available, otherwise collapses to zero.</div>
+      </div>
+      <div class="ruler-container">
+        <div class="ruler" style="height: 4px;"></div>
+        <div class="ruler-label">auto none</div>
       </div>
     </div>
   </div>

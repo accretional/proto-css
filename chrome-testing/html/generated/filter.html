@@ -1,153 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>filter</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .demo-box { background: #16213e; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; align-items: center; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
-    .sample { width: 100%; height: 120px; border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
-    .sample-content { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 100%; }
-    .color-block { width: 40px; height: 80px; border-radius: 6px; }
-    .sample-text { font-size: 16px; font-weight: 700; color: #fff; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
-    .no-filter .sample-content { filter: none ! important; }
-  </style>
+<meta charset="UTF-8">
+<title>filter</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .sample-content { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 100%; }
+.color-block { width: 40px; height: 80px; border-radius: 6px; }
+</style>
 </head>
 <body>
-  <h1>CSS Filters</h1>
-  <p class="prop-name">filter</p>
-  <div class="demos">
-
-    <div class="demo-box no-filter">
-      <div class="sample" style="background: linear-gradient(135deg, #e94560, #533483, #0f3460);">
-        <div class="sample-content">
-          <div class="color-block" style="background: #e94560;"></div>
-          <div class="color-block" style="background: #f0c040;"></div>
-          <div class="color-block" style="background: #40c0f0;"></div>
-          <div class="color-block" style="background: #40f060;"></div>
-        </div>
-      </div>
-      <div class="label">filter: none ! important<br>(original)</div>
+<h1>CSS Filters</h1>
+<p class="prop-name">filter</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; align-items: center;">
+      <div style="width: 100%; height: 120px; border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; background: linear-gradient(135deg, #e94560, #533483, #0f3460); filter: none;"><div class="sample-content"><div class="color-block" style="background: #e94560;"></div><div class="color-block" style="background: #f0c040;"></div><div class="color-block" style="background: #40c0f0;"></div><div class="color-block" style="background: #40f060;"></div></div></div>
     </div>
-
-    <div class="demo-box">
-      <div class="sample" style="background: linear-gradient(135deg, #e94560, #533483, #0f3460); filter: url("ꆉ") url("");">
-        <div class="sample-content">
-          <div class="color-block" style="background: #e94560;"></div>
-          <div class="color-block" style="background: #f0c040;"></div>
-          <div class="color-block" style="background: #40c0f0;"></div>
-          <div class="color-block" style="background: #40f060;"></div>
-        </div>
-      </div>
-      <div class="label">filter: url("ꆉ") url("")</div>
-    </div>
-
-    <div class="demo-box">
-      <div class="sample" style="background: linear-gradient(135deg, #e94560, #533483, #0f3460); filter: url("");">
-        <div class="sample-content">
-          <div class="color-block" style="background: #e94560;"></div>
-          <div class="color-block" style="background: #f0c040;"></div>
-          <div class="color-block" style="background: #40c0f0;"></div>
-          <div class="color-block" style="background: #40f060;"></div>
-        </div>
-      </div>
-      <div class="label">filter: url("")</div>
-    </div>
-
-    <div class="demo-box">
-      <div class="sample" style="background: linear-gradient(135deg, #e94560, #533483, #0f3460); filter: none;">
-        <div class="sample-content">
-          <div class="color-block" style="background: #e94560;"></div>
-          <div class="color-block" style="background: #f0c040;"></div>
-          <div class="color-block" style="background: #40c0f0;"></div>
-          <div class="color-block" style="background: #40f060;"></div>
-        </div>
-      </div>
-      <div class="label">filter: none</div>
-    </div>
-
-    <div class="demo-box">
-      <div class="sample" style="background: linear-gradient(135deg, #e94560, #533483, #0f3460); filter: drop-shadow(var(--_7) var(--ᑂ1) var(--_, 0)) opacity(4.96e13%) ! important;">
-        <div class="sample-content">
-          <div class="color-block" style="background: #e94560;"></div>
-          <div class="color-block" style="background: #f0c040;"></div>
-          <div class="color-block" style="background: #40c0f0;"></div>
-          <div class="color-block" style="background: #40f060;"></div>
-        </div>
-      </div>
-      <div class="label">filter: drop-shadow(var(--_7) var(--ᑂ1) var(--_, 0)) opacity(4.96e13%) ! important</div>
-    </div>
-
-    <div class="demo-box">
-      <div class="sample" style="background: linear-gradient(135deg, #e94560, #533483, #0f3460); filter: revert-rule;">
-        <div class="sample-content">
-          <div class="color-block" style="background: #e94560;"></div>
-          <div class="color-block" style="background: #f0c040;"></div>
-          <div class="color-block" style="background: #40c0f0;"></div>
-          <div class="color-block" style="background: #40f060;"></div>
-        </div>
-      </div>
-      <div class="label">filter: revert-rule</div>
-    </div>
-
-    <div class="demo-box">
-      <div class="sample" style="background: linear-gradient(135deg, #e94560, #533483, #0f3460); filter: grayscale(-64e+7);">
-        <div class="sample-content">
-          <div class="color-block" style="background: #e94560;"></div>
-          <div class="color-block" style="background: #f0c040;"></div>
-          <div class="color-block" style="background: #40c0f0;"></div>
-          <div class="color-block" style="background: #40f060;"></div>
-        </div>
-      </div>
-      <div class="label">filter: grayscale(-64e+7)</div>
-    </div>
-
-    <div class="demo-box">
-      <div class="sample" style="background: linear-gradient(135deg, #e94560, #533483, #0f3460); filter: revert-rule ! important;">
-        <div class="sample-content">
-          <div class="color-block" style="background: #e94560;"></div>
-          <div class="color-block" style="background: #f0c040;"></div>
-          <div class="color-block" style="background: #40c0f0;"></div>
-          <div class="color-block" style="background: #40f060;"></div>
-        </div>
-      </div>
-      <div class="label">filter: revert-rule ! important</div>
-    </div>
-
-    <div class="demo-box">
-      <div class="sample" style="background: linear-gradient(135deg, #e94560, #533483, #0f3460); filter: contrast(var(--񟚫1));">
-        <div class="sample-content">
-          <div class="color-block" style="background: #e94560;"></div>
-          <div class="color-block" style="background: #f0c040;"></div>
-          <div class="color-block" style="background: #40c0f0;"></div>
-          <div class="color-block" style="background: #40f060;"></div>
-        </div>
-      </div>
-      <div class="label">filter: contrast(var(--񟚫1))</div>
-    </div>
-
-    <div class="demo-box" style="grid-column: span 3;">
-      <div class="sample" style="background: transparent; height: 80px;">
-        <div class="sample-content" style="filter: url("c") contrast(var(--󙄆));">
-          <svg width="60" height="60" viewBox="0 0 60 60">
-            <polygon points="30,5 37,22 55,22 40,33 46,50 30,40 14,50 20,33 5,22 23,22" fill="#e94560" />
-          </svg>
-          <svg width="60" height="60" viewBox="0 0 60 60">
-            <circle cx="30" cy="30" r="25" fill="#533483" />
-          </svg>
-          <svg width="60" height="60" viewBox="0 0 60 60">
-            <rect x="5" y="5" width="50" height="50" rx="8" fill="#0f3460" />
-          </svg>
-        </div>
-      </div>
-      <div class="label">filter: url("c") contrast(var(--󙄆))</div>
-    </div>
-
+    <div class="label">filter: none</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; align-items: center;">
+      <div style="width: 100%; height: 120px; border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; background: linear-gradient(135deg, #e94560, #533483, #0f3460); filter: blur(4px);"><div class="sample-content"><div class="color-block" style="background: #e94560;"></div><div class="color-block" style="background: #f0c040;"></div><div class="color-block" style="background: #40c0f0;"></div><div class="color-block" style="background: #40f060;"></div></div></div>
+    </div>
+    <div class="label">filter: blur(4px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; align-items: center;">
+      <div style="width: 100%; height: 120px; border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; background: linear-gradient(135deg, #e94560, #533483, #0f3460); filter: blur(4px) blur(4px);"><div class="sample-content"><div class="color-block" style="background: #e94560;"></div><div class="color-block" style="background: #f0c040;"></div><div class="color-block" style="background: #40c0f0;"></div><div class="color-block" style="background: #40f060;"></div></div></div>
+    </div>
+    <div class="label">filter: blur(4px) blur(4px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; align-items: center;">
+      <div style="width: 100%; height: 120px; border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; background: linear-gradient(135deg, #e94560, #533483, #0f3460); filter: blur(4px) grayscale(50%);"><div class="sample-content"><div class="color-block" style="background: #e94560;"></div><div class="color-block" style="background: #f0c040;"></div><div class="color-block" style="background: #40c0f0;"></div><div class="color-block" style="background: #40f060;"></div></div></div>
+    </div>
+    <div class="label">filter: blur(4px) grayscale(50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; align-items: center;">
+      <div style="width: 100%; height: 120px; border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; background: linear-gradient(135deg, #e94560, #533483, #0f3460); filter: blur(4px) url(example.png);"><div class="sample-content"><div class="color-block" style="background: #e94560;"></div><div class="color-block" style="background: #f0c040;"></div><div class="color-block" style="background: #40c0f0;"></div><div class="color-block" style="background: #40f060;"></div></div></div>
+    </div>
+    <div class="label">filter: blur(4px) url(example.png)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; align-items: center;">
+      <div style="width: 100%; height: 120px; border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; background: linear-gradient(135deg, #e94560, #533483, #0f3460); filter: grayscale(50%);"><div class="sample-content"><div class="color-block" style="background: #e94560;"></div><div class="color-block" style="background: #f0c040;"></div><div class="color-block" style="background: #40c0f0;"></div><div class="color-block" style="background: #40f060;"></div></div></div>
+    </div>
+    <div class="label">filter: grayscale(50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; align-items: center;">
+      <div style="width: 100%; height: 120px; border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; background: linear-gradient(135deg, #e94560, #533483, #0f3460); filter: grayscale(50%) blur(4px);"><div class="sample-content"><div class="color-block" style="background: #e94560;"></div><div class="color-block" style="background: #f0c040;"></div><div class="color-block" style="background: #40c0f0;"></div><div class="color-block" style="background: #40f060;"></div></div></div>
+    </div>
+    <div class="label">filter: grayscale(50%) blur(4px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; align-items: center;">
+      <div style="width: 100%; height: 120px; border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; background: linear-gradient(135deg, #e94560, #533483, #0f3460); filter: grayscale(50%) grayscale(50%);"><div class="sample-content"><div class="color-block" style="background: #e94560;"></div><div class="color-block" style="background: #f0c040;"></div><div class="color-block" style="background: #40c0f0;"></div><div class="color-block" style="background: #40f060;"></div></div></div>
+    </div>
+    <div class="label">filter: grayscale(50%) grayscale(50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; align-items: center;">
+      <div style="width: 100%; height: 120px; border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; background: linear-gradient(135deg, #e94560, #533483, #0f3460); filter: grayscale(50%) url(example.png);"><div class="sample-content"><div class="color-block" style="background: #e94560;"></div><div class="color-block" style="background: #f0c040;"></div><div class="color-block" style="background: #40c0f0;"></div><div class="color-block" style="background: #40f060;"></div></div></div>
+    </div>
+    <div class="label">filter: grayscale(50%) url(example.png)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; align-items: center;">
+      <div style="width: 100%; height: 120px; border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; background: linear-gradient(135deg, #e94560, #533483, #0f3460); filter: url(example.png);"><div class="sample-content"><div class="color-block" style="background: #e94560;"></div><div class="color-block" style="background: #f0c040;"></div><div class="color-block" style="background: #40c0f0;"></div><div class="color-block" style="background: #40f060;"></div></div></div>
+    </div>
+    <div class="label">filter: url(example.png)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; align-items: center;">
+      <div style="width: 100%; height: 120px; border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; background: linear-gradient(135deg, #e94560, #533483, #0f3460); filter: url(example.png) blur(4px);"><div class="sample-content"><div class="color-block" style="background: #e94560;"></div><div class="color-block" style="background: #f0c040;"></div><div class="color-block" style="background: #40c0f0;"></div><div class="color-block" style="background: #40f060;"></div></div></div>
+    </div>
+    <div class="label">filter: url(example.png) blur(4px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; align-items: center;">
+      <div style="width: 100%; height: 120px; border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; background: linear-gradient(135deg, #e94560, #533483, #0f3460); filter: url(example.png) grayscale(50%);"><div class="sample-content"><div class="color-block" style="background: #e94560;"></div><div class="color-block" style="background: #f0c040;"></div><div class="color-block" style="background: #40c0f0;"></div><div class="color-block" style="background: #40f060;"></div></div></div>
+    </div>
+    <div class="label">filter: url(example.png) grayscale(50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; align-items: center;">
+      <div style="width: 100%; height: 120px; border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; background: linear-gradient(135deg, #e94560, #533483, #0f3460); filter: url(example.png) url(example.png);"><div class="sample-content"><div class="color-block" style="background: #e94560;"></div><div class="color-block" style="background: #f0c040;"></div><div class="color-block" style="background: #40c0f0;"></div><div class="color-block" style="background: #40f060;"></div></div></div>
+    </div>
+    <div class="label">filter: url(example.png) url(example.png)</div>
+  </div>
+</div>
 </body>
 </html>

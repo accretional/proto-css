@@ -8,14 +8,14 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-direction: column; gap: 20px; }
+    .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
     .demo-box { display: flex; flex-direction: column; }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
     .container {
       display: -webkit-box;
       -webkit-box-orient: horizontal;
       width: 100%;
-      max-width: 900px;
+      max-width: 500px;
       height: 80px;
       background: #16213e;
       border: 2px solid #333;
@@ -51,7 +51,7 @@
         <div class="child">B</div>
         <div class="child">C</div>
       </div>
-      <span class="label">-webkit-box-pack: start</span>
+      <span class="label">box-pack: start</span>
     </div>
     <div class="demo-box">
       <div class="container p-center">
@@ -59,7 +59,7 @@
         <div class="child">B</div>
         <div class="child">C</div>
       </div>
-      <span class="label">-webkit-box-pack: center</span>
+      <span class="label">box-pack: center</span>
     </div>
     <div class="demo-box">
       <div class="container p-end">
@@ -67,7 +67,7 @@
         <div class="child">B</div>
         <div class="child">C</div>
       </div>
-      <span class="label">-webkit-box-pack: end</span>
+      <span class="label">box-pack: end</span>
     </div>
     <div class="demo-box">
       <div class="container p-justify">
@@ -75,7 +75,7 @@
         <div class="child">B</div>
         <div class="child">C</div>
       </div>
-      <span class="label">-webkit-box-pack: justify</span>
+      <span class="label">box-pack: justify</span>
     </div>
   </div>
 </body>

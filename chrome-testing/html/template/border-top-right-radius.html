@@ -8,9 +8,9 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
     .demo-box { display: flex; flex-direction: column; align-items: center; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; }
     .box {
       width: 120px;
       height: 120px;
@@ -18,11 +18,10 @@
       border: 3px solid #e94560;
     }
     .r0 { border-top-right-radius: 0; }
+    .r4 { border-top-right-radius: 4px; }
     .r10 { border-top-right-radius: 10px; }
-    .r25 { border-top-right-radius: 25px; }
-    .r50 { border-top-right-radius: 50px; }
-    .r75 { border-top-right-radius: 75px; }
-    .r100 { border-top-right-radius: 50%; }
+    .r20 { border-top-right-radius: 20px; }
+    .r50p { border-top-right-radius: 50%; }
   </style>
 </head>
 <body>
@@ -34,23 +33,19 @@
       <span class="label">border-top-right-radius: 0</span>
     </div>
     <div class="demo-box">
+      <div class="box r4"></div>
+      <span class="label">border-top-right-radius: 4px</span>
+    </div>
+    <div class="demo-box">
       <div class="box r10"></div>
       <span class="label">border-top-right-radius: 10px</span>
     </div>
     <div class="demo-box">
-      <div class="box r25"></div>
-      <span class="label">border-top-right-radius: 25px</span>
+      <div class="box r20"></div>
+      <span class="label">border-top-right-radius: 20px</span>
     </div>
     <div class="demo-box">
-      <div class="box r50"></div>
-      <span class="label">border-top-right-radius: 50px</span>
-    </div>
-    <div class="demo-box">
-      <div class="box r75"></div>
-      <span class="label">border-top-right-radius: 75px</span>
-    </div>
-    <div class="demo-box">
-      <div class="box r100"></div>
+      <div class="box r50p"></div>
       <span class="label">border-top-right-radius: 50%</span>
     </div>
   </div>

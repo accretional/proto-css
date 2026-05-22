@@ -1,78 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>box-flex</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-direction: column; gap: 24px; }
-    .demo-box { display: flex; flex-direction: column; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
-    .container {
-      display: -webkit-box;
-      -webkit-box-orient: horizontal;
-      width: 100%;
-      max-width: 900px;
-      height: 80px;
-      background: #16213e;
-      border: 2px solid #333;
-    }
-    .child {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      font-weight: bold;
-      color: #fff;
-      border-right: 2px solid #1a1a2e;
-    }
-    .f0 { -webkit-box-flex: +20.11e34; background: #e94560; min-width: 80px; }
-    .f1 { -webkit-box-flex: +6e+9; background: #0f3460; }
-    .f2 { -webkit-box-flex: var(--_Y); background: #53d769; color: #1a1a2e; }
-    .f3 { -webkit-box-flex: +48.55; background: #c084fc; }
-  </style>
+<meta charset="UTF-8">
+<title>box-flex</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .child { height: 100%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; border-right: 2px solid #1a1a2e; }
+.c1 { background: #e94560; }
+.c2 { background: #0f3460; }
+.c3 { background: #53d769; color: #1a1a2e; }
+</style>
 </head>
 <body>
-  <h1>Box Flex (deprecated)</h1>
-  <p class="prop-name">box-flex / -webkit-box-flex</p>
-  <div class="demos">
-    <div class="demo-box">
-      <div class="container">
-        <div class="child f0">flex: 0</div>
-        <div class="child f1">flex: 1</div>
-        <div class="child f1">flex: 1</div>
-        <div class="child f1">flex: 1</div>
-      </div>
-      <span class="label">Items: box-flex: +20.11e34 | 1 | 1 | 1</span>
+<h1>Box Flex (deprecated)</h1>
+<p class="prop-name">box-flex</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: -webkit-box; -webkit-box-orient: horizontal; width: 100%; max-width: 900px; height: 80px; background: #16213e; border: 2px solid #333; box-flex: 0;"><div class="child c1" style="-webkit-box-flex: 1;">flex: 1</div><div class="child c2" style="-webkit-box-flex: 2;">flex: 2</div><div class="child c3" style="-webkit-box-flex: 1;">flex: 1</div></div>
     </div>
-    <div class="demo-box">
-      <div class="container">
-        <div class="child f1">flex: 1</div>
-        <div class="child f2">flex: 2</div>
-        <div class="child f1">flex: 1</div>
-      </div>
-      <span class="label">Items: box-flex: +6e+9 | 2 | 1</span>
-    </div>
-    <div class="demo-box">
-      <div class="container">
-        <div class="child f1">flex: 1</div>
-        <div class="child f2">flex: 2</div>
-        <div class="child f3">flex: 3</div>
-      </div>
-      <span class="label">Items: box-flex: +6e+9 | 2 | 3</span>
-    </div>
-    <div class="demo-box">
-      <div class="container">
-        <div class="child f0">flex: 0</div>
-        <div class="child f0">flex: 0</div>
-        <div class="child f3">flex: 3</div>
-      </div>
-      <span class="label">Items: box-flex: +20.11e34 | 0 | 3</span>
-    </div>
+    <div class="label">box-flex: 0</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: -webkit-box; -webkit-box-orient: horizontal; width: 100%; max-width: 900px; height: 80px; background: #16213e; border: 2px solid #333; box-flex: 0.5;"><div class="child c1" style="-webkit-box-flex: 1;">flex: 1</div><div class="child c2" style="-webkit-box-flex: 2;">flex: 2</div><div class="child c3" style="-webkit-box-flex: 1;">flex: 1</div></div>
+    </div>
+    <div class="label">box-flex: 0.5</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: -webkit-box; -webkit-box-orient: horizontal; width: 100%; max-width: 900px; height: 80px; background: #16213e; border: 2px solid #333; box-flex: 1;"><div class="child c1" style="-webkit-box-flex: 1;">flex: 1</div><div class="child c2" style="-webkit-box-flex: 2;">flex: 2</div><div class="child c3" style="-webkit-box-flex: 1;">flex: 1</div></div>
+    </div>
+    <div class="label">box-flex: 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: -webkit-box; -webkit-box-orient: horizontal; width: 100%; max-width: 900px; height: 80px; background: #16213e; border: 2px solid #333; box-flex: 2;"><div class="child c1" style="-webkit-box-flex: 1;">flex: 1</div><div class="child c2" style="-webkit-box-flex: 2;">flex: 2</div><div class="child c3" style="-webkit-box-flex: 1;">flex: 1</div></div>
+    </div>
+    <div class="label">box-flex: 2</div>
+  </div>
+</div>
 </body>
 </html>

@@ -1,93 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>ruby-align</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 28px; }
-    .demo-card {
-      background: #16213e;
-      border-radius: 10px;
-      padding: 28px 24px;
-      width: 340px;
-    }
-    .demo-card h3 {
-      font-size: 13px;
-      color: #e2b714;
-      margin-bottom: 16px;
-    }
-    ruby {
-      font-size: 36px;
-      color: #fff;
-      line-height: 1.8;
-    }
-    rt {
-      font-size: 14px;
-      color: #e94560;
-      font-weight: 600;
-    }
-    .ra-space-around ruby { ruby-align: space-around; }
-    .ra-center ruby { ruby-align: center ! important ! important; }
-    .ra-start ruby { ruby-align: center ! important; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 16px; }
-    .desc { font-size: 10px; color: #6b7280; margin-top: 4px; }
-    .ruby-row {
-      display: flex;
-      gap: 4px;
-      margin-bottom: 8px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>ruby-align</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  ruby { font-size: 36px; color: #fff; line-height: 1.8; }
+rt { font-size: 14px; color: #e94560; font-weight: 600; }
+</style>
 </head>
 <body>
-  <h1>Ruby Align</h1>
-  <p class="prop-name">ruby-align</p>
-  <div class="demos">
-    <div class="demo-card ra-space-around">
-      <h3>space-around</h3>
-      <div class="ruby-row">
-        <ruby>東<rt>ひがし</rt></ruby>
-        <ruby>京<rt>きょう</rt></ruby>
-        <ruby>都<rt>と</rt></ruby>
-      </div>
-      <div class="ruby-row">
-        <ruby>漢<rt>かん</rt></ruby>
-        <ruby>字<rt>じ</rt></ruby>
-      </div>
-      <div class="label">ruby-align: space-around</div>
-      <div class="desc">Annotation distributed with space around</div>
+<h1>Ruby Align</h1>
+<p class="prop-name">ruby-align</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 28px 24px; width: 340px;">
+      <div style="font-size: 36px; color: #fff; line-height: 1.8; display: flex; gap: 4px; margin-bottom: 8px; ruby-align: start;"><ruby>東<rt>ひがし</rt></ruby><ruby>京<rt>きょう</rt></ruby><ruby>都<rt>と</rt></ruby></div>
     </div>
-    <div class="demo-card ra-center">
-      <h3>center</h3>
-      <div class="ruby-row">
-        <ruby>東<rt>ひがし</rt></ruby>
-        <ruby>京<rt>きょう</rt></ruby>
-        <ruby>都<rt>と</rt></ruby>
-      </div>
-      <div class="ruby-row">
-        <ruby>漢<rt>かん</rt></ruby>
-        <ruby>字<rt>じ</rt></ruby>
-      </div>
-      <div class="label">ruby-align: center ! important ! important</div>
-      <div class="desc">Annotation centered over base</div>
-    </div>
-    <div class="demo-card ra-start">
-      <h3>start</h3>
-      <div class="ruby-row">
-        <ruby>東<rt>ひがし</rt></ruby>
-        <ruby>京<rt>きょう</rt></ruby>
-        <ruby>都<rt>と</rt></ruby>
-      </div>
-      <div class="ruby-row">
-        <ruby>漢<rt>かん</rt></ruby>
-        <ruby>字<rt>じ</rt></ruby>
-      </div>
-      <div class="label">ruby-align: center ! important</div>
-      <div class="desc">Annotation aligned to start of base</div>
-    </div>
+    <div class="label">ruby-align: start</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 28px 24px; width: 340px;">
+      <div style="font-size: 36px; color: #fff; line-height: 1.8; display: flex; gap: 4px; margin-bottom: 8px; ruby-align: center;"><ruby>東<rt>ひがし</rt></ruby><ruby>京<rt>きょう</rt></ruby><ruby>都<rt>と</rt></ruby></div>
+    </div>
+    <div class="label">ruby-align: center</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 28px 24px; width: 340px;">
+      <div style="font-size: 36px; color: #fff; line-height: 1.8; display: flex; gap: 4px; margin-bottom: 8px; ruby-align: space-between;"><ruby>東<rt>ひがし</rt></ruby><ruby>京<rt>きょう</rt></ruby><ruby>都<rt>と</rt></ruby></div>
+    </div>
+    <div class="label">ruby-align: space-between</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 28px 24px; width: 340px;">
+      <div style="font-size: 36px; color: #fff; line-height: 1.8; display: flex; gap: 4px; margin-bottom: 8px; ruby-align: space-around;"><ruby>東<rt>ひがし</rt></ruby><ruby>京<rt>きょう</rt></ruby><ruby>都<rt>と</rt></ruby></div>
+    </div>
+    <div class="label">ruby-align: space-around</div>
+  </div>
+</div>
 </body>
 </html>

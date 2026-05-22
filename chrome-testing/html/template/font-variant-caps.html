@@ -8,21 +8,20 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-direction: column; gap: 10px; }
-    .demo-row {
-      display: flex; align-items: center; gap: 20px;
-      background: #16213e; border-radius: 10px; padding: 14px 24px;
-      border: 1px solid #2a2a4a;
+    .demos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .demo-block {
+      background: #16213e;
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
-    .label {
-      font-size: 11px; font-family: monospace; color: #9ca3af;
-      min-width: 310px; flex-shrink: 0;
-    }
-    .demo-text { color: #fff; font-size: 24px; }
-    .tag {
-      display: inline-block; background: #7c3aed33; color: #a78bfa; font-size: 10px;
-      font-family: monospace; padding: 2px 6px; border-radius: 4px;
-      min-width: 120px; text-align: center;
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; }
+    .sample {
+      font-size: 24px;
+      color: #fff;
+      line-height: 1.5;
     }
   </style>
 </head>
@@ -30,40 +29,33 @@
   <h1>Font Variant Caps</h1>
   <p class="prop-name">font-variant-caps</p>
   <div class="demos">
-    <div class="demo-row">
-      <span class="tag">normal</span>
-      <p class="label">font-variant-caps: normal</p>
-      <span class="demo-text" style="font-variant-caps: normal;">The Quick Brown Fox Jumps</span>
+    <div class="demo-block">
+      <div class="label">font-variant-caps: normal</div>
+      <div class="sample" style="font-variant-caps: normal;">The quick brown fox jumps over the lazy dog</div>
     </div>
-    <div class="demo-row">
-      <span class="tag">small-caps</span>
-      <p class="label">font-variant-caps: small-caps</p>
-      <span class="demo-text" style="font-variant-caps: small-caps;">The Quick Brown Fox Jumps</span>
+    <div class="demo-block">
+      <div class="label">font-variant-caps: small-caps</div>
+      <div class="sample" style="font-variant-caps: small-caps;">The quick brown fox jumps over the lazy dog</div>
     </div>
-    <div class="demo-row">
-      <span class="tag">all-small-caps</span>
-      <p class="label">font-variant-caps: all-small-caps</p>
-      <span class="demo-text" style="font-variant-caps: all-small-caps;">The Quick Brown Fox Jumps</span>
+    <div class="demo-block">
+      <div class="label">font-variant-caps: all-small-caps</div>
+      <div class="sample" style="font-variant-caps: all-small-caps;">The quick brown fox jumps over the lazy dog</div>
     </div>
-    <div class="demo-row">
-      <span class="tag">petite-caps</span>
-      <p class="label">font-variant-caps: petite-caps</p>
-      <span class="demo-text" style="font-variant-caps: petite-caps;">The Quick Brown Fox Jumps</span>
+    <div class="demo-block">
+      <div class="label">font-variant-caps: petite-caps</div>
+      <div class="sample" style="font-variant-caps: petite-caps;">The quick brown fox jumps over the lazy dog</div>
     </div>
-    <div class="demo-row">
-      <span class="tag">all-petite-caps</span>
-      <p class="label">font-variant-caps: all-petite-caps</p>
-      <span class="demo-text" style="font-variant-caps: all-petite-caps;">The Quick Brown Fox Jumps</span>
+    <div class="demo-block">
+      <div class="label">font-variant-caps: all-petite-caps</div>
+      <div class="sample" style="font-variant-caps: all-petite-caps;">The quick brown fox jumps over the lazy dog</div>
     </div>
-    <div class="demo-row">
-      <span class="tag">unicase</span>
-      <p class="label">font-variant-caps: unicase</p>
-      <span class="demo-text" style="font-variant-caps: unicase;">The Quick Brown Fox Jumps</span>
+    <div class="demo-block">
+      <div class="label">font-variant-caps: unicase</div>
+      <div class="sample" style="font-variant-caps: unicase;">The quick brown fox jumps over the lazy dog</div>
     </div>
-    <div class="demo-row">
-      <span class="tag">titling-caps</span>
-      <p class="label">font-variant-caps: titling-caps</p>
-      <span class="demo-text" style="font-variant-caps: titling-caps;">The Quick Brown Fox Jumps</span>
+    <div class="demo-block">
+      <div class="label">font-variant-caps: titling-caps</div>
+      <div class="sample" style="font-variant-caps: titling-caps;">The quick brown fox jumps over the lazy dog</div>
     </div>
   </div>
 </body>

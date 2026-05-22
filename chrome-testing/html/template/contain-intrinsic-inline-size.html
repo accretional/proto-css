@@ -8,7 +8,7 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-direction: column; gap: 16px; }
+    .demos { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; align-items: start; }
     .demo-card {
       background: #16213e;
       border-radius: 10px;
@@ -61,7 +61,7 @@
     </div>
     <div class="demo-card">
       <div class="label">contain-intrinsic-inline-size: 100px</div>
-      <div class="desc">Fixed 100px inline size hint for size-contained elements.</div>
+      <div class="desc">Fixed 100px inline size hint.</div>
       <div class="size-box" style="contain-intrinsic-inline-size: 100px;">
         <div class="inner">100px wide</div>
       </div>
@@ -69,31 +69,31 @@
       <div class="width-label">100px</div>
     </div>
     <div class="demo-card">
-      <div class="label">contain-intrinsic-inline-size: 250px</div>
-      <div class="desc">Fixed 250px inline size hint. Good for medium-width content areas.</div>
-      <div class="size-box" style="contain-intrinsic-inline-size: 250px;">
-        <div class="inner">250px wide placeholder</div>
-      </div>
-      <div class="width-bar" style="width: 250px;"></div>
-      <div class="width-label">250px</div>
-    </div>
-    <div class="demo-card">
-      <div class="label">contain-intrinsic-inline-size: 400px</div>
-      <div class="desc">Fixed 400px inline size. Suitable for wider content blocks.</div>
-      <div class="size-box" style="contain-intrinsic-inline-size: 400px;">
-        <div class="inner">400px wide placeholder for wider elements</div>
-      </div>
-      <div class="width-bar" style="width: 400px;"></div>
-      <div class="width-label">400px</div>
-    </div>
-    <div class="demo-card">
-      <div class="label">contain-intrinsic-inline-size: auto 200px</div>
-      <div class="desc">Uses last rendered size with 200px fallback.</div>
-      <div class="size-box" style="contain-intrinsic-inline-size: auto 200px;">
-        <div class="inner">auto with fallback</div>
+      <div class="label">contain-intrinsic-inline-size: 200px</div>
+      <div class="desc">Fixed 200px inline size hint for wider content.</div>
+      <div class="size-box" style="contain-intrinsic-inline-size: 200px;">
+        <div class="inner">200px wide placeholder</div>
       </div>
       <div class="width-bar" style="width: 200px;"></div>
-      <div class="width-label">auto 200px</div>
+      <div class="width-label">200px</div>
+    </div>
+    <div class="demo-card">
+      <div class="label">contain-intrinsic-inline-size: auto 100px</div>
+      <div class="desc">Uses last rendered size with 100px fallback.</div>
+      <div class="size-box" style="contain-intrinsic-inline-size: auto 100px;">
+        <div class="inner">auto with fallback</div>
+      </div>
+      <div class="width-bar" style="width: 100px;"></div>
+      <div class="width-label">auto 100px</div>
+    </div>
+    <div class="demo-card">
+      <div class="label">contain-intrinsic-inline-size: auto none</div>
+      <div class="desc">Uses last rendered size, falls back to none (zero).</div>
+      <div class="size-box" style="contain-intrinsic-inline-size: auto none;">
+        <div class="inner">auto none</div>
+      </div>
+      <div class="width-bar" style="width: 10px;"></div>
+      <div class="width-label">auto none</div>
     </div>
   </div>
 </body>

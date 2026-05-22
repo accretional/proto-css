@@ -1,57 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>border-image-repeat</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 28px; }
-    .demo-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .box {
-      width: 200px;
-      height: 150px;
-      background: #16213e;
-      border: 20px solid transparent;
-      border-image-source: repeating-linear-gradient(45deg, #e94560 0px, #e94560 6px, #53d8fb 6px, #53d8fb 12px, #4ade80 12px, #4ade80 18px);
-      border-image-slice: 20;
-      border-image-width: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      color: #ccc;
-      font-family: monospace;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; }
-  </style>
+<meta charset="UTF-8">
+<title>border-image-repeat</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Border Image Repeat</h1>
-  <p class="prop-name">border-image-repeat</p>
-  <div class="demos">
-    <div class="demo-item">
-      <div class="box" style="border-image-repeat: round stretch ! important space ! important;">stretch</div>
-      <div class="label">border-image-repeat: round stretch ! important space ! important</div>
+<h1>Border Image Repeat</h1>
+<p class="prop-name">border-image-repeat</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; background: #16213e; border: 20px solid transparent; border-image-source: repeating-linear-gradient(45deg, #e94560 0px, #e94560 6px, #53d8fb 6px, #53d8fb 12px, #4ade80 12px, #4ade80 18px); border-image-slice: 20; border-image-width: 20px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #ccc; font-family: monospace; border-image-repeat: stretch;"></div>
     </div>
-    <div class="demo-item">
-      <div class="box" style="border-image-repeat: stretch round ! important;">repeat</div>
-      <div class="label">border-image-repeat: stretch round ! important</div>
-    </div>
-    <div class="demo-item">
-      <div class="box" style="border-image-repeat: stretch round;">round</div>
-      <div class="label">border-image-repeat: stretch round</div>
-    </div>
-    <div class="demo-item">
-      <div class="box" style="border-image-repeat: round stretch ! important;">space</div>
-      <div class="label">border-image-repeat: round stretch ! important</div>
-    </div>
+    <div class="label">border-image-repeat: stretch</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; background: #16213e; border: 20px solid transparent; border-image-source: repeating-linear-gradient(45deg, #e94560 0px, #e94560 6px, #53d8fb 6px, #53d8fb 12px, #4ade80 12px, #4ade80 18px); border-image-slice: 20; border-image-width: 20px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #ccc; font-family: monospace; border-image-repeat: stretch stretch;"></div>
+    </div>
+    <div class="label">border-image-repeat: stretch stretch</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; background: #16213e; border: 20px solid transparent; border-image-source: repeating-linear-gradient(45deg, #e94560 0px, #e94560 6px, #53d8fb 6px, #53d8fb 12px, #4ade80 12px, #4ade80 18px); border-image-slice: 20; border-image-width: 20px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #ccc; font-family: monospace; border-image-repeat: stretch repeat;"></div>
+    </div>
+    <div class="label">border-image-repeat: stretch repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; background: #16213e; border: 20px solid transparent; border-image-source: repeating-linear-gradient(45deg, #e94560 0px, #e94560 6px, #53d8fb 6px, #53d8fb 12px, #4ade80 12px, #4ade80 18px); border-image-slice: 20; border-image-width: 20px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #ccc; font-family: monospace; border-image-repeat: stretch round;"></div>
+    </div>
+    <div class="label">border-image-repeat: stretch round</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; background: #16213e; border: 20px solid transparent; border-image-source: repeating-linear-gradient(45deg, #e94560 0px, #e94560 6px, #53d8fb 6px, #53d8fb 12px, #4ade80 12px, #4ade80 18px); border-image-slice: 20; border-image-width: 20px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #ccc; font-family: monospace; border-image-repeat: stretch space;"></div>
+    </div>
+    <div class="label">border-image-repeat: stretch space</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; background: #16213e; border: 20px solid transparent; border-image-source: repeating-linear-gradient(45deg, #e94560 0px, #e94560 6px, #53d8fb 6px, #53d8fb 12px, #4ade80 12px, #4ade80 18px); border-image-slice: 20; border-image-width: 20px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #ccc; font-family: monospace; border-image-repeat: repeat;"></div>
+    </div>
+    <div class="label">border-image-repeat: repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; background: #16213e; border: 20px solid transparent; border-image-source: repeating-linear-gradient(45deg, #e94560 0px, #e94560 6px, #53d8fb 6px, #53d8fb 12px, #4ade80 12px, #4ade80 18px); border-image-slice: 20; border-image-width: 20px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #ccc; font-family: monospace; border-image-repeat: repeat stretch;"></div>
+    </div>
+    <div class="label">border-image-repeat: repeat stretch</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; background: #16213e; border: 20px solid transparent; border-image-source: repeating-linear-gradient(45deg, #e94560 0px, #e94560 6px, #53d8fb 6px, #53d8fb 12px, #4ade80 12px, #4ade80 18px); border-image-slice: 20; border-image-width: 20px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #ccc; font-family: monospace; border-image-repeat: repeat repeat;"></div>
+    </div>
+    <div class="label">border-image-repeat: repeat repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; background: #16213e; border: 20px solid transparent; border-image-source: repeating-linear-gradient(45deg, #e94560 0px, #e94560 6px, #53d8fb 6px, #53d8fb 12px, #4ade80 12px, #4ade80 18px); border-image-slice: 20; border-image-width: 20px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #ccc; font-family: monospace; border-image-repeat: repeat round;"></div>
+    </div>
+    <div class="label">border-image-repeat: repeat round</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; background: #16213e; border: 20px solid transparent; border-image-source: repeating-linear-gradient(45deg, #e94560 0px, #e94560 6px, #53d8fb 6px, #53d8fb 12px, #4ade80 12px, #4ade80 18px); border-image-slice: 20; border-image-width: 20px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #ccc; font-family: monospace; border-image-repeat: repeat space;"></div>
+    </div>
+    <div class="label">border-image-repeat: repeat space</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; background: #16213e; border: 20px solid transparent; border-image-source: repeating-linear-gradient(45deg, #e94560 0px, #e94560 6px, #53d8fb 6px, #53d8fb 12px, #4ade80 12px, #4ade80 18px); border-image-slice: 20; border-image-width: 20px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #ccc; font-family: monospace; border-image-repeat: round;"></div>
+    </div>
+    <div class="label">border-image-repeat: round</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; background: #16213e; border: 20px solid transparent; border-image-source: repeating-linear-gradient(45deg, #e94560 0px, #e94560 6px, #53d8fb 6px, #53d8fb 12px, #4ade80 12px, #4ade80 18px); border-image-slice: 20; border-image-width: 20px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #ccc; font-family: monospace; border-image-repeat: round stretch;"></div>
+    </div>
+    <div class="label">border-image-repeat: round stretch</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; background: #16213e; border: 20px solid transparent; border-image-source: repeating-linear-gradient(45deg, #e94560 0px, #e94560 6px, #53d8fb 6px, #53d8fb 12px, #4ade80 12px, #4ade80 18px); border-image-slice: 20; border-image-width: 20px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #ccc; font-family: monospace; border-image-repeat: round repeat;"></div>
+    </div>
+    <div class="label">border-image-repeat: round repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; background: #16213e; border: 20px solid transparent; border-image-source: repeating-linear-gradient(45deg, #e94560 0px, #e94560 6px, #53d8fb 6px, #53d8fb 12px, #4ade80 12px, #4ade80 18px); border-image-slice: 20; border-image-width: 20px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #ccc; font-family: monospace; border-image-repeat: round round;"></div>
+    </div>
+    <div class="label">border-image-repeat: round round</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; background: #16213e; border: 20px solid transparent; border-image-source: repeating-linear-gradient(45deg, #e94560 0px, #e94560 6px, #53d8fb 6px, #53d8fb 12px, #4ade80 12px, #4ade80 18px); border-image-slice: 20; border-image-width: 20px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #ccc; font-family: monospace; border-image-repeat: round space;"></div>
+    </div>
+    <div class="label">border-image-repeat: round space</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; background: #16213e; border: 20px solid transparent; border-image-source: repeating-linear-gradient(45deg, #e94560 0px, #e94560 6px, #53d8fb 6px, #53d8fb 12px, #4ade80 12px, #4ade80 18px); border-image-slice: 20; border-image-width: 20px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #ccc; font-family: monospace; border-image-repeat: space;"></div>
+    </div>
+    <div class="label">border-image-repeat: space</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; background: #16213e; border: 20px solid transparent; border-image-source: repeating-linear-gradient(45deg, #e94560 0px, #e94560 6px, #53d8fb 6px, #53d8fb 12px, #4ade80 12px, #4ade80 18px); border-image-slice: 20; border-image-width: 20px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #ccc; font-family: monospace; border-image-repeat: space stretch;"></div>
+    </div>
+    <div class="label">border-image-repeat: space stretch</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; background: #16213e; border: 20px solid transparent; border-image-source: repeating-linear-gradient(45deg, #e94560 0px, #e94560 6px, #53d8fb 6px, #53d8fb 12px, #4ade80 12px, #4ade80 18px); border-image-slice: 20; border-image-width: 20px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #ccc; font-family: monospace; border-image-repeat: space repeat;"></div>
+    </div>
+    <div class="label">border-image-repeat: space repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; background: #16213e; border: 20px solid transparent; border-image-source: repeating-linear-gradient(45deg, #e94560 0px, #e94560 6px, #53d8fb 6px, #53d8fb 12px, #4ade80 12px, #4ade80 18px); border-image-slice: 20; border-image-width: 20px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #ccc; font-family: monospace; border-image-repeat: space round;"></div>
+    </div>
+    <div class="label">border-image-repeat: space round</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; background: #16213e; border: 20px solid transparent; border-image-source: repeating-linear-gradient(45deg, #e94560 0px, #e94560 6px, #53d8fb 6px, #53d8fb 12px, #4ade80 12px, #4ade80 18px); border-image-slice: 20; border-image-width: 20px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #ccc; font-family: monospace; border-image-repeat: space space;"></div>
+    </div>
+    <div class="label">border-image-repeat: space space</div>
+  </div>
+</div>
 </body>
 </html>

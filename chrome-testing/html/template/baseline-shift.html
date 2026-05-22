@@ -8,11 +8,11 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-direction: column; gap: 28px; }
+    .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
     .demo-item { display: flex; flex-direction: column; gap: 6px; }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; }
     svg {
-      background: #2d2d4e;
+      background: #16213e;
       border-radius: 8px;
       border: 2px solid rgba(255,255,255,0.1);
     }
@@ -24,42 +24,74 @@
   <p class="prop-name">baseline-shift</p>
   <div class="demos">
     <div class="demo-item">
-      <div class="label">baseline-shift: sub</div>
-      <svg width="580" height="80" viewBox="0 0 580 80">
-        <line class="baseline-line" x1="0" y1="50" x2="580" y2="50" />
-        <text x="20" y="50" fill="#e0e0e0" font-size="28" font-family="system-ui">Normal text
-          <tspan baseline-shift="sub" fill="#ff6b6b" font-size="20">subscript</tspan>
-          continues
+      <div class="label">baseline-shift: 0</div>
+      <svg width="280" height="70" viewBox="0 0 280 70">
+        <line class="baseline-line" x1="0" y1="45" x2="280" y2="45" />
+        <text x="10" y="45" fill="#e0e0e0" font-size="20" font-family="system-ui">Text
+          <tspan baseline-shift="0" fill="#ff6b6b" font-size="16">shifted</tspan>
         </text>
       </svg>
     </div>
     <div class="demo-item">
-      <div class="label">baseline-shift: super</div>
-      <svg width="580" height="80" viewBox="0 0 580 80">
-        <line class="baseline-line" x1="0" y1="50" x2="580" y2="50" />
-        <text x="20" y="50" fill="#e0e0e0" font-size="28" font-family="system-ui">Normal text
-          <tspan baseline-shift="super" fill="#48dbfb" font-size="20">superscript</tspan>
-          continues
+      <div class="label">baseline-shift: 10px</div>
+      <svg width="280" height="70" viewBox="0 0 280 70">
+        <line class="baseline-line" x1="0" y1="45" x2="280" y2="45" />
+        <text x="10" y="45" fill="#e0e0e0" font-size="20" font-family="system-ui">Text
+          <tspan baseline-shift="10px" fill="#48dbfb" font-size="16">shifted</tspan>
         </text>
       </svg>
     </div>
     <div class="demo-item">
       <div class="label">baseline-shift: 50%</div>
-      <svg width="580" height="80" viewBox="0 0 580 80">
-        <line class="baseline-line" x1="0" y1="50" x2="580" y2="50" />
-        <text x="20" y="50" fill="#e0e0e0" font-size="28" font-family="system-ui">Normal text
-          <tspan baseline-shift="50%" fill="#feca57" font-size="20">shifted 50%</tspan>
-          continues
+      <svg width="280" height="70" viewBox="0 0 280 70">
+        <line class="baseline-line" x1="0" y1="45" x2="280" y2="45" />
+        <text x="10" y="45" fill="#e0e0e0" font-size="20" font-family="system-ui">Text
+          <tspan baseline-shift="50%" fill="#feca57" font-size="16">shifted</tspan>
         </text>
       </svg>
     </div>
     <div class="demo-item">
-      <div class="label">baseline-shift: -25%</div>
-      <svg width="580" height="80" viewBox="0 0 580 80">
-        <line class="baseline-line" x1="0" y1="50" x2="580" y2="50" />
-        <text x="20" y="50" fill="#e0e0e0" font-size="28" font-family="system-ui">Normal text
-          <tspan baseline-shift="-25%" fill="#a29bfe" font-size="20">shifted -25%</tspan>
-          continues
+      <div class="label">baseline-shift: sub</div>
+      <svg width="280" height="70" viewBox="0 0 280 70">
+        <line class="baseline-line" x1="0" y1="45" x2="280" y2="45" />
+        <text x="10" y="45" fill="#e0e0e0" font-size="20" font-family="system-ui">Text
+          <tspan baseline-shift="sub" fill="#2ecc71" font-size="16">shifted</tspan>
+        </text>
+      </svg>
+    </div>
+    <div class="demo-item">
+      <div class="label">baseline-shift: super</div>
+      <svg width="280" height="70" viewBox="0 0 280 70">
+        <line class="baseline-line" x1="0" y1="45" x2="280" y2="45" />
+        <text x="10" y="45" fill="#e0e0e0" font-size="20" font-family="system-ui">Text
+          <tspan baseline-shift="super" fill="#a29bfe" font-size="16">shifted</tspan>
+        </text>
+      </svg>
+    </div>
+    <div class="demo-item">
+      <div class="label">baseline-shift: top</div>
+      <svg width="280" height="70" viewBox="0 0 280 70">
+        <line class="baseline-line" x1="0" y1="45" x2="280" y2="45" />
+        <text x="10" y="45" fill="#e0e0e0" font-size="20" font-family="system-ui">Text
+          <tspan baseline-shift="top" fill="#e94560" font-size="16">shifted</tspan>
+        </text>
+      </svg>
+    </div>
+    <div class="demo-item">
+      <div class="label">baseline-shift: center</div>
+      <svg width="280" height="70" viewBox="0 0 280 70">
+        <line class="baseline-line" x1="0" y1="45" x2="280" y2="45" />
+        <text x="10" y="45" fill="#e0e0e0" font-size="20" font-family="system-ui">Text
+          <tspan baseline-shift="center" fill="#f093fb" font-size="16">shifted</tspan>
+        </text>
+      </svg>
+    </div>
+    <div class="demo-item">
+      <div class="label">baseline-shift: bottom</div>
+      <svg width="280" height="70" viewBox="0 0 280 70">
+        <line class="baseline-line" x1="0" y1="45" x2="280" y2="45" />
+        <text x="10" y="45" fill="#e0e0e0" font-size="20" font-family="system-ui">Text
+          <tspan baseline-shift="bottom" fill="#1abc9c" font-size="16">shifted</tspan>
         </text>
       </svg>
     </div>

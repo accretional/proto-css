@@ -1,57 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>border-left</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-box {
-      width: 180px;
-      height: 100px;
-      background: #16213e;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      color: #c0c0c0;
-      border-radius: 4px;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
-    .demo-item { display: flex; flex-direction: column; align-items: flex-start; }
-  </style>
+<meta charset="UTF-8">
+<title>border-left</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Border Left</h1>
-  <p class="prop-name">border-left</p>
-  <div class="demos">
-    <div class="demo-item">
-      <div class="demo-box" style="border-left: thin ridge device-cmyk(none none none 34e08% / none) ! important;">Content</div>
-      <span class="label">border-left: thin ridge device-cmyk(none none none 34e08% / none) ! important</span>
+<h1>Border Left</h1>
+<p class="prop-name">border-left</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: red;">Content</div>
     </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-left: thick outset currentcolor ! important;">Content</div>
-      <span class="label">border-left: thick outset currentcolor ! important</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-left: solid canvastext;">Content</div>
-      <span class="label">border-left: solid canvastext</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-left: thick solid field ! important;">Content</div>
-      <span class="label">border-left: thick solid field ! important</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-left: double;">Content</div>
-      <span class="label">border-left: double</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-left: hairline dotted accentcolor;">Content</div>
-      <span class="label">border-left: hairline dotted accentcolor</span>
-    </div>
+    <div class="label">border-left: red</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: #3498db;">Content</div>
+    </div>
+    <div class="label">border-left: #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: rgb(0, 128, 0);">Content</div>
+    </div>
+    <div class="label">border-left: rgb(0, 128, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: transparent;">Content</div>
+    </div>
+    <div class="label">border-left: transparent</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: currentcolor;">Content</div>
+    </div>
+    <div class="label">border-left: currentcolor</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: none;">Content</div>
+    </div>
+    <div class="label">border-left: none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: none red;">Content</div>
+    </div>
+    <div class="label">border-left: none red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: none #3498db;">Content</div>
+    </div>
+    <div class="label">border-left: none #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: none rgb(0, 128, 0);">Content</div>
+    </div>
+    <div class="label">border-left: none rgb(0, 128, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: none transparent;">Content</div>
+    </div>
+    <div class="label">border-left: none transparent</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: none currentcolor;">Content</div>
+    </div>
+    <div class="label">border-left: none currentcolor</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: hidden;">Content</div>
+    </div>
+    <div class="label">border-left: hidden</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: hidden red;">Content</div>
+    </div>
+    <div class="label">border-left: hidden red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: hidden #3498db;">Content</div>
+    </div>
+    <div class="label">border-left: hidden #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: hidden rgb(0, 128, 0);">Content</div>
+    </div>
+    <div class="label">border-left: hidden rgb(0, 128, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: hidden transparent;">Content</div>
+    </div>
+    <div class="label">border-left: hidden transparent</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: hidden currentcolor;">Content</div>
+    </div>
+    <div class="label">border-left: hidden currentcolor</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: dotted;">Content</div>
+    </div>
+    <div class="label">border-left: dotted</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: dotted red;">Content</div>
+    </div>
+    <div class="label">border-left: dotted red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: dotted #3498db;">Content</div>
+    </div>
+    <div class="label">border-left: dotted #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: dotted rgb(0, 128, 0);">Content</div>
+    </div>
+    <div class="label">border-left: dotted rgb(0, 128, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: dotted transparent;">Content</div>
+    </div>
+    <div class="label">border-left: dotted transparent</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: dotted currentcolor;">Content</div>
+    </div>
+    <div class="label">border-left: dotted currentcolor</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: dashed;">Content</div>
+    </div>
+    <div class="label">border-left: dashed</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: dashed red;">Content</div>
+    </div>
+    <div class="label">border-left: dashed red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: dashed #3498db;">Content</div>
+    </div>
+    <div class="label">border-left: dashed #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: dashed rgb(0, 128, 0);">Content</div>
+    </div>
+    <div class="label">border-left: dashed rgb(0, 128, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: dashed transparent;">Content</div>
+    </div>
+    <div class="label">border-left: dashed transparent</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: dashed currentcolor;">Content</div>
+    </div>
+    <div class="label">border-left: dashed currentcolor</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: solid;">Content</div>
+    </div>
+    <div class="label">border-left: solid</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: solid red;">Content</div>
+    </div>
+    <div class="label">border-left: solid red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: solid #3498db;">Content</div>
+    </div>
+    <div class="label">border-left: solid #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: solid rgb(0, 128, 0);">Content</div>
+    </div>
+    <div class="label">border-left: solid rgb(0, 128, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: solid transparent;">Content</div>
+    </div>
+    <div class="label">border-left: solid transparent</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-left: solid currentcolor;">Content</div>
+    </div>
+    <div class="label">border-left: solid currentcolor</div>
+  </div>
+</div>
 </body>
 </html>

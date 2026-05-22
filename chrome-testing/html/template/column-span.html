@@ -8,9 +8,8 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; gap: 24px; }
+    .demos { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .demo-card {
-      flex: 1;
       background: #16213e;
       border-radius: 10px;
       padding: 20px 24px;
@@ -24,7 +23,7 @@
       line-height: 1.6;
       color: #c0c8d4;
     }
-    .span-element-none {
+    .span-none {
       column-span: none;
       background: linear-gradient(135deg, #e94560, #c23152);
       color: #fff;
@@ -35,7 +34,7 @@
       margin: 10px 0;
       text-align: center;
     }
-    .span-element-all {
+    .span-all {
       column-span: all;
       background: linear-gradient(135deg, #4fc3f7, #0288d1);
       color: #fff;
@@ -56,15 +55,15 @@
       <div class="label">column-span: none</div>
       <div class="col-container">
         Text flows normally across three columns. The highlighted element below stays within its column and does not break the column flow.
-        <div class="span-element-none">Stays in column</div>
-        After the element, text continues to flow within the same column structure. The element is treated as regular inline content within the multi-column layout and does not span across column boundaries.
+        <div class="span-none">Stays in column</div>
+        After the element, text continues to flow within the same column structure. The element is treated as regular content within the multi-column layout and does not span across column boundaries.
       </div>
     </div>
     <div class="demo-card">
       <div class="label">column-span: all</div>
       <div class="col-container">
         Text flows normally across three columns before reaching the spanning element below.
-        <div class="span-element-all">Spans all columns</div>
+        <div class="span-all">Spans all columns</div>
         After the spanning element, the remaining text resumes flowing in the multi-column layout. The spanning element breaks out of the column flow and stretches across all columns like a full-width banner.
       </div>
     </div>

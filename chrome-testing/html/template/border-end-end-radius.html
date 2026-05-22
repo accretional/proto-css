@@ -8,7 +8,7 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .demo-item {
       display: flex;
       flex-direction: column;
@@ -25,17 +25,6 @@
       font-size: 13px;
       color: #ccc;
       font-family: monospace;
-      position: relative;
-    }
-    .corner-highlight {
-      position: absolute;
-      bottom: -3px;
-      right: -3px;
-      width: 24px;
-      height: 24px;
-      border-bottom: 3px solid #53d8fb;
-      border-right: 3px solid #53d8fb;
-      pointer-events: none;
     }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; }
   </style>
@@ -49,20 +38,16 @@
       <div class="label">border-end-end-radius: 0</div>
     </div>
     <div class="demo-item">
-      <div class="box" style="border-end-end-radius: 8px;">8px</div>
-      <div class="label">border-end-end-radius: 8px</div>
+      <div class="box" style="border-end-end-radius: 4px;">4px</div>
+      <div class="label">border-end-end-radius: 4px</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border-end-end-radius: 10px;">10px</div>
+      <div class="label">border-end-end-radius: 10px</div>
     </div>
     <div class="demo-item">
       <div class="box" style="border-end-end-radius: 20px;">20px</div>
       <div class="label">border-end-end-radius: 20px</div>
-    </div>
-    <div class="demo-item">
-      <div class="box" style="border-end-end-radius: 40px;">40px</div>
-      <div class="label">border-end-end-radius: 40px</div>
-    </div>
-    <div class="demo-item">
-      <div class="box" style="border-end-end-radius: 60px;">60px</div>
-      <div class="label">border-end-end-radius: 60px</div>
     </div>
     <div class="demo-item">
       <div class="box" style="border-end-end-radius: 50%;">50%</div>

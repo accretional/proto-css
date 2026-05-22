@@ -1,57 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>font</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-direction: column; gap: 20px; }
-    .demo-block {
-      background: #16213e;
-      border-radius: 8px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; }
-    .sample {
-      color: #fff;
-      line-height: 1.4;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>font</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Font Shorthand</h1>
-  <p class="prop-name">font</p>
-  <div class="demos">
-    <div class="demo-block">
-      <div class="label">font: small-caption</div>
-      <div class="sample" style="font: small-caption;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+<h1>Font Shorthand</h1>
+<p class="prop-name">font</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;;">The quick brown fox jumps over the lazy dog. 0123456789</div>
     </div>
-    <div class="demo-block">
-      <div class="label">font: small-caps lighter ultra-condensed anchor-size(, atan(12e55dpcm * - / env(_4, /))) / anchor(bottom, round(down, -infinity / env(ཛ var(--N), !) - NaN /)) "񕲡", generic(kai) ! important</div>
-      <div class="sample" style="font: small-caps lighter ultra-condensed anchor-size(, atan(12e55dpcm * - / env(_4, /))) / anchor(bottom, round(down, -infinity / env(ཛ var(--N), !) - NaN /)) "񕲡", generic(kai) ! important;">The quick brown fox jumps over the lazy dog. 0123456789</div>
-    </div>
-    <div class="demo-block">
-      <div class="label">font: message-box</div>
-      <div class="sample" style="font: message-box;">The quick brown fox jumps over the lazy dog. 0123456789</div>
-    </div>
-    <div class="demo-block">
-      <div class="label">font: xx-large t_ 񎵲-</div>
-      <div class="sample" style="font: xx-large t_ 񎵲-;">The quick brown fox jumps over the lazy dog. 0123456789</div>
-    </div>
-    <div class="demo-block">
-      <div class="label">font: normal bold x-large 谾􉴨 _򕸥, 㟫 󗧽, generic(fangsong) ! important</div>
-      <div class="sample" style="font: normal bold x-large 谾􉴨 _򕸥, 㟫 󗧽, generic(fangsong) ! important;">The quick brown fox jumps over the lazy dog. 0123456789</div>
-    </div>
-    <div class="demo-block">
-      <div class="label">font: larger / 09e30% ui-monospace ! important</div>
-      <div class="sample" style="font: larger / 09e30% ui-monospace ! important;">The quick brown fox jumps over the lazy dog. 0123456789</div>
-    </div>
+    <div class="label">font: xx-small &#34;example&#34;</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, &#34;example&#34;;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, &#34;example&#34;</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, &#34;example&#34;, &#34;example&#34;;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, &#34;example&#34;, &#34;example&#34;</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, &#34;example&#34;, my-custom;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, &#34;example&#34;, my-custom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, &#34;example&#34;, my-custom my-custom;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, &#34;example&#34;, my-custom my-custom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, &#34;example&#34;, generic(fangsong);">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, &#34;example&#34;, generic(fangsong)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, &#34;example&#34;, generic(kai);">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, &#34;example&#34;, generic(kai)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, &#34;example&#34;, generic(khmer-mul);">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, &#34;example&#34;, generic(khmer-mul)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, &#34;example&#34;, serif;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, &#34;example&#34;, serif</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, &#34;example&#34;, sans-serif;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, &#34;example&#34;, sans-serif</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, &#34;example&#34;, system-ui;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, &#34;example&#34;, system-ui</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, &#34;example&#34;, ui-serif;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, &#34;example&#34;, ui-serif</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, &#34;example&#34;, ui-sans-serif;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, &#34;example&#34;, ui-sans-serif</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, &#34;example&#34;, ui-monospace;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, &#34;example&#34;, ui-monospace</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, &#34;example&#34;, generic(nastaliq);">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, &#34;example&#34;, generic(nastaliq)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, &#34;example&#34;, cursive;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, &#34;example&#34;, cursive</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, &#34;example&#34;, fantasy;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, &#34;example&#34;, fantasy</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, &#34;example&#34;, math;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, &#34;example&#34;, math</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, &#34;example&#34;, monospace;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, &#34;example&#34;, monospace</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, &#34;example&#34;, ui-rounded;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, &#34;example&#34;, ui-rounded</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, my-custom;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, my-custom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, my-custom, &#34;example&#34;;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, my-custom, &#34;example&#34;</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, my-custom, my-custom;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, my-custom, my-custom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, my-custom, my-custom my-custom;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, my-custom, my-custom my-custom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, my-custom, generic(fangsong);">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, my-custom, generic(fangsong)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, my-custom, generic(kai);">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, my-custom, generic(kai)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, my-custom, generic(khmer-mul);">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, my-custom, generic(khmer-mul)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, my-custom, generic(nastaliq);">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, my-custom, generic(nastaliq)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, my-custom, serif;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, my-custom, serif</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: xx-small &#34;example&#34;, my-custom, sans-serif;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: xx-small &#34;example&#34;, my-custom, sans-serif</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: caption;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: caption</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: icon;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: icon</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: menu;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: menu</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: message-box;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: message-box</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: small-caption;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: small-caption</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 6px;">
+      <div style="color: #fff; line-height: 1.4; font: status-bar;">The quick brown fox jumps over the lazy dog. 0123456789</div>
+    </div>
+    <div class="label">font: status-bar</div>
+  </div>
+</div>
 </body>
 </html>

@@ -52,7 +52,7 @@
 
 ## Gallery pages
 
-All galleries live in `chrome-testing/gallery/`:
+All galleries live in `chrome-testing/html/`:
 
 | Gallery | Description |
 |---|---|

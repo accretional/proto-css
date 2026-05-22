@@ -1,43 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>stroke-dasharray</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-direction: column; gap: 28px; }
-    .demo-row { display: flex; align-items: center; gap: 20px; }
-    .label { font-size: 12px; font-family: monospace; color: #9ca3af; width: 260px; text-align: right; flex-shrink: 0; }
-    svg line { stroke: #06b6d4; stroke-width: 4; }
-  </style>
+<meta charset="UTF-8">
+<title>stroke-dasharray</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .demos { display: flex; flex-direction: column; gap: 28px; }
+.demo-row { display: flex; align-items: center; gap: 20px; }
+.label { font-size: 12px; font-family: monospace; color: #9ca3af; width: 260px; text-align: right; flex-shrink: 0; }
+</style>
 </head>
 <body>
-  <h1>Stroke Dash Array</h1>
-  <p class="prop-name">stroke-dasharray</p>
-  <div class="demos">
-    <div class="demo-row">
-      <div class="label">stroke-dasharray: </div>
-      <svg width="700" height="30"><line x1="10" y1="15" x2="690" y2="15" stroke-dasharray="none"/></svg>
+<h1>Stroke Dash Array</h1>
+<p class="prop-name">stroke-dasharray</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <svg style="display: block; stroke-dasharray: ;"><line x1="10" y1="15" x2="690" y2="15" stroke="#06b6d4" stroke-width="4"/></svg>
     </div>
-    <div class="demo-row">
-      <div class="label">stroke-dasharray: ! important</div>
-      <svg width="700" height="30"><line x1="10" y1="15" x2="690" y2="15" stroke-dasharray="5"/></svg>
-    </div>
-    <div class="demo-row">
-      <div class="label">stroke-dasharray: revert-rule</div>
-      <svg width="700" height="30"><line x1="10" y1="15" x2="690" y2="15" stroke-dasharray="10 5"/></svg>
-    </div>
-    <div class="demo-row">
-      <div class="label">stroke-dasharray: revert-rule ! important</div>
-      <svg width="700" height="30"><line x1="10" y1="15" x2="690" y2="15" stroke-dasharray="20 10 5"/></svg>
-    </div>
-    <div class="demo-row">
-      <div class="label">stroke-dasharray: ! important 15 25</div>
-      <svg width="700" height="30"><line x1="10" y1="15" x2="690" y2="15" stroke-dasharray="5 15 25"/></svg>
-    </div>
+    <div class="label">stroke-dasharray: </div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <svg style="display: block; stroke-dasharray: ! important;"><line x1="10" y1="15" x2="690" y2="15" stroke="#06b6d4" stroke-width="4"/></svg>
+    </div>
+    <div class="label">stroke-dasharray: ! important</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <svg style="display: block; stroke-dasharray: revert-rule;"><line x1="10" y1="15" x2="690" y2="15" stroke="#06b6d4" stroke-width="4"/></svg>
+    </div>
+    <div class="label">stroke-dasharray: revert-rule</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <svg style="display: block; stroke-dasharray: revert-rule ! important;"><line x1="10" y1="15" x2="690" y2="15" stroke="#06b6d4" stroke-width="4"/></svg>
+    </div>
+    <div class="label">stroke-dasharray: revert-rule ! important</div>
+  </div>
+</div>
 </body>
 </html>

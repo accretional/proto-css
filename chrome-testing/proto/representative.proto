@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package cssgen;
+
+option go_package = "github.com/accretional/proto-css/chrome-testing/proto";
+
+// RepresentativeType defines a set of representative sample values for a
+// grammar type that is recursive or open-ended (e.g. ColorType, LengthType).
+// These short-circuit exhaustive enumeration to keep generation tractable.
+message RepresentativeType {
+  // Grammar rule name, e.g. "ColorType", "LengthType".
+  string type_name = 1;
+
+  // Hand-picked sample values that are visually distinct and meaningful.
+  repeated string values = 2;
+
+  // CSS property names (kebab-case) for which this type IS the primary focus.
+  // When generating values for a primary rule, the representative values are
+  // skipped so the grammar is expanded fully — because the property exists
+  // specifically to test this type.
+  // e.g. ColorType has primary_rules: ["color", "background-color"]
+  repeated string primary_rules = 3;
+}
+
+// RepresentativeTypes is a top-level wrapper for a collection of representative types.
+message RepresentativeTypes {
+  repeated RepresentativeType types = 1;
+}

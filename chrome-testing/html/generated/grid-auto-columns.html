@@ -1,75 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>grid-auto-columns</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-direction: column; gap: 20px; }
-    .demo-box { background: #16213e; border-radius: 8px; padding: 16px; }
-    .demo-box h3 { font-size: 13px; color: #e0e0e0; margin-bottom: 10px; }
-    .cell { background: #0f3460; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #e94560; font-weight: 600; padding: 8px; height: 44px; }
-    .cell:nth-child(n+3) { background: #1a4a7a; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
-    .note { font-size: 10px; color: #6b7280; margin-top: 2px; }
-
-    .g1 { display: grid; grid-template-columns: 80px; grid-auto-flow: column; grid-auto-columns: minmax(anchor-size(--󧘔񸓪 height), auto) fit-content(anchor(--Z_ self-start)) ! important; gap: 6px; }
-    .g2 { display: grid; grid-template-columns: 80px; grid-auto-flow: column; grid-auto-columns: fit-content(0) ! important; gap: 6px; }
-    .g3 { display: grid; grid-template-columns: 80px; grid-auto-flow: column; grid-auto-columns: var(--坡_) ! important; gap: 6px; }
-    .g4 { display: grid; grid-template-columns: 80px; grid-auto-flow: column; grid-auto-columns: minmax(7.1cap, min-content); gap: 6px; }
-  </style>
+<meta charset="UTF-8">
+<title>grid-auto-columns</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .cell { background: #0f3460; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #e94560; font-weight: 600; padding: 8px; height: 44px; }
+.cell:nth-child(n+3) { background: #1a4a7a; }
+</style>
 </head>
 <body>
-  <h1>Grid Auto Columns</h1>
-  <p class="prop-name">grid-auto-columns</p>
-  <div class="demos">
-    <div class="demo-box">
-      <h3>auto</h3>
-      <div class="g1">
-        <div class="cell">Defined 80px</div>
-        <div class="cell">Auto col</div>
-        <div class="cell">Auto col</div>
-        <div class="cell">Auto col</div>
-      </div>
-      <p class="label">grid-auto-columns: minmax(anchor-size(--󧘔񸓪 height), auto) fit-content(anchor(--Z_ self-start)) ! important</p>
-      <p class="note">Implicit columns size to content</p>
+<h1>Grid Auto Columns</h1>
+<p class="prop-name">grid-auto-columns</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0;"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
     </div>
-    <div class="demo-box">
-      <h3>100px</h3>
-      <div class="g2">
-        <div class="cell">Defined 80px</div>
-        <div class="cell">100px col</div>
-        <div class="cell">100px col</div>
-        <div class="cell">100px col</div>
-      </div>
-      <p class="label">grid-auto-columns: fit-content(0) ! important</p>
-      <p class="note">Each implicit column is exactly 100px</p>
-    </div>
-    <div class="demo-box">
-      <h3>1fr</h3>
-      <div class="g3">
-        <div class="cell">Defined 80px</div>
-        <div class="cell">1fr col</div>
-        <div class="cell">1fr col</div>
-        <div class="cell">1fr col</div>
-      </div>
-      <p class="label">grid-auto-columns: var(--坡_) ! important</p>
-      <p class="note">Implicit columns share remaining space equally</p>
-    </div>
-    <div class="demo-box">
-      <h3>minmax(100px, 1fr)</h3>
-      <div class="g4">
-        <div class="cell">Defined 80px</div>
-        <div class="cell">minmax col</div>
-        <div class="cell">minmax col</div>
-        <div class="cell">minmax col</div>
-      </div>
-      <p class="label">grid-auto-columns: minmax(7.1cap, min-content)</p>
-      <p class="note">Implicit columns are at least 100px, grow to 1fr</p>
-    </div>
+    <div class="label">grid-auto-columns: 0</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 0;"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 10px;"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 25%;"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 50%;"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 100%;"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 100%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 0fr;"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 0fr</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 0e0fr;"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 0e0fr</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 var(--my-var);"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 var(--my-var)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 var(--my-var, my-ident);"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 var(--my-var, my-ident)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 min-content;"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 min-content</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 max-content;"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 max-content</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 auto;"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 0e00fr;"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 0e00fr</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 0e01fr;"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 0e01fr</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 0e02fr;"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 0e02fr</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 0e03fr;"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 0e03fr</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 var(--my-var, 0);"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 var(--my-var, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 var(--my-var, 0e0);"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 var(--my-var, 0e0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 var(--my-var, 0%);"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 var(--my-var, 0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 minmax(0, 0);"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 minmax(0, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 minmax(0, 10px);"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 minmax(0, 10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 minmax(0, 25%);"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 minmax(0, 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 minmax(0, 50%);"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 minmax(0, 50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 minmax(0, 100%);"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 minmax(0, 100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 minmax(0, 0fr);"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 minmax(0, 0fr)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 minmax(0, 0e0fr);"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 minmax(0, 0e0fr)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 minmax(0, var(--my-var));"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 minmax(0, var(--my-var))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 minmax(0, var(--my-var, my-ident));"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 minmax(0, var(--my-var, my-ident))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 minmax(0, min-content);"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 minmax(0, min-content)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 minmax(0, max-content);"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 minmax(0, max-content)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 minmax(0, auto);"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 minmax(0, auto)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 fit-content(0);"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 fit-content(0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 fit-content(10px);"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 fit-content(10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 fit-content(25%);"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 fit-content(25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: 80px; grid-auto-flow: column; gap: 6px; grid-auto-columns: 0 fit-content(50%);"><div class="cell">Defined 80px</div><div class="cell">Auto col</div><div class="cell">Auto col</div><div class="cell">Auto col</div></div>
+    </div>
+    <div class="label">grid-auto-columns: 0 fit-content(50%)</div>
+  </div>
+</div>
 </body>
 </html>

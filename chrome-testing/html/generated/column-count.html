@@ -1,63 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>column-count</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-direction: column; gap: 18px; }
-    .demo-card {
-      background: #16213e;
-      border-radius: 10px;
-      padding: 16px 20px;
-      border: 1px solid #2a2a4a;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 8px; }
-    .col-text {
-      font-size: 12px;
-      line-height: 1.6;
-      color: #c0c8d4;
-      column-rule: 1px solid #3a3a5a;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>column-count</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Column Count</h1>
-  <p class="prop-name">column-count</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="label">column-count: var(--񩦫o, --W)</div>
-      <div class="col-text" style="column-count: var(--񩦫o, --W);">
-        The column-count property specifies the number of columns an element should be divided into. This text flows naturally in a single column when set to auto, which is the default behavior. The browser determines the column count based on other properties like column-width.
-      </div>
+<h1>Column Count</h1>
+<p class="prop-name">column-count</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: auto;">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
     </div>
-    <div class="demo-card">
-      <div class="label">column-count: var(--􊼁𝴃, 44%)</div>
-      <div class="col-text" style="column-count: var(--􊼁𝴃, 44%);">
-        When column-count is set to 2, the text content is evenly distributed across two columns. This creates a newspaper-like layout that can improve readability for wider containers. The browser automatically balances content between the columns.
-      </div>
-    </div>
-    <div class="demo-card">
-      <div class="label">column-count: var(--ץ, 0)</div>
-      <div class="col-text" style="column-count: var(--ץ, 0);">
-        With three columns, content is split into narrower sections. This layout works well for wider viewports where single-column text would create uncomfortably long line lengths. Each column receives roughly equal content distribution for balanced reading.
-      </div>
-    </div>
-    <div class="demo-card">
-      <div class="label">column-count: auto ! important</div>
-      <div class="col-text" style="column-count: auto ! important;">
-        Four columns create a dense, magazine-style layout. Content flows from left to right, top to bottom across all four columns. This is ideal for reference material or listings where compact presentation is desired and the viewport is wide enough.
-      </div>
-    </div>
-    <div class="demo-card">
-      <div class="label">column-count: +51 ! important</div>
-      <div class="col-text" style="column-count: +51 ! important;">
-        Five columns produce very narrow text blocks. At this density, each column holds only a few words per line. This extreme layout demonstrates how column-count works but may reduce readability if columns become too narrow for comfortable reading.
-      </div>
-    </div>
+    <div class="label">column-count: auto</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: 1;">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: 10;">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: 10</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: 11;">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: 11</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: 12;">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: 12</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: 13;">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: 13</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: 14;">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: 14</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: 15;">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: 15</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: 16;">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: 16</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: 17;">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: 17</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: 18;">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: 18</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: 19;">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: 19</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: 2;">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: 20;">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: 20</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: 21;">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: 21</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: 22;">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: 22</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: 23;">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: 23</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: 24;">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: 24</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: 25;">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: 25</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: 26;">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: 26</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: 27;">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: 27</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: 28;">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: 28</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: 29;">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: 29</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: 3;">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: 3</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: var(--my-var);">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: var(--my-var)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: var(--my-var, my-ident);">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: var(--my-var, my-ident)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: var(--my-var, 0);">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: var(--my-var, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: var(--my-var, 0e0);">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: var(--my-var, 0e0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: var(--my-var, 0%);">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: var(--my-var, 0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: var(--my-var, 0e0%);">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: var(--my-var, 0e0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: var(--my-var, 0cap);">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: var(--my-var, 0cap)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: var(--my-var, 0s);">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: var(--my-var, 0s)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: var(--my-var, 0ms);">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: var(--my-var, 0ms)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 1px solid #3a3a5a; column-count: var(--my-var, 0deg);">The column-count property specifies the number of columns an element should be divided into. This text flows naturally across the columns. The browser automatically balances content between columns for even distribution.</div>
+    </div>
+    <div class="label">column-count: var(--my-var, 0deg)</div>
+  </div>
+</div>
 </body>
 </html>

@@ -1,55 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>box-decoration-break</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 40px; }
-    .demo-box { display: flex; flex-direction: column; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; }
-    .text-container {
-      width: 280px;
-      font-size: 18px;
-      line-height: 2.4;
-    }
-    .inline-text {
-      background: linear-gradient(135deg, #e94560, #0f3460);
-      padding: 8px 16px;
-      border: 3px solid #e94560;
-      border-radius: 12px;
-      color: #fff;
-      font-weight: bold;
-    }
-    .slice-text {
-      -webkit-box-decoration-break: slice ! important;
-      box-decoration-break: slice ! important;
-    }
-    .clone-text {
-      -webkit-box-decoration-break: slice ! important;
-      box-decoration-break: slice ! important;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>box-decoration-break</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Box Decoration Break</h1>
-  <p class="prop-name">box-decoration-break</p>
-  <div class="demos">
-    <div class="demo-box">
-      <div class="text-container">
-        <span class="inline-text slice-text">This is an inline element that wraps across multiple lines to show slice behavior</span>
-      </div>
-      <span class="label">box-decoration-break: slice ! important</span>
+<h1>Box Decoration Break</h1>
+<p class="prop-name">box-decoration-break</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="width: 280px; font-size: 18px; line-height: 2.4;">
+      <span style="background: linear-gradient(135deg, #e94560, #0f3460); padding: 8px 16px; border: 3px solid #e94560; border-radius: 12px; color: #fff; font-weight: bold; box-decoration-break: slice;">This is an inline element that wraps across multiple lines to show the behavior</span>
     </div>
-    <div class="demo-box">
-      <div class="text-container">
-        <span class="inline-text clone-text">This is an inline element that wraps across multiple lines to show clone behavior</span>
-      </div>
-      <span class="label">box-decoration-break: slice ! important</span>
-    </div>
+    <div class="label">box-decoration-break: slice</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 280px; font-size: 18px; line-height: 2.4;">
+      <span style="background: linear-gradient(135deg, #e94560, #0f3460); padding: 8px 16px; border: 3px solid #e94560; border-radius: 12px; color: #fff; font-weight: bold; box-decoration-break: clone;">This is an inline element that wraps across multiple lines to show the behavior</span>
+    </div>
+    <div class="label">box-decoration-break: clone</div>
+  </div>
+</div>
 </body>
 </html>

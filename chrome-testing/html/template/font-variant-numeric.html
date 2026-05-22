@@ -8,7 +8,7 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+    .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .demo-card {
       background: #16213e; border-radius: 12px; padding: 20px;
       border: 1px solid #2a2a4a;
@@ -34,6 +34,27 @@
   <p class="prop-name">font-variant-numeric</p>
   <div class="demos">
     <div class="demo-card">
+      <div class="tag">normal</div>
+      <div class="demo-text" style="font-variant-numeric: normal;">0123456789</div>
+      <div class="demo-numbers" style="font-variant-numeric: normal;">$1,234.56</div>
+      <p class="label">font-variant-numeric: normal</p>
+      <p class="note">Default numeric rendering, no special features</p>
+    </div>
+    <div class="demo-card">
+      <div class="tag">ordinal</div>
+      <div class="demo-text" style="font-variant-numeric: ordinal;">1st 2nd 3rd</div>
+      <div class="demo-numbers" style="font-variant-numeric: ordinal;">4th 5th 100th</div>
+      <p class="label">font-variant-numeric: ordinal</p>
+      <p class="note">Special ordinal indicator glyphs</p>
+    </div>
+    <div class="demo-card">
+      <div class="tag">slashed-zero</div>
+      <div class="demo-text" style="font-variant-numeric: slashed-zero;">0 vs O</div>
+      <div class="demo-numbers" style="font-variant-numeric: slashed-zero;">10203040</div>
+      <p class="label">font-variant-numeric: slashed-zero</p>
+      <p class="note">Zero gets a slash to distinguish from O</p>
+    </div>
+    <div class="demo-card">
       <div class="tag">lining-nums</div>
       <div class="demo-text" style="font-variant-numeric: lining-nums;">0123456789</div>
       <div class="demo-numbers" style="font-variant-numeric: lining-nums;">$1,234.56</div>
@@ -48,13 +69,6 @@
       <p class="note">Digits have ascenders and descenders</p>
     </div>
     <div class="demo-card">
-      <div class="tag">tabular-nums</div>
-      <div class="demo-text" style="font-variant-numeric: tabular-nums;">0123456789</div>
-      <div class="demo-numbers" style="font-variant-numeric: tabular-nums;">$1,234.56<br>$9,876.54<br>$&nbsp;&nbsp;100.00</div>
-      <p class="label">font-variant-numeric: tabular-nums</p>
-      <p class="note">Equal-width digits for aligned columns</p>
-    </div>
-    <div class="demo-card">
       <div class="tag">proportional-nums</div>
       <div class="demo-text" style="font-variant-numeric: proportional-nums;">0123456789</div>
       <div class="demo-numbers" style="font-variant-numeric: proportional-nums;">$1,234.56</div>
@@ -62,18 +76,25 @@
       <p class="note">Digits have natural proportional widths</p>
     </div>
     <div class="demo-card">
-      <div class="tag">slashed-zero</div>
-      <div class="demo-text" style="font-variant-numeric: slashed-zero;">0 vs O</div>
-      <div class="demo-numbers" style="font-variant-numeric: slashed-zero;">10203040</div>
-      <p class="label">font-variant-numeric: slashed-zero</p>
-      <p class="note">Zero gets a slash to distinguish from O</p>
+      <div class="tag">tabular-nums</div>
+      <div class="demo-text" style="font-variant-numeric: tabular-nums;">0123456789</div>
+      <div class="demo-numbers" style="font-variant-numeric: tabular-nums;">$1,234.56<br>$9,876.54<br>$&nbsp;&nbsp;100.00</div>
+      <p class="label">font-variant-numeric: tabular-nums</p>
+      <p class="note">Equal-width digits for aligned columns</p>
     </div>
     <div class="demo-card">
-      <div class="tag">ordinal</div>
-      <div class="demo-text" style="font-variant-numeric: ordinal;">1st 2nd 3rd</div>
-      <div class="demo-numbers" style="font-variant-numeric: ordinal;">4th 5th 100th</div>
-      <p class="label">font-variant-numeric: ordinal</p>
-      <p class="note">Special ordinal indicator glyphs</p>
+      <div class="tag">diagonal-fractions</div>
+      <div class="demo-text" style="font-variant-numeric: diagonal-fractions;">1/2 3/4 5/8</div>
+      <div class="demo-numbers" style="font-variant-numeric: diagonal-fractions;">1/3 2/5 7/16</div>
+      <p class="label">font-variant-numeric: diagonal-fractions</p>
+      <p class="note">Fractions rendered with diagonal slash</p>
+    </div>
+    <div class="demo-card">
+      <div class="tag">stacked-fractions</div>
+      <div class="demo-text" style="font-variant-numeric: stacked-fractions;">1/2 3/4 5/8</div>
+      <div class="demo-numbers" style="font-variant-numeric: stacked-fractions;">1/3 2/5 7/16</div>
+      <p class="label">font-variant-numeric: stacked-fractions</p>
+      <p class="note">Fractions rendered with horizontal bar</p>
     </div>
   </div>
 </body>

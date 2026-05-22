@@ -1,58 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>border-right-color</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-box {
-      width: 180px;
-      height: 100px;
-      background: #16213e;
-      border-right: 6px solid;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      color: #c0c0c0;
-      border-radius: 4px;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
-    .demo-item { display: flex; flex-direction: column; align-items: flex-start; }
-  </style>
+<meta charset="UTF-8">
+<title>border-right-color</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Border Right Color</h1>
-  <p class="prop-name">border-right-color</p>
-  <div class="demos">
-    <div class="demo-item">
-      <div class="demo-box" style="border-right-color: stripes(currentcolor, currentcolor abs(-4.80e47% / +94.26e+1)) ! important;">Content</div>
-      <span class="label">border-right-color: stripes(currentcolor, currentcolor abs(-4.80e47% / +94.26e+1)) ! important</span>
+<h1>Border Right Color</h1>
+<p class="prop-name">border-right-color</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: red;">Content</div>
     </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-right-color: #5cB9c3a3;">Content</div>
-      <span class="label">border-right-color: #5cB9c3a3</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-right-color: stripes(currentcolor);">Content</div>
-      <span class="label">border-right-color: stripes(currentcolor)</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-right-color: light-dark(, none);">Content</div>
-      <span class="label">border-right-color: light-dark(, none)</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-right-color: currentcolor;">Content</div>
-      <span class="label">border-right-color: currentcolor</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-right-color: var(--_-);">Content</div>
-      <span class="label">border-right-color: var(--_-)</span>
-    </div>
+    <div class="label">border-right-color: red</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: #3498db;">Content</div>
+    </div>
+    <div class="label">border-right-color: #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: rgb(0, 128, 0);">Content</div>
+    </div>
+    <div class="label">border-right-color: rgb(0, 128, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: transparent;">Content</div>
+    </div>
+    <div class="label">border-right-color: transparent</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: currentcolor;">Content</div>
+    </div>
+    <div class="label">border-right-color: currentcolor</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: Canvas;">Content</div>
+    </div>
+    <div class="label">border-right-color: Canvas</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: CanvasText;">Content</div>
+    </div>
+    <div class="label">border-right-color: CanvasText</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: LinkText;">Content</div>
+    </div>
+    <div class="label">border-right-color: LinkText</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: device-cmyk(0, 0, 0, 0);">Content</div>
+    </div>
+    <div class="label">border-right-color: device-cmyk(0, 0, 0, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: device-cmyk(0, 0, 0, 0.5);">Content</div>
+    </div>
+    <div class="label">border-right-color: device-cmyk(0, 0, 0, 0.5)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: device-cmyk(0, 0, 0, 1);">Content</div>
+    </div>
+    <div class="label">border-right-color: device-cmyk(0, 0, 0, 1)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: device-cmyk(0 0 0 0);">Content</div>
+    </div>
+    <div class="label">border-right-color: device-cmyk(0 0 0 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: device-cmyk(0 0 0 0 / 0);">Content</div>
+    </div>
+    <div class="label">border-right-color: device-cmyk(0 0 0 0 / 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: light-dark(none, none);">Content</div>
+    </div>
+    <div class="label">border-right-color: light-dark(none, none)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: light-dark(none, linear-gradient(red, blue));">Content</div>
+    </div>
+    <div class="label">border-right-color: light-dark(none, linear-gradient(red, blue))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: var(--my-var);">Content</div>
+    </div>
+    <div class="label">border-right-color: var(--my-var)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: var(--my-var, my-ident);">Content</div>
+    </div>
+    <div class="label">border-right-color: var(--my-var, my-ident)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: device-cmyk(0, 0, 0, 2);">Content</div>
+    </div>
+    <div class="label">border-right-color: device-cmyk(0, 0, 0, 2)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: device-cmyk(0, 0, 0.5, 0);">Content</div>
+    </div>
+    <div class="label">border-right-color: device-cmyk(0, 0, 0.5, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: device-cmyk(0, 0, 0.5, 0.5);">Content</div>
+    </div>
+    <div class="label">border-right-color: device-cmyk(0, 0, 0.5, 0.5)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: device-cmyk(0, 0, 0.5, 1);">Content</div>
+    </div>
+    <div class="label">border-right-color: device-cmyk(0, 0, 0.5, 1)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: device-cmyk(0, 0, 0.5, 2);">Content</div>
+    </div>
+    <div class="label">border-right-color: device-cmyk(0, 0, 0.5, 2)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: device-cmyk(0, 0, 1, 0);">Content</div>
+    </div>
+    <div class="label">border-right-color: device-cmyk(0, 0, 1, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: device-cmyk(0 0 0 0 / 0.5);">Content</div>
+    </div>
+    <div class="label">border-right-color: device-cmyk(0 0 0 0 / 0.5)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: device-cmyk(0 0 0 0 / 0%);">Content</div>
+    </div>
+    <div class="label">border-right-color: device-cmyk(0 0 0 0 / 0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: device-cmyk(0 0 0 0 / 25%);">Content</div>
+    </div>
+    <div class="label">border-right-color: device-cmyk(0 0 0 0 / 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: device-cmyk(0 0 0 0 / 1);">Content</div>
+    </div>
+    <div class="label">border-right-color: device-cmyk(0 0 0 0 / 1)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: device-cmyk(0 0 0 0 / 2);">Content</div>
+    </div>
+    <div class="label">border-right-color: device-cmyk(0 0 0 0 / 2)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: device-cmyk(0 0 0 0 / 50%);">Content</div>
+    </div>
+    <div class="label">border-right-color: device-cmyk(0 0 0 0 / 50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: light-dark(linear-gradient(red, blue), none);">Content</div>
+    </div>
+    <div class="label">border-right-color: light-dark(linear-gradient(red, blue), none)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: var(--my-var, 0);">Content</div>
+    </div>
+    <div class="label">border-right-color: var(--my-var, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: var(--my-var, 0e0);">Content</div>
+    </div>
+    <div class="label">border-right-color: var(--my-var, 0e0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-right: 6px solid; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #c0c0c0; border-radius: 4px; border-right-color: linear-gradient(red, blue);">Content</div>
+    </div>
+    <div class="label">border-right-color: linear-gradient(red, blue)</div>
+  </div>
+</div>
 </body>
 </html>

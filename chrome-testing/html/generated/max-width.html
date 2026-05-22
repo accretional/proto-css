@@ -1,113 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>max-width</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-direction: column; gap: 12px; }
-    .demo-row {
-      background: #16213e;
-      border-radius: 10px;
-      padding: 14px 20px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .label {
-      font-size: 11px;
-      font-family: monospace;
-      color: #9ca3af;
-      min-width: 200px;
-      flex-shrink: 0;
-    }
-    .box {
-      background: linear-gradient(90deg, #4fc3f7, #7c4dff);
-      border-radius: 6px;
-      padding: 10px 14px;
-      font-size: 12px;
-      color: #fff;
-      font-family: monospace;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      height: 40px;
-      display: flex;
-      align-items: center;
-    }
-    .track {
-      flex: 1;
-      background: #0f3460;
-      border-radius: 6px;
-      padding: 4px;
-      min-height: 48px;
-      display: flex;
-      align-items: center;
-    }
-    .box-none { max-width: fit-content(env(J_)) ! important(env(w, +3.79s)); width: 100%; }
-    .box-100 { max-width: stretch ! important; width: 100%; }
-    .box-200 { max-width: min-content ! important; width: 100%; }
-    .box-300 { max-width: anchor-size(width, 0) ! important; width: 100%; }
-    .box-50pct { max-width: fit-content(env(J_)) ! important(0); width: 100%; }
-    .box-maxc { max-width: fit-content(env(J_)) ! important(env(賵 74, 0)) ! important; }
-    .box-fitc { max-width: fit-content(env(J_)) ! important; }
-  </style>
+<meta charset="UTF-8">
+<title>max-width</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Max Width</h1>
-  <p class="prop-name">max-width</p>
-  <div class="demos">
-    <div class="demo-row">
-      <p class="label">max-width: fit-content(env(J_)) ! important(env(w, +3.79s))</p>
-      <div class="track">
-        <div class="box box-none">fills entire container width with no upper bound</div>
-      </div>
+<h1>Max Width</h1>
+<p class="prop-name">max-width</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: none;">Content fills available width</div>
     </div>
-
-    <div class="demo-row">
-      <p class="label">max-width: stretch ! important</p>
-      <div class="track">
-        <div class="box box-100">100px</div>
-      </div>
-    </div>
-
-    <div class="demo-row">
-      <p class="label">max-width: min-content ! important</p>
-      <div class="track">
-        <div class="box box-200">200px limit</div>
-      </div>
-    </div>
-
-    <div class="demo-row">
-      <p class="label">max-width: anchor-size(width, 0) ! important</p>
-      <div class="track">
-        <div class="box box-300">300px maximum width</div>
-      </div>
-    </div>
-
-    <div class="demo-row">
-      <p class="label">max-width: fit-content(env(J_)) ! important(0)</p>
-      <div class="track">
-        <div class="box box-50pct">50% of parent</div>
-      </div>
-    </div>
-
-    <div class="demo-row">
-      <p class="label">max-width: fit-content(env(J_)) ! important(env(賵 74, 0)) ! important</p>
-      <div class="track">
-        <div class="box box-maxc">Sized to content, no wrapping</div>
-      </div>
-    </div>
-
-    <div class="demo-row">
-      <p class="label">max-width: fit-content(env(J_)) ! important</p>
-      <div class="track">
-        <div class="box box-fitc">Shrinks to fit content naturally</div>
-      </div>
-    </div>
+    <div class="label">max-width: none</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: 0;">Content fills available width</div>
+    </div>
+    <div class="label">max-width: 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: 10px;">Content fills available width</div>
+    </div>
+    <div class="label">max-width: 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: 25%;">Content fills available width</div>
+    </div>
+    <div class="label">max-width: 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: 50%;">Content fills available width</div>
+    </div>
+    <div class="label">max-width: 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: min-content;">Content fills available width</div>
+    </div>
+    <div class="label">max-width: min-content</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: max-content;">Content fills available width</div>
+    </div>
+    <div class="label">max-width: max-content</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: fit-content(0);">Content fills available width</div>
+    </div>
+    <div class="label">max-width: fit-content(0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: fit-content(10px);">Content fills available width</div>
+    </div>
+    <div class="label">max-width: fit-content(10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: fit-content(25%);">Content fills available width</div>
+    </div>
+    <div class="label">max-width: fit-content(25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: fit-content(50%);">Content fills available width</div>
+    </div>
+    <div class="label">max-width: fit-content(50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: fit-content(100%);">Content fills available width</div>
+    </div>
+    <div class="label">max-width: fit-content(100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(auto, 0);">Content fills available width</div>
+    </div>
+    <div class="label">max-width: calc-size(auto, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(auto, 0 + 0);">Content fills available width</div>
+    </div>
+    <div class="label">max-width: calc-size(auto, 0 + 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(auto, 0 + 0 * 0);">Content fills available width</div>
+    </div>
+    <div class="label">max-width: calc-size(auto, 0 + 0 * 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(auto, 0 + 0 * 0e0);">Content fills available width</div>
+    </div>
+    <div class="label">max-width: calc-size(auto, 0 + 0 * 0e0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(auto, 0 + 0 * 0cap);">Content fills available width</div>
+    </div>
+    <div class="label">max-width: calc-size(auto, 0 + 0 * 0cap)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(auto, 0 + 0 * 0%);">Content fills available width</div>
+    </div>
+    <div class="label">max-width: calc-size(auto, 0 + 0 * 0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(auto, 0 + 0 * 0e0%);">Content fills available width</div>
+    </div>
+    <div class="label">max-width: calc-size(auto, 0 + 0 * 0e0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(auto, 0 + 0 * e);">Content fills available width</div>
+    </div>
+    <div class="label">max-width: calc-size(auto, 0 + 0 * e)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(auto, 0 + 0 * pi);">Content fills available width</div>
+    </div>
+    <div class="label">max-width: calc-size(auto, 0 + 0 * pi)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(auto, 0 + 0 * calc(50% + 20px));">Content fills available width</div>
+    </div>
+    <div class="label">max-width: calc-size(auto, 0 + 0 * calc(50% + 20px))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(auto, 0 + 0 * var(--my-var));">Content fills available width</div>
+    </div>
+    <div class="label">max-width: calc-size(auto, 0 + 0 * var(--my-var))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(auto, 0 + 0 * var(--my-var, my-ident));">Content fills available width</div>
+    </div>
+    <div class="label">max-width: calc-size(auto, 0 + 0 * var(--my-var, my-ident))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(auto, 0 + 0 * env(my-custom));">Content fills available width</div>
+    </div>
+    <div class="label">max-width: calc-size(auto, 0 + 0 * env(my-custom))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(auto, 0 + 0 * env(my-custom, my-ident));">Content fills available width</div>
+    </div>
+    <div class="label">max-width: calc-size(auto, 0 + 0 * env(my-custom, my-ident))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(auto, 0 + 0 * anchor(inside));">Content fills available width</div>
+    </div>
+    <div class="label">max-width: calc-size(auto, 0 + 0 * anchor(inside))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(auto, 0 + 0 * anchor(inside, 0));">Content fills available width</div>
+    </div>
+    <div class="label">max-width: calc-size(auto, 0 + 0 * anchor(inside, 0))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: anchor-size(, 0);">Content fills available width</div>
+    </div>
+    <div class="label">max-width: anchor-size(, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: anchor-size(, 10px);">Content fills available width</div>
+    </div>
+    <div class="label">max-width: anchor-size(, 10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: anchor-size(, 25%);">Content fills available width</div>
+    </div>
+    <div class="label">max-width: anchor-size(, 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: stretch;">Content fills available width</div>
+    </div>
+    <div class="label">max-width: stretch</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: fit-content;">Content fills available width</div>
+    </div>
+    <div class="label">max-width: fit-content</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: contain;">Content fills available width</div>
+    </div>
+    <div class="label">max-width: contain</div>
+  </div>
+</div>
 </body>
 </html>

@@ -1,182 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>overscroll-behavior-x</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
-    .demo-card {
-      background: #16213e;
-      border-radius: 12px;
-      padding: 20px;
-      width: 370px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .demo-card h2 { font-size: 14px; color: #e0e0e0; margin-bottom: 12px; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
-    .outer-scroll {
-      width: 320px;
-      height: 150px;
-      background: #0f3460;
-      border-radius: 8px;
-      overflow-x: auto;
-      overflow-y: hidden;
-      white-space: nowrap;
-    }
-    .outer-content {
-      padding: 12px;
-      display: inline-flex;
-      align-items: flex-start;
-      gap: 12px;
-      min-width: 800px;
-    }
-    .outer-content span {
-      font-size: 11px;
-      color: #5a7aa0;
-      white-space: nowrap;
-    }
-    .inner-scroll {
-      width: 220px;
-      height: 100px;
-      border-radius: 6px;
-      overflow-x: auto;
-      overflow-y: hidden;
-      padding: 10px;
-      font-size: 12px;
-      color: #c0c0c0;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    .inner-wide-content {
-      display: inline-block;
-      min-width: 500px;
-    }
-    .inner-wide-content p { margin-bottom: 4px; white-space: normal; width: 480px; }
-    .val-auto {
-      background: #2a1a3e;
-      border: 2px solid #e94560;
-      overscroll-behavior-x: chain;
-    }
-    .val-contain {
-      background: #1a2e1a;
-      border: 2px solid #4ecca3;
-      overscroll-behavior-x: contain ! important;
-    }
-    .val-none {
-      background: #2e2a1a;
-      border: 2px solid #f0a500;
-      overscroll-behavior-x: none ! important;
-    }
-    .axis-row {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 8px;
-    }
-    .axis-badge {
-      font-size: 10px;
-      font-family: monospace;
-      padding: 3px 8px;
-      border-radius: 4px;
-      background: #0f3460;
-      color: #64b5f6;
-    }
-    .status-badge {
-      font-size: 10px;
-      font-family: monospace;
-      padding: 3px 8px;
-      border-radius: 4px;
-      margin-top: 6px;
-    }
-    .s-auto { background: #3d1a2e; color: #e94560; }
-    .s-contain { background: #1a2e1a; color: #4ecca3; }
-    .s-none { background: #2e2a1a; color: #f0a500; }
-    .x-arrow {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      margin: 4px 0;
-      font-size: 16px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>overscroll-behavior-x</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .outer-label { font-size: 11px; color: #5a7aa0; white-space: nowrap; }
+.inner-wide-content { display: inline-block; min-width: 500px; }
+.inner-wide-content p { margin-bottom: 4px; white-space: normal; width: 480px; }
+</style>
 </head>
 <body>
-  <h1>Overscroll Behavior X</h1>
-  <p class="prop-name">overscroll-behavior-x</p>
-  <div class="demos">
-
-    <div class="demo-card">
-      <h2>auto</h2>
-      <div class="axis-row">
-        <span class="axis-badge">X axis &#8596;</span>
-        <span class="x-arrow" style="color:#e94560;">&#8592; &#8594;</span>
-      </div>
-      <div class="outer-scroll">
-        <div class="outer-content">
-          <span>&#8592;</span>
-          <div class="inner-scroll val-auto">
-            <div class="inner-wide-content">
-              <p>Scroll horizontally past the inner boundary. X-axis overscroll chains to parent.</p>
-              <p>This is the default behavior for horizontal scrolling.</p>
-            </div>
-          </div>
-          <span>Outer content &#8594; &#8594; &#8594; &#8594; &#8594;</span>
-        </div>
-      </div>
-      <span class="status-badge s-auto">x-axis: chains to parent</span>
-      <div class="label">overscroll-behavior-x: chain</div>
+<h1>Overscroll Behavior X</h1>
+<p class="prop-name">overscroll-behavior-x</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="width: 320px; height: 150px; background: #0f3460; border-radius: 8px; overflow-x: auto; overflow-y: hidden; white-space: nowrap;">
+      <span class="outer-label">&#8592;</span>
+      <div style="width: 220px; height: 100px; border-radius: 6px; overflow-x: auto; overflow-y: hidden; padding: 10px; font-size: 12px; color: #c0c0c0; white-space: nowrap; flex-shrink: 0; background: #2a1a3e; border: 2px solid #e94560; overscroll-behavior-x: contain;"><div class="inner-wide-content"><p>Scroll horizontally past the inner boundary. X-axis overscroll chains to parent.</p><p>This is the default behavior for horizontal scrolling.</p></div></div>
+      <span class="outer-label">Outer content &#8594; &#8594; &#8594; &#8594; &#8594;</span>
     </div>
-
-    <div class="demo-card">
-      <h2>contain</h2>
-      <div class="axis-row">
-        <span class="axis-badge">X axis &#8596;</span>
-        <span class="x-arrow" style="color:#4ecca3;">&#8867; &#8866;</span>
-      </div>
-      <div class="outer-scroll">
-        <div class="outer-content">
-          <span>&#8592;</span>
-          <div class="inner-scroll val-contain">
-            <div class="inner-wide-content">
-              <p>Scroll horizontally past the inner boundary. X-axis overscroll is contained here.</p>
-              <p>Parent horizontal scroll will not be triggered.</p>
-            </div>
-          </div>
-          <span>Outer content &#8594; &#8594; &#8594; &#8594; &#8594;</span>
-        </div>
-      </div>
-      <span class="status-badge s-contain">x-axis: contained</span>
-      <div class="label">overscroll-behavior-x: contain ! important</div>
-    </div>
-
-    <div class="demo-card">
-      <h2>none</h2>
-      <div class="axis-row">
-        <span class="axis-badge">X axis &#8596;</span>
-        <span class="x-arrow" style="color:#f0a500;">&#10005;</span>
-      </div>
-      <div class="outer-scroll">
-        <div class="outer-content">
-          <span>&#8592;</span>
-          <div class="inner-scroll val-none">
-            <div class="inner-wide-content">
-              <p>Scroll horizontally past the inner boundary. No chaining and no overscroll effects.</p>
-              <p>X-axis overscroll is completely suppressed.</p>
-            </div>
-          </div>
-          <span>Outer content &#8594; &#8594; &#8594; &#8594; &#8594;</span>
-        </div>
-      </div>
-      <span class="status-badge s-none">x-axis: fully blocked</span>
-      <div class="label">overscroll-behavior-x: none ! important</div>
-    </div>
-
+    <div class="label">overscroll-behavior-x: contain</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 320px; height: 150px; background: #0f3460; border-radius: 8px; overflow-x: auto; overflow-y: hidden; white-space: nowrap;">
+      <span class="outer-label">&#8592;</span>
+      <div style="width: 220px; height: 100px; border-radius: 6px; overflow-x: auto; overflow-y: hidden; padding: 10px; font-size: 12px; color: #c0c0c0; white-space: nowrap; flex-shrink: 0; background: #2a1a3e; border: 2px solid #e94560; overscroll-behavior-x: none;"><div class="inner-wide-content"><p>Scroll horizontally past the inner boundary. X-axis overscroll chains to parent.</p><p>This is the default behavior for horizontal scrolling.</p></div></div>
+      <span class="outer-label">Outer content &#8594; &#8594; &#8594; &#8594; &#8594;</span>
+    </div>
+    <div class="label">overscroll-behavior-x: none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 320px; height: 150px; background: #0f3460; border-radius: 8px; overflow-x: auto; overflow-y: hidden; white-space: nowrap;">
+      <span class="outer-label">&#8592;</span>
+      <div style="width: 220px; height: 100px; border-radius: 6px; overflow-x: auto; overflow-y: hidden; padding: 10px; font-size: 12px; color: #c0c0c0; white-space: nowrap; flex-shrink: 0; background: #2a1a3e; border: 2px solid #e94560; overscroll-behavior-x: auto;"><div class="inner-wide-content"><p>Scroll horizontally past the inner boundary. X-axis overscroll chains to parent.</p><p>This is the default behavior for horizontal scrolling.</p></div></div>
+      <span class="outer-label">Outer content &#8594; &#8594; &#8594; &#8594; &#8594;</span>
+    </div>
+    <div class="label">overscroll-behavior-x: auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 320px; height: 150px; background: #0f3460; border-radius: 8px; overflow-x: auto; overflow-y: hidden; white-space: nowrap;">
+      <span class="outer-label">&#8592;</span>
+      <div style="width: 220px; height: 100px; border-radius: 6px; overflow-x: auto; overflow-y: hidden; padding: 10px; font-size: 12px; color: #c0c0c0; white-space: nowrap; flex-shrink: 0; background: #2a1a3e; border: 2px solid #e94560; overscroll-behavior-x: chain;"><div class="inner-wide-content"><p>Scroll horizontally past the inner boundary. X-axis overscroll chains to parent.</p><p>This is the default behavior for horizontal scrolling.</p></div></div>
+      <span class="outer-label">Outer content &#8594; &#8594; &#8594; &#8594; &#8594;</span>
+    </div>
+    <div class="label">overscroll-behavior-x: chain</div>
+  </div>
+</div>
 </body>
 </html>

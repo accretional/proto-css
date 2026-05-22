@@ -42,21 +42,6 @@
     .child:nth-child(2) { background: #0f3460; }
     .child:nth-child(3) { background: #53d769; color: #1a1a2e; }
     .child:nth-child(4) { background: #fbbf24; color: #1a1a2e; }
-
-    /* Default order (all 1) */
-    .default .child { -webkit-box-ordinal-group: 1; }
-
-    /* Reversed */
-    .reversed .child:nth-child(1) { -webkit-box-ordinal-group: 4; }
-    .reversed .child:nth-child(2) { -webkit-box-ordinal-group: 3; }
-    .reversed .child:nth-child(3) { -webkit-box-ordinal-group: 2; }
-    .reversed .child:nth-child(4) { -webkit-box-ordinal-group: 1; }
-
-    /* Custom */
-    .custom .child:nth-child(1) { -webkit-box-ordinal-group: 3; }
-    .custom .child:nth-child(2) { -webkit-box-ordinal-group: 1; }
-    .custom .child:nth-child(3) { -webkit-box-ordinal-group: 4; }
-    .custom .child:nth-child(4) { -webkit-box-ordinal-group: 2; }
   </style>
 </head>
 <body>
@@ -64,31 +49,31 @@
   <p class="prop-name">box-ordinal-group / -webkit-box-ordinal-group</p>
   <div class="demos">
     <div class="demo-box">
-      <div class="container default">
-        <div class="child">A <small>ordinal: 1</small></div>
-        <div class="child">B <small>ordinal: 1</small></div>
-        <div class="child">C <small>ordinal: 1</small></div>
-        <div class="child">D <small>ordinal: 1</small></div>
+      <div class="container">
+        <div class="child" style="-webkit-box-ordinal-group: 0;">A <small>ordinal: 0</small></div>
+        <div class="child" style="-webkit-box-ordinal-group: 1;">B <small>ordinal: 1</small></div>
+        <div class="child" style="-webkit-box-ordinal-group: 2;">C <small>ordinal: 2</small></div>
+        <div class="child" style="-webkit-box-ordinal-group: 5;">D <small>ordinal: 5</small></div>
+      </div>
+      <span class="label">ordinal-group: A=0 | B=1 | C=2 | D=5 (ascending)</span>
+    </div>
+    <div class="demo-box">
+      <div class="container">
+        <div class="child" style="-webkit-box-ordinal-group: 5;">A <small>ordinal: 5</small></div>
+        <div class="child" style="-webkit-box-ordinal-group: 2;">B <small>ordinal: 2</small></div>
+        <div class="child" style="-webkit-box-ordinal-group: 1;">C <small>ordinal: 1</small></div>
+        <div class="child" style="-webkit-box-ordinal-group: 0;">D <small>ordinal: 0</small></div>
+      </div>
+      <span class="label">ordinal-group: A=5 | B=2 | C=1 | D=0 (reversed)</span>
+    </div>
+    <div class="demo-box">
+      <div class="container">
+        <div class="child" style="-webkit-box-ordinal-group: 1;">A <small>ordinal: 1</small></div>
+        <div class="child" style="-webkit-box-ordinal-group: 1;">B <small>ordinal: 1</small></div>
+        <div class="child" style="-webkit-box-ordinal-group: 1;">C <small>ordinal: 1</small></div>
+        <div class="child" style="-webkit-box-ordinal-group: 1;">D <small>ordinal: 1</small></div>
       </div>
       <span class="label">All items: ordinal-group: 1 (default, DOM order)</span>
-    </div>
-    <div class="demo-box">
-      <div class="container reversed">
-        <div class="child">A <small>ordinal: 4</small></div>
-        <div class="child">B <small>ordinal: 3</small></div>
-        <div class="child">C <small>ordinal: 2</small></div>
-        <div class="child">D <small>ordinal: 1</small></div>
-      </div>
-      <span class="label">ordinal-group: A=4 | B=3 | C=2 | D=1 (reversed)</span>
-    </div>
-    <div class="demo-box">
-      <div class="container custom">
-        <div class="child">A <small>ordinal: 3</small></div>
-        <div class="child">B <small>ordinal: 1</small></div>
-        <div class="child">C <small>ordinal: 4</small></div>
-        <div class="child">D <small>ordinal: 2</small></div>
-      </div>
-      <span class="label">ordinal-group: A=3 | B=1 | C=4 | D=2 (custom)</span>
     </div>
   </div>
 </body>

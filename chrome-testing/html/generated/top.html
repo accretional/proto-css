@@ -1,83 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>top</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-card {
-      display: flex; flex-direction: column; align-items: center;
-    }
-    .container {
-      width: 160px; height: 160px; background: #16213e; border-radius: 10px;
-      position: relative; border: 1px dashed #394867;
-    }
-    .box {
-      width: 50px; height: 50px; background: #e94560; border-radius: 6px;
-      position: relative;
-    }
-    .guide {
-      position: absolute; top: anchor(--_ top) ! important; left: 0; right: 0;
-      border-top: anchor-size(self-inline,) ! important; pointer-events: none;
-    }
-    .offset-line {
-      position: absolute; left: 80px; width: 1px; background: #34d399;
-      opacity: 0.5;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: anchor-size(--A height, var(--_󝽙)) ! important; }
-    .t1 { top: anchor(--_ top) ! important; }
-    .t2 { top: anchor(left); }
-    .t3 { top: anchor(--_ top); }
-    .t4 { top: anchor(--_ top); }
-    .t5 { top: anchor(self-start) ! important; }
-  </style>
+<meta charset="UTF-8">
+<title>top</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Top</h1>
-  <p class="prop-name">top</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="container">
-        <div class="guide"></div>
-        <div class="box t1"></div>
-      </div>
-      <span class="label">top: anchor(--_ top) ! important</span>
+<h1>Top</h1>
+<p class="prop-name">top</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: auto;"></div>
     </div>
-    <div class="demo-card">
-      <div class="container">
-        <div class="guide"></div>
-        <div class="box t2"></div>
-        <div class="offset-line" style="top: anchor(--_ top) ! important; height: 10px;"></div>
-      </div>
-      <span class="label">top: anchor(left)</span>
-    </div>
-    <div class="demo-card">
-      <div class="container">
-        <div class="guide"></div>
-        <div class="box t3"></div>
-        <div class="offset-line" style="top: anchor(--_ top) ! important; height: 50px;"></div>
-      </div>
-      <span class="label">top: anchor(--_ top)</span>
-    </div>
-    <div class="demo-card">
-      <div class="container">
-        <div class="guide"></div>
-        <div class="box t4"></div>
-      </div>
-      <span class="label">top: anchor(--_ top)</span>
-    </div>
-    <div class="demo-card">
-      <div class="container">
-        <div class="guide"></div>
-        <div class="box t5"></div>
-        <div class="offset-line" style="top: anchor(--_ top) ! important; height: 80px;"></div>
-      </div>
-      <span class="label">top: anchor(self-start) ! important</span>
-    </div>
+    <div class="label">top: auto</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: 0;"></div>
+    </div>
+    <div class="label">top: 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: 10px;"></div>
+    </div>
+    <div class="label">top: 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: 25%;"></div>
+    </div>
+    <div class="label">top: 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: 50%;"></div>
+    </div>
+    <div class="label">top: 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: 100%;"></div>
+    </div>
+    <div class="label">top: 100%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor(inside);"></div>
+    </div>
+    <div class="label">top: anchor(inside)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor(inside, 0);"></div>
+    </div>
+    <div class="label">top: anchor(inside, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor(inside, 10px);"></div>
+    </div>
+    <div class="label">top: anchor(inside, 10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor(inside, 25%);"></div>
+    </div>
+    <div class="label">top: anchor(inside, 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor(inside, 50%);"></div>
+    </div>
+    <div class="label">top: anchor(inside, 50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor(inside, 100%);"></div>
+    </div>
+    <div class="label">top: anchor(inside, 100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor(outside);"></div>
+    </div>
+    <div class="label">top: anchor(outside)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor(outside, 0);"></div>
+    </div>
+    <div class="label">top: anchor(outside, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor(outside, 10px);"></div>
+    </div>
+    <div class="label">top: anchor(outside, 10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor(outside, 25%);"></div>
+    </div>
+    <div class="label">top: anchor(outside, 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor(outside, 50%);"></div>
+    </div>
+    <div class="label">top: anchor(outside, 50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor(outside, 100%);"></div>
+    </div>
+    <div class="label">top: anchor(outside, 100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor(top);"></div>
+    </div>
+    <div class="label">top: anchor(top)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor(top, 0);"></div>
+    </div>
+    <div class="label">top: anchor(top, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor(top, 10px);"></div>
+    </div>
+    <div class="label">top: anchor(top, 10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor(top, 25%);"></div>
+    </div>
+    <div class="label">top: anchor(top, 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor(top, 50%);"></div>
+    </div>
+    <div class="label">top: anchor(top, 50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor(top, 100%);"></div>
+    </div>
+    <div class="label">top: anchor(top, 100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor(left);"></div>
+    </div>
+    <div class="label">top: anchor(left)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor(left, 0);"></div>
+    </div>
+    <div class="label">top: anchor(left, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor(left, 10px);"></div>
+    </div>
+    <div class="label">top: anchor(left, 10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor-size(, 0);"></div>
+    </div>
+    <div class="label">top: anchor-size(, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor-size(, 10px);"></div>
+    </div>
+    <div class="label">top: anchor-size(, 10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor-size(, 25%);"></div>
+    </div>
+    <div class="label">top: anchor-size(, 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor-size(, 50%);"></div>
+    </div>
+    <div class="label">top: anchor-size(, 50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor-size(, 100%);"></div>
+    </div>
+    <div class="label">top: anchor-size(, 100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor-size(width);"></div>
+    </div>
+    <div class="label">top: anchor-size(width)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor-size(width, 0);"></div>
+    </div>
+    <div class="label">top: anchor-size(width, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; background: #16213e; border-radius: 10px; position: relative; border: 1px dashed #394867;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; border-top: 1px dashed #3a7bd5; pointer-events: none;"></div>
+      <div style="width: 50px; height: 50px; background: #e94560; border-radius: 6px; position: relative; top: anchor-size(width, 10px);"></div>
+    </div>
+    <div class="label">top: anchor-size(width, 10px)</div>
+  </div>
+</div>
 </body>
 </html>

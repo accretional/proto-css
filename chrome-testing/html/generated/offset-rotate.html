@@ -1,75 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>offset-rotate</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 18px; }
-    .demo-box { background: #16213e; border-radius: 10px; padding: 16px; width: 225px; height: 240px; position: relative; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; text-align: center; position: absolute; bottom: 10px; left: 0; right: 0; }
-    .path-area { width: 193px; height: 180px; position: relative; margin: 0 auto; }
-    .path-visual { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-    .path-line { fill: none; stroke: #3a3a5c; stroke-width: 2; stroke-dasharray: 4 4; }
-    .arrow {
-      width: 0; height: 0;
-      border-left: 10px solid transparent;
-      border-right: 10px solid transparent;
-      border-bottom: 28px solid #e94560;
-      position: absolute; top: 0; left: 0;
-      offset-path: path("M 16,150 C 16,30 177,30 177,150");
-      offset-distance: 50%;
-      filter: drop-shadow(0 0 6px rgba(233,69,96,0.6));
-    }
-    .d1 .arrow { offset-rotate: 0; }
-    .d2 .arrow { offset-rotate: auto 0 ! important; }
-    .d3 .arrow { offset-rotate: +32grad; }
-    .d4 .arrow { offset-rotate: 0 auto ! important; }
-    .d5 .arrow { offset-rotate: 0 45deg; }
-  </style>
+<meta charset="UTF-8">
+<title>offset-rotate</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Offset Rotate</h1>
-  <p class="prop-name">offset-rotate</p>
-  <div class="demos">
-    <div class="demo-box">
-      <div class="path-area d1">
-        <svg class="path-visual" viewBox="0 0 193 180"><path d="M 16,150 C 16,30 177,30 177,150" class="path-line"/></svg>
-        <div class="arrow"></div>
-      </div>
-      <div class="label">offset-rotate: 0</div>
+<h1>Offset Rotate</h1>
+<p class="prop-name">offset-rotate</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: auto;"></div>
     </div>
-    <div class="demo-box">
-      <div class="path-area d2">
-        <svg class="path-visual" viewBox="0 0 193 180"><path d="M 16,150 C 16,30 177,30 177,150" class="path-line"/></svg>
-        <div class="arrow"></div>
-      </div>
-      <div class="label">offset-rotate: auto 0 ! important</div>
-    </div>
-    <div class="demo-box">
-      <div class="path-area d3">
-        <svg class="path-visual" viewBox="0 0 193 180"><path d="M 16,150 C 16,30 177,30 177,150" class="path-line"/></svg>
-        <div class="arrow"></div>
-      </div>
-      <div class="label">offset-rotate: +32grad</div>
-    </div>
-    <div class="demo-box">
-      <div class="path-area d4">
-        <svg class="path-visual" viewBox="0 0 193 180"><path d="M 16,150 C 16,30 177,30 177,150" class="path-line"/></svg>
-        <div class="arrow"></div>
-      </div>
-      <div class="label">offset-rotate: 0 auto ! important</div>
-    </div>
-    <div class="demo-box">
-      <div class="path-area d5">
-        <svg class="path-visual" viewBox="0 0 193 180"><path d="M 16,150 C 16,30 177,30 177,150" class="path-line"/></svg>
-        <div class="arrow"></div>
-      </div>
-      <div class="label">offset-rotate: 0 45deg</div>
-    </div>
+    <div class="label">offset-rotate: auto</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: auto 0;"></div>
+    </div>
+    <div class="label">offset-rotate: auto 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: auto 0deg;"></div>
+    </div>
+    <div class="label">offset-rotate: auto 0deg</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: auto 0grad;"></div>
+    </div>
+    <div class="label">offset-rotate: auto 0grad</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: auto 0rad;"></div>
+    </div>
+    <div class="label">offset-rotate: auto 0rad</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: auto 0turn;"></div>
+    </div>
+    <div class="label">offset-rotate: auto 0turn</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: auto 0e0deg;"></div>
+    </div>
+    <div class="label">offset-rotate: auto 0e0deg</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: auto 0e0grad;"></div>
+    </div>
+    <div class="label">offset-rotate: auto 0e0grad</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: auto 0e0rad;"></div>
+    </div>
+    <div class="label">offset-rotate: auto 0e0rad</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: auto 0e0turn;"></div>
+    </div>
+    <div class="label">offset-rotate: auto 0e0turn</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: auto 0e00deg;"></div>
+    </div>
+    <div class="label">offset-rotate: auto 0e00deg</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: auto 0e00grad;"></div>
+    </div>
+    <div class="label">offset-rotate: auto 0e00grad</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: auto 0e00rad;"></div>
+    </div>
+    <div class="label">offset-rotate: auto 0e00rad</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: auto 0e00turn;"></div>
+    </div>
+    <div class="label">offset-rotate: auto 0e00turn</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: auto 0e01deg;"></div>
+    </div>
+    <div class="label">offset-rotate: auto 0e01deg</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: auto 0e01grad;"></div>
+    </div>
+    <div class="label">offset-rotate: auto 0e01grad</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: auto 0e01rad;"></div>
+    </div>
+    <div class="label">offset-rotate: auto 0e01rad</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: auto 0e01turn;"></div>
+    </div>
+    <div class="label">offset-rotate: auto 0e01turn</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: 0;"></div>
+    </div>
+    <div class="label">offset-rotate: 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: 0 auto;"></div>
+    </div>
+    <div class="label">offset-rotate: 0 auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: 0 reverse;"></div>
+    </div>
+    <div class="label">offset-rotate: 0 reverse</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: 0deg;"></div>
+    </div>
+    <div class="label">offset-rotate: 0deg</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: 0deg auto;"></div>
+    </div>
+    <div class="label">offset-rotate: 0deg auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: 0deg reverse;"></div>
+    </div>
+    <div class="label">offset-rotate: 0deg reverse</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: 0grad;"></div>
+    </div>
+    <div class="label">offset-rotate: 0grad</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: 0grad auto;"></div>
+    </div>
+    <div class="label">offset-rotate: 0grad auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: 0grad reverse;"></div>
+    </div>
+    <div class="label">offset-rotate: 0grad reverse</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: 0rad;"></div>
+    </div>
+    <div class="label">offset-rotate: 0rad</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: 0rad auto;"></div>
+    </div>
+    <div class="label">offset-rotate: 0rad auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: 0rad reverse;"></div>
+    </div>
+    <div class="label">offset-rotate: 0rad reverse</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: 0turn;"></div>
+    </div>
+    <div class="label">offset-rotate: 0turn</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: 0turn auto;"></div>
+    </div>
+    <div class="label">offset-rotate: 0turn auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: 0turn reverse;"></div>
+    </div>
+    <div class="label">offset-rotate: 0turn reverse</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: 0e0deg;"></div>
+    </div>
+    <div class="label">offset-rotate: 0e0deg</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: 0e0deg auto;"></div>
+    </div>
+    <div class="label">offset-rotate: 0e0deg auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 193px; height: 180px; position: relative;">
+      <svg class="path-visual" viewBox="0 0 193 180" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><path d="M 16,150 C 16,30 177,30 177,150" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
+      <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 28px solid #e94560; position: absolute; top: 0; left: 0; offset-path: path(&#34;M 16,150 C 16,30 177,30 177,150&#34;); offset-distance: 50%; filter: drop-shadow(0 0 6px rgba(233,69,96,0.6)); offset-rotate: 0e0deg reverse;"></div>
+    </div>
+    <div class="label">offset-rotate: 0e0deg reverse</div>
+  </div>
+</div>
 </body>
 </html>

@@ -1,54 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>text-box-edge</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-card { background: #16213e; border-radius: 12px; padding: 20px; min-width: 220px; flex: 1; }
-    .text-wrapper { background: #0f1a30; border-radius: 8px; display: inline-block; border: 2px solid #3b82f6; }
-    .text-wrapper span { font-size: 40px; line-height: 1.5; display: block; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
-  </style>
+<meta charset="UTF-8">
+<title>text-box-edge</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .demo-area { background: #0f1a30; border-radius: 8px; display: inline-block; border: 2px solid #3b82f6; }
+</style>
 </head>
 <body>
-  <h1>Text Box Edge</h1>
-  <p class="prop-name">text-box-edge</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="text-wrapper" style="border-color: #6366f1;">
-        <span style="text-box-trim: trim-both; text-box-edge: ideographic ! important;">Ayqg</span>
-      </div>
-      <p class="label">text-box-edge: ideographic ! important</p>
+<h1>Text Box Edge</h1>
+<p class="prop-name">text-box-edge</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; min-width: 220px; flex: 1;">
+      <span style="font-size: 40px; line-height: 1.5; display: block; text-box-trim: trim-both; text-box-edge: auto;">Ayqg</span>
     </div>
-    <div class="demo-card">
-      <div class="text-wrapper" style="border-color: #ef4444;">
-        <span style="text-box-trim: trim-both; text-box-edge: auto ! important;">Ayqg</span>
-      </div>
-      <p class="label">text-box-edge: auto ! important</p>
-    </div>
-    <div class="demo-card">
-      <div class="text-wrapper" style="border-color: #10b981;">
-        <span style="text-box-trim: trim-both; text-box-edge: ideographic text ! important;">Ayqg</span>
-      </div>
-      <p class="label">text-box-edge: ideographic text ! important</p>
-    </div>
-    <div class="demo-card">
-      <div class="text-wrapper" style="border-color: #f59e0b;">
-        <span style="text-box-trim: trim-both; text-box-edge: auto;">Ayqg</span>
-      </div>
-      <p class="label">text-box-edge: auto</p>
-    </div>
-    <div class="demo-card">
-      <div class="text-wrapper" style="border-color: #ec4899;">
-        <span style="text-box-trim: trim-both; text-box-edge: cap ideographic;">Ayqg</span>
-      </div>
-      <p class="label">text-box-edge: cap ideographic</p>
-    </div>
+    <div class="label">text-box-edge: auto</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; min-width: 220px; flex: 1;">
+      <span style="font-size: 40px; line-height: 1.5; display: block; text-box-trim: trim-both; text-box-edge: text;">Ayqg</span>
+    </div>
+    <div class="label">text-box-edge: text</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; min-width: 220px; flex: 1;">
+      <span style="font-size: 40px; line-height: 1.5; display: block; text-box-trim: trim-both; text-box-edge: ideographic;">Ayqg</span>
+    </div>
+    <div class="label">text-box-edge: ideographic</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; min-width: 220px; flex: 1;">
+      <span style="font-size: 40px; line-height: 1.5; display: block; text-box-trim: trim-both; text-box-edge: ideographic-ink;">Ayqg</span>
+    </div>
+    <div class="label">text-box-edge: ideographic-ink</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; min-width: 220px; flex: 1;">
+      <span style="font-size: 40px; line-height: 1.5; display: block; text-box-trim: trim-both; text-box-edge: text text;">Ayqg</span>
+    </div>
+    <div class="label">text-box-edge: text text</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; min-width: 220px; flex: 1;">
+      <span style="font-size: 40px; line-height: 1.5; display: block; text-box-trim: trim-both; text-box-edge: text ideographic;">Ayqg</span>
+    </div>
+    <div class="label">text-box-edge: text ideographic</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; min-width: 220px; flex: 1;">
+      <span style="font-size: 40px; line-height: 1.5; display: block; text-box-trim: trim-both; text-box-edge: text ideographic-ink;">Ayqg</span>
+    </div>
+    <div class="label">text-box-edge: text ideographic-ink</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; min-width: 220px; flex: 1;">
+      <span style="font-size: 40px; line-height: 1.5; display: block; text-box-trim: trim-both; text-box-edge: text alphabetic;">Ayqg</span>
+    </div>
+    <div class="label">text-box-edge: text alphabetic</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; min-width: 220px; flex: 1;">
+      <span style="font-size: 40px; line-height: 1.5; display: block; text-box-trim: trim-both; text-box-edge: ideographic text;">Ayqg</span>
+    </div>
+    <div class="label">text-box-edge: ideographic text</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; min-width: 220px; flex: 1;">
+      <span style="font-size: 40px; line-height: 1.5; display: block; text-box-trim: trim-both; text-box-edge: ideographic ideographic;">Ayqg</span>
+    </div>
+    <div class="label">text-box-edge: ideographic ideographic</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; min-width: 220px; flex: 1;">
+      <span style="font-size: 40px; line-height: 1.5; display: block; text-box-trim: trim-both; text-box-edge: ideographic ideographic-ink;">Ayqg</span>
+    </div>
+    <div class="label">text-box-edge: ideographic ideographic-ink</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; min-width: 220px; flex: 1;">
+      <span style="font-size: 40px; line-height: 1.5; display: block; text-box-trim: trim-both; text-box-edge: ideographic alphabetic;">Ayqg</span>
+    </div>
+    <div class="label">text-box-edge: ideographic alphabetic</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; min-width: 220px; flex: 1;">
+      <span style="font-size: 40px; line-height: 1.5; display: block; text-box-trim: trim-both; text-box-edge: ideographic-ink text;">Ayqg</span>
+    </div>
+    <div class="label">text-box-edge: ideographic-ink text</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; min-width: 220px; flex: 1;">
+      <span style="font-size: 40px; line-height: 1.5; display: block; text-box-trim: trim-both; text-box-edge: ideographic-ink ideographic;">Ayqg</span>
+    </div>
+    <div class="label">text-box-edge: ideographic-ink ideographic</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; min-width: 220px; flex: 1;">
+      <span style="font-size: 40px; line-height: 1.5; display: block; text-box-trim: trim-both; text-box-edge: ideographic-ink ideographic-ink;">Ayqg</span>
+    </div>
+    <div class="label">text-box-edge: ideographic-ink ideographic-ink</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; min-width: 220px; flex: 1;">
+      <span style="font-size: 40px; line-height: 1.5; display: block; text-box-trim: trim-both; text-box-edge: ideographic-ink alphabetic;">Ayqg</span>
+    </div>
+    <div class="label">text-box-edge: ideographic-ink alphabetic</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; min-width: 220px; flex: 1;">
+      <span style="font-size: 40px; line-height: 1.5; display: block; text-box-trim: trim-both; text-box-edge: cap text;">Ayqg</span>
+    </div>
+    <div class="label">text-box-edge: cap text</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; min-width: 220px; flex: 1;">
+      <span style="font-size: 40px; line-height: 1.5; display: block; text-box-trim: trim-both; text-box-edge: cap ideographic;">Ayqg</span>
+    </div>
+    <div class="label">text-box-edge: cap ideographic</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; min-width: 220px; flex: 1;">
+      <span style="font-size: 40px; line-height: 1.5; display: block; text-box-trim: trim-both; text-box-edge: cap ideographic-ink;">Ayqg</span>
+    </div>
+    <div class="label">text-box-edge: cap ideographic-ink</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; min-width: 220px; flex: 1;">
+      <span style="font-size: 40px; line-height: 1.5; display: block; text-box-trim: trim-both; text-box-edge: cap alphabetic;">Ayqg</span>
+    </div>
+    <div class="label">text-box-edge: cap alphabetic</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; min-width: 220px; flex: 1;">
+      <span style="font-size: 40px; line-height: 1.5; display: block; text-box-trim: trim-both; text-box-edge: ex text;">Ayqg</span>
+    </div>
+    <div class="label">text-box-edge: ex text</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; min-width: 220px; flex: 1;">
+      <span style="font-size: 40px; line-height: 1.5; display: block; text-box-trim: trim-both; text-box-edge: ex ideographic;">Ayqg</span>
+    </div>
+    <div class="label">text-box-edge: ex ideographic</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; min-width: 220px; flex: 1;">
+      <span style="font-size: 40px; line-height: 1.5; display: block; text-box-trim: trim-both; text-box-edge: ex ideographic-ink;">Ayqg</span>
+    </div>
+    <div class="label">text-box-edge: ex ideographic-ink</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; min-width: 220px; flex: 1;">
+      <span style="font-size: 40px; line-height: 1.5; display: block; text-box-trim: trim-both; text-box-edge: ex alphabetic;">Ayqg</span>
+    </div>
+    <div class="label">text-box-edge: ex alphabetic</div>
+  </div>
+</div>
 </body>
 </html>

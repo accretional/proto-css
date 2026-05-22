@@ -9,7 +9,7 @@ A visual reference for CSS properties. 525 hand-written HTML templates demonstra
 - **525 hand-written HTML templates** in `html/template/` — one per CSS property, each with 3-6 labeled value demos
 - **528 EBNF-generated HTML templates** in `html/generated/` — cloned from hand-written templates with grammar-derived values
 - **Screenshots** in `screenshots/template/` and `screenshots/generated/` — captured at 2560x1600 (1280x800 @ 2x scale)
-- **Gallery pages** in `gallery/` — responsive 5-column grids (screenshot galleries + live iframe galleries)
+- **Gallery pages** in `html/` — responsive 5-column grids (screenshot galleries + live iframe galleries)
 
 Screenshots are taken using [chromerpc](https://github.com/accretional/chromerpc), a gRPC bridge to Chrome DevTools Protocol.
 
@@ -112,7 +112,7 @@ START=0 COUNT=20 ./run_gen.sh
 
 ## Gallery pages
 
-All galleries are in `gallery/`:
+All galleries are in `html/`:
 
 | File | Description |
 |---|---|
