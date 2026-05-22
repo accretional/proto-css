@@ -18,12 +18,29 @@
       gap: 10px;
     }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; }
+    .tag {
+      display: inline-block; background: #7c3aed33; color: #a78bfa; font-size: 10px;
+      font-family: monospace; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px;
+    }
     .sample {
-      font-size: 24px;
+      font-size: 28px;
       color: #fff;
       line-height: 1.5;
       font-weight: bold;
     }
+    .sample-md {
+      font-size: 22px;
+      color: #c0c0d0;
+      line-height: 1.5;
+      font-weight: bold;
+    }
+    .sample-sm {
+      font-size: 16px;
+      color: #a0a0b0;
+      line-height: 1.5;
+      font-weight: bold;
+    }
+    .note { font-size: 10px; color: #6b7280; font-style: italic; margin-top: 4px; }
   </style>
 </head>
 <body>
@@ -31,12 +48,20 @@
   <p class="prop-name">font-synthesis-weight</p>
   <div class="demos">
     <div class="demo-block">
+      <div class="tag">auto</div>
       <div class="label">font-synthesis-weight: auto</div>
-      <div class="sample" style="font-synthesis-weight: auto;">The quick brown fox jumps over the lazy dog</div>
+      <div class="sample" style="font-synthesis-weight: auto;">The Quick Brown Fox</div>
+      <div class="sample-md" style="font-synthesis-weight: auto;">Jumps Over The Lazy Dog</div>
+      <div class="sample-sm" style="font-synthesis-weight: auto;">abcdefghijklmnopqrstuvwxyz 0123456789</div>
+      <div class="note">Browser synthesizes bold by algorithmically thickening strokes</div>
     </div>
     <div class="demo-block">
+      <div class="tag">none</div>
       <div class="label">font-synthesis-weight: none</div>
-      <div class="sample" style="font-synthesis-weight: none;">The quick brown fox jumps over the lazy dog</div>
+      <div class="sample" style="font-synthesis-weight: none;">The Quick Brown Fox</div>
+      <div class="sample-md" style="font-synthesis-weight: none;">Jumps Over The Lazy Dog</div>
+      <div class="sample-sm" style="font-synthesis-weight: none;">abcdefghijklmnopqrstuvwxyz 0123456789</div>
+      <div class="note">No synthesis -- if font lacks bold face, text stays at normal weight</div>
     </div>
   </div>
 </body>

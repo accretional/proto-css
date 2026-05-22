@@ -18,10 +18,24 @@
       gap: 10px;
     }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; }
+    .tag {
+      display: inline-block; background: #7c3aed33; color: #a78bfa; font-size: 10px;
+      font-family: monospace; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px;
+    }
     .sample {
       font-size: 28px;
       color: #fff;
       line-height: 1.4;
+    }
+    .sample-small {
+      font-size: 16px;
+      color: #a0a0b0;
+      line-height: 1.5;
+    }
+    .note { font-size: 11px; color: #6b7280; margin-top: 4px; font-style: italic; }
+    @font-palette-values --custom-palette {
+      font-family: system-ui;
+      override-colors: 0 #ff6b6b, 1 #4ecdc4;
     }
   </style>
 </head>
@@ -30,16 +44,25 @@
   <p class="prop-name">font-palette</p>
   <div class="demos">
     <div class="demo-block">
+      <div class="tag">normal</div>
       <div class="label">font-palette: normal</div>
       <div class="sample" style="font-palette: normal;">The quick brown fox jumps over the lazy dog</div>
+      <div class="sample-small" style="font-palette: normal;">ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+      <div class="note">Default palette defined by the font</div>
     </div>
     <div class="demo-block">
+      <div class="tag">light</div>
       <div class="label">font-palette: light</div>
       <div class="sample" style="font-palette: light;">The quick brown fox jumps over the lazy dog</div>
+      <div class="sample-small" style="font-palette: light;">ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+      <div class="note">Light color palette for light backgrounds</div>
     </div>
     <div class="demo-block">
+      <div class="tag">dark</div>
       <div class="label">font-palette: dark</div>
       <div class="sample" style="font-palette: dark;">The quick brown fox jumps over the lazy dog</div>
+      <div class="sample-small" style="font-palette: dark;">ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+      <div class="note">Dark color palette for dark backgrounds</div>
     </div>
   </div>
 </body>

@@ -18,13 +18,24 @@
       gap: 10px;
     }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; }
-    .sample {
+    .size-label { font-size: 10px; font-family: monospace; color: #6b7280; margin-top: 4px; }
+    .sample-xl {
+      font-size: 48px;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .sample-lg {
       font-size: 28px;
       color: #fff;
       line-height: 1.4;
     }
-    .sample-small {
-      font-size: 14px;
+    .sample-md {
+      font-size: 18px;
+      color: #c0c0d0;
+      line-height: 1.5;
+    }
+    .sample-sm {
+      font-size: 12px;
       color: #a0a0b0;
       line-height: 1.5;
     }
@@ -36,13 +47,25 @@
   <div class="demos">
     <div class="demo-block">
       <div class="label">font-optical-sizing: auto</div>
-      <div class="sample" style="font-optical-sizing: auto;">The quick brown fox jumps over the lazy dog</div>
-      <div class="sample-small" style="font-optical-sizing: auto;">The quick brown fox jumps over the lazy dog</div>
+      <div class="sample-xl" style="font-optical-sizing: auto;">Hamburgefons</div>
+      <div class="size-label">48px</div>
+      <div class="sample-lg" style="font-optical-sizing: auto;">The quick brown fox</div>
+      <div class="size-label">28px</div>
+      <div class="sample-md" style="font-optical-sizing: auto;">Optical sizing adjusts stroke contrast and spacing for the rendered size</div>
+      <div class="size-label">18px</div>
+      <div class="sample-sm" style="font-optical-sizing: auto;">Small text gets thicker strokes and more open counters for readability at this size</div>
+      <div class="size-label">12px</div>
     </div>
     <div class="demo-block">
       <div class="label">font-optical-sizing: none</div>
-      <div class="sample" style="font-optical-sizing: none;">The quick brown fox jumps over the lazy dog</div>
-      <div class="sample-small" style="font-optical-sizing: none;">The quick brown fox jumps over the lazy dog</div>
+      <div class="sample-xl" style="font-optical-sizing: none;">Hamburgefons</div>
+      <div class="size-label">48px</div>
+      <div class="sample-lg" style="font-optical-sizing: none;">The quick brown fox</div>
+      <div class="size-label">28px</div>
+      <div class="sample-md" style="font-optical-sizing: none;">Without optical sizing the same design is scaled uniformly at all sizes</div>
+      <div class="size-label">18px</div>
+      <div class="sample-sm" style="font-optical-sizing: none;">Small text uses the same proportions as large text which can reduce legibility</div>
+      <div class="size-label">12px</div>
     </div>
   </div>
 </body>

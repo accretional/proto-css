@@ -15,14 +15,25 @@
       padding: 20px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; }
+    .tag {
+      display: inline-block; background: #7c3aed33; color: #a78bfa; font-size: 10px;
+      font-family: monospace; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px;
+    }
     .sample {
       font-size: 22px;
       color: #fff;
       line-height: 1.5;
     }
+    .sample-alt {
+      font-size: 22px;
+      color: #c0c0d0;
+      line-height: 1.5;
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+    .note { font-size: 10px; color: #6b7280; font-style: italic; margin-top: 4px; }
   </style>
 </head>
 <body>
@@ -30,24 +41,46 @@
   <p class="prop-name">font-size-adjust</p>
   <div class="demos">
     <div class="demo-block">
+      <div class="tag">none</div>
       <div class="label">font-size-adjust: none</div>
-      <div class="sample" style="font-size-adjust: none;">The quick brown fox jumps over the lazy dog</div>
+      <div class="sample" style="font-size-adjust: none;">The quick brown fox (system-ui)</div>
+      <div class="sample-alt" style="font-size-adjust: none;">The quick brown fox (Georgia)</div>
+      <div class="note">No adjustment -- fonts render at their native x-height</div>
     </div>
     <div class="demo-block">
+      <div class="tag">0.5</div>
       <div class="label">font-size-adjust: 0.5</div>
-      <div class="sample" style="font-size-adjust: 0.5;">The quick brown fox jumps over the lazy dog</div>
+      <div class="sample" style="font-size-adjust: 0.5;">The quick brown fox (system-ui)</div>
+      <div class="sample-alt" style="font-size-adjust: 0.5;">The quick brown fox (Georgia)</div>
+      <div class="note">Adjusts so x-height = 0.5 of font-size</div>
     </div>
     <div class="demo-block">
+      <div class="tag">from-font</div>
       <div class="label">font-size-adjust: from-font</div>
-      <div class="sample" style="font-size-adjust: from-font;">The quick brown fox jumps over the lazy dog</div>
+      <div class="sample" style="font-size-adjust: from-font;">The quick brown fox (system-ui)</div>
+      <div class="sample-alt" style="font-size-adjust: from-font;">The quick brown fox (Georgia)</div>
+      <div class="note">Uses the aspect ratio from the first available font</div>
     </div>
     <div class="demo-block">
+      <div class="tag">ex-height 0.5</div>
       <div class="label">font-size-adjust: ex-height 0.5</div>
-      <div class="sample" style="font-size-adjust: ex-height 0.5;">The quick brown fox jumps over the lazy dog</div>
+      <div class="sample" style="font-size-adjust: ex-height 0.5;">The quick brown fox (system-ui)</div>
+      <div class="sample-alt" style="font-size-adjust: ex-height 0.5;">The quick brown fox (Georgia)</div>
+      <div class="note">Explicitly targets ex-height metric</div>
     </div>
     <div class="demo-block">
+      <div class="tag">cap-height 0.6</div>
       <div class="label">font-size-adjust: cap-height 0.6</div>
-      <div class="sample" style="font-size-adjust: cap-height 0.6;">The quick brown fox jumps over the lazy dog</div>
+      <div class="sample" style="font-size-adjust: cap-height 0.6;">The quick brown fox (system-ui)</div>
+      <div class="sample-alt" style="font-size-adjust: cap-height 0.6;">The quick brown fox (Georgia)</div>
+      <div class="note">Adjusts based on capital letter height metric</div>
+    </div>
+    <div class="demo-block">
+      <div class="tag">ch-width 0.48</div>
+      <div class="label">font-size-adjust: ch-width 0.48</div>
+      <div class="sample" style="font-size-adjust: ch-width 0.48;">The quick brown fox (system-ui)</div>
+      <div class="sample-alt" style="font-size-adjust: ch-width 0.48;">The quick brown fox (Georgia)</div>
+      <div class="note">Adjusts based on width of "0" character</div>
     </div>
   </div>
 </body>

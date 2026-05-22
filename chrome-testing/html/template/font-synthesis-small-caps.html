@@ -18,12 +18,29 @@
       gap: 10px;
     }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; }
+    .tag {
+      display: inline-block; background: #7c3aed33; color: #a78bfa; font-size: 10px;
+      font-family: monospace; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px;
+    }
     .sample {
-      font-size: 24px;
+      font-size: 28px;
       color: #fff;
       line-height: 1.5;
       font-variant: small-caps;
     }
+    .sample-md {
+      font-size: 22px;
+      color: #c0c0d0;
+      line-height: 1.5;
+      font-variant: small-caps;
+    }
+    .sample-sm {
+      font-size: 16px;
+      color: #a0a0b0;
+      line-height: 1.5;
+      font-variant: small-caps;
+    }
+    .note { font-size: 10px; color: #6b7280; font-style: italic; margin-top: 4px; }
   </style>
 </head>
 <body>
@@ -31,12 +48,20 @@
   <p class="prop-name">font-synthesis-small-caps</p>
   <div class="demos">
     <div class="demo-block">
+      <div class="tag">auto</div>
       <div class="label">font-synthesis-small-caps: auto</div>
-      <div class="sample" style="font-synthesis-small-caps: auto;">The quick brown fox jumps over the lazy dog</div>
+      <div class="sample" style="font-synthesis-small-caps: auto;">The Quick Brown Fox</div>
+      <div class="sample-md" style="font-synthesis-small-caps: auto;">Jumps Over The Lazy Dog</div>
+      <div class="sample-sm" style="font-synthesis-small-caps: auto;">abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+      <div class="note">Browser synthesizes small-caps by scaling down uppercase glyphs</div>
     </div>
     <div class="demo-block">
+      <div class="tag">none</div>
       <div class="label">font-synthesis-small-caps: none</div>
-      <div class="sample" style="font-synthesis-small-caps: none;">The quick brown fox jumps over the lazy dog</div>
+      <div class="sample" style="font-synthesis-small-caps: none;">The Quick Brown Fox</div>
+      <div class="sample-md" style="font-synthesis-small-caps: none;">Jumps Over The Lazy Dog</div>
+      <div class="sample-sm" style="font-synthesis-small-caps: none;">abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+      <div class="note">No synthesis -- if font lacks small-caps glyphs, falls back to normal</div>
     </div>
   </div>
 </body>

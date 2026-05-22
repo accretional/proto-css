@@ -15,13 +15,22 @@
       padding: 20px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; }
     .sample {
-      font-size: 24px;
+      font-size: 22px;
       color: #fff;
       line-height: 1.5;
+    }
+    .sample-small {
+      font-size: 14px;
+      color: #a0a0b0;
+      line-height: 1.4;
+    }
+    .tag {
+      display: inline-block; background: #7c3aed33; color: #a78bfa; font-size: 10px;
+      font-family: monospace; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px;
     }
   </style>
 </head>
@@ -30,16 +39,40 @@
   <p class="prop-name">font-language-override</p>
   <div class="demos">
     <div class="demo-block">
+      <div class="tag">normal</div>
       <div class="label">font-language-override: normal</div>
       <div class="sample" style="font-language-override: normal;">The quick brown fox jumps over the lazy dog</div>
+      <div class="sample-small" style="font-language-override: normal;">Default language rules apply from html lang attribute</div>
     </div>
     <div class="demo-block">
+      <div class="tag">"ENG"</div>
       <div class="label">font-language-override: "ENG"</div>
       <div class="sample" style="font-language-override: 'ENG';">The quick brown fox jumps over the lazy dog</div>
+      <div class="sample-small" style="font-language-override: 'ENG';">English OpenType language system applied</div>
     </div>
     <div class="demo-block">
+      <div class="tag">"DEU"</div>
       <div class="label">font-language-override: "DEU"</div>
       <div class="sample" style="font-language-override: 'DEU';">The quick brown fox jumps over the lazy dog</div>
+      <div class="sample-small" style="font-language-override: 'DEU';">German OpenType language rules applied</div>
+    </div>
+    <div class="demo-block">
+      <div class="tag">"TRK"</div>
+      <div class="label">font-language-override: "TRK"</div>
+      <div class="sample" style="font-language-override: 'TRK';">The quick brown fox jumps over the lazy dog</div>
+      <div class="sample-small" style="font-language-override: 'TRK';">Turkish -- affects dotted/dotless i handling</div>
+    </div>
+    <div class="demo-block">
+      <div class="tag">"SRB"</div>
+      <div class="label">font-language-override: "SRB"</div>
+      <div class="sample" style="font-language-override: 'SRB';">The quick brown fox jumps over the lazy dog</div>
+      <div class="sample-small" style="font-language-override: 'SRB';">Serbian -- alternate italic glyph forms</div>
+    </div>
+    <div class="demo-block">
+      <div class="tag">"NLD"</div>
+      <div class="label">font-language-override: "NLD"</div>
+      <div class="sample" style="font-language-override: 'NLD';">The quick brown fox jumps over the lazy dog</div>
+      <div class="sample-small" style="font-language-override: 'NLD';">Dutch -- affects ij digraph handling</div>
     </div>
   </div>
 </body>

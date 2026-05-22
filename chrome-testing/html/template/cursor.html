@@ -8,38 +8,32 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 14px; }
+    .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 6px; text-align: center; }
 
     .cursor-box {
       background: #16213e;
       border-radius: 10px;
-      padding: 14px 10px;
-      width: 140px;
-      height: 80px;
+      padding: 10px 8px 8px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       border: 2px solid #0f3460;
-      transition: border-color 0.2s;
     }
-    .cursor-box:hover {
-      border-color: #e94560;
-    }
-    .cursor-name {
-      font-size: 13px;
-      font-weight: 600;
-      color: #e0e0e0;
+    .cursor-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-bottom: 4px;
     }
-    .cursor-code {
-      font-size: 10px;
-      font-family: monospace;
-      color: #7b8794;
-      background: #0f3460;
-      padding: 2px 8px;
-      border-radius: 4px;
+    .cursor-name {
+      font-size: 11px;
+      font-weight: 600;
+      color: #e0e0e0;
+      text-align: center;
     }
 
     .c-default { cursor: default; }
@@ -72,150 +66,223 @@
   <h1>Cursor</h1>
   <p class="prop-name">cursor</p>
   <div class="demos">
+
     <div>
       <div class="cursor-box c-default">
+        <div class="cursor-icon">
+          <svg width="24" height="32" viewBox="0 0 24 32"><path d="M3 2 L3 26 L9 20 L15 28 L18 26 L12 18 L20 18 Z" fill="#fff" stroke="#333" stroke-width="1.5"/></svg>
+        </div>
         <span class="cursor-name">default</span>
-        <span class="cursor-code">cursor: default</span>
       </div>
     </div>
+
     <div>
       <div class="cursor-box c-pointer">
+        <div class="cursor-icon">
+          <svg width="28" height="32" viewBox="0 0 28 32"><path d="M10 2 C10 2 10 14 10 14 L7 11 C5.5 9.5 3 11 4.5 13 L10 20 L10 28 L18 28 L20 20 C20 20 22 14 22 14 C22 12 19 12 19 14 L18 16 C18 16 18 14 18 12 C18 10 15 10 15 12 L15 16 C15 16 15 14 15 10 C15 8 12 8 12 10 L12 14 L12 2 C12 0 10 0 10 2Z" fill="#fff" stroke="#333" stroke-width="1"/></svg>
+        </div>
         <span class="cursor-name">pointer</span>
-        <span class="cursor-code">cursor: pointer</span>
       </div>
     </div>
+
     <div>
       <div class="cursor-box c-crosshair">
+        <div class="cursor-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28"><line x1="14" y1="2" x2="14" y2="26" stroke="#fff" stroke-width="2"/><line x1="2" y1="14" x2="26" y2="14" stroke="#fff" stroke-width="2"/><circle cx="14" cy="14" r="5" fill="none" stroke="#fff" stroke-width="1.5"/></svg>
+        </div>
         <span class="cursor-name">crosshair</span>
-        <span class="cursor-code">cursor: crosshair</span>
       </div>
     </div>
+
     <div>
       <div class="cursor-box c-wait">
+        <div class="cursor-icon">
+          <svg width="24" height="28" viewBox="0 0 24 28"><rect x="4" y="2" width="16" height="24" rx="2" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M8 6 L16 6 L12 13 Z" fill="#e94560"/><path d="M8 22 L16 22 L12 15 Z" fill="#e9456066"/></svg>
+        </div>
         <span class="cursor-name">wait</span>
-        <span class="cursor-code">cursor: wait</span>
       </div>
     </div>
+
     <div>
       <div class="cursor-box c-text">
+        <div class="cursor-icon">
+          <svg width="20" height="28" viewBox="0 0 20 28"><line x1="10" y1="4" x2="10" y2="24" stroke="#fff" stroke-width="2"/><line x1="5" y1="4" x2="15" y2="4" stroke="#fff" stroke-width="2"/><line x1="5" y1="24" x2="15" y2="24" stroke="#fff" stroke-width="2"/></svg>
+        </div>
         <span class="cursor-name">text</span>
-        <span class="cursor-code">cursor: text</span>
       </div>
     </div>
+
     <div>
       <div class="cursor-box c-move">
+        <div class="cursor-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28"><line x1="14" y1="2" x2="14" y2="26" stroke="#fff" stroke-width="2"/><line x1="2" y1="14" x2="26" y2="14" stroke="#fff" stroke-width="2"/><polygon points="14,2 10,7 18,7" fill="#fff"/><polygon points="14,26 10,21 18,21" fill="#fff"/><polygon points="2,14 7,10 7,18" fill="#fff"/><polygon points="26,14 21,10 21,18" fill="#fff"/></svg>
+        </div>
         <span class="cursor-name">move</span>
-        <span class="cursor-code">cursor: move</span>
       </div>
     </div>
+
     <div>
       <div class="cursor-box c-grab">
+        <div class="cursor-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28"><path d="M8 14 V8 C8 6 10 6 10 8 V13 M10 13 V6 C10 4 12 4 12 6 V13 M12 13 V6 C12 4 14 4 14 6 V13 M14 13 V8 C14 6 16 6 16 8 V14 M16 14 Q20 14 20 18 V22 Q20 26 16 26 H10 Q6 26 6 22 V16 C6 14 8 14 8 14" fill="none" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </div>
         <span class="cursor-name">grab</span>
-        <span class="cursor-code">cursor: grab</span>
       </div>
     </div>
+
     <div>
       <div class="cursor-box c-grabbing">
+        <div class="cursor-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28"><path d="M7 16 V14 C7 12 9 12 9 14 V16 M9 16 V13 C9 11 11 11 11 13 V16 M11 16 V13 C11 11 13 11 13 13 V16 M13 16 V14 C13 12 15 12 15 14 V16 M15 16 Q19 16 19 20 V22 Q19 26 15 26 H9 Q5 26 5 22 V18 C5 16 7 16 7 16" fill="none" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </div>
         <span class="cursor-name">grabbing</span>
-        <span class="cursor-code">cursor: grabbing</span>
       </div>
     </div>
+
     <div>
       <div class="cursor-box c-not-allowed">
+        <div class="cursor-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="14" r="10" fill="none" stroke="#e94560" stroke-width="2.5"/><line x1="7" y1="7" x2="21" y2="21" stroke="#e94560" stroke-width="2.5"/></svg>
+        </div>
         <span class="cursor-name">not-allowed</span>
-        <span class="cursor-code">cursor: not-allowed</span>
       </div>
     </div>
+
     <div>
       <div class="cursor-box c-help">
+        <div class="cursor-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="14" r="11" fill="none" stroke="#fff" stroke-width="1.5"/><text x="14" y="20" text-anchor="middle" fill="#fff" font-size="18" font-weight="bold" font-family="serif">?</text></svg>
+        </div>
         <span class="cursor-name">help</span>
-        <span class="cursor-code">cursor: help</span>
       </div>
     </div>
+
     <div>
       <div class="cursor-box c-zoom-in">
+        <div class="cursor-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28"><circle cx="12" cy="12" r="8" fill="none" stroke="#fff" stroke-width="1.5"/><line x1="18" y1="18" x2="26" y2="26" stroke="#fff" stroke-width="2"/><line x1="8" y1="12" x2="16" y2="12" stroke="#fff" stroke-width="2"/><line x1="12" y1="8" x2="12" y2="16" stroke="#fff" stroke-width="2"/></svg>
+        </div>
         <span class="cursor-name">zoom-in</span>
-        <span class="cursor-code">cursor: zoom-in</span>
       </div>
     </div>
+
     <div>
       <div class="cursor-box c-zoom-out">
+        <div class="cursor-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28"><circle cx="12" cy="12" r="8" fill="none" stroke="#fff" stroke-width="1.5"/><line x1="18" y1="18" x2="26" y2="26" stroke="#fff" stroke-width="2"/><line x1="8" y1="12" x2="16" y2="12" stroke="#fff" stroke-width="2"/></svg>
+        </div>
         <span class="cursor-name">zoom-out</span>
-        <span class="cursor-code">cursor: zoom-out</span>
       </div>
     </div>
+
     <div>
       <div class="cursor-box c-col-resize">
+        <div class="cursor-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28"><line x1="14" y1="4" x2="14" y2="24" stroke="#fff" stroke-width="2"/><polygon points="4,14 9,10 9,18" fill="#fff"/><polygon points="24,14 19,10 19,18" fill="#fff"/></svg>
+        </div>
         <span class="cursor-name">col-resize</span>
-        <span class="cursor-code">cursor: col-resize</span>
       </div>
     </div>
+
     <div>
       <div class="cursor-box c-row-resize">
+        <div class="cursor-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28"><line x1="4" y1="14" x2="24" y2="14" stroke="#fff" stroke-width="2"/><polygon points="14,4 10,9 18,9" fill="#fff"/><polygon points="14,24 10,19 18,19" fill="#fff"/></svg>
+        </div>
         <span class="cursor-name">row-resize</span>
-        <span class="cursor-code">cursor: row-resize</span>
       </div>
     </div>
+
     <div>
       <div class="cursor-box c-progress">
+        <div class="cursor-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32"><path d="M3 4 L3 22 L8 17 L13 24 L15 22 L10 15 L16 15 Z" fill="#fff" stroke="#333" stroke-width="1"/><circle cx="24" cy="22" r="7" fill="none" stroke="#e94560" stroke-width="1.5"/><path d="M24 17 V22 L27 24" fill="none" stroke="#e94560" stroke-width="1.5"/></svg>
+        </div>
         <span class="cursor-name">progress</span>
-        <span class="cursor-code">cursor: progress</span>
       </div>
     </div>
+
     <div>
       <div class="cursor-box c-cell">
+        <div class="cursor-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28"><line x1="14" y1="2" x2="14" y2="26" stroke="#fff" stroke-width="1.5"/><line x1="2" y1="14" x2="26" y2="14" stroke="#fff" stroke-width="1.5"/><rect x="7" y="7" width="14" height="14" fill="none" stroke="#fff" stroke-width="1.5"/></svg>
+        </div>
         <span class="cursor-name">cell</span>
-        <span class="cursor-code">cursor: cell</span>
       </div>
     </div>
+
     <div>
       <div class="cursor-box c-copy">
+        <div class="cursor-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32"><path d="M3 4 L3 22 L8 17 L13 24 L15 22 L10 15 L16 15 Z" fill="#fff" stroke="#333" stroke-width="1"/><rect x="18" y="16" width="10" height="12" rx="1" fill="none" stroke="#10b981" stroke-width="1.5"/><line x1="23" y1="19" x2="23" y2="25" stroke="#10b981" stroke-width="1.5"/><line x1="20" y1="22" x2="26" y2="22" stroke="#10b981" stroke-width="1.5"/></svg>
+        </div>
         <span class="cursor-name">copy</span>
-        <span class="cursor-code">cursor: copy</span>
       </div>
     </div>
+
     <div>
       <div class="cursor-box c-alias">
+        <div class="cursor-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32"><path d="M3 4 L3 22 L8 17 L13 24 L15 22 L10 15 L16 15 Z" fill="#fff" stroke="#333" stroke-width="1"/><path d="M20 18 L28 18 L28 28 L20 28 Z" fill="none" stroke="#00d2ff" stroke-width="1.5"/><path d="M22 16 L22 22" fill="none" stroke="#00d2ff" stroke-width="1.5"/><polygon points="22,16 20,19 24,19" fill="#00d2ff"/></svg>
+        </div>
         <span class="cursor-name">alias</span>
-        <span class="cursor-code">cursor: alias</span>
       </div>
     </div>
+
     <div>
       <div class="cursor-box c-context-menu">
+        <div class="cursor-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32"><path d="M3 4 L3 22 L8 17 L13 24 L15 22 L10 15 L16 15 Z" fill="#fff" stroke="#333" stroke-width="1"/><rect x="18" y="14" width="12" height="16" rx="2" fill="#16213e" stroke="#fff" stroke-width="1"/><line x1="20" y1="18" x2="28" y2="18" stroke="#7b8794" stroke-width="1"/><line x1="20" y1="22" x2="28" y2="22" stroke="#7b8794" stroke-width="1"/><line x1="20" y1="26" x2="28" y2="26" stroke="#7b8794" stroke-width="1"/></svg>
+        </div>
         <span class="cursor-name">context-menu</span>
-        <span class="cursor-code">cursor: context-menu</span>
       </div>
     </div>
+
     <div>
       <div class="cursor-box c-ew-resize">
+        <div class="cursor-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28"><line x1="4" y1="14" x2="24" y2="14" stroke="#fff" stroke-width="2"/><polygon points="4,14 9,10 9,18" fill="#fff"/><polygon points="24,14 19,10 19,18" fill="#fff"/></svg>
+        </div>
         <span class="cursor-name">ew-resize</span>
-        <span class="cursor-code">cursor: ew-resize</span>
       </div>
     </div>
+
     <div>
       <div class="cursor-box c-ns-resize">
+        <div class="cursor-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28"><line x1="14" y1="4" x2="14" y2="24" stroke="#fff" stroke-width="2"/><polygon points="14,4 10,9 18,9" fill="#fff"/><polygon points="14,24 10,19 18,19" fill="#fff"/></svg>
+        </div>
         <span class="cursor-name">ns-resize</span>
-        <span class="cursor-code">cursor: ns-resize</span>
       </div>
     </div>
+
     <div>
       <div class="cursor-box c-nesw-resize">
+        <div class="cursor-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28"><line x1="6" y1="22" x2="22" y2="6" stroke="#fff" stroke-width="2"/><polygon points="22,6 16,7 21,12" fill="#fff"/><polygon points="6,22 12,21 7,16" fill="#fff"/></svg>
+        </div>
         <span class="cursor-name">nesw-resize</span>
-        <span class="cursor-code">cursor: nesw-resize</span>
       </div>
     </div>
+
     <div>
       <div class="cursor-box c-nwse-resize">
+        <div class="cursor-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28"><line x1="6" y1="6" x2="22" y2="22" stroke="#fff" stroke-width="2"/><polygon points="6,6 12,7 7,12" fill="#fff"/><polygon points="22,22 16,21 21,16" fill="#fff"/></svg>
+        </div>
         <span class="cursor-name">nwse-resize</span>
-        <span class="cursor-code">cursor: nwse-resize</span>
       </div>
     </div>
+
     <div>
       <div class="cursor-box c-none">
+        <div class="cursor-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="14" r="10" fill="none" stroke="#7b8794" stroke-width="1.5" stroke-dasharray="3,3"/><text x="14" y="18" text-anchor="middle" fill="#7b8794" font-size="12" font-family="monospace">none</text></svg>
+        </div>
         <span class="cursor-name">none</span>
-        <span class="cursor-code">cursor: none</span>
       </div>
     </div>
+
   </div>
 </body>
 </html>
