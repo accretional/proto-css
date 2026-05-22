@@ -15,7 +15,7 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 GEN_DIR="$SCRIPT_DIR/html/generated"
 SCREENSHOTS_DIR="$SCRIPT_DIR/screenshots/generated"
-GALLERY_DIR="$SCRIPT_DIR/gallery"
+GALLERY_DIR="$SCRIPT_DIR/html"
 GALLERY="$GALLERY_DIR/generated_screenshots_gallery.html"
 GEN_TEMPLATE_GALLERY="$GALLERY_DIR/generated_gallery.html"
 

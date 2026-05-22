@@ -10,7 +10,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 TEMPLATES_DIR="$SCRIPT_DIR/html/template"
 SCREENSHOTS_DIR="$SCRIPT_DIR/screenshots/template"
-GALLERY_DIR="$SCRIPT_DIR/gallery"
+GALLERY_DIR="$SCRIPT_DIR/html"
 GALLERY="$GALLERY_DIR/template_screenshots_gallery.html"
 TEMPLATE_GALLERY="$GALLERY_DIR/template_gallery.html"
 

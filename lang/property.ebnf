@@ -1833,10 +1833,10 @@ FilterValueListTypeItem = ( FilterFunctionType | UrlType ) ;
 AttachmentType = scroll | fixed | local ;
 
 (* <mix-blend-mode> *)
-MixBlendModeType = BlendModeType | plus_lighter ;
+MixBlendModeType = BlendModeType | plus_darker | plus_lighter ;
 
 (* <bg-clip> *)
-BgClipType = VisualBoxType | ( [ border_area ] , [ text ] ) ;
+BgClipType = VisualBoxType | border_area , [ text ] | text , [ border_area ] ;
 
 (* <bg-image> *)
 BgImageType = ImageType | none ;
@@ -2599,7 +2599,7 @@ AnimationTimingFunctionProp = EasingFunctionType , { comma_symbol , EasingFuncti
 AnimationProp = SingleAnimationType , { comma_symbol , SingleAnimationType } ;
 
 (* appearance *)
-AppearanceProp = none | auto | base | base_select | CompatAutoType | CompatSpecialType | base ;
+AppearanceProp = none | auto | base | base_select | CompatAutoType | CompatSpecialType ;
 
 (* aspect-ratio *)
 AspectRatioProp =
@@ -2950,7 +2950,7 @@ ColorInterpolationFiltersProp = auto | sRGB | linearrgb ;
 ColorInterpolationProp = auto | sRGB | linearrgb ;
 
 (* color-scheme *)
-ColorSchemeProp = normal | ColorSchemePropItem , { ColorSchemePropItem } , [ only ] ;
+ColorSchemeProp = normal | ColorSchemePropItem , { ColorSchemePropItem } , [ only ] | only , ColorSchemePropItem , { ColorSchemePropItem } ;
 ColorSchemePropItem = ( light | dark | custom_ident_type ) ;
 
 (* color *)
@@ -3009,13 +3009,18 @@ ContainIntrinsicSizePropItem = [ auto ] , ( none | NonNegativeLengthType ) ;
 ContainIntrinsicWidthProp = [ auto ] , ( none | NonNegativeLengthType ) ;
 
 (* contain *)
-ContainProp = none | strict | content | ( [ ( size | inline_size ) ] , [ layout ] , [ style ] , [ paint ] ) ;
+ContainPropSizeItem = ( size | inline_size ) ;
+ContainProp = none | strict | content
+    | ContainPropSizeItem , [ layout , [ style , [ paint ] | paint , [ style ] ] | style , [ layout , [ paint ] | paint , [ layout ] ] | paint , [ layout , [ style ] | style , [ layout ] ] ]
+    | layout , [ ContainPropSizeItem , [ style , [ paint ] | paint , [ style ] ] | style , [ ContainPropSizeItem , [ paint ] | paint , [ ContainPropSizeItem ] ] | paint , [ ContainPropSizeItem , [ style ] | style , [ ContainPropSizeItem ] ] ]
+    | style , [ ContainPropSizeItem , [ layout , [ paint ] | paint , [ layout ] ] | layout , [ ContainPropSizeItem , [ paint ] | paint , [ ContainPropSizeItem ] ] | paint , [ ContainPropSizeItem , [ layout ] | layout , [ ContainPropSizeItem ] ] ]
+    | paint , [ ContainPropSizeItem , [ layout , [ style ] | style , [ layout ] ] | layout , [ ContainPropSizeItem , [ style ] | style , [ ContainPropSizeItem ] ] | style , [ ContainPropSizeItem , [ layout ] | layout , [ ContainPropSizeItem ] ] ] ;
 
 (* container-name *)
 ContainerNameProp = none | custom_ident_type , { custom_ident_type } ;
 
 (* container-type *)
-ContainerTypeProp = normal | ( [ ( size | inline_size ) ] , [ scroll_state ] ) ;
+ContainerTypeProp = normal | ( size | inline_size ) , [ scroll_state ] | scroll_state , [ ( size | inline_size ) ] ;
 
 (* container *)
 ContainerProp = ContainerNameProp , [ solidus_symbol , ContainerTypeProp ] ;
@@ -3149,7 +3154,7 @@ FlexGrowProp = NonNegativeNumberType ;
 FlexShrinkProp = NonNegativeNumberType ;
 
 (* flex-wrap *)
-FlexWrapProp = nowrap | wrap | wrap_reverse ;
+FlexWrapProp = nowrap | ( wrap | wrap_reverse ) , [ balance ] | balance , [ ( wrap | wrap_reverse ) ] ;
 
 (* flex *)
 FlexProp = none
@@ -3197,7 +3202,7 @@ FontSizeProp = AbsoluteSizeType | RelativeSizeType | NonNegativeLengthPercentage
 FontSmoothProp = auto | never | always | AbsoluteSizeType | LengthType ;
 
 (* font-stretch *)
-FontStretchProp = normal | PercentageType | ultra_condensed | extra_condensed | condensed | semi_condensed | semi_expanded | expanded | extra_expanded | ultra_expanded ;
+FontStretchProp = normal | NonNegativePercentageType | ultra_condensed | extra_condensed | condensed | semi_condensed | semi_expanded | expanded | extra_expanded | ultra_expanded ;
 
 (* font-style *)
 FontStyleProp = normal | italic | left | right | oblique , [ AngleType ] ;
@@ -3344,7 +3349,11 @@ GridTemplatePropItem = [ LineNamesType ] , string_type , [ TrackSizeType ] , [ L
 GridProp = GridTemplateProp | GridTemplateRowsProp , solidus_symbol , ( auto_flow , [ dense ] ) , [ GridAutoColumnsProp ] | ( auto_flow , [ dense ] ) , [ GridAutoRowsProp ] , solidus_symbol , GridTemplateColumnsProp ;
 
 (* hanging-punctuation *)
-HangingPunctuationProp = none | ( [ first ] , [ ( force_end | allow_end ) ] , [ last ] ) ;
+HangingPunctuationForceItem = ( force_end | allow_end ) ;
+HangingPunctuationProp = none
+    | first , [ HangingPunctuationForceItem , [ last ] | last , [ HangingPunctuationForceItem ] ]
+    | HangingPunctuationForceItem , [ first , [ last ] | last , [ first ] ]
+    | last , [ first , [ HangingPunctuationForceItem ] | HangingPunctuationForceItem , [ first ] ] ;
 
 (* height *)
 HeightProp = auto | NonNegativeLengthPercentageType | min_content | max_content | FitContentFn | CalcSizeFn | AnchorSizeFn | stretch | fit_content | contain ;
@@ -3360,13 +3369,16 @@ HyphenateLimitCharsPropItem = ( auto | IntegerType ) ;
 HyphensProp = none | manual | auto ;
 
 (* image-orientation *)
-ImageOrientationProp = from_image | none | ( [ AngleType ] , [ flip ] ) ;
+ImageOrientationProp = from_image | none | AngleType , [ flip ] | flip , [ AngleType ] ;
 
 (* image-rendering *)
 ImageRenderingProp = auto | smooth | high_quality | pixelated | crisp_edges ;
 
 (* image-resolution *)
-ImageResolutionProp = ( [ from_image ] , [ ResolutionType ] ) , [ snap ] ;
+ImageResolutionProp =
+    from_image , [ ResolutionType ] , [ snap ]
+    | ResolutionType , [ from_image ] , [ snap ]
+    | snap , ( from_image , [ ResolutionType ] | ResolutionType , [ from_image ] ) ;
 
 (* initial-letter *)
 InitialLetterProp = normal | NumberType , IntegerType | NumberType , [ ( drop | raise ) ] ;
@@ -3417,7 +3429,7 @@ IsolationProp = IsolationModeType ;
 JustifyContentProp = normal | ContentDistributionType | [ OverflowPositionType ] , ( ContentPositionType | left | right ) ;
 
 (* justify-items *)
-JustifyItemsProp = normal | stretch | BaselinePositionType | [ OverflowPositionType ] , ( SelfPositionType | left | right ) | legacy | legacy , ( left | right | center ) ;
+JustifyItemsProp = normal | stretch | BaselinePositionType | [ OverflowPositionType ] , ( SelfPositionType | left | right ) | legacy | legacy , ( left | right | center ) | anchor_center ;
 
 (* justify-self *)
 JustifySelfProp = auto | [ OverflowPositionType ] , ( normal | SelfPositionType | left | right ) | stretch | BaselinePositionType | anchor_center ;
@@ -3489,7 +3501,12 @@ MarginRightProp = LengthPercentageType | auto | AnchorSizeFn ;
 MarginTopProp = LengthPercentageType | auto | AnchorSizeFn ;
 
 (* margin-trim *)
-MarginTrimProp = none | ( [ block ] , [ inline ] ) | ( [ block_start ] , [ inline_start ] , [ block_end ] , [ inline_end ] ) ;
+MarginTrimProp = none
+    | block , [ inline ] | inline , [ block ]
+    | block_start , [ inline_start , [ block_end , [ inline_end ] | inline_end , [ block_end ] ] | block_end , [ inline_start , [ inline_end ] | inline_end , [ inline_start ] ] | inline_end , [ inline_start , [ block_end ] | block_end , [ inline_start ] ] ]
+    | inline_start , [ block_start , [ block_end , [ inline_end ] | inline_end , [ block_end ] ] | block_end , [ block_start , [ inline_end ] | inline_end , [ block_start ] ] | inline_end , [ block_start , [ block_end ] | block_end , [ block_start ] ] ]
+    | block_end , [ block_start , [ inline_start , [ inline_end ] | inline_end , [ inline_start ] ] | inline_start , [ block_start , [ inline_end ] | inline_end , [ block_start ] ] | inline_end , [ block_start , [ inline_start ] | inline_start , [ block_start ] ] ]
+    | inline_end , [ block_start , [ inline_start , [ block_end ] | block_end , [ inline_start ] ] | inline_start , [ block_start , [ block_end ] | block_end , [ block_start ] ] | block_end , [ block_start , [ inline_start ] | inline_start , [ block_start ] ] ] ;
 
 (* margin *)
 MarginProp = MarginTopProp , [ MarginTopProp ] , [ MarginTopProp ] , [ MarginTopProp ] ;
@@ -3592,7 +3609,7 @@ MinInlineSizeProp = MinWidthProp ;
 MinWidthProp = auto | NonNegativeLengthPercentageType | min_content | max_content | FitContentFn | CalcSizeFn | AnchorSizeFn | stretch | fit_content | contain ;
 
 (* mix-blend-mode *)
-MixBlendModeProp = BlendModeType | plus_lighter ;
+MixBlendModeProp = BlendModeType | plus_darker | plus_lighter ;
 
 (* object-fit *)
 ObjectFitProp = fill | none | [ ( contain | cover ) ] , [ scale_down ] ;
@@ -3640,7 +3657,7 @@ OrphansProp = positive_integer_type | VarFn ;
 OutlineColorProp = auto | BorderTopColorProp ;
 
 (* outline-offset *)
-OutlineOffsetProp = NonNegativeLengthType ;
+OutlineOffsetProp = LengthType ;
 
 (* outline-style *)
 OutlineStyleProp = auto | OutlineLineStyleType ;
@@ -3662,7 +3679,7 @@ OverflowBlockProp = visible | hidden | clip | scroll | auto | overlay ;
 
 (* overflow-clip-margin *)
 OverflowClipMarginProp =
-    VisualBoxType , [ length_type ] | length_type , [ VisualBoxType ] ;
+    VisualBoxType , [ non_negative_length_type ] | non_negative_length_type , [ VisualBoxType ] ;
 
 (* overflow-inline *)
 OverflowInlineProp = visible | hidden | clip | scroll | auto ;
@@ -3931,7 +3948,7 @@ ScrollTargetGroupProp = none | auto ;
 
 (* scroll-timeline-axis *)
 ScrollTimelineAxisProp = ScrollTimelineAxisPropItem , { comma_symbol , ScrollTimelineAxisPropItem } ;
-ScrollTimelineAxisPropItem = ( block | inline | "x" | "y" | horizontal | vertical ) ;
+ScrollTimelineAxisPropItem = ( block | inline | "x" | "y" ) ;
 
 (* scroll-timeline-name *)
 ScrollTimelineNameProp = ScrollTimelineNamePropItem , { comma_symbol , ScrollTimelineNamePropItem } ;
@@ -4207,7 +4224,7 @@ VerticalAlignProp =
 
 (* view-timeline-axis *)
 ViewTimelineAxisProp = ViewTimelineAxisPropItem , { comma_symbol , ViewTimelineAxisPropItem } ;
-ViewTimelineAxisPropItem = ( block | inline | "x" | "y" | horizontal | vertical ) ;
+ViewTimelineAxisPropItem = ( block | inline | "x" | "y" ) ;
 
 (* view-timeline-inset *)
 ViewTimelineInsetProp = ViewTimelineInsetPropItem , { comma_symbol , ViewTimelineInsetPropItem } ;
@@ -4220,13 +4237,13 @@ ViewTimelineNamePropItem = ( none | dashed_ident_type ) ;
 
 (* view-timeline *)
 ViewTimelineProp = ViewTimelinePropItem , { comma_symbol , ViewTimelinePropItem } ;
-ViewTimelinePropItem = ViewTimelineNamePropItem , [ ViewTimelineAxisPropItem ] , [ ViewTimelineInsetPropItem ] ;
+ViewTimelinePropItem = ViewTimelineNamePropItem , [ ViewTimelineAxisPropItem , [ ViewTimelineInsetPropItem ] | ViewTimelineInsetPropItem , [ ViewTimelineAxisPropItem ] ] ;
 
 (* view-transition-class *)
 ViewTransitionClassProp = none | custom_ident_type , { custom_ident_type } ;
 
 (* view-transition-name *)
-ViewTransitionNameProp = none | custom_ident_type ;
+ViewTransitionNameProp = none | match_element | custom_ident_type ;
 
 (* visibility *)
 VisibilityProp = visible | hidden | force_hidden | collapse ;
