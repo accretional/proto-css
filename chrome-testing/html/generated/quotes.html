@@ -1,66 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>quotes</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-card {
-      background: #16213e;
-      border-radius: 10px;
-      padding: 24px;
-      width: 220px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .demo-card q {
-      font-size: 20px;
-      color: #e2b714;
-      margin-bottom: 12px;
-      text-align: center;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; }
-    .q-auto { quotes: '񃊜' '$' ! important; }
-    .q-none { quotes: auto ! important; }
-    .q-french { quotes: "\00ab" "\00bb" "\2039" "\203a"; }
-    .q-japanese { quotes: "\300c" "\300d" "\300e" "\300f"; }
-    .q-custom { quotes: "\2018" "\2019" "\201c" "\201d"; }
-    .q-arrows { quotes: "\2039" "\203a"; }
-  </style>
+<meta charset="UTF-8">
+<title>quotes</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Quotes</h1>
-  <p class="prop-name">quotes</p>
-  <div class="demos">
-    <div class="demo-card">
-      <q class="q-auto">Hello World</q>
-      <div class="label">quotes: '񃊜' '$' ! important</div>
+<h1>Quotes</h1>
+<p class="prop-name">quotes</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 24px; width: 220px; display: flex; flex-direction: column; align-items: center;">
+      <q style="font-size: 20px; color: #e2b714; quotes: auto;">Hello World</q>
     </div>
-    <div class="demo-card">
-      <q class="q-none">Hello World</q>
-      <div class="label">quotes: auto ! important</div>
-    </div>
-    <div class="demo-card">
-      <q class="q-french">Hello World</q>
-      <div class="label">quotes: "\ab" "\bb"</div>
-    </div>
-    <div class="demo-card">
-      <q class="q-japanese">Hello World</q>
-      <div class="label">quotes: "\300c" "\300d"</div>
-    </div>
-    <div class="demo-card">
-      <q class="q-custom">Hello World</q>
-      <div class="label">quotes: "\2018" "\2019"</div>
-    </div>
-    <div class="demo-card">
-      <q class="q-arrows">Hello World</q>
-      <div class="label">quotes: "\2039" "\203a"</div>
-    </div>
+    <div class="label">quotes: auto</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 24px; width: 220px; display: flex; flex-direction: column; align-items: center;">
+      <q style="font-size: 20px; color: #e2b714; quotes: none;">Hello World</q>
+    </div>
+    <div class="label">quotes: none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 24px; width: 220px; display: flex; flex-direction: column; align-items: center;">
+      <q style="font-size: 20px; color: #e2b714; quotes: match-parent;">Hello World</q>
+    </div>
+    <div class="label">quotes: match-parent</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 24px; width: 220px; display: flex; flex-direction: column; align-items: center;">
+      <q style="font-size: 20px; color: #e2b714; quotes: &#34;example&#34; &#34;example&#34;;">Hello World</q>
+    </div>
+    <div class="label">quotes: &#34;example&#34; &#34;example&#34;</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 24px; width: 220px; display: flex; flex-direction: column; align-items: center;">
+      <q style="font-size: 20px; color: #e2b714; quotes: &#34;example&#34; &#34;example&#34; &#34;example&#34; &#34;example&#34;;">Hello World</q>
+    </div>
+    <div class="label">quotes: &#34;example&#34; &#34;example&#34; &#34;example&#34; &#34;example&#34;</div>
+  </div>
+</div>
 </body>
 </html>

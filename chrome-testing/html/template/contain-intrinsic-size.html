@@ -8,14 +8,12 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
+    .demos { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; align-items: start; }
     .demo-card {
       background: #16213e;
       border-radius: 10px;
       padding: 16px 20px;
       border: 1px solid #2a2a4a;
-      min-width: 260px;
-      flex: 1;
     }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 6px; }
     .sub-label { font-size: 10px; font-family: monospace; color: #5a6570; margin-bottom: 10px; }
@@ -83,25 +81,14 @@
       </div>
     </div>
     <div class="demo-card">
-      <div class="label">contain-intrinsic-size: 200px</div>
-      <div class="sub-label">width: 200px | height: 200px</div>
-      <div class="size-box" style="contain-intrinsic-size: 200px;">
-        <div class="inner">A larger 200px square placeholder. Good for image containers or card components where you know the approximate rendered size.</div>
+      <div class="label">contain-intrinsic-size: 100px 200px</div>
+      <div class="sub-label">width: 100px | height: 200px</div>
+      <div class="size-box" style="contain-intrinsic-size: 100px 200px;">
+        <div class="inner">Two values set width and height independently. This creates a portrait-oriented placeholder with different dimensions.</div>
       </div>
       <div class="dimension-overlay">
-        <div class="dim dim-w"><span class="dim-dot dim-dot-w"></span> W: 200px</div>
+        <div class="dim dim-w"><span class="dim-dot dim-dot-w"></span> W: 100px</div>
         <div class="dim dim-h"><span class="dim-dot dim-dot-h"></span> H: 200px</div>
-      </div>
-    </div>
-    <div class="demo-card">
-      <div class="label">contain-intrinsic-size: 300px 150px</div>
-      <div class="sub-label">width: 300px | height: 150px</div>
-      <div class="size-box" style="contain-intrinsic-size: 300px 150px;">
-        <div class="inner">Two values set width and height independently. This creates a landscape-oriented placeholder.</div>
-      </div>
-      <div class="dimension-overlay">
-        <div class="dim dim-w"><span class="dim-dot dim-dot-w"></span> W: 300px</div>
-        <div class="dim dim-h"><span class="dim-dot dim-dot-h"></span> H: 150px</div>
       </div>
     </div>
     <div class="demo-card">
@@ -113,6 +100,17 @@
       <div class="dimension-overlay">
         <div class="dim dim-w"><span class="dim-dot dim-dot-w"></span> W: auto/100px</div>
         <div class="dim dim-h"><span class="dim-dot dim-dot-h"></span> H: auto/100px</div>
+      </div>
+    </div>
+    <div class="demo-card">
+      <div class="label">contain-intrinsic-size: auto none</div>
+      <div class="sub-label">Remembers last size, fallback none</div>
+      <div class="size-box" style="contain-intrinsic-size: auto none;">
+        <div class="inner">Auto with none fallback. Uses last rendered size if available, otherwise collapses to zero on first render.</div>
+      </div>
+      <div class="dimension-overlay">
+        <div class="dim dim-w"><span class="dim-dot dim-dot-w"></span> W: auto/0</div>
+        <div class="dim dim-h"><span class="dim-dot dim-dot-h"></span> H: auto/0</div>
       </div>
     </div>
   </div>

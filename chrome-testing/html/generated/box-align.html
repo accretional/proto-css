@@ -1,81 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>box-align</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
-    .demo-box { display: flex; flex-direction: column; align-items: center; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
-    .container {
-      display: -webkit-box;
-      -webkit-box-orient: horizontal;
-      width: 240px;
-      height: 150px;
-      background: #16213e;
-      border: 2px solid #333;
-    }
-    .child {
-      width: 50px;
-      background: #e94560;
-      margin: 4px;
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      font-weight: bold;
-    }
-    .child.short { height: 40px; }
-    .child.medium { height: 60px; }
-    .child.tall { height: 80px; }
-    .a-start { -webkit-box-align: start; }
-    .a-center { -webkit-box-align: center ! important; }
-    .a-end { -webkit-box-align: end ! important; }
-    .a-stretch { -webkit-box-align: center; }
-    .a-stretch .child { height: auto; }
-  </style>
+<meta charset="UTF-8">
+<title>box-align</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .child { width: 50px; background: #e94560; margin: 4px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; }
+.child.short { height: 40px; }
+.child.medium { height: 60px; }
+.child.tall { height: 80px; }
+</style>
 </head>
 <body>
-  <h1>Box Align (deprecated)</h1>
-  <p class="prop-name">box-align / -webkit-box-align</p>
-  <div class="demos">
-    <div class="demo-box">
-      <div class="container a-start">
-        <div class="child short">A</div>
-        <div class="child medium">B</div>
-        <div class="child tall">C</div>
-      </div>
-      <span class="label">-webkit-box-align: start</span>
+<h1>Box Align (deprecated)</h1>
+<p class="prop-name">box-align</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: -webkit-box; -webkit-box-orient: horizontal; width: 200px; height: 150px; background: #16213e; border: 2px solid #333; box-align: start;"><div class="child short">A</div><div class="child medium">B</div><div class="child tall">C</div></div>
     </div>
-    <div class="demo-box">
-      <div class="container a-center">
-        <div class="child short">A</div>
-        <div class="child medium">B</div>
-        <div class="child tall">C</div>
-      </div>
-      <span class="label">-webkit-box-align: center ! important</span>
-    </div>
-    <div class="demo-box">
-      <div class="container a-end">
-        <div class="child short">A</div>
-        <div class="child medium">B</div>
-        <div class="child tall">C</div>
-      </div>
-      <span class="label">-webkit-box-align: end ! important</span>
-    </div>
-    <div class="demo-box">
-      <div class="container a-stretch">
-        <div class="child">A</div>
-        <div class="child">B</div>
-        <div class="child">C</div>
-      </div>
-      <span class="label">-webkit-box-align: center</span>
-    </div>
+    <div class="label">box-align: start</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: -webkit-box; -webkit-box-orient: horizontal; width: 200px; height: 150px; background: #16213e; border: 2px solid #333; box-align: center;"><div class="child short">A</div><div class="child medium">B</div><div class="child tall">C</div></div>
+    </div>
+    <div class="label">box-align: center</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: -webkit-box; -webkit-box-orient: horizontal; width: 200px; height: 150px; background: #16213e; border: 2px solid #333; box-align: end;"><div class="child short">A</div><div class="child medium">B</div><div class="child tall">C</div></div>
+    </div>
+    <div class="label">box-align: end</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: -webkit-box; -webkit-box-orient: horizontal; width: 200px; height: 150px; background: #16213e; border: 2px solid #333; box-align: baseline;"><div class="child short">A</div><div class="child medium">B</div><div class="child tall">C</div></div>
+    </div>
+    <div class="label">box-align: baseline</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: -webkit-box; -webkit-box-orient: horizontal; width: 200px; height: 150px; background: #16213e; border: 2px solid #333; box-align: stretch;"><div class="child short">A</div><div class="child medium">B</div><div class="child tall">C</div></div>
+    </div>
+    <div class="label">box-align: stretch</div>
+  </div>
+</div>
 </body>
 </html>

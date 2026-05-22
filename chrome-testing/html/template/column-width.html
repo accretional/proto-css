@@ -8,7 +8,7 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-direction: column; gap: 16px; }
+    .demos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .demo-card {
       background: #16213e;
       border-radius: 10px;
@@ -44,30 +44,37 @@
     <div class="demo-card">
       <div class="label">column-width: 100px</div>
       <div class="col-text" style="column-width: 100px;">
-        Setting column-width to 100px creates narrow columns. The browser calculates how many 100px-wide columns fit in the container, then adjusts widths slightly to fill the space. This creates the most columns possible at approximately 100px each. More columns fit in the available width.
+        Setting column-width to 100px creates narrow columns. The browser calculates how many 100px-wide columns fit in the container, then adjusts widths slightly to fill the space. This creates the most columns possible at approximately 100px each.
       </div>
       <div class="width-hint">Target ~100px per column, many columns</div>
     </div>
     <div class="demo-card">
-      <div class="label">column-width: 150px</div>
-      <div class="col-text" style="column-width: 150px;">
-        At 150px, columns are slightly wider. Fewer columns fit compared to 100px, but each column can hold more text per line. The browser still adjusts the actual width to evenly fill the container. This provides a good balance between column count and readability for most content.
-      </div>
-      <div class="width-hint">Target ~150px per column, moderate columns</div>
-    </div>
-    <div class="demo-card">
       <div class="label">column-width: 200px</div>
       <div class="col-text" style="column-width: 200px;">
-        A 200px column width creates comfortable reading columns. Each column holds a reasonable number of words per line. This width is a common sweet spot for multi-column article layouts where readability is the primary concern. Fewer columns result, but each is more comfortable to read.
+        A 200px column width creates comfortable reading columns. Each column holds a reasonable number of words per line. This width is a common sweet spot for multi-column article layouts where readability is the primary concern.
       </div>
-      <div class="width-hint">Target ~200px per column, fewer columns</div>
+      <div class="width-hint">Target ~200px per column, moderate columns</div>
     </div>
     <div class="demo-card">
       <div class="label">column-width: 300px</div>
       <div class="col-text" style="column-width: 300px;">
-        Wide 300px columns hold significant content per line. Depending on container width, you may see only 2-3 columns at this setting. Wider columns are better for longer-form reading and complex content that benefits from more horizontal space. The column-width acts as a minimum ideal width.
+        Wide 300px columns hold significant content per line. Depending on container width, you may see only 2-3 columns at this setting. Wider columns are better for longer-form reading and complex content that benefits from more horizontal space.
       </div>
       <div class="width-hint">Target ~300px per column, widest columns</div>
+    </div>
+    <div class="demo-card">
+      <div class="label">column-width: min-content</div>
+      <div class="col-text" style="column-width: min-content;">
+        With min-content, columns shrink to the minimum width needed by the content. Each column becomes as narrow as the longest unbreakable word or element inside it, creating very compact columns for dense layouts.
+      </div>
+      <div class="width-hint">Columns as narrow as content allows</div>
+    </div>
+    <div class="demo-card">
+      <div class="label">column-width: max-content</div>
+      <div class="col-text" style="column-width: max-content;">
+        With max-content, columns expand to fit all content without wrapping. This typically results in a single wide column since max-content means the ideal width to display all content on one line without any line breaks.
+      </div>
+      <div class="width-hint">Columns as wide as content prefers</div>
     </div>
   </div>
 </body>

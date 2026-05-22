@@ -8,96 +8,126 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-direction: column; gap: 16px; }
+    .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .demo-card {
       background: #16213e;
-      border-radius: 12px;
-      padding: 20px;
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
+      border-radius: 10px;
+      padding: 16px;
     }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+    .demo-card h3 { font-size: 12px; color: #e2e8f0; margin-bottom: 8px; }
+    .label { font-size: 10px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+    .width-indicator {
+      font-size: 9px;
+      color: #4fc3f7;
+      font-family: monospace;
+      margin-top: 3px;
+    }
     .text-block {
       background: linear-gradient(135deg, #0f3460, #533483);
       border: 2px solid #4fc3f7;
-      border-radius: 8px;
-      padding: 12px;
-      font-size: 13px;
-      line-height: 1.6;
+      border-radius: 6px;
+      padding: 10px;
+      font-size: 11px;
+      line-height: 1.5;
       color: #c8d6e5;
     }
     .block-none { max-inline-size: none; }
     .block-100 { max-inline-size: 100px; }
     .block-200 { max-inline-size: 200px; }
-    .block-300 { max-inline-size: 300px; }
-    .info {
-      min-width: 180px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding-top: 8px;
-    }
-    .width-indicator {
-      font-size: 12px;
-      color: #4fc3f7;
-      font-family: monospace;
-      margin-bottom: 4px;
-    }
-    .description {
-      font-size: 11px;
-      color: #7b8794;
-      line-height: 1.4;
-    }
+    .block-500 { max-inline-size: 500px; }
+    .block-50pct { max-inline-size: 50%; }
+    .block-100pct { max-inline-size: 100%; }
+    .block-min { max-inline-size: min-content; }
+    .block-max { max-inline-size: max-content; }
+    .block-fit { max-inline-size: fit-content; }
   </style>
 </head>
 <body>
   <h1>Max Inline Size</h1>
   <p class="prop-name">max-inline-size</p>
   <div class="demos">
+
     <div class="demo-card">
-      <div class="info">
-        <p class="width-indicator">no limit</p>
-        <p class="description">Text fills all available horizontal space</p>
-        <p class="label">max-inline-size: none</p>
-      </div>
+      <h3>none</h3>
       <div class="text-block block-none">
-        The quick brown fox jumps over the lazy dog. This text has no inline size constraint and fills the available width.
+        The quick brown fox jumps over the lazy dog. No inline size limit.
       </div>
+      <p class="width-indicator">No constraint</p>
+      <p class="label">max-inline-size: none</p>
     </div>
 
     <div class="demo-card">
-      <div class="info">
-        <p class="width-indicator">100px wide</p>
-        <p class="description">Narrow column, heavy wrapping</p>
-        <p class="label">max-inline-size: 100px</p>
-      </div>
+      <h3>100px</h3>
       <div class="text-block block-100">
-        The quick brown fox jumps over the lazy dog. This text wraps heavily.
+        The quick brown fox jumps over the lazy dog. Heavy wrapping.
       </div>
+      <p class="width-indicator">100px wide max</p>
+      <p class="label">max-inline-size: 100px</p>
     </div>
 
     <div class="demo-card">
-      <div class="info">
-        <p class="width-indicator">200px wide</p>
-        <p class="description">Medium column, moderate wrapping</p>
-        <p class="label">max-inline-size: 200px</p>
-      </div>
+      <h3>200px</h3>
       <div class="text-block block-200">
-        The quick brown fox jumps over the lazy dog. This text has moderate wrapping at 200px.
+        The quick brown fox jumps over the lazy dog. Moderate wrapping at 200px.
       </div>
+      <p class="width-indicator">200px wide max</p>
+      <p class="label">max-inline-size: 200px</p>
     </div>
 
     <div class="demo-card">
-      <div class="info">
-        <p class="width-indicator">300px wide</p>
-        <p class="description">Wider column, less wrapping</p>
-        <p class="label">max-inline-size: 300px</p>
+      <h3>500px</h3>
+      <div class="text-block block-500">
+        The quick brown fox jumps over the lazy dog. More room at 500px constraint.
       </div>
-      <div class="text-block block-300">
-        The quick brown fox jumps over the lazy dog. This text has a more generous 300px maximum inline size constraint.
-      </div>
+      <p class="width-indicator">500px wide max</p>
+      <p class="label">max-inline-size: 500px</p>
     </div>
+
+    <div class="demo-card">
+      <h3>50%</h3>
+      <div class="text-block block-50pct">
+        The quick brown fox jumps over the lazy dog. Half of parent width.
+      </div>
+      <p class="width-indicator">50% of parent</p>
+      <p class="label">max-inline-size: 50%</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>100%</h3>
+      <div class="text-block block-100pct">
+        The quick brown fox jumps over the lazy dog. Full parent width available.
+      </div>
+      <p class="width-indicator">100% of parent</p>
+      <p class="label">max-inline-size: 100%</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>min-content</h3>
+      <div class="text-block block-min">
+        The quick brown fox jumps over the lazy dog.
+      </div>
+      <p class="width-indicator">Narrowest without overflow</p>
+      <p class="label">max-inline-size: min-content</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>max-content</h3>
+      <div class="text-block block-max">
+        The quick brown fox jumps over the lazy dog.
+      </div>
+      <p class="width-indicator">Widest single line</p>
+      <p class="label">max-inline-size: max-content</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>fit-content</h3>
+      <div class="text-block block-fit">
+        The quick brown fox jumps over the lazy dog.
+      </div>
+      <p class="width-indicator">Shrinks to fit</p>
+      <p class="label">max-inline-size: fit-content</p>
+    </div>
+
   </div>
 </body>
 </html>

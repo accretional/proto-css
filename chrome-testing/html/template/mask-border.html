@@ -8,12 +8,11 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
-    .demo-card { background: #16213e; border-radius: 10px; padding: 20px; width: 370px; }
-    .demo-card h3 { font-size: 13px; color: #e2e8f0; margin-bottom: 12px; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; line-height: 1.5; }
+    .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .demo-card { background: #16213e; border-radius: 10px; padding: 20px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; line-height: 1.5; }
     .box {
-      width: 320px;
+      width: 100%;
       height: 120px;
       background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff);
       display: flex;
@@ -23,42 +22,19 @@
       color: #fff;
       border-radius: 4px;
     }
-    .mb-1 {
-      -webkit-mask-border: linear-gradient(#000, transparent) 30% / 20px;
-      mask-border: linear-gradient(#000, transparent) 30% / 20px;
+    /* Simulated with mask since mask-border has limited support */
+    .sim-none {
+      /* no mask-border */
     }
-    .mb-2 {
-      -webkit-mask-border: linear-gradient(45deg, #000 50%, transparent 50%) 40% / 30px stretch;
-      mask-border: linear-gradient(45deg, #000 50%, transparent 50%) 40% / 30px stretch;
-    }
-    .mb-3 {
-      -webkit-mask-border: radial-gradient(circle, #000 40%, transparent 60%) 25% / 25px round;
-      mask-border: radial-gradient(circle, #000 40%, transparent 60%) 25% / 25px round;
-    }
-    .mb-4 {
-      -webkit-mask-border: linear-gradient(to right, #000, transparent, #000) 20% / 15px repeat;
-      mask-border: linear-gradient(to right, #000, transparent, #000) 20% / 15px repeat;
-    }
-    /* Fallback visual simulation using mask for browsers without mask-border */
-    .sim-1 {
-      -webkit-mask: linear-gradient(#000 0%, #000 80%, transparent 100%);
-      mask: linear-gradient(#000 0%, #000 80%, transparent 100%);
-    }
-    .sim-2 {
+    .sim-border {
       -webkit-mask:
         linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%),
         linear-gradient(to bottom, transparent 0%, #000 15%, #000 85%, transparent 100%);
       -webkit-mask-composite: destination-in;
-      mask: linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%);
+      mask:
+        linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, #000 15%, #000 85%, transparent 100%);
       mask-composite: intersect;
-    }
-    .sim-3 {
-      -webkit-mask: radial-gradient(ellipse at center, #000 50%, transparent 80%);
-      mask: radial-gradient(ellipse at center, #000 50%, transparent 80%);
-    }
-    .sim-4 {
-      -webkit-mask: linear-gradient(to right, transparent, #000 20%, #000 80%, transparent);
-      mask: linear-gradient(to right, transparent, #000 20%, #000 80%, transparent);
     }
   </style>
 </head>
@@ -68,27 +44,13 @@
   <div class="demos">
 
     <div class="demo-card">
-      <h3>Gradient Fade Border</h3>
-      <div class="box sim-1">Content Area</div>
-      <p class="label">mask-border: linear-gradient(#000,<br>&nbsp;&nbsp;transparent) 30% / 20px</p>
+      <div class="box sim-none">Content Area</div>
+      <div class="label">mask-border: none</div>
     </div>
 
     <div class="demo-card">
-      <h3>Vignette Border</h3>
-      <div class="box sim-2">Content Area</div>
-      <p class="label">mask-border: linear-gradient(45deg,<br>&nbsp;&nbsp;#000 50%, transparent) 40% / 30px</p>
-    </div>
-
-    <div class="demo-card">
-      <h3>Radial Border</h3>
-      <div class="box sim-3">Content Area</div>
-      <p class="label">mask-border: radial-gradient(circle,<br>&nbsp;&nbsp;#000 40%, transparent) 25% / 25px round</p>
-    </div>
-
-    <div class="demo-card">
-      <h3>Side Fade Border</h3>
-      <div class="box sim-4">Content Area</div>
-      <p class="label">mask-border: linear-gradient(to right,<br>&nbsp;&nbsp;#000, transparent, #000) 20% / 15px</p>
+      <div class="box sim-border">Content Area</div>
+      <div class="label">mask-border: url(border.png)<br>30 round</div>
     </div>
 
   </div>

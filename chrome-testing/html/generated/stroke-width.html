@@ -1,57 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>stroke-width</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
-    .demo { display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
-  </style>
+<meta charset="UTF-8">
+<title>stroke-width</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Stroke Width</h1>
-  <p class="prop-name">stroke-width</p>
-  <div class="demos">
-    <div class="demo">
+<h1>Stroke Width</h1>
+<p class="prop-name">stroke-width</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
       <svg width="160" height="160">
-        <circle cx="80" cy="80" r="55" fill="none" stroke="#06b6d4" stroke-width="1"/>
-        <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e" stroke-width="1"/>
-      </svg>
-      <div class="label">stroke-width: thin, 0</div>
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 0;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
     </div>
-    <div class="demo">
-      <svg width="160" height="160">
-        <circle cx="80" cy="80" r="55" fill="none" stroke="#06b6d4" stroke-width="2"/>
-        <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e" stroke-width="2"/>
-      </svg>
-      <div class="label">stroke-width: thick, hairline</div>
-    </div>
-    <div class="demo">
-      <svg width="160" height="160">
-        <circle cx="80" cy="80" r="55" fill="none" stroke="#06b6d4" stroke-width="4"/>
-        <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e" stroke-width="4"/>
-      </svg>
-      <div class="label">stroke-width: thick, thick ! important</div>
-    </div>
-    <div class="demo">
-      <svg width="160" height="160">
-        <circle cx="80" cy="80" r="50" fill="none" stroke="#06b6d4" stroke-width="8"/>
-        <line x1="30" y1="145" x2="130" y2="145" stroke="#f43f5e" stroke-width="8"/>
-      </svg>
-      <div class="label">stroke-width: 1.58e+7</div>
-    </div>
-    <div class="demo">
-      <svg width="160" height="160">
-        <circle cx="80" cy="80" r="45" fill="none" stroke="#06b6d4" stroke-width="16"/>
-        <line x1="30" y1="148" x2="130" y2="148" stroke="#f43f5e" stroke-width="16"/>
-      </svg>
-      <div class="label">stroke-width: thin, 06</div>
-    </div>
+    <div class="label">stroke-width: 0</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 0, 0;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 0, 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 0, 10px;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 0, 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 0, 25%;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 0, 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 0, 50%;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 0, 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 0, 100%;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 0, 100%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 0, 4px;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 0, 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 0, 20px;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 0, 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 0, 50px;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 0, 50px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 0, hairline;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 0, hairline</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 0, thin;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 0, thin</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 0, medium;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 0, medium</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 0, thick;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 0, thick</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 0, 0.5;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 0, 0.5</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 0, 1;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 0, 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 0, 2;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 0, 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 10px;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 10px, 0;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 10px, 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 10px, 10px;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 10px, 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 10px, 25%;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 10px, 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 10px, 50%;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 10px, 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 10px, 100%;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 10px, 100%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 10px, 4px;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 10px, 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 10px, 20px;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 10px, 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 10px, 50px;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 10px, 50px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 10px, hairline;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 10px, hairline</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 10px, thin;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 10px, thin</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 10px, medium;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 10px, medium</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 10px, thick;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 10px, thick</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <circle style="fill: none; stroke: #06b6d4; stroke-width: 10px, 0.5;"></circle>
+      <line x1="30" y1="140" x2="130" y2="140" stroke="#f43f5e"/></svg>
+    </div>
+    <div class="label">stroke-width: 10px, 0.5</div>
+  </div>
+</div>
 </body>
 </html>

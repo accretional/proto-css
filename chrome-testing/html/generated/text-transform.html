@@ -1,67 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>text-transform</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-card {
-      background: #16213e; border-radius: 10px; padding: 20px 24px;
-      width: 190px; display: flex; flex-direction: column; align-items: center;
-    }
-    .demo-text {
-      font-size: 20px; font-weight: 600; color: #fff; margin-bottom: 4px;
-      min-height: 70px; display: flex; align-items: center; text-align: center;
-      border-bottom: 2px solid #e94560; padding-bottom: 8px; width: 100%; justify-content: center;
-    }
-    .source { font-size: 11px; color: #6b7280; margin-top: 4px; font-style: italic; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
-    .t1 { text-transform: math-auto; }
-    .t2 { text-transform: math-auto ! important; }
-    .t3 { text-transform: none ! important; }
-    .t4 { text-transform: capitalize full-width full-size-kana; }
-    .t5 { text-transform: capitalize full-width full-size-kana; }
-    .t6 { text-transform: none; }
-  </style>
+<meta charset="UTF-8">
+<title>text-transform</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Text Transform</h1>
-  <p class="prop-name">text-transform</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="demo-text t1">Hello World</div>
-      <span class="source">source: "Hello World"</span>
-      <span class="label">text-transform: math-auto</span>
+<h1>Text Transform</h1>
+<p class="prop-name">text-transform</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 20px; font-weight: 600; color: #fff; min-height: 70px; display: flex; align-items: center; text-align: center; border-bottom: 2px solid #e94560; padding-bottom: 8px; width: 100%; justify-content: center; text-transform: none;">Hello World</div>
     </div>
-    <div class="demo-card">
-      <div class="demo-text t2">Hello World</div>
-      <span class="source">source: "Hello World"</span>
-      <span class="label">text-transform: math-auto ! important</span>
-    </div>
-    <div class="demo-card">
-      <div class="demo-text t3">Hello World</div>
-      <span class="source">source: "Hello World"</span>
-      <span class="label">text-transform: none ! important</span>
-    </div>
-    <div class="demo-card">
-      <div class="demo-text t4">hello world</div>
-      <span class="source">source: "hello world"</span>
-      <span class="label">text-transform: capitalize full-width full-size-kana</span>
-    </div>
-    <div class="demo-card">
-      <div class="demo-text t5">abc</div>
-      <span class="source">source: "abc"</span>
-      <span class="label">text-transform: capitalize full-width full-size-kana</span>
-    </div>
-    <div class="demo-card">
-      <div class="demo-text t6">ァィゥ</div>
-      <span class="source">source: "ァィゥ" (small kana)</span>
-      <span class="label">text-transform: none</span>
-    </div>
+    <div class="label">text-transform: none</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 20px; font-weight: 600; color: #fff; min-height: 70px; display: flex; align-items: center; text-align: center; border-bottom: 2px solid #e94560; padding-bottom: 8px; width: 100%; justify-content: center; text-transform: full-size-kana;">Hello World</div>
+    </div>
+    <div class="label">text-transform: full-size-kana</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 20px; font-weight: 600; color: #fff; min-height: 70px; display: flex; align-items: center; text-align: center; border-bottom: 2px solid #e94560; padding-bottom: 8px; width: 100%; justify-content: center; text-transform: full-width;">Hello World</div>
+    </div>
+    <div class="label">text-transform: full-width</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 20px; font-weight: 600; color: #fff; min-height: 70px; display: flex; align-items: center; text-align: center; border-bottom: 2px solid #e94560; padding-bottom: 8px; width: 100%; justify-content: center; text-transform: full-width full-size-kana;">Hello World</div>
+    </div>
+    <div class="label">text-transform: full-width full-size-kana</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 20px; font-weight: 600; color: #fff; min-height: 70px; display: flex; align-items: center; text-align: center; border-bottom: 2px solid #e94560; padding-bottom: 8px; width: 100%; justify-content: center; text-transform: capitalize;">Hello World</div>
+    </div>
+    <div class="label">text-transform: capitalize</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 20px; font-weight: 600; color: #fff; min-height: 70px; display: flex; align-items: center; text-align: center; border-bottom: 2px solid #e94560; padding-bottom: 8px; width: 100%; justify-content: center; text-transform: capitalize full-size-kana;">Hello World</div>
+    </div>
+    <div class="label">text-transform: capitalize full-size-kana</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 20px; font-weight: 600; color: #fff; min-height: 70px; display: flex; align-items: center; text-align: center; border-bottom: 2px solid #e94560; padding-bottom: 8px; width: 100%; justify-content: center; text-transform: capitalize full-width;">Hello World</div>
+    </div>
+    <div class="label">text-transform: capitalize full-width</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 20px; font-weight: 600; color: #fff; min-height: 70px; display: flex; align-items: center; text-align: center; border-bottom: 2px solid #e94560; padding-bottom: 8px; width: 100%; justify-content: center; text-transform: capitalize full-width full-size-kana;">Hello World</div>
+    </div>
+    <div class="label">text-transform: capitalize full-width full-size-kana</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 20px; font-weight: 600; color: #fff; min-height: 70px; display: flex; align-items: center; text-align: center; border-bottom: 2px solid #e94560; padding-bottom: 8px; width: 100%; justify-content: center; text-transform: uppercase;">Hello World</div>
+    </div>
+    <div class="label">text-transform: uppercase</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 20px; font-weight: 600; color: #fff; min-height: 70px; display: flex; align-items: center; text-align: center; border-bottom: 2px solid #e94560; padding-bottom: 8px; width: 100%; justify-content: center; text-transform: uppercase full-size-kana;">Hello World</div>
+    </div>
+    <div class="label">text-transform: uppercase full-size-kana</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 20px; font-weight: 600; color: #fff; min-height: 70px; display: flex; align-items: center; text-align: center; border-bottom: 2px solid #e94560; padding-bottom: 8px; width: 100%; justify-content: center; text-transform: uppercase full-width;">Hello World</div>
+    </div>
+    <div class="label">text-transform: uppercase full-width</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 20px; font-weight: 600; color: #fff; min-height: 70px; display: flex; align-items: center; text-align: center; border-bottom: 2px solid #e94560; padding-bottom: 8px; width: 100%; justify-content: center; text-transform: uppercase full-width full-size-kana;">Hello World</div>
+    </div>
+    <div class="label">text-transform: uppercase full-width full-size-kana</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 20px; font-weight: 600; color: #fff; min-height: 70px; display: flex; align-items: center; text-align: center; border-bottom: 2px solid #e94560; padding-bottom: 8px; width: 100%; justify-content: center; text-transform: lowercase;">Hello World</div>
+    </div>
+    <div class="label">text-transform: lowercase</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 20px; font-weight: 600; color: #fff; min-height: 70px; display: flex; align-items: center; text-align: center; border-bottom: 2px solid #e94560; padding-bottom: 8px; width: 100%; justify-content: center; text-transform: lowercase full-size-kana;">Hello World</div>
+    </div>
+    <div class="label">text-transform: lowercase full-size-kana</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 20px; font-weight: 600; color: #fff; min-height: 70px; display: flex; align-items: center; text-align: center; border-bottom: 2px solid #e94560; padding-bottom: 8px; width: 100%; justify-content: center; text-transform: lowercase full-width;">Hello World</div>
+    </div>
+    <div class="label">text-transform: lowercase full-width</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 20px; font-weight: 600; color: #fff; min-height: 70px; display: flex; align-items: center; text-align: center; border-bottom: 2px solid #e94560; padding-bottom: 8px; width: 100%; justify-content: center; text-transform: lowercase full-width full-size-kana;">Hello World</div>
+    </div>
+    <div class="label">text-transform: lowercase full-width full-size-kana</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 20px; font-weight: 600; color: #fff; min-height: 70px; display: flex; align-items: center; text-align: center; border-bottom: 2px solid #e94560; padding-bottom: 8px; width: 100%; justify-content: center; text-transform: math-auto;">Hello World</div>
+    </div>
+    <div class="label">text-transform: math-auto</div>
+  </div>
+</div>
 </body>
 </html>

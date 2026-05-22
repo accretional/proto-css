@@ -13,10 +13,10 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 160px;
+      width: 120px;
     }
     .wrapper {
-      width: 140px;
+      width: 100px;
       height: 250px;
       background: #16213e;
       border-radius: 8px;
@@ -31,7 +31,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 12px;
+      font-size: 10px;
       font-family: monospace;
       color: #fff;
       overflow: hidden;
@@ -45,9 +45,15 @@
   <div class="demos">
     <div class="demo-card">
       <div class="wrapper">
-        <div class="box" style="height: auto;">Auto content</div>
+        <div class="box" style="height: auto;">auto</div>
       </div>
       <p class="label">height: auto</p>
+    </div>
+    <div class="demo-card">
+      <div class="wrapper">
+        <div class="box" style="height: 0;"></div>
+      </div>
+      <p class="label">height: 0</p>
     </div>
     <div class="demo-card">
       <div class="wrapper">
@@ -75,9 +81,39 @@
     </div>
     <div class="demo-card">
       <div class="wrapper">
-        <div class="box" style="height: fit-content;">Fit</div>
+        <div class="box" style="height: 100%;"></div>
+      </div>
+      <p class="label">height: 100%</p>
+    </div>
+    <div class="demo-card">
+      <div class="wrapper">
+        <div class="box" style="height: min-content;">min</div>
+      </div>
+      <p class="label">height: min-content</p>
+    </div>
+    <div class="demo-card">
+      <div class="wrapper">
+        <div class="box" style="height: max-content;">max</div>
+      </div>
+      <p class="label">height: max-content</p>
+    </div>
+    <div class="demo-card">
+      <div class="wrapper">
+        <div class="box" style="height: fit-content;">fit</div>
       </div>
       <p class="label">height: fit-content</p>
+    </div>
+    <div class="demo-card">
+      <div class="wrapper">
+        <div class="box" style="height: stretch;"></div>
+      </div>
+      <p class="label">height: stretch</p>
+    </div>
+    <div class="demo-card">
+      <div class="wrapper">
+        <div class="box" style="height: contain;">con</div>
+      </div>
+      <p class="label">height: contain</p>
     </div>
   </div>
 </body>

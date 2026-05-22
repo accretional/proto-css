@@ -1,53 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>text-indent</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-direction: column; gap: 16px; }
-    .demo-card { background: #16213e; border-radius: 12px; padding: 20px; display: flex; align-items: flex-start; gap: 20px; }
-    .sample { font-size: 16px; line-height: 1.6; padding: 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; flex: 1; border-left: 3px solid #3b82f6; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; min-width: 180px; padding-top: 14px; }
-  </style>
+<meta charset="UTF-8">
+<title>text-indent</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Text Indent</h1>
-  <p class="prop-name">text-indent</p>
-  <div class="demos">
-    <div class="demo-card">
-      <p class="label">text-indent: 20.11e34vmax each-line</p>
-      <div class="sample" style="text-indent: 20.11e34vmax each-line;">
-        The quick brown fox jumps over the lazy dog. This is a sample paragraph to demonstrate how text indentation works with various values applied to the first line.
-      </div>
+<h1>Text Indent</h1>
+<p class="prop-name">text-indent</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; line-height: 1.6; padding: 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; flex: 1; border-left: 3px solid #3b82f6; text-indent: 0;">The quick brown fox jumps over the lazy dog. This is a sample paragraph to demonstrate how text indentation works with various values applied to the first line.</div>
     </div>
-    <div class="demo-card">
-      <p class="label">text-indent: var(--_9) hanging each-line</p>
-      <div class="sample" style="text-indent: var(--_9) hanging each-line; border-left-color: #10b981;">
-        The quick brown fox jumps over the lazy dog. This is a sample paragraph to demonstrate how text indentation works with various values applied to the first line.
-      </div>
-    </div>
-    <div class="demo-card">
-      <p class="label">text-indent: anchor-size(self-inline,) hanging</p>
-      <div class="sample" style="text-indent: anchor-size(self-inline,) hanging; border-left-color: #f59e0b;">
-        The quick brown fox jumps over the lazy dog. This is a sample paragraph to demonstrate how text indentation works with various values applied to the first line.
-      </div>
-    </div>
-    <div class="demo-card">
-      <p class="label">text-indent: round(line-width, anchor(52.28%) / 59%)</p>
-      <div class="sample" style="text-indent: round(line-width, anchor(52.28%) / 59%); padding-left: 34px; border-left-color: #ef4444;">
-        The quick brown fox jumps over the lazy dog. This is a sample paragraph to demonstrate how text indentation works with various values applied to the first line.
-      </div>
-    </div>
-    <div class="demo-card">
-      <p class="label">text-indent: calc(/ env(񝵛- 45, <) + anchor(58.91e+1%)) ! important</p>
-      <div class="sample" style="text-indent: calc(/ env(񝵛- 45, <) + anchor(58.91e+1%)) ! important; border-left-color: #a78bfa;">
-        The quick brown fox jumps over the lazy dog. This is a sample paragraph to demonstrate how text indentation works with various values applied to the first line.
-      </div>
-    </div>
+    <div class="label">text-indent: 0</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; line-height: 1.6; padding: 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; flex: 1; border-left: 3px solid #3b82f6; text-indent: 0 each-line;">The quick brown fox jumps over the lazy dog. This is a sample paragraph to demonstrate how text indentation works with various values applied to the first line.</div>
+    </div>
+    <div class="label">text-indent: 0 each-line</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; line-height: 1.6; padding: 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; flex: 1; border-left: 3px solid #3b82f6; text-indent: 0 hanging;">The quick brown fox jumps over the lazy dog. This is a sample paragraph to demonstrate how text indentation works with various values applied to the first line.</div>
+    </div>
+    <div class="label">text-indent: 0 hanging</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; line-height: 1.6; padding: 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; flex: 1; border-left: 3px solid #3b82f6; text-indent: 0 hanging each-line;">The quick brown fox jumps over the lazy dog. This is a sample paragraph to demonstrate how text indentation works with various values applied to the first line.</div>
+    </div>
+    <div class="label">text-indent: 0 hanging each-line</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; line-height: 1.6; padding: 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; flex: 1; border-left: 3px solid #3b82f6; text-indent: 10px;">The quick brown fox jumps over the lazy dog. This is a sample paragraph to demonstrate how text indentation works with various values applied to the first line.</div>
+    </div>
+    <div class="label">text-indent: 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; line-height: 1.6; padding: 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; flex: 1; border-left: 3px solid #3b82f6; text-indent: 10px each-line;">The quick brown fox jumps over the lazy dog. This is a sample paragraph to demonstrate how text indentation works with various values applied to the first line.</div>
+    </div>
+    <div class="label">text-indent: 10px each-line</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; line-height: 1.6; padding: 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; flex: 1; border-left: 3px solid #3b82f6; text-indent: 10px hanging;">The quick brown fox jumps over the lazy dog. This is a sample paragraph to demonstrate how text indentation works with various values applied to the first line.</div>
+    </div>
+    <div class="label">text-indent: 10px hanging</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; line-height: 1.6; padding: 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; flex: 1; border-left: 3px solid #3b82f6; text-indent: 10px hanging each-line;">The quick brown fox jumps over the lazy dog. This is a sample paragraph to demonstrate how text indentation works with various values applied to the first line.</div>
+    </div>
+    <div class="label">text-indent: 10px hanging each-line</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; line-height: 1.6; padding: 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; flex: 1; border-left: 3px solid #3b82f6; text-indent: 25%;">The quick brown fox jumps over the lazy dog. This is a sample paragraph to demonstrate how text indentation works with various values applied to the first line.</div>
+    </div>
+    <div class="label">text-indent: 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; line-height: 1.6; padding: 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; flex: 1; border-left: 3px solid #3b82f6; text-indent: 25% each-line;">The quick brown fox jumps over the lazy dog. This is a sample paragraph to demonstrate how text indentation works with various values applied to the first line.</div>
+    </div>
+    <div class="label">text-indent: 25% each-line</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; line-height: 1.6; padding: 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; flex: 1; border-left: 3px solid #3b82f6; text-indent: 25% hanging;">The quick brown fox jumps over the lazy dog. This is a sample paragraph to demonstrate how text indentation works with various values applied to the first line.</div>
+    </div>
+    <div class="label">text-indent: 25% hanging</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; line-height: 1.6; padding: 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; flex: 1; border-left: 3px solid #3b82f6; text-indent: 25% hanging each-line;">The quick brown fox jumps over the lazy dog. This is a sample paragraph to demonstrate how text indentation works with various values applied to the first line.</div>
+    </div>
+    <div class="label">text-indent: 25% hanging each-line</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; line-height: 1.6; padding: 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; flex: 1; border-left: 3px solid #3b82f6; text-indent: 50%;">The quick brown fox jumps over the lazy dog. This is a sample paragraph to demonstrate how text indentation works with various values applied to the first line.</div>
+    </div>
+    <div class="label">text-indent: 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; line-height: 1.6; padding: 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; flex: 1; border-left: 3px solid #3b82f6; text-indent: 50% each-line;">The quick brown fox jumps over the lazy dog. This is a sample paragraph to demonstrate how text indentation works with various values applied to the first line.</div>
+    </div>
+    <div class="label">text-indent: 50% each-line</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; line-height: 1.6; padding: 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; flex: 1; border-left: 3px solid #3b82f6; text-indent: 50% hanging;">The quick brown fox jumps over the lazy dog. This is a sample paragraph to demonstrate how text indentation works with various values applied to the first line.</div>
+    </div>
+    <div class="label">text-indent: 50% hanging</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; line-height: 1.6; padding: 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; flex: 1; border-left: 3px solid #3b82f6; text-indent: 50% hanging each-line;">The quick brown fox jumps over the lazy dog. This is a sample paragraph to demonstrate how text indentation works with various values applied to the first line.</div>
+    </div>
+    <div class="label">text-indent: 50% hanging each-line</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; line-height: 1.6; padding: 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; flex: 1; border-left: 3px solid #3b82f6; text-indent: 100%;">The quick brown fox jumps over the lazy dog. This is a sample paragraph to demonstrate how text indentation works with various values applied to the first line.</div>
+    </div>
+    <div class="label">text-indent: 100%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; line-height: 1.6; padding: 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; flex: 1; border-left: 3px solid #3b82f6; text-indent: 100% each-line;">The quick brown fox jumps over the lazy dog. This is a sample paragraph to demonstrate how text indentation works with various values applied to the first line.</div>
+    </div>
+    <div class="label">text-indent: 100% each-line</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; line-height: 1.6; padding: 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; flex: 1; border-left: 3px solid #3b82f6; text-indent: 100% hanging;">The quick brown fox jumps over the lazy dog. This is a sample paragraph to demonstrate how text indentation works with various values applied to the first line.</div>
+    </div>
+    <div class="label">text-indent: 100% hanging</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 16px; line-height: 1.6; padding: 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; flex: 1; border-left: 3px solid #3b82f6; text-indent: 100% hanging each-line;">The quick brown fox jumps over the lazy dog. This is a sample paragraph to demonstrate how text indentation works with various values applied to the first line.</div>
+    </div>
+    <div class="label">text-indent: 100% hanging each-line</div>
+  </div>
+</div>
 </body>
 </html>

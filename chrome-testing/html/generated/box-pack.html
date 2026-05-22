@@ -1,82 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>box-pack</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-direction: column; gap: 20px; }
-    .demo-box { display: flex; flex-direction: column; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
-    .container {
-      display: -webkit-box;
-      -webkit-box-orient: horizontal;
-      width: 100%;
-      max-width: 900px;
-      height: 80px;
-      background: #16213e;
-      border: 2px solid #333;
-    }
-    .child {
-      width: 80px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      font-weight: bold;
-      color: #fff;
-      margin: 10px 6px;
-      border-radius: 6px;
-    }
-    .child:nth-child(1) { background: #e94560; }
-    .child:nth-child(2) { background: #0f3460; }
-    .child:nth-child(3) { background: #53d769; color: #1a1a2e; }
-    .p-start { -webkit-box-pack: justify ! important; }
-    .p-center { -webkit-box-pack: start ! important; }
-    .p-end { -webkit-box-pack: center ! important; }
-    .p-justify { -webkit-box-pack: justify ! important; }
-  </style>
+<meta charset="UTF-8">
+<title>box-pack</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .child { width: 80px; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: bold; color: #fff; margin: 10px 6px; border-radius: 6px; }
+.child:nth-child(1) { background: #e94560; }
+.child:nth-child(2) { background: #0f3460; }
+.child:nth-child(3) { background: #53d769; color: #1a1a2e; }
+</style>
 </head>
 <body>
-  <h1>Box Pack (deprecated)</h1>
-  <p class="prop-name">box-pack / -webkit-box-pack</p>
-  <div class="demos">
-    <div class="demo-box">
-      <div class="container p-start">
-        <div class="child">A</div>
-        <div class="child">B</div>
-        <div class="child">C</div>
-      </div>
-      <span class="label">-webkit-box-pack: justify ! important</span>
+<h1>Box Pack (deprecated)</h1>
+<p class="prop-name">box-pack</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: -webkit-box; -webkit-box-orient: horizontal; width: 100%; max-width: 500px; height: 80px; background: #16213e; border: 2px solid #333; box-pack: start;"><div class="child">A</div><div class="child">B</div><div class="child">C</div></div>
     </div>
-    <div class="demo-box">
-      <div class="container p-center">
-        <div class="child">A</div>
-        <div class="child">B</div>
-        <div class="child">C</div>
-      </div>
-      <span class="label">-webkit-box-pack: start ! important</span>
-    </div>
-    <div class="demo-box">
-      <div class="container p-end">
-        <div class="child">A</div>
-        <div class="child">B</div>
-        <div class="child">C</div>
-      </div>
-      <span class="label">-webkit-box-pack: center ! important</span>
-    </div>
-    <div class="demo-box">
-      <div class="container p-justify">
-        <div class="child">A</div>
-        <div class="child">B</div>
-        <div class="child">C</div>
-      </div>
-      <span class="label">-webkit-box-pack: justify ! important</span>
-    </div>
+    <div class="label">box-pack: start</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: -webkit-box; -webkit-box-orient: horizontal; width: 100%; max-width: 500px; height: 80px; background: #16213e; border: 2px solid #333; box-pack: center;"><div class="child">A</div><div class="child">B</div><div class="child">C</div></div>
+    </div>
+    <div class="label">box-pack: center</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: -webkit-box; -webkit-box-orient: horizontal; width: 100%; max-width: 500px; height: 80px; background: #16213e; border: 2px solid #333; box-pack: end;"><div class="child">A</div><div class="child">B</div><div class="child">C</div></div>
+    </div>
+    <div class="label">box-pack: end</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: -webkit-box; -webkit-box-orient: horizontal; width: 100%; max-width: 500px; height: 80px; background: #16213e; border: 2px solid #333; box-pack: justify;"><div class="child">A</div><div class="child">B</div><div class="child">C</div></div>
+    </div>
+    <div class="label">box-pack: justify</div>
+  </div>
+</div>
 </body>
 </html>

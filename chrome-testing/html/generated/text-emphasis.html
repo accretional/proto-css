@@ -1,39 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>text-emphasis</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-card { background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1; }
-    .sample { font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
-  </style>
+<meta charset="UTF-8">
+<title>text-emphasis</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Text Emphasis</h1>
-  <p class="prop-name">text-emphasis</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="sample" style="text-emphasis: light-dark(none,) ! important;">Emphasis marks</div>
-      <p class="label">text-emphasis: light-dark(none,) ! important</p>
+<h1>Text Emphasis</h1>
+<p class="prop-name">text-emphasis</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: none;">Emphasis marks</div>
     </div>
-    <div class="demo-card">
-      <div class="sample" style="text-emphasis: "7";">Emphasis marks</div>
-      <p class="label">text-emphasis: "7"</p>
-    </div>
-    <div class="demo-card">
-      <div class="sample" style="text-emphasis: currentcolor '' ! important;">Emphasis marks</div>
-      <p class="label">text-emphasis: currentcolor '' ! important</p>
-    </div>
-    <div class="demo-card">
-      <div class="sample" style="text-emphasis: none light-dark(none,) ! important;">Emphasis marks</div>
-      <p class="label">text-emphasis: none light-dark(none,) ! important</p>
-    </div>
+    <div class="label">text-emphasis: none</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: none red;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: none red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: none #3498db;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: none #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: none rgb(0, 128, 0);">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: none rgb(0, 128, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: none transparent;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: none transparent</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: none currentcolor;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: none currentcolor</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: red;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: #3498db;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: rgb(0, 128, 0);">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: rgb(0, 128, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: transparent;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: transparent</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: currentcolor;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: currentcolor</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: dot;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: dot</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: dot red;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: dot red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: dot #3498db;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: dot #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: dot rgb(0, 128, 0);">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: dot rgb(0, 128, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: dot transparent;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: dot transparent</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: dot currentcolor;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: dot currentcolor</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: red none;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: red none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: red dot;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: red dot</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: red circle;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: red circle</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: red double-circle;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: red double-circle</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: red triangle;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: red triangle</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: red sesame;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: red sesame</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: red filled;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: red filled</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: red filled dot;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: red filled dot</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: red filled circle;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: red filled circle</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: red filled double-circle;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: red filled double-circle</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: red filled triangle;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: red filled triangle</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: red filled sesame;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: red filled sesame</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: red open;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: red open</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: red open dot;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: red open dot</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: red open circle;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: red open circle</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis: red open double-circle;">Emphasis marks</div>
+    </div>
+    <div class="label">text-emphasis: red open double-circle</div>
+  </div>
+</div>
 </body>
 </html>

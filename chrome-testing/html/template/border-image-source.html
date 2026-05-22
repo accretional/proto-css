@@ -8,7 +8,7 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 32px; }
+    .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
     .demo-item {
       display: flex;
       flex-direction: column;
@@ -19,6 +19,7 @@
       height: 150px;
       background: #16213e;
       border: 14px solid #e94560;
+      border-image-slice: 1;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -40,16 +41,12 @@
       <div class="label">border-image-source: none</div>
     </div>
     <div class="demo-item">
-      <div class="box" style="border-image-source: linear-gradient(45deg, #e94560, #53d8fb); border-image-slice: 1;">linear-gradient<br>45deg</div>
-      <div class="label">border-image-source:<br>linear-gradient(45deg, ...)</div>
+      <div class="box" style="border-image-source: url(border.png); border-image-slice: 30;">url(border.png)</div>
+      <div class="label">border-image-source: url(border.png)</div>
     </div>
     <div class="demo-item">
-      <div class="box" style="border-image-source: radial-gradient(circle, #4ade80, #a855f7); border-image-slice: 1;">radial-gradient<br>circle</div>
-      <div class="label">border-image-source:<br>radial-gradient(circle, ...)</div>
-    </div>
-    <div class="demo-item">
-      <div class="box" style="border-image-source: conic-gradient(#e94560, #fbbf24, #53d8fb, #e94560); border-image-slice: 1;">conic-gradient</div>
-      <div class="label">border-image-source:<br>conic-gradient(...)</div>
+      <div class="box" style="border-image-source: linear-gradient(red, blue); border-image-slice: 1;">linear-gradient<br>(red, blue)</div>
+      <div class="label">border-image-source: linear-gradient(red, blue)</div>
     </div>
   </div>
 </body>

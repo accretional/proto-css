@@ -1,66 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>white-space-collapse</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .demo-card { background: #16213e; border-radius: 10px; padding: 20px; }
-    .demo-card h3 { font-size: 13px; color: #a78bfa; margin-bottom: 12px; font-family: monospace; font-weight: 500; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
-    .text-box { background: #0f1a30; border: 1px solid #2a2a4a; border-radius: 6px; padding: 14px; font-size: 13px; line-height: 1.6; color: #d1d5db; min-height: 100px; text-wrap: wrap; overflow: hidden; }
-    .note { font-size: 10px; color: #6b7280; margin-top: 6px; line-height: 1.4; }
-  </style>
+<meta charset="UTF-8">
+<title>white-space-collapse</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.note { font-size: 10px; color: #6b7280; margin-top: 6px; line-height: 1.4; }
+</style>
 </head>
 <body>
-  <h1>White Space Collapse</h1>
-  <p class="prop-name">white-space-collapse</p>
-  <div class="demos">
-
-    <div class="demo-card">
-      <h3>collapse</h3>
-      <div class="text-box" style="white-space-collapse: preserve-breaks ! important;">Hello      world.     Multiple     spaces     are
+<h1>White Space Collapse</h1>
+<p class="prop-name">white-space-collapse</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
+      <div style="background: #0f1a30; border: 1px solid #2a2a4a; border-radius: 6px; padding: 14px; font-size: 13px; line-height: 1.6; color: #d1d5db; min-height: 100px; text-wrap: wrap; overflow: hidden; white-space-collapse: collapse; white-space-collapse: collapse;">Hello      world.     Multiple     spaces     are
 collapsed     into     a     single     space.
 
 Multiple newlines are also collapsed.</div>
-      <p class="note">All runs of whitespace collapse into a single space. This is the default behavior.</p>
-      <p class="label">white-space-collapse: preserve-breaks ! important</p>
     </div>
-
-    <div class="demo-card">
-      <h3>preserve</h3>
-      <div class="text-box" style="white-space-collapse: preserve ! important;">Hello      world.     Multiple     spaces     are
-preserved     exactly     as     written.
-
-Multiple newlines are also preserved.</div>
-      <p class="note">All whitespace characters are preserved exactly as authored in the source.</p>
-      <p class="label">white-space-collapse: preserve ! important</p>
-    </div>
-
-    <div class="demo-card">
-      <h3>preserve-breaks</h3>
-      <div class="text-box" style="white-space-collapse: preserve ! important-breaks;">Hello      world.     Multiple     spaces     are
-collapsed     but     line     breaks     are     kept.
-
-This line follows a blank line.</div>
-      <p class="note">Spaces collapse but line breaks (newlines) are preserved as-is.</p>
-      <p class="label">white-space-collapse: preserve ! important-breaks</p>
-    </div>
-
-    <div class="demo-card">
-      <h3>break-spaces</h3>
-      <div class="text-box" style="white-space-collapse: preserve-breaks ! important;">Hello      world.     Multiple     spaces     are
-preserved     and     can     be     used     as     wrap     points.
-
-Trailing spaces are also preserved.</div>
-      <p class="note">Whitespace is preserved like "preserve", but spaces can act as soft wrap opportunities.</p>
-      <p class="label">white-space-collapse: preserve-breaks ! important</p>
-    </div>
-
+    <div class="label">white-space-collapse: collapse</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
+      <div style="background: #0f1a30; border: 1px solid #2a2a4a; border-radius: 6px; padding: 14px; font-size: 13px; line-height: 1.6; color: #d1d5db; min-height: 100px; text-wrap: wrap; overflow: hidden; white-space-collapse: collapse; white-space-collapse: discard;">Hello      world.     Multiple     spaces     are
+collapsed     into     a     single     space.
+
+Multiple newlines are also collapsed.</div>
+    </div>
+    <div class="label">white-space-collapse: discard</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
+      <div style="background: #0f1a30; border: 1px solid #2a2a4a; border-radius: 6px; padding: 14px; font-size: 13px; line-height: 1.6; color: #d1d5db; min-height: 100px; text-wrap: wrap; overflow: hidden; white-space-collapse: collapse; white-space-collapse: preserve;">Hello      world.     Multiple     spaces     are
+collapsed     into     a     single     space.
+
+Multiple newlines are also collapsed.</div>
+    </div>
+    <div class="label">white-space-collapse: preserve</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
+      <div style="background: #0f1a30; border: 1px solid #2a2a4a; border-radius: 6px; padding: 14px; font-size: 13px; line-height: 1.6; color: #d1d5db; min-height: 100px; text-wrap: wrap; overflow: hidden; white-space-collapse: collapse; white-space-collapse: preserve-breaks;">Hello      world.     Multiple     spaces     are
+collapsed     into     a     single     space.
+
+Multiple newlines are also collapsed.</div>
+    </div>
+    <div class="label">white-space-collapse: preserve-breaks</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
+      <div style="background: #0f1a30; border: 1px solid #2a2a4a; border-radius: 6px; padding: 14px; font-size: 13px; line-height: 1.6; color: #d1d5db; min-height: 100px; text-wrap: wrap; overflow: hidden; white-space-collapse: collapse; white-space-collapse: preserve-spaces;">Hello      world.     Multiple     spaces     are
+collapsed     into     a     single     space.
+
+Multiple newlines are also collapsed.</div>
+    </div>
+    <div class="label">white-space-collapse: preserve-spaces</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
+      <div style="background: #0f1a30; border: 1px solid #2a2a4a; border-radius: 6px; padding: 14px; font-size: 13px; line-height: 1.6; color: #d1d5db; min-height: 100px; text-wrap: wrap; overflow: hidden; white-space-collapse: collapse; white-space-collapse: break-spaces;">Hello      world.     Multiple     spaces     are
+collapsed     into     a     single     space.
+
+Multiple newlines are also collapsed.</div>
+    </div>
+    <div class="label">white-space-collapse: break-spaces</div>
+  </div>
+</div>
 </body>
 </html>

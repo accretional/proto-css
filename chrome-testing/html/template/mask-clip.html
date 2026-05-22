@@ -8,41 +8,29 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
-    .demo-card { background: #16213e; border-radius: 10px; padding: 20px; width: 280px; }
-    .demo-card h3 { font-size: 13px; color: #e2e8f0; margin-bottom: 12px; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
-    .desc { font-size: 10px; color: #6b7280; margin-top: 4px; line-height: 1.4; }
+    .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .demo-card { background: #16213e; border-radius: 10px; padding: 16px; }
+    .demo-card h3 { font-size: 12px; color: #e2e8f0; margin-bottom: 10px; }
+    .label { font-size: 10px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+    .desc { font-size: 9px; color: #6b7280; margin-top: 3px; line-height: 1.4; }
     .box-area {
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 160px;
+      height: 120px;
     }
     .box {
-      width: 200px;
-      height: 130px;
+      width: 100%;
+      height: 100px;
       background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff);
-      border: 15px solid rgba(233, 69, 96, 0.4);
-      padding: 20px;
+      border: 12px solid rgba(233, 69, 96, 0.4);
+      padding: 15px;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #fff;
-      font-size: 11px;
+      font-size: 10px;
       font-family: monospace;
-    }
-    .clip-border {
-      -webkit-mask: linear-gradient(black, black);
-      mask: linear-gradient(black, black);
-      -webkit-mask-clip: border-box;
-      mask-clip: border-box;
-    }
-    .clip-padding {
-      -webkit-mask: linear-gradient(black, black);
-      mask: linear-gradient(black, black);
-      -webkit-mask-clip: padding-box;
-      mask-clip: padding-box;
     }
     .clip-content {
       -webkit-mask: linear-gradient(black, black);
@@ -50,31 +38,47 @@
       -webkit-mask-clip: content-box;
       mask-clip: content-box;
     }
+    .clip-padding {
+      -webkit-mask: linear-gradient(black, black);
+      mask: linear-gradient(black, black);
+      -webkit-mask-clip: padding-box;
+      mask-clip: padding-box;
+    }
+    .clip-border {
+      -webkit-mask: linear-gradient(black, black);
+      mask: linear-gradient(black, black);
+      -webkit-mask-clip: border-box;
+      mask-clip: border-box;
+    }
+    .clip-margin {
+      -webkit-mask: linear-gradient(black, black);
+      mask: linear-gradient(black, black);
+      -webkit-mask-clip: margin-box;
+      mask-clip: margin-box;
+    }
+    .clip-fill {
+      -webkit-mask: linear-gradient(black, black);
+      mask: linear-gradient(black, black);
+      -webkit-mask-clip: fill-box;
+      mask-clip: fill-box;
+    }
+    .clip-stroke {
+      -webkit-mask: linear-gradient(black, black);
+      mask: linear-gradient(black, black);
+      -webkit-mask-clip: stroke-box;
+      mask-clip: stroke-box;
+    }
+    .clip-view {
+      -webkit-mask: linear-gradient(black, black);
+      mask: linear-gradient(black, black);
+      -webkit-mask-clip: view-box;
+      mask-clip: view-box;
+    }
     .clip-none {
       -webkit-mask: linear-gradient(black, black);
       mask: linear-gradient(black, black);
       -webkit-mask-clip: no-clip;
       mask-clip: no-clip;
-    }
-    .legend {
-      margin-top: 20px;
-      padding: 14px;
-      background: #16213e;
-      border-radius: 10px;
-      display: flex;
-      gap: 20px;
-      max-width: 600px;
-    }
-    .legend-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 11px;
-    }
-    .legend-swatch {
-      width: 16px;
-      height: 16px;
-      border-radius: 3px;
     }
   </style>
 </head>
@@ -84,56 +88,77 @@
   <div class="demos">
 
     <div class="demo-card">
-      <h3>border-box</h3>
+      <h3>content-box</h3>
       <div class="box-area">
-        <div class="box clip-border">content area</div>
+        <div class="box clip-content">content</div>
       </div>
-      <p class="label">mask-clip: border-box</p>
-      <p class="desc">Mask extends to border edge. Border area is visible through mask.</p>
+      <p class="label">mask-clip: content-box</p>
+      <p class="desc">Clipped at content edge</p>
     </div>
 
     <div class="demo-card">
       <h3>padding-box</h3>
       <div class="box-area">
-        <div class="box clip-padding">content area</div>
+        <div class="box clip-padding">content</div>
       </div>
       <p class="label">mask-clip: padding-box</p>
-      <p class="desc">Mask clipped at padding edge. Border area is not masked.</p>
+      <p class="desc">Clipped at padding edge</p>
     </div>
 
     <div class="demo-card">
-      <h3>content-box</h3>
+      <h3>border-box</h3>
       <div class="box-area">
-        <div class="box clip-content">content area</div>
+        <div class="box clip-border">content</div>
       </div>
-      <p class="label">mask-clip: content-box</p>
-      <p class="desc">Mask clipped at content edge. Only content area visible.</p>
+      <p class="label">mask-clip: border-box</p>
+      <p class="desc">Extends to border edge</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>margin-box</h3>
+      <div class="box-area">
+        <div class="box clip-margin">content</div>
+      </div>
+      <p class="label">mask-clip: margin-box</p>
+      <p class="desc">Extends to margin edge</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>fill-box</h3>
+      <div class="box-area">
+        <div class="box clip-fill">content</div>
+      </div>
+      <p class="label">mask-clip: fill-box</p>
+      <p class="desc">SVG object bounding box</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>stroke-box</h3>
+      <div class="box-area">
+        <div class="box clip-stroke">content</div>
+      </div>
+      <p class="label">mask-clip: stroke-box</p>
+      <p class="desc">SVG stroke bounding box</p>
+    </div>
+
+    <div class="demo-card">
+      <h3>view-box</h3>
+      <div class="box-area">
+        <div class="box clip-view">content</div>
+      </div>
+      <p class="label">mask-clip: view-box</p>
+      <p class="desc">SVG viewport box</p>
     </div>
 
     <div class="demo-card">
       <h3>no-clip</h3>
       <div class="box-area">
-        <div class="box clip-none">content area</div>
+        <div class="box clip-none">content</div>
       </div>
       <p class="label">mask-clip: no-clip</p>
-      <p class="desc">Mask is not clipped. May extend beyond border box.</p>
+      <p class="desc">Mask is not clipped</p>
     </div>
 
-  </div>
-
-  <div class="legend">
-    <div class="legend-item">
-      <div class="legend-swatch" style="border: 3px solid rgba(233,69,96,0.4); background: transparent;"></div>
-      <span style="color:#9ca3af;">Border (15px)</span>
-    </div>
-    <div class="legend-item">
-      <div class="legend-swatch" style="background: rgba(168,85,247,0.4);"></div>
-      <span style="color:#9ca3af;">Padding (20px)</span>
-    </div>
-    <div class="legend-item">
-      <div class="legend-swatch" style="background: linear-gradient(135deg, #e94560, #00d2ff);"></div>
-      <span style="color:#9ca3af;">Gradient content</span>
-    </div>
   </div>
 </body>
 </html>

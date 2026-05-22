@@ -1,62 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>font-variant</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-direction: column; gap: 14px; }
-    .demo-row {
-      display: flex; align-items: center; gap: 24px;
-      background: #16213e; border-radius: 10px; padding: 18px 24px;
-      border: 1px solid #2a2a4a;
-    }
-    .label {
-      font-size: 11px; font-family: monospace; color: #9ca3af;
-      min-width: 260px; flex-shrink: 0;
-    }
-    .demo-text {
-      color: #fff; font-size: 28px;
-    }
-    .tag {
-      display: inline-block; background: #7c3aed33; color: #a78bfa; font-size: 11px;
-      font-family: monospace; padding: 2px 8px; border-radius: 4px;
-      min-width: 110px; text-align: center;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>font-variant</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Font Variant</h1>
-  <p class="prop-name">font-variant</p>
-  <div class="demos">
-    <div class="demo-row">
-      <span class="tag">normal</span>
-      <p class="label">font-variant: historical-forms proportional-nums diagonal-fractions ordinal proportional-width ruby unicode</p>
-      <span class="demo-text" style="font-variant: historical-forms proportional-nums diagonal-fractions ordinal proportional-width ruby unicode;">The Quick Brown Fox Jumps</span>
+<h1>Font Variant</h1>
+<p class="prop-name">font-variant</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 24px; line-height: 1.5; font-variant: normal;">The quick brown fox jumps over the lazy dog</div>
     </div>
-    <div class="demo-row">
-      <span class="tag">small-caps</span>
-      <p class="label">font-variant: no-common-ligatures no-discretionary-ligatures no-historical-ligatures contextual jis83 proportional-width ruby super unicode</p>
-      <span class="demo-text" style="font-variant: no-common-ligatures no-discretionary-ligatures no-historical-ligatures contextual jis83 proportional-width ruby super unicode;">The Quick Brown Fox Jumps</span>
-    </div>
-    <div class="demo-row">
-      <span class="tag">all-small-caps</span>
-      <p class="label">font-variant: no-discretionary-ligatures historical-ligatures no-contextual annotation(旌6) tabular-nums stacked-fractions ordinal slashed-zero proportional-width</p>
-      <span class="demo-text" style="font-variant: no-discretionary-ligatures historical-ligatures no-contextual annotation(旌6) tabular-nums stacked-fractions ordinal slashed-zero proportional-width;">The Quick Brown Fox Jumps</span>
-    </div>
-    <div class="demo-row">
-      <span class="tag">petite-caps</span>
-      <p class="label">font-variant: normal ! important</p>
-      <span class="demo-text" style="font-variant: normal ! important;">The Quick Brown Fox Jumps</span>
-    </div>
-    <div class="demo-row">
-      <span class="tag">unicase</span>
-      <p class="label">font-variant: none ! important</p>
-      <span class="demo-text" style="font-variant: none ! important;">The Quick Brown Fox Jumps</span>
-    </div>
+    <div class="label">font-variant: normal</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 24px; line-height: 1.5; font-variant: none;">The quick brown fox jumps over the lazy dog</div>
+    </div>
+    <div class="label">font-variant: none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 24px; line-height: 1.5; font-variant: text;">The quick brown fox jumps over the lazy dog</div>
+    </div>
+    <div class="label">font-variant: text</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 24px; line-height: 1.5; font-variant: emoji;">The quick brown fox jumps over the lazy dog</div>
+    </div>
+    <div class="label">font-variant: emoji</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 24px; line-height: 1.5; font-variant: unicode;">The quick brown fox jumps over the lazy dog</div>
+    </div>
+    <div class="label">font-variant: unicode</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 24px; line-height: 1.5; font-variant: sub;">The quick brown fox jumps over the lazy dog</div>
+    </div>
+    <div class="label">font-variant: sub</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 24px; line-height: 1.5; font-variant: sub text;">The quick brown fox jumps over the lazy dog</div>
+    </div>
+    <div class="label">font-variant: sub text</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 24px; line-height: 1.5; font-variant: sub emoji;">The quick brown fox jumps over the lazy dog</div>
+    </div>
+    <div class="label">font-variant: sub emoji</div>
+  </div>
+</div>
 </body>
 </html>

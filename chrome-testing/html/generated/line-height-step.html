@@ -1,72 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>line-height-step</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 4px; }
-    .experimental { font-size: 11px; color: #f59e0b; margin-bottom: 24px; font-style: italic; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-card { background: #16213e; border-radius: 12px; padding: 16px; width: 380px; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
-    .text-box { background: #0f3460; border-radius: 8px; padding: 14px; font-size: 14px; line-height: 1.4; color: #e0e0e0; position: relative; }
-    .grid-lines { position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; }
-    .grid-line { border-bottom: 1px dashed rgba(233,69,96,0.25); position: absolute; left: 0; right: 0; }
-    .note { font-size: 10px; color: #6b7280; text-align: center; margin-top: 4px; }
-  </style>
+<meta charset="UTF-8">
+<title>line-height-step</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Line Height Step</h1>
-  <p class="prop-name">line-height-step</p>
-  <p class="experimental">Experimental property - limited browser support</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="text-box" style="line-height-step: 20.11e34vmax;">
-        <span style="font-size: 14px;">Normal text here.</span>
-        <span style="font-size: 22px;">Larger text mixed in</span>
-        <span style="font-size: 14px;"> with small text again. The line heights are not snapped to any grid.</span>
-      </div>
-      <div class="label">line-height-step: 20.11e34vmax</div>
-      <div class="note">No snapping (default behavior)</div>
+<h1>Line Height Step</h1>
+<p class="prop-name">line-height-step</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 14px; font-size: 14px; line-height: 1.4; color: #e0e0e0; position: relative; line-height-step: 0;"><span style="font-size: 14px;">Normal text here.</span> <span style="font-size: 22px;">Larger text mixed in</span> <span style="font-size: 14px;"> with small text again. Line heights snap to grid increments.</span></div>
     </div>
-    <div class="demo-card">
-      <div class="text-box" style="line-height-step: 0 ! important;">
-        <span style="font-size: 14px;">Normal text here.</span>
-        <span style="font-size: 22px;">Larger text mixed in</span>
-        <span style="font-size: 14px;"> with small text again. Line heights snap to 8px increments.</span>
-      </div>
-      <div class="label">line-height-step: 0 ! important</div>
-      <div class="note">Lines snap to 8px grid</div>
-    </div>
-    <div class="demo-card">
-      <div class="text-box" style="line-height-step: var(--_Y);">
-        <span style="font-size: 14px;">Normal text here.</span>
-        <span style="font-size: 22px;">Larger text mixed in</span>
-        <span style="font-size: 14px;"> with small text again. Line heights snap to 16px increments.</span>
-      </div>
-      <div class="label">line-height-step: var(--_Y)</div>
-      <div class="note">Lines snap to 16px grid</div>
-    </div>
-    <div class="demo-card">
-      <div style="display: flex; gap: 16px;">
-        <div style="flex: 1;">
-          <div style="font-size: 11px; color: #9ca3af; margin-bottom: 6px; text-align: center;">Without step</div>
-          <div style="background: #0f3460; border-radius: 8px; padding: 10px; font-size: 13px; line-height: 1.4; color: #e0e0e0; line-height-step: 20.11e34vmax;">
-            <span style="font-size: 12px;">Small</span> <span style="font-size: 20px;">Big</span> <span style="font-size: 12px;">Small again</span>
-          </div>
-        </div>
-        <div style="flex: 1;">
-          <div style="font-size: 11px; color: #9ca3af; margin-bottom: 6px; text-align: center;">With 16px step</div>
-          <div style="background: #0f3460; border-radius: 8px; padding: 10px; font-size: 13px; line-height: 1.4; color: #e0e0e0; line-height-step: var(--_Y);">
-            <span style="font-size: 12px;">Small</span> <span style="font-size: 20px;">Big</span> <span style="font-size: 12px;">Small again</span>
-          </div>
-        </div>
-      </div>
-      <div class="label">Side by side comparison</div>
-    </div>
+    <div class="label">line-height-step: 0</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 14px; font-size: 14px; line-height: 1.4; color: #e0e0e0; position: relative; line-height-step: 4px;"><span style="font-size: 14px;">Normal text here.</span> <span style="font-size: 22px;">Larger text mixed in</span> <span style="font-size: 14px;"> with small text again. Line heights snap to grid increments.</span></div>
+    </div>
+    <div class="label">line-height-step: 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 14px; font-size: 14px; line-height: 1.4; color: #e0e0e0; position: relative; line-height-step: 10px;"><span style="font-size: 14px;">Normal text here.</span> <span style="font-size: 22px;">Larger text mixed in</span> <span style="font-size: 14px;"> with small text again. Line heights snap to grid increments.</span></div>
+    </div>
+    <div class="label">line-height-step: 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 14px; font-size: 14px; line-height: 1.4; color: #e0e0e0; position: relative; line-height-step: 20px;"><span style="font-size: 14px;">Normal text here.</span> <span style="font-size: 22px;">Larger text mixed in</span> <span style="font-size: 14px;"> with small text again. Line heights snap to grid increments.</span></div>
+    </div>
+    <div class="label">line-height-step: 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 14px; font-size: 14px; line-height: 1.4; color: #e0e0e0; position: relative; line-height-step: 2em;"><span style="font-size: 14px;">Normal text here.</span> <span style="font-size: 22px;">Larger text mixed in</span> <span style="font-size: 14px;"> with small text again. Line heights snap to grid increments.</span></div>
+    </div>
+    <div class="label">line-height-step: 2em</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 8px; padding: 14px; font-size: 14px; line-height: 1.4; color: #e0e0e0; position: relative; line-height-step: 50px;"><span style="font-size: 14px;">Normal text here.</span> <span style="font-size: 22px;">Larger text mixed in</span> <span style="font-size: 14px;"> with small text again. Line heights snap to grid increments.</span></div>
+    </div>
+    <div class="label">line-height-step: 50px</div>
+  </div>
+</div>
 </body>
 </html>

@@ -1,90 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>overflow-anchor</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 8px; }
-    .description { font-size: 12px; color: #7b8794; margin-bottom: 24px; line-height: 1.5; }
-    .demos { display: flex; gap: 30px; }
-    .demo-box { background: #16213e; border-radius: 10px; padding: 20px; flex: 1; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 12px; }
-    .scroll-container {
-      width: 100%; height: 400px; overflow-y: scroll;
-      background: #0f1629; border-radius: 6px; border: 2px solid #3a3a5c;
-    }
-    .scroll-item {
-      padding: 12px 16px; border-bottom: 1px solid #2a2a4a;
-      font-size: 12px; color: #c0c0d0;
-      transition: background 0.3s;
-    }
-    .scroll-item:nth-child(odd) { background: rgba(255,255,255,0.02); }
-    .d1 .scroll-container { overflow-anchor: auto ! important; }
-    .d2 .scroll-container { overflow-anchor: auto ! important; }
-    .anchor-badge {
-      display: inline-block; padding: 2px 8px; border-radius: 4px;
-      font-size: 10px; font-weight: bold; font-family: monospace;
-      margin-left: 8px;
-    }
-    .badge-auto { background: rgba(0,204,102,0.2); color: #00cc66; }
-    .badge-none { background: rgba(233,69,96,0.2); color: #e94560; }
-    .info-box {
-      margin-top: 12px; padding: 10px; background: rgba(0,119,255,0.1);
-      border-left: 3px solid #0077ff; border-radius: 4px;
-      font-size: 11px; color: #8899aa; line-height: 1.5;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>overflow-anchor</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .scroll-item { padding: 12px 16px; border-bottom: 1px solid #2a2a4a; font-size: 12px; color: #c0c0d0; transition: background 0.3s; }
+.scroll-item:nth-child(odd) { background: rgba(255,255,255,0.02); }
+</style>
 </head>
 <body>
-  <h1>Overflow Anchor</h1>
-  <p class="prop-name">overflow-anchor</p>
-  <p class="description">Controls scroll anchoring behavior. When new content is added above the viewport, <code style="color:#e94560">auto</code> adjusts scroll position to keep the user's view stable, while <code style="color:#e94560">none</code> lets the scroll position shift.</p>
-  <div class="demos">
-    <div class="demo-box d1">
-      <div class="label">overflow-anchor: auto ! important <span class="anchor-badge badge-auto">STABLE</span></div>
-      <div class="scroll-container">
-        <div class="scroll-item">Item 1 - Scroll position is anchored</div>
-        <div class="scroll-item">Item 2 - Browser adjusts scroll offset</div>
-        <div class="scroll-item">Item 3 - When content is added above</div>
-        <div class="scroll-item">Item 4 - Your view stays stable</div>
-        <div class="scroll-item">Item 5 - This is the default behavior</div>
-        <div class="scroll-item">Item 6 - Content remains in place</div>
-        <div class="scroll-item">Item 7 - No unexpected jumps</div>
-        <div class="scroll-item">Item 8 - Smooth reading experience</div>
-        <div class="scroll-item">Item 9 - Anchored content</div>
-        <div class="scroll-item">Item 10 - Still anchored</div>
-        <div class="scroll-item">Item 11 - Consistent position</div>
-        <div class="scroll-item">Item 12 - Scroll anchoring active</div>
-        <div class="scroll-item">Item 13 - More content below</div>
-        <div class="scroll-item">Item 14 - Keeps viewport stable</div>
-        <div class="scroll-item">Item 15 - End of list</div>
-      </div>
-      <div class="info-box">Browser adjusts scroll position when DOM changes above viewport to keep content stable.</div>
+<h1>Overflow Anchor</h1>
+<p class="prop-name">overflow-anchor</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 400px; overflow-y: scroll; background: #0f1629; border-radius: 6px; border: 2px solid #3a3a5c; overflow-anchor: auto;"><div class="scroll-item">Item 1 - Scroll anchoring behavior</div><div class="scroll-item">Item 2 - Browser adjusts scroll offset</div><div class="scroll-item">Item 3 - When content is added above</div><div class="scroll-item">Item 4 - Your view stays stable</div><div class="scroll-item">Item 5 - This is the default behavior</div><div class="scroll-item">Item 6 - Content remains in place</div><div class="scroll-item">Item 7 - No unexpected jumps</div><div class="scroll-item">Item 8 - Smooth reading experience</div><div class="scroll-item">Item 9 - Anchored content</div><div class="scroll-item">Item 10 - Still anchored</div><div class="scroll-item">Item 11 - Consistent position</div><div class="scroll-item">Item 12 - Scroll anchoring active</div><div class="scroll-item">Item 13 - More content below</div><div class="scroll-item">Item 14 - Keeps viewport stable</div><div class="scroll-item">Item 15 - End of list</div></div>
     </div>
-    <div class="demo-box d2">
-      <div class="label">overflow-anchor: auto ! important <span class="anchor-badge badge-none">UNSTABLE</span></div>
-      <div class="scroll-container">
-        <div class="scroll-item">Item 1 - No scroll anchoring</div>
-        <div class="scroll-item">Item 2 - Scroll position is NOT adjusted</div>
-        <div class="scroll-item">Item 3 - When content is added above</div>
-        <div class="scroll-item">Item 4 - View may jump unexpectedly</div>
-        <div class="scroll-item">Item 5 - Content shifts around</div>
-        <div class="scroll-item">Item 6 - Disorienting for users</div>
-        <div class="scroll-item">Item 7 - Position can change</div>
-        <div class="scroll-item">Item 8 - Without warning</div>
-        <div class="scroll-item">Item 9 - Unanchored content</div>
-        <div class="scroll-item">Item 10 - Still unanchored</div>
-        <div class="scroll-item">Item 11 - Inconsistent position</div>
-        <div class="scroll-item">Item 12 - Scroll anchoring disabled</div>
-        <div class="scroll-item">Item 13 - More content below</div>
-        <div class="scroll-item">Item 14 - May cause jumps</div>
-        <div class="scroll-item">Item 15 - End of list</div>
-      </div>
-      <div class="info-box">Browser does NOT adjust scroll position. Content insertions above viewport cause visible scroll jumps.</div>
-    </div>
+    <div class="label">overflow-anchor: auto</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 400px; overflow-y: scroll; background: #0f1629; border-radius: 6px; border: 2px solid #3a3a5c; overflow-anchor: none;"><div class="scroll-item">Item 1 - Scroll anchoring behavior</div><div class="scroll-item">Item 2 - Browser adjusts scroll offset</div><div class="scroll-item">Item 3 - When content is added above</div><div class="scroll-item">Item 4 - Your view stays stable</div><div class="scroll-item">Item 5 - This is the default behavior</div><div class="scroll-item">Item 6 - Content remains in place</div><div class="scroll-item">Item 7 - No unexpected jumps</div><div class="scroll-item">Item 8 - Smooth reading experience</div><div class="scroll-item">Item 9 - Anchored content</div><div class="scroll-item">Item 10 - Still anchored</div><div class="scroll-item">Item 11 - Consistent position</div><div class="scroll-item">Item 12 - Scroll anchoring active</div><div class="scroll-item">Item 13 - More content below</div><div class="scroll-item">Item 14 - Keeps viewport stable</div><div class="scroll-item">Item 15 - End of list</div></div>
+    </div>
+    <div class="label">overflow-anchor: none</div>
+  </div>
+</div>
 </body>
 </html>

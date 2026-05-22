@@ -1,84 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>align-content</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-box {
-      background: #16213e;
-      border-radius: 12px;
-      padding: 16px;
-      width: 220px;
-    }
-    .flex-container {
-      display: flex;
-      flex-wrap: wrap;
-      width: 180px;
-      height: 200px;
-      background: #0f3460;
-      border-radius: 8px;
-      gap: 4px;
-      padding: 4px;
-    }
-    .flex-container .item {
-      width: 50px;
-      height: 30px;
-      background: #e94560;
-      border-radius: 4px;
-    }
-    .ac-start { align-content: safe flex-start; }
-    .ac-center { align-content: normal ! important; }
-    .ac-between { align-content: first baseline ! important; }
-    .ac-around { align-content: safe flex-end ! important; }
-    .ac-stretch { align-content: stretch ! important; }
-    .ac-stretch .item { height: auto; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
-  </style>
+<meta charset="UTF-8">
+<title>align-content</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .item { width: 50px; height: 30px; background: #e94560; border-radius: 4px; }
+</style>
 </head>
 <body>
-  <h1>Align Content</h1>
-  <p class="prop-name">align-content</p>
-  <div class="demos">
-    <div class="demo-box">
-      <div class="flex-container ac-start">
-        <div class="item"></div><div class="item"></div><div class="item"></div>
-        <div class="item"></div><div class="item"></div><div class="item"></div>
-      </div>
-      <div class="label">align-content: safe flex-start</div>
+<h1>Align Content</h1>
+<p class="prop-name">align-content</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; flex-wrap: wrap; width: 180px; height: 200px; background: #0f3460; border-radius: 8px; gap: 4px; padding: 4px; align-content: normal;"><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div></div>
     </div>
-    <div class="demo-box">
-      <div class="flex-container ac-center">
-        <div class="item"></div><div class="item"></div><div class="item"></div>
-        <div class="item"></div><div class="item"></div><div class="item"></div>
-      </div>
-      <div class="label">align-content: normal ! important</div>
-    </div>
-    <div class="demo-box">
-      <div class="flex-container ac-between">
-        <div class="item"></div><div class="item"></div><div class="item"></div>
-        <div class="item"></div><div class="item"></div><div class="item"></div>
-      </div>
-      <div class="label">align-content: first baseline ! important</div>
-    </div>
-    <div class="demo-box">
-      <div class="flex-container ac-around">
-        <div class="item"></div><div class="item"></div><div class="item"></div>
-        <div class="item"></div><div class="item"></div><div class="item"></div>
-      </div>
-      <div class="label">align-content: safe flex-end ! important</div>
-    </div>
-    <div class="demo-box">
-      <div class="flex-container ac-stretch">
-        <div class="item"></div><div class="item"></div><div class="item"></div>
-        <div class="item"></div><div class="item"></div><div class="item"></div>
-      </div>
-      <div class="label">align-content: stretch ! important</div>
-    </div>
+    <div class="label">align-content: normal</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; flex-wrap: wrap; width: 180px; height: 200px; background: #0f3460; border-radius: 8px; gap: 4px; padding: 4px; align-content: baseline;"><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div></div>
+    </div>
+    <div class="label">align-content: baseline</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; flex-wrap: wrap; width: 180px; height: 200px; background: #0f3460; border-radius: 8px; gap: 4px; padding: 4px; align-content: first baseline;"><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div></div>
+    </div>
+    <div class="label">align-content: first baseline</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; flex-wrap: wrap; width: 180px; height: 200px; background: #0f3460; border-radius: 8px; gap: 4px; padding: 4px; align-content: last baseline;"><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div></div>
+    </div>
+    <div class="label">align-content: last baseline</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; flex-wrap: wrap; width: 180px; height: 200px; background: #0f3460; border-radius: 8px; gap: 4px; padding: 4px; align-content: space-between;"><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div></div>
+    </div>
+    <div class="label">align-content: space-between</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; flex-wrap: wrap; width: 180px; height: 200px; background: #0f3460; border-radius: 8px; gap: 4px; padding: 4px; align-content: space-around;"><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div></div>
+    </div>
+    <div class="label">align-content: space-around</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; flex-wrap: wrap; width: 180px; height: 200px; background: #0f3460; border-radius: 8px; gap: 4px; padding: 4px; align-content: space-evenly;"><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div></div>
+    </div>
+    <div class="label">align-content: space-evenly</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; flex-wrap: wrap; width: 180px; height: 200px; background: #0f3460; border-radius: 8px; gap: 4px; padding: 4px; align-content: stretch;"><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div></div>
+    </div>
+    <div class="label">align-content: stretch</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; flex-wrap: wrap; width: 180px; height: 200px; background: #0f3460; border-radius: 8px; gap: 4px; padding: 4px; align-content: center;"><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div></div>
+    </div>
+    <div class="label">align-content: center</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; flex-wrap: wrap; width: 180px; height: 200px; background: #0f3460; border-radius: 8px; gap: 4px; padding: 4px; align-content: start;"><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div></div>
+    </div>
+    <div class="label">align-content: start</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; flex-wrap: wrap; width: 180px; height: 200px; background: #0f3460; border-radius: 8px; gap: 4px; padding: 4px; align-content: end;"><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div></div>
+    </div>
+    <div class="label">align-content: end</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; flex-wrap: wrap; width: 180px; height: 200px; background: #0f3460; border-radius: 8px; gap: 4px; padding: 4px; align-content: flex-start;"><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div></div>
+    </div>
+    <div class="label">align-content: flex-start</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; flex-wrap: wrap; width: 180px; height: 200px; background: #0f3460; border-radius: 8px; gap: 4px; padding: 4px; align-content: flex-end;"><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div></div>
+    </div>
+    <div class="label">align-content: flex-end</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; flex-wrap: wrap; width: 180px; height: 200px; background: #0f3460; border-radius: 8px; gap: 4px; padding: 4px; align-content: unsafe center;"><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div></div>
+    </div>
+    <div class="label">align-content: unsafe center</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; flex-wrap: wrap; width: 180px; height: 200px; background: #0f3460; border-radius: 8px; gap: 4px; padding: 4px; align-content: unsafe start;"><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div></div>
+    </div>
+    <div class="label">align-content: unsafe start</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; flex-wrap: wrap; width: 180px; height: 200px; background: #0f3460; border-radius: 8px; gap: 4px; padding: 4px; align-content: unsafe end;"><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div></div>
+    </div>
+    <div class="label">align-content: unsafe end</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; flex-wrap: wrap; width: 180px; height: 200px; background: #0f3460; border-radius: 8px; gap: 4px; padding: 4px; align-content: unsafe flex-start;"><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div></div>
+    </div>
+    <div class="label">align-content: unsafe flex-start</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; flex-wrap: wrap; width: 180px; height: 200px; background: #0f3460; border-radius: 8px; gap: 4px; padding: 4px; align-content: unsafe flex-end;"><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div></div>
+    </div>
+    <div class="label">align-content: unsafe flex-end</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; flex-wrap: wrap; width: 180px; height: 200px; background: #0f3460; border-radius: 8px; gap: 4px; padding: 4px; align-content: safe center;"><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div></div>
+    </div>
+    <div class="label">align-content: safe center</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; flex-wrap: wrap; width: 180px; height: 200px; background: #0f3460; border-radius: 8px; gap: 4px; padding: 4px; align-content: safe start;"><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div></div>
+    </div>
+    <div class="label">align-content: safe start</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; flex-wrap: wrap; width: 180px; height: 200px; background: #0f3460; border-radius: 8px; gap: 4px; padding: 4px; align-content: safe end;"><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div></div>
+    </div>
+    <div class="label">align-content: safe end</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; flex-wrap: wrap; width: 180px; height: 200px; background: #0f3460; border-radius: 8px; gap: 4px; padding: 4px; align-content: safe flex-start;"><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div></div>
+    </div>
+    <div class="label">align-content: safe flex-start</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; flex-wrap: wrap; width: 180px; height: 200px; background: #0f3460; border-radius: 8px; gap: 4px; padding: 4px; align-content: safe flex-end;"><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div></div>
+    </div>
+    <div class="label">align-content: safe flex-end</div>
+  </div>
+</div>
 </body>
 </html>

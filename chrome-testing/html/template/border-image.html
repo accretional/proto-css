@@ -8,17 +8,17 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 28px; }
+    .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
     .demo-item {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
     .box {
-      width: 180px;
+      width: 200px;
       height: 130px;
       background: #16213e;
-      border: 12px solid transparent;
+      border: 20px solid transparent;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -28,7 +28,7 @@
       text-align: center;
       line-height: 1.5;
     }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; max-width: 220px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; max-width: 280px; }
   </style>
 </head>
 <body>
@@ -36,24 +36,20 @@
   <p class="prop-name">border-image</p>
   <div class="demos">
     <div class="demo-item">
-      <div class="box" style="border-image: linear-gradient(45deg, #e94560, #53d8fb) 1;">gradient 45deg<br>slice 1</div>
-      <div class="label">border-image: linear-gradient(45deg, #e94560, #53d8fb) 1</div>
+      <div class="box" style="border-image: none; border-color: #e94560;">none</div>
+      <div class="label">border-image: none</div>
     </div>
     <div class="demo-item">
-      <div class="box" style="border-image: linear-gradient(90deg, #4ade80, #fbbf24, #e94560) 1;">gradient 90deg<br>slice 1</div>
-      <div class="label">border-image: linear-gradient(90deg, #4ade80, #fbbf24, #e94560) 1</div>
+      <div class="box" style="border-image: linear-gradient(45deg, #e94560, #53d8fb) 30 round;">gradient<br>30 round</div>
+      <div class="label">border-image: linear-gradient(...) 30 round</div>
     </div>
     <div class="demo-item">
-      <div class="box" style="border-image: linear-gradient(135deg, #a855f7, #ec4899) 1;">gradient 135deg<br>slice 1</div>
-      <div class="label">border-image: linear-gradient(135deg, #a855f7, #ec4899) 1</div>
+      <div class="box" style="border-image: linear-gradient(red, blue) 10;">gradient<br>red/blue 10</div>
+      <div class="label">border-image: linear-gradient(red, blue) 10</div>
     </div>
     <div class="demo-item">
-      <div class="box" style="border-image: linear-gradient(to right, #e94560, #53d8fb) 30;">gradient<br>slice 30</div>
-      <div class="label">border-image: linear-gradient(...) 30</div>
-    </div>
-    <div class="demo-item">
-      <div class="box" style="border-image: repeating-linear-gradient(45deg, #e94560 0px, #e94560 4px, transparent 4px, transparent 8px) 10;">repeating<br>gradient</div>
-      <div class="label">border-image: repeating-linear-gradient(...) 10</div>
+      <div class="box" style="border-image: linear-gradient(135deg, #4ade80, #fbbf24) 27 fill / 20px / 10px round;">gradient fill<br>/ 20px / 10px round</div>
+      <div class="label">border-image: linear-gradient(...) 27 fill / 20px / 10px round</div>
     </div>
   </div>
 </body>

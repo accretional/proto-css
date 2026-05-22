@@ -8,7 +8,7 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
     .demo-box {
       width: 180px;
       height: 100px;
@@ -30,28 +30,20 @@
   <p class="prop-name">border-right-color</p>
   <div class="demos">
     <div class="demo-item">
-      <div class="demo-box" style="border-right-color: #e74c3c;">Content</div>
-      <span class="label">border-right-color: #e74c3c</span>
+      <div class="demo-box" style="border-right-color: red;">Content</div>
+      <span class="label">border-right-color: red</span>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-right-color: blue;">Content</div>
+      <span class="label">border-right-color: blue</span>
     </div>
     <div class="demo-item">
       <div class="demo-box" style="border-right-color: #3498db;">Content</div>
       <span class="label">border-right-color: #3498db</span>
     </div>
     <div class="demo-item">
-      <div class="demo-box" style="border-right-color: #2ecc71;">Content</div>
-      <span class="label">border-right-color: #2ecc71</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-right-color: #f39c12;">Content</div>
-      <span class="label">border-right-color: #f39c12</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-right-color: #9b59b6;">Content</div>
-      <span class="label">border-right-color: #9b59b6</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-right-color: transparent;">Content</div>
-      <span class="label">border-right-color: transparent</span>
+      <div class="demo-box" style="border-right-color: currentcolor;">Content</div>
+      <span class="label">border-right-color: currentcolor</span>
     </div>
   </div>
 </body>

@@ -8,7 +8,7 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
     .demo-box {
       width: 180px;
       height: 100px;
@@ -29,28 +29,20 @@
   <p class="prop-name">border-right</p>
   <div class="demos">
     <div class="demo-item">
-      <div class="demo-box" style="border-right: 4px solid #e74c3c;">Content</div>
-      <span class="label">border-right: 4px solid #e74c3c</span>
+      <div class="demo-box" style="border-right: none;">Content</div>
+      <span class="label">border-right: none</span>
     </div>
     <div class="demo-item">
-      <div class="demo-box" style="border-right: 6px dashed #3498db;">Content</div>
-      <span class="label">border-right: 6px dashed #3498db</span>
+      <div class="demo-box" style="border-right: 1px solid red;">Content</div>
+      <span class="label">border-right: 1px solid red</span>
     </div>
     <div class="demo-item">
-      <div class="demo-box" style="border-right: 3px dotted #2ecc71;">Content</div>
-      <span class="label">border-right: 3px dotted #2ecc71</span>
+      <div class="demo-box" style="border-right: 2px dashed blue;">Content</div>
+      <span class="label">border-right: 2px dashed blue</span>
     </div>
     <div class="demo-item">
-      <div class="demo-box" style="border-right: 6px double #f39c12;">Content</div>
-      <span class="label">border-right: 6px double #f39c12</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-right: 8px solid #9b59b6;">Content</div>
-      <span class="label">border-right: 8px solid #9b59b6</span>
-    </div>
-    <div class="demo-item">
-      <div class="demo-box" style="border-right: 5px groove #7f8c8d;">Content</div>
-      <span class="label">border-right: 5px groove #7f8c8d</span>
+      <div class="demo-box" style="border-right: 3px dotted green;">Content</div>
+      <span class="label">border-right: 3px dotted green</span>
     </div>
   </div>
 </body>

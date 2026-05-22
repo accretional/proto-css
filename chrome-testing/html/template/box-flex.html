@@ -30,10 +30,10 @@
       color: #fff;
       border-right: 2px solid #1a1a2e;
     }
-    .f0 { -webkit-box-flex: 0; background: #e94560; min-width: 80px; }
-    .f1 { -webkit-box-flex: 1; background: #0f3460; }
-    .f2 { -webkit-box-flex: 2; background: #53d769; color: #1a1a2e; }
-    .f3 { -webkit-box-flex: 3; background: #c084fc; }
+    .c1 { background: #e94560; }
+    .c2 { background: #0f3460; }
+    .c3 { background: #53d769; color: #1a1a2e; }
+    .c4 { background: #c084fc; }
   </style>
 </head>
 <body>
@@ -42,36 +42,35 @@
   <div class="demos">
     <div class="demo-box">
       <div class="container">
-        <div class="child f0">flex: 0</div>
-        <div class="child f1">flex: 1</div>
-        <div class="child f1">flex: 1</div>
-        <div class="child f1">flex: 1</div>
+        <div class="child c1" style="-webkit-box-flex: 0; min-width: 80px;">flex: 0</div>
+        <div class="child c2" style="-webkit-box-flex: 1;">flex: 1</div>
+        <div class="child c3" style="-webkit-box-flex: 1;">flex: 1</div>
       </div>
-      <span class="label">Items: box-flex: 0 | 1 | 1 | 1</span>
+      <span class="label">box-flex: 0 | 1 | 1</span>
     </div>
     <div class="demo-box">
       <div class="container">
-        <div class="child f1">flex: 1</div>
-        <div class="child f2">flex: 2</div>
-        <div class="child f1">flex: 1</div>
+        <div class="child c1" style="-webkit-box-flex: 0.5;">flex: 0.5</div>
+        <div class="child c2" style="-webkit-box-flex: 1;">flex: 1</div>
+        <div class="child c3" style="-webkit-box-flex: 0.5;">flex: 0.5</div>
       </div>
-      <span class="label">Items: box-flex: 1 | 2 | 1</span>
+      <span class="label">box-flex: 0.5 | 1 | 0.5</span>
     </div>
     <div class="demo-box">
       <div class="container">
-        <div class="child f1">flex: 1</div>
-        <div class="child f2">flex: 2</div>
-        <div class="child f3">flex: 3</div>
+        <div class="child c1" style="-webkit-box-flex: 1;">flex: 1</div>
+        <div class="child c2" style="-webkit-box-flex: 1;">flex: 1</div>
+        <div class="child c3" style="-webkit-box-flex: 1;">flex: 1</div>
       </div>
-      <span class="label">Items: box-flex: 1 | 2 | 3</span>
+      <span class="label">box-flex: 1 | 1 | 1</span>
     </div>
     <div class="demo-box">
       <div class="container">
-        <div class="child f0">flex: 0</div>
-        <div class="child f0">flex: 0</div>
-        <div class="child f3">flex: 3</div>
+        <div class="child c1" style="-webkit-box-flex: 1;">flex: 1</div>
+        <div class="child c2" style="-webkit-box-flex: 2;">flex: 2</div>
+        <div class="child c3" style="-webkit-box-flex: 1;">flex: 1</div>
       </div>
-      <span class="label">Items: box-flex: 0 | 0 | 3</span>
+      <span class="label">box-flex: 1 | 2 | 1</span>
     </div>
   </div>
 </body>

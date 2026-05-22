@@ -1,43 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>background-repeat-y</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 40px; }
-    .demo-item { display: flex; flex-direction: column; align-items: center; }
-    .box {
-      width: 300px;
-      height: 280px;
-      border-radius: 8px;
-      border: 2px solid rgba(255,255,255,0.15);
-      background-color: #2d2d4e;
-      background-image: radial-gradient(circle 15px, #48dbfb 60%, transparent 61%);
-      background-size: 40px 40px;
-      background-position: 0 0;
-      background-repeat-x: no-repeat;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; }
-    .b1 { background-repeat-y: repeat ! important; }
-    .b2 { background-repeat-y: round, round; }
-  </style>
+<meta charset="UTF-8">
+<title>background-repeat-y</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Background Repeat Y</h1>
-  <p class="prop-name">background-repeat-y</p>
-  <div class="demos">
-    <div class="demo-item">
-      <div class="box b1"></div>
-      <div class="label">background-repeat-y: repeat ! important</div>
+<h1>Background Repeat Y</h1>
+<p class="prop-name">background-repeat-y</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 300px; height: 280px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 15px, #48dbfb 60%, transparent 61%); background-size: 40px 40px; background-position: 0 0; background-repeat-x: no-repeat; background-repeat-y: repeat;"></div>
     </div>
-    <div class="demo-item">
-      <div class="box b2"></div>
-      <div class="label">background-repeat-y: round, round</div>
-    </div>
+    <div class="label">background-repeat-y: repeat</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 300px; height: 280px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 15px, #48dbfb 60%, transparent 61%); background-size: 40px 40px; background-position: 0 0; background-repeat-x: no-repeat; background-repeat-y: repeat, repeat;"></div>
+    </div>
+    <div class="label">background-repeat-y: repeat, repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 300px; height: 280px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 15px, #48dbfb 60%, transparent 61%); background-size: 40px 40px; background-position: 0 0; background-repeat-x: no-repeat; background-repeat-y: repeat, space;"></div>
+    </div>
+    <div class="label">background-repeat-y: repeat, space</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 300px; height: 280px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 15px, #48dbfb 60%, transparent 61%); background-size: 40px 40px; background-position: 0 0; background-repeat-x: no-repeat; background-repeat-y: repeat, round;"></div>
+    </div>
+    <div class="label">background-repeat-y: repeat, round</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 300px; height: 280px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 15px, #48dbfb 60%, transparent 61%); background-size: 40px 40px; background-position: 0 0; background-repeat-x: no-repeat; background-repeat-y: repeat, no-repeat;"></div>
+    </div>
+    <div class="label">background-repeat-y: repeat, no-repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 300px; height: 280px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 15px, #48dbfb 60%, transparent 61%); background-size: 40px 40px; background-position: 0 0; background-repeat-x: no-repeat; background-repeat-y: space;"></div>
+    </div>
+    <div class="label">background-repeat-y: space</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 300px; height: 280px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 15px, #48dbfb 60%, transparent 61%); background-size: 40px 40px; background-position: 0 0; background-repeat-x: no-repeat; background-repeat-y: space, repeat;"></div>
+    </div>
+    <div class="label">background-repeat-y: space, repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 300px; height: 280px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 15px, #48dbfb 60%, transparent 61%); background-size: 40px 40px; background-position: 0 0; background-repeat-x: no-repeat; background-repeat-y: space, space;"></div>
+    </div>
+    <div class="label">background-repeat-y: space, space</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 300px; height: 280px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 15px, #48dbfb 60%, transparent 61%); background-size: 40px 40px; background-position: 0 0; background-repeat-x: no-repeat; background-repeat-y: space, round;"></div>
+    </div>
+    <div class="label">background-repeat-y: space, round</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 300px; height: 280px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 15px, #48dbfb 60%, transparent 61%); background-size: 40px 40px; background-position: 0 0; background-repeat-x: no-repeat; background-repeat-y: space, no-repeat;"></div>
+    </div>
+    <div class="label">background-repeat-y: space, no-repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 300px; height: 280px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 15px, #48dbfb 60%, transparent 61%); background-size: 40px 40px; background-position: 0 0; background-repeat-x: no-repeat; background-repeat-y: round;"></div>
+    </div>
+    <div class="label">background-repeat-y: round</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 300px; height: 280px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 15px, #48dbfb 60%, transparent 61%); background-size: 40px 40px; background-position: 0 0; background-repeat-x: no-repeat; background-repeat-y: round, repeat;"></div>
+    </div>
+    <div class="label">background-repeat-y: round, repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 300px; height: 280px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 15px, #48dbfb 60%, transparent 61%); background-size: 40px 40px; background-position: 0 0; background-repeat-x: no-repeat; background-repeat-y: round, space;"></div>
+    </div>
+    <div class="label">background-repeat-y: round, space</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 300px; height: 280px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 15px, #48dbfb 60%, transparent 61%); background-size: 40px 40px; background-position: 0 0; background-repeat-x: no-repeat; background-repeat-y: round, round;"></div>
+    </div>
+    <div class="label">background-repeat-y: round, round</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 300px; height: 280px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 15px, #48dbfb 60%, transparent 61%); background-size: 40px 40px; background-position: 0 0; background-repeat-x: no-repeat; background-repeat-y: round, no-repeat;"></div>
+    </div>
+    <div class="label">background-repeat-y: round, no-repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 300px; height: 280px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 15px, #48dbfb 60%, transparent 61%); background-size: 40px 40px; background-position: 0 0; background-repeat-x: no-repeat; background-repeat-y: no-repeat;"></div>
+    </div>
+    <div class="label">background-repeat-y: no-repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 300px; height: 280px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 15px, #48dbfb 60%, transparent 61%); background-size: 40px 40px; background-position: 0 0; background-repeat-x: no-repeat; background-repeat-y: no-repeat, repeat;"></div>
+    </div>
+    <div class="label">background-repeat-y: no-repeat, repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 300px; height: 280px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 15px, #48dbfb 60%, transparent 61%); background-size: 40px 40px; background-position: 0 0; background-repeat-x: no-repeat; background-repeat-y: no-repeat, space;"></div>
+    </div>
+    <div class="label">background-repeat-y: no-repeat, space</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 300px; height: 280px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 15px, #48dbfb 60%, transparent 61%); background-size: 40px 40px; background-position: 0 0; background-repeat-x: no-repeat; background-repeat-y: no-repeat, round;"></div>
+    </div>
+    <div class="label">background-repeat-y: no-repeat, round</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 300px; height: 280px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 15px, #48dbfb 60%, transparent 61%); background-size: 40px 40px; background-position: 0 0; background-repeat-x: no-repeat; background-repeat-y: no-repeat, no-repeat;"></div>
+    </div>
+    <div class="label">background-repeat-y: no-repeat, no-repeat</div>
+  </div>
+</div>
 </body>
 </html>

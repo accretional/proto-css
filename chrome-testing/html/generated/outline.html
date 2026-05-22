@@ -1,58 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>outline</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 28px; justify-content: center; }
-    .demo-box { background: #16213e; border-radius: 10px; padding: 24px; width: 220px; text-align: center; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 16px; }
-    .outlined {
-      width: 140px; height: 100px; background: #0f3460; border-radius: 8px;
-      margin: 16px auto 0;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 13px; color: #c0c0d0;
-    }
-    .d1 .outlined { outline: auto ! important; }
-    .d2 .outlined { outline: auto auto; }
-    .d3 .outlined { outline: buttonface thin ! important; }
-    .d4 .outlined { outline: hairline auto ! important; }
-    .d5 .outlined { outline: inset; }
-    .d6 .outlined { outline: auto; }
-  </style>
+<meta charset="UTF-8">
+<title>outline</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Outline Shorthand</h1>
-  <p class="prop-name">outline</p>
-  <div class="demos">
-    <div class="demo-box d1">
-      <div class="outlined">Box</div>
-      <div class="label">outline: stripes(var(--_L), light-dark(, image(url('塔'))) 9.14fr) ! important</div>
+<h1>Outline Shorthand</h1>
+<p class="prop-name">outline</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; margin: 16px auto 0; outline: 0;">Box</div>
     </div>
-    <div class="demo-box d2">
-      <div class="outlined">Box</div>
-      <div class="label">outline: thin ! important</div>
-    </div>
-    <div class="demo-box d3">
-      <div class="outlined">Box</div>
-      <div class="label">outline: medium ! important</div>
-    </div>
-    <div class="demo-box d4">
-      <div class="outlined">Box</div>
-      <div class="label">outline: var(--‮9)</div>
-    </div>
-    <div class="demo-box d5">
-      <div class="outlined">Box</div>
-      <div class="label">outline: revert-rule</div>
-    </div>
-    <div class="demo-box d6">
-      <div class="outlined">Box</div>
-      <div class="label">outline: outset</div>
-    </div>
+    <div class="label">outline: 0</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; margin: 16px auto 0; outline: 0 auto;">Box</div>
+    </div>
+    <div class="label">outline: 0 auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; margin: 16px auto 0; outline: 0 auto auto;">Box</div>
+    </div>
+    <div class="label">outline: 0 auto auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; margin: 16px auto 0; outline: 0 auto red;">Box</div>
+    </div>
+    <div class="label">outline: 0 auto red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; margin: 16px auto 0; outline: 0 auto #3498db;">Box</div>
+    </div>
+    <div class="label">outline: 0 auto #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; margin: 16px auto 0; outline: 0 auto rgb(0, 128, 0);">Box</div>
+    </div>
+    <div class="label">outline: 0 auto rgb(0, 128, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; margin: 16px auto 0; outline: 0 auto none;">Box</div>
+    </div>
+    <div class="label">outline: 0 auto none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; margin: 16px auto 0; outline: 0 auto dotted;">Box</div>
+    </div>
+    <div class="label">outline: 0 auto dotted</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; margin: 16px auto 0; outline: auto;">Box</div>
+    </div>
+    <div class="label">outline: auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; margin: 16px auto 0; outline: auto 0;">Box</div>
+    </div>
+    <div class="label">outline: auto 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; margin: 16px auto 0; outline: auto 0 auto;">Box</div>
+    </div>
+    <div class="label">outline: auto 0 auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; margin: 16px auto 0; outline: auto 0 red;">Box</div>
+    </div>
+    <div class="label">outline: auto 0 red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; margin: 16px auto 0; outline: auto 0 #3498db;">Box</div>
+    </div>
+    <div class="label">outline: auto 0 #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; margin: 16px auto 0; outline: auto 0 rgb(0, 128, 0);">Box</div>
+    </div>
+    <div class="label">outline: auto 0 rgb(0, 128, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; margin: 16px auto 0; outline: auto auto;">Box</div>
+    </div>
+    <div class="label">outline: auto auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; margin: 16px auto 0; outline: auto auto 0;">Box</div>
+    </div>
+    <div class="label">outline: auto auto 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; margin: 16px auto 0; outline: auto auto 4px;">Box</div>
+    </div>
+    <div class="label">outline: auto auto 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; margin: 16px auto 0; outline: auto auto hairline;">Box</div>
+    </div>
+    <div class="label">outline: auto auto hairline</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; margin: 16px auto 0; outline: auto auto thin;">Box</div>
+    </div>
+    <div class="label">outline: auto auto thin</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; margin: 16px auto 0; outline: auto 0 none;">Box</div>
+    </div>
+    <div class="label">outline: auto 0 none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; margin: 16px auto 0; outline: auto 0 dotted;">Box</div>
+    </div>
+    <div class="label">outline: auto 0 dotted</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; margin: 16px auto 0; outline: auto 0 dashed;">Box</div>
+    </div>
+    <div class="label">outline: auto 0 dashed</div>
+  </div>
+</div>
 </body>
 </html>

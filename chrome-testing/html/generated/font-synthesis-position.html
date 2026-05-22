@@ -1,69 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>font-synthesis-position</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; gap: 24px; }
-    .demo-card {
-      background: #16213e; border-radius: 12px; padding: 28px; flex: 1;
-      border: 1px solid #2a2a4a;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; }
-    .tag {
-      display: inline-block; background: #7c3aed33; color: #a78bfa; font-size: 11px;
-      font-family: monospace; padding: 2px 8px; border-radius: 4px; margin-bottom: 14px;
-    }
-    .demo-text {
-      font-size: 32px; color: #fff; line-height: 2;
-    }
-    .note { font-size: 11px; color: #6b7280; margin-top: 8px; font-style: italic; }
-    .example-row { margin-bottom: 12px; }
-    .context { font-size: 13px; color: #9ca3af; font-family: monospace; margin-bottom: 4px; }
-  </style>
+<meta charset="UTF-8">
+<title>font-synthesis-position</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Font Synthesis Position</h1>
-  <p class="prop-name">font-synthesis-position</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="tag">auto</div>
-      <div class="example-row">
-        <p class="context">subscript:</p>
-        <div class="demo-text" style="font-synthesis-position: auto ! important;">
-          H<sub>2</sub>O &nbsp; CO<sub>2</sub> &nbsp; x<sub>n</sub>
-        </div>
-      </div>
-      <div class="example-row">
-        <p class="context">superscript:</p>
-        <div class="demo-text" style="font-synthesis-position: auto ! important;">
-          E=mc<sup>2</sup> &nbsp; x<sup>n</sup> &nbsp; 1<sup>st</sup>
-        </div>
-      </div>
-      <p class="label">font-synthesis-position: auto ! important</p>
-      <p class="note">Browser synthesizes sub/super positions if font lacks them</p>
+<h1>Font Synthesis Position</h1>
+<p class="prop-name">font-synthesis-position</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; line-height: 1.6; font-synthesis-position: auto;">H<sub>2</sub>O CO<sub>2</sub> E=mc<sup>2</sup> x<sup>n</sup></div>
     </div>
-    <div class="demo-card">
-      <div class="tag">none</div>
-      <div class="example-row">
-        <p class="context">subscript:</p>
-        <div class="demo-text" style="font-synthesis-position: auto ! important;">
-          H<sub>2</sub>O &nbsp; CO<sub>2</sub> &nbsp; x<sub>n</sub>
-        </div>
-      </div>
-      <div class="example-row">
-        <p class="context">superscript:</p>
-        <div class="demo-text" style="font-synthesis-position: auto ! important;">
-          E=mc<sup>2</sup> &nbsp; x<sup>n</sup> &nbsp; 1<sup>st</sup>
-        </div>
-      </div>
-      <p class="label">font-synthesis-position: auto ! important</p>
-      <p class="note">No position synthesis — relies on font's built-in glyphs</p>
-    </div>
+    <div class="label">font-synthesis-position: auto</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 28px; line-height: 1.6; font-synthesis-position: none;">H<sub>2</sub>O CO<sub>2</sub> E=mc<sup>2</sup> x<sup>n</sup></div>
+    </div>
+    <div class="label">font-synthesis-position: none</div>
+  </div>
+</div>
 </body>
 </html>

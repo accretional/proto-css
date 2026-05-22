@@ -1,60 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>margin-right</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-direction: column; gap: 14px; }
-    .demo-row { display: flex; align-items: center; gap: 16px; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; min-width: 190px; text-align: right; }
-    .outer { background: #0f3460; border-radius: 8px; overflow: hidden; flex: 1; display: flex; }
-    .target { background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; }
-    .sibling { background: #374151; padding: 14px 20px; font-size: 11px; color: #9ca3af; flex-shrink: 0; }
-  </style>
+<meta charset="UTF-8">
+<title>margin-right</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .sibling { background: #374151; padding: 14px 20px; font-size: 11px; color: #9ca3af; flex-shrink: 0; }
+</style>
 </head>
 <body>
-  <h1>Margin Right</h1>
-  <p class="prop-name">margin-right</p>
-  <div class="demos">
-    <div class="demo-row">
-      <div class="label">margin-right: anchor-size(inline,)</div>
-      <div class="outer">
-        <div class="target" style="margin-right: anchor-size(inline,);">Target</div>
-        <div class="sibling">sibling</div>
-      </div>
+<h1>Margin Right</h1>
+<p class="prop-name">margin-right</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: 0;">Target</div>
+      <div class="sibling">sibling</div>
     </div>
-    <div class="demo-row">
-      <div class="label">margin-right: anchor-size(--󡔮 block)</div>
-      <div class="outer">
-        <div class="target" style="margin-right: anchor-size(--󡔮 block);">Target</div>
-        <div class="sibling">sibling</div>
-      </div>
-    </div>
-    <div class="demo-row">
-      <div class="label">margin-right: round(line-width, anchor(52.28%) / 59%)</div>
-      <div class="outer">
-        <div class="target" style="margin-right: round(line-width, anchor(52.28%) / 59%);">Target</div>
-        <div class="sibling">sibling</div>
-      </div>
-    </div>
-    <div class="demo-row">
-      <div class="label">margin-right: auto ! important</div>
-      <div class="outer">
-        <div class="target" style="margin-right: auto ! important;">Target</div>
-        <div class="sibling">sibling</div>
-      </div>
-    </div>
-    <div class="demo-row">
-      <div class="label">margin-right: auto</div>
-      <div class="outer">
-        <div class="target" style="margin-right: auto;">Target</div>
-        <div class="sibling">sibling (pushed right)</div>
-      </div>
-    </div>
+    <div class="label">margin-right: 0</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: 10px;">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: 25%;">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: 50%;">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: 100%;">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: 100%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: auto;">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(, 0);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(, 10px);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(, 10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(, 25%);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(, 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(, 50%);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(, 50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(, 100%);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(, 100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(width);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(width)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(width, 0);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(width, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(width, 10px);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(width, 10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(width, 25%);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(width, 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(width, 50%);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(width, 50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(width, 100%);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(width, 100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(height);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(height)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(height, 0);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(height, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(height, 10px);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(height, 10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(height, 25%);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(height, 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(height, 50%);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(height, 50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(height, 100%);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(height, 100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(block);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(block)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(block, 0);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(block, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(block, 10px);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(block, 10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(block, 25%);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(block, 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(block, 50%);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(block, 50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(block, 100%);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(block, 100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(inline);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(inline)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(inline, 0);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(inline, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(inline, 10px);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(inline, 10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(inline, 25%);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(inline, 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(inline, 50%);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(inline, 50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; display: flex;">
+      <div style="background: #e94560; padding: 14px 20px; font-size: 12px; font-weight: 600; color: #fff; flex-shrink: 0; margin-right: anchor-size(inline, 100%);">Target</div>
+      <div class="sibling">sibling</div>
+    </div>
+    <div class="label">margin-right: anchor-size(inline, 100%)</div>
+  </div>
+</div>
 </body>
 </html>

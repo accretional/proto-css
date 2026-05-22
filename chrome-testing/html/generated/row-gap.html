@@ -1,135 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>row-gap</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
-    .demo-card {
-      background: #16213e;
-      border-radius: 10px;
-      padding: 16px;
-      width: 200px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      column-gap: 6px;
-      width: 100%;
-    }
-    .grid-item {
-      background: #0f3460;
-      border: 1px solid #e94560;
-      border-radius: 4px;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      font-weight: 600;
-      color: #e2b714;
-    }
-    .gap-indicator {
-      background: rgba(226, 183, 20, 0.15);
-      border-left: 2px dashed #e2b714;
-      border-right: 2px dashed #e2b714;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 9px;
-      color: #e2b714;
-      font-family: monospace;
-    }
-    .rg-0 { row-gap: hairline; }
-    .rg-5 { row-gap: thick ! important; }
-    .rg-10 { row-gap: thick; }
-    .rg-20 { row-gap: normal ! important; }
-    .rg-40 { row-gap: calc-size(-58.6e04 / anchor-size(--塼), anchor-size(--񒫿) - -infinity); }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
-  </style>
+<meta charset="UTF-8">
+<title>row-gap</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .grid-item { background: #0f3460; border: 1px solid #e94560; border-radius: 4px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; color: #e2b714; }
+</style>
 </head>
 <body>
-  <h1>Row Gap</h1>
-  <p class="prop-name">row-gap</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="grid-container rg-0">
-        <div class="grid-item">1</div>
-        <div class="grid-item">2</div>
-        <div class="grid-item">3</div>
-        <div class="grid-item">4</div>
-        <div class="grid-item">5</div>
-        <div class="grid-item">6</div>
-        <div class="grid-item">7</div>
-        <div class="grid-item">8</div>
-        <div class="grid-item">9</div>
-      </div>
-      <div class="label">row-gap: hairline</div>
+<h1>Row Gap</h1>
+<p class="prop-name">row-gap</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 16px; width: 200px; display: flex; flex-direction: column; align-items: center;">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 6px; width: 100%; row-gap: normal;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div><div class="grid-item">7</div><div class="grid-item">8</div><div class="grid-item">9</div></div>
     </div>
-    <div class="demo-card">
-      <div class="grid-container rg-5">
-        <div class="grid-item">1</div>
-        <div class="grid-item">2</div>
-        <div class="grid-item">3</div>
-        <div class="grid-item">4</div>
-        <div class="grid-item">5</div>
-        <div class="grid-item">6</div>
-        <div class="grid-item">7</div>
-        <div class="grid-item">8</div>
-        <div class="grid-item">9</div>
-      </div>
-      <div class="label">row-gap: thick ! important</div>
-    </div>
-    <div class="demo-card">
-      <div class="grid-container rg-10">
-        <div class="grid-item">1</div>
-        <div class="grid-item">2</div>
-        <div class="grid-item">3</div>
-        <div class="grid-item">4</div>
-        <div class="grid-item">5</div>
-        <div class="grid-item">6</div>
-        <div class="grid-item">7</div>
-        <div class="grid-item">8</div>
-        <div class="grid-item">9</div>
-      </div>
-      <div class="label">row-gap: thick</div>
-    </div>
-    <div class="demo-card">
-      <div class="grid-container rg-20">
-        <div class="grid-item">1</div>
-        <div class="grid-item">2</div>
-        <div class="grid-item">3</div>
-        <div class="grid-item">4</div>
-        <div class="grid-item">5</div>
-        <div class="grid-item">6</div>
-        <div class="grid-item">7</div>
-        <div class="grid-item">8</div>
-        <div class="grid-item">9</div>
-      </div>
-      <div class="label">row-gap: normal ! important</div>
-    </div>
-    <div class="demo-card">
-      <div class="grid-container rg-40">
-        <div class="grid-item">1</div>
-        <div class="grid-item">2</div>
-        <div class="grid-item">3</div>
-        <div class="grid-item">4</div>
-        <div class="grid-item">5</div>
-        <div class="grid-item">6</div>
-        <div class="grid-item">7</div>
-        <div class="grid-item">8</div>
-        <div class="grid-item">9</div>
-      </div>
-      <div class="label">row-gap: calc-size(-58.6e04 / anchor-size(--塼), anchor-size(--񒫿) - -infinity)</div>
-    </div>
+    <div class="label">row-gap: normal</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 16px; width: 200px; display: flex; flex-direction: column; align-items: center;">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 6px; width: 100%; row-gap: 0;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div><div class="grid-item">7</div><div class="grid-item">8</div><div class="grid-item">9</div></div>
+    </div>
+    <div class="label">row-gap: 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 16px; width: 200px; display: flex; flex-direction: column; align-items: center;">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 6px; width: 100%; row-gap: 10px;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div><div class="grid-item">7</div><div class="grid-item">8</div><div class="grid-item">9</div></div>
+    </div>
+    <div class="label">row-gap: 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 16px; width: 200px; display: flex; flex-direction: column; align-items: center;">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 6px; width: 100%; row-gap: 25%;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div><div class="grid-item">7</div><div class="grid-item">8</div><div class="grid-item">9</div></div>
+    </div>
+    <div class="label">row-gap: 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 16px; width: 200px; display: flex; flex-direction: column; align-items: center;">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 6px; width: 100%; row-gap: 50%;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div><div class="grid-item">7</div><div class="grid-item">8</div><div class="grid-item">9</div></div>
+    </div>
+    <div class="label">row-gap: 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 16px; width: 200px; display: flex; flex-direction: column; align-items: center;">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 6px; width: 100%; row-gap: 4px;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div><div class="grid-item">7</div><div class="grid-item">8</div><div class="grid-item">9</div></div>
+    </div>
+    <div class="label">row-gap: 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 16px; width: 200px; display: flex; flex-direction: column; align-items: center;">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 6px; width: 100%; row-gap: 20px;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div><div class="grid-item">7</div><div class="grid-item">8</div><div class="grid-item">9</div></div>
+    </div>
+    <div class="label">row-gap: 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 16px; width: 200px; display: flex; flex-direction: column; align-items: center;">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 6px; width: 100%; row-gap: 50px;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div><div class="grid-item">7</div><div class="grid-item">8</div><div class="grid-item">9</div></div>
+    </div>
+    <div class="label">row-gap: 50px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 16px; width: 200px; display: flex; flex-direction: column; align-items: center;">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 6px; width: 100%; row-gap: hairline;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div><div class="grid-item">7</div><div class="grid-item">8</div><div class="grid-item">9</div></div>
+    </div>
+    <div class="label">row-gap: hairline</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 16px; width: 200px; display: flex; flex-direction: column; align-items: center;">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 6px; width: 100%; row-gap: thin;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div><div class="grid-item">7</div><div class="grid-item">8</div><div class="grid-item">9</div></div>
+    </div>
+    <div class="label">row-gap: thin</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 16px; width: 200px; display: flex; flex-direction: column; align-items: center;">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 6px; width: 100%; row-gap: medium;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div><div class="grid-item">7</div><div class="grid-item">8</div><div class="grid-item">9</div></div>
+    </div>
+    <div class="label">row-gap: medium</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 16px; width: 200px; display: flex; flex-direction: column; align-items: center;">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 6px; width: 100%; row-gap: thick;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div><div class="grid-item">7</div><div class="grid-item">8</div><div class="grid-item">9</div></div>
+    </div>
+    <div class="label">row-gap: thick</div>
+  </div>
+</div>
 </body>
 </html>

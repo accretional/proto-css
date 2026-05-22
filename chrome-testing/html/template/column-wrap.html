@@ -18,9 +18,8 @@
       margin-bottom: 24px;
       font-family: monospace;
     }
-    .demos { display: flex; gap: 24px; }
+    .demos { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
     .demo-card {
-      flex: 1;
       background: #16213e;
       border-radius: 10px;
       padding: 20px 24px;
@@ -37,14 +36,8 @@
       background: #0f1a30;
       border-radius: 6px;
       padding: 14px;
-    }
-    .col-demo-nowrap {
-      height: 180px;
+      height: 160px;
       overflow: hidden;
-    }
-    .col-demo-wrap {
-      height: 180px;
-      overflow: auto;
     }
     .visual-hint {
       margin-top: 12px;
@@ -53,6 +46,11 @@
       font-size: 11px;
       text-align: center;
       font-family: monospace;
+    }
+    .hint-auto {
+      background: rgba(102, 187, 106, 0.15);
+      border: 1px dashed #66bb6a;
+      color: #66bb6a;
     }
     .hint-nowrap {
       background: rgba(233, 69, 96, 0.15);
@@ -69,25 +67,31 @@
 <body>
   <h1>Column Wrap</h1>
   <p class="prop-name">column-wrap</p>
-  <div class="note">Experimental / Non-standard: column-wrap is not part of any current CSS specification. No browsers implement this property. The demos below illustrate the intended concept of controlling whether columns wrap or overflow.</div>
+  <div class="note">Experimental: column-wrap is not widely implemented. The demos below illustrate the intended concept of controlling whether columns wrap or overflow.</div>
   <div class="demos">
     <div class="demo-card">
-      <div class="label">Concept: column-wrap: nowrap</div>
-      <div class="desc">Columns do not wrap; overflow is clipped</div>
-      <div class="col-demo col-demo-nowrap">
-        When column-wrap would be set to nowrap, columns would not wrap to the next row. If column content exceeds the container height, it would be clipped or overflow. This is the conceptual default behavior where columns remain in a single horizontal row. Extra content that cannot fit within the constrained height would simply be hidden from view.
-        Additional text continues to fill the columns but is cut off when the height limit is reached, demonstrating the nowrap concept clearly.
+      <div class="label">column-wrap: auto</div>
+      <div class="desc">Browser determines wrapping behavior</div>
+      <div class="col-demo">
+        With auto, the browser decides whether columns should wrap based on available space and content. This is the default behavior where the user agent applies its own heuristics for column wrapping within the container.
       </div>
-      <div class="visual-hint hint-nowrap">Content clipped at container boundary</div>
+      <div class="visual-hint hint-auto">Default browser behavior</div>
     </div>
     <div class="demo-card">
-      <div class="label">Concept: column-wrap: wrap</div>
-      <div class="desc">Columns wrap to create new rows when needed</div>
-      <div class="col-demo col-demo-wrap">
-        When column-wrap would be set to wrap, columns that exceed the container's height would create new rows of columns below. This is similar to how flex-wrap works for flex items. The content would continue flowing into a new set of columns positioned below the first row.
-        This wrapping behavior would allow all content to remain visible without clipping, at the cost of increasing the overall container height as new column rows are created below the first set.
+      <div class="label">column-wrap: nowrap</div>
+      <div class="desc">Columns do not wrap; overflow is clipped</div>
+      <div class="col-demo">
+        When column-wrap is set to nowrap, columns do not wrap to the next row. If column content exceeds the container height, it is clipped or overflows. Columns remain in a single horizontal row regardless of content height.
       </div>
-      <div class="visual-hint hint-wrap">Content wraps into new column rows</div>
+      <div class="visual-hint hint-nowrap">Content clipped at boundary</div>
+    </div>
+    <div class="demo-card">
+      <div class="label">column-wrap: wrap</div>
+      <div class="desc">Columns wrap to create new rows when needed</div>
+      <div class="col-demo" style="overflow: auto;">
+        When column-wrap is set to wrap, columns that exceed the container height create new rows of columns below. This is similar to how flex-wrap works for flex items. Content continues flowing into new column rows positioned below the first set.
+      </div>
+      <div class="visual-hint hint-wrap">Content wraps into new rows</div>
     </div>
   </div>
 </body>

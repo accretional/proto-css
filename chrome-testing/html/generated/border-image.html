@@ -1,60 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>border-image</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 28px; }
-    .demo-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .box {
-      width: 180px;
-      height: 130px;
-      background: #16213e;
-      border: 12px solid transparent;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      color: #ccc;
-      font-family: monospace;
-      text-align: center;
-      line-height: 1.5;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; max-width: 220px; }
-  </style>
+<meta charset="UTF-8">
+<title>border-image</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Border Image</h1>
-  <p class="prop-name">border-image</p>
-  <div class="demos">
-    <div class="demo-item">
-      <div class="box" style="border-image: none 8.44 12e55% 46.7e92 / auto var(--qx) 6e7 auto repeat space;">gradient 45deg<br>slice 1</div>
-      <div class="label">border-image: none 8.44 12e55% 46.7e92 / auto var(--qx) 6e7 auto repeat space</div>
+<h1>Border Image</h1>
+<p class="prop-name">border-image</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: stretch;"></div>
     </div>
-    <div class="demo-item">
-      <div class="box" style="border-image: 49.20e9 -58.3% / / var(--H3) var(--짋) var(--󉏓4);">gradient 90deg<br>slice 1</div>
-      <div class="label">border-image: 49.20e9 -58.3% / / var(--H3) var(--짋) var(--󉏓4)</div>
-    </div>
-    <div class="demo-item">
-      <div class="box" style="border-image: var(--__, -65.84e5turn) var(--d) var(--dة) round repeat ! important;">gradient 135deg<br>slice 1</div>
-      <div class="label">border-image: var(--__, -65.84e5turn) var(--d) var(--dة) round repeat ! important</div>
-    </div>
-    <div class="demo-item">
-      <div class="box" style="border-image: var(--󒇨l) +9.01 58.91e+1% space;">gradient<br>slice 30</div>
-      <div class="label">border-image: ! important</div>
-    </div>
-    <div class="demo-item">
-      <div class="box" style="border-image: var(--_s, 08) var(--æ) +9.8;">repeating<br>gradient</div>
-      <div class="label">border-image: none +7e+3 8e83 fill ! important</div>
-    </div>
+    <div class="label">border-image: stretch</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: stretch stretch;"></div>
+    </div>
+    <div class="label">border-image: stretch stretch</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: stretch repeat;"></div>
+    </div>
+    <div class="label">border-image: stretch repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: stretch round;"></div>
+    </div>
+    <div class="label">border-image: stretch round</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: stretch space;"></div>
+    </div>
+    <div class="label">border-image: stretch space</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: repeat;"></div>
+    </div>
+    <div class="label">border-image: repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: repeat stretch;"></div>
+    </div>
+    <div class="label">border-image: repeat stretch</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: repeat repeat;"></div>
+    </div>
+    <div class="label">border-image: repeat repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: repeat round;"></div>
+    </div>
+    <div class="label">border-image: repeat round</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: repeat space;"></div>
+    </div>
+    <div class="label">border-image: repeat space</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: round;"></div>
+    </div>
+    <div class="label">border-image: round</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: round stretch;"></div>
+    </div>
+    <div class="label">border-image: round stretch</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: round repeat;"></div>
+    </div>
+    <div class="label">border-image: round repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: round round;"></div>
+    </div>
+    <div class="label">border-image: round round</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: round space;"></div>
+    </div>
+    <div class="label">border-image: round space</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: space;"></div>
+    </div>
+    <div class="label">border-image: space</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: space stretch;"></div>
+    </div>
+    <div class="label">border-image: space stretch</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: space repeat;"></div>
+    </div>
+    <div class="label">border-image: space repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: space round;"></div>
+    </div>
+    <div class="label">border-image: space round</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: space space;"></div>
+    </div>
+    <div class="label">border-image: space space</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: 0;"></div>
+    </div>
+    <div class="label">border-image: 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: 0 stretch;"></div>
+    </div>
+    <div class="label">border-image: 0 stretch</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: 0 stretch stretch;"></div>
+    </div>
+    <div class="label">border-image: 0 stretch stretch</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: 0 stretch repeat;"></div>
+    </div>
+    <div class="label">border-image: 0 stretch repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: 0 stretch round;"></div>
+    </div>
+    <div class="label">border-image: 0 stretch round</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: 0 stretch space;"></div>
+    </div>
+    <div class="label">border-image: 0 stretch space</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: 0 repeat;"></div>
+    </div>
+    <div class="label">border-image: 0 repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: 0 repeat stretch;"></div>
+    </div>
+    <div class="label">border-image: 0 repeat stretch</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: 0 repeat repeat;"></div>
+    </div>
+    <div class="label">border-image: 0 repeat repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: 0 repeat round;"></div>
+    </div>
+    <div class="label">border-image: 0 repeat round</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: 0 repeat space;"></div>
+    </div>
+    <div class="label">border-image: 0 repeat space</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: 0 round;"></div>
+    </div>
+    <div class="label">border-image: 0 round</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: 0 round stretch;"></div>
+    </div>
+    <div class="label">border-image: 0 round stretch</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: 0 round repeat;"></div>
+    </div>
+    <div class="label">border-image: 0 round repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 130px; background: #16213e; border: 20px solid transparent; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; text-align: center; line-height: 1.5; border-image: 0 round round;"></div>
+    </div>
+    <div class="label">border-image: 0 round round</div>
+  </div>
+</div>
 </body>
 </html>

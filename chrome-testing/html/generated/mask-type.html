@@ -1,141 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>mask-type</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 28px; }
-    .demo-card { background: #16213e; border-radius: 10px; padding: 24px; width: 560px; }
-    .demo-card h3 { font-size: 14px; color: #e2e8f0; margin-bottom: 14px; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; }
-    .desc { font-size: 11px; color: #6b7280; margin-top: 6px; line-height: 1.6; }
-    .row { display: flex; gap: 24px; align-items: flex-start; }
-    .section-label {
-      font-size: 10px;
-      color: #6b7280;
-      text-align: center;
-      margin-top: 4px;
-    }
-    .arrow-col {
-      display: flex;
-      align-items: center;
-      font-size: 18px;
-      color: #4a5568;
-      padding-top: 50px;
-    }
-    .svg-demo {
-      border: 1px solid #2d3748;
-      border-radius: 6px;
-      overflow: hidden;
-      background: #0f172a;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>mask-type</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .svg-demo { border: 1px solid #2d3748; border-radius: 6px; overflow: hidden; background: #0f172a; }
+.section-label { font-size: 10px; color: #6b7280; text-align: center; margin-top: 4px; }
+.arrow-col { display: flex; align-items: center; font-size: 18px; color: #4a5568; padding-top: 50px; }
+</style>
 </head>
 <body>
-  <h1>Mask Type</h1>
-  <p class="prop-name">mask-type (SVG)</p>
-  <div class="demos">
-
-    <div class="demo-card">
-      <h3>luminance</h3>
-      <div class="row">
-        <div>
-          <div class="svg-demo">
-            <svg width="160" height="120" viewBox="0 0 160 120">
-              <defs>
-                <mask id="lumMaskPreview">
-                  <rect width="160" height="120" fill="white"/>
-                  <circle cx="80" cy="60" r="40" fill="black"/>
-                </mask>
-              </defs>
-              <rect width="160" height="120" fill="#334155"/>
-              <text x="30" y="30" font-size="10" fill="#94a3b8" font-family="monospace">white=show</text>
-              <text x="45" y="75" font-size="10" fill="#fff" font-family="monospace">black</text>
-              <text x="45" y="88" font-size="10" fill="#fff" font-family="monospace">=hide</text>
-              <rect width="160" height="120" fill="white" opacity="0.1"/>
-              <circle cx="80" cy="60" r="40" fill="black" opacity="0.5"/>
-            </svg>
-          </div>
-          <p class="section-label">SVG mask</p>
-        </div>
-        <div class="arrow-col">&rarr;</div>
-        <div>
-          <div class="svg-demo">
-            <svg width="200" height="120" viewBox="0 0 200 120">
-              <defs>
-                <mask id="lumMask" maskContentUnits="objectBoundingBox">
-                  <rect width="1" height="1" fill="white"/>
-                  <circle cx="0.5" cy="0.5" r="0.3" fill="black"/>
-                </mask>
-                <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#e94560"/>
-                  <stop offset="50%" stop-color="#a855f7"/>
-                  <stop offset="100%" stop-color="#00d2ff"/>
-                </linearGradient>
-              </defs>
-              <rect width="200" height="120" fill="url(#grad1)" mask="url(#lumMask)"/>
-            </svg>
-          </div>
-          <p class="section-label">Result</p>
-        </div>
-      </div>
-      <p class="label">mask-type: luminance ! important</p>
-      <p class="desc">Luminance (brightness) of the mask content determines visibility. White areas = visible, black areas = hidden, gray areas = semi-transparent. This is the default for SVG &lt;mask&gt; elements.</p>
+<h1>Mask Type</h1>
+<p class="prop-name">mask-type</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 24px; align-items: flex-start;">
+      <div><div class="svg-demo"><svg width="160" height="120" viewBox="0 0 160 120"><rect width="160" height="120" fill="#334155"/><text x="30" y="30" font-size="10" fill="#94a3b8" font-family="monospace">mask source</text><circle cx="80" cy="60" r="40" fill="black" opacity="0.5"/></svg></div><p class="section-label">SVG mask</p></div><div class="arrow-col">&rarr;</div>
+      <svg style="width: 200px; height: 120px; mask-type: luminance;"><defs><mask id="typeMask" maskContentUnits="objectBoundingBox"><rect width="1" height="1" fill="white"/><circle cx="0.5" cy="0.5" r="0.3" fill="black"/></mask><linearGradient id="grad1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#e94560"/><stop offset="50%" stop-color="#a855f7"/><stop offset="100%" stop-color="#00d2ff"/></linearGradient></defs><rect width="200" height="120" fill="url(#grad1)" mask="url(#typeMask)"/></svg>
     </div>
-
-    <div class="demo-card">
-      <h3>alpha</h3>
-      <div class="row">
-        <div>
-          <div class="svg-demo">
-            <svg width="160" height="120" viewBox="0 0 160 120">
-              <rect width="160" height="120" fill="#334155"/>
-              <text x="20" y="30" font-size="10" fill="#94a3b8" font-family="monospace">opaque=show</text>
-              <circle cx="80" cy="60" r="40" fill="rgba(255,0,0,0.3)" stroke="#e94560" stroke-width="1" stroke-dasharray="3"/>
-              <text x="32" y="75" font-size="10" fill="#94a3b8" font-family="monospace">transparent</text>
-              <text x="50" y="88" font-size="10" fill="#94a3b8" font-family="monospace">=hide</text>
-            </svg>
-          </div>
-          <p class="section-label">SVG mask</p>
-        </div>
-        <div class="arrow-col">&rarr;</div>
-        <div>
-          <div class="svg-demo">
-            <svg width="200" height="120" viewBox="0 0 200 120">
-              <defs>
-                <mask id="alphaMask" maskContentUnits="objectBoundingBox">
-                  <rect width="1" height="1" fill="rgba(0,0,0,1)"/>
-                  <circle cx="0.5" cy="0.5" r="0.3" fill="rgba(0,0,0,0)"/>
-                </mask>
-                <linearGradient id="grad2" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#e94560"/>
-                  <stop offset="50%" stop-color="#a855f7"/>
-                  <stop offset="100%" stop-color="#00d2ff"/>
-                </linearGradient>
-              </defs>
-              <style>
-                #alphaMask { mask-type: luminance ! important; }
-              </style>
-              <rect width="200" height="120" fill="url(#grad2)" mask="url(#alphaMask)"/>
-            </svg>
-          </div>
-          <p class="section-label">Result</p>
-        </div>
-      </div>
-      <p class="label">mask-type: luminance ! important</p>
-      <p class="desc">Alpha (transparency) of the mask content determines visibility. Opaque pixels = visible, transparent pixels = hidden. Color of the mask content is ignored. Useful when mask content uses colored shapes.</p>
+    <div class="label">mask-type: luminance</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 24px; align-items: flex-start;">
+      <div><div class="svg-demo"><svg width="160" height="120" viewBox="0 0 160 120"><rect width="160" height="120" fill="#334155"/><text x="30" y="30" font-size="10" fill="#94a3b8" font-family="monospace">mask source</text><circle cx="80" cy="60" r="40" fill="black" opacity="0.5"/></svg></div><p class="section-label">SVG mask</p></div><div class="arrow-col">&rarr;</div>
+      <svg style="width: 200px; height: 120px; mask-type: alpha;"><defs><mask id="typeMask" maskContentUnits="objectBoundingBox"><rect width="1" height="1" fill="white"/><circle cx="0.5" cy="0.5" r="0.3" fill="black"/></mask><linearGradient id="grad1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#e94560"/><stop offset="50%" stop-color="#a855f7"/><stop offset="100%" stop-color="#00d2ff"/></linearGradient></defs><rect width="200" height="120" fill="url(#grad1)" mask="url(#typeMask)"/></svg>
     </div>
-
+    <div class="label">mask-type: alpha</div>
   </div>
-
-  <div style="margin-top: 20px; padding: 14px; background: #16213e; border-radius: 10px; max-width: 600px;">
-    <p style="font-size: 11px; color: #9ca3af; line-height: 1.5;">
-      <span style="color: #e94560; font-family: monospace;">mask-type</span> applies to SVG <code style="color:#a855f7;">&lt;mask&gt;</code> elements. It determines whether the mask uses luminance values or alpha channel values to compute the final mask.
-    </p>
-  </div>
+</div>
 </body>
 </html>

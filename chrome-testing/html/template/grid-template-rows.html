@@ -14,12 +14,15 @@
     .cell { background: #0f3460; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #e94560; font-weight: 600; padding: 6px; }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
 
-    .g1 { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: 50px 100px 50px; gap: 6px; }
-    .g2 { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 1fr); gap: 6px; height: 220px; }
-    .g3 { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: auto auto auto; gap: 6px; }
-    .g4 { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: 40px 1fr 40px; gap: 6px; height: 220px; }
-    .g5 { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, minmax(40px, auto)); gap: 6px; }
-    .g6 { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: 1fr 2fr 1fr; gap: 6px; height: 220px; }
+    .g1 { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: none; gap: 6px; }
+    .g2 { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: 1fr; gap: 6px; height: 80px; }
+    .g3 { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: 1fr 2fr; gap: 6px; height: 180px; }
+    .g4 { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: 100px 1fr; gap: 6px; height: 200px; }
+    .g5 { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 1fr); gap: 6px; height: 200px; }
+    .g6 { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; gap: 6px; }
+    .g7 { display: grid; grid-template-columns: 1fr; grid-template-rows: min-content; gap: 6px; }
+    .g8 { display: grid; grid-template-columns: 1fr; grid-template-rows: max-content; gap: 6px; }
+    .g9 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
   </style>
 </head>
 <body>
@@ -27,17 +30,39 @@
   <p class="prop-name">grid-template-rows</p>
   <div class="demos">
     <div class="demo-box">
-      <h3>Fixed pixel heights</h3>
+      <h3>none</h3>
       <div class="g1">
-        <div class="cell">50px</div><div class="cell">50px</div>
-        <div class="cell">100px</div><div class="cell">100px</div>
-        <div class="cell">50px</div><div class="cell">50px</div>
+        <div class="cell">1</div><div class="cell">2</div>
+        <div class="cell">3</div><div class="cell">4</div>
       </div>
-      <p class="label">grid-template-rows: 50px 100px 50px</p>
+      <p class="label">grid-template-rows: none</p>
     </div>
     <div class="demo-box">
-      <h3>Equal fractions</h3>
+      <h3>1fr</h3>
       <div class="g2">
+        <div class="cell">1fr</div><div class="cell">1fr</div>
+      </div>
+      <p class="label">grid-template-rows: 1fr</p>
+    </div>
+    <div class="demo-box">
+      <h3>1fr 2fr</h3>
+      <div class="g3">
+        <div class="cell">1fr</div><div class="cell">1fr</div>
+        <div class="cell">2fr</div><div class="cell">2fr</div>
+      </div>
+      <p class="label">grid-template-rows: 1fr 2fr</p>
+    </div>
+    <div class="demo-box">
+      <h3>100px 1fr</h3>
+      <div class="g4">
+        <div class="cell">100px</div><div class="cell">100px</div>
+        <div class="cell">1fr</div><div class="cell">1fr</div>
+      </div>
+      <p class="label">grid-template-rows: 100px 1fr</p>
+    </div>
+    <div class="demo-box">
+      <h3>repeat(3, 1fr)</h3>
+      <div class="g5">
         <div class="cell">1fr</div><div class="cell">1fr</div>
         <div class="cell">1fr</div><div class="cell">1fr</div>
         <div class="cell">1fr</div><div class="cell">1fr</div>
@@ -45,40 +70,33 @@
       <p class="label">grid-template-rows: repeat(3, 1fr)</p>
     </div>
     <div class="demo-box">
-      <h3>Auto-sized rows</h3>
-      <div class="g3">
-        <div class="cell">Short</div><div class="cell">Short</div>
-        <div class="cell" style="padding: 16px;">Taller row with more content here</div><div class="cell">auto</div>
-        <div class="cell">Short</div><div class="cell">Short</div>
-      </div>
-      <p class="label">grid-template-rows: auto auto auto</p>
-    </div>
-    <div class="demo-box">
-      <h3>Fixed header/footer, flex middle</h3>
-      <div class="g4">
-        <div class="cell">40px</div><div class="cell">40px</div>
-        <div class="cell">1fr</div><div class="cell">1fr</div>
-        <div class="cell">40px</div><div class="cell">40px</div>
-      </div>
-      <p class="label">grid-template-rows: 40px 1fr 40px</p>
-    </div>
-    <div class="demo-box">
-      <h3>Minmax rows</h3>
-      <div class="g5">
-        <div class="cell">min 40px</div><div class="cell">min 40px</div>
-        <div class="cell" style="padding: 16px;">This row grows with content</div><div class="cell">grows</div>
-        <div class="cell">min 40px</div><div class="cell">min 40px</div>
-      </div>
-      <p class="label">grid-template-rows: repeat(3, minmax(40px, auto))</p>
-    </div>
-    <div class="demo-box">
-      <h3>Proportional fractions</h3>
+      <h3>auto</h3>
       <div class="g6">
-        <div class="cell">1fr</div><div class="cell">1fr</div>
-        <div class="cell">2fr</div><div class="cell">2fr</div>
-        <div class="cell">1fr</div><div class="cell">1fr</div>
+        <div class="cell" style="padding: 16px;">auto row sizes to content</div><div class="cell">auto</div>
       </div>
-      <p class="label">grid-template-rows: 1fr 2fr 1fr</p>
+      <p class="label">grid-template-rows: auto</p>
+    </div>
+    <div class="demo-box">
+      <h3>min-content</h3>
+      <div class="g7">
+        <div class="cell">min-content shrinks to smallest intrinsic size</div>
+      </div>
+      <p class="label">grid-template-rows: min-content</p>
+    </div>
+    <div class="demo-box">
+      <h3>max-content</h3>
+      <div class="g8">
+        <div class="cell">max-content expands to fit all content</div>
+      </div>
+      <p class="label">grid-template-rows: max-content</p>
+    </div>
+    <div class="demo-box">
+      <h3>subgrid</h3>
+      <div class="g9" style="grid-template-rows: 50px 80px;">
+        <div class="cell" style="background: #533483; color: #fff;">Subgrid inherits parent rows</div>
+        <div class="cell" style="background: #533483; color: #fff;">Row 2</div>
+      </div>
+      <p class="label">grid-template-rows: subgrid</p>
     </div>
   </div>
 </body>

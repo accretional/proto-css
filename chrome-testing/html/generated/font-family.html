@@ -1,69 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>font-family</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: ui-serif, "" ! important; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: "", system-ui; margin-bottom: 24px; }
-    .demos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .demo-block {
-      background: #16213e;
-      border-radius: 8px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .label { font-size: 11px; font-family: "", system-ui; color: #9ca3af; }
-    .sample {
-      font-size: 22px;
-      color: #fff;
-      line-height: 1.4;
-    }
-    .sample-small {
-      font-size: 14px;
-      color: #a0a0b0;
-      line-height: 1.5;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>font-family</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .sample-small { font-size: 14px; color: #a0a0b0; line-height: 1.5; }
+</style>
 </head>
 <body>
-  <h1>Font Family</h1>
-  <p class="prop-name">font-family</p>
-  <div class="demos">
-    <div class="demo-block">
-      <div class="label">font-family: 収, ''</div>
-      <div class="sample" style="font-family: 収, '';">AaBbCcDd 0123</div>
-      <div class="sample-small" style="font-family: 収, '';">The quick brown fox jumps over the lazy dog.</div>
+<h1>Font Family</h1>
+<p class="prop-name">font-family</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 22px; line-height: 1.4; font-family: &#34;example&#34;;">AaBbCcDd 0123</div>
     </div>
-    <div class="demo-block">
-      <div class="label">font-family: K_ 쉀, generic(fangsong)</div>
-      <div class="sample" style="font-family: K_ 쉀, generic(fangsong);">AaBbCcDd 0123</div>
-      <div class="sample-small" style="font-family: K_ 쉀, generic(fangsong);">The quick brown fox jumps over the lazy dog.</div>
-    </div>
-    <div class="demo-block">
-      <div class="label">font-family: "", system-ui</div>
-      <div class="sample" style="font-family: "", system-ui;">AaBbCcDd 0123</div>
-      <div class="sample-small" style="font-family: "", system-ui;">The quick brown fox jumps over the lazy dog.</div>
-    </div>
-    <div class="demo-block">
-      <div class="label">font-family: '򃾙'</div>
-      <div class="sample" style="font-family: '򃾙';">AaBbCcDd 0123</div>
-      <div class="sample-small" style="font-family: '򃾙';">The quick brown fox jumps over the lazy dog.</div>
-    </div>
-    <div class="demo-block">
-      <div class="label">font-family: generic(fangsong)</div>
-      <div class="sample" style="font-family: generic(fangsong);">AaBbCcDd 0123</div>
-      <div class="sample-small" style="font-family: generic(fangsong);">The quick brown fox jumps over the lazy dog.</div>
-    </div>
-    <div class="demo-block">
-      <div class="label">font-family: ui-serif</div>
-      <div class="sample" style="font-family: ui-serif;">AaBbCcDd 0123</div>
-      <div class="sample-small" style="font-family: ui-serif;">The quick brown fox jumps over the lazy dog.</div>
-    </div>
+    <div class="label">font-family: &#34;example&#34;</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 22px; line-height: 1.4; font-family: &#34;example&#34;, &#34;example&#34;;">AaBbCcDd 0123</div>
+    </div>
+    <div class="label">font-family: &#34;example&#34;, &#34;example&#34;</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 22px; line-height: 1.4; font-family: &#34;example&#34;, my-custom;">AaBbCcDd 0123</div>
+    </div>
+    <div class="label">font-family: &#34;example&#34;, my-custom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 22px; line-height: 1.4; font-family: &#34;example&#34;, my-custom my-custom;">AaBbCcDd 0123</div>
+    </div>
+    <div class="label">font-family: &#34;example&#34;, my-custom my-custom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 22px; line-height: 1.4; font-family: &#34;example&#34;, generic(fangsong);">AaBbCcDd 0123</div>
+    </div>
+    <div class="label">font-family: &#34;example&#34;, generic(fangsong)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 22px; line-height: 1.4; font-family: &#34;example&#34;, generic(kai);">AaBbCcDd 0123</div>
+    </div>
+    <div class="label">font-family: &#34;example&#34;, generic(kai)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 22px; line-height: 1.4; font-family: &#34;example&#34;, generic(khmer-mul);">AaBbCcDd 0123</div>
+    </div>
+    <div class="label">font-family: &#34;example&#34;, generic(khmer-mul)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 22px; line-height: 1.4; font-family: &#34;example&#34;, generic(nastaliq);">AaBbCcDd 0123</div>
+    </div>
+    <div class="label">font-family: &#34;example&#34;, generic(nastaliq)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 22px; line-height: 1.4; font-family: &#34;example&#34;, serif;">AaBbCcDd 0123</div>
+    </div>
+    <div class="label">font-family: &#34;example&#34;, serif</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 22px; line-height: 1.4; font-family: &#34;example&#34;, sans-serif;">AaBbCcDd 0123</div>
+    </div>
+    <div class="label">font-family: &#34;example&#34;, sans-serif</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 22px; line-height: 1.4; font-family: &#34;example&#34;, system-ui;">AaBbCcDd 0123</div>
+    </div>
+    <div class="label">font-family: &#34;example&#34;, system-ui</div>
+  </div>
+</div>
 </body>
 </html>

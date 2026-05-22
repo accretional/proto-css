@@ -195,7 +195,7 @@ fi
 echo ""
 echo "--- Gallery validation ---"
 
-GALLERY_DIR="$ROOT/chrome-testing/gallery"
+GALLERY_DIR="$ROOT/chrome-testing/html"
 
 check_gallery() {
   local path="$1"

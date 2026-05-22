@@ -1,54 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>outline-color</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
-    .demo-box { background: #16213e; border-radius: 10px; padding: 24px; width: 210px; text-align: center; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 16px; }
-    .outlined {
-      width: 130px; height: 90px; background: #0f3460; border-radius: 8px;
-      margin: 16px auto 0;
-      outline-style: solid; outline-width: 4px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 13px; color: #c0c0d0;
-    }
-    .d1 .outlined { outline-color: light-dark(none,); }
-    .d2 .outlined { outline-color: auto ! important; }
-    .d3 .outlined { outline-color: stripes(device-cmyk(1e-2 none var(--򝹹6) 8)) ! important; }
-    .d4 .outlined { outline-color: auto; }
-    .d5 .outlined { outline-color: stripes(alpha(from / var(--_-)) 5.84%); color: #c0c0d0; }
-  </style>
+<meta charset="UTF-8">
+<title>outline-color</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Outline Color</h1>
-  <p class="prop-name">outline-color</p>
-  <div class="demos">
-    <div class="demo-box d1">
-      <div class="outlined">Box</div>
-      <div class="label">outline-color: revert-rule</div>
+<h1>Outline Color</h1>
+<p class="prop-name">outline-color</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: auto;">Box</div>
     </div>
-    <div class="demo-box d2">
-      <div class="outlined">Box</div>
-      <div class="label">outline-color: stripes(appworkspace) ! important</div>
-    </div>
-    <div class="demo-box d3">
-      <div class="outlined">Box</div>
-      <div class="label">outline-color: currentcolor ! important</div>
-    </div>
-    <div class="demo-box d4">
-      <div class="outlined">Box</div>
-      <div class="label">outline-color: currentcolor</div>
-    </div>
-    <div class="demo-box d5">
-      <div class="outlined">Box</div>
-      <div class="label">outline-color: stripes(alpha(from / var(--_-)) 5.84%)</div>
-    </div>
+    <div class="label">outline-color: auto</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: red;">Box</div>
+    </div>
+    <div class="label">outline-color: red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: #3498db;">Box</div>
+    </div>
+    <div class="label">outline-color: #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: currentcolor;">Box</div>
+    </div>
+    <div class="label">outline-color: currentcolor</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: Canvas;">Box</div>
+    </div>
+    <div class="label">outline-color: Canvas</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: CanvasText;">Box</div>
+    </div>
+    <div class="label">outline-color: CanvasText</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: device-cmyk(0, 0, 0, 0);">Box</div>
+    </div>
+    <div class="label">outline-color: device-cmyk(0, 0, 0, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: device-cmyk(0, 0, 0, 0.5);">Box</div>
+    </div>
+    <div class="label">outline-color: device-cmyk(0, 0, 0, 0.5)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: light-dark(none, none);">Box</div>
+    </div>
+    <div class="label">outline-color: light-dark(none, none)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: rgb(0, 128, 0);">Box</div>
+    </div>
+    <div class="label">outline-color: rgb(0, 128, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: transparent;">Box</div>
+    </div>
+    <div class="label">outline-color: transparent</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: LinkText;">Box</div>
+    </div>
+    <div class="label">outline-color: LinkText</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: device-cmyk(0 0 0 0);">Box</div>
+    </div>
+    <div class="label">outline-color: device-cmyk(0 0 0 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: light-dark(none, linear-gradient(red, blue));">Box</div>
+    </div>
+    <div class="label">outline-color: light-dark(none, linear-gradient(red, blue))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: var(--my-var);">Box</div>
+    </div>
+    <div class="label">outline-color: var(--my-var)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: var(--my-var, my-ident);">Box</div>
+    </div>
+    <div class="label">outline-color: var(--my-var, my-ident)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: linear-gradient(red, blue);">Box</div>
+    </div>
+    <div class="label">outline-color: linear-gradient(red, blue)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: device-cmyk(0 0 0 0 / 0);">Box</div>
+    </div>
+    <div class="label">outline-color: device-cmyk(0 0 0 0 / 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: device-cmyk(0, 0, 0, 1);">Box</div>
+    </div>
+    <div class="label">outline-color: device-cmyk(0, 0, 0, 1)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: device-cmyk(0, 0, 0, 2);">Box</div>
+    </div>
+    <div class="label">outline-color: device-cmyk(0, 0, 0, 2)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: device-cmyk(0, 0, 0.5, 0);">Box</div>
+    </div>
+    <div class="label">outline-color: device-cmyk(0, 0, 0.5, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: device-cmyk(0, 0, 0.5, 0.5);">Box</div>
+    </div>
+    <div class="label">outline-color: device-cmyk(0, 0, 0.5, 0.5)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: device-cmyk(0, 0, 0.5, 1);">Box</div>
+    </div>
+    <div class="label">outline-color: device-cmyk(0, 0, 0.5, 1)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: device-cmyk(0, 0, 0.5, 2);">Box</div>
+    </div>
+    <div class="label">outline-color: device-cmyk(0, 0, 0.5, 2)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: device-cmyk(0 0 0 0 / 0.5);">Box</div>
+    </div>
+    <div class="label">outline-color: device-cmyk(0 0 0 0 / 0.5)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: device-cmyk(0 0 0 0 / 0%);">Box</div>
+    </div>
+    <div class="label">outline-color: device-cmyk(0 0 0 0 / 0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: device-cmyk(0 0 0 0 / 25%);">Box</div>
+    </div>
+    <div class="label">outline-color: device-cmyk(0 0 0 0 / 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: device-cmyk(0 0 0 0 / 1);">Box</div>
+    </div>
+    <div class="label">outline-color: device-cmyk(0 0 0 0 / 1)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: device-cmyk(0 0 0 0 / 2);">Box</div>
+    </div>
+    <div class="label">outline-color: device-cmyk(0 0 0 0 / 2)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: device-cmyk(0 0 0 0 / 50%);">Box</div>
+    </div>
+    <div class="label">outline-color: device-cmyk(0 0 0 0 / 50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: light-dark(linear-gradient(red, blue), none);">Box</div>
+    </div>
+    <div class="label">outline-color: light-dark(linear-gradient(red, blue), none)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: var(--my-var, 0);">Box</div>
+    </div>
+    <div class="label">outline-color: var(--my-var, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 130px; height: 90px; background: #0f3460; border-radius: 8px; margin: 16px auto 0; outline-style: solid; outline-width: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #c0c0d0; outline-color: var(--my-var, 0e0);">Box</div>
+    </div>
+    <div class="label">outline-color: var(--my-var, 0e0)</div>
+  </div>
+</div>
 </body>
 </html>

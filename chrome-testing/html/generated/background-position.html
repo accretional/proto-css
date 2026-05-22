@@ -1,56 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>background-position</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-item { display: flex; flex-direction: column; align-items: center; }
-    .box {
-      width: 200px;
-      height: 150px;
-      border-radius: 8px;
-      border: 2px solid rgba(255,255,255,0.15);
-      background-color: #2d2d4e;
-      background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%);
-      background-repeat: no-repeat;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; }
-    .b1 { background-position: start end, left center; }
-    .b2 { background-position: center top ! important; }
-    .b3 { background-position: left bottom var(--乖), left top var(--__, #dAE) ! important; }
-    .b4 { background-position: y-end right ! important; }
-    .b5 { background-position: left bottom anchor-size(inline,), right y-start; }
-  </style>
+<meta charset="UTF-8">
+<title>background-position</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Background Position</h1>
-  <p class="prop-name">background-position</p>
-  <div class="demos">
-    <div class="demo-item">
-      <div class="box b1"></div>
-      <div class="label">background-position: start end, left center</div>
+<h1>Background Position</h1>
+<p class="prop-name">background-position</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left;"></div>
     </div>
-    <div class="demo-item">
-      <div class="box b2"></div>
-      <div class="label">background-position: center top ! important</div>
-    </div>
-    <div class="demo-item">
-      <div class="box b3"></div>
-      <div class="label">background-position: left bottom var(--乖), left top var(--__, #dAE) ! important</div>
-    </div>
-    <div class="demo-item">
-      <div class="box b4"></div>
-      <div class="label">background-position: y-end right ! important</div>
-    </div>
-    <div class="demo-item">
-      <div class="box b5"></div>
-      <div class="label">background-position: left bottom anchor-size(inline,), right y-start</div>
-    </div>
+    <div class="label">background-position: left</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, left;"></div>
+    </div>
+    <div class="label">background-position: left, left</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, center;"></div>
+    </div>
+    <div class="label">background-position: left, center</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, right;"></div>
+    </div>
+    <div class="label">background-position: left, right</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, top;"></div>
+    </div>
+    <div class="label">background-position: left, top</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, bottom;"></div>
+    </div>
+    <div class="label">background-position: left, bottom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, x-start;"></div>
+    </div>
+    <div class="label">background-position: left, x-start</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, left top;"></div>
+    </div>
+    <div class="label">background-position: left, left top</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, left center;"></div>
+    </div>
+    <div class="label">background-position: left, left center</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, top left;"></div>
+    </div>
+    <div class="label">background-position: left, top left</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, top center;"></div>
+    </div>
+    <div class="label">background-position: left, top center</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, left 0 top 0;"></div>
+    </div>
+    <div class="label">background-position: left, left 0 top 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, left 0 top 10px;"></div>
+    </div>
+    <div class="label">background-position: left, left 0 top 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, block-start 0 inline-start 0;"></div>
+    </div>
+    <div class="label">background-position: left, block-start 0 inline-start 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, block-start 0 inline-start 10px;"></div>
+    </div>
+    <div class="label">background-position: left, block-start 0 inline-start 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, start 0 start 0;"></div>
+    </div>
+    <div class="label">background-position: left, start 0 start 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, start 0 start 10px;"></div>
+    </div>
+    <div class="label">background-position: left, start 0 start 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, left top 0;"></div>
+    </div>
+    <div class="label">background-position: left, left top 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, left top 10px;"></div>
+    </div>
+    <div class="label">background-position: left, left top 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, left top 25%;"></div>
+    </div>
+    <div class="label">background-position: left, left top 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, left top 50%;"></div>
+    </div>
+    <div class="label">background-position: left, left top 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, left top 100%;"></div>
+    </div>
+    <div class="label">background-position: left, left top 100%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, left bottom 0;"></div>
+    </div>
+    <div class="label">background-position: left, left bottom 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, left bottom 10px;"></div>
+    </div>
+    <div class="label">background-position: left, left bottom 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, left bottom 25%;"></div>
+    </div>
+    <div class="label">background-position: left, left bottom 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, left bottom 50%;"></div>
+    </div>
+    <div class="label">background-position: left, left bottom 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, left 0 top;"></div>
+    </div>
+    <div class="label">background-position: left, left 0 top</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, left 0 center;"></div>
+    </div>
+    <div class="label">background-position: left, left 0 center</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, left 0 bottom;"></div>
+    </div>
+    <div class="label">background-position: left, left 0 bottom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, left 10px top;"></div>
+    </div>
+    <div class="label">background-position: left, left 10px top</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, left 10px center;"></div>
+    </div>
+    <div class="label">background-position: left, left 10px center</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, left 10px bottom;"></div>
+    </div>
+    <div class="label">background-position: left, left 10px bottom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, left 25% top;"></div>
+    </div>
+    <div class="label">background-position: left, left 25% top</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: radial-gradient(circle 24px, #ff6b6b 0%, #ff6b6b 50%, transparent 51%); background-repeat: no-repeat; background-position: left, left 25% center;"></div>
+    </div>
+    <div class="label">background-position: left, left 25% center</div>
+  </div>
+</div>
 </body>
 </html>

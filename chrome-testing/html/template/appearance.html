@@ -8,67 +8,40 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; gap: 28px; flex-wrap: wrap; }
-    .demo-box { background: #16213e; border-radius: 12px; padding: 28px; flex: 1; min-width: 280px; }
-    .demo-title { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 20px; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; }
-    .control-group { margin-bottom: 20px; }
-    .control-label { font-size: 12px; color: #7b8794; margin-bottom: 6px; }
+    .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+    .demo-box { background: #16213e; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; align-items: center; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; word-break: break-all; }
+    .container { background: #0f3460; border-radius: 8px; padding: 10px; min-height: 60px; width: 100%; display: flex; align-items: center; justify-content: center; }
 
-    .appear-none { appearance: none; -webkit-appearance: none; }
-    .appear-auto { appearance: auto; -webkit-appearance: auto; }
-
-    .demo-btn {
-      padding: 10px 24px;
-      font-size: 14px;
+    .demo-elem {
+      padding: 8px 12px;
+      font-size: 13px;
       border: 2px solid #e94560;
       background: #e94560;
       color: #fff;
       cursor: pointer;
-      margin-bottom: 4px;
-      display: block;
       width: 100%;
+      font-family: system-ui, sans-serif;
     }
-    .demo-input {
-      padding: 10px 14px;
-      font-size: 14px;
-      border: 2px solid #533bdb;
+    select.demo-elem {
+      border-color: #0ea5e9;
       background: #0f3460;
-      color: #fff;
-      width: 100%;
-      margin-bottom: 4px;
-      display: block;
     }
-    .demo-select {
-      padding: 10px 14px;
-      font-size: 14px;
-      border: 2px solid #0ea5e9;
+    input[type="checkbox"].demo-elem,
+    input[type="radio"].demo-elem {
+      width: 22px;
+      height: 22px;
+      padding: 0;
+    }
+    input[type="text"].demo-elem {
+      border-color: #533bdb;
       background: #0f3460;
-      color: #fff;
-      width: 100%;
-      margin-bottom: 4px;
-      display: block;
     }
-    .demo-checkbox {
-      width: 24px;
-      height: 24px;
-      border: 2px solid #10b981;
-      margin-bottom: 4px;
+    meter.demo-elem, progress.demo-elem {
+      border: none;
+      background: #0f3460;
+      height: 20px;
     }
-    .demo-range {
-      width: 100%;
-      height: 24px;
-      margin-bottom: 4px;
-    }
-
-    .none-btn { appearance: none; -webkit-appearance: none; border-radius: 0; }
-    .none-input { appearance: none; -webkit-appearance: none; border-radius: 0; }
-    .none-select { appearance: none; -webkit-appearance: none; border-radius: 0; }
-    .none-checkbox { appearance: none; -webkit-appearance: none; background: #0f3460; border: 2px solid #10b981; border-radius: 0; }
-    .none-range { appearance: none; -webkit-appearance: none; background: #0f3460; border: 2px solid #f59205; border-radius: 0; height: 8px; }
-
-    .auto-checkbox { appearance: auto; -webkit-appearance: auto; }
-    .auto-range { appearance: auto; -webkit-appearance: auto; }
   </style>
 </head>
 <body>
@@ -76,69 +49,117 @@
   <p class="prop-name">appearance</p>
   <div class="demos">
     <div class="demo-box">
-      <div class="demo-title">appearance: none</div>
-      <div class="control-group">
-        <div class="control-label">Button</div>
-        <button class="demo-btn none-btn">Submit</button>
-        <p class="label">appearance: none</p>
+      <div class="container">
+        <button class="demo-elem" style="appearance: none; -webkit-appearance: none; border-radius: 0;">Button</button>
       </div>
-      <div class="control-group">
-        <div class="control-label">Text Input</div>
-        <input class="demo-input none-input" type="text" value="Type here..." />
-        <p class="label">appearance: none</p>
-      </div>
-      <div class="control-group">
-        <div class="control-label">Select</div>
-        <select class="demo-select none-select">
-          <option>Choose option</option>
-        </select>
-        <p class="label">appearance: none</p>
-      </div>
-      <div class="control-group" style="display:flex;gap:20px;">
-        <div>
-          <div class="control-label">Checkbox</div>
-          <input type="checkbox" class="demo-checkbox none-checkbox" checked />
-          <p class="label">none</p>
-        </div>
-        <div style="flex:1;">
-          <div class="control-label">Range</div>
-          <input type="range" class="demo-range none-range" value="50" />
-          <p class="label">none</p>
-        </div>
-      </div>
+      <p class="label">appearance: none</p>
     </div>
 
     <div class="demo-box">
-      <div class="demo-title">appearance: auto</div>
-      <div class="control-group">
-        <div class="control-label">Button</div>
-        <button class="demo-btn" style="appearance:auto;-webkit-appearance:auto;">Submit</button>
-        <p class="label">appearance: auto</p>
+      <div class="container">
+        <button class="demo-elem" style="appearance: auto; -webkit-appearance: auto;">Button</button>
       </div>
-      <div class="control-group">
-        <div class="control-label">Text Input</div>
-        <input class="demo-input" type="text" value="Type here..." style="appearance:auto;-webkit-appearance:auto;" />
-        <p class="label">appearance: auto</p>
+      <p class="label">appearance: auto</p>
+    </div>
+
+    <div class="demo-box">
+      <div class="container">
+        <button class="demo-elem" style="appearance: base; -webkit-appearance: base;">Button</button>
       </div>
-      <div class="control-group">
-        <div class="control-label">Select</div>
-        <select class="demo-select" style="appearance:auto;-webkit-appearance:auto;">
-          <option>Choose option</option>
+      <p class="label">appearance: base</p>
+    </div>
+
+    <div class="demo-box">
+      <div class="container">
+        <select class="demo-elem" style="appearance: base-select; -webkit-appearance: base-select;">
+          <option>Option</option>
         </select>
-        <p class="label">appearance: auto</p>
       </div>
-      <div class="control-group" style="display:flex;gap:20px;">
-        <div>
-          <div class="control-label">Checkbox</div>
-          <input type="checkbox" class="demo-checkbox auto-checkbox" checked />
-          <p class="label">auto</p>
-        </div>
-        <div style="flex:1;">
-          <div class="control-label">Range</div>
-          <input type="range" class="demo-range auto-range" value="50" />
-          <p class="label">auto</p>
-        </div>
+      <p class="label">appearance: base-select</p>
+    </div>
+
+    <div class="demo-box">
+      <div class="container">
+        <input type="search" class="demo-elem" style="appearance: searchfield; -webkit-appearance: searchfield; border-color: #533bdb; background: #0f3460;" value="Search" />
       </div>
+      <p class="label">appearance: searchfield</p>
+    </div>
+
+    <div class="demo-box">
+      <div class="container">
+        <textarea class="demo-elem" style="appearance: textarea; -webkit-appearance: textarea; border-color: #533bdb; background: #0f3460; resize: none; height: 40px;">Text</textarea>
+      </div>
+      <p class="label">appearance: textarea</p>
+    </div>
+
+    <div class="demo-box">
+      <div class="container">
+        <input type="checkbox" checked style="appearance: checkbox; -webkit-appearance: checkbox; width: 22px; height: 22px;" />
+      </div>
+      <p class="label">appearance: checkbox</p>
+    </div>
+
+    <div class="demo-box">
+      <div class="container">
+        <input type="radio" checked style="appearance: radio; -webkit-appearance: radio; width: 22px; height: 22px;" />
+      </div>
+      <p class="label">appearance: radio</p>
+    </div>
+
+    <div class="demo-box">
+      <div class="container">
+        <select class="demo-elem" style="appearance: menulist; -webkit-appearance: menulist;">
+          <option>Menu</option>
+        </select>
+      </div>
+      <p class="label">appearance: menulist</p>
+    </div>
+
+    <div class="demo-box">
+      <div class="container">
+        <select class="demo-elem" style="appearance: listbox; -webkit-appearance: listbox; height: 40px;" size="2">
+          <option>Item 1</option>
+          <option>Item 2</option>
+        </select>
+      </div>
+      <p class="label">appearance: listbox</p>
+    </div>
+
+    <div class="demo-box">
+      <div class="container">
+        <meter style="appearance: meter; -webkit-appearance: meter; width: 100%; height: 20px;" value="0.6"></meter>
+      </div>
+      <p class="label">appearance: meter</p>
+    </div>
+
+    <div class="demo-box">
+      <div class="container">
+        <progress style="appearance: progress-bar; -webkit-appearance: progress-bar; width: 100%; height: 20px;" value="0.7"></progress>
+      </div>
+      <p class="label">appearance: progress-bar</p>
+    </div>
+
+    <div class="demo-box">
+      <div class="container">
+        <button class="demo-elem" style="appearance: button; -webkit-appearance: button;">Click</button>
+      </div>
+      <p class="label">appearance: button</p>
+    </div>
+
+    <div class="demo-box">
+      <div class="container">
+        <input type="text" class="demo-elem" style="appearance: textfield; -webkit-appearance: textfield; border-color: #533bdb; background: #0f3460;" value="Text" />
+      </div>
+      <p class="label">appearance: textfield</p>
+    </div>
+
+    <div class="demo-box">
+      <div class="container">
+        <select class="demo-elem" style="appearance: menulist-button; -webkit-appearance: menulist-button;">
+          <option>Menu</option>
+        </select>
+      </div>
+      <p class="label">appearance: menulist-button</p>
     </div>
   </div>
 </body>

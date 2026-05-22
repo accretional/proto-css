@@ -1,57 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>column-fill</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; gap: 28px; }
-    .demo-card {
-      flex: 1;
-      background: #16213e;
-      border-radius: 10px;
-      padding: 20px 24px;
-      border: 1px solid #2a2a4a;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 10px; }
-    .desc { font-size: 11px; color: #6b7a8d; margin-bottom: 14px; font-style: italic; }
-    .col-container {
-      height: 260px;
-      column-count: 3;
-      column-rule: 1px solid #3a3a5a;
-      font-size: 12px;
-      line-height: 1.6;
-      color: #c0c8d4;
-      background: #0f1a30;
-      border-radius: 6px;
-      padding: 14px;
-      overflow: hidden;
-    }
-    .col-container.balance { column-fill: balance-all; }
-    .col-container.auto-fill { column-fill: balance-all ! important; }
-  </style>
+<meta charset="UTF-8">
+<title>column-fill</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Column Fill</h1>
-  <p class="prop-name">column-fill</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="label">column-fill: balance-all</div>
-      <div class="desc">Content is evenly distributed across all columns</div>
-      <div class="col-container balance">
-        The column-fill property controls how content is distributed across columns. With balance, the browser tries to equalize the height of content in each column. This creates a visually balanced layout where no single column is significantly taller. Notice how the text is spread evenly across all three columns in this example, creating a harmonious appearance.
-      </div>
+<h1>Column Fill</h1>
+<p class="prop-name">column-fill</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="height: 260px; column-count: 3; column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; background: #0f1a30; border-radius: 6px; padding: 14px; overflow: hidden; column-fill: auto;">The column-fill property controls how content is distributed across columns. The browser decides whether to equalize the height of content in each column or to fill them sequentially. This creates different visual layouts depending on the chosen value. Notice how the text is spread across the columns in this example.</div>
     </div>
-    <div class="demo-card">
-      <div class="label">column-fill: balance-all ! important</div>
-      <div class="desc">Content fills columns sequentially, one at a time</div>
-      <div class="col-container auto-fill">
-        With column-fill set to auto, content fills each column sequentially. The first column is filled completely before content flows to the next. This means columns may have uneven heights. The last column may be shorter or even empty if there is not enough content. Notice how this text fills the first column fully before moving to the next, creating a sequential flow pattern.
-      </div>
-    </div>
+    <div class="label">column-fill: auto</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="height: 260px; column-count: 3; column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; background: #0f1a30; border-radius: 6px; padding: 14px; overflow: hidden; column-fill: balance;">The column-fill property controls how content is distributed across columns. The browser decides whether to equalize the height of content in each column or to fill them sequentially. This creates different visual layouts depending on the chosen value. Notice how the text is spread across the columns in this example.</div>
+    </div>
+    <div class="label">column-fill: balance</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="height: 260px; column-count: 3; column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; background: #0f1a30; border-radius: 6px; padding: 14px; overflow: hidden; column-fill: balance-all;">The column-fill property controls how content is distributed across columns. The browser decides whether to equalize the height of content in each column or to fill them sequentially. This creates different visual layouts depending on the chosen value. Notice how the text is spread across the columns in this example.</div>
+    </div>
+    <div class="label">column-fill: balance-all</div>
+  </div>
+</div>
 </body>
 </html>

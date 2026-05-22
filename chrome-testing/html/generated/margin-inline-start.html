@@ -1,54 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>margin-inline-start</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 18px; }
-    .demo-card { background: #16213e; border-radius: 12px; padding: 16px; width: 370px; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
-    .outer { background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0; }
-    .target { background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; }
-  </style>
+<meta charset="UTF-8">
+<title>margin-inline-start</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Margin Inline Start</h1>
-  <p class="prop-name">margin-inline-start</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="outer">
-        <div class="target" style="margin-inline-start: auto;">Target</div>
-      </div>
-      <div class="label">margin-inline-start: auto</div>
+<h1>Margin Inline Start</h1>
+<p class="prop-name">margin-inline-start</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: 0;">Target</div>
     </div>
-    <div class="demo-card">
-      <div class="outer">
-        <div class="target" style="margin-inline-start: anchor-size(--w, abs(var(--__, -1%) /)) ! important;">Target</div>
-      </div>
-      <div class="label">margin-inline-start: anchor-size(--w, abs(var(--__, -1%) /)) ! important</div>
-    </div>
-    <div class="demo-card">
-      <div class="outer">
-        <div class="target" style="margin-inline-start: anchor(--_ꆉ end,) ! important;">Target</div>
-      </div>
-      <div class="label">margin-inline-start: anchor(--_ꆉ end,) ! important</div>
-    </div>
-    <div class="demo-card">
-      <div class="outer">
-        <div class="target" style="margin-inline-start: 0;">Target</div>
-      </div>
-      <div class="label">margin-inline-start: 0</div>
-    </div>
-    <div class="demo-card">
-      <div class="outer">
-        <div class="target" style="margin-inline-start: env(_-, +98.5dppx);">Target</div>
-      </div>
-      <div class="label">margin-inline-start: env(_-, +98.5dppx)</div>
-    </div>
+    <div class="label">margin-inline-start: 0</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: 10px;">Target</div>
+    </div>
+    <div class="label">margin-inline-start: 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: 25%;">Target</div>
+    </div>
+    <div class="label">margin-inline-start: 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: 50%;">Target</div>
+    </div>
+    <div class="label">margin-inline-start: 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: 100%;">Target</div>
+    </div>
+    <div class="label">margin-inline-start: 100%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: auto;">Target</div>
+    </div>
+    <div class="label">margin-inline-start: auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(, 0);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(, 10px);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(, 10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(, 25%);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(, 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(, 50%);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(, 50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(, 100%);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(, 100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(width);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(width)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(width, 0);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(width, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(width, 10px);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(width, 10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(width, 25%);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(width, 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(width, 50%);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(width, 50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(width, 100%);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(width, 100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(height);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(height)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(height, 0);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(height, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(height, 10px);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(height, 10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(height, 25%);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(height, 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(height, 50%);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(height, 50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(height, 100%);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(height, 100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(block);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(block)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(block, 0);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(block, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(block, 10px);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(block, 10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(block, 25%);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(block, 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(block, 50%);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(block, 50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(block, 100%);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(block, 100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(inline);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(inline)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(inline, 0);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(inline, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(inline, 10px);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(inline, 10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(inline, 25%);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(inline, 25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(inline, 50%);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(inline, 50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; overflow: hidden; padding: 8px 0;">
+      <div style="background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; margin-inline-start: anchor-size(inline, 100%);">Target</div>
+    </div>
+    <div class="label">margin-inline-start: anchor-size(inline, 100%)</div>
+  </div>
+</div>
 </body>
 </html>

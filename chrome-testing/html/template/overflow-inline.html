@@ -9,11 +9,11 @@
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 8px; }
     .description { font-size: 12px; color: #7b8794; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-box { background: #16213e; border-radius: 10px; padding: 20px; width: 280px; }
+    .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+    .demo-box { background: #16213e; border-radius: 10px; padding: 20px; }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 10px; }
     .container {
-      width: 240px; height: 80px; background: #0f3460; border-radius: 6px;
+      width: 100%; height: 80px; background: #0f3460; border-radius: 6px;
       border: 2px solid #3a3a5c; padding: 12px;
       white-space: nowrap;
     }
@@ -23,8 +23,9 @@
     .wide-text { color: #e94560; font-weight: bold; }
     .d1 .container { overflow-inline: visible; }
     .d2 .container { overflow-inline: hidden; }
-    .d3 .container { overflow-inline: scroll; }
-    .d4 .container { overflow-inline: auto; }
+    .d3 .container { overflow-inline: clip; }
+    .d4 .container { overflow-inline: scroll; }
+    .d5 .container { overflow-inline: auto; }
     .direction-indicator {
       display: flex; align-items: center; gap: 6px; margin-top: 8px;
       font-size: 10px; color: #5a5a7a;
@@ -56,6 +57,15 @@
       <div class="direction-indicator"><span class="arrow-right">&#8594;</span> Inline overflow hidden</div>
     </div>
     <div class="demo-box d3">
+      <div class="label">overflow-inline: clip</div>
+      <div class="container">
+        <div class="content">
+          Short text then <span class="wide-text">a very long unbroken string that extends well beyond the container edge and is clipped</span>
+        </div>
+      </div>
+      <div class="direction-indicator"><span class="arrow-right">&#8594;</span> Inline overflow clip</div>
+    </div>
+    <div class="demo-box d4">
       <div class="label">overflow-inline: scroll</div>
       <div class="container">
         <div class="content">
@@ -64,7 +74,7 @@
       </div>
       <div class="direction-indicator"><span class="arrow-right">&#8594;</span> Inline overflow scrollable</div>
     </div>
-    <div class="demo-box d4">
+    <div class="demo-box d5">
       <div class="label">overflow-inline: auto</div>
       <div class="container">
         <div class="content">

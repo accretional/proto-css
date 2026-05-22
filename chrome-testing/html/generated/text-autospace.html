@@ -1,41 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>text-autospace</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-card { background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px; }
-    .sample-text { font-size: 22px; line-height: 1.6; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; }
-  </style>
+<meta charset="UTF-8">
+<title>text-autospace</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Text Autospace</h1>
-  <p class="prop-name">text-autospace</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="sample-text" style="text-autospace: auto;">
-        CSS是Cascading Style Sheets的縮寫，用於Web開發
-      </div>
-      <p class="label">text-autospace: auto</p>
+<h1>Text Autospace</h1>
+<p class="prop-name">text-autospace</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
+      <div style="font-size: 22px; line-height: 1.6; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: normal;">CSS是Cascading Style Sheets的縮寫，用於Web開發</div>
     </div>
-    <div class="demo-card">
-      <div class="sample-text" style="text-autospace: auto ! important;">
-        CSS是Cascading Style Sheets的縮寫，用於Web開發
-      </div>
-      <p class="label">text-autospace: auto ! important</p>
-    </div>
-    <div class="demo-card">
-      <div class="sample-text" style="text-autospace: normal ! important;">
-        CSS是Cascading Style Sheets的縮寫，用於Web開發
-      </div>
-      <p class="label">text-autospace: normal ! important</p>
-    </div>
+    <div class="label">text-autospace: normal</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
+      <div style="font-size: 22px; line-height: 1.6; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: no-autospace;">CSS是Cascading Style Sheets的縮寫，用於Web開發</div>
+    </div>
+    <div class="label">text-autospace: no-autospace</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
+      <div style="font-size: 22px; line-height: 1.6; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: insert;">CSS是Cascading Style Sheets的縮寫，用於Web開發</div>
+    </div>
+    <div class="label">text-autospace: insert</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
+      <div style="font-size: 22px; line-height: 1.6; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: replace;">CSS是Cascading Style Sheets的縮寫，用於Web開發</div>
+    </div>
+    <div class="label">text-autospace: replace</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
+      <div style="font-size: 22px; line-height: 1.6; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: punctuation;">CSS是Cascading Style Sheets的縮寫，用於Web開發</div>
+    </div>
+    <div class="label">text-autospace: punctuation</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
+      <div style="font-size: 22px; line-height: 1.6; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: punctuation insert;">CSS是Cascading Style Sheets的縮寫，用於Web開發</div>
+    </div>
+    <div class="label">text-autospace: punctuation insert</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
+      <div style="font-size: 22px; line-height: 1.6; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: punctuation replace;">CSS是Cascading Style Sheets的縮寫，用於Web開發</div>
+    </div>
+    <div class="label">text-autospace: punctuation replace</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
+      <div style="font-size: 22px; line-height: 1.6; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-numeric;">CSS是Cascading Style Sheets的縮寫，用於Web開發</div>
+    </div>
+    <div class="label">text-autospace: ideograph-numeric</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
+      <div style="font-size: 22px; line-height: 1.6; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-numeric insert;">CSS是Cascading Style Sheets的縮寫，用於Web開發</div>
+    </div>
+    <div class="label">text-autospace: ideograph-numeric insert</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
+      <div style="font-size: 22px; line-height: 1.6; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-numeric replace;">CSS是Cascading Style Sheets的縮寫，用於Web開發</div>
+    </div>
+    <div class="label">text-autospace: ideograph-numeric replace</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
+      <div style="font-size: 22px; line-height: 1.6; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-numeric punctuation;">CSS是Cascading Style Sheets的縮寫，用於Web開發</div>
+    </div>
+    <div class="label">text-autospace: ideograph-numeric punctuation</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
+      <div style="font-size: 22px; line-height: 1.6; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-numeric punctuation insert;">CSS是Cascading Style Sheets的縮寫，用於Web開發</div>
+    </div>
+    <div class="label">text-autospace: ideograph-numeric punctuation insert</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
+      <div style="font-size: 22px; line-height: 1.6; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-numeric punctuation replace;">CSS是Cascading Style Sheets的縮寫，用於Web開發</div>
+    </div>
+    <div class="label">text-autospace: ideograph-numeric punctuation replace</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
+      <div style="font-size: 22px; line-height: 1.6; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-alpha;">CSS是Cascading Style Sheets的縮寫，用於Web開發</div>
+    </div>
+    <div class="label">text-autospace: ideograph-alpha</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
+      <div style="font-size: 22px; line-height: 1.6; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-alpha insert;">CSS是Cascading Style Sheets的縮寫，用於Web開發</div>
+    </div>
+    <div class="label">text-autospace: ideograph-alpha insert</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
+      <div style="font-size: 22px; line-height: 1.6; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-alpha replace;">CSS是Cascading Style Sheets的縮寫，用於Web開發</div>
+    </div>
+    <div class="label">text-autospace: ideograph-alpha replace</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
+      <div style="font-size: 22px; line-height: 1.6; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-alpha punctuation;">CSS是Cascading Style Sheets的縮寫，用於Web開發</div>
+    </div>
+    <div class="label">text-autospace: ideograph-alpha punctuation</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
+      <div style="font-size: 22px; line-height: 1.6; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-alpha punctuation insert;">CSS是Cascading Style Sheets的縮寫，用於Web開發</div>
+    </div>
+    <div class="label">text-autospace: ideograph-alpha punctuation insert</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
+      <div style="font-size: 22px; line-height: 1.6; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-alpha punctuation replace;">CSS是Cascading Style Sheets的縮寫，用於Web開發</div>
+    </div>
+    <div class="label">text-autospace: ideograph-alpha punctuation replace</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
+      <div style="font-size: 22px; line-height: 1.6; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-alpha ideograph-numeric;">CSS是Cascading Style Sheets的縮寫，用於Web開發</div>
+    </div>
+    <div class="label">text-autospace: ideograph-alpha ideograph-numeric</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
+      <div style="font-size: 22px; line-height: 1.6; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-alpha ideograph-numeric insert;">CSS是Cascading Style Sheets的縮寫，用於Web開發</div>
+    </div>
+    <div class="label">text-autospace: ideograph-alpha ideograph-numeric insert</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
+      <div style="font-size: 22px; line-height: 1.6; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-alpha ideograph-numeric replace;">CSS是Cascading Style Sheets的縮寫，用於Web開發</div>
+    </div>
+    <div class="label">text-autospace: ideograph-alpha ideograph-numeric replace</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
+      <div style="font-size: 22px; line-height: 1.6; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-alpha ideograph-numeric punctuation;">CSS是Cascading Style Sheets的縮寫，用於Web開發</div>
+    </div>
+    <div class="label">text-autospace: ideograph-alpha ideograph-numeric punctuation</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
+      <div style="font-size: 22px; line-height: 1.6; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-alpha ideograph-numeric punctuation insert;">CSS是Cascading Style Sheets的縮寫，用於Web開發</div>
+    </div>
+    <div class="label">text-autospace: ideograph-alpha ideograph-numeric punctuation insert</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
+      <div style="font-size: 22px; line-height: 1.6; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-alpha ideograph-numeric punctuation replace;">CSS是Cascading Style Sheets的縮寫，用於Web開發</div>
+    </div>
+    <div class="label">text-autospace: ideograph-alpha ideograph-numeric punctuation replace</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
+      <div style="font-size: 22px; line-height: 1.6; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: auto;">CSS是Cascading Style Sheets的縮寫，用於Web開發</div>
+    </div>
+    <div class="label">text-autospace: auto</div>
+  </div>
+</div>
 </body>
 </html>

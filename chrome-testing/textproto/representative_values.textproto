@@ -1,0 +1,529 @@
+# Representative values for open-ended / recursive CSS grammar types.
+# Each entry short-circuits exhaustive enumeration with hand-picked samples,
+# unless the property being generated is listed in primary_rules (in which
+# case the grammar is expanded fully).
+
+# --- Lengths ---
+
+types {
+  type_name: "LengthType"
+  values: "0"
+  values: "4px"
+  values: "10px"
+  values: "20px"
+  values: "2em"
+  values: "50px"
+}
+
+types {
+  type_name: "NonNegativeLengthType"
+  values: "0"
+  values: "4px"
+  values: "10px"
+  values: "20px"
+  values: "50px"
+}
+
+types {
+  type_name: "LengthPercentageType"
+  values: "0"
+  values: "10px"
+  values: "25%"
+  values: "50%"
+  values: "100%"
+}
+
+types {
+  type_name: "NonNegativeLengthPercentageType"
+  values: "0"
+  values: "10px"
+  values: "25%"
+  values: "50%"
+}
+
+# --- Percentages ---
+
+types {
+  type_name: "PercentageType"
+  values: "0%"
+  values: "25%"
+  values: "50%"
+  values: "75%"
+  values: "100%"
+}
+
+types {
+  type_name: "NonNegativePercentageType"
+  values: "0%"
+  values: "25%"
+  values: "50%"
+  values: "100%"
+}
+
+# --- Numbers ---
+
+types {
+  type_name: "NumberType"
+  values: "0"
+  values: "0.5"
+  values: "1"
+  values: "2"
+  primary_rules: "opacity"
+  primary_rules: "font-size-adjust"
+}
+
+types {
+  type_name: "NonNegativeNumberType"
+  values: "0"
+  values: "0.5"
+  values: "1"
+  values: "2"
+}
+
+types {
+  type_name: "IntegerType"
+  values: "0"
+  values: "1"
+  values: "2"
+  values: "5"
+  primary_rules: "z-index"
+  primary_rules: "order"
+  primary_rules: "orphans"
+  primary_rules: "widows"
+}
+
+types {
+  type_name: "NonNegativeIntegerType"
+  values: "0"
+  values: "1"
+  values: "2"
+  values: "5"
+}
+
+types {
+  type_name: "PositiveIntegerType"
+  values: "1"
+  values: "2"
+  values: "3"
+}
+
+# --- Colors ---
+
+types {
+  type_name: "ColorType"
+  values: "red"
+  values: "#3498db"
+  values: "rgb(0, 128, 0)"
+  values: "transparent"
+  values: "currentcolor"
+  primary_rules: "color"
+  primary_rules: "background-color"
+  primary_rules: "border-color"
+  primary_rules: "border-top-color"
+  primary_rules: "border-right-color"
+  primary_rules: "border-bottom-color"
+  primary_rules: "border-left-color"
+  primary_rules: "border-block-color"
+  primary_rules: "border-block-start-color"
+  primary_rules: "border-block-end-color"
+  primary_rules: "border-inline-color"
+  primary_rules: "border-inline-start-color"
+  primary_rules: "border-inline-end-color"
+  primary_rules: "outline-color"
+  primary_rules: "text-decoration-color"
+  primary_rules: "text-emphasis-color"
+  primary_rules: "accent-color"
+  primary_rules: "caret-color"
+  primary_rules: "column-rule-color"
+  primary_rules: "flood-color"
+  primary_rules: "lighting-color"
+  primary_rules: "stop-color"
+  primary_rules: "fill"
+  primary_rules: "stroke"
+}
+
+types {
+  type_name: "ColorBaseType"
+  values: "red"
+  values: "#3498db"
+  values: "rgb(0, 128, 0)"
+  values: "transparent"
+}
+
+types {
+  type_name: "NamedColorType"
+  values: "red"
+  values: "blue"
+  values: "green"
+  values: "orange"
+  values: "purple"
+  primary_rules: "color"
+}
+
+# --- Time ---
+
+types {
+  type_name: "TimeType"
+  values: "0s"
+  values: "0.3s"
+  values: "1s"
+  values: "2s"
+  primary_rules: "transition-duration"
+  primary_rules: "transition-delay"
+  primary_rules: "animation-duration"
+  primary_rules: "animation-delay"
+}
+
+types {
+  type_name: "NonNegativeTimeType"
+  values: "0s"
+  values: "0.3s"
+  values: "1s"
+  values: "2s"
+}
+
+# --- Angle ---
+
+types {
+  type_name: "AngleType"
+  values: "0deg"
+  values: "45deg"
+  values: "90deg"
+  values: "180deg"
+  values: "360deg"
+  primary_rules: "rotate"
+}
+
+types {
+  type_name: "AnglePercentageType"
+  values: "0deg"
+  values: "45deg"
+  values: "90deg"
+  values: "50%"
+}
+
+# --- Resolution ---
+
+types {
+  type_name: "ResolutionType"
+  values: "1dppx"
+  values: "2dppx"
+  values: "96dpi"
+  values: "300dpi"
+}
+
+# --- Frequency ---
+
+types {
+  type_name: "FrequencyType"
+  values: "300Hz"
+  values: "1kHz"
+}
+
+types {
+  type_name: "FrequencyPercentageType"
+  values: "300Hz"
+  values: "50%"
+}
+
+# --- Images ---
+
+types {
+  type_name: "ImageType"
+  values: "none"
+  values: "linear-gradient(red, blue)"
+  primary_rules: "background-image"
+  primary_rules: "list-style-image"
+  primary_rules: "border-image-source"
+}
+
+types {
+  type_name: "GradientType"
+  values: "linear-gradient(red, blue)"
+  values: "radial-gradient(circle, red, blue)"
+}
+
+# --- URLs ---
+
+types {
+  type_name: "UrlType"
+  values: "url(example.png)"
+}
+
+# --- Strings ---
+
+types {
+  type_name: "string_type"
+  values: "\"example\""
+}
+
+# --- Identifiers ---
+
+types {
+  type_name: "ident_type"
+  values: "my-ident"
+}
+
+types {
+  type_name: "custom_ident_type"
+  values: "my-custom"
+}
+
+types {
+  type_name: "dashed_ident_type"
+  values: "--my-var"
+}
+
+types {
+  type_name: "KeyframesNameType"
+  values: "my-animation"
+}
+
+types {
+  type_name: "AnchorNameType"
+  values: "--my-anchor"
+}
+
+# --- Functions (complex/recursive) ---
+
+types {
+  type_name: "CalcFn"
+  values: "calc(50% - 10px)"
+}
+
+types {
+  type_name: "MathFunctionType"
+  values: "calc(50% + 20px)"
+}
+
+types {
+  type_name: "FilterValueListType"
+  values: "blur(4px)"
+  values: "grayscale(50%)"
+  values: "brightness(1.5)"
+  primary_rules: "filter"
+  primary_rules: "backdrop-filter"
+}
+
+types {
+  type_name: "FilterFunctionType"
+  values: "blur(4px)"
+  values: "grayscale(50%)"
+}
+
+types {
+  type_name: "TransformFunctionType"
+  values: "rotate(45deg)"
+  values: "scale(1.5)"
+  values: "translateX(10px)"
+  primary_rules: "transform"
+}
+
+types {
+  type_name: "TransformListType"
+  values: "rotate(45deg)"
+  values: "scale(2) translateX(10px)"
+}
+
+# --- Easing ---
+
+types {
+  type_name: "EasingFunctionType"
+  values: "ease"
+  values: "linear"
+  values: "ease-in"
+  values: "ease-out"
+  values: "ease-in-out"
+  primary_rules: "transition-timing-function"
+  primary_rules: "animation-timing-function"
+}
+
+types {
+  type_name: "LinearEasingFunctionType"
+  values: "linear"
+}
+
+types {
+  type_name: "CubicBezierEasingFunctionType"
+  values: "ease"
+  values: "ease-in"
+  values: "ease-out"
+  values: "ease-in-out"
+}
+
+types {
+  type_name: "StepEasingFunctionType"
+  values: "step-start"
+  values: "step-end"
+}
+
+# --- Box types ---
+
+types {
+  type_name: "ShapeBoxType"
+  values: "content-box"
+  values: "padding-box"
+  values: "border-box"
+  values: "margin-box"
+}
+
+# --- Position ---
+
+types {
+  type_name: "PositionType"
+  values: "center"
+  values: "top"
+  values: "bottom"
+  values: "left"
+  values: "right"
+  values: "50% 50%"
+  primary_rules: "background-position"
+  primary_rules: "object-position"
+  primary_rules: "perspective-origin"
+  primary_rules: "transform-origin"
+}
+
+# --- Shadow ---
+
+types {
+  type_name: "ShadowType"
+  values: "2px 2px 4px rgba(0,0,0,0.5)"
+  values: "inset 0 0 10px red"
+  primary_rules: "box-shadow"
+  primary_rules: "text-shadow"
+}
+
+# --- Sizing ---
+
+types {
+  type_name: "BgSizeType"
+  values: "auto"
+  values: "cover"
+  values: "contain"
+  values: "50% 50%"
+  primary_rules: "background-size"
+}
+
+# --- Generic family ---
+
+types {
+  type_name: "GenericFamilyType"
+  values: "serif"
+  values: "sans-serif"
+  values: "monospace"
+  values: "cursive"
+  values: "system-ui"
+  primary_rules: "font-family"
+}
+
+# --- Animation sub-types ---
+
+types {
+  type_name: "SingleAnimationType"
+  values: "fadeIn 1s ease"
+  values: "slideIn 0.5s linear forwards"
+}
+
+types {
+  type_name: "SingleAnimationTimelineType"
+  values: "auto"
+  values: "scroll()"
+  values: "view()"
+  primary_rules: "animation-timeline"
+}
+
+# --- Grid types ---
+
+types {
+  type_name: "TrackListType"
+  values: "1fr 1fr"
+  values: "100px 1fr 2fr"
+  values: "repeat(3, 1fr)"
+  primary_rules: "grid-template-columns"
+  primary_rules: "grid-template-rows"
+}
+
+types {
+  type_name: "GridLineType"
+  values: "1"
+  values: "span 2"
+  values: "auto"
+}
+
+# --- Shorthand types ---
+
+types {
+  type_name: "BgLayerType"
+  values: "url(bg.png) center / cover no-repeat"
+}
+
+types {
+  type_name: "FinalBgLayerType"
+  values: "#333 url(bg.png) center / cover no-repeat"
+}
+
+# --- Border ---
+
+types {
+  type_name: "BorderRadiusType"
+  values: "0"
+  values: "4px"
+  values: "10px"
+  values: "50%"
+  primary_rules: "border-radius"
+}
+
+types {
+  type_name: "Image1dType"
+  values: "red"
+  values: "linear-gradient(red, blue)"
+}
+
+# --- Mask ---
+
+types {
+  type_name: "MaskReferenceType"
+  values: "none"
+  values: "url(mask.png)"
+}
+
+types {
+  type_name: "GeometryBoxType"
+  values: "content-box"
+  values: "padding-box"
+  values: "border-box"
+  values: "margin-box"
+  values: "fill-box"
+  values: "stroke-box"
+  values: "view-box"
+}
+
+types {
+  type_name: "CompositingOperatorType"
+  values: "add"
+  values: "subtract"
+  values: "intersect"
+  values: "exclude"
+}
+
+types {
+  type_name: "MaskingModeType"
+  values: "match-source"
+  values: "luminance"
+  values: "alpha"
+}
+
+# --- Misc ---
+
+types {
+  type_name: "ColorInterpolationMethodType"
+  values: "in srgb"
+  values: "in oklch"
+}
+
+types {
+  type_name: "SystemColorType"
+  values: "Canvas"
+  values: "CanvasText"
+  values: "LinkText"
+}

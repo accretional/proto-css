@@ -1,78 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>text-wrap-mode</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; gap: 32px; }
-    .demo-card {
-      background: #16213e; border-radius: 10px; padding: 28px 32px;
-      flex: 1; display: flex; flex-direction: column;
-    }
-    .badge {
-      display: inline-block; background: #e94560; color: #fff; font-size: 12px;
-      padding: 3px 12px; border-radius: 4px; margin-bottom: 16px; font-weight: 600;
-      align-self: flex-start;
-    }
-    .demo-container {
-      background: #0f3460; border-radius: 8px; padding: 20px;
-      width: 300px; min-height: 180px; position: relative;
-      border: 1px dashed #394867;
-    }
-    .demo-text {
-      font-size: 16px; line-height: 1.6; color: #d1d5db;
-    }
-    .width-label {
-      position: absolute; bottom: -20px; left: 0; right: 0;
-      font-size: 10px; color: #6b7280; text-align: center;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 28px; }
-    .note { font-size: 12px; color: #7b8794; margin-top: 8px; line-height: 1.4; }
-    .t1 { text-wrap-mode: wrap ! important; }
-    .t2 { text-wrap-mode: wrap ! important; overflow: hidden; }
-    .indicator {
-      display: flex; align-items: center; gap: 6px; margin-top: 12px;
-    }
-    .dot { width: 8px; height: 8px; border-radius: 50%; }
-    .dot-green { background: #34d399; }
-    .dot-red { background: #ef4444; }
-    .indicator-text { font-size: 11px; color: #9ca3af; }
-  </style>
+<meta charset="UTF-8">
+<title>text-wrap-mode</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Text Wrap Mode</h1>
-  <p class="prop-name">text-wrap-mode</p>
-  <div class="demos">
-    <div class="demo-card">
-      <span class="badge">wrap</span>
-      <div class="demo-container">
-        <div class="demo-text t1">This text will wrap to the next line when it reaches the edge of the container. The browser inserts soft line breaks to keep text within bounds.</div>
-        <span class="width-label">container: 300px</span>
-      </div>
-      <div class="indicator">
-        <span class="dot dot-green"></span>
-        <span class="indicator-text">Text wraps to fit container</span>
-      </div>
-      <span class="label">text-wrap-mode: wrap ! important</span>
-      <span class="note">Default behavior. Text breaks at soft wrap opportunities to stay within the container.</span>
+<h1>Text Wrap Mode</h1>
+<p class="prop-name">text-wrap-mode</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 20px; width: 300px; min-height: 180px; position: relative; border: 1px dashed #394867;">
+      <div style="font-size: 16px; line-height: 1.6; color: #d1d5db; text-wrap-mode: wrap;">This text will wrap to the next line when it reaches the edge of the container. The browser inserts soft line breaks to keep text within bounds.</div>
     </div>
-    <div class="demo-card">
-      <span class="badge">nowrap</span>
-      <div class="demo-container">
-        <div class="demo-text t2">This text will not wrap to the next line when it reaches the edge of the container. It overflows beyond the boundary instead.</div>
-        <span class="width-label">container: 300px</span>
-      </div>
-      <div class="indicator">
-        <span class="dot dot-red"></span>
-        <span class="indicator-text">Text overflows container</span>
-      </div>
-      <span class="label">text-wrap-mode: wrap ! important</span>
-      <span class="note">Prevents wrapping. Text stays on a single line and overflows the container boundary.</span>
-    </div>
+    <div class="label">text-wrap-mode: wrap</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 20px; width: 300px; min-height: 180px; position: relative; border: 1px dashed #394867;">
+      <div style="font-size: 16px; line-height: 1.6; color: #d1d5db; text-wrap-mode: nowrap;">This text will wrap to the next line when it reaches the edge of the container. The browser inserts soft line breaks to keep text within bounds.</div>
+    </div>
+    <div class="label">text-wrap-mode: nowrap</div>
+  </div>
+</div>
 </body>
 </html>

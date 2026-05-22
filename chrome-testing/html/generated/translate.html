@@ -1,107 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>translate</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
-    .demo-card { background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative; }
-    .demo-title { font-size: 13px; font-weight: 600; color: #e0e0e0; margin-bottom: 12px; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; position: absolute; bottom: 14px; left: 20px; right: 20px; }
-    .canvas { position: relative; width: 240px; height: 160px; border: 1px dashed #2a3a5c; border-radius: 6px; overflow: visible; }
-    .ghost { position: absolute; width: 60px; height: 60px; border: 2px dashed #4a5568; border-radius: 8px; top: 50px; left: 20px; }
-    .box { position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; }
-    .arrow-line { position: absolute; }
-    .origin-dot { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: #ffd700; top: 77px; left: 47px; z-index: 2; }
-  </style>
+<meta charset="UTF-8">
+<title>translate</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .canvas { position: relative; width: 240px; height: 160px; border: 1px dashed #2a3a5c; border-radius: 6px; overflow: visible; }
+.ghost { position: absolute; width: 60px; height: 60px; border: 2px dashed #4a5568; border-radius: 8px; top: 50px; left: 20px; }
+.origin-dot { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: #ffd700; top: 77px; left: 47px; z-index: 2; }
+</style>
 </head>
 <body>
-  <h1>Translate</h1>
-  <p class="prop-name">translate</p>
-  <div class="demos">
-
-    <div class="demo-card">
-      <div class="demo-title">none</div>
-      <div class="canvas">
-        <div class="box" style="background: #e94560;">none</div>
-      </div>
-      <div class="label">translate: 20.11e34vmax ! important</div>
+<h1>Translate</h1>
+<p class="prop-name">translate</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: none;">none</div>
     </div>
-
-    <div class="demo-card">
-      <div class="demo-title">50px (X only)</div>
-      <div class="canvas">
-        <div class="ghost"></div>
-        <div class="origin-dot"></div>
-        <svg style="position:absolute;top:0;left:0;width:240px;height:160px;pointer-events:none;">
-          <defs><marker id="ah1" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#ffd700"/></marker></defs>
-          <line x1="50" y1="80" x2="100" y2="80" stroke="#ffd700" stroke-width="1.5" marker-end="url(#ah1)" stroke-dasharray="4"/>
-        </svg>
-        <div class="box" style="background: #f39c12; translate: none ! important;">50px</div>
-      </div>
-      <div class="label">translate: none ! important</div>
-    </div>
-
-    <div class="demo-card">
-      <div class="demo-title">100px (X only)</div>
-      <div class="canvas">
-        <div class="ghost"></div>
-        <div class="origin-dot"></div>
-        <svg style="position:absolute;top:0;left:0;width:240px;height:160px;pointer-events:none;">
-          <defs><marker id="ah2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#ffd700"/></marker></defs>
-          <line x1="50" y1="80" x2="150" y2="80" stroke="#ffd700" stroke-width="1.5" marker-end="url(#ah2)" stroke-dasharray="4"/>
-        </svg>
-        <div class="box" style="background: #16c79a; translate: anchor-size(self-inline,) 20.6% ! important;">100px</div>
-      </div>
-      <div class="label">translate: anchor-size(self-inline,) 20.6% ! important</div>
-    </div>
-
-    <div class="demo-card">
-      <div class="demo-title">100px 50px (X and Y)</div>
-      <div class="canvas">
-        <div class="ghost"></div>
-        <div class="origin-dot"></div>
-        <svg style="position:absolute;top:0;left:0;width:240px;height:160px;pointer-events:none;">
-          <defs><marker id="ah3" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#ffd700"/></marker></defs>
-          <line x1="50" y1="80" x2="148" y2="128" stroke="#ffd700" stroke-width="1.5" marker-end="url(#ah3)" stroke-dasharray="4"/>
-        </svg>
-        <div class="box" style="background: #3498db; translate: anchor-size(self-inline,) 20.6% ! important 50px;">100,50</div>
-      </div>
-      <div class="label">translate: anchor-size(self-inline,) 20.6% ! important 50px</div>
-    </div>
-
-    <div class="demo-card">
-      <div class="demo-title">-30px -20px</div>
-      <div class="canvas">
-        <div class="ghost"></div>
-        <div class="origin-dot"></div>
-        <svg style="position:absolute;top:0;left:0;width:240px;height:160px;pointer-events:none;">
-          <defs><marker id="ah4" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#ffd700"/></marker></defs>
-          <line x1="50" y1="80" x2="22" y2="62" stroke="#ffd700" stroke-width="1.5" marker-end="url(#ah4)" stroke-dasharray="4"/>
-        </svg>
-        <div class="box" style="background: #9b59b6; translate: none;">-30,-20</div>
-      </div>
-      <div class="label">translate: none</div>
-    </div>
-
-    <div class="demo-card">
-      <div class="demo-title">50% 0 (percentage)</div>
-      <div class="canvas">
-        <div class="ghost"></div>
-        <div class="origin-dot"></div>
-        <svg style="position:absolute;top:0;left:0;width:240px;height:160px;pointer-events:none;">
-          <defs><marker id="ah5" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#ffd700"/></marker></defs>
-          <line x1="50" y1="80" x2="80" y2="80" stroke="#ffd700" stroke-width="1.5" marker-end="url(#ah5)" stroke-dasharray="4"/>
-        </svg>
-        <div class="box" style="background: #e17055; translate: calc-size(any, NaN / env(脭)) calc-size(any, anchor(left,) * pow(,) - env(傶 -96, -8kHz)) ! important;">50%</div>
-      </div>
-      <div class="label">translate: calc-size(any, NaN / env(脭)) calc-size(any, anchor(left,) * pow(,) - env(傶 -96, -8kHz)) ! important</div>
-    </div>
-
+    <div class="label">translate: none</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0;">none</div>
+    </div>
+    <div class="label">translate: 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 0;">none</div>
+    </div>
+    <div class="label">translate: 0 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 0 0;">none</div>
+    </div>
+    <div class="label">translate: 0 0 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 0 4px;">none</div>
+    </div>
+    <div class="label">translate: 0 0 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 0 10px;">none</div>
+    </div>
+    <div class="label">translate: 0 0 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 0 20px;">none</div>
+    </div>
+    <div class="label">translate: 0 0 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 0 2em;">none</div>
+    </div>
+    <div class="label">translate: 0 0 2em</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 0 50px;">none</div>
+    </div>
+    <div class="label">translate: 0 0 50px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 10px;">none</div>
+    </div>
+    <div class="label">translate: 0 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 10px 0;">none</div>
+    </div>
+    <div class="label">translate: 0 10px 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 10px 4px;">none</div>
+    </div>
+    <div class="label">translate: 0 10px 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 10px 10px;">none</div>
+    </div>
+    <div class="label">translate: 0 10px 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 10px 20px;">none</div>
+    </div>
+    <div class="label">translate: 0 10px 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 10px 2em;">none</div>
+    </div>
+    <div class="label">translate: 0 10px 2em</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 10px 50px;">none</div>
+    </div>
+    <div class="label">translate: 0 10px 50px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 25%;">none</div>
+    </div>
+    <div class="label">translate: 0 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 25% 0;">none</div>
+    </div>
+    <div class="label">translate: 0 25% 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 25% 4px;">none</div>
+    </div>
+    <div class="label">translate: 0 25% 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 25% 10px;">none</div>
+    </div>
+    <div class="label">translate: 0 25% 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 25% 20px;">none</div>
+    </div>
+    <div class="label">translate: 0 25% 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 25% 2em;">none</div>
+    </div>
+    <div class="label">translate: 0 25% 2em</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 25% 50px;">none</div>
+    </div>
+    <div class="label">translate: 0 25% 50px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 50%;">none</div>
+    </div>
+    <div class="label">translate: 0 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 50% 0;">none</div>
+    </div>
+    <div class="label">translate: 0 50% 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 50% 4px;">none</div>
+    </div>
+    <div class="label">translate: 0 50% 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 50% 10px;">none</div>
+    </div>
+    <div class="label">translate: 0 50% 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 50% 20px;">none</div>
+    </div>
+    <div class="label">translate: 0 50% 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 50% 2em;">none</div>
+    </div>
+    <div class="label">translate: 0 50% 2em</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 50% 50px;">none</div>
+    </div>
+    <div class="label">translate: 0 50% 50px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 100%;">none</div>
+    </div>
+    <div class="label">translate: 0 100%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 100% 0;">none</div>
+    </div>
+    <div class="label">translate: 0 100% 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 100% 4px;">none</div>
+    </div>
+    <div class="label">translate: 0 100% 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 100% 10px;">none</div>
+    </div>
+    <div class="label">translate: 0 100% 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 100% 20px;">none</div>
+    </div>
+    <div class="label">translate: 0 100% 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px; height: 260px; position: relative;">
+      <div style="position: absolute; width: 60px; height: 60px; border-radius: 8px; top: 50px; left: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; background: #e94560; translate: 0 100% 2em;">none</div>
+    </div>
+    <div class="label">translate: 0 100% 2em</div>
+  </div>
+</div>
 </body>
 </html>

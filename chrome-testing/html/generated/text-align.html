@@ -1,60 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>text-align</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .demo { background: #16213e; border-radius: 10px; padding: 20px; border: 1px solid #2a2a4e; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 12px; }
-    .text-block {
-      font-size: 14px;
-      line-height: 1.6;
-      color: #d1d5db;
-      background: #1a1a2e;
-      padding: 14px;
-      border-radius: 6px;
-    }
-    .t-left { text-align: justify ! important-all; }
-    .t-center { text-align: left ! important; }
-    .t-right { text-align: "" ! important; }
-    .t-justify { text-align: justify ! important; }
-    .t-start { text-align: match-parent ! important; }
-    .t-end { text-align: center; }
-  </style>
+<meta charset="UTF-8">
+<title>text-align</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Text Align</h1>
-  <p class="prop-name">text-align</p>
-  <div class="demos">
-    <div class="demo">
-      <div class="label">text-align: justify ! important-all</div>
-      <div class="text-block t-left">The quick brown fox jumps over the lazy dog. This sentence demonstrates left text alignment in CSS.</div>
+<h1>Text Align</h1>
+<p class="prop-name">text-align</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; border: 1px solid #2a2a4e;">
+      <div style="font-size: 14px; line-height: 1.6; color: #d1d5db; background: #1a1a2e; padding: 14px; border-radius: 6px; text-align: start;">The quick brown fox jumps over the lazy dog. This sentence demonstrates text alignment in CSS.</div>
     </div>
-    <div class="demo">
-      <div class="label">text-align: left ! important</div>
-      <div class="text-block t-center">The quick brown fox jumps over the lazy dog. This sentence demonstrates center text alignment in CSS.</div>
-    </div>
-    <div class="demo">
-      <div class="label">text-align: "" ! important</div>
-      <div class="text-block t-right">The quick brown fox jumps over the lazy dog. This sentence demonstrates right text alignment in CSS.</div>
-    </div>
-    <div class="demo">
-      <div class="label">text-align: justify ! important</div>
-      <div class="text-block t-justify">The quick brown fox jumps over the lazy dog. This sentence demonstrates justified text alignment in CSS.</div>
-    </div>
-    <div class="demo">
-      <div class="label">text-align: match-parent ! important</div>
-      <div class="text-block t-start">The quick brown fox jumps over the lazy dog. This sentence demonstrates start text alignment in CSS.</div>
-    </div>
-    <div class="demo">
-      <div class="label">text-align: center</div>
-      <div class="text-block t-end">The quick brown fox jumps over the lazy dog. This sentence demonstrates end text alignment in CSS.</div>
-    </div>
+    <div class="label">text-align: start</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; border: 1px solid #2a2a4e;">
+      <div style="font-size: 14px; line-height: 1.6; color: #d1d5db; background: #1a1a2e; padding: 14px; border-radius: 6px; text-align: end;">The quick brown fox jumps over the lazy dog. This sentence demonstrates text alignment in CSS.</div>
+    </div>
+    <div class="label">text-align: end</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; border: 1px solid #2a2a4e;">
+      <div style="font-size: 14px; line-height: 1.6; color: #d1d5db; background: #1a1a2e; padding: 14px; border-radius: 6px; text-align: left;">The quick brown fox jumps over the lazy dog. This sentence demonstrates text alignment in CSS.</div>
+    </div>
+    <div class="label">text-align: left</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; border: 1px solid #2a2a4e;">
+      <div style="font-size: 14px; line-height: 1.6; color: #d1d5db; background: #1a1a2e; padding: 14px; border-radius: 6px; text-align: right;">The quick brown fox jumps over the lazy dog. This sentence demonstrates text alignment in CSS.</div>
+    </div>
+    <div class="label">text-align: right</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; border: 1px solid #2a2a4e;">
+      <div style="font-size: 14px; line-height: 1.6; color: #d1d5db; background: #1a1a2e; padding: 14px; border-radius: 6px; text-align: center;">The quick brown fox jumps over the lazy dog. This sentence demonstrates text alignment in CSS.</div>
+    </div>
+    <div class="label">text-align: center</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; border: 1px solid #2a2a4e;">
+      <div style="font-size: 14px; line-height: 1.6; color: #d1d5db; background: #1a1a2e; padding: 14px; border-radius: 6px; text-align: &#34;example&#34;;">The quick brown fox jumps over the lazy dog. This sentence demonstrates text alignment in CSS.</div>
+    </div>
+    <div class="label">text-align: &#34;example&#34;</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; border: 1px solid #2a2a4e;">
+      <div style="font-size: 14px; line-height: 1.6; color: #d1d5db; background: #1a1a2e; padding: 14px; border-radius: 6px; text-align: justify;">The quick brown fox jumps over the lazy dog. This sentence demonstrates text alignment in CSS.</div>
+    </div>
+    <div class="label">text-align: justify</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; border: 1px solid #2a2a4e;">
+      <div style="font-size: 14px; line-height: 1.6; color: #d1d5db; background: #1a1a2e; padding: 14px; border-radius: 6px; text-align: match-parent;">The quick brown fox jumps over the lazy dog. This sentence demonstrates text alignment in CSS.</div>
+    </div>
+    <div class="label">text-align: match-parent</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; border: 1px solid #2a2a4e;">
+      <div style="font-size: 14px; line-height: 1.6; color: #d1d5db; background: #1a1a2e; padding: 14px; border-radius: 6px; text-align: justify-all;">The quick brown fox jumps over the lazy dog. This sentence demonstrates text alignment in CSS.</div>
+    </div>
+    <div class="label">text-align: justify-all</div>
+  </div>
+</div>
 </body>
 </html>

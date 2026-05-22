@@ -1,73 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>column-rule-width</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-direction: column; gap: 16px; }
-    .demo-card {
-      background: #16213e;
-      border-radius: 10px;
-      padding: 16px 20px;
-      border: 1px solid #2a2a4a;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 10px; }
-    .col-text {
-      column-count: 3;
-      column-rule-style: solid;
-      column-rule-color: #e94560;
-      font-size: 12px;
-      line-height: 1.6;
-      color: #c0c8d4;
-    }
-    .width-indicator {
-      display: inline-block;
-      height: 12px;
-      background: #e94560;
-      border-radius: 1px;
-      vertical-align: middle;
-      margin-left: 8px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>column-rule-width</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Column Rule Width</h1>
-  <p class="prop-name">column-rule-width</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="label">column-rule-width: , repeat(-51, [ ] fit-content(0) [ ] min-content [ ]), thin, repeat(var(--呆ޱ, "+"), [ ]) ! important <span class="width-indicator" style="width: 1px;"></span></div>
-      <div class="col-text" style="column-rule-width: , repeat(-51, [ ] fit-content(0) [ ] min-content [ ]), thin, repeat(var(--呆ޱ, "+"), [ ]) ! important;">
-        The thin keyword produces the thinnest possible rule. The exact width is browser-dependent but is typically 1px. Thin rules provide a subtle, minimal separation that does not distract from the content in the columns.
-      </div>
+<h1>Column Rule Width</h1>
+<p class="prop-name">column-rule-width</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: 0;">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
     </div>
-    <div class="demo-card">
-      <div class="label">column-rule-width: thin, medium, repeat(auto-fill, fit-content(env(_, +5.3e1kHz)) [ ⽲H ] anchor-size(--sN) [ ]), ! important, repeat(auto-fill, [ 񋁄륬 ]) <span class="width-indicator" style="width: 3px;"></span></div>
-      <div class="col-text" style="column-rule-width: thin, medium, repeat(auto-fill, fit-content(env(_, +5.3e1kHz)) [ ⽲H ] anchor-size(--sN) [ ]), ! important, repeat(auto-fill, [ 񋁄륬 ]);">
-        The medium keyword is the default width. It produces a moderately thick rule, typically around 3px. Medium rules are visible enough to clearly separate columns while remaining balanced and not overpowering the content.
-      </div>
-    </div>
-    <div class="demo-card">
-      <div class="label">column-rule-width: thin, medium, repeat(auto-fill, fit-content(env(_, +5.3e1kHz)) [ ⽲H ] anchor-size(--sN) [ ]), ! important <span class="width-indicator" style="width: 5px;"></span></div>
-      <div class="col-text" style="column-rule-width: thin, medium, repeat(auto-fill, fit-content(env(_, +5.3e1kHz)) [ ⽲H ] anchor-size(--sN) [ ]), ! important;">
-        The thick keyword creates the widest named rule, typically around 5px. Thick rules make a strong visual statement and clearly delineate column boundaries. They work well when the column gap is large enough to accommodate the width.
-      </div>
-    </div>
-    <div class="demo-card">
-      <div class="label">column-rule-width: thick, medium, repeat(auto-fill, fit-content(var(--򡅁ᄈ, 5.59))), <span class="width-indicator" style="width: 1px;"></span></div>
-      <div class="col-text" style="column-rule-width: thick, medium, repeat(auto-fill, fit-content(var(--򡅁ᄈ, 5.59))),;">
-        A 1px rule is the finest precise width. This creates a hairline separator that is clear on high-density displays. Using explicit pixel values gives you exact control over the rule thickness rather than relying on browser-interpreted keywords.
-      </div>
-    </div>
-    <div class="demo-card">
-      <div class="label">column-rule-width: var(--_), repeat(-7, [ Y ] fit-content(calc(22)) [ ]) ! important <span class="width-indicator" style="width: 5px;"></span></div>
-      <div class="col-text" style="column-rule-width: var(--_), repeat(-7, [ Y ] fit-content(calc(22)) [ ]) ! important;">
-        A 5px rule creates a bold, prominent divider. This width is highly visible and creates strong visual separation between columns. Wider rules can serve as decorative elements themselves, adding character to the multi-column layout design.
-      </div>
-    </div>
+    <div class="label">column-rule-width: 0</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: 0, 0;">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: 0, 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: 0, 4px;">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: 0, 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: 0, 10px;">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: 0, 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: 0, 20px;">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: 0, 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: 0, 50px;">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: 0, 50px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: 0, hairline;">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: 0, hairline</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: 0, thin;">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: 0, thin</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: 0, medium;">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: 0, medium</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: 0, thick;">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: 0, thick</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: 0, repeat(0, 0);">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: 0, repeat(0, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: 0, repeat(0, 0 [ ]);">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: 0, repeat(0, 0 [ ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: 0, repeat(0, 0 [ my-custom ]);">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: 0, repeat(0, 0 [ my-custom ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: 0, repeat(auto-fill, 0);">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: 0, repeat(auto-fill, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: 0, repeat(auto-fill, 0 [ ]);">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: 0, repeat(auto-fill, 0 [ ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: 0, repeat(auto-fill, 0 [ my-custom ]);">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: 0, repeat(auto-fill, 0 [ my-custom ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: 0, repeat(0, [ ]);">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: 0, repeat(0, [ ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: 0, repeat(0, [ ] [ ]);">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: 0, repeat(0, [ ] [ ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: , repeat(0, 0),;">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: , repeat(0, 0),</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: , repeat(0, 0), 0;">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: , repeat(0, 0), 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: , repeat(0, 0), 0, 0;">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: , repeat(0, 0), 0, 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: , repeat(0, 0), 0, 4px;">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: , repeat(0, 0), 0, 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: , repeat(0, 0), 0, 10px;">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: , repeat(0, 0), 0, 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: , repeat(0, 0), 0, 20px;">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: , repeat(0, 0), 0, 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: , repeat(0, 0), 0, 50px;">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: , repeat(0, 0), 0, 50px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: , repeat(0, 0), 0, hairline;">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: , repeat(0, 0), 0, hairline</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: , repeat(0, 0), 0, thin;">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: , repeat(0, 0), 0, thin</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: , repeat(0, 0), 0, medium;">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: , repeat(0, 0), 0, medium</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: , repeat(0, 0), 0, thick;">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: , repeat(0, 0), 0, thick</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: , repeat(0, 0), 0, repeat(0, 0);">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: , repeat(0, 0), 0, repeat(0, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: , repeat(0, 0), 0, repeat(0, 0 [ ]);">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: , repeat(0, 0), 0, repeat(0, 0 [ ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: , repeat(0, 0), 0, repeat(0, 0 [ my-custom ]);">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: , repeat(0, 0), 0, repeat(0, 0 [ my-custom ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: , repeat(0, 0), 0, repeat(auto-fill, 0);">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: , repeat(0, 0), 0, repeat(auto-fill, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: , repeat(0, 0), 0, repeat(auto-fill, 0 [ ]);">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: , repeat(0, 0), 0, repeat(auto-fill, 0 [ ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: , repeat(0, 0), 0, repeat(auto-fill, 0 [ my-custom ]);">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: , repeat(0, 0), 0, repeat(auto-fill, 0 [ my-custom ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-color: #e94560; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-width: , repeat(0, 0), 0, repeat(0, [ ]);">Column rule width controls the thickness of the rule drawn between columns. Values can be keywords like thin, medium, and thick, or explicit lengths like 1px or 5px for precise control over the rule thickness.</div>
+    </div>
+    <div class="label">column-rule-width: , repeat(0, 0), 0, repeat(0, [ ])</div>
+  </div>
+</div>
 </body>
 </html>

@@ -1,72 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>column-rule-color</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-direction: column; gap: 16px; }
-    .demo-card {
-      background: #16213e;
-      border-radius: 10px;
-      padding: 16px 20px;
-      border: 1px solid #2a2a4a;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
-    .color-swatch {
-      width: 10px;
-      height: 10px;
-      border-radius: 2px;
-      display: inline-block;
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-    .col-text {
-      column-count: 3;
-      column-rule-style: solid;
-      column-rule-width: 3px;
-      font-size: 12px;
-      line-height: 1.6;
-      color: #c0c8d4;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>column-rule-color</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Column Rule Color</h1>
-  <p class="prop-name">column-rule-color</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="label"><span class="color-swatch" style="background: red;"></span> column-rule-color: , repeat(-51, [ ] fit-content(0) [ ] min-content [ ]), light-dark(url("󨫾"), image(ltr)) ! important</div>
-      <div class="col-text" style="column-rule-color: , repeat(-51, [ ] fit-content(0) [ ] min-content [ ]), light-dark(url("󨫾"), image(ltr)) ! important;">
-        Red column rules create a bold, attention-grabbing divider. This vibrant color stands out strongly against the dark background, clearly marking the boundaries between columns. Red is commonly used for emphasis and warning indicators in design systems.
-      </div>
+<h1>Column Rule Color</h1>
+<p class="prop-name">column-rule-color</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: red;">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
     </div>
-    <div class="demo-card">
-      <div class="label"><span class="color-swatch" style="background: #4fc3f7;"></span> column-rule-color: currentcolor, repeat(auto-fill, [ 񋁄륬 ])</div>
-      <div class="col-text" style="column-rule-color: currentcolor, mark, repeat(var(--𢑾ꌡ), max-content [ c_ ]), repeat(-0, [ y ] [ ]), repeat(4, fit-content(calc-size(var(--񺟯􀜁, #C4fBf2A1) * pow(,) + +69fr / -9.8, -3.3e+77fr / var(--򢈶))) max-content [ ]) ! important;">
-        Blue column rules provide a calm, professional appearance. Blue tones feel trustworthy and reliable, making them popular for corporate and informational layouts. The column rule color works independently from the text and background colors.
-      </div>
-    </div>
-    <div class="demo-card">
-      <div class="label"><span class="color-swatch" style="background: #66bb6a;"></span> column-rule-color: currentcolor, field, repeat(auto-fit, fit-content(calc-size(, 12.94e7%)) [ ]), repeat(auto-fill, [ ]), color(xyz none +4% 5e+14) ! important</div>
-      <div class="col-text" style="column-rule-color: repeat(77, [ ] [ ]), repeat(auto-fit, [ ] minmax(auto, max-content));">
-        Green column rules suggest growth and positivity. This color choice works well for environmental, financial, or health-related content where green carries semantic meaning. The rule color can be any valid CSS color value including named, hex, or rgb.
-      </div>
-    </div>
-    <div class="demo-card">
-      <div class="label"><span class="color-swatch" style="background: gold;"></span> column-rule-color: repeat(auto-fit, fit-content(anchor-size(--𦔚 self-inline,)) [ ] auto [ ]), color-mix(in a98-rgb, var(--e)) ! important</div>
-      <div class="col-text" style="column-rule-color: repeat(auto-fit, fit-content(anchor-size(--𦔚 self-inline,)) [ ] auto [ ]), color-mix(in a98-rgb, var(--e)) ! important;">
-        Gold column rules add a touch of luxury and elegance. This warm, rich color creates a premium feel that works especially well with dark backgrounds. Gold rules are perfect for highlighting special or featured content sections in a multi-column layout.
-      </div>
-    </div>
-    <div class="demo-card">
-      <div class="label"><span class="color-swatch" style="background: transparent; border: 1px dashed #666;"></span> column-rule-color: repeat(var(--�, #D0Ae), [ ] minmax(max(-infinity + anchor-size(--u)), var(--__)) [ ])</div>
-      <div class="col-text" style="column-rule-color: repeat(var(--�, #D0Ae), [ ] minmax(max(-infinity + anchor-size(--u)), var(--__)) [ ]);">
-        Transparent column rules are invisible but still occupy space. This is useful when you want to maintain the same column-gap spacing as other elements with visible rules but do not want the rule itself to be shown. The rule exists but cannot be seen.
-      </div>
-    </div>
+    <div class="label">column-rule-color: red</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: red, red;">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: red, red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: red, #3498db;">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: red, #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: red, currentcolor;">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: red, currentcolor</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: red, Canvas;">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: red, Canvas</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: red, CanvasText;">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: red, CanvasText</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: red, device-cmyk(0, 0, 0, 0);">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: red, device-cmyk(0, 0, 0, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: red, device-cmyk(0, 0, 0, 0.5);">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: red, device-cmyk(0, 0, 0, 0.5)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: red, light-dark(none, none);">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: red, light-dark(none, none)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: red, repeat(0, 0);">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: red, repeat(0, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: red, repeat(0, 0 [ ]);">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: red, repeat(0, 0 [ ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: red, repeat(0, 0 [ my-custom ]);">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: red, repeat(0, 0 [ my-custom ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: red, repeat(auto-fill, 0);">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: red, repeat(auto-fill, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: red, repeat(auto-fill, 0 [ ]);">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: red, repeat(auto-fill, 0 [ ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: red, repeat(auto-fill, 0 [ my-custom ]);">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: red, repeat(auto-fill, 0 [ my-custom ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: red, repeat(0, [ ]);">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: red, repeat(0, [ ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: red, repeat(0, [ ] [ ]);">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: red, repeat(0, [ ] [ ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: , repeat(0, 0),;">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: , repeat(0, 0),</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: , repeat(0, 0), red;">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: , repeat(0, 0), red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: , repeat(0, 0), red, red;">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: , repeat(0, 0), red, red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: , repeat(0, 0), red, #3498db;">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: , repeat(0, 0), red, #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: , repeat(0, 0), red, currentcolor;">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: , repeat(0, 0), red, currentcolor</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: , repeat(0, 0), red, Canvas;">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: , repeat(0, 0), red, Canvas</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: , repeat(0, 0), red, CanvasText;">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: , repeat(0, 0), red, CanvasText</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: , repeat(0, 0), red, device-cmyk(0, 0, 0, 0);">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: , repeat(0, 0), red, device-cmyk(0, 0, 0, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: , repeat(0, 0), red, device-cmyk(0, 0, 0, 0.5);">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: , repeat(0, 0), red, device-cmyk(0, 0, 0, 0.5)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: , repeat(0, 0), red, light-dark(none, none);">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: , repeat(0, 0), red, light-dark(none, none)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: , repeat(0, 0), red, repeat(0, 0);">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: , repeat(0, 0), red, repeat(0, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: , repeat(0, 0), red, repeat(0, 0 [ ]);">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: , repeat(0, 0), red, repeat(0, 0 [ ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: , repeat(0, 0), red, repeat(0, 0 [ my-custom ]);">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: , repeat(0, 0), red, repeat(0, 0 [ my-custom ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: , repeat(0, 0), red, repeat(auto-fill, 0);">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: , repeat(0, 0), red, repeat(auto-fill, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: , repeat(0, 0), red, repeat(auto-fill, 0 [ ]);">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: , repeat(0, 0), red, repeat(auto-fill, 0 [ ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: , repeat(0, 0), red, repeat(auto-fill, 0 [ my-custom ]);">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: , repeat(0, 0), red, repeat(auto-fill, 0 [ my-custom ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule-style: solid; column-rule-width: 3px; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule-color: , repeat(0, 0), red, repeat(0, [ ]);">Column rule color controls the color of the rule drawn between columns. The rule color works independently from the text and background colors. Any valid CSS color value can be used including named colors, hex, rgb, and more.</div>
+    </div>
+    <div class="label">column-rule-color: , repeat(0, 0), red, repeat(0, [ ])</div>
+  </div>
+</div>
 </body>
 </html>

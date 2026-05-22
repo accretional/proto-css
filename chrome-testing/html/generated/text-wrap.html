@@ -1,61 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>text-wrap</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-card {
-      background: #16213e; border-radius: 10px; padding: 20px 24px;
-      width: 230px; display: flex; flex-direction: column;
-    }
-    .demo-text {
-      font-size: 14px; line-height: 1.5; color: #d1d5db;
-      min-height: 100px; border-left: 3px solid #e94560; padding-left: 12px;
-      width: 100%; overflow: hidden;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; }
-    .note { font-size: 10px; color: #6b7280; margin-top: 4px; }
-    .t1 { text-wrap: wrap avoid-orphans ! important stable ! important; }
-    .t2 { text-wrap: wrap avoid-orphans ! important; }
-    .t3 { text-wrap: avoid-orphans ! important; }
-    .t4 { text-wrap: nowrap avoid-orphans ! important; }
-    .t5 { text-wrap: auto; }
-  </style>
+<meta charset="UTF-8">
+<title>text-wrap</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Text Wrap</h1>
-  <p class="prop-name">text-wrap</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="demo-text t1">This is a paragraph of text that will wrap normally across multiple lines within this container element.</div>
-      <span class="label">text-wrap: wrap avoid-orphans ! important stable ! important</span>
-      <span class="note">Standard line wrapping</span>
+<h1>Text Wrap</h1>
+<p class="prop-name">text-wrap</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 14px; line-height: 1.5; color: #d1d5db; min-height: 100px; border-left: 3px solid #e94560; padding-left: 12px; width: 100%; overflow: hidden; text-wrap: auto;">This is a paragraph of text that will wrap normally across multiple lines within this container element.</div>
     </div>
-    <div class="demo-card">
-      <div class="demo-text t2">This is a paragraph of text that will not wrap and will overflow the container instead.</div>
-      <span class="label">text-wrap: wrap avoid-orphans ! important</span>
-      <span class="note">No wrapping, overflows</span>
-    </div>
-    <div class="demo-card">
-      <div class="demo-text t3">This is a paragraph that uses balanced text wrapping for even line lengths.</div>
-      <span class="label">text-wrap: avoid-orphans ! important</span>
-      <span class="note">Even line lengths</span>
-    </div>
-    <div class="demo-card">
-      <div class="demo-text t4">This is a paragraph that uses pretty text wrapping to avoid orphans and improve readability of the text block.</div>
-      <span class="label">text-wrap: nowrap avoid-orphans ! important</span>
-      <span class="note">Avoids orphans and widows</span>
-    </div>
-    <div class="demo-card">
-      <div class="demo-text t5">This is a paragraph that uses stable wrapping so editable content doesn't reflow from the start.</div>
-      <span class="label">text-wrap: auto</span>
-      <span class="note">Lines before cursor don't reflow</span>
-    </div>
+    <div class="label">text-wrap: auto</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 14px; line-height: 1.5; color: #d1d5db; min-height: 100px; border-left: 3px solid #e94560; padding-left: 12px; width: 100%; overflow: hidden; text-wrap: balance;">This is a paragraph of text that will wrap normally across multiple lines within this container element.</div>
+    </div>
+    <div class="label">text-wrap: balance</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 14px; line-height: 1.5; color: #d1d5db; min-height: 100px; border-left: 3px solid #e94560; padding-left: 12px; width: 100%; overflow: hidden; text-wrap: stable;">This is a paragraph of text that will wrap normally across multiple lines within this container element.</div>
+    </div>
+    <div class="label">text-wrap: stable</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 14px; line-height: 1.5; color: #d1d5db; min-height: 100px; border-left: 3px solid #e94560; padding-left: 12px; width: 100%; overflow: hidden; text-wrap: pretty;">This is a paragraph of text that will wrap normally across multiple lines within this container element.</div>
+    </div>
+    <div class="label">text-wrap: pretty</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 14px; line-height: 1.5; color: #d1d5db; min-height: 100px; border-left: 3px solid #e94560; padding-left: 12px; width: 100%; overflow: hidden; text-wrap: avoid-orphans;">This is a paragraph of text that will wrap normally across multiple lines within this container element.</div>
+    </div>
+    <div class="label">text-wrap: avoid-orphans</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 14px; line-height: 1.5; color: #d1d5db; min-height: 100px; border-left: 3px solid #e94560; padding-left: 12px; width: 100%; overflow: hidden; text-wrap: wrap;">This is a paragraph of text that will wrap normally across multiple lines within this container element.</div>
+    </div>
+    <div class="label">text-wrap: wrap</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 14px; line-height: 1.5; color: #d1d5db; min-height: 100px; border-left: 3px solid #e94560; padding-left: 12px; width: 100%; overflow: hidden; text-wrap: wrap auto;">This is a paragraph of text that will wrap normally across multiple lines within this container element.</div>
+    </div>
+    <div class="label">text-wrap: wrap auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 14px; line-height: 1.5; color: #d1d5db; min-height: 100px; border-left: 3px solid #e94560; padding-left: 12px; width: 100%; overflow: hidden; text-wrap: wrap balance;">This is a paragraph of text that will wrap normally across multiple lines within this container element.</div>
+    </div>
+    <div class="label">text-wrap: wrap balance</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 14px; line-height: 1.5; color: #d1d5db; min-height: 100px; border-left: 3px solid #e94560; padding-left: 12px; width: 100%; overflow: hidden; text-wrap: wrap stable;">This is a paragraph of text that will wrap normally across multiple lines within this container element.</div>
+    </div>
+    <div class="label">text-wrap: wrap stable</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 14px; line-height: 1.5; color: #d1d5db; min-height: 100px; border-left: 3px solid #e94560; padding-left: 12px; width: 100%; overflow: hidden; text-wrap: wrap pretty;">This is a paragraph of text that will wrap normally across multiple lines within this container element.</div>
+    </div>
+    <div class="label">text-wrap: wrap pretty</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 14px; line-height: 1.5; color: #d1d5db; min-height: 100px; border-left: 3px solid #e94560; padding-left: 12px; width: 100%; overflow: hidden; text-wrap: wrap avoid-orphans;">This is a paragraph of text that will wrap normally across multiple lines within this container element.</div>
+    </div>
+    <div class="label">text-wrap: wrap avoid-orphans</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 14px; line-height: 1.5; color: #d1d5db; min-height: 100px; border-left: 3px solid #e94560; padding-left: 12px; width: 100%; overflow: hidden; text-wrap: nowrap;">This is a paragraph of text that will wrap normally across multiple lines within this container element.</div>
+    </div>
+    <div class="label">text-wrap: nowrap</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 14px; line-height: 1.5; color: #d1d5db; min-height: 100px; border-left: 3px solid #e94560; padding-left: 12px; width: 100%; overflow: hidden; text-wrap: nowrap auto;">This is a paragraph of text that will wrap normally across multiple lines within this container element.</div>
+    </div>
+    <div class="label">text-wrap: nowrap auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 14px; line-height: 1.5; color: #d1d5db; min-height: 100px; border-left: 3px solid #e94560; padding-left: 12px; width: 100%; overflow: hidden; text-wrap: nowrap balance;">This is a paragraph of text that will wrap normally across multiple lines within this container element.</div>
+    </div>
+    <div class="label">text-wrap: nowrap balance</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 14px; line-height: 1.5; color: #d1d5db; min-height: 100px; border-left: 3px solid #e94560; padding-left: 12px; width: 100%; overflow: hidden; text-wrap: nowrap stable;">This is a paragraph of text that will wrap normally across multiple lines within this container element.</div>
+    </div>
+    <div class="label">text-wrap: nowrap stable</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 14px; line-height: 1.5; color: #d1d5db; min-height: 100px; border-left: 3px solid #e94560; padding-left: 12px; width: 100%; overflow: hidden; text-wrap: nowrap pretty;">This is a paragraph of text that will wrap normally across multiple lines within this container element.</div>
+    </div>
+    <div class="label">text-wrap: nowrap pretty</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 14px; line-height: 1.5; color: #d1d5db; min-height: 100px; border-left: 3px solid #e94560; padding-left: 12px; width: 100%; overflow: hidden; text-wrap: nowrap avoid-orphans;">This is a paragraph of text that will wrap normally across multiple lines within this container element.</div>
+    </div>
+    <div class="label">text-wrap: nowrap avoid-orphans</div>
+  </div>
+</div>
 </body>
 </html>

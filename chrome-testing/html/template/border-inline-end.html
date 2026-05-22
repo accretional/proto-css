@@ -8,7 +8,7 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
     .demo-item {
       display: flex;
       flex-direction: column;
@@ -28,37 +28,23 @@
       line-height: 1.5;
     }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; max-width: 240px; }
-    .note { font-size: 12px; color: #7b8794; margin-bottom: 16px; }
   </style>
 </head>
 <body>
   <h1>Border Inline End</h1>
   <p class="prop-name">border-inline-end</p>
-  <p class="note">Sets the border on the inline-end side (right in LTR, left in RTL)</p>
   <div class="demos">
     <div class="demo-item">
-      <div class="box" style="border-inline-end: 3px solid #e94560;">3px solid</div>
-      <div class="label">border-inline-end:<br>3px solid #e94560</div>
+      <div class="box" style="border-inline-end: none;">none</div>
+      <div class="label">border-inline-end: none</div>
     </div>
     <div class="demo-item">
-      <div class="box" style="border-inline-end: 5px dashed #53d8fb;">5px dashed</div>
-      <div class="label">border-inline-end:<br>5px dashed #53d8fb</div>
+      <div class="box" style="border-inline-end: 1px solid red;">1px solid red</div>
+      <div class="label">border-inline-end: 1px solid red</div>
     </div>
     <div class="demo-item">
-      <div class="box" style="border-inline-end: 4px dotted #4ade80;">4px dotted</div>
-      <div class="label">border-inline-end:<br>4px dotted #4ade80</div>
-    </div>
-    <div class="demo-item">
-      <div class="box" style="border-inline-end: 6px double #fbbf24;">6px double</div>
-      <div class="label">border-inline-end:<br>6px double #fbbf24</div>
-    </div>
-    <div class="demo-item">
-      <div class="box" style="border-inline-end: 8px solid #a855f7;">8px solid</div>
-      <div class="label">border-inline-end:<br>8px solid #a855f7</div>
-    </div>
-    <div class="demo-item">
-      <div class="box" style="border-inline-end: 3px groove #e94560; direction: rtl;">3px groove (RTL)</div>
-      <div class="label">border-inline-end:<br>3px groove #e94560<br>(direction: rtl)</div>
+      <div class="box" style="border-inline-end: 2px dashed blue;">2px dashed blue</div>
+      <div class="label">border-inline-end: 2px dashed blue</div>
     </div>
   </div>
 </body>

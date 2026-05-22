@@ -1,161 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>scrollbar-color</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .demo-card {
-      background: #16213e;
-      border-radius: 12px;
-      padding: 20px;
-    }
-    .card-title {
-      font-size: 14px;
-      color: #fff;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-    .card-desc {
-      font-size: 11px;
-      color: #7b8794;
-      margin-bottom: 12px;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
-    .scroll-box {
-      width: 100%;
-      height: 160px;
-      overflow-y: scroll;
-      border-radius: 8px;
-      padding: 12px;
-    }
-    .scroll-box p {
-      font-size: 12px;
-      color: #9ca3af;
-      line-height: 1.8;
-      margin-bottom: 8px;
-    }
-    .sb-auto {
-      background: #0a0a1a;
-      scrollbar-color: currentcolor color-mix(,, var(--s, X)) ! important;
-    }
-    .sb-dark {
-      background: #0a0a1a;
-      scrollbar-color: auto ! important;
-    }
-    .sb-light {
-      background: #f5f5f5;
-      scrollbar-color: var(--_Y) orange;
-    }
-    .sb-light p { color: #555; }
-    .sb-custom1 {
-      background: #0a0a1a;
-      scrollbar-color: auto;
-    }
-    .sb-custom2 {
-      background: #0a0a1a;
-      scrollbar-color: device-cmyk(var(--᫻, 34) none none none) light-dark(none,) ! important;
-    }
-    .sb-custom3 {
-      background: #0a0a1a;
-      scrollbar-color: revert-rule;
-    }
-    .color-swatch-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 8px;
-    }
-    .swatch {
-      width: 16px;
-      height: 16px;
-      border-radius: 4px;
-      border: 1px solid #333;
-    }
-    .swatch-label {
-      font-size: 10px;
-      font-family: monospace;
-      color: #7b8794;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>scrollbar-color</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .demos { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.scroll-box p { font-size: 12px; color: #9ca3af; line-height: 1.8; margin-bottom: 8px; }
+.color-swatch-row { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+.swatch { width: 16px; height: 16px; border-radius: 4px; border: 1px solid #333; }
+.swatch-label { font-size: 10px; font-family: monospace; color: #7b8794; }
+</style>
 </head>
 <body>
-  <h1>Scrollbar Color</h1>
-  <p class="prop-name">scrollbar-color</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="card-title">auto</div>
-      <div class="card-desc">Browser default scrollbar appearance</div>
-      <div class="scroll-box sb-auto">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-      </div>
-      <p class="label">scrollbar-color: currentcolor color-mix(,, var(--s, X)) ! important</p>
+<h1>Scrollbar Color</h1>
+<p class="prop-name">scrollbar-color</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px;">
+      <div style="width: 100%; height: 160px; overflow-y: scroll; border-radius: 8px; padding: 12px; background: #0a0a1a; scrollbar-color: auto;"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p></div>
     </div>
-    <div class="demo-card">
-      <div class="card-title">Dark</div>
-      <div class="card-desc">Dark thumb on dark track</div>
-      <div class="scroll-box sb-dark">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-      </div>
-      <div class="color-swatch-row">
-        <div class="swatch" style="background: #444;"></div>
-        <span class="swatch-label">thumb: #444</span>
-        <div class="swatch" style="background: #1a1a1a;"></div>
-        <span class="swatch-label">track: #1a1a1a</span>
-      </div>
-      <p class="label">scrollbar-color: auto ! important</p>
-    </div>
-    <div class="demo-card">
-      <div class="card-title">Light</div>
-      <div class="card-desc">Light thumb on light track</div>
-      <div class="scroll-box sb-light">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-      </div>
-      <div class="color-swatch-row">
-        <div class="swatch" style="background: #bbb;"></div>
-        <span class="swatch-label">thumb: #bbb</span>
-        <div class="swatch" style="background: #f0f0f0;"></div>
-        <span class="swatch-label">track: #f0f0f0</span>
-      </div>
-      <p class="label">scrollbar-color: var(--_Y) orange</p>
-    </div>
-    <div class="demo-card">
-      <div class="card-title">Custom Colors</div>
-      <div class="card-desc">Any two colors: thumb then track</div>
-      <div style="display: flex; flex-direction: column; gap: 8px;">
-        <div class="scroll-box sb-custom1" style="height: 70px;">
-          <p>Red thumb on dark blue track. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor incididunt.</p>
-          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-        </div>
-        <div class="scroll-box sb-custom2" style="height: 70px;">
-          <p>Green thumb on navy track. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor incididunt.</p>
-          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-        </div>
-      </div>
-      <div class="color-swatch-row">
-        <div class="swatch" style="background: #e94560;"></div>
-        <span class="swatch-label">#e94560 #16213e</span>
-        <div class="swatch" style="background: #2ecc71;"></div>
-        <span class="swatch-label">#2ecc71 #0f3460</span>
-      </div>
-      <p class="label">scrollbar-color: light-dark(none, url("")) var(--貊, -90e7s);thumb&gt; &lt;track&gt;</p>
-    </div>
+    <div class="label">scrollbar-color: auto</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px;">
+      <div style="width: 100%; height: 160px; overflow-y: scroll; border-radius: 8px; padding: 12px; background: #0a0a1a; scrollbar-color: red red;"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p></div>
+    </div>
+    <div class="label">scrollbar-color: red red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px;">
+      <div style="width: 100%; height: 160px; overflow-y: scroll; border-radius: 8px; padding: 12px; background: #0a0a1a; scrollbar-color: red #3498db;"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p></div>
+    </div>
+    <div class="label">scrollbar-color: red #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px;">
+      <div style="width: 100%; height: 160px; overflow-y: scroll; border-radius: 8px; padding: 12px; background: #0a0a1a; scrollbar-color: red rgb(0, 128, 0);"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p></div>
+    </div>
+    <div class="label">scrollbar-color: red rgb(0, 128, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px;">
+      <div style="width: 100%; height: 160px; overflow-y: scroll; border-radius: 8px; padding: 12px; background: #0a0a1a; scrollbar-color: red transparent;"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p></div>
+    </div>
+    <div class="label">scrollbar-color: red transparent</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px;">
+      <div style="width: 100%; height: 160px; overflow-y: scroll; border-radius: 8px; padding: 12px; background: #0a0a1a; scrollbar-color: red currentcolor;"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p></div>
+    </div>
+    <div class="label">scrollbar-color: red currentcolor</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px;">
+      <div style="width: 100%; height: 160px; overflow-y: scroll; border-radius: 8px; padding: 12px; background: #0a0a1a; scrollbar-color: #3498db red;"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p></div>
+    </div>
+    <div class="label">scrollbar-color: #3498db red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px;">
+      <div style="width: 100%; height: 160px; overflow-y: scroll; border-radius: 8px; padding: 12px; background: #0a0a1a; scrollbar-color: #3498db #3498db;"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p></div>
+    </div>
+    <div class="label">scrollbar-color: #3498db #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px;">
+      <div style="width: 100%; height: 160px; overflow-y: scroll; border-radius: 8px; padding: 12px; background: #0a0a1a; scrollbar-color: #3498db rgb(0, 128, 0);"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p></div>
+    </div>
+    <div class="label">scrollbar-color: #3498db rgb(0, 128, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px;">
+      <div style="width: 100%; height: 160px; overflow-y: scroll; border-radius: 8px; padding: 12px; background: #0a0a1a; scrollbar-color: #3498db transparent;"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p></div>
+    </div>
+    <div class="label">scrollbar-color: #3498db transparent</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px;">
+      <div style="width: 100%; height: 160px; overflow-y: scroll; border-radius: 8px; padding: 12px; background: #0a0a1a; scrollbar-color: #3498db currentcolor;"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p></div>
+    </div>
+    <div class="label">scrollbar-color: #3498db currentcolor</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px;">
+      <div style="width: 100%; height: 160px; overflow-y: scroll; border-radius: 8px; padding: 12px; background: #0a0a1a; scrollbar-color: rgb(0, 128, 0) red;"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p></div>
+    </div>
+    <div class="label">scrollbar-color: rgb(0, 128, 0) red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px;">
+      <div style="width: 100%; height: 160px; overflow-y: scroll; border-radius: 8px; padding: 12px; background: #0a0a1a; scrollbar-color: rgb(0, 128, 0) #3498db;"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p></div>
+    </div>
+    <div class="label">scrollbar-color: rgb(0, 128, 0) #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px;">
+      <div style="width: 100%; height: 160px; overflow-y: scroll; border-radius: 8px; padding: 12px; background: #0a0a1a; scrollbar-color: rgb(0, 128, 0) rgb(0, 128, 0);"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p></div>
+    </div>
+    <div class="label">scrollbar-color: rgb(0, 128, 0) rgb(0, 128, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px;">
+      <div style="width: 100%; height: 160px; overflow-y: scroll; border-radius: 8px; padding: 12px; background: #0a0a1a; scrollbar-color: rgb(0, 128, 0) transparent;"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p></div>
+    </div>
+    <div class="label">scrollbar-color: rgb(0, 128, 0) transparent</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px;">
+      <div style="width: 100%; height: 160px; overflow-y: scroll; border-radius: 8px; padding: 12px; background: #0a0a1a; scrollbar-color: rgb(0, 128, 0) currentcolor;"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p></div>
+    </div>
+    <div class="label">scrollbar-color: rgb(0, 128, 0) currentcolor</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px;">
+      <div style="width: 100%; height: 160px; overflow-y: scroll; border-radius: 8px; padding: 12px; background: #0a0a1a; scrollbar-color: transparent red;"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p></div>
+    </div>
+    <div class="label">scrollbar-color: transparent red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px;">
+      <div style="width: 100%; height: 160px; overflow-y: scroll; border-radius: 8px; padding: 12px; background: #0a0a1a; scrollbar-color: transparent #3498db;"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p></div>
+    </div>
+    <div class="label">scrollbar-color: transparent #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px;">
+      <div style="width: 100%; height: 160px; overflow-y: scroll; border-radius: 8px; padding: 12px; background: #0a0a1a; scrollbar-color: transparent rgb(0, 128, 0);"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p></div>
+    </div>
+    <div class="label">scrollbar-color: transparent rgb(0, 128, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px;">
+      <div style="width: 100%; height: 160px; overflow-y: scroll; border-radius: 8px; padding: 12px; background: #0a0a1a; scrollbar-color: transparent transparent;"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p></div>
+    </div>
+    <div class="label">scrollbar-color: transparent transparent</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px;">
+      <div style="width: 100%; height: 160px; overflow-y: scroll; border-radius: 8px; padding: 12px; background: #0a0a1a; scrollbar-color: transparent currentcolor;"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p></div>
+    </div>
+    <div class="label">scrollbar-color: transparent currentcolor</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px;">
+      <div style="width: 100%; height: 160px; overflow-y: scroll; border-radius: 8px; padding: 12px; background: #0a0a1a; scrollbar-color: currentcolor red;"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p></div>
+    </div>
+    <div class="label">scrollbar-color: currentcolor red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px;">
+      <div style="width: 100%; height: 160px; overflow-y: scroll; border-radius: 8px; padding: 12px; background: #0a0a1a; scrollbar-color: currentcolor #3498db;"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p></div>
+    </div>
+    <div class="label">scrollbar-color: currentcolor #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px;">
+      <div style="width: 100%; height: 160px; overflow-y: scroll; border-radius: 8px; padding: 12px; background: #0a0a1a; scrollbar-color: currentcolor rgb(0, 128, 0);"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p></div>
+    </div>
+    <div class="label">scrollbar-color: currentcolor rgb(0, 128, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px;">
+      <div style="width: 100%; height: 160px; overflow-y: scroll; border-radius: 8px; padding: 12px; background: #0a0a1a; scrollbar-color: currentcolor transparent;"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p></div>
+    </div>
+    <div class="label">scrollbar-color: currentcolor transparent</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px;">
+      <div style="width: 100%; height: 160px; overflow-y: scroll; border-radius: 8px; padding: 12px; background: #0a0a1a; scrollbar-color: currentcolor currentcolor;"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p></div>
+    </div>
+    <div class="label">scrollbar-color: currentcolor currentcolor</div>
+  </div>
+</div>
 </body>
 </html>

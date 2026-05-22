@@ -1,54 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>outline-offset</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
-    .demo-box { background: #16213e; border-radius: 10px; padding: 30px; width: 210px; text-align: center; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 20px; }
-    .outlined {
-      width: 100px; height: 80px; background: #0f3460; border-radius: 8px;
-      margin: 20px auto 0;
-      outline: 3px solid #e94560;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 12px; color: #c0c0d0;
-    }
-    .d1 .outlined { outline-offset: 20.11e34vmax; }
-    .d2 .outlined { outline-offset: 0 ! important; }
-    .d3 .outlined { outline-offset: var(--_Y); }
-    .d4 .outlined { outline-offset: 0; }
-    .d5 .outlined { outline-offset: var(--蔫); }
-  </style>
+<meta charset="UTF-8">
+<title>outline-offset</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Outline Offset</h1>
-  <p class="prop-name">outline-offset</p>
-  <div class="demos">
-    <div class="demo-box d1">
-      <div class="outlined">Box</div>
-      <div class="label">outline-offset: 20.11e34vmax</div>
+<h1>Outline Offset</h1>
+<p class="prop-name">outline-offset</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100px; height: 80px; background: #0f3460; border-radius: 8px; outline: 3px solid #e94560; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #c0c0d0; outline-offset: 0;">Box</div>
     </div>
-    <div class="demo-box d2">
-      <div class="outlined">Box</div>
-      <div class="label">outline-offset: 0 ! important</div>
-    </div>
-    <div class="demo-box d3">
-      <div class="outlined">Box</div>
-      <div class="label">outline-offset: var(--_Y)</div>
-    </div>
-    <div class="demo-box d4">
-      <div class="outlined">Box</div>
-      <div class="label">outline-offset: 0</div>
-    </div>
-    <div class="demo-box d5">
-      <div class="outlined">Box</div>
-      <div class="label">outline-offset: var(--蔫)</div>
-    </div>
+    <div class="label">outline-offset: 0</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100px; height: 80px; background: #0f3460; border-radius: 8px; outline: 3px solid #e94560; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #c0c0d0; outline-offset: 4px;">Box</div>
+    </div>
+    <div class="label">outline-offset: 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100px; height: 80px; background: #0f3460; border-radius: 8px; outline: 3px solid #e94560; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #c0c0d0; outline-offset: 10px;">Box</div>
+    </div>
+    <div class="label">outline-offset: 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100px; height: 80px; background: #0f3460; border-radius: 8px; outline: 3px solid #e94560; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #c0c0d0; outline-offset: 20px;">Box</div>
+    </div>
+    <div class="label">outline-offset: 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100px; height: 80px; background: #0f3460; border-radius: 8px; outline: 3px solid #e94560; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #c0c0d0; outline-offset: 2em;">Box</div>
+    </div>
+    <div class="label">outline-offset: 2em</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100px; height: 80px; background: #0f3460; border-radius: 8px; outline: 3px solid #e94560; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #c0c0d0; outline-offset: 50px;">Box</div>
+    </div>
+    <div class="label">outline-offset: 50px</div>
+  </div>
+</div>
 </body>
 </html>

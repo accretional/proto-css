@@ -8,10 +8,8 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demos { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; align-items: start; }
     .demo-card {
-      flex: 1;
-      min-width: 220px;
       background: #16213e;
       border-radius: 10px;
       padding: 16px 20px;
@@ -70,33 +68,41 @@
       <div class="label">contain-intrinsic-block-size: none</div>
       <div class="desc">No intrinsic block size hint. Element collapses when size-contained.</div>
       <div class="size-box" style="contain-intrinsic-block-size: none;">
-        <div class="inner">No intrinsic size hint provided. The element has zero height when size-contained with no explicit height set.</div>
+        <div class="inner">No size hint. Box collapses to zero height.</div>
       </div>
       <div class="measure"><div class="measure-bar" style="max-width: 10%;"></div><div class="measure-label">none (0)</div></div>
     </div>
     <div class="demo-card">
-      <div class="label">contain-intrinsic-block-size: 80px</div>
-      <div class="desc">Fixed 80px block size hint for the element.</div>
-      <div class="size-box" style="contain-intrinsic-block-size: 80px;">
-        <div class="inner">This element has an intrinsic block size of 80px. The browser uses this as the height when size containment is active, preventing layout shift.</div>
+      <div class="label">contain-intrinsic-block-size: 100px</div>
+      <div class="desc">Fixed 100px block size hint for the element.</div>
+      <div class="size-box" style="contain-intrinsic-block-size: 100px;">
+        <div class="inner">This element has an intrinsic block size of 100px. The browser uses this as the height when size containment is active.</div>
       </div>
-      <div class="measure"><div class="measure-bar" style="max-width: 30%;"></div><div class="measure-label">80px</div></div>
+      <div class="measure"><div class="measure-bar" style="max-width: 35%;"></div><div class="measure-label">100px</div></div>
     </div>
     <div class="demo-card">
-      <div class="label">contain-intrinsic-block-size: 150px</div>
-      <div class="desc">Fixed 150px block size hint for the element.</div>
-      <div class="size-box" style="contain-intrinsic-block-size: 150px;">
-        <div class="inner">A 150px intrinsic block size provides a taller placeholder. This is useful for content-visibility: auto elements where you want to estimate the rendered height before the content is actually laid out by the browser.</div>
+      <div class="label">contain-intrinsic-block-size: 200px</div>
+      <div class="desc">Fixed 200px block size hint for the element.</div>
+      <div class="size-box" style="contain-intrinsic-block-size: 200px;">
+        <div class="inner">A 200px intrinsic block size provides a taller placeholder. Useful for content-visibility: auto elements where you want to estimate the rendered height before layout.</div>
       </div>
-      <div class="measure"><div class="measure-bar" style="max-width: 55%;"></div><div class="measure-label">150px</div></div>
+      <div class="measure"><div class="measure-bar" style="max-width: 65%;"></div><div class="measure-label">200px</div></div>
     </div>
     <div class="demo-card">
-      <div class="label">contain-intrinsic-block-size: auto 120px</div>
-      <div class="desc">Uses last rendered size, falling back to 120px.</div>
-      <div class="size-box" style="contain-intrinsic-block-size: auto 120px;">
-        <div class="inner">The auto keyword remembers the last rendered size. If the element has not been rendered yet, 120px is used as the fallback. This provides the best user experience for dynamic content.</div>
+      <div class="label">contain-intrinsic-block-size: auto 100px</div>
+      <div class="desc">Uses last rendered size, falling back to 100px.</div>
+      <div class="size-box" style="contain-intrinsic-block-size: auto 100px;">
+        <div class="inner">The auto keyword remembers the last rendered size. If the element has not been rendered yet, 100px is used as the fallback.</div>
       </div>
-      <div class="measure"><div class="measure-bar" style="max-width: 45%;"></div><div class="measure-label">auto 120px</div></div>
+      <div class="measure"><div class="measure-bar" style="max-width: 35%;"></div><div class="measure-label">auto 100px</div></div>
+    </div>
+    <div class="demo-card">
+      <div class="label">contain-intrinsic-block-size: auto none</div>
+      <div class="desc">Uses last rendered size, falling back to none (zero).</div>
+      <div class="size-box" style="contain-intrinsic-block-size: auto none;">
+        <div class="inner">Auto with none fallback. Uses last rendered size if available, otherwise collapses to zero height on first render.</div>
+      </div>
+      <div class="measure"><div class="measure-bar" style="max-width: 10%;"></div><div class="measure-label">auto none</div></div>
     </div>
   </div>
 </body>

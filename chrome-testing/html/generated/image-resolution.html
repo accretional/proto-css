@@ -1,112 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>image-resolution</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .note { font-size: 12px; color: #f5c542; margin-bottom: 20px; padding: 10px 14px; background: rgba(245,197,66,0.1); border-radius: 6px; border-left: 3px solid #f5c542; }
-    .demos { display: flex; flex-wrap: wrap; gap: 28px; }
-    .demo-card {
-      background: #16213e;
-      border-radius: 8px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 260px;
-    }
-    .img-box {
-      width: 200px;
-      height: 200px;
-      border-radius: 6px;
-      background: linear-gradient(135deg, #e94560, #0f3460, #53a653);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-    .img-box .res-label {
-      font-size: 28px;
-      font-weight: 700;
-      color: #fff;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
-    }
-    .img-box .dpi-overlay {
-      position: absolute;
-      bottom: 8px;
-      right: 8px;
-      background: rgba(0,0,0,0.6);
-      color: #9ca3af;
-      font-size: 10px;
-      font-family: monospace;
-      padding: 3px 7px;
-      border-radius: 4px;
-    }
-    .size-indicator {
-      margin-top: 8px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .size-indicator .bar {
-      height: 6px;
-      background: #e94560;
-      border-radius: 3px;
-    }
-    .size-indicator .sz-text {
-      font-size: 10px;
-      font-family: monospace;
-      color: #9ca3af;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
-    .hint { font-size: 10px; color: #6b7280; margin-top: 4px; text-align: center; max-width: 230px; }
-  </style>
+<meta charset="UTF-8">
+<title>image-resolution</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .res-label { font-size: 28px; font-weight: 700; color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
+.dpi-overlay { position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.6); color: #9ca3af; font-size: 10px; font-family: monospace; padding: 3px 7px; border-radius: 4px; }
+</style>
 </head>
 <body>
-  <h1>Image Resolution</h1>
-  <p class="prop-name">image-resolution</p>
-  <p class="note">Experimental property. Currently only supported in Firefox. These demos simulate the visual effect.</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="img-box">
-        <span class="res-label">1x</span>
-        <span class="dpi-overlay">96 dpi</span>
-      </div>
-      <div class="size-indicator">
-        <div class="bar" style="width: 200px;"></div>
-        <span class="sz-text">200px</span>
-      </div>
-      <p class="label">image-resolution: snap</p>
-      <p class="hint">Uses resolution info embedded in the image file (EXIF/DPI metadata)</p>
+<h1>Image Resolution</h1>
+<p class="prop-name">image-resolution</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: from-image;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
     </div>
-    <div class="demo-card">
-      <div class="img-box" style="width: 140px; height: 140px;">
-        <span class="res-label">Hi</span>
-        <span class="dpi-overlay">300 dpi</span>
-      </div>
-      <div class="size-indicator">
-        <div class="bar" style="width: 140px;"></div>
-        <span class="sz-text">140px</span>
-      </div>
-      <p class="label">image-resolution: from-image var(--_񅇊, 0) ! important</p>
-      <p class="hint">Higher DPI = image renders smaller on screen (more pixels per inch)</p>
-    </div>
-    <div class="demo-card">
-      <div class="img-box" style="width: 200px; height: 200px;">
-        <span class="res-label">1x</span>
-        <span class="dpi-overlay">1 dppx</span>
-      </div>
-      <div class="size-indicator">
-        <div class="bar" style="width: 200px;"></div>
-        <span class="sz-text">200px</span>
-      </div>
-      <p class="label">image-resolution: from-image snap</p>
-      <p class="hint">1 device pixel per CSS pixel; standard screen resolution</p>
-    </div>
+    <div class="label">image-resolution: from-image</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: from-image snap;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: from-image snap</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: from-image 1dppx;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: from-image 1dppx</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: from-image 1dppx snap;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: from-image 1dppx snap</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: from-image 2dppx;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: from-image 2dppx</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: from-image 2dppx snap;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: from-image 2dppx snap</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: from-image 96dpi;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: from-image 96dpi</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: from-image 96dpi snap;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: from-image 96dpi snap</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: from-image 300dpi;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: from-image 300dpi</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: from-image 300dpi snap;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: from-image 300dpi snap</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: 1dppx;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: 1dppx</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: 1dppx snap;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: 1dppx snap</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: 1dppx from-image;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: 1dppx from-image</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: 1dppx from-image snap;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: 1dppx from-image snap</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: 2dppx;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: 2dppx</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: 2dppx snap;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: 2dppx snap</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: 2dppx from-image;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: 2dppx from-image</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: 2dppx from-image snap;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: 2dppx from-image snap</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: 96dpi;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: 96dpi</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: 96dpi snap;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: 96dpi snap</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: 96dpi from-image;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: 96dpi from-image</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: 96dpi from-image snap;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: 96dpi from-image snap</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: 300dpi;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: 300dpi</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: 300dpi snap;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: 300dpi snap</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: snap from-image;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: snap from-image</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: snap from-image 1dppx;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: snap from-image 1dppx</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: snap from-image 2dppx;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: snap from-image 2dppx</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: snap from-image 96dpi;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: snap from-image 96dpi</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: snap from-image 300dpi;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: snap from-image 300dpi</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: snap 1dppx;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: snap 1dppx</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: snap 1dppx from-image;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: snap 1dppx from-image</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: snap 2dppx;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: snap 2dppx</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: snap 2dppx from-image;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: snap 2dppx from-image</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: snap 96dpi;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: snap 96dpi</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: snap 96dpi from-image;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: snap 96dpi from-image</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 200px; height: 200px; border-radius: 6px; background: linear-gradient(135deg, #e94560, #0f3460, #53a653); display: flex; align-items: center; justify-content: center; position: relative; image-resolution: snap 300dpi;"><span class="res-label">1x</span><span class="dpi-overlay">dppx</span></div>
+    </div>
+    <div class="label">image-resolution: snap 300dpi</div>
+  </div>
+</div>
 </body>
 </html>

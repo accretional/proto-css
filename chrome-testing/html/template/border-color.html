@@ -8,7 +8,7 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 28px; }
+    .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
     .demo-item {
       display: flex;
       flex-direction: column;
@@ -29,7 +29,7 @@
       text-align: center;
       line-height: 1.6;
     }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; max-width: 200px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; max-width: 220px; }
   </style>
 </head>
 <body>
@@ -37,20 +37,24 @@
   <p class="prop-name">border-color</p>
   <div class="demos">
     <div class="demo-item">
-      <div class="box" style="border-color: #e94560;">1 value<br>all sides</div>
-      <div class="label">border-color: #e94560</div>
+      <div class="box" style="border-color: red;">1 value<br>all sides</div>
+      <div class="label">border-color: red</div>
     </div>
     <div class="demo-item">
-      <div class="box" style="border-color: #e94560 #53d8fb;">2 values<br>top/bottom left/right</div>
-      <div class="label">border-color: #e94560 #53d8fb</div>
+      <div class="box" style="border-color: blue;">1 value<br>all sides</div>
+      <div class="label">border-color: blue</div>
     </div>
     <div class="demo-item">
-      <div class="box" style="border-color: #e94560 #53d8fb #4ade80;">3 values<br>top left/right bottom</div>
-      <div class="label">border-color:<br>#e94560 #53d8fb #4ade80</div>
+      <div class="box" style="border-color: red blue;">2 values<br>top/bottom left/right</div>
+      <div class="label">border-color: red blue</div>
     </div>
     <div class="demo-item">
-      <div class="box" style="border-color: #e94560 #53d8fb #4ade80 #fbbf24;">4 values<br>T R B L</div>
-      <div class="label">border-color:<br>#e94560 #53d8fb #4ade80 #fbbf24</div>
+      <div class="box" style="border-color: red blue green;">3 values<br>top left/right bottom</div>
+      <div class="label">border-color: red blue green</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border-color: red blue green orange;">4 values<br>T R B L</div>
+      <div class="label">border-color: red blue green orange</div>
     </div>
   </div>
 </body>

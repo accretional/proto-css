@@ -8,13 +8,12 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 18px; }
-    .demo-card { background: #16213e; border-radius: 12px; padding: 16px; width: 230px; }
+    .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+    .demo-card { background: #16213e; border-radius: 12px; padding: 16px; }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
     .outer { background: #0f3460; border-radius: 8px; overflow: hidden; }
     .sibling { background: #374151; padding: 10px; font-size: 11px; color: #9ca3af; text-align: center; }
     .target { background: #e94560; padding: 14px; font-size: 12px; font-weight: 600; color: #fff; text-align: center; }
-    .gap-indicator { background: rgba(14, 165, 233, 0.15); min-height: 2px; }
   </style>
 </head>
 <body>
@@ -44,17 +43,17 @@
     </div>
     <div class="demo-card">
       <div class="outer">
-        <div class="target" style="margin-block-end: 30px;">Target</div>
+        <div class="target" style="margin-block-end: auto;">Target</div>
         <div class="sibling">sibling below</div>
       </div>
-      <div class="label">margin-block-end: 30px</div>
+      <div class="label">margin-block-end: auto</div>
     </div>
     <div class="demo-card">
       <div class="outer">
-        <div class="target" style="margin-block-end: 50px;">Target</div>
+        <div class="target" style="margin-block-end: -10px;">Target</div>
         <div class="sibling">sibling below</div>
       </div>
-      <div class="label">margin-block-end: 50px</div>
+      <div class="label">margin-block-end: -10px</div>
     </div>
   </div>
 </body>

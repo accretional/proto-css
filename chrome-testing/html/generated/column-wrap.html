@@ -1,94 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>column-wrap</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 8px; }
-    .note {
-      font-size: 12px;
-      color: #e94560;
-      background: rgba(233, 69, 96, 0.1);
-      border: 1px solid rgba(233, 69, 96, 0.3);
-      border-radius: 6px;
-      padding: 10px 14px;
-      margin-bottom: 24px;
-      font-family: monospace;
-    }
-    .demos { display: flex; gap: 24px; }
-    .demo-card {
-      flex: 1;
-      background: #16213e;
-      border-radius: 10px;
-      padding: 20px 24px;
-      border: 1px solid #2a2a4a;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 8px; }
-    .desc { font-size: 11px; color: #6b7a8d; margin-bottom: 14px; font-style: italic; }
-    .col-demo {
-      column-count: 3;
-      column-rule: 1px solid #3a3a5a;
-      font-size: 12px;
-      line-height: 1.6;
-      color: #c0c8d4;
-      background: #0f1a30;
-      border-radius: 6px;
-      padding: 14px;
-    }
-    .col-demo-nowrap {
-      height: 180px;
-      overflow: hidden;
-    }
-    .col-demo-wrap {
-      height: 180px;
-      overflow: auto;
-    }
-    .visual-hint {
-      margin-top: 12px;
-      padding: 10px;
-      border-radius: 6px;
-      font-size: 11px;
-      text-align: center;
-      font-family: monospace;
-    }
-    .hint-nowrap {
-      background: rgba(233, 69, 96, 0.15);
-      border: 1px dashed #e94560;
-      color: #e94560;
-    }
-    .hint-wrap {
-      background: rgba(79, 195, 247, 0.15);
-      border: 1px dashed #4fc3f7;
-      color: #4fc3f7;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>column-wrap</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Column Wrap</h1>
-  <p class="prop-name">column-wrap</p>
-  <div class="note">Experimental / Non-standard: column-wrap is not part of any current CSS specification. No browsers implement this property. The demos below illustrate the intended concept of controlling whether columns wrap or overflow.</div>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="label">Concept: column-wrap: wrap ! important</div>
-      <div class="desc">Columns do not wrap; overflow is clipped</div>
-      <div class="col-demo col-demo-nowrap">
-        When column-wrap would be set to nowrap, columns would not wrap to the next row. If column content exceeds the container height, it would be clipped or overflow. This is the conceptual default behavior where columns remain in a single horizontal row. Extra content that cannot fit within the constrained height would simply be hidden from view.
-        Additional text continues to fill the columns but is cut off when the height limit is reached, demonstrating the nowrap concept clearly.
-      </div>
-      <div class="visual-hint hint-nowrap">Content clipped at container boundary</div>
+<h1>Column Wrap</h1>
+<p class="prop-name">column-wrap</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; background: #0f1a30; border-radius: 6px; padding: 14px; height: 160px; overflow: hidden; column-wrap: auto;">With this value, the browser controls whether columns wrap based on available space and content. Columns may remain in a single horizontal row or wrap to create new rows below depending on the setting.</div>
     </div>
-    <div class="demo-card">
-      <div class="label">Concept: column-wrap: wrap ! important</div>
-      <div class="desc">Columns wrap to create new rows when needed</div>
-      <div class="col-demo col-demo-wrap">
-        When column-wrap would be set to wrap, columns that exceed the container's height would create new rows of columns below. This is similar to how flex-wrap works for flex items. The content would continue flowing into a new set of columns positioned below the first row.
-        This wrapping behavior would allow all content to remain visible without clipping, at the cost of increasing the overall container height as new column rows are created below the first set.
-      </div>
-      <div class="visual-hint hint-wrap">Content wraps into new column rows</div>
-    </div>
+    <div class="label">column-wrap: auto</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; background: #0f1a30; border-radius: 6px; padding: 14px; height: 160px; overflow: hidden; column-wrap: nowrap;">With this value, the browser controls whether columns wrap based on available space and content. Columns may remain in a single horizontal row or wrap to create new rows below depending on the setting.</div>
+    </div>
+    <div class="label">column-wrap: nowrap</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; background: #0f1a30; border-radius: 6px; padding: 14px; height: 160px; overflow: hidden; column-wrap: wrap;">With this value, the browser controls whether columns wrap based on available space and content. Columns may remain in a single horizontal row or wrap to create new rows below depending on the setting.</div>
+    </div>
+    <div class="label">column-wrap: wrap</div>
+  </div>
+</div>
 </body>
 </html>

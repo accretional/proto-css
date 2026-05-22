@@ -8,7 +8,7 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .demo-item {
       display: flex;
       flex-direction: column;
@@ -36,28 +36,24 @@
   <p class="prop-name">border-image-slice</p>
   <div class="demos">
     <div class="demo-item">
-      <div class="box" style="border-image-slice: 1;">slice: 1</div>
-      <div class="label">border-image-slice: 1</div>
-    </div>
-    <div class="demo-item">
-      <div class="box" style="border-image-slice: 10;">slice: 10</div>
+      <div class="box" style="border-image-slice: 10;">10</div>
       <div class="label">border-image-slice: 10</div>
     </div>
     <div class="demo-item">
-      <div class="box" style="border-image-slice: 30;">slice: 30</div>
+      <div class="box" style="border-image-slice: 10%;">10%</div>
+      <div class="label">border-image-slice: 10%</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border-image-slice: 10 20;">10 20</div>
+      <div class="label">border-image-slice: 10 20</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border-image-slice: 10% fill;">10% fill</div>
+      <div class="label">border-image-slice: 10% fill</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border-image-slice: 30;">30</div>
       <div class="label">border-image-slice: 30</div>
-    </div>
-    <div class="demo-item">
-      <div class="box" style="border-image-slice: 50;">slice: 50</div>
-      <div class="label">border-image-slice: 50</div>
-    </div>
-    <div class="demo-item">
-      <div class="box" style="border-image-slice: 30 fill;">slice: 30 fill</div>
-      <div class="label">border-image-slice: 30 fill</div>
-    </div>
-    <div class="demo-item">
-      <div class="box" style="border-image-slice: 50 fill;">slice: 50 fill</div>
-      <div class="label">border-image-slice: 50 fill</div>
     </div>
   </div>
 </body>

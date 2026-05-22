@@ -27,52 +27,28 @@
       padding: 16px;
       min-height: 200px;
     }
-    .expand-box-wrap {
-      overflow: hidden;
-    }
-    .expand-box-numeric {
-      interpolate-size: numeric-only;
-      width: 100%;
-      background: linear-gradient(135deg, #e94560, #0f3460);
-      border-radius: 6px;
-      padding: 12px;
-      color: #fff;
-      font-size: 13px;
-      transition: height 0.6s ease;
-      overflow: hidden;
-      height: 40px;
-    }
-    .expand-box-numeric:hover {
-      height: auto;
-    }
-    .expand-box-keywords {
-      interpolate-size: allow-keywords;
-      width: 100%;
-      background: linear-gradient(135deg, #53a653, #0f3460);
-      border-radius: 6px;
-      padding: 12px;
-      color: #fff;
-      font-size: 13px;
-      transition: height 0.6s ease;
-      overflow: hidden;
-      height: 40px;
-    }
-    .expand-box-keywords:hover {
-      height: auto;
-    }
-    .box-content {
-      margin-top: 8px;
-    }
-    .instruction {
-      font-size: 11px;
-      color: #9ca3af;
-      margin-bottom: 12px;
-      font-style: italic;
-    }
-    .comparison {
+    .vis-row {
       display: flex;
-      flex-direction: column;
-      gap: 12px;
+      gap: 8px;
+      align-items: flex-end;
+      margin-bottom: 12px;
+    }
+    .vis-box {
+      border-radius: 4px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 4px;
+      font-size: 9px;
+      font-family: monospace;
+      color: rgba(255,255,255,0.7);
+      width: 60px;
+    }
+    .vis-box.numeric {
+      background: linear-gradient(180deg, #e94560, #921b33);
+    }
+    .vis-box.keyword {
+      background: linear-gradient(180deg, #53a653, #2d5e2d);
     }
     .status-row {
       display: flex;
@@ -94,31 +70,11 @@
     }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; }
     .hint { font-size: 10px; color: #6b7280; margin-top: 4px; }
-
-    /* Visual representation boxes */
-    .vis-row {
-      display: flex;
-      gap: 8px;
-      align-items: flex-end;
+    .instruction {
+      font-size: 11px;
+      color: #9ca3af;
       margin-bottom: 12px;
-    }
-    .vis-box {
-      border-radius: 4px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      padding: 4px;
-      font-size: 9px;
-      font-family: monospace;
-      color: rgba(255,255,255,0.7);
-      width: 60px;
-      transition: height 0.5s ease;
-    }
-    .vis-box.numeric {
-      background: linear-gradient(180deg, #e94560, #921b33);
-    }
-    .vis-box.keyword {
-      background: linear-gradient(180deg, #53a653, #2d5e2d);
+      font-style: italic;
     }
   </style>
 </head>

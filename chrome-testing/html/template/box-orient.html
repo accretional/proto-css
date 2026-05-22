@@ -8,9 +8,9 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 32px; }
+    .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
     .demo-box { display: flex; flex-direction: column; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; }
     .container {
       display: -webkit-box;
       background: #16213e;
@@ -19,13 +19,23 @@
     }
     .horizontal {
       -webkit-box-orient: horizontal;
-      width: 400px;
+      width: 240px;
       height: 100px;
     }
     .vertical {
       -webkit-box-orient: vertical;
       width: 140px;
-      height: 320px;
+      height: 240px;
+    }
+    .inline-axis {
+      -webkit-box-orient: inline-axis;
+      width: 240px;
+      height: 100px;
+    }
+    .block-axis {
+      -webkit-box-orient: block-axis;
+      width: 140px;
+      height: 240px;
     }
     .child {
       -webkit-box-flex: 1;
@@ -55,7 +65,7 @@
         <div class="child">3</div>
         <div class="child">4</div>
       </div>
-      <span class="label">-webkit-box-orient: horizontal</span>
+      <span class="label">box-orient: horizontal</span>
     </div>
     <div class="demo-box">
       <div class="container vertical">
@@ -64,7 +74,25 @@
         <div class="child">3</div>
         <div class="child">4</div>
       </div>
-      <span class="label">-webkit-box-orient: vertical</span>
+      <span class="label">box-orient: vertical</span>
+    </div>
+    <div class="demo-box">
+      <div class="container inline-axis">
+        <div class="child">1</div>
+        <div class="child">2</div>
+        <div class="child">3</div>
+        <div class="child">4</div>
+      </div>
+      <span class="label">box-orient: inline-axis</span>
+    </div>
+    <div class="demo-box">
+      <div class="container block-axis">
+        <div class="child">1</div>
+        <div class="child">2</div>
+        <div class="child">3</div>
+        <div class="child">4</div>
+      </div>
+      <span class="label">box-orient: block-axis</span>
     </div>
   </div>
 </body>

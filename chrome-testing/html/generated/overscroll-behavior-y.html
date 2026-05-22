@@ -1,182 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>overscroll-behavior-y</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
-    .demo-card {
-      background: #16213e;
-      border-radius: 12px;
-      padding: 20px;
-      width: 370px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .demo-card h2 { font-size: 14px; color: #e0e0e0; margin-bottom: 12px; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
-    .outer-scroll {
-      width: 320px;
-      height: 180px;
-      background: #0f3460;
-      border-radius: 8px;
-      overflow-y: auto;
-      overflow-x: hidden;
-    }
-    .outer-content {
-      padding: 12px;
-      min-height: 500px;
-    }
-    .outer-content p {
-      font-size: 11px;
-      color: #5a7aa0;
-      margin-bottom: 6px;
-    }
-    .inner-scroll {
-      width: 260px;
-      height: 100px;
-      border-radius: 6px;
-      overflow-y: auto;
-      overflow-x: hidden;
-      margin: 8px auto;
-      padding: 10px;
-      font-size: 12px;
-      line-height: 1.6;
-      color: #c0c0c0;
-    }
-    .inner-scroll p { margin-bottom: 6px; }
-    .val-auto {
-      background: #2a1a3e;
-      border: 2px solid #e94560;
-      overscroll-behavior-y: chain;
-    }
-    .val-contain {
-      background: #1a2e1a;
-      border: 2px solid #4ecca3;
-      overscroll-behavior-y: contain ! important;
-    }
-    .val-none {
-      background: #2e2a1a;
-      border: 2px solid #f0a500;
-      overscroll-behavior-y: none ! important;
-    }
-    .axis-row {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 8px;
-    }
-    .axis-badge {
-      font-size: 10px;
-      font-family: monospace;
-      padding: 3px 8px;
-      border-radius: 4px;
-      background: #0f3460;
-      color: #64b5f6;
-    }
-    .status-badge {
-      font-size: 10px;
-      font-family: monospace;
-      padding: 3px 8px;
-      border-radius: 4px;
-      margin-top: 6px;
-    }
-    .s-auto { background: #3d1a2e; color: #e94560; }
-    .s-contain { background: #1a2e1a; color: #4ecca3; }
-    .s-none { background: #2e2a1a; color: #f0a500; }
-    .y-arrow {
-      font-size: 16px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>overscroll-behavior-y</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .outer-label { font-size: 11px; color: #5a7aa0; margin-bottom: 6px; padding: 0 12px; }
+p { margin-bottom: 6px; }
+</style>
 </head>
 <body>
-  <h1>Overscroll Behavior Y</h1>
-  <p class="prop-name">overscroll-behavior-y</p>
-  <div class="demos">
-
-    <div class="demo-card">
-      <h2>auto</h2>
-      <div class="axis-row">
-        <span class="axis-badge">Y axis &#8597;</span>
-        <span class="y-arrow" style="color:#e94560;">&#8593;&#8595;</span>
-      </div>
-      <div class="outer-scroll">
-        <div class="outer-content">
-          <p>&#8593; Outer vertical scroll area</p>
-          <div class="inner-scroll val-auto">
-            <p>Inner scrollable content. Scroll vertically past the boundary...</p>
-            <p>Y-axis overscroll will chain to the parent's vertical scroll.</p>
-            <p>This is the default behavior.</p>
-            <p>Line 4 of inner.</p>
-            <p>Line 5 of inner.</p>
-          </div>
-          <p>More outer content below...</p>
-          <p>Outer content continues...</p>
-          <p>Even more outer content...</p>
-          <p>End of outer.</p>
-        </div>
-      </div>
-      <span class="status-badge s-auto">y-axis: chains to parent</span>
-      <div class="label">overscroll-behavior-y: chain</div>
+<h1>Overscroll Behavior Y</h1>
+<p class="prop-name">overscroll-behavior-y</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="width: 320px; height: 180px; background: #0f3460; border-radius: 8px; overflow-y: auto; overflow-x: hidden;">
+      <p class="outer-label">Outer vertical scroll area</p>
+      <div style="width: 260px; height: 100px; border-radius: 6px; overflow-y: auto; overflow-x: hidden; margin: 8px auto; padding: 10px; font-size: 12px; line-height: 1.6; color: #c0c0c0; background: #2a1a3e; border: 2px solid #e94560; overscroll-behavior-y: contain;"><p>Inner scrollable content. Scroll vertically past the boundary...</p><p>Y-axis overscroll will chain to the parent's vertical scroll.</p><p>This is the default behavior.</p><p>Line 4 of inner.</p><p>Line 5 of inner.</p></div>
+      <p class="outer-label">More outer content below...</p><p class="outer-label">Outer content continues...</p><p class="outer-label">Even more outer content...</p><p class="outer-label">End of outer.</p>
     </div>
-
-    <div class="demo-card">
-      <h2>contain</h2>
-      <div class="axis-row">
-        <span class="axis-badge">Y axis &#8597;</span>
-        <span class="y-arrow" style="color:#4ecca3;">&#8868;</span>
-      </div>
-      <div class="outer-scroll">
-        <div class="outer-content">
-          <p>&#8593; Outer vertical scroll area</p>
-          <div class="inner-scroll val-contain">
-            <p>Inner scrollable content. Scroll vertically past the boundary...</p>
-            <p>Y-axis overscroll is contained. Won't chain to parent vertical scroll.</p>
-            <p>Bounce effects may still show.</p>
-            <p>Line 4 of inner.</p>
-            <p>Line 5 of inner.</p>
-          </div>
-          <p>More outer content below...</p>
-          <p>Outer content continues...</p>
-          <p>Even more outer content...</p>
-          <p>End of outer.</p>
-        </div>
-      </div>
-      <span class="status-badge s-contain">y-axis: contained</span>
-      <div class="label">overscroll-behavior-y: contain ! important</div>
-    </div>
-
-    <div class="demo-card">
-      <h2>none</h2>
-      <div class="axis-row">
-        <span class="axis-badge">Y axis &#8597;</span>
-        <span class="y-arrow" style="color:#f0a500;">&#10005;</span>
-      </div>
-      <div class="outer-scroll">
-        <div class="outer-content">
-          <p>&#8593; Outer vertical scroll area</p>
-          <div class="inner-scroll val-none">
-            <p>Inner scrollable content. Scroll vertically past the boundary...</p>
-            <p>No chaining AND no overscroll effects on the Y axis.</p>
-            <p>Completely prevents vertical overscroll behavior.</p>
-            <p>Line 4 of inner.</p>
-            <p>Line 5 of inner.</p>
-          </div>
-          <p>More outer content below...</p>
-          <p>Outer content continues...</p>
-          <p>Even more outer content...</p>
-          <p>End of outer.</p>
-        </div>
-      </div>
-      <span class="status-badge s-none">y-axis: fully blocked</span>
-      <div class="label">overscroll-behavior-y: none ! important</div>
-    </div>
-
+    <div class="label">overscroll-behavior-y: contain</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 320px; height: 180px; background: #0f3460; border-radius: 8px; overflow-y: auto; overflow-x: hidden;">
+      <p class="outer-label">Outer vertical scroll area</p>
+      <div style="width: 260px; height: 100px; border-radius: 6px; overflow-y: auto; overflow-x: hidden; margin: 8px auto; padding: 10px; font-size: 12px; line-height: 1.6; color: #c0c0c0; background: #2a1a3e; border: 2px solid #e94560; overscroll-behavior-y: none;"><p>Inner scrollable content. Scroll vertically past the boundary...</p><p>Y-axis overscroll will chain to the parent's vertical scroll.</p><p>This is the default behavior.</p><p>Line 4 of inner.</p><p>Line 5 of inner.</p></div>
+      <p class="outer-label">More outer content below...</p><p class="outer-label">Outer content continues...</p><p class="outer-label">Even more outer content...</p><p class="outer-label">End of outer.</p>
+    </div>
+    <div class="label">overscroll-behavior-y: none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 320px; height: 180px; background: #0f3460; border-radius: 8px; overflow-y: auto; overflow-x: hidden;">
+      <p class="outer-label">Outer vertical scroll area</p>
+      <div style="width: 260px; height: 100px; border-radius: 6px; overflow-y: auto; overflow-x: hidden; margin: 8px auto; padding: 10px; font-size: 12px; line-height: 1.6; color: #c0c0c0; background: #2a1a3e; border: 2px solid #e94560; overscroll-behavior-y: auto;"><p>Inner scrollable content. Scroll vertically past the boundary...</p><p>Y-axis overscroll will chain to the parent's vertical scroll.</p><p>This is the default behavior.</p><p>Line 4 of inner.</p><p>Line 5 of inner.</p></div>
+      <p class="outer-label">More outer content below...</p><p class="outer-label">Outer content continues...</p><p class="outer-label">Even more outer content...</p><p class="outer-label">End of outer.</p>
+    </div>
+    <div class="label">overscroll-behavior-y: auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 320px; height: 180px; background: #0f3460; border-radius: 8px; overflow-y: auto; overflow-x: hidden;">
+      <p class="outer-label">Outer vertical scroll area</p>
+      <div style="width: 260px; height: 100px; border-radius: 6px; overflow-y: auto; overflow-x: hidden; margin: 8px auto; padding: 10px; font-size: 12px; line-height: 1.6; color: #c0c0c0; background: #2a1a3e; border: 2px solid #e94560; overscroll-behavior-y: chain;"><p>Inner scrollable content. Scroll vertically past the boundary...</p><p>Y-axis overscroll will chain to the parent's vertical scroll.</p><p>This is the default behavior.</p><p>Line 4 of inner.</p><p>Line 5 of inner.</p></div>
+      <p class="outer-label">More outer content below...</p><p class="outer-label">Outer content continues...</p><p class="outer-label">Even more outer content...</p><p class="outer-label">End of outer.</p>
+    </div>
+    <div class="label">overscroll-behavior-y: chain</div>
+  </div>
+</div>
 </body>
 </html>

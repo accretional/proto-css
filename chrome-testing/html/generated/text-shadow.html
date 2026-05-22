@@ -1,56 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>text-shadow</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-card {
-      background: #16213e; border-radius: 10px; padding: 24px 28px;
-      display: flex; flex-direction: column; align-items: center; min-width: 200px;
-    }
-    .demo-text { font-size: 36px; font-weight: 700; color: #fff; margin-bottom: 8px; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; }
-    .s1 { text-shadow: var(--S󧘔, x잖) 0 selecteditem; }
-    .s2 { text-shadow: none ! important; }
-    .s3 { text-shadow: skyblue var(--ꆉ) var(--𢑾ꌡ), currentcolor 0 var(--𧸞, 񳄧) 08.34rex var(--򅣗); }
-    .s4 { text-shadow: transparent 7.1cap 0 var(--) var(--_P) canvastext; }
-    .s5 { text-shadow: none; }
-    .s6 { text-shadow: -2e-9cqmin var(--󤱹) var(--A) 0; }
-  </style>
+<meta charset="UTF-8">
+<title>text-shadow</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Text Shadow</h1>
-  <p class="prop-name">text-shadow</p>
-  <div class="demos">
-    <div class="demo-card">
-      <span class="demo-text s1">Shadow</span>
-      <span class="label">text-shadow: var(--S󧘔, x잖) 0 selecteditem</span>
+<h1>Text Shadow</h1>
+<p class="prop-name">text-shadow</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: none;">Shadow</span>
     </div>
-    <div class="demo-card">
-      <span class="demo-text s2">Blur</span>
-      <span class="label">text-shadow: revert-rule<br>rgba(233,69,96,0.8)</span>
-    </div>
-    <div class="demo-card">
-      <span class="demo-text s3">Multi</span>
-      <span class="label">text-shadow: light-dark(,) 0 var(--䎑, --򆫡) ! important<br>2px 2px 0 #e94560</span>
-    </div>
-    <div class="demo-card">
-      <span class="demo-text s4">Neon</span>
-      <span class="label">text-shadow: 0 0 buttonface, -67rlh var(--握, 0) ! important<br>0 0 40px, 0 0 80px</span>
-    </div>
-    <div class="demo-card">
-      <span class="demo-text s5">Glow</span>
-      <span class="label">text-shadow: 0 var(--u, -4.02) var(--񩄈_) var(--_, #FeB3) device-cmyk(var(--j, 0), 41.9, var(--_), -6), 86.7rem var(--x) ! important<br>0 0 20px, 0 0 40px, 0 0 80px</span>
-    </div>
-    <div class="demo-card">
-      <span class="demo-text s6">3D</span>
-      <span class="label">text-shadow: revert-rule ! important<br>(stacked offsets)</span>
-    </div>
+    <div class="label">text-shadow: none</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 red;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 #3498db;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 rgb(0, 128, 0);">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 rgb(0, 128, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 transparent;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 transparent</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 currentcolor;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 currentcolor</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 0;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 0 red;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 0 red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 0 #3498db;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 0 #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 0 rgb(0, 128, 0);">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 0 rgb(0, 128, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 0 transparent;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 0 transparent</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 0 currentcolor;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 0 currentcolor</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 0 0;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 0 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 0 0 red;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 0 0 red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 0 0 #3498db;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 0 0 #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 0 0 rgb(0, 128, 0);">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 0 0 rgb(0, 128, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 0 0 transparent;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 0 0 transparent</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 0 0 currentcolor;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 0 0 currentcolor</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 0 4px;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 0 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 0 4px red;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 0 4px red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 0 4px #3498db;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 0 4px #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 0 4px rgb(0, 128, 0);">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 0 4px rgb(0, 128, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 0 4px transparent;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 0 4px transparent</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 0 4px currentcolor;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 0 4px currentcolor</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 0 10px;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 0 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 0 10px red;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 0 10px red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 0 10px #3498db;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 0 10px #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 0 10px rgb(0, 128, 0);">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 0 10px rgb(0, 128, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 0 10px transparent;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 0 10px transparent</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 0 10px currentcolor;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 0 10px currentcolor</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 0 20px;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 0 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 0 20px red;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 0 20px red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 0 20px #3498db;">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 0 20px #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <span style="font-size: 36px; font-weight: 700; color: #fff; text-shadow: 0 0, 0 0 0 20px rgb(0, 128, 0);">Shadow</span>
+    </div>
+    <div class="label">text-shadow: 0 0, 0 0 0 20px rgb(0, 128, 0)</div>
+  </div>
+</div>
 </body>
 </html>

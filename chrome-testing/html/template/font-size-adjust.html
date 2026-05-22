@@ -8,66 +8,46 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-card {
-      background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 270px;
-      border: 1px solid #2a2a4a;
+    .demos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .demo-block {
+      background: #16213e;
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
-    .tag {
-      display: inline-block; background: #7c3aed33; color: #a78bfa; font-size: 11px;
-      font-family: monospace; padding: 2px 8px; border-radius: 4px; margin-bottom: 12px;
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; }
+    .sample {
+      font-size: 22px;
+      color: #fff;
+      line-height: 1.5;
     }
-    .demo-text {
-      font-size: 20px; color: #fff; line-height: 1.6;
-    }
-    .baseline {
-      border-bottom: 2px dashed #7c3aed55; padding-bottom: 4px; display: inline-block;
-    }
-    .font-a { font-family: Georgia, serif; }
-    .font-b { font-family: Verdana, sans-serif; }
-    .guide { font-size: 12px; color: #6b7280; margin-top: 6px; }
   </style>
 </head>
 <body>
   <h1>Font Size Adjust</h1>
   <p class="prop-name">font-size-adjust</p>
   <div class="demos">
-    <div class="demo-card">
-      <div class="tag">none</div>
-      <div class="demo-text">
-        <span class="font-a baseline">Georgia xgp</span><br>
-        <span class="font-b baseline">Verdana xgp</span>
-      </div>
-      <p class="label">font-size-adjust: none</p>
-      <p class="guide">No adjustment — x-heights differ</p>
+    <div class="demo-block">
+      <div class="label">font-size-adjust: none</div>
+      <div class="sample" style="font-size-adjust: none;">The quick brown fox jumps over the lazy dog</div>
     </div>
-    <div class="demo-card">
-      <div class="tag">0.5</div>
-      <div class="demo-text" style="font-size-adjust: 0.5;">
-        <span class="font-a baseline">Georgia xgp</span><br>
-        <span class="font-b baseline">Verdana xgp</span>
-      </div>
-      <p class="label">font-size-adjust: 0.5</p>
-      <p class="guide">x-height / font-size = 0.5</p>
+    <div class="demo-block">
+      <div class="label">font-size-adjust: 0.5</div>
+      <div class="sample" style="font-size-adjust: 0.5;">The quick brown fox jumps over the lazy dog</div>
     </div>
-    <div class="demo-card">
-      <div class="tag">0.58</div>
-      <div class="demo-text" style="font-size-adjust: 0.58;">
-        <span class="font-a baseline">Georgia xgp</span><br>
-        <span class="font-b baseline">Verdana xgp</span>
-      </div>
-      <p class="label">font-size-adjust: 0.58</p>
-      <p class="guide">Tuned for Verdana-like x-height</p>
+    <div class="demo-block">
+      <div class="label">font-size-adjust: from-font</div>
+      <div class="sample" style="font-size-adjust: from-font;">The quick brown fox jumps over the lazy dog</div>
     </div>
-    <div class="demo-card">
-      <div class="tag">ex-height 0.5</div>
-      <div class="demo-text" style="font-size-adjust: ex-height 0.5;">
-        <span class="font-a baseline">Georgia xgp</span><br>
-        <span class="font-b baseline">Verdana xgp</span>
-      </div>
-      <p class="label">font-size-adjust: ex-height 0.5</p>
-      <p class="guide">Explicit ex-height metric target</p>
+    <div class="demo-block">
+      <div class="label">font-size-adjust: ex-height 0.5</div>
+      <div class="sample" style="font-size-adjust: ex-height 0.5;">The quick brown fox jumps over the lazy dog</div>
+    </div>
+    <div class="demo-block">
+      <div class="label">font-size-adjust: cap-height 0.6</div>
+      <div class="sample" style="font-size-adjust: cap-height 0.6;">The quick brown fox jumps over the lazy dog</div>
     </div>
   </div>
 </body>

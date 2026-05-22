@@ -1,57 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>stroke-opacity</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
-    .demo { display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
-  </style>
+<meta charset="UTF-8">
+<title>stroke-opacity</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Stroke Opacity</h1>
-  <p class="prop-name">stroke-opacity</p>
-  <div class="demos">
-    <div class="demo">
+<h1>Stroke Opacity</h1>
+<p class="prop-name">stroke-opacity</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
       <svg width="160" height="160">
-        <rect x="20" y="20" width="120" height="120" rx="12" fill="#2a2a4e" stroke="#06b6d4" stroke-width="8" stroke-opacity="0"/>
-        <circle cx="80" cy="80" r="40" fill="none" stroke="#f43f5e" stroke-width="6" stroke-opacity="0"/>
-      </svg>
-      <div class="label">stroke-opacity: var(--S󧘔, x잖) ! important</div>
+      <rect style="fill: #2a2a4e; stroke: #06b6d4; stroke-width: 8; stroke-opacity: 0;"></rect>
+      <circle cx="80" cy="80" r="40" fill="none" stroke="#f43f5e" stroke-width="6"/></svg>
     </div>
-    <div class="demo">
-      <svg width="160" height="160">
-        <rect x="20" y="20" width="120" height="120" rx="12" fill="#2a2a4e" stroke="#06b6d4" stroke-width="8" stroke-opacity="0.25"/>
-        <circle cx="80" cy="80" r="40" fill="none" stroke="#f43f5e" stroke-width="6" stroke-opacity="0.25"/>
-      </svg>
-      <div class="label">stroke-opacity: var(--S󧘔, x잖) ! important.25</div>
-    </div>
-    <div class="demo">
-      <svg width="160" height="160">
-        <rect x="20" y="20" width="120" height="120" rx="12" fill="#2a2a4e" stroke="#06b6d4" stroke-width="8" stroke-opacity="0.5"/>
-        <circle cx="80" cy="80" r="40" fill="none" stroke="#f43f5e" stroke-width="6" stroke-opacity="0.5"/>
-      </svg>
-      <div class="label">stroke-opacity: var(--S󧘔, x잖) ! important.5</div>
-    </div>
-    <div class="demo">
-      <svg width="160" height="160">
-        <rect x="20" y="20" width="120" height="120" rx="12" fill="#2a2a4e" stroke="#06b6d4" stroke-width="8" stroke-opacity="0.75"/>
-        <circle cx="80" cy="80" r="40" fill="none" stroke="#f43f5e" stroke-width="6" stroke-opacity="0.75"/>
-      </svg>
-      <div class="label">stroke-opacity: var(--S󧘔, x잖) ! important.75</div>
-    </div>
-    <div class="demo">
-      <svg width="160" height="160">
-        <rect x="20" y="20" width="120" height="120" rx="12" fill="#2a2a4e" stroke="#06b6d4" stroke-width="8" stroke-opacity="1"/>
-        <circle cx="80" cy="80" r="40" fill="none" stroke="#f43f5e" stroke-width="6" stroke-opacity="1"/>
-      </svg>
-      <div class="label">stroke-opacity: 1.58e+7</div>
-    </div>
+    <div class="label">stroke-opacity: 0</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <rect style="fill: #2a2a4e; stroke: #06b6d4; stroke-width: 8; stroke-opacity: 0.5;"></rect>
+      <circle cx="80" cy="80" r="40" fill="none" stroke="#f43f5e" stroke-width="6"/></svg>
+    </div>
+    <div class="label">stroke-opacity: 0.5</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <rect style="fill: #2a2a4e; stroke: #06b6d4; stroke-width: 8; stroke-opacity: 1;"></rect>
+      <circle cx="80" cy="80" r="40" fill="none" stroke="#f43f5e" stroke-width="6"/></svg>
+    </div>
+    <div class="label">stroke-opacity: 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <rect style="fill: #2a2a4e; stroke: #06b6d4; stroke-width: 8; stroke-opacity: 2;"></rect>
+      <circle cx="80" cy="80" r="40" fill="none" stroke="#f43f5e" stroke-width="6"/></svg>
+    </div>
+    <div class="label">stroke-opacity: 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <rect style="fill: #2a2a4e; stroke: #06b6d4; stroke-width: 8; stroke-opacity: 0%;"></rect>
+      <circle cx="80" cy="80" r="40" fill="none" stroke="#f43f5e" stroke-width="6"/></svg>
+    </div>
+    <div class="label">stroke-opacity: 0%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <rect style="fill: #2a2a4e; stroke: #06b6d4; stroke-width: 8; stroke-opacity: 25%;"></rect>
+      <circle cx="80" cy="80" r="40" fill="none" stroke="#f43f5e" stroke-width="6"/></svg>
+    </div>
+    <div class="label">stroke-opacity: 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <rect style="fill: #2a2a4e; stroke: #06b6d4; stroke-width: 8; stroke-opacity: 50%;"></rect>
+      <circle cx="80" cy="80" r="40" fill="none" stroke="#f43f5e" stroke-width="6"/></svg>
+    </div>
+    <div class="label">stroke-opacity: 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <rect style="fill: #2a2a4e; stroke: #06b6d4; stroke-width: 8; stroke-opacity: 75%;"></rect>
+      <circle cx="80" cy="80" r="40" fill="none" stroke="#f43f5e" stroke-width="6"/></svg>
+    </div>
+    <div class="label">stroke-opacity: 75%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
+      <svg width="160" height="160">
+      <rect style="fill: #2a2a4e; stroke: #06b6d4; stroke-width: 8; stroke-opacity: 100%;"></rect>
+      <circle cx="80" cy="80" r="40" fill="none" stroke="#f43f5e" stroke-width="6"/></svg>
+    </div>
+    <div class="label">stroke-opacity: 100%</div>
+  </div>
+</div>
 </body>
 </html>

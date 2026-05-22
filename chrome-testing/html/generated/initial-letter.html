@@ -1,88 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>initial-letter</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-card {
-      background: #16213e;
-      border-radius: 8px;
-      padding: 20px;
-      width: 280px;
-    }
-    .text-block {
-      background: #0f3460;
-      border-radius: 6px;
-      padding: 16px;
-      font-size: 14px;
-      line-height: 1.6;
-      color: #e0e0e0;
-      min-height: 140px;
-    }
-    .text-block.val-normal::first-letter {
-      initial-letter: +20.11e34 ! important;
-      color: #e94560;
-      font-weight: 700;
-    }
-    .text-block.val-2::first-letter {
-      initial-letter: +6e+9 ! important;
-      color: #e94560;
-      font-weight: 700;
-      margin-right: 6px;
-    }
-    .text-block.val-3::first-letter {
-      initial-letter: var(--_Y) ! important;
-      color: #e94560;
-      font-weight: 700;
-      margin-right: 6px;
-    }
-    .text-block.val-4::first-letter {
-      initial-letter: normal ! important;
-      color: #e94560;
-      font-weight: 700;
-      margin-right: 6px;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
-    .hint { font-size: 10px; color: #6b7280; margin-top: 4px; }
-  </style>
+<meta charset="UTF-8">
+<title>initial-letter</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .target::first-letter { color: #e94560; font-weight: 700; margin-right: 6px; }
+</style>
 </head>
 <body>
-  <h1>Initial Letter</h1>
-  <p class="prop-name">initial-letter</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="text-block val-normal">
-        Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.
-      </div>
-      <p class="label">initial-letter: +20.11e34 ! important</p>
-      <p class="hint">No drop cap effect</p>
+<h1>Initial Letter</h1>
+<p class="prop-name">initial-letter</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: normal;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
     </div>
-    <div class="demo-card">
-      <div class="text-block val-2">
-        Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.
-      </div>
-      <p class="label">initial-letter: +6e+9 ! important</p>
-      <p class="hint">Drop cap spans 2 lines</p>
-    </div>
-    <div class="demo-card">
-      <div class="text-block val-3">
-        Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.
-      </div>
-      <p class="label">initial-letter: var(--_Y) ! important</p>
-      <p class="hint">Drop cap spans 3 lines</p>
-    </div>
-    <div class="demo-card">
-      <div class="text-block val-4">
-        Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.
-      </div>
-      <p class="label">initial-letter: normal ! important</p>
-      <p class="hint">Drop cap spans 4 lines</p>
-    </div>
+    <div class="label">initial-letter: normal</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: 0 0;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
+    </div>
+    <div class="label">initial-letter: 0 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: 0 1;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
+    </div>
+    <div class="label">initial-letter: 0 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: 0 2;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
+    </div>
+    <div class="label">initial-letter: 0 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: 0 5;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
+    </div>
+    <div class="label">initial-letter: 0 5</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: 0.5 0;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
+    </div>
+    <div class="label">initial-letter: 0.5 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: 0.5 1;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
+    </div>
+    <div class="label">initial-letter: 0.5 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: 0.5 2;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
+    </div>
+    <div class="label">initial-letter: 0.5 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: 0.5 5;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
+    </div>
+    <div class="label">initial-letter: 0.5 5</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: 1 0;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
+    </div>
+    <div class="label">initial-letter: 1 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: 1 1;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
+    </div>
+    <div class="label">initial-letter: 1 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: 1 2;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
+    </div>
+    <div class="label">initial-letter: 1 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: 1 5;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
+    </div>
+    <div class="label">initial-letter: 1 5</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: 2 0;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
+    </div>
+    <div class="label">initial-letter: 2 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: 2 1;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
+    </div>
+    <div class="label">initial-letter: 2 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: 2 2;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
+    </div>
+    <div class="label">initial-letter: 2 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: 2 5;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
+    </div>
+    <div class="label">initial-letter: 2 5</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: 0;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
+    </div>
+    <div class="label">initial-letter: 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: 0 drop;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
+    </div>
+    <div class="label">initial-letter: 0 drop</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: 0 raise;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
+    </div>
+    <div class="label">initial-letter: 0 raise</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: 0.5;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
+    </div>
+    <div class="label">initial-letter: 0.5</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: 0.5 drop;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
+    </div>
+    <div class="label">initial-letter: 0.5 drop</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: 0.5 raise;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
+    </div>
+    <div class="label">initial-letter: 0.5 raise</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: 1;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
+    </div>
+    <div class="label">initial-letter: 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: 1 drop;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
+    </div>
+    <div class="label">initial-letter: 1 drop</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: 1 raise;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
+    </div>
+    <div class="label">initial-letter: 1 raise</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: 2;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
+    </div>
+    <div class="label">initial-letter: 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: 2 drop;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
+    </div>
+    <div class="label">initial-letter: 2 drop</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; font-size: 14px; line-height: 1.6; color: #e0e0e0; min-height: 140px; width: 280px; initial-letter: 2 raise;">Once upon a time in a distant kingdom, there lived a wise old scholar who spent every moment studying the ancient texts and manuscripts that filled the grand library.</div>
+    </div>
+    <div class="label">initial-letter: 2 raise</div>
+  </div>
+</div>
 </body>
 </html>

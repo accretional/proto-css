@@ -1,98 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>flex-basis</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-direction: column; gap: 16px; }
-    .demo-block { display: flex; flex-direction: column; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 4px; }
-    .demo-row {
-      display: flex;
-      background: #16213e;
-      border-radius: 8px;
-      padding: 12px;
-      height: 70px;
-      align-items: stretch;
-      gap: 8px;
-    }
-    .item {
-      background: #0f3460;
-      border: 1px solid #533483;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-family: monospace;
-      color: #a78bfa;
-      padding: 0 8px;
-      flex-shrink: 0;
-    }
-    .item.target {
-      background: #533483;
-      border-color: #a78bfa;
-      color: #fff;
-      font-weight: 700;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>flex-basis</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .item { background: #0f3460; border: 1px solid #533483; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-family: monospace; color: #a78bfa; padding: 0 8px; flex-shrink: 0; }
+.item.target { background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; }
+</style>
 </head>
 <body>
-  <h1>Flex Basis</h1>
-  <p class="prop-name">flex-basis</p>
-  <div class="demos">
-    <div class="demo-block">
-      <div class="label">flex-basis: anchor-size(--S󧘔 self-inline, anchor(--_ inside,)) ! important</div>
-      <div class="demo-row">
-        <div class="item target" style="flex-basis: min-content ! important ! important;">auto</div>
-        <div class="item">sibling</div>
-        <div class="item">sibling</div>
-      </div>
+<h1>Flex Basis</h1>
+<p class="prop-name">flex-basis</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: content;"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
     </div>
-    <div class="demo-block">
-      <div class="label">flex-basis: contain</div>
-      <div class="demo-row">
-        <div class="item target" style="flex-basis: anchor-size(--툠J height); flex-grow: 1;">0</div>
-        <div class="item" style="flex-grow: 1;">sibling</div>
-        <div class="item" style="flex-grow: 1;">sibling</div>
-      </div>
-    </div>
-    <div class="demo-block">
-      <div class="label">flex-basis: min-content ! important</div>
-      <div class="demo-row">
-        <div class="item target" style="flex-basis: min-content ! important;">100px</div>
-        <div class="item">sibling</div>
-        <div class="item">sibling</div>
-      </div>
-    </div>
-    <div class="demo-block">
-      <div class="label">flex-basis: stretch ! important</div>
-      <div class="demo-row">
-        <div class="item target" style="flex-basis: stretch ! important;">200px</div>
-        <div class="item">sibling</div>
-        <div class="item">sibling</div>
-      </div>
-    </div>
-    <div class="demo-block">
-      <div class="label">flex-basis: revert-rule</div>
-      <div class="demo-row">
-        <div class="item target" style="flex-basis: revert-rule;">50%</div>
-        <div class="item">sibling</div>
-        <div class="item">sibling</div>
-      </div>
-    </div>
-    <div class="demo-block">
-      <div class="label">flex-basis: anchor(--񐣫 inside, anchor-size(--_ height,))</div>
-      <div class="demo-row">
-        <div class="item target" style="flex-basis: min-content ! important;">content (sizes to this text)</div>
-        <div class="item">sibling</div>
-        <div class="item">sibling</div>
-      </div>
-    </div>
+    <div class="label">flex-basis: content</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: auto;"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: 0;"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: 10px;"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: 25%;"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: 50%;"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: min-content;"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: min-content</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: max-content;"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: max-content</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: fit-content(0);"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: fit-content(0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: fit-content(10px);"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: fit-content(10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: fit-content(25%);"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: fit-content(25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: fit-content(50%);"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: fit-content(50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: calc-size(auto, 0);"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: calc-size(auto, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: calc-size(auto, 0 + 0);"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: calc-size(auto, 0 + 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: anchor-size(, 0);"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: anchor-size(, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: stretch;"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: stretch</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: fit-content;"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: fit-content</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: contain;"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: contain</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: fit-content(100%);"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: fit-content(100%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: calc-size(auto, 0 + 0 * 0);"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: calc-size(auto, 0 + 0 * 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: calc-size(auto, 0 + 0 * 0e0);"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: calc-size(auto, 0 + 0 * 0e0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: calc-size(auto, 0 + 0 * 0cap);"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: calc-size(auto, 0 + 0 * 0cap)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: calc-size(auto, 0 + 0 * 0%);"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: calc-size(auto, 0 + 0 * 0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: calc-size(auto, 0 + 0 * 0e0%);"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: calc-size(auto, 0 + 0 * 0e0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: calc-size(auto, 0 + 0 * e);"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: calc-size(auto, 0 + 0 * e)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: calc-size(auto, 0 + 0 * pi);"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: calc-size(auto, 0 + 0 * pi)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: calc-size(auto, 0 + 0 * calc(50% + 20px));"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: calc-size(auto, 0 + 0 * calc(50% + 20px))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: calc-size(auto, 0 + 0 * var(--my-var));"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: calc-size(auto, 0 + 0 * var(--my-var))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: calc-size(auto, 0 + 0 * var(--my-var, my-ident));"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: calc-size(auto, 0 + 0 * var(--my-var, my-ident))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: calc-size(auto, 0 + 0 * env(my-custom));"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: calc-size(auto, 0 + 0 * env(my-custom))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: calc-size(auto, 0 + 0 * env(my-custom, my-ident));"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: calc-size(auto, 0 + 0 * env(my-custom, my-ident))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: calc-size(auto, 0 + 0 * anchor(inside));"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: calc-size(auto, 0 + 0 * anchor(inside))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: calc-size(auto, 0 + 0 * anchor(inside, 0));"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: calc-size(auto, 0 + 0 * anchor(inside, 0))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: anchor-size(, 10px);"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: anchor-size(, 10px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px;">
+      <div style="background: #533483; border-color: #a78bfa; color: #fff; font-weight: 700; flex-basis: anchor-size(, 25%);"></div>
+      <div class="item">sibling</div>
+      <div class="item">sibling</div>
+    </div>
+    <div class="label">flex-basis: anchor-size(, 25%)</div>
+  </div>
+</div>
 </body>
 </html>

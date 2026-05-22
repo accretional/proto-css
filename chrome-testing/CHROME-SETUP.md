@@ -29,11 +29,10 @@ chrome-testing/
 ├── screenshots/
 │   ├── template/                # PNGs of hand-written templates (2560x1600 @ 2x)
 │   └── generated/               # PNGs of EBNF-generated templates
-├── gallery/
 │   ├── template_screenshots_gallery.html   # Screenshot gallery (hand-written)
 │   ├── template_gallery.html               # Live iframe gallery (hand-written)
-│   ├── generated_screenshots_gallery.html        # Screenshot gallery (generated)
-│   └── generated_gallery.html                    # Live iframe gallery (generated)
+│   ├── generated_screenshots_gallery.html  # Screenshot gallery (generated)
+│   └── generated_gallery.html              # Live iframe gallery (generated)
 ├── examples/                    # Demo HTML/PNG for quick testing
 └── descriptors/                 # Property descriptor data
 ```

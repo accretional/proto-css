@@ -8,7 +8,7 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
     .demo-box { display: flex; flex-direction: column; align-items: center; }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; max-width: 200px; text-align: center; }
     .box {
@@ -23,10 +23,6 @@
       font-size: 12px;
       color: #9ca3af;
     }
-    .w1 { border-width: 4px; }
-    .w2 { border-width: 2px 8px; }
-    .w3 { border-width: 2px 6px 10px; }
-    .w4 { border-width: 2px 4px 8px 12px; }
   </style>
 </head>
 <body>
@@ -34,20 +30,36 @@
   <p class="prop-name">border-width</p>
   <div class="demos">
     <div class="demo-box">
-      <div class="box w1">all: 4px</div>
-      <span class="label">border-width: 4px</span>
+      <div class="box" style="border-width: 0;">0</div>
+      <span class="label">border-width: 0</span>
     </div>
     <div class="demo-box">
-      <div class="box w2">TB: 2px LR: 8px</div>
-      <span class="label">border-width: 2px 8px</span>
+      <div class="box" style="border-width: 1px;">1px</div>
+      <span class="label">border-width: 1px</span>
     </div>
     <div class="demo-box">
-      <div class="box w3">T:2 LR:6 B:10</div>
-      <span class="label">border-width: 2px 6px 10px</span>
+      <div class="box" style="border-width: 2px;">2px</div>
+      <span class="label">border-width: 2px</span>
     </div>
     <div class="demo-box">
-      <div class="box w4">T:2 R:4 B:8 L:12</div>
-      <span class="label">border-width: 2px 4px 8px 12px</span>
+      <div class="box" style="border-width: thin;">thin</div>
+      <span class="label">border-width: thin</span>
+    </div>
+    <div class="demo-box">
+      <div class="box" style="border-width: medium;">medium</div>
+      <span class="label">border-width: medium</span>
+    </div>
+    <div class="demo-box">
+      <div class="box" style="border-width: thick;">thick</div>
+      <span class="label">border-width: thick</span>
+    </div>
+    <div class="demo-box">
+      <div class="box" style="border-width: 1px 2px;">TB:1 LR:2</div>
+      <span class="label">border-width: 1px 2px</span>
+    </div>
+    <div class="demo-box">
+      <div class="box" style="border-width: 1px 2px 3px 4px;">T:1 R:2 B:3 L:4</div>
+      <span class="label">border-width: 1px 2px 3px 4px</span>
     </div>
   </div>
 </body>

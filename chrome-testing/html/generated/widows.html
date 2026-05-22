@@ -1,84 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>widows</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-    .demo-card { background: #16213e; border-radius: 10px; padding: 16px; }
-    .demo-card h3 { font-size: 13px; color: #a78bfa; margin-bottom: 10px; font-family: monospace; font-weight: 500; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
-    .note { font-size: 10px; color: #6b7280; margin-top: 4px; line-height: 1.4; }
-    .page-sim { display: flex; gap: 6px; height: 340px; }
-    .page { background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; position: relative; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden; }
-    .page::before { content: attr(data-page); position: absolute; top: 3px; right: 6px; font-size: 8px; color: #999; font-family: monospace; }
-    .page-divider { width: 1px; background: #3a3a5c; align-self: stretch; }
-    .highlight-line { background: rgba(168, 85, 247, 0.2); display: inline; }
-    .col-container { column-count: 2; column-gap: 8px; column-rule: 1px solid #ccc; height: 100%; font-size: 10px; line-height: 1.5; color: #2a2a3e; }
-    .widow-marker { background: rgba(233, 69, 96, 0.25); padding: 1px 0; border-left: 2px solid #e94560; }
-  </style>
+<meta charset="UTF-8">
+<title>widows</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Widows</h1>
-  <p class="prop-name">widows</p>
-  <div class="demos">
-
-    <div class="demo-card">
-      <h3>widows: var(--񩦫o, --W)</h3>
-      <div class="page-sim">
-        <div class="page" data-page="p1">
-          <div style="column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%;">
-            <p style="widows: var(--񩦫o, --W); font-size: 9.5px; line-height: 1.5;">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to 1, even a single line at the top of a new column is acceptable. This can sometimes look awkward in professional typesetting as a lone line may feel disconnected from its paragraph. However, it uses space most efficiently and avoids large gaps.</p>
-          </div>
-        </div>
-      </div>
-      <p class="note">A single line is allowed at the top of the next column.</p>
-      <p class="label">widows: var(--񩦫o, --W)</p>
+<h1>Widows</h1>
+<p class="prop-name">widows</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: 1;">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
     </div>
-
-    <div class="demo-card">
-      <h3>widows: +7 ! important</h3>
-      <div class="page-sim">
-        <div class="page" data-page="p1">
-          <div style="column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%;">
-            <p style="widows: +7 ! important; font-size: 9.5px; line-height: 1.5;">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to 2, at least two lines must appear at the top of a new column. This is the default browser value and provides a reasonable balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
-          </div>
-        </div>
-      </div>
-      <p class="note">At least 2 lines must appear at the top of the next column. This is the default.</p>
-      <p class="label">widows: +7 ! important</p>
-    </div>
-
-    <div class="demo-card">
-      <h3>widows: var(--ץ, 0)</h3>
-      <div class="page-sim">
-        <div class="page" data-page="p1">
-          <div style="column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%;">
-            <p style="widows: var(--ץ, 0); font-size: 9.5px; line-height: 1.5;">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to 3, at least three lines must carry over to the next column. This produces more visually cohesive text blocks and is commonly used in book typesetting. The trade-off is that more space may be left unused at the bottom of the previous column.</p>
-          </div>
-        </div>
-      </div>
-      <p class="note">At least 3 lines must carry over. Common in book typography.</p>
-      <p class="label">widows: var(--ץ, 0)</p>
-    </div>
-
-    <div class="demo-card">
-      <h3>widows: var(--w-, #Fd3c)</h3>
-      <div class="page-sim">
-        <div class="page" data-page="p1">
-          <div style="column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%;">
-            <p style="widows: var(--w-, #Fd3c); font-size: 9.5px; line-height: 1.5;">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to 5, at least five lines must appear at the top of the next column or page. This is a very strict setting that strongly prioritizes visual cohesion over space efficiency. It ensures substantial paragraph content appears together, preventing thin fragments from appearing alone.</p>
-          </div>
-        </div>
-      </div>
-      <p class="note">At least 5 lines required at the top. Very strict typographic control.</p>
-      <p class="label">widows: var(--w-, #Fd3c)</p>
-    </div>
-
+    <div class="label">widows: 1</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: 10;">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: 10</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: 11;">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: 11</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: 12;">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: 12</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: 13;">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: 13</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: 14;">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: 14</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: 15;">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: 15</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: 16;">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: 16</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: 17;">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: 17</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: 18;">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: 18</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: 19;">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: 19</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: 2;">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: 20;">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: 20</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: 21;">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: 21</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: 22;">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: 22</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: 23;">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: 23</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: 24;">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: 24</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: 25;">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: 25</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: var(--my-var);">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: var(--my-var)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: var(--my-var, my-ident);">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: var(--my-var, my-ident)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: var(--my-var, 0);">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: var(--my-var, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: var(--my-var, 0e0);">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: var(--my-var, 0e0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: var(--my-var, 0e00);">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: var(--my-var, 0e00)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: var(--my-var, 0e01);">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: var(--my-var, 0e01)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: var(--my-var, 0e02);">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: var(--my-var, 0e02)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: var(--my-var, 0%);">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: var(--my-var, 0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: var(--my-var, 0e0%);">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: var(--my-var, 0e0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: var(--my-var, 0cap);">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: var(--my-var, 0cap)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: var(--my-var, 0s);">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: var(--my-var, 0s)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: var(--my-var, 0ms);">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: var(--my-var, 0ms)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: var(--my-var, 0deg);">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: var(--my-var, 0deg)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: var(--my-var, &#34;example&#34;);">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: var(--my-var, &#34;example&#34;)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: var(--my-var, #00000000);">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: var(--my-var, #00000000)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #f5f5f0; border-radius: 4px; padding: 10px; width: 130px; height: 340px; color: #1a1a2e; font-size: 10px; line-height: 1.6; overflow: hidden;">
+      <p style="font-size: 9.5px; line-height: 1.5; column-count: 2; column-gap: 6px; column-rule: 1px dashed #ccc; height: 100%; widows: var(--my-var, #00000001);">The concept of widows in typography refers to the minimum number of lines of a paragraph that must appear at the top of a new page or column. When widows is set to a given value, at least that many lines must appear at the top of a new column. This provides a balance between space usage and readability, ensuring paragraphs don't feel too fragmented across columns.</p>
+    </div>
+    <div class="label">widows: var(--my-var, #00000001)</div>
+  </div>
+</div>
 </body>
 </html>

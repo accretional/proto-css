@@ -1,51 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>text-emphasis-style</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 18px; }
-    .demo-card { background: #16213e; border-radius: 12px; padding: 20px; min-width: 260px; flex: 1; }
-    .sample { font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
-  </style>
+<meta charset="UTF-8">
+<title>text-emphasis-style</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Text Emphasis Style</h1>
-  <p class="prop-name">text-emphasis-style</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="sample" style="text-emphasis-style: '񩦫' ! important;">Styled</div>
-      <p class="label">text-emphasis-style: '񩦫' ! important</p>
+<h1>Text Emphasis Style</h1>
+<p class="prop-name">text-emphasis-style</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: none;">Styled</div>
     </div>
-    <div class="demo-card">
-      <div class="sample" style="text-emphasis-style: "􊼁" ! important;">Styled</div>
-      <p class="label">text-emphasis-style: "􊼁" ! important</p>
-    </div>
-    <div class="demo-card">
-      <div class="sample" style="text-emphasis-style: "" ! important;">Styled</div>
-      <p class="label">text-emphasis-style: "" ! important</p>
-    </div>
-    <div class="demo-card">
-      <div class="sample" style="text-emphasis-style: none ! important;">Styled</div>
-      <p class="label">text-emphasis-style: none ! important</p>
-    </div>
-    <div class="demo-card">
-      <div class="sample" style="text-emphasis-style: open;">Styled</div>
-      <p class="label">text-emphasis-style: open</p>
-    </div>
-    <div class="demo-card">
-      <div class="sample" style="text-emphasis-style: ;">Styled</div>
-      <p class="label">text-emphasis-style: </p>
-    </div>
-    <div class="demo-card">
-      <div class="sample" style="text-emphasis-style: '<' ! important;">Styled</div>
-      <p class="label">text-emphasis-style: '<' ! important</p>
-    </div>
+    <div class="label">text-emphasis-style: none</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: dot;">Styled</div>
+    </div>
+    <div class="label">text-emphasis-style: dot</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: circle;">Styled</div>
+    </div>
+    <div class="label">text-emphasis-style: circle</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: double-circle;">Styled</div>
+    </div>
+    <div class="label">text-emphasis-style: double-circle</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: triangle;">Styled</div>
+    </div>
+    <div class="label">text-emphasis-style: triangle</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: sesame;">Styled</div>
+    </div>
+    <div class="label">text-emphasis-style: sesame</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: filled;">Styled</div>
+    </div>
+    <div class="label">text-emphasis-style: filled</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: filled dot;">Styled</div>
+    </div>
+    <div class="label">text-emphasis-style: filled dot</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: filled circle;">Styled</div>
+    </div>
+    <div class="label">text-emphasis-style: filled circle</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: filled double-circle;">Styled</div>
+    </div>
+    <div class="label">text-emphasis-style: filled double-circle</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: filled triangle;">Styled</div>
+    </div>
+    <div class="label">text-emphasis-style: filled triangle</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: filled sesame;">Styled</div>
+    </div>
+    <div class="label">text-emphasis-style: filled sesame</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: open;">Styled</div>
+    </div>
+    <div class="label">text-emphasis-style: open</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: open dot;">Styled</div>
+    </div>
+    <div class="label">text-emphasis-style: open dot</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: open circle;">Styled</div>
+    </div>
+    <div class="label">text-emphasis-style: open circle</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: open double-circle;">Styled</div>
+    </div>
+    <div class="label">text-emphasis-style: open double-circle</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: open triangle;">Styled</div>
+    </div>
+    <div class="label">text-emphasis-style: open triangle</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: open sesame;">Styled</div>
+    </div>
+    <div class="label">text-emphasis-style: open sesame</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: &#34;example&#34;;">Styled</div>
+    </div>
+    <div class="label">text-emphasis-style: &#34;example&#34;</div>
+  </div>
+</div>
 </body>
 </html>

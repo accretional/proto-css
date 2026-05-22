@@ -1,134 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>mask-size</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
-    .demo-card { background: #16213e; border-radius: 10px; padding: 20px; width: 280px; }
-    .demo-card h3 { font-size: 13px; color: #e2e8f0; margin-bottom: 12px; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
-    .desc { font-size: 10px; color: #6b7280; margin-top: 4px; }
-    .box {
-      width: 240px;
-      height: 130px;
-      background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80);
-      border-radius: 8px;
-    }
-    /* All use same radial mask, differ only in mask-size */
-    .size-auto {
-      -webkit-mask-image: radial-gradient(circle, black 50%, transparent 51%);
-      -webkit-mask-size: auto, cover, contain ! important;
-      -webkit-mask-repeat: no-repeat;
-      -webkit-mask-position: center;
-      mask-image: radial-gradient(circle, black 50%, transparent 51%);
-      mask-size: auto, cover, contain ! important;
-      mask-repeat: no-repeat;
-      mask-position: center;
-    }
-    .size-cover {
-      -webkit-mask-image: radial-gradient(circle, black 50%, transparent 51%);
-      -webkit-mask-size: auto, cover, contain;
-      -webkit-mask-repeat: no-repeat;
-      -webkit-mask-position: center;
-      mask-image: radial-gradient(circle, black 50%, transparent 51%);
-      mask-size: auto, cover, contain;
-      mask-repeat: no-repeat;
-      mask-position: center;
-    }
-    .size-contain {
-      -webkit-mask-image: radial-gradient(circle, black 50%, transparent 51%);
-      -webkit-mask-size: auto, cover;
-      -webkit-mask-repeat: no-repeat;
-      -webkit-mask-position: center;
-      mask-image: radial-gradient(circle, black 50%, transparent 51%);
-      mask-size: auto, cover;
-      mask-repeat: no-repeat;
-      mask-position: center;
-    }
-    .size-50 {
-      -webkit-mask-image: radial-gradient(circle, black 50%, transparent 51%);
-      -webkit-mask-size: var(--t_, -65.84e5turn) exp(8e+0% +), cover;
-      -webkit-mask-repeat: no-repeat;
-      -webkit-mask-position: center;
-      mask-image: radial-gradient(circle, black 50%, transparent 51%);
-      mask-size: var(--t_, -65.84e5turn) exp(8e+0% +), cover;
-      mask-repeat: no-repeat;
-      mask-position: center;
-    }
-    .size-px {
-      -webkit-mask-image: radial-gradient(circle, black 50%, transparent 51%);
-      -webkit-mask-size: cover;
-      -webkit-mask-repeat: no-repeat;
-      -webkit-mask-position: center;
-      mask-image: radial-gradient(circle, black 50%, transparent 51%);
-      mask-size: cover;
-      mask-repeat: no-repeat;
-      mask-position: center;
-    }
-    .size-200 {
-      -webkit-mask-image: radial-gradient(circle, black 50%, transparent 51%);
-      -webkit-mask-size: auto auto, cover ! important;
-      -webkit-mask-repeat: no-repeat;
-      -webkit-mask-position: center;
-      mask-image: radial-gradient(circle, black 50%, transparent 51%);
-      mask-size: auto auto, cover ! important;
-      mask-repeat: no-repeat;
-      mask-position: center;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>mask-size</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Mask Size</h1>
-  <p class="prop-name">mask-size</p>
-  <div class="demos">
-
-    <div class="demo-card">
-      <h3>auto</h3>
-      <div class="box size-auto"></div>
-      <p class="label">mask-size: auto, cover, contain ! important</p>
-      <p class="desc">Uses intrinsic mask dimensions</p>
+<h1>Mask Size</h1>
+<p class="prop-name">mask-size</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 120px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle, black 50%, transparent 51%); -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: radial-gradient(circle, black 50%, transparent 51%); mask-repeat: no-repeat; mask-position: center; mask-size: auto;"></div>
     </div>
-
-    <div class="demo-card">
-      <h3>cover</h3>
-      <div class="box size-cover"></div>
-      <p class="label">mask-size: auto, cover, contain</p>
-      <p class="desc">Scales to cover entire element</p>
-    </div>
-
-    <div class="demo-card">
-      <h3>contain</h3>
-      <div class="box size-contain"></div>
-      <p class="label">mask-size: auto, cover</p>
-      <p class="desc">Scales to fit within element</p>
-    </div>
-
-    <div class="demo-card">
-      <h3>50%</h3>
-      <div class="box size-50"></div>
-      <p class="label">mask-size: var(--t_, -65.84e5turn) exp(8e+0% +), cover</p>
-      <p class="desc">Half the element width</p>
-    </div>
-
-    <div class="demo-card">
-      <h3>100px 80px</h3>
-      <div class="box size-px"></div>
-      <p class="label">mask-size: cover</p>
-      <p class="desc">Fixed pixel dimensions</p>
-    </div>
-
-    <div class="demo-card">
-      <h3>200% 200%</h3>
-      <div class="box size-200"></div>
-      <p class="label">mask-size: auto auto, cover ! important</p>
-      <p class="desc">Double the element dimensions</p>
-    </div>
-
+    <div class="label">mask-size: auto</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 120px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle, black 50%, transparent 51%); -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: radial-gradient(circle, black 50%, transparent 51%); mask-repeat: no-repeat; mask-position: center; mask-size: auto, auto;"></div>
+    </div>
+    <div class="label">mask-size: auto, auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 120px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle, black 50%, transparent 51%); -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: radial-gradient(circle, black 50%, transparent 51%); mask-repeat: no-repeat; mask-position: center; mask-size: auto, cover;"></div>
+    </div>
+    <div class="label">mask-size: auto, cover</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 120px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle, black 50%, transparent 51%); -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: radial-gradient(circle, black 50%, transparent 51%); mask-repeat: no-repeat; mask-position: center; mask-size: auto, contain;"></div>
+    </div>
+    <div class="label">mask-size: auto, contain</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 120px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle, black 50%, transparent 51%); -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: radial-gradient(circle, black 50%, transparent 51%); mask-repeat: no-repeat; mask-position: center; mask-size: auto, 50% 50%;"></div>
+    </div>
+    <div class="label">mask-size: auto, 50% 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 120px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle, black 50%, transparent 51%); -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: radial-gradient(circle, black 50%, transparent 51%); mask-repeat: no-repeat; mask-position: center; mask-size: cover;"></div>
+    </div>
+    <div class="label">mask-size: cover</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 120px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle, black 50%, transparent 51%); -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: radial-gradient(circle, black 50%, transparent 51%); mask-repeat: no-repeat; mask-position: center; mask-size: cover, auto;"></div>
+    </div>
+    <div class="label">mask-size: cover, auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 120px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle, black 50%, transparent 51%); -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: radial-gradient(circle, black 50%, transparent 51%); mask-repeat: no-repeat; mask-position: center; mask-size: cover, cover;"></div>
+    </div>
+    <div class="label">mask-size: cover, cover</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 120px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle, black 50%, transparent 51%); -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: radial-gradient(circle, black 50%, transparent 51%); mask-repeat: no-repeat; mask-position: center; mask-size: cover, contain;"></div>
+    </div>
+    <div class="label">mask-size: cover, contain</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 120px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle, black 50%, transparent 51%); -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: radial-gradient(circle, black 50%, transparent 51%); mask-repeat: no-repeat; mask-position: center; mask-size: cover, 50% 50%;"></div>
+    </div>
+    <div class="label">mask-size: cover, 50% 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 120px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle, black 50%, transparent 51%); -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: radial-gradient(circle, black 50%, transparent 51%); mask-repeat: no-repeat; mask-position: center; mask-size: contain;"></div>
+    </div>
+    <div class="label">mask-size: contain</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 120px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle, black 50%, transparent 51%); -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: radial-gradient(circle, black 50%, transparent 51%); mask-repeat: no-repeat; mask-position: center; mask-size: contain, auto;"></div>
+    </div>
+    <div class="label">mask-size: contain, auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 120px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle, black 50%, transparent 51%); -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: radial-gradient(circle, black 50%, transparent 51%); mask-repeat: no-repeat; mask-position: center; mask-size: contain, cover;"></div>
+    </div>
+    <div class="label">mask-size: contain, cover</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 120px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle, black 50%, transparent 51%); -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: radial-gradient(circle, black 50%, transparent 51%); mask-repeat: no-repeat; mask-position: center; mask-size: contain, contain;"></div>
+    </div>
+    <div class="label">mask-size: contain, contain</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 120px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle, black 50%, transparent 51%); -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: radial-gradient(circle, black 50%, transparent 51%); mask-repeat: no-repeat; mask-position: center; mask-size: contain, 50% 50%;"></div>
+    </div>
+    <div class="label">mask-size: contain, 50% 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 120px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle, black 50%, transparent 51%); -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: radial-gradient(circle, black 50%, transparent 51%); mask-repeat: no-repeat; mask-position: center; mask-size: 50% 50%;"></div>
+    </div>
+    <div class="label">mask-size: 50% 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 120px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle, black 50%, transparent 51%); -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: radial-gradient(circle, black 50%, transparent 51%); mask-repeat: no-repeat; mask-position: center; mask-size: 50% 50%, auto;"></div>
+    </div>
+    <div class="label">mask-size: 50% 50%, auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 120px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle, black 50%, transparent 51%); -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: radial-gradient(circle, black 50%, transparent 51%); mask-repeat: no-repeat; mask-position: center; mask-size: 50% 50%, cover;"></div>
+    </div>
+    <div class="label">mask-size: 50% 50%, cover</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 120px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle, black 50%, transparent 51%); -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: radial-gradient(circle, black 50%, transparent 51%); mask-repeat: no-repeat; mask-position: center; mask-size: 50% 50%, contain;"></div>
+    </div>
+    <div class="label">mask-size: 50% 50%, contain</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 120px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle, black 50%, transparent 51%); -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: radial-gradient(circle, black 50%, transparent 51%); mask-repeat: no-repeat; mask-position: center; mask-size: 50% 50%, 50% 50%;"></div>
+    </div>
+    <div class="label">mask-size: 50% 50%, 50% 50%</div>
+  </div>
+</div>
 </body>
 </html>

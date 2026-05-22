@@ -8,26 +8,20 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .demo-item { display: flex; flex-direction: column; align-items: center; }
     .box {
-      width: 240px;
-      height: 140px;
-      border-radius: 8px;
-      background: #2d2d4e;
+      width: 200px;
+      height: 120px;
+      background: #16213e;
+      border-radius: 4px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 13px;
+      font-size: 12px;
       color: rgba(255,255,255,0.7);
     }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; }
-    .b1 { border: thin solid #ff6b6b; }
-    .b2 { border: 3px dashed #48dbfb; }
-    .b3 { border: 5px double #2ecc71; }
-    .b4 { border: 4px dotted #feca57; }
-    .b5 { border: 6px groove #a29bfe; }
-    .b6 { border: none; }
   </style>
 </head>
 <body>
@@ -35,28 +29,28 @@
   <p class="prop-name">border</p>
   <div class="demos">
     <div class="demo-item">
-      <div class="box b1">thin solid red</div>
-      <div class="label">border: thin solid #ff6b6b</div>
-    </div>
-    <div class="demo-item">
-      <div class="box b2">3px dashed blue</div>
-      <div class="label">border: 3px dashed #48dbfb</div>
-    </div>
-    <div class="demo-item">
-      <div class="box b3">5px double green</div>
-      <div class="label">border: 5px double #2ecc71</div>
-    </div>
-    <div class="demo-item">
-      <div class="box b4">4px dotted yellow</div>
-      <div class="label">border: 4px dotted #feca57</div>
-    </div>
-    <div class="demo-item">
-      <div class="box b5">6px groove purple</div>
-      <div class="label">border: 6px groove #a29bfe</div>
-    </div>
-    <div class="demo-item">
-      <div class="box b6">none</div>
+      <div class="box" style="border: none;">none</div>
       <div class="label">border: none</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border: 1px solid red;">1px solid red</div>
+      <div class="label">border: 1px solid red</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border: 2px dashed blue;">2px dashed blue</div>
+      <div class="label">border: 2px dashed blue</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border: 3px dotted green;">3px dotted green</div>
+      <div class="label">border: 3px dotted green</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border: medium double orange;">medium double orange</div>
+      <div class="label">border: medium double orange</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border: thick groove purple;">thick groove purple</div>
+      <div class="label">border: thick groove purple</div>
     </div>
   </div>
 </body>

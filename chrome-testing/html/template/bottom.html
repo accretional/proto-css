@@ -8,9 +8,9 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
+    .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
     .demo-box { display: flex; flex-direction: column; align-items: center; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; }
     .container {
       width: 160px;
       height: 200px;
@@ -32,11 +32,6 @@
       font-weight: bold;
       border-radius: 4px;
     }
-    .b0 { bottom: 0; }
-    .b10 { bottom: 10px; }
-    .b50 { bottom: 50px; }
-    .bauto { bottom: auto; top: 0; }
-    .b50p { bottom: 50%; }
   </style>
 </head>
 <body>
@@ -45,31 +40,31 @@
   <div class="demos">
     <div class="demo-box">
       <div class="container">
-        <div class="item b0">0</div>
-      </div>
-      <span class="label">bottom: 0</span>
-    </div>
-    <div class="demo-box">
-      <div class="container">
-        <div class="item b10">10px</div>
-      </div>
-      <span class="label">bottom: 10px</span>
-    </div>
-    <div class="demo-box">
-      <div class="container">
-        <div class="item b50">50px</div>
-      </div>
-      <span class="label">bottom: 50px</span>
-    </div>
-    <div class="demo-box">
-      <div class="container">
-        <div class="item bauto">auto</div>
+        <div class="item" style="bottom: auto; top: 0;">auto</div>
       </div>
       <span class="label">bottom: auto</span>
     </div>
     <div class="demo-box">
       <div class="container">
-        <div class="item b50p">50%</div>
+        <div class="item" style="bottom: 0;">0</div>
+      </div>
+      <span class="label">bottom: 0</span>
+    </div>
+    <div class="demo-box">
+      <div class="container">
+        <div class="item" style="bottom: 10px;">10px</div>
+      </div>
+      <span class="label">bottom: 10px</span>
+    </div>
+    <div class="demo-box">
+      <div class="container">
+        <div class="item" style="bottom: 20px;">20px</div>
+      </div>
+      <span class="label">bottom: 20px</span>
+    </div>
+    <div class="demo-box">
+      <div class="container">
+        <div class="item" style="bottom: 50%;">50%</div>
       </div>
       <span class="label">bottom: 50%</span>
     </div>

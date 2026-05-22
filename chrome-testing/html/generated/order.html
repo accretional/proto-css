@@ -1,100 +1,370 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>order</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-direction: column; gap: 20px; }
-    .demo-row { background: #16213e; border-radius: 10px; padding: 20px; }
-    .row-label { font-size: 13px; font-family: monospace; color: #9ca3af; margin-bottom: 12px; }
-    .flex-container { display: flex; gap: 10px; }
-    .item {
-      width: 80px; height: 60px; border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 14px; font-weight: bold; color: #fff;
-      flex-direction: column;
-    }
-    .item-num { font-size: 18px; }
-    .item-order { font-size: 9px; opacity: 0.7; margin-top: 2px; font-family: monospace; }
-    .c1 { background: #e94560; }
-    .c2 { background: #0077ff; }
-    .c3 { background: #00cc66; }
-    .c4 { background: #f5a623; }
-    .c5 { background: #7b68ee; }
-    /* Default order */
-    .default .i1 { order: 8; }
-    .default .i2 { order: 8; }
-    .default .i3 { order: 8; }
-    .default .i4 { order: 8; }
-    .default .i5 { order: 8; }
-    /* Reordered: item 5 first */
-    .reorder1 .i1 { order: -55 ! important; }
-    .reorder1 .i2 { order: var(--_Y); }
-    .reorder1 .i3 { order: 84 ! important; }
-    .reorder1 .i4 { order: 8; }
-    .reorder1 .i5 { order: var(--蔫); }
-    /* Reversed */
-    .reorder2 .i1 { order: 84 ! important; }
-    .reorder2 .i2 { order: var(--_Y); }
-    .reorder2 .i3 { order: 8; }
-    .reorder2 .i4 { order: -55 ! important; }
-    .reorder2 .i5 { order: var(--蔫); }
-    /* Mixed */
-    .reorder3 .i1 { order: var(--_Y); }
-    .reorder3 .i2 { order: var(--蔫); }
-    .reorder3 .i3 { order: 84 ! important; }
-    .reorder3 .i4 { order: 8; }
-    .reorder3 .i5 { order: -55 ! important; }
-  </style>
+<meta charset="UTF-8">
+<title>order</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .item { width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; }
+.item-num { font-size: 18px; }
+.item-order { font-size: 9px; opacity: 0.7; margin-top: 2px; font-family: monospace; }
+.c2 { background: #0077ff; }
+.c3 { background: #00cc66; }
+.c4 { background: #f5a623; }
+.c5 { background: #7b68ee; }
+</style>
 </head>
 <body>
-  <h1>Order</h1>
-  <p class="prop-name">order</p>
-  <div class="demos">
-    <div class="demo-row">
-      <div class="row-label">Default: all order: 8 (source order)</div>
-      <div class="flex-container default">
-        <div class="item c1 i1"><span class="item-num">1</span><span class="item-order">order: 8</span></div>
-        <div class="item c2 i2"><span class="item-num">2</span><span class="item-order">order: 8</span></div>
-        <div class="item c3 i3"><span class="item-num">3</span><span class="item-order">order: 8</span></div>
-        <div class="item c4 i4"><span class="item-num">4</span><span class="item-order">order: 8</span></div>
-        <div class="item c5 i5"><span class="item-num">5</span><span class="item-order">order: 8</span></div>
-      </div>
+<h1>Order</h1>
+<p class="prop-name">order</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: 0;"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
     </div>
-    <div class="demo-row">
-      <div class="row-label">Item 5 moved first with order: var(--蔫)</div>
-      <div class="flex-container reorder1">
-        <div class="item c1 i1"><span class="item-num">1</span><span class="item-order">order: -55 ! important</span></div>
-        <div class="item c2 i2"><span class="item-num">2</span><span class="item-order">order: var(--_Y)</span></div>
-        <div class="item c3 i3"><span class="item-num">3</span><span class="item-order">order: 84 ! important</span></div>
-        <div class="item c4 i4"><span class="item-num">4</span><span class="item-order">order: 8</span></div>
-        <div class="item c5 i5"><span class="item-num">5</span><span class="item-order">order: var(--蔫)</span></div>
-      </div>
-    </div>
-    <div class="demo-row">
-      <div class="row-label">Custom arrangement: 5, 3, 4, 2, 1</div>
-      <div class="flex-container reorder2">
-        <div class="item c1 i1"><span class="item-num">1</span><span class="item-order">order: 84 ! important</span></div>
-        <div class="item c2 i2"><span class="item-num">2</span><span class="item-order">order: var(--_Y)</span></div>
-        <div class="item c3 i3"><span class="item-num">3</span><span class="item-order">order: 8</span></div>
-        <div class="item c4 i4"><span class="item-num">4</span><span class="item-order">order: -55 ! important</span></div>
-        <div class="item c5 i5"><span class="item-num">5</span><span class="item-order">order: var(--蔫)</span></div>
-      </div>
-    </div>
-    <div class="demo-row">
-      <div class="row-label">Mixed: 2, 4, 5, 1, 3</div>
-      <div class="flex-container reorder3">
-        <div class="item c1 i1"><span class="item-num">1</span><span class="item-order">order: var(--_Y)</span></div>
-        <div class="item c2 i2"><span class="item-num">2</span><span class="item-order">order: var(--蔫)</span></div>
-        <div class="item c3 i3"><span class="item-num">3</span><span class="item-order">order: 84 ! important</span></div>
-        <div class="item c4 i4"><span class="item-num">4</span><span class="item-order">order: 8</span></div>
-        <div class="item c5 i5"><span class="item-num">5</span><span class="item-order">order: -55 ! important</span></div>
-      </div>
-    </div>
+    <div class="label">order: 0</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: 00;"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: 00</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: 01;"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: 01</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: 02;"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: 02</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: 03;"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: 03</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: 04;"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: 04</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: 05;"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: 05</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: 06;"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: 06</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: 07;"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: 07</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: 08;"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: 08</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: 09;"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: 09</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: 1;"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: 10;"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: 10</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: 11;"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: 11</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: 12;"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: 12</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: 13;"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: 13</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: 14;"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: 14</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: 15;"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: 15</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: var(--my-var);"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: var(--my-var)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: var(--my-var, my-ident);"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: var(--my-var, my-ident)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: var(--my-var, 0);"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: var(--my-var, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: var(--my-var, 0e0);"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: var(--my-var, 0e0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: var(--my-var, 0e00);"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: var(--my-var, 0e00)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: var(--my-var, 0e01);"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: var(--my-var, 0e01)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: var(--my-var, 0e02);"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: var(--my-var, 0e02)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: var(--my-var, 0%);"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: var(--my-var, 0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: var(--my-var, 0e0%);"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: var(--my-var, 0e0%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: var(--my-var, 0cap);"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: var(--my-var, 0cap)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: var(--my-var, 0s);"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: var(--my-var, 0s)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: var(--my-var, 0ms);"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: var(--my-var, 0ms)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: var(--my-var, 0deg);"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: var(--my-var, 0deg)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: var(--my-var, &#34;example&#34;);"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: var(--my-var, &#34;example&#34;)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: var(--my-var, #00000000);"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: var(--my-var, #00000000)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; gap: 10px;">
+      <div style="width: 80px; height: 60px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-direction: column; background: #e94560; order: var(--my-var, #00000001);"><span class="item-num">1</span><span class="item-order">target</span></div>
+      <div class="item c2"><span class="item-num">2</span></div>
+      <div class="item c3"><span class="item-num">3</span></div>
+      <div class="item c4"><span class="item-num">4</span></div>
+      <div class="item c5"><span class="item-num">5</span></div>
+    </div>
+    <div class="label">order: var(--my-var, #00000001)</div>
+  </div>
+</div>
 </body>
 </html>

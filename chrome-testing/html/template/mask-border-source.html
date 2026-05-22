@@ -8,62 +8,29 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
-    .demo-card { background: #16213e; border-radius: 10px; padding: 20px; width: 370px; }
+    .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .demo-card { background: #16213e; border-radius: 10px; padding: 20px; }
     .demo-card h3 { font-size: 13px; color: #e2e8f0; margin-bottom: 12px; }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; line-height: 1.5; }
-    .row { display: flex; gap: 16px; align-items: flex-start; }
-    .source-preview {
-      width: 100px;
-      height: 100px;
-      border-radius: 6px;
-      border: 1px solid #4a5568;
-      flex-shrink: 0;
-    }
-    .result {
-      width: 200px;
-      height: 100px;
+    .desc { font-size: 10px; color: #6b7280; margin-top: 4px; line-height: 1.4; }
+    .box {
+      width: 100%;
+      height: 120px;
       background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff);
       border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #fff;
-      font-size: 12px;
+      font-size: 13px;
+      font-family: monospace;
     }
-    .src-1 { background: linear-gradient(to right, black, white); }
-    .res-1 {
-      -webkit-mask: linear-gradient(to right, transparent, black);
-      mask: linear-gradient(to right, transparent, black);
+    .box-none {
+      border: 20px solid #4a5568;
     }
-    .src-2 { background: linear-gradient(135deg, black, white, black); }
-    .res-2 {
-      -webkit-mask: linear-gradient(135deg, transparent, black, transparent);
-      mask: linear-gradient(135deg, transparent, black, transparent);
-    }
-    .src-3 { background: radial-gradient(circle, white 30%, black 70%); }
-    .res-3 {
-      -webkit-mask: radial-gradient(circle, black 30%, transparent 70%);
-      mask: radial-gradient(circle, black 30%, transparent 70%);
-    }
-    .src-4 { background: conic-gradient(black, white, black); }
-    .res-4 {
-      -webkit-mask: conic-gradient(transparent, black, transparent);
-      mask: conic-gradient(transparent, black, transparent);
-    }
-    .arrow-col {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      color: #4a5568;
-      padding: 0 4px;
-    }
-    .section-label {
-      font-size: 10px;
-      color: #6b7280;
-      text-align: center;
-      margin-top: 4px;
+    .box-url {
+      border: 20px solid transparent;
+      border-image: linear-gradient(to right, #e94560, #a855f7, #00d2ff) 1;
     }
   </style>
 </head>
@@ -73,67 +40,17 @@
   <div class="demos">
 
     <div class="demo-card">
-      <h3>Linear Gradient Source</h3>
-      <div class="row">
-        <div>
-          <div class="source-preview src-1"></div>
-          <p class="section-label">Source</p>
-        </div>
-        <div class="arrow-col">&rarr;</div>
-        <div>
-          <div class="result res-1">Masked</div>
-          <p class="section-label">Result</p>
-        </div>
-      </div>
-      <p class="label">mask-border-source:<br>&nbsp;&nbsp;linear-gradient(to right, black, white)</p>
+      <h3>none</h3>
+      <div class="box box-none">No mask border</div>
+      <p class="label">mask-border-source: none</p>
+      <p class="desc">No mask border image is used. The element has no mask border effect.</p>
     </div>
 
     <div class="demo-card">
-      <h3>Diagonal Gradient Source</h3>
-      <div class="row">
-        <div>
-          <div class="source-preview src-2"></div>
-          <p class="section-label">Source</p>
-        </div>
-        <div class="arrow-col">&rarr;</div>
-        <div>
-          <div class="result res-2">Masked</div>
-          <p class="section-label">Result</p>
-        </div>
-      </div>
-      <p class="label">mask-border-source:<br>&nbsp;&nbsp;linear-gradient(135deg, black, white, black)</p>
-    </div>
-
-    <div class="demo-card">
-      <h3>Radial Gradient Source</h3>
-      <div class="row">
-        <div>
-          <div class="source-preview src-3"></div>
-          <p class="section-label">Source</p>
-        </div>
-        <div class="arrow-col">&rarr;</div>
-        <div>
-          <div class="result res-3">Masked</div>
-          <p class="section-label">Result</p>
-        </div>
-      </div>
-      <p class="label">mask-border-source:<br>&nbsp;&nbsp;radial-gradient(circle, white 30%, black 70%)</p>
-    </div>
-
-    <div class="demo-card">
-      <h3>Conic Gradient Source</h3>
-      <div class="row">
-        <div>
-          <div class="source-preview src-4"></div>
-          <p class="section-label">Source</p>
-        </div>
-        <div class="arrow-col">&rarr;</div>
-        <div>
-          <div class="result res-4">Masked</div>
-          <p class="section-label">Result</p>
-        </div>
-      </div>
-      <p class="label">mask-border-source:<br>&nbsp;&nbsp;conic-gradient(black, white, black)</p>
+      <h3>url(border.png)</h3>
+      <div class="box box-url">url() source</div>
+      <p class="label">mask-border-source: url(border.png)</p>
+      <p class="desc">An image URL is used as the mask border source. The image is sliced and applied as the mask border.</p>
     </div>
 
   </div>

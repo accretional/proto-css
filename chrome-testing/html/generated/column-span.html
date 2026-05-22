@@ -1,73 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>column-span</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; gap: 24px; }
-    .demo-card {
-      flex: 1;
-      background: #16213e;
-      border-radius: 10px;
-      padding: 20px 24px;
-      border: 1px solid #2a2a4a;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 12px; }
-    .col-container {
-      column-count: 3;
-      column-rule: 1px solid #3a3a5a;
-      font-size: 12px;
-      line-height: 1.6;
-      color: #c0c8d4;
-    }
-    .span-element-none {
-      column-span: auto;
-      background: linear-gradient(135deg, #e94560, #c23152);
-      color: #fff;
-      padding: 10px 14px;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 13px;
-      margin: 10px 0;
-      text-align: center;
-    }
-    .span-element-all {
-      column-span: none ! important;
-      background: linear-gradient(135deg, #4fc3f7, #0288d1);
-      color: #fff;
-      padding: 10px 14px;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 13px;
-      margin: 10px 0;
-      text-align: center;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>column-span</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Column Span</h1>
-  <p class="prop-name">column-span</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="label">column-span: auto</div>
-      <div class="col-container">
-        Text flows normally across three columns. The highlighted element below stays within its column and does not break the column flow.
-        <div class="span-element-none">Stays in column</div>
-        After the element, text continues to flow within the same column structure. The element is treated as regular inline content within the multi-column layout and does not span across column boundaries.
-      </div>
+<h1>Column Span</h1>
+<p class="prop-name">column-span</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="column-count: 3; column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4;">
+      Text flows normally across three columns. The highlighted element below stays within its column and does not break the column flow.
+      <div style="background: linear-gradient(135deg, #e94560, #c23152); color: #fff; padding: 10px 14px; border-radius: 6px; font-weight: 600; font-size: 13px; margin: 10px 0; text-align: center; column-span: none;">Spanning element</div>
+      After the element, text continues to flow within the same column structure. The element is treated as regular content within the multi-column layout.
     </div>
-    <div class="demo-card">
-      <div class="label">column-span: none ! important</div>
-      <div class="col-container">
-        Text flows normally across three columns before reaching the spanning element below.
-        <div class="span-element-all">Spans all columns</div>
-        After the spanning element, the remaining text resumes flowing in the multi-column layout. The spanning element breaks out of the column flow and stretches across all columns like a full-width banner.
-      </div>
-    </div>
+    <div class="label">column-span: none</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="column-count: 3; column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4;">
+      Text flows normally across three columns. The highlighted element below stays within its column and does not break the column flow.
+      <div style="background: linear-gradient(135deg, #e94560, #c23152); color: #fff; padding: 10px 14px; border-radius: 6px; font-weight: 600; font-size: 13px; margin: 10px 0; text-align: center; column-span: 0;">Spanning element</div>
+      After the element, text continues to flow within the same column structure. The element is treated as regular content within the multi-column layout.
+    </div>
+    <div class="label">column-span: 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="column-count: 3; column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4;">
+      Text flows normally across three columns. The highlighted element below stays within its column and does not break the column flow.
+      <div style="background: linear-gradient(135deg, #e94560, #c23152); color: #fff; padding: 10px 14px; border-radius: 6px; font-weight: 600; font-size: 13px; margin: 10px 0; text-align: center; column-span: 1;">Spanning element</div>
+      After the element, text continues to flow within the same column structure. The element is treated as regular content within the multi-column layout.
+    </div>
+    <div class="label">column-span: 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="column-count: 3; column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4;">
+      Text flows normally across three columns. The highlighted element below stays within its column and does not break the column flow.
+      <div style="background: linear-gradient(135deg, #e94560, #c23152); color: #fff; padding: 10px 14px; border-radius: 6px; font-weight: 600; font-size: 13px; margin: 10px 0; text-align: center; column-span: 2;">Spanning element</div>
+      After the element, text continues to flow within the same column structure. The element is treated as regular content within the multi-column layout.
+    </div>
+    <div class="label">column-span: 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="column-count: 3; column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4;">
+      Text flows normally across three columns. The highlighted element below stays within its column and does not break the column flow.
+      <div style="background: linear-gradient(135deg, #e94560, #c23152); color: #fff; padding: 10px 14px; border-radius: 6px; font-weight: 600; font-size: 13px; margin: 10px 0; text-align: center; column-span: 5;">Spanning element</div>
+      After the element, text continues to flow within the same column structure. The element is treated as regular content within the multi-column layout.
+    </div>
+    <div class="label">column-span: 5</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="column-count: 3; column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4;">
+      Text flows normally across three columns. The highlighted element below stays within its column and does not break the column flow.
+      <div style="background: linear-gradient(135deg, #e94560, #c23152); color: #fff; padding: 10px 14px; border-radius: 6px; font-weight: 600; font-size: 13px; margin: 10px 0; text-align: center; column-span: all;">Spanning element</div>
+      After the element, text continues to flow within the same column structure. The element is treated as regular content within the multi-column layout.
+    </div>
+    <div class="label">column-span: all</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="column-count: 3; column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4;">
+      Text flows normally across three columns. The highlighted element below stays within its column and does not break the column flow.
+      <div style="background: linear-gradient(135deg, #e94560, #c23152); color: #fff; padding: 10px 14px; border-radius: 6px; font-weight: 600; font-size: 13px; margin: 10px 0; text-align: center; column-span: auto;">Spanning element</div>
+      After the element, text continues to flow within the same column structure. The element is treated as regular content within the multi-column layout.
+    </div>
+    <div class="label">column-span: auto</div>
+  </div>
+</div>
 </body>
 </html>

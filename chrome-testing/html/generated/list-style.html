@@ -1,84 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>list-style</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-card { background: #16213e; border-radius: 12px; padding: 16px; width: 280px; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
-    .list-box { background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px; }
-    ul { font-size: 14px; line-height: 2; color: #e0e0e0; }
-  </style>
+<meta charset="UTF-8">
+<title>list-style</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>List Style</h1>
-  <p class="prop-name">list-style</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="list-box">
-        <ul style="list-style: '񃊜' image-set(,) ! important;">
-          <li>First item</li>
-          <li>Second item</li>
-          <li>Third item</li>
-        </ul>
-      </div>
-      <div class="label">list-style: '񃊜' image-set(,) ! important</div>
+<h1>List Style</h1>
+<p class="prop-name">list-style</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: inside;"><li>First item</li><li>Second item</li><li>Third item</li></ul>
     </div>
-    <div class="demo-card">
-      <div class="list-box">
-        <ul style="list-style: image(url("")) light-dark(none, var(--򈹟, 6.8e-1ms)) outside ! important;">
-          <li>First item</li>
-          <li>Second item</li>
-          <li>Third item</li>
-        </ul>
-      </div>
-      <div class="label">list-style: image(url("")) light-dark(none, var(--򈹟, 6.8e-1ms)) outside ! important</div>
-    </div>
-    <div class="demo-card">
-      <div class="list-box">
-        <ul style="list-style: 񾔢3 inside;">
-          <li>First item</li>
-          <li>Second item</li>
-          <li>Third item</li>
-        </ul>
-      </div>
-      <div class="label">list-style: 񾔢3 inside</div>
-    </div>
-    <div class="demo-card">
-      <div class="list-box">
-        <ul style="list-style: inside ! important;">
-          <li>First item</li>
-          <li>Second item</li>
-          <li>Third item</li>
-        </ul>
-      </div>
-      <div class="label">list-style: inside ! important</div>
-    </div>
-    <div class="demo-card">
-      <div class="list-box">
-        <ul style="list-style: image(url("")) symbols(url('񎵲'));">
-          <li>First item</li>
-          <li>Second item</li>
-          <li>Third item</li>
-        </ul>
-      </div>
-      <div class="label">list-style: image(url("")) symbols(url('񎵲'))</div>
-    </div>
-    <div class="demo-card">
-      <div class="list-box">
-        <ul style="list-style: image(url(""));">
-          <li>First item</li>
-          <li>Second item</li>
-          <li>Third item</li>
-        </ul>
-      </div>
-      <div class="label">list-style: image(url(""))</div>
-    </div>
+    <div class="label">list-style: inside</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: inside none;"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: inside none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: inside none my-custom;"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: inside none my-custom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: inside none symbols(&#34;example&#34;);"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: inside none symbols(&#34;example&#34;)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: inside none symbols(&#34;example&#34; &#34;example&#34;);"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: inside none symbols(&#34;example&#34; &#34;example&#34;)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: inside none symbols(&#34;example&#34; none);"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: inside none symbols(&#34;example&#34; none)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: inside none &#34;example&#34;;"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: inside none &#34;example&#34;</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: inside my-custom;"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: inside my-custom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: inside my-custom none;"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: inside my-custom none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: inside my-custom linear-gradient(red, blue);"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: inside my-custom linear-gradient(red, blue)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: inside symbols(&#34;example&#34;);"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: inside symbols(&#34;example&#34;)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: none;"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: none inside;"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: none inside</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: none inside my-custom;"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: none inside my-custom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: none inside symbols(&#34;example&#34;);"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: none inside symbols(&#34;example&#34;)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: none inside symbols(&#34;example&#34; &#34;example&#34;);"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: none inside symbols(&#34;example&#34; &#34;example&#34;)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: none inside symbols(&#34;example&#34; none);"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: none inside symbols(&#34;example&#34; none)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: none inside &#34;example&#34;;"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: none inside &#34;example&#34;</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: none my-custom;"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: none my-custom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: none my-custom inside;"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: none my-custom inside</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: none my-custom outside;"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: none my-custom outside</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: none symbols(&#34;example&#34;);"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: none symbols(&#34;example&#34;)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: none symbols(&#34;example&#34;) inside;"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: none symbols(&#34;example&#34;) inside</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: my-custom;"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: my-custom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: my-custom inside;"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: my-custom inside</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: my-custom inside none;"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: my-custom inside none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: my-custom inside linear-gradient(red, blue);"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: my-custom inside linear-gradient(red, blue)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: my-custom outside;"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: my-custom outside</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: my-custom outside none;"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: my-custom outside none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: my-custom none;"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: my-custom none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: my-custom none inside;"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: my-custom none inside</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: my-custom none outside;"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: my-custom none outside</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: my-custom linear-gradient(red, blue);"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: my-custom linear-gradient(red, blue)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 16px 16px 16px 40px;">
+      <ul style="font-size: 14px; line-height: 2; color: #e0e0e0; list-style: my-custom linear-gradient(red, blue) inside;"><li>First item</li><li>Second item</li><li>Third item</li></ul>
+    </div>
+    <div class="label">list-style: my-custom linear-gradient(red, blue) inside</div>
+  </div>
+</div>
 </body>
 </html>

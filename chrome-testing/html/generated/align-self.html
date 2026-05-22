@@ -1,88 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>align-self</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-box {
-      background: #16213e;
-      border-radius: 12px;
-      padding: 16px;
-      width: 220px;
-    }
-    .flex-container {
-      display: flex;
-      align-items: flex-start;
-      width: 180px;
-      height: 160px;
-      background: #0f3460;
-      border-radius: 8px;
-      gap: 8px;
-      padding: 8px;
-    }
-    .flex-container .item {
-      width: 36px;
-      height: 40px;
-      background: #4a5568;
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-      color: #aaa;
-    }
-    .flex-container .highlight {
-      background: #e94560;
-      color: #fff;
-      font-weight: bold;
-    }
-    .as-auto .highlight { align-self: auto; }
-    .as-start .highlight { align-self: anchor-center ! important; }
-    .as-center .highlight { align-self: anchor-center ! important; }
-    .as-end .highlight { align-self: safe normal ! important; }
-    .as-stretch .highlight { align-self: anchor-center; height: auto; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
-  </style>
+<meta charset="UTF-8">
+<title>align-self</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .item { width: 36px; height: 40px; background: #4a5568; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #aaa; }
+.highlight { background: #e94560; color: #fff; font-weight: bold; }
+</style>
 </head>
 <body>
-  <h1>Align Self</h1>
-  <p class="prop-name">align-self</p>
-  <div class="demos">
-    <div class="demo-box">
-      <div class="flex-container as-auto">
-        <div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div>
-      </div>
-      <div class="label">align-self: auto</div>
+<h1>Align Self</h1>
+<p class="prop-name">align-self</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: auto;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
     </div>
-    <div class="demo-box">
-      <div class="flex-container as-start">
-        <div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div>
-      </div>
-      <div class="label">align-self: anchor-center ! important</div>
-    </div>
-    <div class="demo-box">
-      <div class="flex-container as-center">
-        <div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div>
-      </div>
-      <div class="label">align-self: anchor-center ! important</div>
-    </div>
-    <div class="demo-box">
-      <div class="flex-container as-end">
-        <div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div>
-      </div>
-      <div class="label">align-self: safe normal ! important</div>
-    </div>
-    <div class="demo-box">
-      <div class="flex-container as-stretch">
-        <div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div>
-      </div>
-      <div class="label">align-self: anchor-center</div>
-    </div>
+    <div class="label">align-self: auto</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: normal;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: normal</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: center;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: center</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: start;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: start</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: end;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: end</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: self-start;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: self-start</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: self-end;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: self-end</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: flex-start;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: flex-start</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: flex-end;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: flex-end</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: unsafe normal;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: unsafe normal</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: unsafe center;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: unsafe center</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: unsafe start;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: unsafe start</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: unsafe end;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: unsafe end</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: unsafe self-start;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: unsafe self-start</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: unsafe self-end;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: unsafe self-end</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: unsafe flex-start;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: unsafe flex-start</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: unsafe flex-end;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: unsafe flex-end</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: safe normal;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: safe normal</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: safe center;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: safe center</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: safe start;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: safe start</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: safe end;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: safe end</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: safe self-start;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: safe self-start</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: safe self-end;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: safe self-end</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: safe flex-start;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: safe flex-start</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: safe flex-end;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: safe flex-end</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: stretch;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: stretch</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: baseline;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: baseline</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: first baseline;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: first baseline</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: last baseline;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: last baseline</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="display: flex; align-items: flex-start; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-self: anchor-center;"><div class="item">A</div><div class="item highlight">B</div><div class="item">C</div><div class="item">D</div></div>
+    </div>
+    <div class="label">align-self: anchor-center</div>
+  </div>
+</div>
 </body>
 </html>

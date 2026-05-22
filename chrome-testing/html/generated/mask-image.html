@@ -1,95 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>mask-image</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
-    .demo-card { background: #16213e; border-radius: 10px; padding: 20px; width: 280px; }
-    .demo-card h3 { font-size: 13px; color: #e2e8f0; margin-bottom: 12px; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; line-height: 1.5; }
-    .box {
-      width: 240px;
-      height: 120px;
-      background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 14px;
-      font-weight: 600;
-    }
-    .m-linear-h {
-      -webkit-mask-image: var(--Ni, -07.80e47ms);
-      mask-image: var(--Ni, -07.80e47ms);
-    }
-    .m-linear-v {
-      -webkit-mask-image: url("") ! important;
-      mask-image: url("") ! important;
-    }
-    .m-radial {
-      -webkit-mask-image: none, url("") ! important;
-      mask-image: none, url("") ! important;
-    }
-    .m-radial-ellipse {
-      -webkit-mask-image: light-dark(none,), none;
-      mask-image: light-dark(none,), none;
-    }
-    .m-conic {
-      -webkit-mask-image: none, url(""), none ! important;
-      mask-image: none, url(""), none ! important;
-    }
-    .m-none {
-      /* no mask */
-    }
-  </style>
+<meta charset="UTF-8">
+<title>mask-image</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Mask Image</h1>
-  <p class="prop-name">mask-image</p>
-  <div class="demos">
-
-    <div class="demo-card">
-      <h3>Linear Horizontal Fade</h3>
-      <div class="box m-linear-h">HELLO</div>
-      <p class="label">mask-image: image(url(""))<br>&nbsp;&nbsp;to right, black, transparent)</p>
+<h1>Mask Image</h1>
+<p class="prop-name">mask-image</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 14px; font-weight: 600; mask-image: none;">HELLO</div>
     </div>
-
-    <div class="demo-card">
-      <h3>Linear Vertical Fade</h3>
-      <div class="box m-linear-v">HELLO</div>
-      <p class="label">mask-image: image(url(""))<br>&nbsp;&nbsp;to bottom, black 40%, transparent)</p>
-    </div>
-
-    <div class="demo-card">
-      <h3>Radial Circle</h3>
-      <div class="box m-radial">HELLO</div>
-      <p class="label">mask-image: repeating-conic-gradient(#e294E0 48.2e29rad var(--e)), repeating-conic-gradient(currentcolor, device-cmyk(none var(--H-) var(--_򵨭, 0) var(--_, 'ᰛ')) -6.65e2% 0) ! important<br>&nbsp;&nbsp;circle, black 40%, transparent 70%)</p>
-    </div>
-
-    <div class="demo-card">
-      <h3>Radial Ellipse</h3>
-      <div class="box m-radial-ellipse">HELLO</div>
-      <p class="label">mask-image: repeating-conic-gradient(#e294E0 48.2e29rad var(--e)), repeating-conic-gradient(currentcolor, device-cmyk(none var(--H-) var(--_򵨭, 0) var(--_, 'ᰛ')) -6.65e2% 0) ! important<br>&nbsp;&nbsp;ellipse 120px 60px, black, transparent)</p>
-    </div>
-
-    <div class="demo-card">
-      <h3>Conic Gradient</h3>
-      <div class="box m-conic">HELLO</div>
-      <p class="label">mask-image: none, url("")<br>&nbsp;&nbsp;black, transparent, black)</p>
-    </div>
-
-    <div class="demo-card">
-      <h3>No Mask</h3>
-      <div class="box m-none">HELLO</div>
-      <p class="label">mask-image: none, url("")</p>
-    </div>
-
+    <div class="label">mask-image: none</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 14px; font-weight: 600; mask-image: none, none;">HELLO</div>
+    </div>
+    <div class="label">mask-image: none, none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 14px; font-weight: 600; mask-image: none, url(mask.png);">HELLO</div>
+    </div>
+    <div class="label">mask-image: none, url(mask.png)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 14px; font-weight: 600; mask-image: url(mask.png);">HELLO</div>
+    </div>
+    <div class="label">mask-image: url(mask.png)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 14px; font-weight: 600; mask-image: url(mask.png), none;">HELLO</div>
+    </div>
+    <div class="label">mask-image: url(mask.png), none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 14px; font-weight: 600; mask-image: url(mask.png), url(mask.png);">HELLO</div>
+    </div>
+    <div class="label">mask-image: url(mask.png), url(mask.png)</div>
+  </div>
+</div>
 </body>
 </html>

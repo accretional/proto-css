@@ -1,0 +1,8 @@
+demo_type: POSITION
+title: "Overlay"
+target_base_style: "position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #1a1a2e; border: 2px solid #e94560; border-radius: 10px; padding: 20px 28px; text-align: center; z-index: 10; box-shadow: 0 8px 32px rgba(0,0,0,0.5);"
+target_inner_html: "<div class=\"title\">Dialog</div><div class=\"msg\">Element in top layer</div><button>OK</button>"
+wrapper_style: "width: 100%; height: 220px; background: #0f3460; border-radius: 8px; position: relative; overflow: hidden;"
+siblings_before: "<div class=\"page-content\"><p>Background page content is visible behind the overlay backdrop.</p><p>The dialog is promoted to the top layer.</p></div>"
+siblings_before: "<div class=\"backdrop-overlay\"></div>"
+extra_css: ".page-content { padding: 16px; font-size: 13px; color: #b0b0b0; line-height: 1.6; }\n.page-content p { margin-bottom: 8px; }\n.backdrop-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.55); z-index: 5; }\n.title { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 6px; }\n.msg { font-size: 12px; color: #9ca3af; margin-bottom: 12px; }\nbutton { background: #e94560; color: #fff; border: none; border-radius: 6px; padding: 6px 18px; font-size: 12px; cursor: pointer; }"

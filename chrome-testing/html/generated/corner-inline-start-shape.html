@@ -1,89 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>corner-inline-start-shape</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 4px; }
-    .experimental { font-size: 12px; color: #e94560; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 36px; align-items: flex-start; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
-    .demo-card { text-align: center; }
-
-    .shape-box {
-      width: 170px;
-      height: 170px;
-      background: linear-gradient(270deg, #16213e, #0f3460);
-      border: 3px solid #06b6d4;
-      border-radius: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-    .dot {
-      position: absolute;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-    }
-    .on { background: #06b6d4; box-shadow: 0 0 8px #06b6d488; }
-    .off { background: #444; opacity: 0.3; }
-  </style>
+<meta charset="UTF-8">
+<title>corner-inline-start-shape</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Corner Inline Start Shape</h1>
-  <p class="prop-name">corner-inline-start-shape</p>
-  <p class="experimental">Experimental property &mdash; affects inline-start corners (left side in LTR)</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="shape-box">
-        <span style="font-size:14px;color:#c0c0c0;">round</span>
-        <div class="dot on" style="top:-8px;left:-8px;"></div>
-        <div class="dot off" style="top:-8px;right:-8px;"></div>
-        <div class="dot on" style="bottom:-8px;left:-8px;"></div>
-        <div class="dot off" style="bottom:-8px;right:-8px;"></div>
-      </div>
-      <p class="label">corner-inline-start-shape: squircle superellipse(var(--kޭ, --_)) ! important</p>
+<h1>Corner Inline Start Shape</h1>
+<p class="prop-name">corner-inline-start-shape</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <svg style="width: 140px; height: 140px; corner-inline-start-shape: round;"><path d="M28 3 H137 V137 H28 Q3 137 3 112 V28 Q3 3 28 3 Z" fill="#16213e" stroke="#e94560" stroke-width="3"/><circle cx="3" cy="3" r="5" fill="#e94560"/><circle cx="3" cy="137" r="5" fill="#e94560"/><text x="80" y="75" fill="#e0e0e0" text-anchor="middle" font-size="13" font-family="system-ui">round</text></svg>
     </div>
-
-    <div class="demo-card">
-      <svg width="170" height="170" viewBox="0 0 170 170" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M30 3 H140 Q167 3 167 30 V140 Q167 167 140 167 H30 Q30 140 3 140 V30 Q30 3 30 3Z" fill="#0f3460" stroke="#06b6d4" stroke-width="3"/>
-        <text x="95" y="90" fill="#c0c0c0" text-anchor="middle" font-size="14" font-family="system-ui">scoop</text>
-        <circle cx="3" cy="3" r="7" fill="#06b6d4"/>
-        <circle cx="3" cy="167" r="7" fill="#06b6d4"/>
-        <circle cx="167" cy="3" r="6" fill="#444" opacity="0.3"/>
-        <circle cx="167" cy="167" r="6" fill="#444" opacity="0.3"/>
-      </svg>
-      <p class="label">corner-inline-start-shape: bevel ! important</p>
-    </div>
-
-    <div class="demo-card">
-      <div style="background:#16213e; border-radius:10px; padding:16px; width: 260px; text-align: left;">
-        <p style="font-size:12px; color:#06b6d4; margin-bottom:8px; font-family:monospace; font-weight:bold;">Logical mapping (LTR):</p>
-        <p style="font-size:11px; color:#7b8794; font-family:monospace; line-height:1.8;">
-          inline-start = left side in LTR<br>
-          Affects: top-left + bottom-left
-        </p>
-        <svg width="220" height="100" viewBox="0 0 220 100" style="margin-top:10px;">
-          <rect x="10" y="10" width="200" height="80" rx="4" fill="none" stroke="#444" stroke-width="1" stroke-dasharray="4"/>
-          <rect x="10" y="10" width="55" height="35" fill="#06b6d422" stroke="#06b6d4" stroke-width="2" rx="3"/>
-          <rect x="10" y="55" width="55" height="35" fill="#06b6d422" stroke="#06b6d4" stroke-width="2" rx="3"/>
-          <text x="37" y="32" fill="#06b6d4" text-anchor="middle" font-size="9" font-family="monospace">TL</text>
-          <text x="37" y="77" fill="#06b6d4" text-anchor="middle" font-size="9" font-family="monospace">BL</text>
-          <text x="182" y="32" fill="#666" text-anchor="middle" font-size="9" font-family="monospace">TR</text>
-          <text x="182" y="77" fill="#666" text-anchor="middle" font-size="9" font-family="monospace">BR</text>
-          <!-- arrow showing inline direction -->
-          <line x1="80" y1="50" x2="160" y2="50" stroke="#06b6d4" stroke-width="1.5" stroke-dasharray="4"/>
-          <polygon points="80,46 72,50 80,54" fill="#06b6d4"/>
-          <text x="120" y="46" fill="#06b6d4" text-anchor="middle" font-size="8" font-family="monospace">&larr; inline-start</text>
-        </svg>
-      </div>
-    </div>
+    <div class="label">corner-inline-start-shape: round</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <svg style="width: 140px; height: 140px; corner-inline-start-shape: round round;"><path d="M28 3 H137 V137 H28 Q3 137 3 112 V28 Q3 3 28 3 Z" fill="#16213e" stroke="#e94560" stroke-width="3"/><circle cx="3" cy="3" r="5" fill="#e94560"/><circle cx="3" cy="137" r="5" fill="#e94560"/><text x="80" y="75" fill="#e0e0e0" text-anchor="middle" font-size="13" font-family="system-ui">round</text></svg>
+    </div>
+    <div class="label">corner-inline-start-shape: round round</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <svg style="width: 140px; height: 140px; corner-inline-start-shape: round scoop;"><path d="M28 3 H137 V137 H28 Q3 137 3 112 V28 Q3 3 28 3 Z" fill="#16213e" stroke="#e94560" stroke-width="3"/><circle cx="3" cy="3" r="5" fill="#e94560"/><circle cx="3" cy="137" r="5" fill="#e94560"/><text x="80" y="75" fill="#e0e0e0" text-anchor="middle" font-size="13" font-family="system-ui">round</text></svg>
+    </div>
+    <div class="label">corner-inline-start-shape: round scoop</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <svg style="width: 140px; height: 140px; corner-inline-start-shape: round bevel;"><path d="M28 3 H137 V137 H28 Q3 137 3 112 V28 Q3 3 28 3 Z" fill="#16213e" stroke="#e94560" stroke-width="3"/><circle cx="3" cy="3" r="5" fill="#e94560"/><circle cx="3" cy="137" r="5" fill="#e94560"/><text x="80" y="75" fill="#e0e0e0" text-anchor="middle" font-size="13" font-family="system-ui">round</text></svg>
+    </div>
+    <div class="label">corner-inline-start-shape: round bevel</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <svg style="width: 140px; height: 140px; corner-inline-start-shape: round notch;"><path d="M28 3 H137 V137 H28 Q3 137 3 112 V28 Q3 3 28 3 Z" fill="#16213e" stroke="#e94560" stroke-width="3"/><circle cx="3" cy="3" r="5" fill="#e94560"/><circle cx="3" cy="137" r="5" fill="#e94560"/><text x="80" y="75" fill="#e0e0e0" text-anchor="middle" font-size="13" font-family="system-ui">round</text></svg>
+    </div>
+    <div class="label">corner-inline-start-shape: round notch</div>
+  </div>
+</div>
 </body>
 </html>

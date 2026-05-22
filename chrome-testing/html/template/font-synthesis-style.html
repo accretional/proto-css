@@ -8,27 +8,21 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; gap: 24px; }
-    .demo-card {
-      background: #16213e; border-radius: 12px; padding: 28px; flex: 1;
-      border: 1px solid #2a2a4a;
+    .demos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .demo-block {
+      background: #16213e;
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; }
-    .tag {
-      display: inline-block; background: #7c3aed33; color: #a78bfa; font-size: 11px;
-      font-family: monospace; padding: 2px 8px; border-radius: 4px; margin-bottom: 14px;
-    }
-    .demo-text {
-      font-size: 30px; color: #fff; line-height: 1.7;
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; }
+    .sample {
+      font-size: 24px;
+      color: #fff;
+      line-height: 1.5;
       font-style: italic;
-    }
-    .note { font-size: 11px; color: #6b7280; margin-top: 8px; font-style: normal; }
-    .highlight {
-      background: #7c3aed22; padding: 10px 14px; border-radius: 6px; margin-bottom: 10px;
-    }
-    .context {
-      font-size: 12px; color: #9ca3af; font-family: monospace; margin-bottom: 6px;
-      font-style: normal;
     }
   </style>
 </head>
@@ -36,47 +30,13 @@
   <h1>Font Synthesis Style</h1>
   <p class="prop-name">font-synthesis-style</p>
   <div class="demos">
-    <div class="demo-card">
-      <div class="tag">auto</div>
-      <p class="context">font-style: italic applied:</p>
-      <div class="highlight">
-        <div class="demo-text" style="font-synthesis-style: auto;">
-          Synthesized Italic
-        </div>
-      </div>
-      <div class="highlight">
-        <div class="demo-text" style="font-synthesis-style: auto;">
-          The Art of Typography
-        </div>
-      </div>
-      <div class="highlight">
-        <div class="demo-text" style="font-synthesis-style: auto;">
-          Oblique Rendering
-        </div>
-      </div>
-      <p class="label">font-synthesis-style: auto</p>
-      <p class="note">Browser synthesizes italic by slanting the normal glyphs</p>
+    <div class="demo-block">
+      <div class="label">font-synthesis-style: auto</div>
+      <div class="sample" style="font-synthesis-style: auto;">The quick brown fox jumps over the lazy dog</div>
     </div>
-    <div class="demo-card">
-      <div class="tag">none</div>
-      <p class="context">font-style: italic applied:</p>
-      <div class="highlight">
-        <div class="demo-text" style="font-synthesis-style: none;">
-          Synthesized Italic
-        </div>
-      </div>
-      <div class="highlight">
-        <div class="demo-text" style="font-synthesis-style: none;">
-          The Art of Typography
-        </div>
-      </div>
-      <div class="highlight">
-        <div class="demo-text" style="font-synthesis-style: none;">
-          Oblique Rendering
-        </div>
-      </div>
-      <p class="label">font-synthesis-style: none</p>
-      <p class="note">No slanting — text stays upright if font lacks true italic</p>
+    <div class="demo-block">
+      <div class="label">font-synthesis-style: none</div>
+      <div class="sample" style="font-synthesis-style: none;">The quick brown fox jumps over the lazy dog</div>
     </div>
   </div>
 </body>

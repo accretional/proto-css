@@ -1,87 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>scale</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: center; }
-    .demo-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 170px;
-      height: 200px;
-      justify-content: center;
-    }
-    .box-wrapper {
-      width: 80px;
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-    .box-wrapper::before {
-      content: '';
-      position: absolute;
-      width: 80px;
-      height: 80px;
-      border: 1px dashed #444;
-      border-radius: 8px;
-    }
-    .box {
-      width: 80px;
-      height: 80px;
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      font-weight: 600;
-      color: #fff;
-    }
-    .s-none { scale: var(--S󧘔, x잖) var(--K, 0); }
-    .s-half { scale: none ! important; }
-    .s-1 { scale: var(--坡_) +56e-9%; }
-    .s-1-5 { scale: var(--坡_) +56e-9%.5; }
-    .s-2 { scale: none; }
-    .s-non-uniform { scale: none ! important 1.5; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 16px; text-align: center; }
-  </style>
+<meta charset="UTF-8">
+<title>scale</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .box-wrapper::before { content: ''; position: absolute; width: 80px; height: 80px; border: 1px dashed #444; border-radius: 8px; }
+</style>
 </head>
 <body>
-  <h1>Scale</h1>
-  <p class="prop-name">scale</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="box-wrapper"><div class="box s-none">A</div></div>
-      <p class="label">scale: var(--S󧘔, x잖) var(--K, 0)</p>
+<h1>Scale</h1>
+<p class="prop-name">scale</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: none;">A</div>
     </div>
-    <div class="demo-card">
-      <div class="box-wrapper"><div class="box s-half">A</div></div>
-      <p class="label">scale: none ! important</p>
-    </div>
-    <div class="demo-card">
-      <div class="box-wrapper"><div class="box s-1">A</div></div>
-      <p class="label">scale: var(--坡_) +56e-9%</p>
-    </div>
-    <div class="demo-card">
-      <div class="box-wrapper"><div class="box s-1-5">A</div></div>
-      <p class="label">scale: var(--坡_) +56e-9%.5</p>
-    </div>
-    <div class="demo-card">
-      <div class="box-wrapper"><div class="box s-2">A</div></div>
-      <p class="label">scale: none</p>
-    </div>
-    <div class="demo-card">
-      <div class="box-wrapper"><div class="box s-non-uniform">A</div></div>
-      <p class="label">scale: none ! important 1.5</p>
-    </div>
+    <div class="label">scale: none</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0;">A</div>
+    </div>
+    <div class="label">scale: 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 0;">A</div>
+    </div>
+    <div class="label">scale: 0 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 0.5;">A</div>
+    </div>
+    <div class="label">scale: 0 0.5</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 1;">A</div>
+    </div>
+    <div class="label">scale: 0 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 2;">A</div>
+    </div>
+    <div class="label">scale: 0 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 0%;">A</div>
+    </div>
+    <div class="label">scale: 0 0%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 25%;">A</div>
+    </div>
+    <div class="label">scale: 0 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 50%;">A</div>
+    </div>
+    <div class="label">scale: 0 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 75%;">A</div>
+    </div>
+    <div class="label">scale: 0 75%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 100%;">A</div>
+    </div>
+    <div class="label">scale: 0 100%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 0 0;">A</div>
+    </div>
+    <div class="label">scale: 0 0 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 0 0.5;">A</div>
+    </div>
+    <div class="label">scale: 0 0 0.5</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 0 1;">A</div>
+    </div>
+    <div class="label">scale: 0 0 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 0 2;">A</div>
+    </div>
+    <div class="label">scale: 0 0 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 0 0%;">A</div>
+    </div>
+    <div class="label">scale: 0 0 0%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 0 25%;">A</div>
+    </div>
+    <div class="label">scale: 0 0 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 0 50%;">A</div>
+    </div>
+    <div class="label">scale: 0 0 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 0 75%;">A</div>
+    </div>
+    <div class="label">scale: 0 0 75%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 0 100%;">A</div>
+    </div>
+    <div class="label">scale: 0 0 100%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 0.5 0;">A</div>
+    </div>
+    <div class="label">scale: 0 0.5 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 0.5 0.5;">A</div>
+    </div>
+    <div class="label">scale: 0 0.5 0.5</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 0.5 1;">A</div>
+    </div>
+    <div class="label">scale: 0 0.5 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 0.5 2;">A</div>
+    </div>
+    <div class="label">scale: 0 0.5 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 0.5 0%;">A</div>
+    </div>
+    <div class="label">scale: 0 0.5 0%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 0.5 25%;">A</div>
+    </div>
+    <div class="label">scale: 0 0.5 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 0.5 50%;">A</div>
+    </div>
+    <div class="label">scale: 0 0.5 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 0.5 75%;">A</div>
+    </div>
+    <div class="label">scale: 0 0.5 75%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 0.5 100%;">A</div>
+    </div>
+    <div class="label">scale: 0 0.5 100%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 1 0;">A</div>
+    </div>
+    <div class="label">scale: 0 1 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 1 0.5;">A</div>
+    </div>
+    <div class="label">scale: 0 1 0.5</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 1 1;">A</div>
+    </div>
+    <div class="label">scale: 0 1 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: #fff; scale: 0 1 2;">A</div>
+    </div>
+    <div class="label">scale: 0 1 2</div>
+  </div>
+</div>
 </body>
 </html>

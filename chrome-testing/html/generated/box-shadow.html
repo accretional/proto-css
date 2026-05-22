@@ -1,66 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>box-shadow</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 32px; }
-    .demo-box { display: flex; flex-direction: column; align-items: center; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; max-width: 180px; text-align: center; }
-    .box {
-      width: 140px;
-      height: 100px;
-      background: #0f3460;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-    }
-    .s1 { box-shadow: 0 4.27e-4in light-dark(cross-fade(var(--_-), +80%),) ! important; }
-    .s2 { box-shadow: none ! important; }
-    .s3 { box-shadow: skyblue var(--_, "") 0 selecteditem, 0 var(--𧸞, 񳄧) 08.34rex var(--򅣗); }
-    .s4 { box-shadow: transparent inset 0 +1cm var(--J) light-dark(, none); }
-    .s5 { box-shadow: none; }
-    .s6 {
-      box-shadow:
-        none ! important,
-        -5px -5px 10px #00d2ff;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>box-shadow</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Box Shadow</h1>
-  <p class="prop-name">box-shadow</p>
-  <div class="demos">
-    <div class="demo-box">
-      <div class="box s1">offset</div>
-      <span class="label">box-shadow: 0 4.27e-4in light-dark(cross-fade(var(--_-), +80%),) ! important</span>
+<h1>Box Shadow</h1>
+<p class="prop-name">box-shadow</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: none;"></div>
     </div>
-    <div class="demo-box">
-      <div class="box s2">blur</div>
-      <span class="label">box-shadow: none ! important</span>
-    </div>
-    <div class="demo-box">
-      <div class="box s3">spread</div>
-      <span class="label">box-shadow: skyblue var(--_, "") 0 selecteditem, 0 var(--𧸞, 񳄧) 08.34rex var(--򅣗)</span>
-    </div>
-    <div class="demo-box">
-      <div class="box s4">glow</div>
-      <span class="label">box-shadow: transparent inset 0 +1cm var(--J) light-dark(, none)</span>
-    </div>
-    <div class="demo-box">
-      <div class="box s5">inset</div>
-      <span class="label">box-shadow: none</span>
-    </div>
-    <div class="demo-box">
-      <div class="box s6">multiple</div>
-      <span class="label">box-shadow: none ! important, -5px -5px 10px #00d2ff</span>
-    </div>
+    <div class="label">box-shadow: none</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 red;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 #3498db;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 rgb(0, 128, 0);"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 rgb(0, 128, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 transparent;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 transparent</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 currentcolor;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 currentcolor</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 inset;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 inset</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 inset red;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 inset red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 inset #3498db;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 inset #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 inset rgb(0, 128, 0);"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 inset rgb(0, 128, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 inset transparent;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 inset transparent</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 inset currentcolor;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 inset currentcolor</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 0;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 0 red;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 0 red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 0 #3498db;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 0 #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 0 rgb(0, 128, 0);"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 0 rgb(0, 128, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 0 transparent;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 0 transparent</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 0 currentcolor;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 0 currentcolor</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 0 inset;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 0 inset</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 0 inset red;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 0 inset red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 0 inset #3498db;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 0 inset #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 0 inset rgb(0, 128, 0);"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 0 inset rgb(0, 128, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 0 inset transparent;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 0 inset transparent</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 0 inset currentcolor;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 0 inset currentcolor</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 0 0;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 0 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 0 0 red;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 0 0 red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 0 0 #3498db;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 0 0 #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 0 0 rgb(0, 128, 0);"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 0 0 rgb(0, 128, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 0 0 transparent;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 0 0 transparent</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 0 0 currentcolor;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 0 0 currentcolor</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 0 0 inset;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 0 0 inset</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 0 0 inset red;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 0 0 inset red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 0 0 inset #3498db;"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 0 0 inset #3498db</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 140px; height: 100px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 0 0, 0 0 0 0 inset rgb(0, 128, 0);"></div>
+    </div>
+    <div class="label">box-shadow: 0 0, 0 0 0 0 inset rgb(0, 128, 0)</div>
+  </div>
+</div>
 </body>
 </html>

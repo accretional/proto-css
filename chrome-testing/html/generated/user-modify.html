@@ -1,72 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>user-modify</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
-    .demo-card { background: #16213e; border-radius: 12px; padding: 24px; width: 370px; }
-    .demo-title { font-size: 15px; font-weight: 600; color: #e0e0e0; margin-bottom: 8px; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; }
-    .desc { font-size: 12px; color: #6b7280; margin-bottom: 14px; line-height: 1.5; }
-    .editable-area { background: #0d1117; border-radius: 8px; padding: 16px; font-size: 14px; line-height: 1.6; min-height: 80px; border: 2px solid transparent; }
-    .editable-area:focus { outline: none; }
-    .status { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-family: monospace; padding: 4px 10px; border-radius: 20px; margin-bottom: 10px; }
-    .status-dot { width: 8px; height: 8px; border-radius: 50%; }
-    .readonly { border-color: #4a5568; }
-    .readwrite { border-color: #16c79a; }
-    .plaintext { border-color: #f39c12; }
-    .icon { font-size: 18px; margin-right: 6px; }
-  </style>
+<meta charset="UTF-8">
+<title>user-modify</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .editable-area:focus { outline: none; }
+.status { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-family: monospace; padding: 4px 10px; border-radius: 20px; margin-bottom: 10px; }
+.status-dot { width: 8px; height: 8px; border-radius: 50%; }
+.readonly { border-color: #4a5568; }
+.readwrite { border-color: #16c79a; }
+.plaintext { border-color: #f39c12; }
+.desc { font-size: 12px; color: #6b7280; margin-bottom: 14px; line-height: 1.5; }
+</style>
 </head>
 <body>
-  <h1>User Modify</h1>
-  <p class="prop-name">-webkit-user-modify (non-standard)</p>
-  <div class="demos">
-
-    <div class="demo-card">
-      <div class="demo-title">read-only</div>
-      <div class="status" style="background: rgba(74,85,104,0.3); color: #9ca3af;">
-        <div class="status-dot" style="background: #e94560;"></div>
-        Not editable
-      </div>
-      <div class="desc">Content cannot be modified by the user. This is the default behavior for most elements.</div>
-      <div class="editable-area readonly" style="-webkit-user-modify: write-only;">
-        This text is <strong>read-only</strong>. Users cannot edit this content. The element behaves like a normal, non-editable element.
-      </div>
-      <div class="label">-webkit-user-modify: write-only</div>
+<h1>User Modify</h1>
+<p class="prop-name">user-modify</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; width: 370px;">
+      <div style="background: #0d1117; border-radius: 8px; padding: 16px; font-size: 14px; line-height: 1.6; min-height: 80px; border: 2px solid transparent; -webkit-user-modify: read-only; user-modify: read-only;">This text is <strong>read-only</strong>. Users cannot edit this content. The element behaves like a normal, non-editable element.</div>
     </div>
-
-    <div class="demo-card">
-      <div class="demo-title">read-write</div>
-      <div class="status" style="background: rgba(22,199,154,0.15); color: #16c79a;">
-        <div class="status-dot" style="background: #16c79a;"></div>
-        Rich text editable
-      </div>
-      <div class="desc">Content is editable with rich text support (bold, italic, etc.) similar to contenteditable.</div>
-      <div class="editable-area readwrite" style="-webkit-user-modify: read-only ! important;">
-        This text is <strong>editable</strong> with <em>rich text</em> formatting. Users can type, paste HTML, and format text.
-      </div>
-      <div class="label">-webkit-user-modify: read-only ! important</div>
-    </div>
-
-    <div class="demo-card">
-      <div class="demo-title">read-write-plaintext-only</div>
-      <div class="status" style="background: rgba(243,156,18,0.15); color: #f39c12;">
-        <div class="status-dot" style="background: #f39c12;"></div>
-        Plain text editable only
-      </div>
-      <div class="desc">Content is editable, but only plain text input is allowed. No rich text formatting can be applied.</div>
-      <div class="editable-area plaintext" style="-webkit-user-modify: read-only ! important-plaintext-only;">
-        This text is editable as plain text only. No bold, italic, or other formatting is allowed. Only raw text input.
-      </div>
-      <div class="label">-webkit-user-modify: read-only ! important-plaintext-only</div>
-    </div>
-
+    <div class="label">user-modify: read-only</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; width: 370px;">
+      <div style="background: #0d1117; border-radius: 8px; padding: 16px; font-size: 14px; line-height: 1.6; min-height: 80px; border: 2px solid transparent; -webkit-user-modify: read-only; user-modify: read-write;">This text is <strong>read-only</strong>. Users cannot edit this content. The element behaves like a normal, non-editable element.</div>
+    </div>
+    <div class="label">user-modify: read-write</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; width: 370px;">
+      <div style="background: #0d1117; border-radius: 8px; padding: 16px; font-size: 14px; line-height: 1.6; min-height: 80px; border: 2px solid transparent; -webkit-user-modify: read-only; user-modify: read-write-plaintext-only;">This text is <strong>read-only</strong>. Users cannot edit this content. The element behaves like a normal, non-editable element.</div>
+    </div>
+    <div class="label">user-modify: read-write-plaintext-only</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; width: 370px;">
+      <div style="background: #0d1117; border-radius: 8px; padding: 16px; font-size: 14px; line-height: 1.6; min-height: 80px; border: 2px solid transparent; -webkit-user-modify: read-only; user-modify: write-only;">This text is <strong>read-only</strong>. Users cannot edit this content. The element behaves like a normal, non-editable element.</div>
+    </div>
+    <div class="label">user-modify: write-only</div>
+  </div>
+</div>
 </body>
 </html>

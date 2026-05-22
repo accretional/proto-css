@@ -1,69 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>column-rule</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-direction: column; gap: 16px; }
-    .demo-card {
-      background: #16213e;
-      border-radius: 10px;
-      padding: 16px 20px;
-      border: 1px solid #2a2a4a;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 10px; }
-    .col-text {
-      column-count: 3;
-      font-size: 12px;
-      line-height: 1.6;
-      color: #c0c8d4;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>column-rule</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Column Rule</h1>
-  <p class="prop-name">column-rule</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="label">column-rule: , repeat(-51, [ ] fit-content(0) [ ] min-content [ ]), light-dark(none,) inset, thin alpha(from / none)</div>
-      <div class="col-text" style="column-rule: , repeat(-51, [ ] fit-content(0) [ ] min-content [ ]), light-dark(none,) inset, thin alpha(from / none);">
-        A thin solid red rule creates a clean, subtle separation between columns. This is a common choice for article layouts where you want clear column boundaries. The rule sits in the column gap and does not affect content width.
-      </div>
+<h1>Column Rule</h1>
+<p class="prop-name">column-rule</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 0;">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
     </div>
-    <div class="demo-card">
-      <div class="label">column-rule: hairline highlighttext ! important</div>
-      <div class="col-text" style="column-rule: hairline highlighttext ! important;">
-        A medium dashed blue rule adds a more decorative element. Dashed lines can draw attention to the column structure while maintaining readability. The width and style combine to create a distinctive visual separator between content areas.
-      </div>
-    </div>
-    <div class="demo-card">
-      <div class="label">column-rule: hairline, repeat(var(--Ԁ2, 26.58e+9%), [ 񄸚Q ] fit-content(anchor-size(--sN))), ! important</div>
-      <div class="col-text" style="column-rule: hairline, repeat(var(--Ԁ2, 26.58e+9%), [ 񄸚Q ] fit-content(anchor-size(--sN))), ! important;">
-        Dotted gold rules provide a decorative touch. The dotted style creates a lighter visual weight compared to solid rules, making it feel more playful. Combined with a gold color, this rule adds warmth and elegance to the column layout.
-      </div>
-    </div>
-    <div class="demo-card">
-      <div class="label">column-rule: currentcolor, medium, repeat(auto-fill, [ ] [ ]), hairline, light-dark(, none)</div>
-      <div class="col-text" style="column-rule: currentcolor, medium, repeat(auto-fill, [ ] [ ]), hairline, light-dark(, none);">
-        Double green rules create a formal, structured appearance. The double style draws two parallel lines with a gap between them. This works well for more formal or traditional layouts where a stronger column division is desired in the design.
-      </div>
-    </div>
-    <div class="demo-card">
-      <div class="label">column-rule: var(--t_, -65.84e5turn) var(--簿3), medium var(--򐗘)</div>
-      <div class="col-text" style="column-rule: var(--t_, -65.84e5turn) var(--簿3), medium var(--򐗘);">
-        A groove purple rule creates a 3D carved effect. The groove style simulates a line carved into the surface, adding depth and dimension. This decorative style works best with wider rule widths where the 3D effect can be clearly perceived.
-      </div>
-    </div>
-    <div class="demo-card">
-      <div class="label">column-rule: repeat(77, [ ] [ ]), repeat(auto-fit, [ ] minmax(auto, max-content))</div>
-      <div class="col-text" style="column-rule: repeat(77, [ ] [ ]), repeat(auto-fit, [ ] minmax(auto, max-content));">
-        A thick ridge orange rule creates the opposite of groove, appearing raised from the surface. This bold, three-dimensional separator makes a strong visual statement. Combined with a warm orange, it creates an eye-catching divider between columns.
-      </div>
-    </div>
+    <div class="label">column-rule: 0</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 0, 0;">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: 0, 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 0, 0 none;">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: 0, 0 none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 0, 0 none red;">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: 0, 0 none red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 0, none;">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: 0, none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 0, none 0;">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: 0, none 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 0, none 0 red;">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: 0, none 0 red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 0, red;">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: 0, red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 0, red 0;">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: 0, red 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 0, red 0 none;">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: 0, red 0 none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 0, repeat(0, 0);">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: 0, repeat(0, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 0, repeat(0, 0 [ ]);">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: 0, repeat(0, 0 [ ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 0, repeat(0, 0 [ my-custom ]);">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: 0, repeat(0, 0 [ my-custom ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 0, repeat(auto-fill, 0);">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: 0, repeat(auto-fill, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 0, repeat(auto-fill, 0 [ ]);">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: 0, repeat(auto-fill, 0 [ ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 0, repeat(auto-fill, 0 [ my-custom ]);">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: 0, repeat(auto-fill, 0 [ my-custom ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 0, repeat(0, [ ]);">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: 0, repeat(0, [ ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: 0, repeat(0, [ ] [ ]);">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: 0, repeat(0, [ ] [ ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: , repeat(0, 0),;">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: , repeat(0, 0),</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: , repeat(0, 0), 0;">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: , repeat(0, 0), 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: , repeat(0, 0), 0, 0;">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: , repeat(0, 0), 0, 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: , repeat(0, 0), 0, 0 none;">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: , repeat(0, 0), 0, 0 none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: , repeat(0, 0), 0, 0 none red;">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: , repeat(0, 0), 0, 0 none red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: , repeat(0, 0), 0, none;">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: , repeat(0, 0), 0, none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: , repeat(0, 0), 0, none 0;">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: , repeat(0, 0), 0, none 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: , repeat(0, 0), 0, none 0 red;">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: , repeat(0, 0), 0, none 0 red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: , repeat(0, 0), 0, red;">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: , repeat(0, 0), 0, red</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: , repeat(0, 0), 0, red 0;">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: , repeat(0, 0), 0, red 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: , repeat(0, 0), 0, red 0 none;">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: , repeat(0, 0), 0, red 0 none</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: , repeat(0, 0), 0, repeat(0, 0);">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: , repeat(0, 0), 0, repeat(0, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: , repeat(0, 0), 0, repeat(0, 0 [ ]);">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: , repeat(0, 0), 0, repeat(0, 0 [ ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: , repeat(0, 0), 0, repeat(0, 0 [ my-custom ]);">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: , repeat(0, 0), 0, repeat(0, 0 [ my-custom ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: , repeat(0, 0), 0, repeat(auto-fill, 0);">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: , repeat(0, 0), 0, repeat(auto-fill, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: , repeat(0, 0), 0, repeat(auto-fill, 0 [ ]);">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: , repeat(0, 0), 0, repeat(auto-fill, 0 [ ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: , repeat(0, 0), 0, repeat(auto-fill, 0 [ my-custom ]);">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: , repeat(0, 0), 0, repeat(auto-fill, 0 [ my-custom ])</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-count: 3; font-size: 12px; line-height: 1.6; color: #c0c8d4; column-rule: , repeat(0, 0), 0, repeat(0, [ ]);">Column rules create visual separators between columns. The column-rule shorthand sets the width, style, and color in a single declaration. Rules sit in the column gap and do not affect content width or layout flow.</div>
+    </div>
+    <div class="label">column-rule: , repeat(0, 0), 0, repeat(0, [ ])</div>
+  </div>
+</div>
 </body>
 </html>

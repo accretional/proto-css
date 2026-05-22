@@ -1,114 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>background-attachment</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; gap: 24px; }
-    .demo-box { flex: 1; background: #16213e; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; }
-    .demo-title { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 8px; }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; }
-    .description { font-size: 12px; color: #6b7280; margin-bottom: 12px; line-height: 1.4; }
-
-    .scroll-window {
-      width: 100%;
-      height: 360px;
-      overflow-y: auto;
-      border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.1);
-      position: relative;
-      background-size: 40px 40px;
-      background-image:
-        linear-gradient(45deg, #e9456025 25%, transparent 25%, transparent 75%, #e9456025 75%),
-        linear-gradient(45deg, #e9456025 25%, transparent 25%, transparent 75%, #e9456025 75%);
-      background-position: 0 0, 20px 20px;
-      background-color: #0f3460;
-    }
-    .scroll-content {
-      padding: 16px;
-    }
-    .content-block {
-      background: rgba(26, 26, 46, 0.85);
-      border-radius: 6px;
-      padding: 14px;
-      margin-bottom: 12px;
-      font-size: 12px;
-      color: #9ca3af;
-      line-height: 1.5;
-    }
-
-    .attach-scroll { background-attachment: scroll ! important, local ! important; }
-    .attach-fixed { background-attachment: scroll ! important, local; }
-    .attach-local { background-attachment: scroll ! important; }
-
-    .scroll-window::-webkit-scrollbar { width: 6px; }
-    .scroll-window::-webkit-scrollbar-track { background: #0f3460; border-radius: 3px; }
-    .scroll-window::-webkit-scrollbar-thumb { background: #e94560; border-radius: 3px; }
-
-    .indicator { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 10px; font-family: monospace; margin-bottom: 8px; }
-    .ind-scroll { background: #e9456030; color: #e94560; }
-    .ind-fixed { background: #533bdb30; color: #a78bfa; }
-    .ind-local { background: #10b98130; color: #6ee7b7; }
-  </style>
+<meta charset="UTF-8">
+<title>background-attachment</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .scroll-content { padding: 14px; }
+.content-block { background: rgba(26, 26, 46, 0.85); border-radius: 6px; padding: 12px; margin-bottom: 10px; font-size: 12px; color: #9ca3af; line-height: 1.5; }
+</style>
 </head>
 <body>
-  <h1>Background Attachment</h1>
-  <p class="prop-name">background-attachment</p>
-  <div class="demos">
-    <div class="demo-box">
-      <div class="demo-title">scroll</div>
-      <span class="indicator ind-scroll">DEFAULT</span>
-      <p class="description">Background scrolls with the page but not with the element's content.</p>
-      <div class="scroll-window attach-scroll">
-        <div class="scroll-content">
-          <div class="content-block">Background is fixed relative to the element itself. When you scroll inside this box, the pattern stays put.</div>
-          <div class="content-block">The checkerboard pattern moves with the page scroll, not the container scroll.</div>
-          <div class="content-block">This is the default behavior for most elements.</div>
-          <div class="content-block">Scroll down to see the effect on the background pattern positioning.</div>
-          <div class="content-block">The background image scrolls when the page scrolls.</div>
-          <div class="content-block">But it does not scroll when the element content scrolls.</div>
-        </div>
-      </div>
-      <p class="label">background-attachment: scroll ! important, local ! important</p>
+<h1>Background Attachment</h1>
+<p class="prop-name">background-attachment</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 300px; overflow-y: auto; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); position: relative; background-size: 40px 40px; background-image: linear-gradient(45deg, #e9456025 25%, transparent 25%, transparent 75%, #e9456025 75%), linear-gradient(45deg, #e9456025 25%, transparent 25%, transparent 75%, #e9456025 75%); background-position: 0 0, 20px 20px; background-color: #0f3460; background-attachment: scroll;"><div class="scroll-content"><div class="content-block">Background is fixed relative to the element itself.</div><div class="content-block">The pattern moves with page scroll, not container scroll.</div><div class="content-block">This is the default behavior.</div><div class="content-block">Scroll down to see the effect.</div><div class="content-block">Background scrolls when the page scrolls.</div><div class="content-block">But not when the element content scrolls.</div></div></div>
     </div>
-
-    <div class="demo-box">
-      <div class="demo-title">fixed</div>
-      <span class="indicator ind-fixed">VIEWPORT-LOCKED</span>
-      <p class="description">Background is fixed to the viewport, creating a "window" effect.</p>
-      <div class="scroll-window attach-fixed">
-        <div class="scroll-content">
-          <div class="content-block">Background is fixed relative to the viewport. It doesn't move when either the page or element scrolls.</div>
-          <div class="content-block">Creates a parallax-like window effect where content slides over the background.</div>
-          <div class="content-block">Commonly used for parallax scrolling designs.</div>
-          <div class="content-block">Scroll down to see the content move over the fixed background.</div>
-          <div class="content-block">The pattern stays perfectly still regardless of scroll position.</div>
-          <div class="content-block">This creates an interesting depth illusion.</div>
-        </div>
-      </div>
-      <p class="label">background-attachment: scroll ! important, local</p>
-    </div>
-
-    <div class="demo-box">
-      <div class="demo-title">local</div>
-      <span class="indicator ind-local">CONTENT-LOCKED</span>
-      <p class="description">Background scrolls with the element's content.</p>
-      <div class="scroll-window attach-local">
-        <div class="scroll-content">
-          <div class="content-block">Background scrolls along with the element's content. It moves when you scroll inside this box.</div>
-          <div class="content-block">The pattern is attached to the content flow, scrolling together with the text.</div>
-          <div class="content-block">Useful for scrollable containers where the background should follow the content.</div>
-          <div class="content-block">Scroll down and watch the checkerboard pattern move with this text.</div>
-          <div class="content-block">The background position is relative to the content, not the element.</div>
-          <div class="content-block">This value was added in CSS3 to give more control.</div>
-        </div>
-      </div>
-      <p class="label">background-attachment: scroll ! important</p>
-    </div>
+    <div class="label">background-attachment: scroll</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 300px; overflow-y: auto; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); position: relative; background-size: 40px 40px; background-image: linear-gradient(45deg, #e9456025 25%, transparent 25%, transparent 75%, #e9456025 75%), linear-gradient(45deg, #e9456025 25%, transparent 25%, transparent 75%, #e9456025 75%); background-position: 0 0, 20px 20px; background-color: #0f3460; background-attachment: scroll, scroll;"><div class="scroll-content"><div class="content-block">Background is fixed relative to the element itself.</div><div class="content-block">The pattern moves with page scroll, not container scroll.</div><div class="content-block">This is the default behavior.</div><div class="content-block">Scroll down to see the effect.</div><div class="content-block">Background scrolls when the page scrolls.</div><div class="content-block">But not when the element content scrolls.</div></div></div>
+    </div>
+    <div class="label">background-attachment: scroll, scroll</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 300px; overflow-y: auto; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); position: relative; background-size: 40px 40px; background-image: linear-gradient(45deg, #e9456025 25%, transparent 25%, transparent 75%, #e9456025 75%), linear-gradient(45deg, #e9456025 25%, transparent 25%, transparent 75%, #e9456025 75%); background-position: 0 0, 20px 20px; background-color: #0f3460; background-attachment: scroll, fixed;"><div class="scroll-content"><div class="content-block">Background is fixed relative to the element itself.</div><div class="content-block">The pattern moves with page scroll, not container scroll.</div><div class="content-block">This is the default behavior.</div><div class="content-block">Scroll down to see the effect.</div><div class="content-block">Background scrolls when the page scrolls.</div><div class="content-block">But not when the element content scrolls.</div></div></div>
+    </div>
+    <div class="label">background-attachment: scroll, fixed</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 300px; overflow-y: auto; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); position: relative; background-size: 40px 40px; background-image: linear-gradient(45deg, #e9456025 25%, transparent 25%, transparent 75%, #e9456025 75%), linear-gradient(45deg, #e9456025 25%, transparent 25%, transparent 75%, #e9456025 75%); background-position: 0 0, 20px 20px; background-color: #0f3460; background-attachment: scroll, local;"><div class="scroll-content"><div class="content-block">Background is fixed relative to the element itself.</div><div class="content-block">The pattern moves with page scroll, not container scroll.</div><div class="content-block">This is the default behavior.</div><div class="content-block">Scroll down to see the effect.</div><div class="content-block">Background scrolls when the page scrolls.</div><div class="content-block">But not when the element content scrolls.</div></div></div>
+    </div>
+    <div class="label">background-attachment: scroll, local</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 300px; overflow-y: auto; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); position: relative; background-size: 40px 40px; background-image: linear-gradient(45deg, #e9456025 25%, transparent 25%, transparent 75%, #e9456025 75%), linear-gradient(45deg, #e9456025 25%, transparent 25%, transparent 75%, #e9456025 75%); background-position: 0 0, 20px 20px; background-color: #0f3460; background-attachment: fixed;"><div class="scroll-content"><div class="content-block">Background is fixed relative to the element itself.</div><div class="content-block">The pattern moves with page scroll, not container scroll.</div><div class="content-block">This is the default behavior.</div><div class="content-block">Scroll down to see the effect.</div><div class="content-block">Background scrolls when the page scrolls.</div><div class="content-block">But not when the element content scrolls.</div></div></div>
+    </div>
+    <div class="label">background-attachment: fixed</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 300px; overflow-y: auto; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); position: relative; background-size: 40px 40px; background-image: linear-gradient(45deg, #e9456025 25%, transparent 25%, transparent 75%, #e9456025 75%), linear-gradient(45deg, #e9456025 25%, transparent 25%, transparent 75%, #e9456025 75%); background-position: 0 0, 20px 20px; background-color: #0f3460; background-attachment: fixed, scroll;"><div class="scroll-content"><div class="content-block">Background is fixed relative to the element itself.</div><div class="content-block">The pattern moves with page scroll, not container scroll.</div><div class="content-block">This is the default behavior.</div><div class="content-block">Scroll down to see the effect.</div><div class="content-block">Background scrolls when the page scrolls.</div><div class="content-block">But not when the element content scrolls.</div></div></div>
+    </div>
+    <div class="label">background-attachment: fixed, scroll</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 300px; overflow-y: auto; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); position: relative; background-size: 40px 40px; background-image: linear-gradient(45deg, #e9456025 25%, transparent 25%, transparent 75%, #e9456025 75%), linear-gradient(45deg, #e9456025 25%, transparent 25%, transparent 75%, #e9456025 75%); background-position: 0 0, 20px 20px; background-color: #0f3460; background-attachment: fixed, fixed;"><div class="scroll-content"><div class="content-block">Background is fixed relative to the element itself.</div><div class="content-block">The pattern moves with page scroll, not container scroll.</div><div class="content-block">This is the default behavior.</div><div class="content-block">Scroll down to see the effect.</div><div class="content-block">Background scrolls when the page scrolls.</div><div class="content-block">But not when the element content scrolls.</div></div></div>
+    </div>
+    <div class="label">background-attachment: fixed, fixed</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 300px; overflow-y: auto; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); position: relative; background-size: 40px 40px; background-image: linear-gradient(45deg, #e9456025 25%, transparent 25%, transparent 75%, #e9456025 75%), linear-gradient(45deg, #e9456025 25%, transparent 25%, transparent 75%, #e9456025 75%); background-position: 0 0, 20px 20px; background-color: #0f3460; background-attachment: fixed, local;"><div class="scroll-content"><div class="content-block">Background is fixed relative to the element itself.</div><div class="content-block">The pattern moves with page scroll, not container scroll.</div><div class="content-block">This is the default behavior.</div><div class="content-block">Scroll down to see the effect.</div><div class="content-block">Background scrolls when the page scrolls.</div><div class="content-block">But not when the element content scrolls.</div></div></div>
+    </div>
+    <div class="label">background-attachment: fixed, local</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 300px; overflow-y: auto; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); position: relative; background-size: 40px 40px; background-image: linear-gradient(45deg, #e9456025 25%, transparent 25%, transparent 75%, #e9456025 75%), linear-gradient(45deg, #e9456025 25%, transparent 25%, transparent 75%, #e9456025 75%); background-position: 0 0, 20px 20px; background-color: #0f3460; background-attachment: local;"><div class="scroll-content"><div class="content-block">Background is fixed relative to the element itself.</div><div class="content-block">The pattern moves with page scroll, not container scroll.</div><div class="content-block">This is the default behavior.</div><div class="content-block">Scroll down to see the effect.</div><div class="content-block">Background scrolls when the page scrolls.</div><div class="content-block">But not when the element content scrolls.</div></div></div>
+    </div>
+    <div class="label">background-attachment: local</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 300px; overflow-y: auto; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); position: relative; background-size: 40px 40px; background-image: linear-gradient(45deg, #e9456025 25%, transparent 25%, transparent 75%, #e9456025 75%), linear-gradient(45deg, #e9456025 25%, transparent 25%, transparent 75%, #e9456025 75%); background-position: 0 0, 20px 20px; background-color: #0f3460; background-attachment: local, scroll;"><div class="scroll-content"><div class="content-block">Background is fixed relative to the element itself.</div><div class="content-block">The pattern moves with page scroll, not container scroll.</div><div class="content-block">This is the default behavior.</div><div class="content-block">Scroll down to see the effect.</div><div class="content-block">Background scrolls when the page scrolls.</div><div class="content-block">But not when the element content scrolls.</div></div></div>
+    </div>
+    <div class="label">background-attachment: local, scroll</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 300px; overflow-y: auto; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); position: relative; background-size: 40px 40px; background-image: linear-gradient(45deg, #e9456025 25%, transparent 25%, transparent 75%, #e9456025 75%), linear-gradient(45deg, #e9456025 25%, transparent 25%, transparent 75%, #e9456025 75%); background-position: 0 0, 20px 20px; background-color: #0f3460; background-attachment: local, fixed;"><div class="scroll-content"><div class="content-block">Background is fixed relative to the element itself.</div><div class="content-block">The pattern moves with page scroll, not container scroll.</div><div class="content-block">This is the default behavior.</div><div class="content-block">Scroll down to see the effect.</div><div class="content-block">Background scrolls when the page scrolls.</div><div class="content-block">But not when the element content scrolls.</div></div></div>
+    </div>
+    <div class="label">background-attachment: local, fixed</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 300px; overflow-y: auto; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); position: relative; background-size: 40px 40px; background-image: linear-gradient(45deg, #e9456025 25%, transparent 25%, transparent 75%, #e9456025 75%), linear-gradient(45deg, #e9456025 25%, transparent 25%, transparent 75%, #e9456025 75%); background-position: 0 0, 20px 20px; background-color: #0f3460; background-attachment: local, local;"><div class="scroll-content"><div class="content-block">Background is fixed relative to the element itself.</div><div class="content-block">The pattern moves with page scroll, not container scroll.</div><div class="content-block">This is the default behavior.</div><div class="content-block">Scroll down to see the effect.</div><div class="content-block">Background scrolls when the page scrolls.</div><div class="content-block">But not when the element content scrolls.</div></div></div>
+    </div>
+    <div class="label">background-attachment: local, local</div>
+  </div>
+</div>
 </body>
 </html>

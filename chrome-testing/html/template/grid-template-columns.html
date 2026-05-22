@@ -14,12 +14,16 @@
     .cell { background: #0f3460; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #e94560; font-weight: 600; height: 50px; padding: 6px; }
     .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; }
 
-    .g1 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-    .g2 { display: grid; grid-template-columns: 200px 1fr 1fr; gap: 8px; }
-    .g3 { display: grid; grid-template-columns: auto auto auto; gap: 8px; }
-    .g4 { display: grid; grid-template-columns: repeat(4, minmax(100px, 1fr)); gap: 8px; }
-    .g5 { display: grid; grid-template-columns: 100px repeat(2, 1fr) 150px; gap: 8px; }
-    .g6 { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 8px; }
+    .g1 { display: grid; grid-template-columns: none; gap: 8px; }
+    .g2 { display: grid; grid-template-columns: 1fr; gap: 8px; }
+    .g3 { display: grid; grid-template-columns: 1fr 2fr; gap: 8px; }
+    .g4 { display: grid; grid-template-columns: 100px 1fr; gap: 8px; }
+    .g5 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .g6 { display: grid; grid-template-columns: minmax(100px, 1fr) 1fr; gap: 8px; }
+    .g7 { display: grid; grid-template-columns: auto; gap: 8px; }
+    .g8 { display: grid; grid-template-columns: min-content; gap: 8px; }
+    .g9 { display: grid; grid-template-columns: max-content; gap: 8px; }
+    .g10 { display: grid; grid-template-columns: subgrid; gap: 8px; }
   </style>
 </head>
 <body>
@@ -27,46 +31,74 @@
   <p class="prop-name">grid-template-columns</p>
   <div class="demos">
     <div class="demo-box">
-      <h3>Equal columns with repeat</h3>
+      <h3>none</h3>
       <div class="g1">
+        <div class="cell">1</div><div class="cell">2</div><div class="cell">3</div>
+      </div>
+      <p class="label">grid-template-columns: none</p>
+    </div>
+    <div class="demo-box">
+      <h3>1fr</h3>
+      <div class="g2">
+        <div class="cell">1fr (single column)</div>
+      </div>
+      <p class="label">grid-template-columns: 1fr</p>
+    </div>
+    <div class="demo-box">
+      <h3>1fr 2fr</h3>
+      <div class="g3">
+        <div class="cell">1fr</div><div class="cell">2fr</div>
+      </div>
+      <p class="label">grid-template-columns: 1fr 2fr</p>
+    </div>
+    <div class="demo-box">
+      <h3>100px 1fr</h3>
+      <div class="g4">
+        <div class="cell">100px</div><div class="cell">1fr</div>
+      </div>
+      <p class="label">grid-template-columns: 100px 1fr</p>
+    </div>
+    <div class="demo-box">
+      <h3>repeat(3, 1fr)</h3>
+      <div class="g5">
         <div class="cell">1fr</div><div class="cell">1fr</div><div class="cell">1fr</div>
       </div>
       <p class="label">grid-template-columns: repeat(3, 1fr)</p>
     </div>
     <div class="demo-box">
-      <h3>Fixed + flexible</h3>
-      <div class="g2">
-        <div class="cell">200px</div><div class="cell">1fr</div><div class="cell">1fr</div>
-      </div>
-      <p class="label">grid-template-columns: 200px 1fr 1fr</p>
-    </div>
-    <div class="demo-box">
-      <h3>Auto-sized columns</h3>
-      <div class="g3">
-        <div class="cell">Short</div><div class="cell">Medium content here</div><div class="cell">Longer content in this column</div>
-      </div>
-      <p class="label">grid-template-columns: auto auto auto</p>
-    </div>
-    <div class="demo-box">
-      <h3>Minmax columns</h3>
-      <div class="g4">
-        <div class="cell">min 100px</div><div class="cell">min 100px</div><div class="cell">min 100px</div><div class="cell">min 100px</div>
-      </div>
-      <p class="label">grid-template-columns: repeat(4, minmax(100px, 1fr))</p>
-    </div>
-    <div class="demo-box">
-      <h3>Mixed fixed + repeat</h3>
-      <div class="g5">
-        <div class="cell">100px</div><div class="cell">1fr</div><div class="cell">1fr</div><div class="cell">150px</div>
-      </div>
-      <p class="label">grid-template-columns: 100px repeat(2, 1fr) 150px</p>
-    </div>
-    <div class="demo-box">
-      <h3>Proportional fractions</h3>
+      <h3>minmax(100px, 1fr) 1fr</h3>
       <div class="g6">
-        <div class="cell">1fr</div><div class="cell">2fr</div><div class="cell">1fr</div>
+        <div class="cell">minmax(100px, 1fr)</div><div class="cell">1fr</div>
       </div>
-      <p class="label">grid-template-columns: 1fr 2fr 1fr</p>
+      <p class="label">grid-template-columns: minmax(100px, 1fr) 1fr</p>
+    </div>
+    <div class="demo-box">
+      <h3>auto</h3>
+      <div class="g7">
+        <div class="cell">auto width content</div>
+      </div>
+      <p class="label">grid-template-columns: auto</p>
+    </div>
+    <div class="demo-box">
+      <h3>min-content</h3>
+      <div class="g8">
+        <div class="cell">min-content shrinks to smallest word</div>
+      </div>
+      <p class="label">grid-template-columns: min-content</p>
+    </div>
+    <div class="demo-box">
+      <h3>max-content</h3>
+      <div class="g9">
+        <div class="cell">max-content expands to fit all content without wrapping</div>
+      </div>
+      <p class="label">grid-template-columns: max-content</p>
+    </div>
+    <div class="demo-box" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;">
+      <h3 style="grid-column: 1 / -1;">subgrid (parent context)</h3>
+      <div class="cell" style="background: #533483; color: #fff;">Subgrid inherits parent tracks</div>
+      <div class="cell" style="background: #533483; color: #fff;">Column 2</div>
+      <div class="cell" style="background: #533483; color: #fff;">Column 3</div>
+      <p class="label" style="grid-column: 1 / -1;">grid-template-columns: subgrid</p>
     </div>
   </div>
 </body>

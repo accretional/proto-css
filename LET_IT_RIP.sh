@@ -72,7 +72,7 @@ echo ""
 
 echo "============ Step 4/4: Serve + Browser ============"
 
-GALLERY_DIR="$ROOT/chrome-testing/gallery"
+GALLERY_DIR="$ROOT/chrome-testing/html"
 GALLERY_FILE="$GALLERY_DIR/generated_screenshots_gallery.html"
 
 if [[ ! -f "$GALLERY_FILE" ]]; then
@@ -100,7 +100,7 @@ for i in $(seq 1 20); do
   sleep 0.25
 done
 
-GALLERY_URL="http://localhost:$SERVE_PORT/gallery/generated_screenshots_gallery.html"
+GALLERY_URL="http://localhost:$SERVE_PORT/html/generated_screenshots_gallery.html"
 echo "Gallery serving at: $GALLERY_URL"
 
 # Open in browser (macOS: open, Linux: xdg-open)
@@ -121,9 +121,9 @@ echo "#  Gallery: $GALLERY_URL"
 echo "#  Server PID: $SERVER_PID"
 echo "#                                          #"
 echo "#  Other galleries:                        #"
-echo "#  - /gallery/generated_gallery.html             #"
-echo "#  - /gallery/template_screenshots_gallery.html #"
-echo "#  - /gallery/template_gallery.html        #"
+echo "#  - /html/generated_gallery.html                #"
+echo "#  - /html/template_screenshots_gallery.html    #"
+echo "#  - /html/template_gallery.html                #"
 echo "#                                          #"
 echo "#  Press Ctrl+C to stop the server.        #"
 echo "#                                          #"

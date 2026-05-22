@@ -1,76 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>columns</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-direction: column; gap: 16px; }
-    .demo-card {
-      background: #16213e;
-      border-radius: 10px;
-      padding: 16px 20px;
-      border: 1px solid #2a2a4a;
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-bottom: 6px; }
-    .sub-label { font-size: 10px; font-family: monospace; color: #5a6570; margin-bottom: 10px; }
-    .col-text {
-      column-rule: 1px solid #3a3a5a;
-      font-size: 12px;
-      line-height: 1.6;
-      color: #c0c8d4;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>columns</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+</style>
 </head>
 <body>
-  <h1>Columns (Shorthand)</h1>
-  <p class="prop-name">columns</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="label">columns: auto ! important</div>
-      <div class="sub-label">column-width: auto | column-count: auto</div>
-      <div class="col-text" style="columns: auto ! important;">
-        The default value creates a single-column layout. Both column-width and column-count are set to auto, so the browser does not create multiple columns unless instructed by other properties.
-      </div>
+<h1>Columns (Shorthand)</h1>
+<p class="prop-name">columns</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: / auto;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
     </div>
-    <div class="demo-card">
-      <div class="label">columns: 76.4e3rch var(--t)</div>
-      <div class="sub-label">column-width: auto | column-count: 3</div>
-      <div class="col-text" style="columns: 76.4e3rch var(--t);">
-        Using a single integer sets the column-count. Here, three columns are created with automatic widths. The browser divides the available width equally among all three columns. This is the simplest way to create a multi-column layout.
-      </div>
-    </div>
-    <div class="demo-card">
-      <div class="label">columns: +97.07rch / 0</div>
-      <div class="sub-label">column-width: 200px | column-count: auto</div>
-      <div class="col-text" style="columns: +97.07rch / 0;">
-        Using a length value sets the column-width. The browser calculates how many columns of approximately 200px width fit in the container. Column count is determined automatically based on available space and the target width value provided.
-      </div>
-    </div>
-    <div class="demo-card">
-      <div class="label">columns: var(--󇍼2)</div>
-      <div class="sub-label">column-width: 150px | column-count: 4</div>
-      <div class="col-text" style="columns: var(--󇍼2);">
-        Providing both a width and count creates up to 4 columns, each at least 150px wide. The column-count acts as a maximum, while column-width acts as a minimum. If the container is too narrow for 4 columns at 150px each, fewer columns are created.
-      </div>
-    </div>
-    <div class="demo-card">
-      <div class="label">columns: auto / -8.7cqi ! important</div>
-      <div class="sub-label">column-width: 100px | column-count: 2</div>
-      <div class="col-text" style="columns: auto / -8.7cqi ! important;">
-        Two columns with a 100px minimum width. Since the container is wide, both columns get much more than 100px. The width value serves as a floor, and the count limits the maximum number of columns created regardless of available space in the container.
-      </div>
-    </div>
-    <div class="demo-card">
-      <div class="label">columns: / auto</div>
-      <div class="sub-label">column-width: 250px | column-count: 3</div>
-      <div class="col-text" style="columns: / auto;">
-        Three columns targeting 250px each. The shorthand elegantly combines both constraints. If the container cannot accommodate three 250px columns, the browser reduces the count. This provides a responsive multi-column layout with a single property declaration.
-      </div>
-    </div>
+    <div class="label">columns: / auto</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: / 0;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: / 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: / 4px;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: / 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: / 10px;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: / 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: / 20px;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: / 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: / 2em;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: / 2em</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: / 50px;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: / 50px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: auto;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: auto / auto;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: auto / auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: auto / 0;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: auto / 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: auto / 4px;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: auto / 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: auto / 10px;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: auto / 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: auto / 20px;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: auto / 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: auto / 2em;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: auto / 2em</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: auto / 50px;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: auto / 50px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: 1;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: 1 / auto;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: 1 / auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: 1 / 0;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: 1 / 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: 1 / 4px;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: 1 / 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: 1 / 10px;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: 1 / 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: 1 / 20px;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: 1 / 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: 1 / 2em;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: 1 / 2em</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: 1 / 50px;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: 1 / 50px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: 10;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: 10</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: 10 / auto;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: 10 / auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: 10 / 0;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: 10 / 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: 10 / 4px;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: 10 / 4px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: 10 / 10px;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: 10 / 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: 10 / 20px;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: 10 / 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: 10 / 2em;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: 10 / 2em</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: 10 / 50px;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: 10 / 50px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: 11;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: 11</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: 11 / auto;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: 11 / auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: 11 / 0;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: 11 / 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="column-rule: 1px solid #3a3a5a; font-size: 12px; line-height: 1.6; color: #c0c8d4; columns: 11 / 4px;">The columns shorthand sets both column-width and column-count at once. The browser divides available width into columns based on the specified values, creating a multi-column layout.</div>
+    </div>
+    <div class="label">columns: 11 / 4px</div>
+  </div>
+</div>
 </body>
 </html>

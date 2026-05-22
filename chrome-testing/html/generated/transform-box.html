@@ -1,104 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>transform-box</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
-    h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
-    .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
-    .demo-card {
-      background: #16213e; border-radius: 10px; padding: 20px 24px;
-      width: 220px; display: flex; flex-direction: column; align-items: center;
-    }
-    .transform-area {
-      width: 160px; height: 160px; display: flex; align-items: center; justify-content: center;
-      position: relative;
-    }
-    .box-outer {
-      width: 80px; height: 80px; border: 4px solid #394867;
-      padding: 12px; position: relative;
-    }
-    .box-inner {
-      width: 100%; height: 100%; background: linear-gradient(135deg, #e94560, #c2185b);
-      border-radius: 4px;
-    }
-    .ghost {
-      position: absolute; top: 50%; left: 50%;
-      width: 80px; height: 80px; border: 2px dashed #394867;
-      transform: translate(-50%, -50%);
-    }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 10px; text-align: center; }
-    .note { font-size: 10px; color: #6b7280; margin-top: 4px; text-align: center; }
-    .b1 { transform-box: content-box; transform: rotate(30deg); }
-    .b2 { transform-box: view-box ! important; transform: rotate(30deg); }
-    .b3 { transform-box: fill-box ! important; transform: rotate(30deg); }
-    .b4 { transform-box: border-box; transform: rotate(30deg); }
-    .b5 { transform-box: view-box; transform: rotate(30deg); }
-    svg.svg-demo { overflow: visible; }
-    svg .shape { fill: #e94560; }
-    svg .shape-stroke { fill: none; stroke: #e94560; stroke-width: 4; }
-  </style>
+<meta charset="UTF-8">
+<title>transform-box</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
+  .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demo-area { width: 100%; }
+  .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .ghost { position: absolute; top: 50%; left: 50%; width: 80px; height: 80px; border: 2px dashed #394867; transform: translate(-50%, -50%); }
+.box-inner { width: 100%; height: 100%; background: linear-gradient(135deg, #e94560, #c2185b); border-radius: 4px; }
+</style>
 </head>
 <body>
-  <h1>Transform Box</h1>
-  <p class="prop-name">transform-box</p>
-  <div class="demos">
-    <div class="demo-card">
-      <div class="transform-area">
-        <div class="ghost"></div>
-        <div class="box-outer b1">
-          <div class="box-inner"></div>
-        </div>
-      </div>
-      <span class="label">transform-box: content-box</span>
-      <span class="note">Rotation pivot from content area</span>
+<h1>Transform Box</h1>
+<p class="prop-name">transform-box</p>
+<div class="demos">
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div class="ghost"></div>
+      <div style="width: 80px; height: 80px; border: 4px solid #394867; padding: 12px; position: relative; transform: rotate(30deg); transform-box: content-box;"><div class="box-inner"></div></div>
     </div>
-    <div class="demo-card">
-      <div class="transform-area">
-        <div class="ghost"></div>
-        <div class="box-outer b2">
-          <div class="box-inner"></div>
-        </div>
-      </div>
-      <span class="label">transform-box: view-box ! important</span>
-      <span class="note">Rotation pivot from border area</span>
-    </div>
-    <div class="demo-card">
-      <div class="transform-area">
-        <svg class="svg-demo" width="120" height="120" viewBox="0 0 120 120">
-          <rect x="20" y="20" width="80" height="80" fill="#394867" opacity="0.3" rx="4"/>
-          <rect class="shape" x="20" y="20" width="80" height="80" rx="4"
-                style="transform-box: fill-box ! important; transform-origin: center; transform: rotate(30deg);"/>
-        </svg>
-      </div>
-      <span class="label">transform-box: fill-box ! important</span>
-      <span class="note">SVG fill bounding box (no stroke)</span>
-    </div>
-    <div class="demo-card">
-      <div class="transform-area">
-        <svg class="svg-demo" width="120" height="120" viewBox="0 0 120 120">
-          <rect x="20" y="20" width="80" height="80" fill="none" stroke="#394867" stroke-width="4" opacity="0.3" rx="4"/>
-          <rect class="shape-stroke" x="20" y="20" width="80" height="80" rx="4"
-                style="transform-box: border-box; transform-origin: center; transform: rotate(30deg);"/>
-        </svg>
-      </div>
-      <span class="label">transform-box: border-box</span>
-      <span class="note">SVG bounding box includes stroke</span>
-    </div>
-    <div class="demo-card">
-      <div class="transform-area">
-        <svg class="svg-demo" width="120" height="120" viewBox="0 0 120 120">
-          <rect x="0" y="0" width="120" height="120" fill="#394867" opacity="0.15" rx="4"/>
-          <rect class="shape" x="20" y="20" width="80" height="80" rx="4"
-                style="transform-box: view-box; transform-origin: center; transform: rotate(30deg);"/>
-        </svg>
-      </div>
-      <span class="label">transform-box: view-box</span>
-      <span class="note">Uses SVG viewBox as reference</span>
-    </div>
+    <div class="label">transform-box: content-box</div>
   </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div class="ghost"></div>
+      <div style="width: 80px; height: 80px; border: 4px solid #394867; padding: 12px; position: relative; transform: rotate(30deg); transform-box: border-box;"><div class="box-inner"></div></div>
+    </div>
+    <div class="label">transform-box: border-box</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div class="ghost"></div>
+      <div style="width: 80px; height: 80px; border: 4px solid #394867; padding: 12px; position: relative; transform: rotate(30deg); transform-box: fill-box;"><div class="box-inner"></div></div>
+    </div>
+    <div class="label">transform-box: fill-box</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div class="ghost"></div>
+      <div style="width: 80px; height: 80px; border: 4px solid #394867; padding: 12px; position: relative; transform: rotate(30deg); transform-box: stroke-box;"><div class="box-inner"></div></div>
+    </div>
+    <div class="label">transform-box: stroke-box</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 160px; height: 160px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div class="ghost"></div>
+      <div style="width: 80px; height: 80px; border: 4px solid #394867; padding: 12px; position: relative; transform: rotate(30deg); transform-box: view-box;"><div class="box-inner"></div></div>
+    </div>
+    <div class="label">transform-box: view-box</div>
+  </div>
+</div>
 </body>
 </html>

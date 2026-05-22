@@ -8,12 +8,12 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 20px; }
+    .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
     .demo-box {
       width: 200px;
       height: 100px;
       background: #16213e;
-      border-inline: 5px solid #e74c3c;
+      border-inline: 3px solid #e74c3c;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -30,16 +30,20 @@
   <p class="prop-name">border-inline-style</p>
   <div class="demos">
     <div class="demo-item">
-      <div class="demo-box" style="border-inline-style: solid;">Content</div>
-      <span class="label">border-inline-style: solid</span>
+      <div class="demo-box" style="border-inline-style: none;">Content</div>
+      <span class="label">border-inline-style: none</span>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-inline-style: dotted;">Content</div>
+      <span class="label">border-inline-style: dotted</span>
     </div>
     <div class="demo-item">
       <div class="demo-box" style="border-inline-style: dashed;">Content</div>
       <span class="label">border-inline-style: dashed</span>
     </div>
     <div class="demo-item">
-      <div class="demo-box" style="border-inline-style: dotted;">Content</div>
-      <span class="label">border-inline-style: dotted</span>
+      <div class="demo-box" style="border-inline-style: solid;">Content</div>
+      <span class="label">border-inline-style: solid</span>
     </div>
     <div class="demo-item">
       <div class="demo-box" style="border-inline-style: double; border-inline-width: 6px;">Content</div>
@@ -50,8 +54,16 @@
       <span class="label">border-inline-style: groove</span>
     </div>
     <div class="demo-item">
-      <div class="demo-box" style="border-inline-style: none;">Content</div>
-      <span class="label">border-inline-style: none</span>
+      <div class="demo-box" style="border-inline-style: ridge; border-inline-width: 6px;">Content</div>
+      <span class="label">border-inline-style: ridge</span>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-inline-style: inset; border-inline-width: 6px;">Content</div>
+      <span class="label">border-inline-style: inset</span>
+    </div>
+    <div class="demo-item">
+      <div class="demo-box" style="border-inline-style: outset; border-inline-width: 6px;">Content</div>
+      <span class="label">border-inline-style: outset</span>
     </div>
   </div>
 </body>
