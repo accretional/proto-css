@@ -26,7 +26,7 @@ if [[ ! -x "$CHROME_TESTING/run_gen.sh" ]]; then
 fi
 
 # Pass through arguments and env vars
-"$CHROME_TESTING/run_gen.sh" "${@}"
+"$CHROME_TESTING/run_gen.sh" ${@+"$@"}
 
 echo ""
 echo "========================================="
