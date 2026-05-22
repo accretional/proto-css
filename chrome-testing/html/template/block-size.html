@@ -8,10 +8,10 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .demo-item { display: flex; flex-direction: column; align-items: flex-start; }
     .container {
-      height: 180px;
+      height: 220px;
       width: 100%;
       background: rgba(255,255,255,0.05);
       border-radius: 8px;
@@ -27,7 +27,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 11px;
+      font-size: 13px;
       color: rgba(255,255,255,0.8);
       padding: 6px;
       overflow: hidden;
@@ -39,18 +39,6 @@
   <h1>Block Size</h1>
   <p class="prop-name">block-size</p>
   <div class="demos">
-    <div class="demo-item">
-      <div class="container">
-        <div class="box" style="block-size: auto;">auto</div>
-      </div>
-      <div class="label">block-size: auto</div>
-    </div>
-    <div class="demo-item">
-      <div class="container">
-        <div class="box" style="block-size: 0;">0</div>
-      </div>
-      <div class="label">block-size: 0</div>
-    </div>
     <div class="demo-item">
       <div class="container">
         <div class="box" style="block-size: 50px;">50px</div>
@@ -65,15 +53,15 @@
     </div>
     <div class="demo-item">
       <div class="container">
-        <div class="box" style="block-size: 50%;">50%</div>
+        <div class="box" style="block-size: 200px;">200px</div>
       </div>
-      <div class="label">block-size: 50%</div>
+      <div class="label">block-size: 200px</div>
     </div>
     <div class="demo-item">
       <div class="container">
-        <div class="box" style="block-size: 100%;">100%</div>
+        <div class="box" style="block-size: auto;">auto</div>
       </div>
-      <div class="label">block-size: 100%</div>
+      <div class="label">block-size: auto</div>
     </div>
     <div class="demo-item">
       <div class="container">
@@ -86,24 +74,6 @@
         <div class="box" style="block-size: max-content;">max-content</div>
       </div>
       <div class="label">block-size: max-content</div>
-    </div>
-    <div class="demo-item">
-      <div class="container">
-        <div class="box" style="block-size: fit-content;">fit-content</div>
-      </div>
-      <div class="label">block-size: fit-content</div>
-    </div>
-    <div class="demo-item">
-      <div class="container">
-        <div class="box" style="block-size: stretch;">stretch</div>
-      </div>
-      <div class="label">block-size: stretch</div>
-    </div>
-    <div class="demo-item">
-      <div class="container">
-        <div class="box" style="block-size: contain;">contain</div>
-      </div>
-      <div class="label">block-size: contain</div>
     </div>
   </div>
 </body>

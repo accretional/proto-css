@@ -8,27 +8,32 @@
     body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
     h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
     .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-    .demos { display: flex; flex-wrap: wrap; gap: 28px; }
+    .demos { display: flex; flex-wrap: wrap; gap: 24px; }
     .demo-box {
       background: #16213e;
       border-radius: 12px;
-      padding: 24px;
-      width: 340px;
+      padding: 20px;
+      width: 280px;
+      min-height: 180px;
     }
     .demo-title { font-size: 13px; color: #ccc; margin-bottom: 12px; }
     .styled-element {
-      background: #e94560;
+      background: linear-gradient(135deg, #e94560, #c0392b);
       color: #fff;
       padding: 16px 24px;
-      border-radius: 8px;
-      font-size: 16px;
+      border-radius: 12px;
+      font-size: 18px;
       font-weight: bold;
+      font-family: Georgia, serif;
       border: 3px solid #f39c12;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      box-shadow: 0 4px 12px rgba(233, 69, 96, 0.4);
-      margin: 8px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+      box-shadow: 0 6px 20px rgba(233, 69, 96, 0.5);
+      margin: 8px 0;
       display: inline-block;
+      cursor: pointer;
+      line-height: 1.4;
     }
     .unset-element {
       all: unset;
@@ -36,11 +41,14 @@
     .initial-element {
       all: initial;
     }
+    .inherit-element {
+      all: inherit;
+    }
     .revert-element {
       all: revert;
     }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 14px; }
-    .note { font-size: 11px; color: #6b7280; margin-top: 6px; font-style: italic; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 12px; }
+    .note { font-size: 10px; color: #6b7280; margin-top: 4px; font-style: italic; }
   </style>
 </head>
 <body>
@@ -48,22 +56,28 @@
   <p class="prop-name">all</p>
   <div class="demos">
     <div class="demo-box">
-      <div class="demo-title">Original styled element:</div>
+      <div class="demo-title">Original styling:</div>
       <div class="styled-element">Styled Box</div>
       <div class="label">(no all property)</div>
-      <div class="note">Has background, border, shadow, uppercase, etc.</div>
+      <div class="note">Gradient, border, shadow, uppercase, serif</div>
     </div>
     <div class="demo-box">
-      <div class="demo-title">Same element with all: unset</div>
+      <div class="demo-title">With all: unset</div>
       <div class="styled-element unset-element">Styled Box</div>
       <div class="label">all: unset</div>
-      <div class="note">Resets all properties to inherited or initial values</div>
+      <div class="note">Inherits or uses initial values</div>
     </div>
     <div class="demo-box">
-      <div class="demo-title">Same element with all: initial</div>
+      <div class="demo-title">With all: initial</div>
       <div class="styled-element initial-element">Styled Box</div>
       <div class="label">all: initial</div>
-      <div class="note">Resets all properties to their initial (spec default) values</div>
+      <div class="note">All properties to spec defaults</div>
+    </div>
+    <div class="demo-box">
+      <div class="demo-title">With all: inherit</div>
+      <div class="styled-element inherit-element">Styled Box</div>
+      <div class="label">all: inherit</div>
+      <div class="note">Inherits all from parent</div>
     </div>
   </div>
 </body>

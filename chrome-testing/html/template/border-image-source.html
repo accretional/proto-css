@@ -15,10 +15,10 @@
       align-items: center;
     }
     .box {
-      width: 200px;
+      width: 220px;
       height: 150px;
       background: #16213e;
-      border: 14px solid #e94560;
+      border: 18px solid #e94560;
       border-image-slice: 1;
       display: flex;
       align-items: center;
@@ -29,7 +29,7 @@
       text-align: center;
       line-height: 1.5;
     }
-    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; max-width: 240px; }
+    .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; text-align: center; max-width: 280px; }
   </style>
 </head>
 <body>
@@ -41,12 +41,16 @@
       <div class="label">border-image-source: none</div>
     </div>
     <div class="demo-item">
-      <div class="box" style="border-image-source: url(border.png); border-image-slice: 30;">url(border.png)</div>
-      <div class="label">border-image-source: url(border.png)</div>
+      <div class="box" style="border-image-source: linear-gradient(45deg, #e94560, #53d8fb);">linear-gradient<br>(45deg)</div>
+      <div class="label">border-image-source: linear-gradient(45deg, #e94560, #53d8fb)</div>
     </div>
     <div class="demo-item">
-      <div class="box" style="border-image-source: linear-gradient(red, blue); border-image-slice: 1;">linear-gradient<br>(red, blue)</div>
-      <div class="label">border-image-source: linear-gradient(red, blue)</div>
+      <div class="box" style="border-image-source: radial-gradient(circle, #4ade80, #a855f7);">radial-gradient<br>(circle)</div>
+      <div class="label">border-image-source: radial-gradient(circle, #4ade80, #a855f7)</div>
+    </div>
+    <div class="demo-item">
+      <div class="box" style="border-image-source: conic-gradient(#e94560, #fbbf24, #53d8fb, #e94560);">conic-gradient</div>
+      <div class="label">border-image-source: conic-gradient(#e94560, #fbbf24, #53d8fb, #e94560)</div>
     </div>
   </div>
 </body>
