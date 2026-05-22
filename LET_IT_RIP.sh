@@ -90,7 +90,6 @@ SERVE_DIR="$ROOT/chrome-testing"
 echo "Starting HTTP server on port $SERVE_PORT..."
 python3 -m http.server "$SERVE_PORT" --directory "$SERVE_DIR" &>/dev/null &
 SERVER_PID=$!
-disown "$SERVER_PID"
 
 # Wait for server to be ready
 for i in $(seq 1 20); do
@@ -100,7 +99,7 @@ for i in $(seq 1 20); do
   sleep 0.25
 done
 
-GALLERY_URL="http://localhost:$SERVE_PORT/html/generated_screenshots_gallery.html"
+GALLERY_URL="http://localhost:$SERVE_PORT/html/generated_gallery.html"
 echo "Gallery serving at: $GALLERY_URL"
 
 # Open in browser (macOS: open, Linux: xdg-open)
@@ -113,21 +112,21 @@ else
 fi
 
 echo ""
-echo "############################################"
-echo "#                                          #"
-echo "#  LET IT RIP complete                     #"
-echo "#                                          #"
-echo "#  Gallery: $GALLERY_URL"
-echo "#  Server PID: $SERVER_PID"
-echo "#                                          #"
-echo "#  Other galleries:                        #"
-echo "#  - /html/generated_gallery.html                #"
-echo "#  - /html/template_screenshots_gallery.html    #"
-echo "#  - /html/template_gallery.html                #"
-echo "#                                          #"
-echo "#  Press Ctrl+C to stop the server.        #"
-echo "#                                          #"
-echo "############################################"
+echo "################################################"
+echo "#                                              #"
+echo "#  LET IT RIP complete                         #"
+echo "#                                              #"
+echo "#  Gallery: $GALLERY_URL                       #"
+echo "#  Server PID: $SERVER_PID                     #"
+echo "#                                              #"
+echo "#  Other galleries:                            #"
+echo "#  - /html/generated_screenshots_gallery.html  #"
+echo "#  - /html/template_screenshots_gallery.html   #"
+echo "#  - /html/template_gallery.html               #"
+echo "#                                              #"
+echo "#  Press Ctrl+C to stop the server.            #"
+echo "#                                              #"
+echo "################################################"
 
 # Keep server running until user hits Ctrl+C
 wait "$SERVER_PID" 2>/dev/null || true
