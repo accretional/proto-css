@@ -12,7 +12,8 @@
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
-  .demo-title { font-size: 13px; color: #e94560; font-family: monospace; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #0f3460; }
+  ol li { padding: 4px 0; font-size: 14px; color: #c0c8d4; counter-increment: my-custom 1; }
+ol li::before { content: counter(my-custom) '. '; color: #e94560; font-weight: bold; font-family: monospace; min-width: 36px; display: inline-block; }
 </style>
 </head>
 <body>
@@ -20,190 +21,190 @@
 <p class="prop-name">counter-increment</p>
 <div class="demos">
   <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
     </div>
     <div class="label">counter-increment: my-custom</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom my-custom;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: none;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
     </div>
-    <div class="label">counter-increment: my-custom my-custom</div>
+    <div class="label">counter-increment: none</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom my-custom 0;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
-    </div>
-    <div class="label">counter-increment: my-custom my-custom 0</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom my-custom 1;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
-    </div>
-    <div class="label">counter-increment: my-custom my-custom 1</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom my-custom 2;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
-    </div>
-    <div class="label">counter-increment: my-custom my-custom 2</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom my-custom 5;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
-    </div>
-    <div class="label">counter-increment: my-custom my-custom 5</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom 0;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
-    </div>
-    <div class="label">counter-increment: my-custom 0</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom 0 my-custom;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
-    </div>
-    <div class="label">counter-increment: my-custom 0 my-custom</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom 0 my-custom 0;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
-    </div>
-    <div class="label">counter-increment: my-custom 0 my-custom 0</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom 0 my-custom 1;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
-    </div>
-    <div class="label">counter-increment: my-custom 0 my-custom 1</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom 0 my-custom 2;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
-    </div>
-    <div class="label">counter-increment: my-custom 0 my-custom 2</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom 0 my-custom 5;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
-    </div>
-    <div class="label">counter-increment: my-custom 0 my-custom 5</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom 1;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom 1;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
     </div>
     <div class="label">counter-increment: my-custom 1</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom 1 my-custom;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
-    </div>
-    <div class="label">counter-increment: my-custom 1 my-custom</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom 1 my-custom 0;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
-    </div>
-    <div class="label">counter-increment: my-custom 1 my-custom 0</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom 1 my-custom 1;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
-    </div>
-    <div class="label">counter-increment: my-custom 1 my-custom 1</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom 1 my-custom 2;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
-    </div>
-    <div class="label">counter-increment: my-custom 1 my-custom 2</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom 1 my-custom 5;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
-    </div>
-    <div class="label">counter-increment: my-custom 1 my-custom 5</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom 2;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom 2;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
     </div>
     <div class="label">counter-increment: my-custom 2</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom 2 my-custom;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
-    </div>
-    <div class="label">counter-increment: my-custom 2 my-custom</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom 2 my-custom 0;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
-    </div>
-    <div class="label">counter-increment: my-custom 2 my-custom 0</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom 2 my-custom 1;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
-    </div>
-    <div class="label">counter-increment: my-custom 2 my-custom 1</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom 2 my-custom 2;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
-    </div>
-    <div class="label">counter-increment: my-custom 2 my-custom 2</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom 2 my-custom 5;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
-    </div>
-    <div class="label">counter-increment: my-custom 2 my-custom 5</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom 5;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom 5;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
     </div>
     <div class="label">counter-increment: my-custom 5</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom 5 my-custom;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom 0;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
+    </div>
+    <div class="label">counter-increment: my-custom 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom my-custom;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
+    </div>
+    <div class="label">counter-increment: my-custom my-custom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom 1 my-custom;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
+    </div>
+    <div class="label">counter-increment: my-custom 1 my-custom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom 2 my-custom;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
+    </div>
+    <div class="label">counter-increment: my-custom 2 my-custom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom 5 my-custom;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
     </div>
     <div class="label">counter-increment: my-custom 5 my-custom</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom 5 my-custom 0;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom 0 my-custom;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
     </div>
-    <div class="label">counter-increment: my-custom 5 my-custom 0</div>
+    <div class="label">counter-increment: my-custom 0 my-custom</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom 5 my-custom 1;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom my-custom 1;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
+    </div>
+    <div class="label">counter-increment: my-custom my-custom 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom 1 my-custom 1;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
+    </div>
+    <div class="label">counter-increment: my-custom 1 my-custom 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom 2 my-custom 1;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
+    </div>
+    <div class="label">counter-increment: my-custom 2 my-custom 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom 5 my-custom 1;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
     </div>
     <div class="label">counter-increment: my-custom 5 my-custom 1</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom 5 my-custom 2;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom 0 my-custom 1;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
+    </div>
+    <div class="label">counter-increment: my-custom 0 my-custom 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom my-custom 2;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
+    </div>
+    <div class="label">counter-increment: my-custom my-custom 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom 1 my-custom 2;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
+    </div>
+    <div class="label">counter-increment: my-custom 1 my-custom 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom 2 my-custom 2;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
+    </div>
+    <div class="label">counter-increment: my-custom 2 my-custom 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom 5 my-custom 2;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
     </div>
     <div class="label">counter-increment: my-custom 5 my-custom 2</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: my-custom 5 my-custom 5;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom 0 my-custom 2;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
+    </div>
+    <div class="label">counter-increment: my-custom 0 my-custom 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom my-custom 5;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
+    </div>
+    <div class="label">counter-increment: my-custom my-custom 5</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom 1 my-custom 5;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
+    </div>
+    <div class="label">counter-increment: my-custom 1 my-custom 5</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom 2 my-custom 5;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
+    </div>
+    <div class="label">counter-increment: my-custom 2 my-custom 5</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom 5 my-custom 5;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
     </div>
     <div class="label">counter-increment: my-custom 5 my-custom 5</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <ol style="list-style: none; counter-increment: none;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li></ol>
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom 0 my-custom 5;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
     </div>
-    <div class="label">counter-increment: none</div>
+    <div class="label">counter-increment: my-custom 0 my-custom 5</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom my-custom 0;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
+    </div>
+    <div class="label">counter-increment: my-custom my-custom 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom 1 my-custom 0;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
+    </div>
+    <div class="label">counter-increment: my-custom 1 my-custom 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom 2 my-custom 0;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
+    </div>
+    <div class="label">counter-increment: my-custom 2 my-custom 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom 5 my-custom 0;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
+    </div>
+    <div class="label">counter-increment: my-custom 5 my-custom 0</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; width: 260px;">
+      <ol style="list-style: none; counter-reset: my-custom 0; counter-increment: my-custom 0 my-custom 0;"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li></ol>
+    </div>
+    <div class="label">counter-increment: my-custom 0 my-custom 0</div>
   </div>
 </div>
 </body>

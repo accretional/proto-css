@@ -304,7 +304,7 @@ func isDegenerate(s string) bool {
 	val = strings.TrimSuffix(strings.TrimSpace(val), ";")
 	val = strings.TrimSpace(val)
 	switch strings.ToLower(val) {
-	case "revert", "inherit", "initial", "unset", "revert-layer":
+	case "revert", "inherit", "initial", "unset", "revert-layer", "revert-rule":
 		return true
 	}
 	return false
@@ -335,7 +335,7 @@ func (g *Grammar) GenAll(ruleName string, maxResults int, forProperty string) []
 	var results []string
 	for _, s := range all {
 		s = strings.TrimSpace(s)
-		if s == "" || seen[s] || isDegenerate(s) {
+		if s == "" || seen[s] || (forProperty != "all" && isDegenerate(s)) {
 			continue
 		}
 		seen[s] = true
@@ -433,9 +433,22 @@ func (g *Grammar) enumerateExprs(exprs []*pb.Production, limit int, depth int, v
 		}
 	}
 
+	// Interleave results across branches (breadth-first): take the i-th
+	// result from each branch before moving to i+1, so that early results
+	// maximise diversity across alternatives.
 	var all []string
+	maxLen := 0
 	for _, br := range branchResults {
-		all = append(all, br...)
+		if len(br) > maxLen {
+			maxLen = len(br)
+		}
+	}
+	for i := 0; i < maxLen; i++ {
+		for _, br := range branchResults {
+			if i < len(br) {
+				all = append(all, br[i])
+			}
+		}
 	}
 	return all
 }
@@ -518,15 +531,19 @@ func (g *Grammar) enumerateBranch(prods []*pb.Production, limit int, depth int, 
 }
 
 // cartesianProduct computes the cartesian product of part sets, joining with
-// CSS-aware spacing. Caps intermediate growth at limit but always processes
-// all parts so trailing tokens (like closing parens) are never dropped.
+// CSS-aware spacing. Uses breadth-first order: earlier parts vary fastest so
+// that the first N results maximise diversity in the primary (leftmost)
+// dimension. Caps intermediate growth at limit but always processes all parts
+// so trailing tokens (like closing parens) are never dropped.
 func cartesianProduct(parts [][]string, limit int, tight bool) []string {
 	result := []string{""}
 	for _, vals := range parts {
 		var next []string
+		// Breadth-first: iterate new values in the outer loop so that
+		// existing prefixes (earlier dimensions) cycle fastest.
 	expand:
-		for _, prefix := range result {
-			for _, v := range vals {
+		for _, v := range vals {
+			for _, prefix := range result {
 				if v == "" {
 					next = append(next, prefix)
 				} else if prefix == "" {

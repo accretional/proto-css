@@ -1,7 +1,8 @@
 demo_type: LIST
 title: "Counter Increment"
 target_tag: "ol"
-target_inner_html: "<li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li><li>Fifth item</li>"
-target_base_style: "list-style: none;"
-wrapper_style: "background: #16213e; border-radius: 10px; padding: 20px;"
-extra_css: ".demo-title { font-size: 13px; color: #e94560; font-family: monospace; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #0f3460; }"
+target_inner_html: "<li>First</li><li>Second</li><li>Third</li><li>Fourth</li><li>Fifth</li>"
+target_base_style: "list-style: none; counter-reset: my-custom 0;"
+wrapper_style: "background: #16213e; border-radius: 10px; padding: 20px; width: 260px;"
+extra_css: "ol li { padding: 4px 0; font-size: 14px; color: #c0c8d4; counter-increment: my-custom 1; }\nol li::before { content: counter(my-custom) '. '; color: #e94560; font-weight: bold; font-family: monospace; min-width: 36px; display: inline-block; }"
+screenshot_textproto: "static"

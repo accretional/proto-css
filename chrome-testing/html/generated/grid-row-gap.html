@@ -10,44 +10,61 @@
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
   .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
-  .target { width: 100%; height: 80px; background: cornflowerblue; border-radius: 6px; }
+  .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .cell { background: #0f3460; border-radius: 4px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #e94560; font-weight: 600; }
 </style>
 </head>
 <body>
-<h1>grid-row-gap</h1>
+<h1>Grid Row Gap</h1>
 <p class="prop-name">grid-row-gap</p>
 <div class="demos">
   <div class="demo-box">
-    <div class="target" style="grid-row-gap: env(񃊜󜽂 var(--x잖), 08.47) normal ! important;"></div>
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-row-gap: env(񃊜󜽂 var(--x잖), 08.47) normal ! important;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
+    </div>
     <div class="label">grid-row-gap: env(񃊜󜽂 var(--x잖), 08.47) normal ! important</div>
   </div>
   <div class="demo-box">
-    <div class="target" style="grid-row-gap: clamp(none, var(--룦) /, 12e55dpcm * - / env(_4, /)) calc-size(auto, env(_, +51.9dpi)) ! important;"></div>
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-row-gap: clamp(none, var(--룦) /, 12e55dpcm * - / env(_4, /)) calc-size(auto, env(_, +51.9dpi)) ! important;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
+    </div>
     <div class="label">grid-row-gap: clamp(none, var(--룦) /, 12e55dpcm * - / env(_4, /)) calc-size(auto, env(_, +51.9dpi)) ! important</div>
   </div>
   <div class="demo-box">
-    <div class="target" style="grid-row-gap: normal ! important;"></div>
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-row-gap: normal ! important;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
+    </div>
     <div class="label">grid-row-gap: normal ! important</div>
   </div>
   <div class="demo-box">
-    <div class="target" style="grid-row-gap: var(--A, -52.28);"></div>
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-row-gap: var(--A, -52.28);"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
+    </div>
     <div class="label">grid-row-gap: var(--A, -52.28)</div>
   </div>
   <div class="demo-box">
-    <div class="target" style="grid-row-gap: normal normal;"></div>
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-row-gap: normal normal;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
+    </div>
     <div class="label">grid-row-gap: normal normal</div>
   </div>
   <div class="demo-box">
-    <div class="target" style="grid-row-gap: +09.3e-45% normal ! important;"></div>
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-row-gap: +09.3e-45% normal ! important;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
+    </div>
     <div class="label">grid-row-gap: +09.3e-45% normal ! important</div>
   </div>
   <div class="demo-box">
-    <div class="target" style="grid-row-gap: env(_-, +98.5dppx);"></div>
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-row-gap: env(_-, +98.5dppx);"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
+    </div>
     <div class="label">grid-row-gap: env(_-, +98.5dppx)</div>
   </div>
   <div class="demo-box">
-    <div class="target" style="grid-row-gap: 0 ! important;"></div>
+    <div class="demo-area">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-row-gap: 0 ! important;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
+    </div>
     <div class="label">grid-row-gap: 0 ! important</div>
   </div>
 </div>

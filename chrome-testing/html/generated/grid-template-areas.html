@@ -12,7 +12,11 @@
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
-  .cell { border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; padding: 8px; background: #0f3460; color: #e94560; }
+  .cell { border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; padding: 8px; background: #e94560; color: #fff; }
+.cell.c2 { background: #0ea5e9; }
+.cell.c3 { background: #22c55e; }
+.cell.c4 { background: #f59e0b; }
+.cell.c5 { background: #8b5cf6; }
 </style>
 </head>
 <body>
@@ -21,19 +25,19 @@
 <div class="demos">
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 50px 50px; gap: 6px; grid-template-areas: none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px 40px 40px; gap: 6px; grid-template-areas: none;"><div class="cell" style="grid-area: a;">a</div><div class="cell c2" style="grid-area: b;">b</div><div class="cell c3" style="grid-area: c;">c</div><div class="cell c4" style="grid-area: d;">d</div><div class="cell c5" style="grid-area: e;">e</div></div>
     </div>
     <div class="label">grid-template-areas: none</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 50px 50px; gap: 6px; grid-template-areas: &#34;example&#34;;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px 40px 40px; gap: 6px; grid-template-areas: &#34;example&#34;;"><div class="cell" style="grid-area: a;">a</div><div class="cell c2" style="grid-area: b;">b</div><div class="cell c3" style="grid-area: c;">c</div><div class="cell c4" style="grid-area: d;">d</div><div class="cell c5" style="grid-area: e;">e</div></div>
     </div>
     <div class="label">grid-template-areas: &#34;example&#34;</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 50px 50px; gap: 6px; grid-template-areas: &#34;example&#34; &#34;example&#34;;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px 40px 40px; gap: 6px; grid-template-areas: &#34;example&#34; &#34;example&#34;;"><div class="cell" style="grid-area: a;">a</div><div class="cell c2" style="grid-area: b;">b</div><div class="cell c3" style="grid-area: c;">c</div><div class="cell c4" style="grid-area: d;">d</div><div class="cell c5" style="grid-area: e;">e</div></div>
     </div>
     <div class="label">grid-template-areas: &#34;example&#34; &#34;example&#34;</div>
   </div>

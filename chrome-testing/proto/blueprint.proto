@@ -54,4 +54,10 @@ message TemplateBlueprint {
 
   // Extra CSS rules to include in the <style> block (for .item, .flow-box, etc.)
   string extra_css = 11;
+
+  // Name of the screenshot mode textproto template (e.g. "static", "temporal",
+  // "scroll", "hover", "focus", "selection"). Maps to a file in
+  // chrome-testing/screenshots/textproto/{name}.textproto.
+  // Default: "static" (single screenshot).
+  string screenshot_textproto = 12;
 }

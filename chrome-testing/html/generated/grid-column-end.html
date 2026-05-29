@@ -12,8 +12,7 @@
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
-  .cell { background: #0a1a35; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #4a5568; font-weight: 600; }
-.cell.highlight { background: #e94560; color: #fff; font-size: 11px; }
+  .cell { background: #0f3460; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #4a5568; font-weight: 600; }
 </style>
 </head>
 <body>
@@ -21,20 +20,44 @@
 <p class="prop-name">grid-column-end</p>
 <div class="demos">
   <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: 50px; gap: 6px; grid-column-end: 1;"><div class="cell highlight" style="grid-column-start: 1;">Item</div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div></div>
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: 50px 50px; gap: 6px; background: #0a1a35; border-radius: 8px; padding: 6px;">
+      <div style="grid-column-start: 1; background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-column-end: 1;">Item</div>
+      <div class="cell">2</div>
+      <div class="cell">3</div>
+      <div class="cell">4</div>
+      <div class="cell">5</div>
+      <div class="cell">6</div>
+      <div class="cell">7</div>
+      <div class="cell">8</div>
+      <div class="cell">9</div>
     </div>
     <div class="label">grid-column-end: 1</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: 50px; gap: 6px; grid-column-end: span 2;"><div class="cell highlight" style="grid-column-start: 1;">Item</div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div></div>
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: 50px 50px; gap: 6px; background: #0a1a35; border-radius: 8px; padding: 6px;">
+      <div style="grid-column-start: 1; background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-column-end: span 2;">Item</div>
+      <div class="cell">2</div>
+      <div class="cell">3</div>
+      <div class="cell">4</div>
+      <div class="cell">5</div>
+      <div class="cell">6</div>
+      <div class="cell">7</div>
+      <div class="cell">8</div>
+      <div class="cell">9</div>
     </div>
     <div class="label">grid-column-end: span 2</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: 50px; gap: 6px; grid-column-end: auto;"><div class="cell highlight" style="grid-column-start: 1;">Item</div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div></div>
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: 50px 50px; gap: 6px; background: #0a1a35; border-radius: 8px; padding: 6px;">
+      <div style="grid-column-start: 1; background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-column-end: auto;">Item</div>
+      <div class="cell">2</div>
+      <div class="cell">3</div>
+      <div class="cell">4</div>
+      <div class="cell">5</div>
+      <div class="cell">6</div>
+      <div class="cell">7</div>
+      <div class="cell">8</div>
+      <div class="cell">9</div>
     </div>
     <div class="label">grid-column-end: auto</div>
   </div>

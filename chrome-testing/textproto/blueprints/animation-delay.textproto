@@ -1,5 +1,7 @@
 demo_type: BOX
 title: "Animation Delay"
-target_base_style: "width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused;"
-wrapper_style: "display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;"
-extra_css: ".row-label { font-size: 12px; font-family: monospace; color: #9ca3af; width: 200px; flex-shrink: 0; }\n.track { flex: 1; height: 48px; background: #0f3460; border-radius: 8px; position: relative; overflow: hidden; }\n@keyframes slideAcross {\n  from { left: 0; }\n  to { left: calc(100% - 48px); }\n}\n.explanation { font-size: 12px; color: #6b7280; margin-top: 8px; font-style: italic; }"
+target_base_style: "width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 50%; transform: translateY(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite;"
+wrapper_style: "position: relative; height: 64px; background: #0f3460; border-radius: 8px; overflow: hidden;"
+max_values: 12
+extra_css: "@keyframes slideAcross {\n  from { left: 0; }\n  to { left: calc(100% - 48px); }\n}"
+screenshot_textproto: "temporal"

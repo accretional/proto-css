@@ -1,0 +1,58 @@
+# Focus mode: 2 screenshots — before and after focusing an input element.
+# Focuses the first input/textarea/select/contenteditable found in .demo-area.
+# Placeholders: {{URL}}, {{OUTPUT_DIR}}, {{SLUG}}
+
+name: "screenshot_{{SLUG}}"
+
+steps: {
+  label: "set_viewport"
+  set_viewport: {
+    width: 1280
+    height: 800
+    device_scale_factor: 2
+  }
+}
+
+steps: {
+  label: "navigate"
+  navigate: {
+    url: "{{URL}}"
+  }
+}
+
+steps: {
+  label: "wait_for_render"
+  wait: {
+    milliseconds: 500
+  }
+}
+
+steps: {
+  label: "frame_1"
+  screenshot: {
+    output_path: "{{OUTPUT_DIR}}/1.png"
+    format: "png"
+  }
+}
+
+steps: {
+  label: "focus_target"
+  evaluate_script: {
+    expression: "(function(){var el=document.querySelector('.demo-area input,.demo-area textarea,.demo-area [contenteditable],.demo-area select');if(el){el.focus();el.click()}})()"
+  }
+}
+
+steps: {
+  label: "wait_focus"
+  wait: {
+    milliseconds: 300
+  }
+}
+
+steps: {
+  label: "frame_2"
+  screenshot: {
+    output_path: "{{OUTPUT_DIR}}/2.png"
+    format: "png"
+  }
+}

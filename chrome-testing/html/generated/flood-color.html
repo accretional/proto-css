@@ -8,287 +8,63 @@
   body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
 </style>
 </head>
 <body>
-<h1>Flood Color</h1>
+<h1>Flood Color (SVG Filter)</h1>
 <p class="prop-name">flood-color</p>
 <div class="demos">
   <div class="demo-box">
     <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
+      <svg width="200" height="140" viewBox="0 0 200 140"><defs><filter id="fc" x="0" y="0" width="100%" height="100%">
       <feFlood style="flood-opacity: 1; flood-color: red;"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
+      <feComposite operator="over" in2="SourceGraphic"/></filter></defs><rect x="10" y="10" width="180" height="120" rx="10" fill="#16213e" stroke="#333" stroke-width="1"/><rect x="25" y="25" width="150" height="90" rx="6" fill="#0f3460" filter="url(#fc)"/></svg>
     </div>
     <div class="label">flood-color: red</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: #3498db;"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
-    </div>
-    <div class="label">flood-color: #3498db</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: rgb(0, 128, 0);"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
-    </div>
-    <div class="label">flood-color: rgb(0, 128, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: transparent;"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
-    </div>
-    <div class="label">flood-color: transparent</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
+      <svg width="200" height="140" viewBox="0 0 200 140"><defs><filter id="fc" x="0" y="0" width="100%" height="100%">
       <feFlood style="flood-opacity: 1; flood-color: currentcolor;"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
+      <feComposite operator="over" in2="SourceGraphic"/></filter></defs><rect x="10" y="10" width="180" height="120" rx="10" fill="#16213e" stroke="#333" stroke-width="1"/><rect x="25" y="25" width="150" height="90" rx="6" fill="#0f3460" filter="url(#fc)"/></svg>
     </div>
     <div class="label">flood-color: currentcolor</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
+      <svg width="200" height="140" viewBox="0 0 200 140"><defs><filter id="fc" x="0" y="0" width="100%" height="100%">
       <feFlood style="flood-opacity: 1; flood-color: Canvas;"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
+      <feComposite operator="over" in2="SourceGraphic"/></filter></defs><rect x="10" y="10" width="180" height="120" rx="10" fill="#16213e" stroke="#333" stroke-width="1"/><rect x="25" y="25" width="150" height="90" rx="6" fill="#0f3460" filter="url(#fc)"/></svg>
     </div>
     <div class="label">flood-color: Canvas</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: CanvasText;"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
+      <svg width="200" height="140" viewBox="0 0 200 140"><defs><filter id="fc" x="0" y="0" width="100%" height="100%">
+      <feFlood style="flood-opacity: 1; flood-color: device-cmyk(1, 1, 1, 1);"></feFlood>
+      <feComposite operator="over" in2="SourceGraphic"/></filter></defs><rect x="10" y="10" width="180" height="120" rx="10" fill="#16213e" stroke="#333" stroke-width="1"/><rect x="25" y="25" width="150" height="90" rx="6" fill="#0f3460" filter="url(#fc)"/></svg>
     </div>
-    <div class="label">flood-color: CanvasText</div>
+    <div class="label">flood-color: device-cmyk(1, 1, 1, 1)</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: LinkText;"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
-    </div>
-    <div class="label">flood-color: LinkText</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: device-cmyk(0, 0, 0, 0);"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
-    </div>
-    <div class="label">flood-color: device-cmyk(0, 0, 0, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: device-cmyk(0, 0, 0, 0.5);"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
-    </div>
-    <div class="label">flood-color: device-cmyk(0, 0, 0, 0.5)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: device-cmyk(0, 0, 0, 1);"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
-    </div>
-    <div class="label">flood-color: device-cmyk(0, 0, 0, 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: device-cmyk(0 0 0 0);"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
-    </div>
-    <div class="label">flood-color: device-cmyk(0 0 0 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: device-cmyk(0 0 0 0 / 0);"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
-    </div>
-    <div class="label">flood-color: device-cmyk(0 0 0 0 / 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: device-cmyk(0, 0, 0, 2);"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
-    </div>
-    <div class="label">flood-color: device-cmyk(0, 0, 0, 2)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: device-cmyk(0, 0, 0.5, 0);"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
-    </div>
-    <div class="label">flood-color: device-cmyk(0, 0, 0.5, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: device-cmyk(0, 0, 0.5, 0.5);"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
-    </div>
-    <div class="label">flood-color: device-cmyk(0, 0, 0.5, 0.5)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: device-cmyk(0, 0, 0.5, 1);"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
-    </div>
-    <div class="label">flood-color: device-cmyk(0, 0, 0.5, 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: device-cmyk(0, 0, 0.5, 2);"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
-    </div>
-    <div class="label">flood-color: device-cmyk(0, 0, 0.5, 2)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: device-cmyk(0, 0, 1, 0);"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
-    </div>
-    <div class="label">flood-color: device-cmyk(0, 0, 1, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: device-cmyk(0 0 0 0 / 0.5);"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
-    </div>
-    <div class="label">flood-color: device-cmyk(0 0 0 0 / 0.5)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: device-cmyk(0 0 0 0 / 0%);"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
-    </div>
-    <div class="label">flood-color: device-cmyk(0 0 0 0 / 0%)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: device-cmyk(0 0 0 0 / 25%);"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
-    </div>
-    <div class="label">flood-color: device-cmyk(0 0 0 0 / 25%)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: device-cmyk(0 0 0 0 / 1);"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
-    </div>
-    <div class="label">flood-color: device-cmyk(0 0 0 0 / 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: device-cmyk(0 0 0 0 / 2);"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
-    </div>
-    <div class="label">flood-color: device-cmyk(0 0 0 0 / 2)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: device-cmyk(0 0 0 0 / 50%);"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
-    </div>
-    <div class="label">flood-color: device-cmyk(0 0 0 0 / 50%)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
+      <svg width="200" height="140" viewBox="0 0 200 140"><defs><filter id="fc" x="0" y="0" width="100%" height="100%">
       <feFlood style="flood-opacity: 1; flood-color: light-dark(none, none);"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
+      <feComposite operator="over" in2="SourceGraphic"/></filter></defs><rect x="10" y="10" width="180" height="120" rx="10" fill="#16213e" stroke="#333" stroke-width="1"/><rect x="25" y="25" width="150" height="90" rx="6" fill="#0f3460" filter="url(#fc)"/></svg>
     </div>
     <div class="label">flood-color: light-dark(none, none)</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: light-dark(none, linear-gradient(red, blue));"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
-    </div>
-    <div class="label">flood-color: light-dark(none, linear-gradient(red, blue))</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: light-dark(linear-gradient(red, blue), none);"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
-    </div>
-    <div class="label">flood-color: light-dark(linear-gradient(red, blue), none)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: light-dark(linear-gradient(red, blue), linear-gradient(red, blue));"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
-    </div>
-    <div class="label">flood-color: light-dark(linear-gradient(red, blue), linear-gradient(red, blue))</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
+      <svg width="200" height="140" viewBox="0 0 200 140"><defs><filter id="fc" x="0" y="0" width="100%" height="100%">
       <feFlood style="flood-opacity: 1; flood-color: var(--my-var);"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
+      <feComposite operator="over" in2="SourceGraphic"/></filter></defs><rect x="10" y="10" width="180" height="120" rx="10" fill="#16213e" stroke="#333" stroke-width="1"/><rect x="25" y="25" width="150" height="90" rx="6" fill="#0f3460" filter="url(#fc)"/></svg>
     </div>
     <div class="label">flood-color: var(--my-var)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: var(--my-var, my-ident);"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
-    </div>
-    <div class="label">flood-color: var(--my-var, my-ident)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: var(--my-var, 0);"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
-    </div>
-    <div class="label">flood-color: var(--my-var, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: var(--my-var, 0e0);"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
-    </div>
-    <div class="label">flood-color: var(--my-var, 0e0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="160" viewBox="0 0 240 160"><defs><filter id="flood-filter" x="0" y="0" width="100%" height="100%">
-      <feFlood style="flood-opacity: 1; flood-color: var(--my-var, 0%);"></feFlood>
-      <feComposite in="flood" in2="SourceGraphic" operator="over"/></filter></defs><rect x="10" y="10" width="220" height="140" rx="10" fill="#16213e"/><rect x="30" y="30" width="180" height="100" rx="8" filter="url(#flood-filter)"/></svg>
-    </div>
-    <div class="label">flood-color: var(--my-var, 0%)</div>
   </div>
 </div>
 </body>

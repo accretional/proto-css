@@ -4,7 +4,7 @@
 # Usage:
 #   ./chrome-testing/run_gen.sh                        # all properties
 #   START=0 COUNT=20 ./chrome-testing/run_gen.sh       # first 20 properties
-#   ./chrome-testing/run_gen.sh --gallery-only         # just rebuild gallery from existing screenshots
+#   ./chrome-testing/run_gen.sh --gallery-only         # just rebuild gallery
 #
 # Idempotent: safe to re-run at any time.
 
@@ -15,8 +15,8 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 GEN_DIR="$SCRIPT_DIR/html/generated"
 SCREENSHOTS_DIR="$SCRIPT_DIR/screenshots/generated"
+MODES_DIR="$SCRIPT_DIR/screenshots/textproto"
 GALLERY_DIR="$SCRIPT_DIR/html"
-GALLERY="$GALLERY_DIR/generated_screenshots_gallery.html"
 GEN_TEMPLATE_GALLERY="$GALLERY_DIR/generated_gallery.html"
 
 # ── Generate HTML from EBNF grammar ─────────────────────────────────────────
@@ -43,111 +43,15 @@ if [[ "${1:-}" != "--gallery-only" ]]; then
 
   echo "=== Screenshotting generated HTML ==="
   mkdir -p "$SCREENSHOTS_DIR"
-  "$SCRIPT_DIR/snap.sh" "$GEN_DIR/" "$SCREENSHOTS_DIR/"
+  "$SCRIPT_DIR/snap.sh" "$GEN_DIR/" "$SCREENSHOTS_DIR/" \
+    --manifest "$GEN_DIR/screenshot_modes.txt" \
+    --modes-dir "$MODES_DIR"
   echo ""
 fi
 
-# ── Generate gallery page ──────────────────────────────────────────────────
+# ── Generate template iframe gallery ────────────────────────────────────────
 
 mkdir -p "$GALLERY_DIR"
-
-echo "=== Generating generated_screenshots_gallery.html ==="
-
-cat > "$GALLERY" <<'GALLERY_HEAD'
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>CSS Properties — Generated from EBNF Grammar</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #0f0f0f;
-      color: #e0e0e0;
-      padding: 24px;
-    }
-    h1 {
-      text-align: center;
-      font-size: 28px;
-      margin-bottom: 8px;
-      color: #fff;
-    }
-    .subtitle {
-      text-align: center;
-      font-size: 14px;
-      color: #888;
-      margin-bottom: 32px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 16px;
-      max-width: 1800px;
-      margin: 0 auto;
-    }
-    .card {
-      background: #1a1a1a;
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid #333;
-      transition: border-color 0.2s;
-    }
-    .card:hover {
-      border-color: #666;
-    }
-    .card img {
-      width: 100%;
-      aspect-ratio: 16/10;
-      object-fit: cover;
-      object-position: top left;
-      display: block;
-      background: #222;
-    }
-    .card .label {
-      padding: 8px 12px;
-      font-size: 12px;
-      font-family: "SF Mono", "Fira Code", monospace;
-      color: #a0cfff;
-      background: #111;
-      border-top: 1px solid #333;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    @media (max-width: 1200px) { .grid { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
-  </style>
-</head>
-<body>
-  <h1>CSS Properties — Generated from EBNF Grammar</h1>
-GALLERY_HEAD
-
-# Count screenshots
-count=$(ls -1 "$SCREENSHOTS_DIR"/*.png 2>/dev/null | wc -l | tr -d ' ')
-echo "  <p class=\"subtitle\">${count} properties — values generated from parsed EBNF rules</p>" >> "$GALLERY"
-echo '  <div class="grid">' >> "$GALLERY"
-
-# Sort screenshots alphabetically and add cards
-for png in $(ls -1 "$SCREENSHOTS_DIR"/*.png 2>/dev/null | sort); do
-  filename="$(basename "$png")"
-  slug="${filename%.png}"
-  property="$slug"
-  echo "    <div class=\"card\">" >> "$GALLERY"
-  echo "      <img src=\"../screenshots/generated/$filename\" alt=\"$property\" loading=\"lazy\">" >> "$GALLERY"
-  echo "      <div class=\"label\">$property</div>" >> "$GALLERY"
-  echo "    </div>" >> "$GALLERY"
-done
-
-cat >> "$GALLERY" <<'GALLERY_TAIL'
-  </div>
-</body>
-</html>
-GALLERY_TAIL
-
-echo "Screenshots gallery generated: $GALLERY ($count properties)"
-
-# ── Generate template iframe gallery ────────────────────────────────────────
 
 echo "=== Generating generated_gallery.html ==="
 

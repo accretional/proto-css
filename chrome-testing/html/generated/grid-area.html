@@ -12,9 +12,7 @@
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
-  .cell { background: #0f3460; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #e94560; font-weight: 600; padding: 6px; }
-.cell.highlight { background: #e94560; color: #fff; }
-.cell.dim { background: #0a1a35; color: #4a5568; }
+  .cell.dim { background: #0f3460; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #4a5568; font-weight: 600; }
 </style>
 </head>
 <body>
@@ -22,136 +20,574 @@
 <p class="prop-name">grid-area</p>
 <div class="demos">
   <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; grid-area: 1;"><div class="cell highlight">A</div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div></div>
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: 1;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
     </div>
     <div class="label">grid-area: 1</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; grid-area: 1 / 1;"><div class="cell highlight">A</div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div></div>
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: span 2;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
+    </div>
+    <div class="label">grid-area: span 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: auto;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
+    </div>
+    <div class="label">grid-area: auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: 1 / 1;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
     </div>
     <div class="label">grid-area: 1 / 1</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; grid-area: 1 / span 2;"><div class="cell highlight">A</div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div></div>
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: span 2 / 1;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
+    </div>
+    <div class="label">grid-area: span 2 / 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: auto / 1;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
+    </div>
+    <div class="label">grid-area: auto / 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: 1 / span 2;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
     </div>
     <div class="label">grid-area: 1 / span 2</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; grid-area: 1 / auto;"><div class="cell highlight">A</div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div></div>
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: span 2 / span 2;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
+    </div>
+    <div class="label">grid-area: span 2 / span 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: auto / span 2;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
+    </div>
+    <div class="label">grid-area: auto / span 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: 1 / auto;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
     </div>
     <div class="label">grid-area: 1 / auto</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; grid-area: 1 / 1 / 1;"><div class="cell highlight">A</div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div></div>
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: span 2 / auto;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
+    </div>
+    <div class="label">grid-area: span 2 / auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: auto / auto;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
+    </div>
+    <div class="label">grid-area: auto / auto</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: 1 / 1 / 1;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
     </div>
     <div class="label">grid-area: 1 / 1 / 1</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; grid-area: 1 / 1 / span 2;"><div class="cell highlight">A</div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div></div>
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: span 2 / 1 / 1;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
     </div>
-    <div class="label">grid-area: 1 / 1 / span 2</div>
+    <div class="label">grid-area: span 2 / 1 / 1</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; grid-area: 1 / 1 / auto;"><div class="cell highlight">A</div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div></div>
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: auto / 1 / 1;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
     </div>
-    <div class="label">grid-area: 1 / 1 / auto</div>
+    <div class="label">grid-area: auto / 1 / 1</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; grid-area: 1 / span 2 / 1;"><div class="cell highlight">A</div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div></div>
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: 1 / span 2 / 1;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
     </div>
     <div class="label">grid-area: 1 / span 2 / 1</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; grid-area: 1 / span 2 / span 2;"><div class="cell highlight">A</div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div></div>
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: span 2 / span 2 / 1;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
     </div>
-    <div class="label">grid-area: 1 / span 2 / span 2</div>
+    <div class="label">grid-area: span 2 / span 2 / 1</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; grid-area: 1 / span 2 / auto;"><div class="cell highlight">A</div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div></div>
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: auto / span 2 / 1;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
     </div>
-    <div class="label">grid-area: 1 / span 2 / auto</div>
+    <div class="label">grid-area: auto / span 2 / 1</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; grid-area: 1 / auto / 1;"><div class="cell highlight">A</div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div></div>
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: 1 / auto / 1;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
     </div>
     <div class="label">grid-area: 1 / auto / 1</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; grid-area: 1 / auto / span 2;"><div class="cell highlight">A</div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div></div>
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: span 2 / auto / 1;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
+    </div>
+    <div class="label">grid-area: span 2 / auto / 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: auto / auto / 1;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
+    </div>
+    <div class="label">grid-area: auto / auto / 1</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: 1 / 1 / span 2;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
+    </div>
+    <div class="label">grid-area: 1 / 1 / span 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: span 2 / 1 / span 2;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
+    </div>
+    <div class="label">grid-area: span 2 / 1 / span 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: auto / 1 / span 2;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
+    </div>
+    <div class="label">grid-area: auto / 1 / span 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: 1 / span 2 / span 2;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
+    </div>
+    <div class="label">grid-area: 1 / span 2 / span 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: span 2 / span 2 / span 2;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
+    </div>
+    <div class="label">grid-area: span 2 / span 2 / span 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: auto / span 2 / span 2;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
+    </div>
+    <div class="label">grid-area: auto / span 2 / span 2</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: 1 / auto / span 2;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
     </div>
     <div class="label">grid-area: 1 / auto / span 2</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; grid-area: 1 / auto / auto;"><div class="cell highlight">A</div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div></div>
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: span 2 / auto / span 2;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
     </div>
-    <div class="label">grid-area: 1 / auto / auto</div>
+    <div class="label">grid-area: span 2 / auto / span 2</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; grid-area: 1 / 1 / 1 / 1;"><div class="cell highlight">A</div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div></div>
+    <div class="demo-area" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; background: #0a1a35; border-radius: 8px; padding: 4px;">
+      <div class="cell dim">1</div>
+      <div class="cell dim">2</div>
+      <div style="background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 600; grid-area: auto / auto / span 2;">A</div>
+      <div class="cell dim">3</div>
+      <div class="cell dim">4</div>
+      <div class="cell dim">5</div>
+      <div class="cell dim">6</div>
+      <div class="cell dim">7</div>
+      <div class="cell dim">8</div>
+      <div class="cell dim">9</div>
+      <div class="cell dim">10</div>
+      <div class="cell dim">11</div>
+      <div class="cell dim">12</div>
+      <div class="cell dim">13</div>
     </div>
-    <div class="label">grid-area: 1 / 1 / 1 / 1</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; grid-area: 1 / 1 / 1 / span 2;"><div class="cell highlight">A</div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div></div>
-    </div>
-    <div class="label">grid-area: 1 / 1 / 1 / span 2</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; grid-area: 1 / 1 / 1 / auto;"><div class="cell highlight">A</div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div></div>
-    </div>
-    <div class="label">grid-area: 1 / 1 / 1 / auto</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; grid-area: 1 / 1 / span 2 / 1;"><div class="cell highlight">A</div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div></div>
-    </div>
-    <div class="label">grid-area: 1 / 1 / span 2 / 1</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; grid-area: 1 / 1 / span 2 / span 2;"><div class="cell highlight">A</div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div></div>
-    </div>
-    <div class="label">grid-area: 1 / 1 / span 2 / span 2</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; grid-area: 1 / 1 / span 2 / auto;"><div class="cell highlight">A</div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div></div>
-    </div>
-    <div class="label">grid-area: 1 / 1 / span 2 / auto</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; grid-area: 1 / 1 / auto / 1;"><div class="cell highlight">A</div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div></div>
-    </div>
-    <div class="label">grid-area: 1 / 1 / auto / 1</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; grid-area: 1 / 1 / auto / span 2;"><div class="cell highlight">A</div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div></div>
-    </div>
-    <div class="label">grid-area: 1 / 1 / auto / span 2</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 40px); gap: 4px; grid-area: 1 / 1 / auto / auto;"><div class="cell highlight">A</div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div><div class="cell dim"></div></div>
-    </div>
-    <div class="label">grid-area: 1 / 1 / auto / auto</div>
+    <div class="label">grid-area: auto / auto / span 2</div>
   </div>
 </div>
 </body>

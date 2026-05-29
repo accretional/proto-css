@@ -2,91 +2,93 @@
 # Each entry short-circuits exhaustive enumeration with hand-picked samples,
 # unless the property being generated is listed in primary_rules (in which
 # case the grammar is expanded fully).
+#
+# ORDERING MATTERS: the exhaustive enumerator picks the first value in each
+# position first, so lead with the most visually distinct value (never 0).
 
 # --- Lengths ---
 
 types {
   type_name: "LengthType"
-  values: "0"
-  values: "4px"
   values: "10px"
   values: "20px"
-  values: "2em"
   values: "50px"
+  values: "4px"
+  values: "2em"
+  values: "0"
 }
 
 types {
   type_name: "NonNegativeLengthType"
-  values: "0"
-  values: "4px"
   values: "10px"
   values: "20px"
   values: "50px"
+  values: "4px"
+  values: "0"
 }
 
 types {
   type_name: "LengthPercentageType"
-  values: "0"
   values: "10px"
   values: "25%"
   values: "50%"
   values: "100%"
+  values: "0"
 }
 
 types {
   type_name: "NonNegativeLengthPercentageType"
-  values: "0"
   values: "10px"
   values: "25%"
   values: "50%"
+  values: "0"
 }
 
 # --- Percentages ---
 
 types {
   type_name: "PercentageType"
-  values: "0%"
   values: "25%"
   values: "50%"
   values: "75%"
   values: "100%"
+  values: "0%"
 }
 
 types {
   type_name: "NonNegativePercentageType"
-  values: "0%"
   values: "25%"
   values: "50%"
   values: "100%"
+  values: "0%"
 }
 
 # --- Numbers ---
 
 types {
   type_name: "NumberType"
-  values: "0"
-  values: "0.5"
   values: "1"
+  values: "0.5"
   values: "2"
+  values: "0"
   primary_rules: "opacity"
   primary_rules: "font-size-adjust"
 }
 
 types {
   type_name: "NonNegativeNumberType"
-  values: "0"
-  values: "0.5"
   values: "1"
+  values: "0.5"
   values: "2"
+  values: "0"
 }
 
 types {
   type_name: "IntegerType"
-  values: "0"
   values: "1"
   values: "2"
   values: "5"
-  primary_rules: "z-index"
+  values: "0"
   primary_rules: "order"
   primary_rules: "orphans"
   primary_rules: "widows"
@@ -94,14 +96,21 @@ types {
 
 types {
   type_name: "NonNegativeIntegerType"
-  values: "0"
   values: "1"
   values: "2"
   values: "5"
+  values: "0"
 }
 
 types {
   type_name: "PositiveIntegerType"
+  values: "1"
+  values: "2"
+  values: "3"
+}
+
+types {
+  type_name: "positive_integer_type"
   values: "1"
   values: "2"
   values: "3"
@@ -164,10 +173,10 @@ types {
 
 types {
   type_name: "TimeType"
-  values: "0s"
   values: "0.3s"
   values: "1s"
   values: "2s"
+  values: "0s"
   primary_rules: "transition-duration"
   primary_rules: "transition-delay"
   primary_rules: "animation-duration"
@@ -176,30 +185,29 @@ types {
 
 types {
   type_name: "NonNegativeTimeType"
-  values: "0s"
   values: "0.3s"
   values: "1s"
   values: "2s"
+  values: "0s"
 }
 
 # --- Angle ---
 
 types {
   type_name: "AngleType"
-  values: "0deg"
   values: "45deg"
   values: "90deg"
   values: "180deg"
+  values: "0deg"
   values: "360deg"
-  primary_rules: "rotate"
 }
 
 types {
   type_name: "AnglePercentageType"
-  values: "0deg"
   values: "45deg"
   values: "90deg"
   values: "50%"
+  values: "0deg"
 }
 
 # --- Resolution ---
@@ -248,6 +256,31 @@ types {
 types {
   type_name: "UrlType"
   values: "url(example.png)"
+}
+
+# --- SVG Paint ---
+
+types {
+  type_name: "PaintType"
+  values: "red"
+  values: "#3498db"
+  values: "rgb(0, 128, 0)"
+  values: "none"
+  values: "currentcolor"
+  primary_rules: "fill"
+  primary_rules: "stroke"
+}
+
+types {
+  type_name: "SvgPaintType"
+  values: "red"
+  values: "#3498db"
+}
+
+types {
+  type_name: "MarkerRefType"
+  values: "url(#arrow1)"
+  values: "url(#dot1)"
 }
 
 # --- Strings ---
@@ -368,6 +401,8 @@ types {
 }
 
 # --- Position ---
+# Removed primary_rules — full expansion produces "left, left top" etc.
+# which are mostly identical. Representative values are more visually distinct.
 
 types {
   type_name: "PositionType"
@@ -377,20 +412,18 @@ types {
   values: "left"
   values: "right"
   values: "50% 50%"
-  primary_rules: "background-position"
-  primary_rules: "object-position"
-  primary_rules: "perspective-origin"
-  primary_rules: "transform-origin"
 }
 
 # --- Shadow ---
+# Removed primary_rules — full expansion produces "0 0" zero-offset combos
+# that are invisible. Representative values show actual visible shadows.
 
 types {
   type_name: "ShadowType"
   values: "2px 2px 4px rgba(0,0,0,0.5)"
   values: "inset 0 0 10px red"
-  primary_rules: "box-shadow"
-  primary_rules: "text-shadow"
+  values: "4px 4px 8px #3498db"
+  values: "0 8px 16px rgba(233,69,96,0.6)"
 }
 
 # --- Sizing ---
@@ -401,7 +434,8 @@ types {
   values: "cover"
   values: "contain"
   values: "50% 50%"
-  primary_rules: "background-size"
+  values: "200px 100px"
+  values: "100% auto"
 }
 
 # --- Generic family ---
@@ -433,14 +467,14 @@ types {
 }
 
 # --- Grid types ---
+# Removed primary_rules — full expansion produces "0 0 [ ]" combos
+# that collapse to zero-width columns. Representative values are better.
 
 types {
   type_name: "TrackListType"
   values: "1fr 1fr"
   values: "100px 1fr 2fr"
   values: "repeat(3, 1fr)"
-  primary_rules: "grid-template-columns"
-  primary_rules: "grid-template-rows"
 }
 
 types {
@@ -454,23 +488,46 @@ types {
 
 types {
   type_name: "BgLayerType"
-  values: "url(bg.png) center / cover no-repeat"
+  values: "linear-gradient(red, blue) center / cover no-repeat"
+  values: "radial-gradient(circle, #e94560, #3498db) center / contain no-repeat"
 }
 
 types {
   type_name: "FinalBgLayerType"
-  values: "#333 url(bg.png) center / cover no-repeat"
+  values: "#333 linear-gradient(45deg, red, blue) center / cover no-repeat"
+  values: "#0f3460 radial-gradient(circle, #e94560, #3498db) center / contain no-repeat"
+}
+
+# --- SVG stroke-dasharray ---
+
+types {
+  type_name: "StrokeDasharrayPropItem"
+  values: "10"
+  values: "5"
+  values: "20"
+  values: "2"
+}
+
+types {
+  type_name: "StrokeDasharrayProp"
+  values: "none"
+  values: "10 5"
+  values: "20 10 5"
+  values: "5"
+  values: "15 5 3 5"
+  values: "30 10"
 }
 
 # --- Border ---
+# Removed primary_rules — full expansion produces "0 / 0 X" combos
+# that all look like sharp corners. Representative values show actual rounding.
 
 types {
   type_name: "BorderRadiusType"
-  values: "0"
   values: "4px"
   values: "10px"
   values: "50%"
-  primary_rules: "border-radius"
+  values: "0"
 }
 
 types {
@@ -526,4 +583,38 @@ types {
   values: "Canvas"
   values: "CanvasText"
   values: "LinkText"
+}
+
+# --- Property-specific overrides ---
+
+types {
+  type_name: "DProp"
+  values: "path('M 20 140 C 50 20, 90 20, 120 140 S 160 60, 160 140')"
+  values: "path('M 90 10 L 160 160 L 20 160 Z')"
+  values: "path('M 90 20 A 70 70 0 1 1 90 160 A 70 70 0 1 1 90 20')"
+  values: "none"
+}
+
+types {
+  type_name: "StrokeLinejoinProp"
+  values: "miter"
+  values: "round"
+  values: "bevel"
+}
+
+types {
+  type_name: "ZIndexProp"
+  values: "auto"
+  values: "-1"
+  values: "5"
+  values: "100"
+}
+
+types {
+  type_name: "ColumnCountProp"
+  values: "auto"
+  values: "1"
+  values: "2"
+  values: "3"
+  values: "4"
 }

@@ -211,15 +211,13 @@ check_gallery() {
   fi
 }
 
-check_gallery "$GALLERY_DIR/template_screenshots_gallery.html" "template_screenshots_gallery.html"
 check_gallery "$GALLERY_DIR/template_gallery.html" "template_gallery.html"
 
-# Generated galleries are optional (only exist after tools/gen.sh)
-if [[ -f "$GALLERY_DIR/generated_screenshots_gallery.html" ]]; then
-  check_gallery "$GALLERY_DIR/generated_screenshots_gallery.html" "generated_screenshots_gallery.html"
+# Generated gallery is optional (only exists after tools/gen.sh)
+if [[ -f "$GALLERY_DIR/generated_gallery.html" ]]; then
   check_gallery "$GALLERY_DIR/generated_gallery.html" "generated_gallery.html"
 else
-  echo "  [warn] Generated galleries not found (run ./tools/gen.sh)"
+  echo "  [warn] Generated gallery not found (run ./tools/gen.sh)"
 fi
 
 # ── Smoke test: serve gallery and check HTTP response ───────────────────────
@@ -235,7 +233,7 @@ smoke_cleanup() {
 }
 trap smoke_cleanup EXIT
 
-GALLERY_FILE="$GALLERY_DIR/generated_screenshots_gallery.html"
+GALLERY_FILE="$GALLERY_DIR/generated_gallery.html"
 
 if [[ -f "$GALLERY_FILE" ]]; then
   SMOKE_PORT="$(python3 -c "import socket; s=socket.socket(); s.bind(('',0)); p=s.getsockname()[1]; s.close(); print(p)")"
@@ -253,11 +251,11 @@ if [[ -f "$GALLERY_FILE" ]]; then
   done
 
   # Check HTTP response
-  HTTP_STATUS="$(curl -s -o /dev/null -w '%{http_code}' "http://localhost:$SMOKE_PORT/generated_screenshots_gallery.html" 2>/dev/null || echo "000")"
+  HTTP_STATUS="$(curl -s -o /dev/null -w '%{http_code}' "http://localhost:$SMOKE_PORT/generated_gallery.html" 2>/dev/null || echo "000")"
   if [[ "$HTTP_STATUS" == "200" ]]; then
-    pass "Smoke test: generated_screenshots_gallery.html served OK (HTTP $HTTP_STATUS)"
+    pass "Smoke test: generated_gallery.html served OK (HTTP $HTTP_STATUS)"
   else
-    fail "Smoke test: generated_screenshots_gallery.html returned HTTP $HTTP_STATUS"
+    fail "Smoke test: generated_gallery.html returned HTTP $HTTP_STATUS"
   fi
 
   kill "$SMOKE_PID" 2>/dev/null || true

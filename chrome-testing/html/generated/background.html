@@ -8,7 +8,7 @@
   body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
@@ -20,15 +20,39 @@
 <div class="demos">
   <div class="demo-box">
     <div class="demo-area">
-      <div style="width: 100%; height: 120px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: #333 url(bg.png) center / cover no-repeat;"></div>
+      <div style="width: 100%; height: 120px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: rgba(255,255,255,0.6); background: #333 linear-gradient(45deg, red, blue) center / cover no-repeat;">content</div>
     </div>
-    <div class="label">background: #333 url(bg.png) center / cover no-repeat</div>
+    <div class="label">background: #333 linear-gradient(45deg, red, blue) center / cover no-repeat</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="width: 100%; height: 120px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: url(bg.png) center / cover no-repeat, #333 url(bg.png) center / cover no-repeat;"></div>
+      <div style="width: 100%; height: 120px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: rgba(255,255,255,0.6); background: linear-gradient(red, blue) center / cover no-repeat, #333 linear-gradient(45deg, red, blue) center / cover no-repeat;">content</div>
     </div>
-    <div class="label">background: url(bg.png) center / cover no-repeat, #333 url(bg.png) center / cover no-repeat</div>
+    <div class="label">background: linear-gradient(red, blue) center / cover no-repeat, #333 linear-gradient(45deg, red, blue) center / cover no-repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 120px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: rgba(255,255,255,0.6); background: radial-gradient(circle, #e94560, #3498db) center / contain no-repeat, #333 linear-gradient(45deg, red, blue) center / cover no-repeat;">content</div>
+    </div>
+    <div class="label">background: radial-gradient(circle, #e94560, #3498db) center / contain no-repeat, #333 linear-gradient(45deg, red, blue) center / cover no-repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 120px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: rgba(255,255,255,0.6); background: #0f3460 radial-gradient(circle, #e94560, #3498db) center / contain no-repeat;">content</div>
+    </div>
+    <div class="label">background: #0f3460 radial-gradient(circle, #e94560, #3498db) center / contain no-repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 120px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: rgba(255,255,255,0.6); background: linear-gradient(red, blue) center / cover no-repeat, #0f3460 radial-gradient(circle, #e94560, #3498db) center / contain no-repeat;">content</div>
+    </div>
+    <div class="label">background: linear-gradient(red, blue) center / cover no-repeat, #0f3460 radial-gradient(circle, #e94560, #3498db) center / contain no-repeat</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 100%; height: 120px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: rgba(255,255,255,0.6); background: radial-gradient(circle, #e94560, #3498db) center / contain no-repeat, #0f3460 radial-gradient(circle, #e94560, #3498db) center / contain no-repeat;">content</div>
+    </div>
+    <div class="label">background: radial-gradient(circle, #e94560, #3498db) center / contain no-repeat, #0f3460 radial-gradient(circle, #e94560, #3498db) center / contain no-repeat</div>
   </div>
 </div>
 </body>

@@ -8,17 +8,14 @@
   body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
-  .row-label { font-size: 12px; font-family: monospace; color: #9ca3af; width: 200px; flex-shrink: 0; }
-.track { flex: 1; height: 48px; background: #0f3460; border-radius: 8px; position: relative; overflow: hidden; }
-@keyframes slideAcross {
+  @keyframes slideAcross {
   from { left: 0; }
   to { left: calc(100% - 48px); }
 }
-.explanation { font-size: 12px; color: #6b7280; margin-top: 8px; font-style: italic; }
 </style>
 </head>
 <body>
@@ -26,208 +23,76 @@
 <p class="prop-name">animation-delay</p>
 <div class="demos">
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s;"></div>
+    <div class="demo-area" style="position: relative; height: 64px; background: #0f3460; border-radius: 8px; overflow: hidden;">
+      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 50%; transform: translateY(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-delay: 0s;"></div>
     </div>
     <div class="label">animation-delay: 0s</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, 0s;"></div>
+    <div class="demo-area" style="position: relative; height: 64px; background: #0f3460; border-radius: 8px; overflow: hidden;">
+      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 50%; transform: translateY(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-delay: var(--my-var);"></div>
     </div>
-    <div class="label">animation-delay: 0s, 0s</div>
+    <div class="label">animation-delay: var(--my-var)</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, 0ms;"></div>
+    <div class="demo-area" style="position: relative; height: 64px; background: #0f3460; border-radius: 8px; overflow: hidden;">
+      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 50%; transform: translateY(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-delay: +0s;"></div>
     </div>
-    <div class="label">animation-delay: 0s, 0ms</div>
+    <div class="label">animation-delay: +0s</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, 0e0s;"></div>
+    <div class="demo-area" style="position: relative; height: 64px; background: #0f3460; border-radius: 8px; overflow: hidden;">
+      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 50%; transform: translateY(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-delay: var(--my-var, my-ident);"></div>
     </div>
-    <div class="label">animation-delay: 0s, 0e0s</div>
+    <div class="label">animation-delay: var(--my-var, my-ident)</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, 0e0ms;"></div>
+    <div class="demo-area" style="position: relative; height: 64px; background: #0f3460; border-radius: 8px; overflow: hidden;">
+      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 50%; transform: translateY(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-delay: -0s;"></div>
     </div>
-    <div class="label">animation-delay: 0s, 0e0ms</div>
+    <div class="label">animation-delay: -0s</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, 0e00s;"></div>
+    <div class="demo-area" style="position: relative; height: 64px; background: #0f3460; border-radius: 8px; overflow: hidden;">
+      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 50%; transform: translateY(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-delay: var(--my-var, 0);"></div>
     </div>
-    <div class="label">animation-delay: 0s, 0e00s</div>
+    <div class="label">animation-delay: var(--my-var, 0)</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, 0e00ms;"></div>
+    <div class="demo-area" style="position: relative; height: 64px; background: #0f3460; border-radius: 8px; overflow: hidden;">
+      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 50%; transform: translateY(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-delay: 1s;"></div>
     </div>
-    <div class="label">animation-delay: 0s, 0e00ms</div>
+    <div class="label">animation-delay: 1s</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, 0e01s;"></div>
+    <div class="demo-area" style="position: relative; height: 64px; background: #0f3460; border-radius: 8px; overflow: hidden;">
+      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 50%; transform: translateY(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-delay: var(--my-var, 0%);"></div>
     </div>
-    <div class="label">animation-delay: 0s, 0e01s</div>
+    <div class="label">animation-delay: var(--my-var, 0%)</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, 0e01ms;"></div>
+    <div class="demo-area" style="position: relative; height: 64px; background: #0f3460; border-radius: 8px; overflow: hidden;">
+      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 50%; transform: translateY(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-delay: +1s;"></div>
     </div>
-    <div class="label">animation-delay: 0s, 0e01ms</div>
+    <div class="label">animation-delay: +1s</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, 0e02s;"></div>
+    <div class="demo-area" style="position: relative; height: 64px; background: #0f3460; border-radius: 8px; overflow: hidden;">
+      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 50%; transform: translateY(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-delay: -1s;"></div>
     </div>
-    <div class="label">animation-delay: 0s, 0e02s</div>
+    <div class="label">animation-delay: -1s</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, 0e02ms;"></div>
+    <div class="demo-area" style="position: relative; height: 64px; background: #0f3460; border-radius: 8px; overflow: hidden;">
+      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 50%; transform: translateY(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-delay: var(--my-var, 0s);"></div>
     </div>
-    <div class="label">animation-delay: 0s, 0e02ms</div>
+    <div class="label">animation-delay: var(--my-var, 0s)</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, 0e03s;"></div>
+    <div class="demo-area" style="position: relative; height: 64px; background: #0f3460; border-radius: 8px; overflow: hidden;">
+      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 50%; transform: translateY(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-delay: 2s;"></div>
     </div>
-    <div class="label">animation-delay: 0s, 0e03s</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, 0e03ms;"></div>
-    </div>
-    <div class="label">animation-delay: 0s, 0e03ms</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, 0e04s;"></div>
-    </div>
-    <div class="label">animation-delay: 0s, 0e04s</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, 0e04ms;"></div>
-    </div>
-    <div class="label">animation-delay: 0s, 0e04ms</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, 0e05s;"></div>
-    </div>
-    <div class="label">animation-delay: 0s, 0e05s</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, 0e05ms;"></div>
-    </div>
-    <div class="label">animation-delay: 0s, 0e05ms</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, 0e06s;"></div>
-    </div>
-    <div class="label">animation-delay: 0s, 0e06s</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, 0e06ms;"></div>
-    </div>
-    <div class="label">animation-delay: 0s, 0e06ms</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, var(--my-var);"></div>
-    </div>
-    <div class="label">animation-delay: 0s, var(--my-var)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, var(--my-var, my-ident);"></div>
-    </div>
-    <div class="label">animation-delay: 0s, var(--my-var, my-ident)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, var(--my-var, 0);"></div>
-    </div>
-    <div class="label">animation-delay: 0s, var(--my-var, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, var(--my-var, 0e0);"></div>
-    </div>
-    <div class="label">animation-delay: 0s, var(--my-var, 0e0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, var(--my-var, 0e00);"></div>
-    </div>
-    <div class="label">animation-delay: 0s, var(--my-var, 0e00)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, var(--my-var, 0e01);"></div>
-    </div>
-    <div class="label">animation-delay: 0s, var(--my-var, 0e01)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, var(--my-var, 0e02);"></div>
-    </div>
-    <div class="label">animation-delay: 0s, var(--my-var, 0e02)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, var(--my-var, 0%);"></div>
-    </div>
-    <div class="label">animation-delay: 0s, var(--my-var, 0%)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, var(--my-var, 0e0%);"></div>
-    </div>
-    <div class="label">animation-delay: 0s, var(--my-var, 0e0%)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, var(--my-var, 0cap);"></div>
-    </div>
-    <div class="label">animation-delay: 0s, var(--my-var, 0cap)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, var(--my-var, 0s);"></div>
-    </div>
-    <div class="label">animation-delay: 0s, var(--my-var, 0s)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, var(--my-var, 0ms);"></div>
-    </div>
-    <div class="label">animation-delay: 0s, var(--my-var, 0ms)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, var(--my-var, 0deg);"></div>
-    </div>
-    <div class="label">animation-delay: 0s, var(--my-var, 0deg)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, var(--my-var, &#34;example&#34;);"></div>
-    </div>
-    <div class="label">animation-delay: 0s, var(--my-var, &#34;example&#34;)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; gap: 16px; background: #16213e; border-radius: 10px; padding: 16px 24px;">
-      <div style="width: 48px; height: 48px; border-radius: 8px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; background: #e94560; animation: slideAcross 4s linear infinite; animation-play-state: paused; animation-delay: 0s, var(--my-var, #00000000);"></div>
-    </div>
-    <div class="label">animation-delay: 0s, var(--my-var, #00000000)</div>
+    <div class="label">animation-delay: 2s</div>
   </div>
 </div>
 </body>

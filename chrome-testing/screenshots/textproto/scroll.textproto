@@ -1,0 +1,80 @@
+# Scroll mode: 3 screenshots — before, mid, and after scrolling.
+# Targets .scroll-container if present, otherwise scrolls the page.
+# Placeholders: {{URL}}, {{OUTPUT_DIR}}, {{SLUG}}
+
+name: "screenshot_{{SLUG}}"
+
+steps: {
+  label: "set_viewport"
+  set_viewport: {
+    width: 1280
+    height: 800
+    device_scale_factor: 2
+  }
+}
+
+steps: {
+  label: "navigate"
+  navigate: {
+    url: "{{URL}}"
+  }
+}
+
+steps: {
+  label: "wait_for_render"
+  wait: {
+    milliseconds: 500
+  }
+}
+
+steps: {
+  label: "frame_1"
+  screenshot: {
+    output_path: "{{OUTPUT_DIR}}/1.png"
+    format: "png"
+  }
+}
+
+steps: {
+  label: "scroll_mid"
+  evaluate_script: {
+    expression: "(function(){var c=document.querySelector('.scroll-container');if(!c)c=document.scrollingElement;c.scrollTo({top:Math.floor(c.scrollHeight/3),behavior:'instant'})})()"
+  }
+}
+
+steps: {
+  label: "wait_mid"
+  wait: {
+    milliseconds: 300
+  }
+}
+
+steps: {
+  label: "frame_2"
+  screenshot: {
+    output_path: "{{OUTPUT_DIR}}/2.png"
+    format: "png"
+  }
+}
+
+steps: {
+  label: "scroll_end"
+  evaluate_script: {
+    expression: "(function(){var c=document.querySelector('.scroll-container');if(!c)c=document.scrollingElement;c.scrollTo({top:c.scrollHeight,behavior:'instant'})})()"
+  }
+}
+
+steps: {
+  label: "wait_end"
+  wait: {
+    milliseconds: 300
+  }
+}
+
+steps: {
+  label: "frame_3"
+  screenshot: {
+    output_path: "{{OUTPUT_DIR}}/3.png"
+    format: "png"
+  }
+}

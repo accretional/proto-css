@@ -12,7 +12,8 @@
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
-  .start-marker { width: 16px; height: 16px; background: #00ff88; border-radius: 50%; position: absolute; box-shadow: 0 0 10px rgba(0,255,136,0.6); top: 0; left: 0; }
+  .crosshair-h { position: absolute; left: 0; right: 0; top: 50%; border-top: 1px dashed #3a4a5e; }
+.crosshair-v { position: absolute; top: 0; bottom: 0; left: 50%; border-left: 1px dashed #3a4a5e; }
 </style>
 </head>
 <body>
@@ -20,58 +21,58 @@
 <p class="prop-name">offset-position</p>
 <div class="demos">
   <div class="demo-box">
-    <div class="demo-area" style="width: 240px; height: 240px; position: relative; background: repeating-linear-gradient(0deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px), repeating-linear-gradient(90deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px);">
-      <div class="start-marker"></div>
-      <div style="width: 24px; height: 24px; background: #e94560; border-radius: 4px; position: absolute; offset-path: path(&#34;M 0,0 L 80,0&#34;); offset-distance: 100%; box-shadow: 0 0 10px rgba(233,69,96,0.5); offset-position: normal;"></div>
+    <div class="demo-area" style="width: 240px; height: 240px; position: relative; background: repeating-linear-gradient(0deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px), repeating-linear-gradient(90deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px); border: 1px solid #2a2a4a;">
+      <div class="crosshair-h"></div><div class="crosshair-v"></div>
+      <div style="width: 24px; height: 24px; background: #e94560; border-radius: 4px; position: absolute; offset-path: ray(0deg closest-side); offset-distance: 50%; box-shadow: 0 0 10px rgba(233,69,96,0.5); offset-position: normal;"></div>
     </div>
     <div class="label">offset-position: normal</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="width: 240px; height: 240px; position: relative; background: repeating-linear-gradient(0deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px), repeating-linear-gradient(90deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px);">
-      <div class="start-marker"></div>
-      <div style="width: 24px; height: 24px; background: #e94560; border-radius: 4px; position: absolute; offset-path: path(&#34;M 0,0 L 80,0&#34;); offset-distance: 100%; box-shadow: 0 0 10px rgba(233,69,96,0.5); offset-position: auto;"></div>
+    <div class="demo-area" style="width: 240px; height: 240px; position: relative; background: repeating-linear-gradient(0deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px), repeating-linear-gradient(90deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px); border: 1px solid #2a2a4a;">
+      <div class="crosshair-h"></div><div class="crosshair-v"></div>
+      <div style="width: 24px; height: 24px; background: #e94560; border-radius: 4px; position: absolute; offset-path: ray(0deg closest-side); offset-distance: 50%; box-shadow: 0 0 10px rgba(233,69,96,0.5); offset-position: auto;"></div>
     </div>
     <div class="label">offset-position: auto</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="width: 240px; height: 240px; position: relative; background: repeating-linear-gradient(0deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px), repeating-linear-gradient(90deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px);">
-      <div class="start-marker"></div>
-      <div style="width: 24px; height: 24px; background: #e94560; border-radius: 4px; position: absolute; offset-path: path(&#34;M 0,0 L 80,0&#34;); offset-distance: 100%; box-shadow: 0 0 10px rgba(233,69,96,0.5); offset-position: center;"></div>
+    <div class="demo-area" style="width: 240px; height: 240px; position: relative; background: repeating-linear-gradient(0deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px), repeating-linear-gradient(90deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px); border: 1px solid #2a2a4a;">
+      <div class="crosshair-h"></div><div class="crosshair-v"></div>
+      <div style="width: 24px; height: 24px; background: #e94560; border-radius: 4px; position: absolute; offset-path: ray(0deg closest-side); offset-distance: 50%; box-shadow: 0 0 10px rgba(233,69,96,0.5); offset-position: center;"></div>
     </div>
     <div class="label">offset-position: center</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="width: 240px; height: 240px; position: relative; background: repeating-linear-gradient(0deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px), repeating-linear-gradient(90deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px);">
-      <div class="start-marker"></div>
-      <div style="width: 24px; height: 24px; background: #e94560; border-radius: 4px; position: absolute; offset-path: path(&#34;M 0,0 L 80,0&#34;); offset-distance: 100%; box-shadow: 0 0 10px rgba(233,69,96,0.5); offset-position: top;"></div>
+    <div class="demo-area" style="width: 240px; height: 240px; position: relative; background: repeating-linear-gradient(0deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px), repeating-linear-gradient(90deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px); border: 1px solid #2a2a4a;">
+      <div class="crosshair-h"></div><div class="crosshair-v"></div>
+      <div style="width: 24px; height: 24px; background: #e94560; border-radius: 4px; position: absolute; offset-path: ray(0deg closest-side); offset-distance: 50%; box-shadow: 0 0 10px rgba(233,69,96,0.5); offset-position: top;"></div>
     </div>
     <div class="label">offset-position: top</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="width: 240px; height: 240px; position: relative; background: repeating-linear-gradient(0deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px), repeating-linear-gradient(90deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px);">
-      <div class="start-marker"></div>
-      <div style="width: 24px; height: 24px; background: #e94560; border-radius: 4px; position: absolute; offset-path: path(&#34;M 0,0 L 80,0&#34;); offset-distance: 100%; box-shadow: 0 0 10px rgba(233,69,96,0.5); offset-position: bottom;"></div>
+    <div class="demo-area" style="width: 240px; height: 240px; position: relative; background: repeating-linear-gradient(0deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px), repeating-linear-gradient(90deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px); border: 1px solid #2a2a4a;">
+      <div class="crosshair-h"></div><div class="crosshair-v"></div>
+      <div style="width: 24px; height: 24px; background: #e94560; border-radius: 4px; position: absolute; offset-path: ray(0deg closest-side); offset-distance: 50%; box-shadow: 0 0 10px rgba(233,69,96,0.5); offset-position: bottom;"></div>
     </div>
     <div class="label">offset-position: bottom</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="width: 240px; height: 240px; position: relative; background: repeating-linear-gradient(0deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px), repeating-linear-gradient(90deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px);">
-      <div class="start-marker"></div>
-      <div style="width: 24px; height: 24px; background: #e94560; border-radius: 4px; position: absolute; offset-path: path(&#34;M 0,0 L 80,0&#34;); offset-distance: 100%; box-shadow: 0 0 10px rgba(233,69,96,0.5); offset-position: left;"></div>
+    <div class="demo-area" style="width: 240px; height: 240px; position: relative; background: repeating-linear-gradient(0deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px), repeating-linear-gradient(90deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px); border: 1px solid #2a2a4a;">
+      <div class="crosshair-h"></div><div class="crosshair-v"></div>
+      <div style="width: 24px; height: 24px; background: #e94560; border-radius: 4px; position: absolute; offset-path: ray(0deg closest-side); offset-distance: 50%; box-shadow: 0 0 10px rgba(233,69,96,0.5); offset-position: left;"></div>
     </div>
     <div class="label">offset-position: left</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="width: 240px; height: 240px; position: relative; background: repeating-linear-gradient(0deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px), repeating-linear-gradient(90deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px);">
-      <div class="start-marker"></div>
-      <div style="width: 24px; height: 24px; background: #e94560; border-radius: 4px; position: absolute; offset-path: path(&#34;M 0,0 L 80,0&#34;); offset-distance: 100%; box-shadow: 0 0 10px rgba(233,69,96,0.5); offset-position: right;"></div>
+    <div class="demo-area" style="width: 240px; height: 240px; position: relative; background: repeating-linear-gradient(0deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px), repeating-linear-gradient(90deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px); border: 1px solid #2a2a4a;">
+      <div class="crosshair-h"></div><div class="crosshair-v"></div>
+      <div style="width: 24px; height: 24px; background: #e94560; border-radius: 4px; position: absolute; offset-path: ray(0deg closest-side); offset-distance: 50%; box-shadow: 0 0 10px rgba(233,69,96,0.5); offset-position: right;"></div>
     </div>
     <div class="label">offset-position: right</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="width: 240px; height: 240px; position: relative; background: repeating-linear-gradient(0deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px), repeating-linear-gradient(90deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px);">
-      <div class="start-marker"></div>
-      <div style="width: 24px; height: 24px; background: #e94560; border-radius: 4px; position: absolute; offset-path: path(&#34;M 0,0 L 80,0&#34;); offset-distance: 100%; box-shadow: 0 0 10px rgba(233,69,96,0.5); offset-position: 50% 50%;"></div>
+    <div class="demo-area" style="width: 240px; height: 240px; position: relative; background: repeating-linear-gradient(0deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px), repeating-linear-gradient(90deg, transparent, transparent 59px, #2a2a4a 59px, #2a2a4a 60px); border: 1px solid #2a2a4a;">
+      <div class="crosshair-h"></div><div class="crosshair-v"></div>
+      <div style="width: 24px; height: 24px; background: #e94560; border-radius: 4px; position: absolute; offset-path: ray(0deg closest-side); offset-distance: 50%; box-shadow: 0 0 10px rgba(233,69,96,0.5); offset-position: 50% 50%;"></div>
     </div>
     <div class="label">offset-position: 50% 50%</div>
   </div>

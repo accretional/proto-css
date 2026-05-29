@@ -1,7 +1,9 @@
 demo_type: SVG
-title: "Flood Opacity"
+title: "Flood Opacity (SVG Filter)"
 target_tag: "feFlood"
 target_base_style: "flood-color: #e94560;"
 wrapper_style: "display: flex; flex-direction: column; align-items: center;"
-siblings_before: "<svg width=\"210\" height=\"150\" viewBox=\"0 0 210 150\"><defs><filter id=\"fo\" x=\"0\" y=\"0\" width=\"100%\" height=\"100%\">"
-siblings_after: "<feComposite in=\"flood\" in2=\"SourceGraphic\" operator=\"over\"/></filter></defs><rect x=\"5\" y=\"5\" width=\"200\" height=\"140\" rx=\"10\" fill=\"#16213e\"/><text x=\"105\" y=\"60\" text-anchor=\"middle\" fill=\"#555\" font-size=\"12\" font-family=\"monospace\">background visible</text><rect x=\"25\" y=\"30\" width=\"160\" height=\"90\" rx=\"8\" filter=\"url(#fo)\"/></svg>"
+siblings_before: "<svg width=\"200\" height=\"140\" viewBox=\"0 0 200 140\"><defs><filter id=\"fo\" x=\"0\" y=\"0\" width=\"100%\" height=\"100%\">"
+siblings_after: "<feComposite operator=\"over\" in2=\"SourceGraphic\"/></filter></defs><rect x=\"10\" y=\"10\" width=\"180\" height=\"120\" rx=\"10\" fill=\"#16213e\" stroke=\"#333\" stroke-width=\"1\"/><text x=\"100\" y=\"80\" text-anchor=\"middle\" fill=\"#555\" font-size=\"11\" font-family=\"monospace\">background</text><rect x=\"25\" y=\"25\" width=\"150\" height=\"90\" rx=\"6\" fill=\"#0f3460\" filter=\"url(#fo)\"/></svg>"
+max_values: 6
+screenshot_textproto: "static"

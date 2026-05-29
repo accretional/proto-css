@@ -1,0 +1,103 @@
+# Temporal mode: 5 screenshots with delays to capture animation/transition progress.
+# After frame 1, toggles .active class on targets to trigger transitions.
+# Placeholders: {{URL}}, {{OUTPUT_DIR}}, {{SLUG}}
+
+name: "screenshot_{{SLUG}}"
+
+steps: {
+  label: "set_viewport"
+  set_viewport: {
+    width: 1280
+    height: 800
+    device_scale_factor: 2
+  }
+}
+
+steps: {
+  label: "navigate"
+  navigate: {
+    url: "{{URL}}"
+  }
+}
+
+steps: {
+  label: "wait_initial"
+  wait: {
+    milliseconds: 200
+  }
+}
+
+steps: {
+  label: "frame_1"
+  screenshot: {
+    output_path: "{{OUTPUT_DIR}}/1.png"
+    format: "png"
+  }
+}
+
+steps: {
+  label: "trigger_transition"
+  evaluate_script: {
+    expression: "document.querySelectorAll('[style]').forEach(function(el){el.classList.add('active')})"
+  }
+}
+
+steps: {
+  label: "wait_2"
+  wait: {
+    milliseconds: 300
+  }
+}
+
+steps: {
+  label: "frame_2"
+  screenshot: {
+    output_path: "{{OUTPUT_DIR}}/2.png"
+    format: "png"
+  }
+}
+
+steps: {
+  label: "wait_3"
+  wait: {
+    milliseconds: 300
+  }
+}
+
+steps: {
+  label: "frame_3"
+  screenshot: {
+    output_path: "{{OUTPUT_DIR}}/3.png"
+    format: "png"
+  }
+}
+
+steps: {
+  label: "wait_4"
+  wait: {
+    milliseconds: 300
+  }
+}
+
+steps: {
+  label: "frame_4"
+  screenshot: {
+    output_path: "{{OUTPUT_DIR}}/4.png"
+    format: "png"
+  }
+}
+
+steps: {
+  label: "wait_5"
+  wait: {
+    milliseconds: 400
+  }
+}
+
+steps: {
+  label: "frame_5"
+  screenshot: {
+    output_path: "{{OUTPUT_DIR}}/5.png"
+    format: "png"
+  }
+}

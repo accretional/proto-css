@@ -18,6 +18,7 @@ import (
 	"html"
 	"os"
 	"path/filepath"
+	"sort"
 	"strings"
 
 	bppb "github.com/accretional/proto-css/chrome-testing/proto"
@@ -318,6 +319,7 @@ func main() {
 
 	// 5. Generate HTML for each property.
 	generated, withBlueprint, fallback := 0, 0, 0
+	modes := make(map[string]string) // property → screenshot mode
 	for _, typeName := range props {
 		kebab := exprToKebab(typeName)
 		outFile := filepath.Join(*outDir, kebab+".html")
@@ -348,6 +350,11 @@ func main() {
 				fmt.Printf("  error %s: %v\n", kebab, err)
 				continue
 			}
+			if m := bp.GetScreenshotTextproto(); m != "" {
+				modes[kebab] = m
+			} else {
+				modes[kebab] = "static"
+			}
 			withBlueprint++
 		} else {
 			// No blueprint — use fallback.
@@ -356,13 +363,41 @@ func main() {
 				fmt.Printf("  error %s: %v\n", kebab, err)
 				continue
 			}
+			modes[kebab] = "static"
 			fallback++
 		}
 		generated++
 	}
 
+	// 6. Write screenshot modes manifest.
+	manifestPath := filepath.Join(*outDir, "screenshot_modes.txt")
+	if err := writeManifest(modes, manifestPath); err != nil {
+		fmt.Printf("WARNING: could not write manifest: %v\n", err)
+	} else {
+		fmt.Printf("Wrote screenshot modes manifest: %s (%d entries)\n", manifestPath, len(modes))
+	}
+
 	fmt.Printf("\nGenerated %d HTML pages (%d from blueprints, %d fallback) in %s\n",
 		generated, withBlueprint, fallback, *outDir)
+}
+
+// writeManifest writes a property→mode mapping file (tab-separated).
+func writeManifest(modes map[string]string, path string) error {
+	// Collect and sort keys for deterministic output.
+	keys := make([]string, 0, len(modes))
+	for k := range modes {
+		keys = append(keys, k)
+	}
+	sort.Strings(keys)
+
+	var sb strings.Builder
+	for _, k := range keys {
+		sb.WriteString(k)
+		sb.WriteByte('\t')
+		sb.WriteString(modes[k])
+		sb.WriteByte('\n')
+	}
+	return os.WriteFile(path, []byte(sb.String()), 0644)
 }
 
 // extractValuePart extracts the value from a full CSS declaration.

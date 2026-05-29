@@ -8,7 +8,7 @@
   body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
@@ -20,15 +20,35 @@
 <div class="demos">
   <div class="demo-box">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; align-items: center; min-width: 200px;">
-      <svg style="width: 120px; height: 120px; d: none;"><path d="M60,10 A50,50 0 1,1 59.99,10 Z" fill="#e94560"/></svg>
+      <svg width="180" height="180" viewBox="0 0 180 180">
+      <path style="fill: #e94560; stroke: #fff; stroke-width: 2; d: path(&#39;M 20 140 C 50 20, 90 20, 120 140 S 160 60, 160 140&#39;);"></path>
+      </svg>
     </div>
-    <div class="label">d: none</div>
+    <div class="label">d: path(&#39;M 20 140 C 50 20, 90 20, 120 140 S 160 60, 160 140&#39;)</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; align-items: center; min-width: 200px;">
-      <svg style="width: 120px; height: 120px; d: &#34;example&#34;;"><path d="M60,10 A50,50 0 1,1 59.99,10 Z" fill="#e94560"/></svg>
+      <svg width="180" height="180" viewBox="0 0 180 180">
+      <path style="fill: #e94560; stroke: #fff; stroke-width: 2; d: path(&#39;M 90 10 L 160 160 L 20 160 Z&#39;);"></path>
+      </svg>
     </div>
-    <div class="label">d: &#34;example&#34;</div>
+    <div class="label">d: path(&#39;M 90 10 L 160 160 L 20 160 Z&#39;)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; align-items: center; min-width: 200px;">
+      <svg width="180" height="180" viewBox="0 0 180 180">
+      <path style="fill: #e94560; stroke: #fff; stroke-width: 2; d: path(&#39;M 90 20 A 70 70 0 1 1 90 160 A 70 70 0 1 1 90 20&#39;);"></path>
+      </svg>
+    </div>
+    <div class="label">d: path(&#39;M 90 20 A 70 70 0 1 1 90 160 A 70 70 0 1 1 90 20&#39;)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; align-items: center; min-width: 200px;">
+      <svg width="180" height="180" viewBox="0 0 180 180">
+      <path style="fill: #e94560; stroke: #fff; stroke-width: 2; d: none;"></path>
+      </svg>
+    </div>
+    <div class="label">d: none</div>
   </div>
 </div>
 </body>

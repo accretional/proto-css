@@ -12,7 +12,7 @@
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
-  svg { display: block; margin: 0 auto; }
+  svg { width: 340px; height: 90px; }
 </style>
 </head>
 <body>
@@ -20,20 +20,22 @@
 <p class="prop-name">marker-end</p>
 <div class="demos">
   <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <svg width="340" height="80" viewBox="0 0 340 80"><defs><marker id="arrowEnd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#e94560"/></marker></defs>
-      <path style="fill: none; stroke: #e94560; stroke-width: 2.5; marker-end: none;"></path>
-      </svg>
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; display: flex; justify-content: center;">
+      <svg style="display: block; marker-end: none;"><defs><marker id="arrow1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#e94560"/></marker><marker id="dot1" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7"><circle cx="5" cy="5" r="4" fill="#f39c12"/></marker></defs><path d="M 30 40 L 160 40 L 310 40" fill="none" stroke="#e94560" stroke-width="2.5" /><path d="M 30 70 C 80 20, 200 20, 310 70" fill="none" stroke="#06b6d4" stroke-width="2" /></svg>
     </div>
     <div class="label">marker-end: none</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px;">
-      <svg width="340" height="80" viewBox="0 0 340 80"><defs><marker id="arrowEnd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#e94560"/></marker></defs>
-      <path style="fill: none; stroke: #e94560; stroke-width: 2.5; marker-end: url(example.png);"></path>
-      </svg>
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; display: flex; justify-content: center;">
+      <svg style="display: block; marker-end: url(#arrow1);"><defs><marker id="arrow1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#e94560"/></marker><marker id="dot1" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7"><circle cx="5" cy="5" r="4" fill="#f39c12"/></marker></defs><path d="M 30 40 L 160 40 L 310 40" fill="none" stroke="#e94560" stroke-width="2.5" /><path d="M 30 70 C 80 20, 200 20, 310 70" fill="none" stroke="#06b6d4" stroke-width="2" /></svg>
     </div>
-    <div class="label">marker-end: url(example.png)</div>
+    <div class="label">marker-end: url(#arrow1)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; display: flex; justify-content: center;">
+      <svg style="display: block; marker-end: url(#dot1);"><defs><marker id="arrow1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#e94560"/></marker><marker id="dot1" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7"><circle cx="5" cy="5" r="4" fill="#f39c12"/></marker></defs><path d="M 30 40 L 160 40 L 310 40" fill="none" stroke="#e94560" stroke-width="2.5" /><path d="M 30 70 C 80 20, 200 20, 310 70" fill="none" stroke="#06b6d4" stroke-width="2" /></svg>
+    </div>
+    <div class="label">marker-end: url(#dot1)</div>
   </div>
 </div>
 </body>

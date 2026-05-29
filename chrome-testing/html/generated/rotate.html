@@ -12,7 +12,7 @@
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
-  .box-wrapper::before { content: ''; position: absolute; width: 80px; height: 80px; border: 2px dashed #3a4a5e; border-radius: 10px; }
+  .demo-area::before { content: ''; position: absolute; top: 50%; left: 50%; width: 80px; height: 80px; border: 2px dashed #3a4a5e; border-radius: 10px; transform: translate(-50%, -50%); pointer-events: none; }
 </style>
 </head>
 <body>
@@ -20,220 +20,220 @@
 <p class="prop-name">rotate</p>
 <div class="demos">
   <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: none;">R</div>
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: none;">R</div>
     </div>
     <div class="label">rotate: none</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: 0;">R</div>
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: 45deg;">R</div>
     </div>
-    <div class="label">rotate: 0</div>
+    <div class="label">rotate: 45deg</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: 0deg;">R</div>
-    </div>
-    <div class="label">rotate: 0deg</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: 0grad;">R</div>
-    </div>
-    <div class="label">rotate: 0grad</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: 0rad;">R</div>
-    </div>
-    <div class="label">rotate: 0rad</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: 0turn;">R</div>
-    </div>
-    <div class="label">rotate: 0turn</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: var(--my-var);">R</div>
-    </div>
-    <div class="label">rotate: var(--my-var)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: var(--my-var, my-ident);">R</div>
-    </div>
-    <div class="label">rotate: var(--my-var, my-ident)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: var(--my-var, 0);">R</div>
-    </div>
-    <div class="label">rotate: var(--my-var, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: var(--my-var, 0e0);">R</div>
-    </div>
-    <div class="label">rotate: var(--my-var, 0e0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: 0e0deg;">R</div>
-    </div>
-    <div class="label">rotate: 0e0deg</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: 0e0grad;">R</div>
-    </div>
-    <div class="label">rotate: 0e0grad</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: 0e0rad;">R</div>
-    </div>
-    <div class="label">rotate: 0e0rad</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: 0e0turn;">R</div>
-    </div>
-    <div class="label">rotate: 0e0turn</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: var(--my-var, 0%);">R</div>
-    </div>
-    <div class="label">rotate: var(--my-var, 0%)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: var(--my-var, 0e0%);">R</div>
-    </div>
-    <div class="label">rotate: var(--my-var, 0e0%)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: var(--my-var, 0cap);">R</div>
-    </div>
-    <div class="label">rotate: var(--my-var, 0cap)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: attr(my-ident);">R</div>
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: attr(my-ident);">R</div>
     </div>
     <div class="label">rotate: attr(my-ident)</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: attr(my-ident,);">R</div>
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: x 45deg;">R</div>
+    </div>
+    <div class="label">rotate: x 45deg</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: 90deg;">R</div>
+    </div>
+    <div class="label">rotate: 90deg</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: attr(my-ident|my-ident);">R</div>
+    </div>
+    <div class="label">rotate: attr(my-ident|my-ident)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: y 45deg;">R</div>
+    </div>
+    <div class="label">rotate: y 45deg</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: 180deg;">R</div>
+    </div>
+    <div class="label">rotate: 180deg</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: attr(my-ident type(&#34;example&#34;));">R</div>
+    </div>
+    <div class="label">rotate: attr(my-ident type(&#34;example&#34;))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: z 45deg;">R</div>
+    </div>
+    <div class="label">rotate: z 45deg</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: 0deg;">R</div>
+    </div>
+    <div class="label">rotate: 0deg</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: attr(my-ident|my-ident type(&#34;example&#34;));">R</div>
+    </div>
+    <div class="label">rotate: attr(my-ident|my-ident type(&#34;example&#34;))</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: 1 1 1 45deg;">R</div>
+    </div>
+    <div class="label">rotate: 1 1 1 45deg</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: 360deg;">R</div>
+    </div>
+    <div class="label">rotate: 360deg</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: attr(my-ident raw-string);">R</div>
+    </div>
+    <div class="label">rotate: attr(my-ident raw-string)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: 0.5 1 1 45deg;">R</div>
+    </div>
+    <div class="label">rotate: 0.5 1 1 45deg</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: attr(my-ident|my-ident raw-string);">R</div>
+    </div>
+    <div class="label">rotate: attr(my-ident|my-ident raw-string)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: 2 1 1 45deg;">R</div>
+    </div>
+    <div class="label">rotate: 2 1 1 45deg</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: attr(my-ident number);">R</div>
+    </div>
+    <div class="label">rotate: attr(my-ident number)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: 0 1 1 45deg;">R</div>
+    </div>
+    <div class="label">rotate: 0 1 1 45deg</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: attr(my-ident|my-ident number);">R</div>
+    </div>
+    <div class="label">rotate: attr(my-ident|my-ident number)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: 1 0.5 1 45deg;">R</div>
+    </div>
+    <div class="label">rotate: 1 0.5 1 45deg</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: attr(my-ident my-custom);">R</div>
+    </div>
+    <div class="label">rotate: attr(my-ident my-custom)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: 0.5 0.5 1 45deg;">R</div>
+    </div>
+    <div class="label">rotate: 0.5 0.5 1 45deg</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: attr(my-ident|my-ident my-custom);">R</div>
+    </div>
+    <div class="label">rotate: attr(my-ident|my-ident my-custom)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: attr(my-ident,);">R</div>
     </div>
     <div class="label">rotate: attr(my-ident,)</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: attr(my-ident, my-ident);">R</div>
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: attr(my-ident|my-ident,);">R</div>
+    </div>
+    <div class="label">rotate: attr(my-ident|my-ident,)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: attr(my-ident type(&#34;example&#34;),);">R</div>
+    </div>
+    <div class="label">rotate: attr(my-ident type(&#34;example&#34;),)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: attr(my-ident|my-ident type(&#34;example&#34;),);">R</div>
+    </div>
+    <div class="label">rotate: attr(my-ident|my-ident type(&#34;example&#34;),)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: attr(my-ident raw-string,);">R</div>
+    </div>
+    <div class="label">rotate: attr(my-ident raw-string,)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: attr(my-ident|my-ident raw-string,);">R</div>
+    </div>
+    <div class="label">rotate: attr(my-ident|my-ident raw-string,)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: attr(my-ident number,);">R</div>
+    </div>
+    <div class="label">rotate: attr(my-ident number,)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: attr(my-ident|my-ident number,);">R</div>
+    </div>
+    <div class="label">rotate: attr(my-ident|my-ident number,)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: attr(my-ident my-custom,);">R</div>
+    </div>
+    <div class="label">rotate: attr(my-ident my-custom,)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: attr(my-ident|my-ident my-custom,);">R</div>
+    </div>
+    <div class="label">rotate: attr(my-ident|my-ident my-custom,)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
+      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); transition: none; rotate: attr(my-ident, my-ident);">R</div>
     </div>
     <div class="label">rotate: attr(my-ident, my-ident)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: attr(my-ident, 0);">R</div>
-    </div>
-    <div class="label">rotate: attr(my-ident, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: attr(my-ident, 0e0);">R</div>
-    </div>
-    <div class="label">rotate: attr(my-ident, 0e0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: attr(my-ident, 0%);">R</div>
-    </div>
-    <div class="label">rotate: attr(my-ident, 0%)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: attr(my-ident, 0e0%);">R</div>
-    </div>
-    <div class="label">rotate: attr(my-ident, 0e0%)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: attr(my-ident, 0cap);">R</div>
-    </div>
-    <div class="label">rotate: attr(my-ident, 0cap)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: attr(my-ident, 0s);">R</div>
-    </div>
-    <div class="label">rotate: attr(my-ident, 0s)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: attr(my-ident, 0ms);">R</div>
-    </div>
-    <div class="label">rotate: attr(my-ident, 0ms)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: x 0;">R</div>
-    </div>
-    <div class="label">rotate: x 0</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: x 0deg;">R</div>
-    </div>
-    <div class="label">rotate: x 0deg</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: x 0grad;">R</div>
-    </div>
-    <div class="label">rotate: x 0grad</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: x 0rad;">R</div>
-    </div>
-    <div class="label">rotate: x 0rad</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: x 0turn;">R</div>
-    </div>
-    <div class="label">rotate: x 0turn</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: x var(--my-var);">R</div>
-    </div>
-    <div class="label">rotate: x var(--my-var)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: x var(--my-var, my-ident);">R</div>
-    </div>
-    <div class="label">rotate: x var(--my-var, my-ident)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: x var(--my-var, 0);">R</div>
-    </div>
-    <div class="label">rotate: x var(--my-var, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; perspective: 400px; position: relative;">
-      <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e94560, #e2b714); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3); rotate: x var(--my-var, 0e0);">R</div>
-    </div>
-    <div class="label">rotate: x var(--my-var, 0e0)</div>
   </div>
 </div>
 </body>

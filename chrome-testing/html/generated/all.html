@@ -8,12 +8,12 @@
   body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
-  .demo-title { font-size: 13px; color: #ccc; margin-bottom: 12px; }
-.note { font-size: 11px; color: #6b7280; margin-top: 6px; font-style: italic; }
+  .demo-area > div { background: #e94560; color: #fff; padding: 16px 24px; border-radius: 8px; font-size: 16px; font-weight: bold; border: 3px solid #f39c12; letter-spacing: 1px; text-transform: uppercase; box-shadow: 0 4px 12px rgba(233, 69, 96, 0.4); display: inline-block; }
+body { color: #22c55e; }
 </style>
 </head>
 <body>
@@ -22,7 +22,37 @@
 <div class="demos">
   <div class="demo-box">
     <div class="demo-area">
-      <div style="background: #e94560; color: #fff; padding: 16px 24px; border-radius: 8px; font-size: 16px; font-weight: bold; border: 3px solid #f39c12; letter-spacing: 1px; text-transform: uppercase; box-shadow: 0 4px 12px rgba(233, 69, 96, 0.4); margin: 8px; display: inline-block; all: revert-rule;">Styled Box</div>
+      <div style=" all: initial;">Styled Box</div>
+    </div>
+    <div class="label">all: initial</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style=" all: inherit;">Styled Box</div>
+    </div>
+    <div class="label">all: inherit</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style=" all: unset;">Styled Box</div>
+    </div>
+    <div class="label">all: unset</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style=" all: revert;">Styled Box</div>
+    </div>
+    <div class="label">all: revert</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style=" all: revert-layer;">Styled Box</div>
+    </div>
+    <div class="label">all: revert-layer</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style=" all: revert-rule;">Styled Box</div>
     </div>
     <div class="label">all: revert-rule</div>
   </div>

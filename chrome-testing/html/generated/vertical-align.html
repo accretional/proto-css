@@ -12,14 +12,7 @@
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
-  .demo-row { display: flex; align-items: center; gap: 16px; }
-.label-col { width: 280px; flex-shrink: 0; }
-.val-name { font-size: 13px; font-family: monospace; color: #e0e0e0; font-weight: 600; }
-.val-label { font-size: 11px; font-family: monospace; color: #9ca3af; }
-.line-container { flex: 1; max-width: 700px; background: #16213e; border-radius: 8px; padding: 12px 16px; position: relative; line-height: 60px; font-size: 18px; }
-.baseline-line { position: absolute; left: 16px; right: 16px; border-top: 1px dashed #4a5568; }
-.ref-text { color: #6b7280; font-size: 18px; }
-.aligned-text { font-size: 14px; font-weight: 600; display: inline; }
+  .ref-text { color: #6b7280; }
 </style>
 </head>
 <body>
@@ -27,292 +20,292 @@
 <p class="prop-name">vertical-align</p>
 <div class="demos">
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
       <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: first;"></span>
-      <span class="ref-text"> aligned to baseline</span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
     </div>
     <div class="label">vertical-align: first</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: first baseline;"></span>
-      <span class="ref-text"> aligned to baseline</span>
-    </div>
-    <div class="label">vertical-align: first baseline</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: first baseline 0;"></span>
-      <span class="ref-text"> aligned to baseline</span>
-    </div>
-    <div class="label">vertical-align: first baseline 0</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: first baseline 10px;"></span>
-      <span class="ref-text"> aligned to baseline</span>
-    </div>
-    <div class="label">vertical-align: first baseline 10px</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: first baseline sub;"></span>
-      <span class="ref-text"> aligned to baseline</span>
-    </div>
-    <div class="label">vertical-align: first baseline sub</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: first baseline super;"></span>
-      <span class="ref-text"> aligned to baseline</span>
-    </div>
-    <div class="label">vertical-align: first baseline super</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: first baseline top;"></span>
-      <span class="ref-text"> aligned to baseline</span>
-    </div>
-    <div class="label">vertical-align: first baseline top</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: first 0;"></span>
-      <span class="ref-text"> aligned to baseline</span>
-    </div>
-    <div class="label">vertical-align: first 0</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: first 0 baseline;"></span>
-      <span class="ref-text"> aligned to baseline</span>
-    </div>
-    <div class="label">vertical-align: first 0 baseline</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: first 0 text-bottom;"></span>
-      <span class="ref-text"> aligned to baseline</span>
-    </div>
-    <div class="label">vertical-align: first 0 text-bottom</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: first 0 alphabetic;"></span>
-      <span class="ref-text"> aligned to baseline</span>
-    </div>
-    <div class="label">vertical-align: first 0 alphabetic</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: first 0 ideographic;"></span>
-      <span class="ref-text"> aligned to baseline</span>
-    </div>
-    <div class="label">vertical-align: first 0 ideographic</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
       <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: baseline;"></span>
-      <span class="ref-text"> aligned to baseline</span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
     </div>
     <div class="label">vertical-align: baseline</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: 10px;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
+    </div>
+    <div class="label">vertical-align: 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: last;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
+    </div>
+    <div class="label">vertical-align: last</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: text-bottom;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
+    </div>
+    <div class="label">vertical-align: text-bottom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: sub;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
+    </div>
+    <div class="label">vertical-align: sub</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: first baseline;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
+    </div>
+    <div class="label">vertical-align: first baseline</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: alphabetic;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
+    </div>
+    <div class="label">vertical-align: alphabetic</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: super;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
+    </div>
+    <div class="label">vertical-align: super</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: last baseline;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
+    </div>
+    <div class="label">vertical-align: last baseline</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: ideographic;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
+    </div>
+    <div class="label">vertical-align: ideographic</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: top;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
+    </div>
+    <div class="label">vertical-align: top</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: first 10px;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
+    </div>
+    <div class="label">vertical-align: first 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: middle;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
+    </div>
+    <div class="label">vertical-align: middle</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: center;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
+    </div>
+    <div class="label">vertical-align: center</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: last 10px;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
+    </div>
+    <div class="label">vertical-align: last 10px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: central;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
+    </div>
+    <div class="label">vertical-align: central</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: bottom;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
+    </div>
+    <div class="label">vertical-align: bottom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: first text-bottom;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
+    </div>
+    <div class="label">vertical-align: first text-bottom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: mathematical;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
+    </div>
+    <div class="label">vertical-align: mathematical</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: 25%;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
+    </div>
+    <div class="label">vertical-align: 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: last text-bottom;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
+    </div>
+    <div class="label">vertical-align: last text-bottom</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: hanging;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
+    </div>
+    <div class="label">vertical-align: hanging</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: 50%;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
+    </div>
+    <div class="label">vertical-align: 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: first sub;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
+    </div>
+    <div class="label">vertical-align: first sub</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: text-top;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
+    </div>
+    <div class="label">vertical-align: text-top</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: 100%;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
+    </div>
+    <div class="label">vertical-align: 100%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: last sub;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
+    </div>
+    <div class="label">vertical-align: last sub</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
       <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: baseline first;"></span>
-      <span class="ref-text"> aligned to baseline</span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
     </div>
     <div class="label">vertical-align: baseline first</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: baseline first 0;"></span>
-      <span class="ref-text"> aligned to baseline</span>
-    </div>
-    <div class="label">vertical-align: baseline first 0</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: baseline first 10px;"></span>
-      <span class="ref-text"> aligned to baseline</span>
-    </div>
-    <div class="label">vertical-align: baseline first 10px</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: baseline first sub;"></span>
-      <span class="ref-text"> aligned to baseline</span>
-    </div>
-    <div class="label">vertical-align: baseline first sub</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: baseline first super;"></span>
-      <span class="ref-text"> aligned to baseline</span>
-    </div>
-    <div class="label">vertical-align: baseline first super</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: baseline first top;"></span>
-      <span class="ref-text"> aligned to baseline</span>
-    </div>
-    <div class="label">vertical-align: baseline first top</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: baseline 0;"></span>
-      <span class="ref-text"> aligned to baseline</span>
-    </div>
-    <div class="label">vertical-align: baseline 0</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: baseline 0 first;"></span>
-      <span class="ref-text"> aligned to baseline</span>
-    </div>
-    <div class="label">vertical-align: baseline 0 first</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: baseline 0 last;"></span>
-      <span class="ref-text"> aligned to baseline</span>
-    </div>
-    <div class="label">vertical-align: baseline 0 last</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: baseline 10px;"></span>
-      <span class="ref-text"> aligned to baseline</span>
-    </div>
-    <div class="label">vertical-align: baseline 10px</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: baseline 10px first;"></span>
-      <span class="ref-text"> aligned to baseline</span>
-    </div>
-    <div class="label">vertical-align: baseline 10px first</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
       <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: 0;"></span>
-      <span class="ref-text"> aligned to baseline</span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
     </div>
     <div class="label">vertical-align: 0</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: 0 first;"></span>
-      <span class="ref-text"> aligned to baseline</span>
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: first alphabetic;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
     </div>
-    <div class="label">vertical-align: 0 first</div>
+    <div class="label">vertical-align: first alphabetic</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: 0 first baseline;"></span>
-      <span class="ref-text"> aligned to baseline</span>
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: text-bottom first;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
     </div>
-    <div class="label">vertical-align: 0 first baseline</div>
+    <div class="label">vertical-align: text-bottom first</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: 0 first text-bottom;"></span>
-      <span class="ref-text"> aligned to baseline</span>
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: 10px first;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
     </div>
-    <div class="label">vertical-align: 0 first text-bottom</div>
+    <div class="label">vertical-align: 10px first</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: 0 first alphabetic;"></span>
-      <span class="ref-text"> aligned to baseline</span>
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: last alphabetic;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
     </div>
-    <div class="label">vertical-align: 0 first alphabetic</div>
+    <div class="label">vertical-align: last alphabetic</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: 0 first ideographic;"></span>
-      <span class="ref-text"> aligned to baseline</span>
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: alphabetic first;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
     </div>
-    <div class="label">vertical-align: 0 first ideographic</div>
+    <div class="label">vertical-align: alphabetic first</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: 0 first middle;"></span>
-      <span class="ref-text"> aligned to baseline</span>
+    <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 12px 16px; line-height: 60px; font-size: 18px; position: relative; min-height: 80px; border: 1px solid #2a2a4a;">
+      <span class="ref-text" style="font-size: 32px;">Xg</span>
+      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: sub first;"></span>
+      <span class="ref-text" style="font-size: 12px;">text</span><div class="baseline-line" style="position: absolute; left: 12px; right: 12px; top: 50%; border-top: 1px dashed #4a5568;"></div>
     </div>
-    <div class="label">vertical-align: 0 first middle</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: 0 baseline;"></span>
-      <span class="ref-text"> aligned to baseline</span>
-    </div>
-    <div class="label">vertical-align: 0 baseline</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: 0 baseline first;"></span>
-      <span class="ref-text"> aligned to baseline</span>
-    </div>
-    <div class="label">vertical-align: 0 baseline first</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: 0 baseline last;"></span>
-      <span class="ref-text"> aligned to baseline</span>
-    </div>
-    <div class="label">vertical-align: 0 baseline last</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: 0 text-bottom;"></span>
-      <span class="ref-text"> aligned to baseline</span>
-    </div>
-    <div class="label">vertical-align: 0 text-bottom</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 12px;">
-      <span class="ref-text">Text </span>
-      <span style="display: inline-block; width: 28px; height: 28px; border-radius: 4px; margin: 0 4px; background: #e94560; vertical-align: 0 text-bottom first;"></span>
-      <span class="ref-text"> aligned to baseline</span>
-    </div>
-    <div class="label">vertical-align: 0 text-bottom first</div>
+    <div class="label">vertical-align: sub first</div>
   </div>
 </div>
 </body>

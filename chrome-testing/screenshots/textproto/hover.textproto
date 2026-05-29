@@ -1,0 +1,58 @@
+# Hover mode: 2 screenshots — before and after mouse hover on target.
+# Dispatches mouseenter/mouseover events to trigger :hover CSS.
+# Placeholders: {{URL}}, {{OUTPUT_DIR}}, {{SLUG}}
+
+name: "screenshot_{{SLUG}}"
+
+steps: {
+  label: "set_viewport"
+  set_viewport: {
+    width: 1280
+    height: 800
+    device_scale_factor: 2
+  }
+}
+
+steps: {
+  label: "navigate"
+  navigate: {
+    url: "{{URL}}"
+  }
+}
+
+steps: {
+  label: "wait_for_render"
+  wait: {
+    milliseconds: 500
+  }
+}
+
+steps: {
+  label: "frame_1"
+  screenshot: {
+    output_path: "{{OUTPUT_DIR}}/1.png"
+    format: "png"
+  }
+}
+
+steps: {
+  label: "hover_target"
+  evaluate_script: {
+    expression: "(function(){var el=document.querySelector('.demo-area [style]');if(!el)return;var r=el.getBoundingClientRect();el.dispatchEvent(new MouseEvent('mouseenter',{bubbles:true,clientX:r.x+r.width/2,clientY:r.y+r.height/2}));el.dispatchEvent(new MouseEvent('mouseover',{bubbles:true,clientX:r.x+r.width/2,clientY:r.y+r.height/2}))})()"
+  }
+}
+
+steps: {
+  label: "wait_hover"
+  wait: {
+    milliseconds: 300
+  }
+}
+
+steps: {
+  label: "frame_2"
+  screenshot: {
+    output_path: "{{OUTPUT_DIR}}/2.png"
+    format: "png"
+  }
+}

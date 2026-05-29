@@ -8,7 +8,7 @@
   body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
@@ -20,195 +20,27 @@
 <div class="demos">
   <div class="demo-box">
     <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 28px 36px;">
-      <svg width="280" height="220">
-      <polyline style="fill: none; stroke: #06b6d4; stroke-width: 20; stroke-linecap: butt; stroke-linejoin: crop;"></polyline>
-      <polyline points="30,180 80,40 140,180 200,40 250,180" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 3"/></svg>
-    </div>
-    <div class="label">stroke-linejoin: crop</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 28px 36px;">
-      <svg width="280" height="220">
-      <polyline style="fill: none; stroke: #06b6d4; stroke-width: 20; stroke-linecap: butt; stroke-linejoin: crop bevel;"></polyline>
-      <polyline points="30,180 80,40 140,180 200,40 250,180" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 3"/></svg>
-    </div>
-    <div class="label">stroke-linejoin: crop bevel</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 28px 36px;">
-      <svg width="280" height="220">
-      <polyline style="fill: none; stroke: #06b6d4; stroke-width: 20; stroke-linecap: butt; stroke-linejoin: crop round;"></polyline>
-      <polyline points="30,180 80,40 140,180 200,40 250,180" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 3"/></svg>
-    </div>
-    <div class="label">stroke-linejoin: crop round</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 28px 36px;">
-      <svg width="280" height="220">
-      <polyline style="fill: none; stroke: #06b6d4; stroke-width: 20; stroke-linecap: butt; stroke-linejoin: crop fallback;"></polyline>
-      <polyline points="30,180 80,40 140,180 200,40 250,180" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 3"/></svg>
-    </div>
-    <div class="label">stroke-linejoin: crop fallback</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 28px 36px;">
-      <svg width="280" height="220">
-      <polyline style="fill: none; stroke: #06b6d4; stroke-width: 20; stroke-linecap: butt; stroke-linejoin: arcs;"></polyline>
-      <polyline points="30,180 80,40 140,180 200,40 250,180" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 3"/></svg>
-    </div>
-    <div class="label">stroke-linejoin: arcs</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 28px 36px;">
-      <svg width="280" height="220">
-      <polyline style="fill: none; stroke: #06b6d4; stroke-width: 20; stroke-linecap: butt; stroke-linejoin: arcs bevel;"></polyline>
-      <polyline points="30,180 80,40 140,180 200,40 250,180" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 3"/></svg>
-    </div>
-    <div class="label">stroke-linejoin: arcs bevel</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 28px 36px;">
-      <svg width="280" height="220">
-      <polyline style="fill: none; stroke: #06b6d4; stroke-width: 20; stroke-linecap: butt; stroke-linejoin: arcs round;"></polyline>
-      <polyline points="30,180 80,40 140,180 200,40 250,180" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 3"/></svg>
-    </div>
-    <div class="label">stroke-linejoin: arcs round</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 28px 36px;">
-      <svg width="280" height="220">
-      <polyline style="fill: none; stroke: #06b6d4; stroke-width: 20; stroke-linecap: butt; stroke-linejoin: arcs fallback;"></polyline>
-      <polyline points="30,180 80,40 140,180 200,40 250,180" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 3"/></svg>
-    </div>
-    <div class="label">stroke-linejoin: arcs fallback</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 28px 36px;">
-      <svg width="280" height="220">
-      <polyline style="fill: none; stroke: #06b6d4; stroke-width: 20; stroke-linecap: butt; stroke-linejoin: miter;"></polyline>
-      <polyline points="30,180 80,40 140,180 200,40 250,180" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 3"/></svg>
+      <svg width="280" height="230">
+      <path style="fill: none; stroke: #06b6d4; stroke-width: 24; stroke-linecap: butt; d: path(&#39;M 20,200 L 60,30 L 100,200 L 140,30 L 180,200 L 220,30 L 260,200&#39;); stroke-linejoin: miter;"></path>
+      <path d="M 20,200 L 60,30 L 100,200 L 140,30 L 180,200 L 220,30 L 260,200" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 3"/></svg>
     </div>
     <div class="label">stroke-linejoin: miter</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 28px 36px;">
-      <svg width="280" height="220">
-      <polyline style="fill: none; stroke: #06b6d4; stroke-width: 20; stroke-linecap: butt; stroke-linejoin: miter bevel;"></polyline>
-      <polyline points="30,180 80,40 140,180 200,40 250,180" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 3"/></svg>
-    </div>
-    <div class="label">stroke-linejoin: miter bevel</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 28px 36px;">
-      <svg width="280" height="220">
-      <polyline style="fill: none; stroke: #06b6d4; stroke-width: 20; stroke-linecap: butt; stroke-linejoin: miter round;"></polyline>
-      <polyline points="30,180 80,40 140,180 200,40 250,180" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 3"/></svg>
-    </div>
-    <div class="label">stroke-linejoin: miter round</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 28px 36px;">
-      <svg width="280" height="220">
-      <polyline style="fill: none; stroke: #06b6d4; stroke-width: 20; stroke-linecap: butt; stroke-linejoin: miter fallback;"></polyline>
-      <polyline points="30,180 80,40 140,180 200,40 250,180" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 3"/></svg>
-    </div>
-    <div class="label">stroke-linejoin: miter fallback</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 28px 36px;">
-      <svg width="280" height="220">
-      <polyline style="fill: none; stroke: #06b6d4; stroke-width: 20; stroke-linecap: butt; stroke-linejoin: bevel;"></polyline>
-      <polyline points="30,180 80,40 140,180 200,40 250,180" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 3"/></svg>
-    </div>
-    <div class="label">stroke-linejoin: bevel</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 28px 36px;">
-      <svg width="280" height="220">
-      <polyline style="fill: none; stroke: #06b6d4; stroke-width: 20; stroke-linecap: butt; stroke-linejoin: bevel crop;"></polyline>
-      <polyline points="30,180 80,40 140,180 200,40 250,180" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 3"/></svg>
-    </div>
-    <div class="label">stroke-linejoin: bevel crop</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 28px 36px;">
-      <svg width="280" height="220">
-      <polyline style="fill: none; stroke: #06b6d4; stroke-width: 20; stroke-linecap: butt; stroke-linejoin: bevel arcs;"></polyline>
-      <polyline points="30,180 80,40 140,180 200,40 250,180" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 3"/></svg>
-    </div>
-    <div class="label">stroke-linejoin: bevel arcs</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 28px 36px;">
-      <svg width="280" height="220">
-      <polyline style="fill: none; stroke: #06b6d4; stroke-width: 20; stroke-linecap: butt; stroke-linejoin: bevel miter;"></polyline>
-      <polyline points="30,180 80,40 140,180 200,40 250,180" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 3"/></svg>
-    </div>
-    <div class="label">stroke-linejoin: bevel miter</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 28px 36px;">
-      <svg width="280" height="220">
-      <polyline style="fill: none; stroke: #06b6d4; stroke-width: 20; stroke-linecap: butt; stroke-linejoin: round;"></polyline>
-      <polyline points="30,180 80,40 140,180 200,40 250,180" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 3"/></svg>
+      <svg width="280" height="230">
+      <path style="fill: none; stroke: #06b6d4; stroke-width: 24; stroke-linecap: butt; d: path(&#39;M 20,200 L 60,30 L 100,200 L 140,30 L 180,200 L 220,30 L 260,200&#39;); stroke-linejoin: round;"></path>
+      <path d="M 20,200 L 60,30 L 100,200 L 140,30 L 180,200 L 220,30 L 260,200" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 3"/></svg>
     </div>
     <div class="label">stroke-linejoin: round</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 28px 36px;">
-      <svg width="280" height="220">
-      <polyline style="fill: none; stroke: #06b6d4; stroke-width: 20; stroke-linecap: butt; stroke-linejoin: round crop;"></polyline>
-      <polyline points="30,180 80,40 140,180 200,40 250,180" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 3"/></svg>
+      <svg width="280" height="230">
+      <path style="fill: none; stroke: #06b6d4; stroke-width: 24; stroke-linecap: butt; d: path(&#39;M 20,200 L 60,30 L 100,200 L 140,30 L 180,200 L 220,30 L 260,200&#39;); stroke-linejoin: bevel;"></path>
+      <path d="M 20,200 L 60,30 L 100,200 L 140,30 L 180,200 L 220,30 L 260,200" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 3"/></svg>
     </div>
-    <div class="label">stroke-linejoin: round crop</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 28px 36px;">
-      <svg width="280" height="220">
-      <polyline style="fill: none; stroke: #06b6d4; stroke-width: 20; stroke-linecap: butt; stroke-linejoin: round arcs;"></polyline>
-      <polyline points="30,180 80,40 140,180 200,40 250,180" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 3"/></svg>
-    </div>
-    <div class="label">stroke-linejoin: round arcs</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 28px 36px;">
-      <svg width="280" height="220">
-      <polyline style="fill: none; stroke: #06b6d4; stroke-width: 20; stroke-linecap: butt; stroke-linejoin: round miter;"></polyline>
-      <polyline points="30,180 80,40 140,180 200,40 250,180" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 3"/></svg>
-    </div>
-    <div class="label">stroke-linejoin: round miter</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 28px 36px;">
-      <svg width="280" height="220">
-      <polyline style="fill: none; stroke: #06b6d4; stroke-width: 20; stroke-linecap: butt; stroke-linejoin: fallback;"></polyline>
-      <polyline points="30,180 80,40 140,180 200,40 250,180" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 3"/></svg>
-    </div>
-    <div class="label">stroke-linejoin: fallback</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 28px 36px;">
-      <svg width="280" height="220">
-      <polyline style="fill: none; stroke: #06b6d4; stroke-width: 20; stroke-linecap: butt; stroke-linejoin: fallback crop;"></polyline>
-      <polyline points="30,180 80,40 140,180 200,40 250,180" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 3"/></svg>
-    </div>
-    <div class="label">stroke-linejoin: fallback crop</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 28px 36px;">
-      <svg width="280" height="220">
-      <polyline style="fill: none; stroke: #06b6d4; stroke-width: 20; stroke-linecap: butt; stroke-linejoin: fallback arcs;"></polyline>
-      <polyline points="30,180 80,40 140,180 200,40 250,180" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 3"/></svg>
-    </div>
-    <div class="label">stroke-linejoin: fallback arcs</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 28px 36px;">
-      <svg width="280" height="220">
-      <polyline style="fill: none; stroke: #06b6d4; stroke-width: 20; stroke-linecap: butt; stroke-linejoin: fallback miter;"></polyline>
-      <polyline points="30,180 80,40 140,180 200,40 250,180" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="4 3"/></svg>
-    </div>
-    <div class="label">stroke-linejoin: fallback miter</div>
+    <div class="label">stroke-linejoin: bevel</div>
   </div>
 </div>
 </body>

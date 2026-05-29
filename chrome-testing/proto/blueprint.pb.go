@@ -122,9 +122,14 @@ type TemplateBlueprint struct {
 	// Maximum number of values to show (default: 36)
 	MaxValues int32 `protobuf:"varint,10,opt,name=max_values,json=maxValues,proto3" json:"max_values,omitempty"`
 	// Extra CSS rules to include in the <style> block (for .item, .flow-box, etc.)
-	ExtraCss      string `protobuf:"bytes,11,opt,name=extra_css,json=extraCss,proto3" json:"extra_css,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	ExtraCss string `protobuf:"bytes,11,opt,name=extra_css,json=extraCss,proto3" json:"extra_css,omitempty"`
+	// Name of the screenshot mode textproto template (e.g. "static", "temporal",
+	// "scroll", "hover", "focus", "selection"). Maps to a file in
+	// chrome-testing/screenshots/textproto/{name}.textproto.
+	// Default: "static" (single screenshot).
+	ScreenshotTextproto string `protobuf:"bytes,12,opt,name=screenshot_textproto,json=screenshotTextproto,proto3" json:"screenshot_textproto,omitempty"`
+	unknownFields       protoimpl.UnknownFields
+	sizeCache           protoimpl.SizeCache
 }
 
 func (x *TemplateBlueprint) Reset() {
@@ -234,11 +239,18 @@ func (x *TemplateBlueprint) GetExtraCss() string {
 	return ""
 }
 
+func (x *TemplateBlueprint) GetScreenshotTextproto() string {
+	if x != nil {
+		return x.ScreenshotTextproto
+	}
+	return ""
+}
+
 var File_chrome_testing_proto_blueprint_proto protoreflect.FileDescriptor
 
 const file_chrome_testing_proto_blueprint_proto_rawDesc = "" +
 	"\n" +
-	"$chrome-testing/proto/blueprint.proto\x12\x06cssgen\"\xca\x04\n" +
+	"$chrome-testing/proto/blueprint.proto\x12\x06cssgen\"\xfd\x04\n" +
 	"\x11TemplateBlueprint\x12?\n" +
 	"\tdemo_type\x18\x01 \x01(\x0e2\".cssgen.TemplateBlueprint.DemoTypeR\bdemoType\x12\x14\n" +
 	"\x05title\x18\x02 \x01(\tR\x05title\x12\x1d\n" +
@@ -253,7 +265,8 @@ const file_chrome_testing_proto_blueprint_proto_rawDesc = "" +
 	"\n" +
 	"max_values\x18\n" +
 	" \x01(\x05R\tmaxValues\x12\x1b\n" +
-	"\textra_css\x18\v \x01(\tR\bextraCss\"\x8e\x01\n" +
+	"\textra_css\x18\v \x01(\tR\bextraCss\x121\n" +
+	"\x14screenshot_textproto\x18\f \x01(\tR\x13screenshotTextproto\"\x8e\x01\n" +
 	"\bDemoType\x12\a\n" +
 	"\x03BOX\x10\x00\x12\b\n" +
 	"\x04TEXT\x10\x01\x12\b\n" +
