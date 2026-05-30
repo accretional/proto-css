@@ -1,68 +1,74 @@
 #!/usr/bin/env bash
-# run.sh — Screenshot all CSS property templates and generate the live gallery.
+# run.sh — Screenshot CSS property templates and build gallery pages.
 #
 # Usage:
-#   ./run.sh                    # screenshot all templates + build gallery
-#   ./run.sh --gallery-only     # just regenerate gallery.html
+#   ./chrome-testing/run.sh                              # both template + generated
+#   ./chrome-testing/run.sh --template                   # template only
+#   ./chrome-testing/run.sh --generated                  # generated only (includes EBNF gen)
+#   ./chrome-testing/run.sh --gallery-only               # rebuild both galleries only
+#   ./chrome-testing/run.sh --template --gallery-only    # rebuild template gallery only
+#   ./chrome-testing/run.sh --generated --gallery-only   # rebuild generated gallery only
+#
+# Env vars (generated pipeline):
+#   START=0 COUNT=20 ./chrome-testing/run.sh --generated
+#
+# Idempotent: safe to re-run at any time.
 
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+# ── Parse flags ────────────────────────────────────────────────────────────
+
+DO_TEMPLATE=false
+DO_GENERATED=false
+GALLERY_ONLY=false
+
+for arg in "$@"; do
+  case "$arg" in
+    --template)     DO_TEMPLATE=true ;;
+    --generated)    DO_GENERATED=true ;;
+    --gallery-only) GALLERY_ONLY=true ;;
+    *) echo "Unknown flag: $arg" >&2; exit 1 ;;
+  esac
+done
+
+# Default: do both
+if ! $DO_TEMPLATE && ! $DO_GENERATED; then
+  DO_TEMPLATE=true
+  DO_GENERATED=true
+fi
+
+# ── Directories ────────────────────────────────────────────────────────────
+
 TEMPLATES_DIR="$SCRIPT_DIR/html/template"
-SCREENSHOTS_DIR="$SCRIPT_DIR/screenshots/template"
+GEN_DIR="$SCRIPT_DIR/html/generated"
+TEMPLATE_SCREENSHOTS="$SCRIPT_DIR/screenshots/template"
+GEN_SCREENSHOTS="$SCRIPT_DIR/screenshots/generated"
 MODES_DIR="$SCRIPT_DIR/screenshots/textproto"
 BLUEPRINTS_DIR="$SCRIPT_DIR/textproto/blueprints"
 GALLERY_DIR="$SCRIPT_DIR/html"
-TEMPLATE_GALLERY="$GALLERY_DIR/template_gallery.html"
-MANIFEST="$TEMPLATES_DIR/screenshot_modes.txt"
+TEMPLATE_MANIFEST="$TEMPLATES_DIR/screenshot_modes.txt"
 
-if [[ ! -d "$TEMPLATES_DIR" ]]; then
-  echo "ERROR: html/template/ directory not found." >&2
-  exit 1
-fi
+# ── Gallery builder ────────────────────────────────────────────────────────
+# Usage: build_gallery <src_dir> <output_file> <title> <subtitle> <iframe_prefix>
 
-# ── Generate manifest from blueprints ────────────────────────────────────────
+build_gallery() {
+  local src_dir="$1"
+  local output="$2"
+  local title="$3"
+  local subtitle="$4"
+  local iframe_prefix="$5"
 
-generate_manifest() {
-  echo "=== Generating screenshot modes manifest from blueprints ==="
-  > "$MANIFEST"
-  for html in "$TEMPLATES_DIR"/*.html; do
-    slug="$(basename "$html" .html)"
-    bp="$BLUEPRINTS_DIR/${slug}.textproto"
-    mode="static"
-    if [[ -f "$bp" ]]; then
-      m="$(grep -m1 'screenshot_textproto:' "$bp" 2>/dev/null | sed 's/.*"\(.*\)"/\1/' || true)"
-      [[ -n "$m" ]] && mode="$m"
-    fi
-    printf '%s\t%s\n' "$slug" "$mode" >> "$MANIFEST"
-  done
-  echo "  Wrote $(wc -l < "$MANIFEST" | tr -d ' ') entries to $MANIFEST"
-}
+  mkdir -p "$(dirname "$output")"
 
-# ── Screenshot all templates ─────────────────────────────────────────────────
-
-if [[ "${1:-}" != "--gallery-only" ]]; then
-  echo "=== Screenshotting all CSS property templates ==="
-  generate_manifest
-  mkdir -p "$SCREENSHOTS_DIR"
-  "$SCRIPT_DIR/snap.sh" "$TEMPLATES_DIR/" "$SCREENSHOTS_DIR/" \
-    --manifest "$MANIFEST" \
-    --modes-dir "$MODES_DIR"
-  echo ""
-fi
-
-# ── Generate template iframe gallery ────────────────────────────────────────
-
-mkdir -p "$GALLERY_DIR"
-
-echo "=== Generating template_gallery.html ==="
-
-cat > "$TEMPLATE_GALLERY" <<'TGALLERY_HEAD'
+  cat > "$output" <<'GALLERY_HEAD'
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>CSS Properties Live Template Gallery</title>
+  <title>GALLERY_TITLE_PLACEHOLDER</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -85,7 +91,7 @@ cat > "$TEMPLATE_GALLERY" <<'TGALLERY_HEAD'
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
       max-width: 1800px;
       margin: 0 auto;
@@ -101,12 +107,21 @@ cat > "$TEMPLATE_GALLERY" <<'TGALLERY_HEAD'
     .card:hover {
       border-color: #666;
     }
-    .card iframe {
-      width: 100%;
+    .card .preview {
+      position: relative;
+      overflow: hidden;
       aspect-ratio: 16/10;
+      background: #1a1a2e;
+    }
+    .card .preview iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1280px;
+      height: 800px;
+      transform-origin: 0 0;
       border: none;
       display: block;
-      background: #1a1a2e;
       pointer-events: none;
     }
     .card .label {
@@ -124,7 +139,7 @@ cat > "$TEMPLATE_GALLERY" <<'TGALLERY_HEAD'
       display: none;
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.8);
+      background: rgba(0,0,0,0.85);
       z-index: 1000;
       align-items: center;
       justify-content: center;
@@ -132,13 +147,16 @@ cat > "$TEMPLATE_GALLERY" <<'TGALLERY_HEAD'
     .overlay.active { display: flex; }
     .overlay-box {
       position: relative;
-      width: 90vw;
-      height: 85vh;
-      max-width: 1400px;
       background: #1a1a2e;
       border-radius: 12px;
       overflow: hidden;
       border: 1px solid #444;
+      display: flex;
+      flex-direction: column;
+      width: 95vw;
+      height: 95vh;
+      max-width: 1400px;
+      max-height: 920px;
     }
     .overlay-header {
       display: flex;
@@ -147,6 +165,7 @@ cat > "$TEMPLATE_GALLERY" <<'TGALLERY_HEAD'
       padding: 8px 16px;
       background: #111;
       border-bottom: 1px solid #333;
+      flex-shrink: 0;
     }
     .overlay-title {
       font-size: 14px;
@@ -167,34 +186,47 @@ cat > "$TEMPLATE_GALLERY" <<'TGALLERY_HEAD'
       border-radius: 6px;
     }
     .overlay-close:hover { background: #333; color: #fff; }
-    .overlay-box iframe {
-      width: 100%;
-      height: calc(100% - 44px);
+    .overlay-content {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+    .overlay-content iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1280px;
+      height: 800px;
+      transform-origin: 0 0;
       border: none;
     }
-    @media (max-width: 1200px) { .grid { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 1200px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(1, 1fr); } }
   </style>
 </head>
 <body>
-  <h1>CSS Properties Live Template Gallery</h1>
-TGALLERY_HEAD
+  <h1>GALLERY_TITLE_PLACEHOLDER</h1>
+GALLERY_HEAD
 
-tcount=$(ls -1 "$TEMPLATES_DIR"/*.html 2>/dev/null | wc -l | tr -d ' ')
-echo "  <p class=\"subtitle\">${tcount} properties (live iframes)</p>" >> "$TEMPLATE_GALLERY"
-echo '  <div class="grid">' >> "$TEMPLATE_GALLERY"
+  # Patch title into the generated HTML
+  sed -i '' "s/GALLERY_TITLE_PLACEHOLDER/$title/g" "$output"
 
-for html in $(ls -1 "$TEMPLATES_DIR"/*.html 2>/dev/null | sort); do
-  filename="$(basename "$html")"
-  slug="${filename%.html}"
-  property="$slug"
-  echo "    <div class=\"card\" onclick=\"openOverlay('../html/template/$filename', '$property')\">" >> "$TEMPLATE_GALLERY"
-  echo "      <iframe src=\"../html/template/$filename\" loading=\"lazy\" sandbox=\"allow-same-origin allow-scripts\"></iframe>" >> "$TEMPLATE_GALLERY"
-  echo "      <div class=\"label\">$property</div>" >> "$TEMPLATE_GALLERY"
-  echo "    </div>" >> "$TEMPLATE_GALLERY"
-done
+  local count
+  count=$(ls -1 "$src_dir"/*.html 2>/dev/null | wc -l | tr -d ' ')
+  echo "  <p class=\"subtitle\">${subtitle/COUNT/$count}</p>" >> "$output"
+  echo '  <div class="grid">' >> "$output"
 
-cat >> "$TEMPLATE_GALLERY" <<'TGALLERY_TAIL'
+  for html in $(ls -1 "$src_dir"/*.html 2>/dev/null | sort); do
+    local filename
+    filename="$(basename "$html")"
+    local property="${filename%.html}"
+    echo "    <div class=\"card\" onclick=\"openOverlay('${iframe_prefix}/$filename', '$property')\">" >> "$output"
+    echo "      <div class=\"preview\"><iframe src=\"${iframe_prefix}/$filename\" loading=\"lazy\" sandbox=\"allow-same-origin allow-scripts\" scrolling=\"no\"></iframe></div>" >> "$output"
+    echo "      <div class=\"label\">$property</div>" >> "$output"
+    echo "    </div>" >> "$output"
+  done
+
+  cat >> "$output" <<'GALLERY_TAIL'
   </div>
   <div class="overlay" id="overlay" onclick="if(event.target===this)closeOverlay()">
     <div class="overlay-box">
@@ -202,14 +234,32 @@ cat >> "$TEMPLATE_GALLERY" <<'TGALLERY_TAIL'
         <span class="overlay-title" id="overlay-title"></span>
         <button class="overlay-close" onclick="closeOverlay()">&times;</button>
       </div>
-      <iframe id="overlay-iframe" sandbox="allow-same-origin allow-scripts"></iframe>
+      <div class="overlay-content" id="overlay-content">
+        <iframe id="overlay-iframe" sandbox="allow-same-origin allow-scripts" scrolling="no"></iframe>
+      </div>
     </div>
   </div>
   <script>
+    function scaleIframes() {
+      document.querySelectorAll('.card .preview').forEach(function(p) {
+        var s = p.offsetWidth / 1280;
+        p.querySelector('iframe').style.transform = 'scale(' + s + ')';
+      });
+    }
+    function scaleOverlay() {
+      var c = document.getElementById('overlay-content');
+      var iframe = document.getElementById('overlay-iframe');
+      if (!c || !iframe) return;
+      var sw = c.offsetWidth / 1280;
+      var sh = c.offsetHeight / 800;
+      var s = Math.min(sw, sh);
+      iframe.style.transform = 'scale(' + s + ')';
+    }
     function openOverlay(src, title) {
       document.getElementById('overlay-title').textContent = title;
       document.getElementById('overlay-iframe').src = src;
       document.getElementById('overlay').classList.add('active');
+      requestAnimationFrame(scaleOverlay);
     }
     function closeOverlay() {
       document.getElementById('overlay').classList.remove('active');
@@ -218,10 +268,90 @@ cat >> "$TEMPLATE_GALLERY" <<'TGALLERY_TAIL'
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeOverlay();
     });
+    window.addEventListener('load', scaleIframes);
+    window.addEventListener('resize', function() { scaleIframes(); scaleOverlay(); });
   </script>
 </body>
 </html>
-TGALLERY_TAIL
+GALLERY_TAIL
 
-echo "Template gallery generated: $TEMPLATE_GALLERY ($tcount properties)"
+  echo "Gallery generated: $output ($count properties)"
+}
+
+# ── Template pipeline ──────────────────────────────────────────────────────
+
+if $DO_TEMPLATE; then
+  if [[ ! -d "$TEMPLATES_DIR" ]]; then
+    echo "ERROR: html/template/ directory not found." >&2
+    exit 1
+  fi
+
+  if ! $GALLERY_ONLY; then
+    echo "=== Screenshotting hand-written templates ==="
+
+    # Generate manifest from blueprints
+    echo "  Generating screenshot modes manifest from blueprints..."
+    > "$TEMPLATE_MANIFEST"
+    for html in "$TEMPLATES_DIR"/*.html; do
+      slug="$(basename "$html" .html)"
+      bp="$BLUEPRINTS_DIR/${slug}.textproto"
+      mode="static"
+      if [[ -f "$bp" ]]; then
+        m="$(grep -m1 'screenshot_textproto:' "$bp" 2>/dev/null | sed 's/.*"\(.*\)"/\1/' || true)"
+        [[ -n "$m" ]] && mode="$m"
+      fi
+      printf '%s\t%s\n' "$slug" "$mode" >> "$TEMPLATE_MANIFEST"
+    done
+    echo "  Wrote $(wc -l < "$TEMPLATE_MANIFEST" | tr -d ' ') entries"
+
+    mkdir -p "$TEMPLATE_SCREENSHOTS"
+    "$SCRIPT_DIR/snap.sh" "$TEMPLATES_DIR/" "$TEMPLATE_SCREENSHOTS/" \
+      --manifest "$TEMPLATE_MANIFEST" \
+      --modes-dir "$MODES_DIR"
+    echo ""
+  fi
+
+  echo "=== Building template gallery ==="
+  build_gallery "$TEMPLATES_DIR" \
+    "$GALLERY_DIR/template_gallery.html" \
+    "CSS Properties Live Template Gallery" \
+    "COUNT properties (live iframes)" \
+    "../html/template"
+fi
+
+# ── Generated pipeline ─────────────────────────────────────────────────────
+
+if $DO_GENERATED; then
+  if ! $GALLERY_ONLY; then
+    echo "=== Generating HTML from EBNF grammar ==="
+    cd "$REPO_ROOT"
+
+    ARGS=()
+    [[ -n "${START:-}" ]] && ARGS+=(--start "$START")
+    [[ -n "${COUNT:-}" ]] && ARGS+=(--count "$COUNT")
+
+    go run ./chrome-testing/cmd/generate/ ${ARGS[@]+"${ARGS[@]}"}
+    echo ""
+
+    if [[ ! -d "$GEN_DIR" ]] || [[ -z "$(ls -A "$GEN_DIR"/*.html 2>/dev/null)" ]]; then
+      echo "ERROR: No generated HTML files found in $GEN_DIR" >&2
+      exit 1
+    fi
+
+    echo "=== Screenshotting generated HTML ==="
+    mkdir -p "$GEN_SCREENSHOTS"
+    "$SCRIPT_DIR/snap.sh" "$GEN_DIR/" "$GEN_SCREENSHOTS/" \
+      --manifest "$GEN_DIR/screenshot_modes.txt" \
+      --modes-dir "$MODES_DIR"
+    echo ""
+  fi
+
+  echo "=== Building generated gallery ==="
+  build_gallery "$GEN_DIR" \
+    "$GALLERY_DIR/generated_gallery.html" \
+    "CSS Properties — Generated from EBNF Grammar (Live)" \
+    "COUNT properties — values generated from parsed EBNF rules (live iframes)" \
+    "../html/generated"
+fi
+
 echo "Done."

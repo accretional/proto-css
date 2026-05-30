@@ -27,13 +27,13 @@ chrome-testing/generated/*.html  ──►  chromerpc  ──►  gen-screenshot
 
 ```bash
 # Full pipeline: generate HTML → screenshot → gallery
-./chrome-testing/run_gen.sh
+./chrome-testing/run.sh --generated
 
 # First 20 properties only
-START=0 COUNT=20 ./chrome-testing/run_gen.sh
+START=0 COUNT=20 ./chrome-testing/run.sh --generated
 
 # Rebuild gallery from existing screenshots
-./chrome-testing/run_gen.sh --gallery-only
+./chrome-testing/run.sh --generated --gallery-only
 ```
 
 ## How It Works
@@ -68,7 +68,7 @@ For each property:
 
 ### 4. Screenshotting
 
-`run_gen.sh` uses `snap.sh` with chromerpc (headless Chrome) to capture each generated HTML page at 1440x900.
+`run.sh --generated` uses `snap.sh` with chromerpc (headless Chrome) to capture each generated HTML page at 1440x900.
 
 ### 5. Gallery
 
@@ -81,7 +81,7 @@ A single `generated-gallery.html` shows all 528 property screenshots in a respon
 | `lang/*.ebnf` | CSS EBNF grammar (12 files, ~3900 rules) |
 | `chrome-testing/cmd/generate/main.go` | Entry point, template cloning logic |
 | `chrome-testing/cmd/generate/grammargen.go` | CSS value generator from grammar rules |
-| `chrome-testing/run_gen.sh` | Pipeline: generate → screenshot → gallery |
+| `chrome-testing/run.sh` | Pipeline: generate → screenshot → gallery |
 | `chrome-testing/templates/*.html` | Hand-written HTML templates (525) |
 | `chrome-testing/generated/*.html` | Output: templates with grammar-generated values |
 | `chrome-testing/gen-screenshots/*.png` | Screenshots of generated pages |
@@ -92,9 +92,9 @@ A single `generated-gallery.html` shows all 528 property screenshots in a respon
 Process subsets of properties for faster iteration:
 
 ```bash
-START=0   COUNT=20  ./chrome-testing/run_gen.sh   # properties 0-19
-START=20  COUNT=20  ./chrome-testing/run_gen.sh   # properties 20-39
-START=100 COUNT=50  ./chrome-testing/run_gen.sh   # properties 100-149
+START=0   COUNT=20  ./chrome-testing/run.sh --generated   # properties 0-19
+START=20  COUNT=20  ./chrome-testing/run.sh --generated   # properties 20-39
+START=100 COUNT=50  ./chrome-testing/run.sh --generated   # properties 100-149
 ```
 
 Properties are sorted alphabetically by their `Expr` rule name.

@@ -27,30 +27,32 @@ chromerpc is fetched and built automatically on first run.
 
 ## Quick start
 
-### Full pipeline — screenshot hand-written templates and generate galleries
+### Full pipeline — both template + generated
 
 ```bash
 cd chrome-testing
 ./run.sh
 ```
 
-### EBNF generation pipeline — generate HTML from grammar, screenshot, and build galleries
+### Template only or generated only
 
 ```bash
-./run_gen.sh
+./run.sh --template
+./run.sh --generated
 ```
 
 ### Regenerate galleries from existing screenshots
 
 ```bash
 ./run.sh --gallery-only
-./run_gen.sh --gallery-only
+./run.sh --template --gallery-only
+./run.sh --generated --gallery-only
 ```
 
 ### Batch EBNF generation (first 20 properties)
 
 ```bash
-START=0 COUNT=20 ./run_gen.sh
+START=0 COUNT=20 ./run.sh --generated
 ```
 
 ### Screenshot a single template
