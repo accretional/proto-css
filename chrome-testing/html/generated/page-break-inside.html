@@ -22,13 +22,15 @@
 <div class="demos">
   <div class="demo-box">
     <div class="demo-area">
-      <div style="columns: 2; column-gap: 16px; column-rule: 2px dashed #f39c12; page-break-inside: avoid;"><div class="card">Card A: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div><div class="card target">Card B: This card tests whether it can be split across column boundaries.</div><div class="card">Card C: Short card.</div><div class="card">Card D: Another paragraph of text that fills space in the column layout.</div><div class="card">Card E: Final content block.</div></div>
+      <style>#t0 > * { page-break-inside: avoid; }</style>
+      <div id="t0" style="columns: 2; column-gap: 16px; column-rule: 2px dashed #f39c12;"><div class="card">Card A: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div><div class="card target">Card B: This card tests whether it can be split across column boundaries.</div><div class="card">Card C: Short card.</div><div class="card">Card D: Another paragraph of text that fills space in the column layout.</div><div class="card">Card E: Final content block.</div></div>
     </div>
     <div class="label">page-break-inside: avoid</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="columns: 2; column-gap: 16px; column-rule: 2px dashed #f39c12; page-break-inside: auto;"><div class="card">Card A: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div><div class="card target">Card B: This card tests whether it can be split across column boundaries.</div><div class="card">Card C: Short card.</div><div class="card">Card D: Another paragraph of text that fills space in the column layout.</div><div class="card">Card E: Final content block.</div></div>
+      <style>#t1 > * { page-break-inside: auto; }</style>
+      <div id="t1" style="columns: 2; column-gap: 16px; column-rule: 2px dashed #f39c12;"><div class="card">Card A: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div><div class="card target">Card B: This card tests whether it can be split across column boundaries.</div><div class="card">Card C: Short card.</div><div class="card">Card D: Another paragraph of text that fills space in the column layout.</div><div class="card">Card E: Final content block.</div></div>
     </div>
     <div class="label">page-break-inside: auto</div>
   </div>

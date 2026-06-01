@@ -8,10 +8,13 @@
   body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .corner-dot { position: absolute; width: 18px; height: 18px; border-radius: 50%; }
+.highlight { background: #e94560; box-shadow: 0 0 10px #e9456088; }
+.dim { background: #444; opacity: 0.3; }
 </style>
 </head>
 <body>
@@ -20,33 +23,75 @@
 <div class="demos">
   <div class="demo-box">
     <div class="demo-area">
-      <svg style="width: 140px; height: 140px; corner-top-left-shape: round;"><path d="M28 3 H137 V137 H3 V28 Q3 3 28 3 Z" fill="#16213e" stroke="#e94560" stroke-width="3"/><circle cx="3" cy="3" r="6" fill="#e94560"/><text x="80" y="80" fill="#e0e0e0" text-anchor="middle" font-size="13" font-family="system-ui">round</text></svg>
+      <div style="width: 170px; height: 170px; background: linear-gradient(135deg, #0f3460, #16213e); border: 3px solid #e94560; border-radius: 30px; display: flex; align-items: center; justify-content: center; position: relative; corner-top-left-shape: round;"><span style="font-size:14px;color:#c0c0c0;">round</span><div class="corner-dot highlight" style="top:-9px;left:-9px;"></div><div class="corner-dot dim" style="top:-9px;right:-9px;"></div><div class="corner-dot dim" style="bottom:-9px;left:-9px;"></div><div class="corner-dot dim" style="bottom:-9px;right:-9px;"></div></div>
     </div>
     <div class="label">corner-top-left-shape: round</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <svg style="width: 140px; height: 140px; corner-top-left-shape: scoop;"><path d="M28 3 H137 V137 H3 V28 Q3 3 28 3 Z" fill="#16213e" stroke="#e94560" stroke-width="3"/><circle cx="3" cy="3" r="6" fill="#e94560"/><text x="80" y="80" fill="#e0e0e0" text-anchor="middle" font-size="13" font-family="system-ui">round</text></svg>
+      <div style="width: 170px; height: 170px; background: linear-gradient(135deg, #0f3460, #16213e); border: 3px solid #e94560; border-radius: 30px; display: flex; align-items: center; justify-content: center; position: relative; corner-top-left-shape: scoop;"><span style="font-size:14px;color:#c0c0c0;">round</span><div class="corner-dot highlight" style="top:-9px;left:-9px;"></div><div class="corner-dot dim" style="top:-9px;right:-9px;"></div><div class="corner-dot dim" style="bottom:-9px;left:-9px;"></div><div class="corner-dot dim" style="bottom:-9px;right:-9px;"></div></div>
     </div>
     <div class="label">corner-top-left-shape: scoop</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <svg style="width: 140px; height: 140px; corner-top-left-shape: bevel;"><path d="M28 3 H137 V137 H3 V28 Q3 3 28 3 Z" fill="#16213e" stroke="#e94560" stroke-width="3"/><circle cx="3" cy="3" r="6" fill="#e94560"/><text x="80" y="80" fill="#e0e0e0" text-anchor="middle" font-size="13" font-family="system-ui">round</text></svg>
+      <div style="width: 170px; height: 170px; background: linear-gradient(135deg, #0f3460, #16213e); border: 3px solid #e94560; border-radius: 30px; display: flex; align-items: center; justify-content: center; position: relative; corner-top-left-shape: bevel;"><span style="font-size:14px;color:#c0c0c0;">round</span><div class="corner-dot highlight" style="top:-9px;left:-9px;"></div><div class="corner-dot dim" style="top:-9px;right:-9px;"></div><div class="corner-dot dim" style="bottom:-9px;left:-9px;"></div><div class="corner-dot dim" style="bottom:-9px;right:-9px;"></div></div>
     </div>
     <div class="label">corner-top-left-shape: bevel</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <svg style="width: 140px; height: 140px; corner-top-left-shape: notch;"><path d="M28 3 H137 V137 H3 V28 Q3 3 28 3 Z" fill="#16213e" stroke="#e94560" stroke-width="3"/><circle cx="3" cy="3" r="6" fill="#e94560"/><text x="80" y="80" fill="#e0e0e0" text-anchor="middle" font-size="13" font-family="system-ui">round</text></svg>
+      <div style="width: 170px; height: 170px; background: linear-gradient(135deg, #0f3460, #16213e); border: 3px solid #e94560; border-radius: 30px; display: flex; align-items: center; justify-content: center; position: relative; corner-top-left-shape: notch;"><span style="font-size:14px;color:#c0c0c0;">round</span><div class="corner-dot highlight" style="top:-9px;left:-9px;"></div><div class="corner-dot dim" style="top:-9px;right:-9px;"></div><div class="corner-dot dim" style="bottom:-9px;left:-9px;"></div><div class="corner-dot dim" style="bottom:-9px;right:-9px;"></div></div>
     </div>
     <div class="label">corner-top-left-shape: notch</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <svg style="width: 140px; height: 140px; corner-top-left-shape: square;"><path d="M28 3 H137 V137 H3 V28 Q3 3 28 3 Z" fill="#16213e" stroke="#e94560" stroke-width="3"/><circle cx="3" cy="3" r="6" fill="#e94560"/><text x="80" y="80" fill="#e0e0e0" text-anchor="middle" font-size="13" font-family="system-ui">round</text></svg>
+      <div style="width: 170px; height: 170px; background: linear-gradient(135deg, #0f3460, #16213e); border: 3px solid #e94560; border-radius: 30px; display: flex; align-items: center; justify-content: center; position: relative; corner-top-left-shape: square;"><span style="font-size:14px;color:#c0c0c0;">round</span><div class="corner-dot highlight" style="top:-9px;left:-9px;"></div><div class="corner-dot dim" style="top:-9px;right:-9px;"></div><div class="corner-dot dim" style="bottom:-9px;left:-9px;"></div><div class="corner-dot dim" style="bottom:-9px;right:-9px;"></div></div>
     </div>
     <div class="label">corner-top-left-shape: square</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 170px; height: 170px; background: linear-gradient(135deg, #0f3460, #16213e); border: 3px solid #e94560; border-radius: 30px; display: flex; align-items: center; justify-content: center; position: relative; corner-top-left-shape: squircle;"><span style="font-size:14px;color:#c0c0c0;">round</span><div class="corner-dot highlight" style="top:-9px;left:-9px;"></div><div class="corner-dot dim" style="top:-9px;right:-9px;"></div><div class="corner-dot dim" style="bottom:-9px;left:-9px;"></div><div class="corner-dot dim" style="bottom:-9px;right:-9px;"></div></div>
+    </div>
+    <div class="label">corner-top-left-shape: squircle</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 170px; height: 170px; background: linear-gradient(135deg, #0f3460, #16213e); border: 3px solid #e94560; border-radius: 30px; display: flex; align-items: center; justify-content: center; position: relative; corner-top-left-shape: superellipse(1);"><span style="font-size:14px;color:#c0c0c0;">round</span><div class="corner-dot highlight" style="top:-9px;left:-9px;"></div><div class="corner-dot dim" style="top:-9px;right:-9px;"></div><div class="corner-dot dim" style="bottom:-9px;left:-9px;"></div><div class="corner-dot dim" style="bottom:-9px;right:-9px;"></div></div>
+    </div>
+    <div class="label">corner-top-left-shape: superellipse(1)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 170px; height: 170px; background: linear-gradient(135deg, #0f3460, #16213e); border: 3px solid #e94560; border-radius: 30px; display: flex; align-items: center; justify-content: center; position: relative; corner-top-left-shape: superellipse(infinity);"><span style="font-size:14px;color:#c0c0c0;">round</span><div class="corner-dot highlight" style="top:-9px;left:-9px;"></div><div class="corner-dot dim" style="top:-9px;right:-9px;"></div><div class="corner-dot dim" style="bottom:-9px;left:-9px;"></div><div class="corner-dot dim" style="bottom:-9px;right:-9px;"></div></div>
+    </div>
+    <div class="label">corner-top-left-shape: superellipse(infinity)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 170px; height: 170px; background: linear-gradient(135deg, #0f3460, #16213e); border: 3px solid #e94560; border-radius: 30px; display: flex; align-items: center; justify-content: center; position: relative; corner-top-left-shape: superellipse(-infinity);"><span style="font-size:14px;color:#c0c0c0;">round</span><div class="corner-dot highlight" style="top:-9px;left:-9px;"></div><div class="corner-dot dim" style="top:-9px;right:-9px;"></div><div class="corner-dot dim" style="bottom:-9px;left:-9px;"></div><div class="corner-dot dim" style="bottom:-9px;right:-9px;"></div></div>
+    </div>
+    <div class="label">corner-top-left-shape: superellipse(-infinity)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 170px; height: 170px; background: linear-gradient(135deg, #0f3460, #16213e); border: 3px solid #e94560; border-radius: 30px; display: flex; align-items: center; justify-content: center; position: relative; corner-top-left-shape: superellipse(0.5);"><span style="font-size:14px;color:#c0c0c0;">round</span><div class="corner-dot highlight" style="top:-9px;left:-9px;"></div><div class="corner-dot dim" style="top:-9px;right:-9px;"></div><div class="corner-dot dim" style="bottom:-9px;left:-9px;"></div><div class="corner-dot dim" style="bottom:-9px;right:-9px;"></div></div>
+    </div>
+    <div class="label">corner-top-left-shape: superellipse(0.5)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 170px; height: 170px; background: linear-gradient(135deg, #0f3460, #16213e); border: 3px solid #e94560; border-radius: 30px; display: flex; align-items: center; justify-content: center; position: relative; corner-top-left-shape: superellipse(2);"><span style="font-size:14px;color:#c0c0c0;">round</span><div class="corner-dot highlight" style="top:-9px;left:-9px;"></div><div class="corner-dot dim" style="top:-9px;right:-9px;"></div><div class="corner-dot dim" style="bottom:-9px;left:-9px;"></div><div class="corner-dot dim" style="bottom:-9px;right:-9px;"></div></div>
+    </div>
+    <div class="label">corner-top-left-shape: superellipse(2)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 170px; height: 170px; background: linear-gradient(135deg, #0f3460, #16213e); border: 3px solid #e94560; border-radius: 30px; display: flex; align-items: center; justify-content: center; position: relative; corner-top-left-shape: superellipse(0);"><span style="font-size:14px;color:#c0c0c0;">round</span><div class="corner-dot highlight" style="top:-9px;left:-9px;"></div><div class="corner-dot dim" style="top:-9px;right:-9px;"></div><div class="corner-dot dim" style="bottom:-9px;left:-9px;"></div><div class="corner-dot dim" style="bottom:-9px;right:-9px;"></div></div>
+    </div>
+    <div class="label">corner-top-left-shape: superellipse(0)</div>
   </div>
 </div>
 </body>

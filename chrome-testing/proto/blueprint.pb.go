@@ -128,8 +128,18 @@ type TemplateBlueprint struct {
 	// chrome-testing/screenshots/textproto/{name}.textproto.
 	// Default: "static" (single screenshot).
 	ScreenshotTextproto string `protobuf:"bytes,12,opt,name=screenshot_textproto,json=screenshotTextproto,proto3" json:"screenshot_textproto,omitempty"`
-	unknownFields       protoimpl.UnknownFields
-	sizeCache           protoimpl.SizeCache
+	// Override the CSS property name emitted in the inline style.
+	// Use for vendor-prefixed properties, e.g. "-webkit-box-direction" when
+	// the grammar rule is "box-direction".
+	PropertyNameOverride string `protobuf:"bytes,13,opt,name=property_name_override,json=propertyNameOverride,proto3" json:"property_name_override,omitempty"`
+	// CSS selector (relative to the target) where the tested property should
+	// be applied instead of inline on the target element itself.
+	// Examples: "::before", "> .child", "> *:first-child"
+	// When set, the generator emits a per-card <style> block targeting this
+	// selector and does NOT add the property to the target's inline style.
+	PropertyTargetSelector string `protobuf:"bytes,14,opt,name=property_target_selector,json=propertyTargetSelector,proto3" json:"property_target_selector,omitempty"`
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *TemplateBlueprint) Reset() {
@@ -246,11 +256,25 @@ func (x *TemplateBlueprint) GetScreenshotTextproto() string {
 	return ""
 }
 
+func (x *TemplateBlueprint) GetPropertyNameOverride() string {
+	if x != nil {
+		return x.PropertyNameOverride
+	}
+	return ""
+}
+
+func (x *TemplateBlueprint) GetPropertyTargetSelector() string {
+	if x != nil {
+		return x.PropertyTargetSelector
+	}
+	return ""
+}
+
 var File_chrome_testing_proto_blueprint_proto protoreflect.FileDescriptor
 
 const file_chrome_testing_proto_blueprint_proto_rawDesc = "" +
 	"\n" +
-	"$chrome-testing/proto/blueprint.proto\x12\x06cssgen\"\xfd\x04\n" +
+	"$chrome-testing/proto/blueprint.proto\x12\x06cssgen\"\xed\x05\n" +
 	"\x11TemplateBlueprint\x12?\n" +
 	"\tdemo_type\x18\x01 \x01(\x0e2\".cssgen.TemplateBlueprint.DemoTypeR\bdemoType\x12\x14\n" +
 	"\x05title\x18\x02 \x01(\tR\x05title\x12\x1d\n" +
@@ -266,7 +290,9 @@ const file_chrome_testing_proto_blueprint_proto_rawDesc = "" +
 	"max_values\x18\n" +
 	" \x01(\x05R\tmaxValues\x12\x1b\n" +
 	"\textra_css\x18\v \x01(\tR\bextraCss\x121\n" +
-	"\x14screenshot_textproto\x18\f \x01(\tR\x13screenshotTextproto\"\x8e\x01\n" +
+	"\x14screenshot_textproto\x18\f \x01(\tR\x13screenshotTextproto\x124\n" +
+	"\x16property_name_override\x18\r \x01(\tR\x14propertyNameOverride\x128\n" +
+	"\x18property_target_selector\x18\x0e \x01(\tR\x16propertyTargetSelector\"\x8e\x01\n" +
 	"\bDemoType\x12\a\n" +
 	"\x03BOX\x10\x00\x12\b\n" +
 	"\x04TEXT\x10\x01\x12\b\n" +

@@ -153,8 +153,17 @@ func generateFromBlueprint(bp *bppb.TemplateBlueprint, outPath, prop string, val
 <div class="demos">
 `)
 
+	// Determine the CSS property name to emit (allow vendor-prefix override).
+	cssProp := prop
+	if override := bp.GetPropertyNameOverride(); override != "" {
+		cssProp = override
+	}
+
+	// Check if property should be applied via a selector instead of inline.
+	targetSelector := bp.GetPropertyTargetSelector()
+
 	// Stamp out one card per value.
-	for _, val := range values {
+	for i, val := range values {
 		sb.WriteString(`  <div class="demo-box">
 `)
 		// Demo area wrapper.
@@ -166,6 +175,19 @@ func generateFromBlueprint(bp *bppb.TemplateBlueprint, outPath, prop string, val
 		}
 		sb.WriteByte('\n')
 
+		// Per-card <style> block when property_target_selector is set.
+		if targetSelector != "" {
+			targetID := fmt.Sprintf("t%d", i)
+			// Pseudo-elements/classes (starting with :) attach directly;
+			// other selectors (child combinator, class, etc.) need a space.
+			sep := " "
+			if strings.HasPrefix(targetSelector, ":") {
+				sep = ""
+			}
+			sb.WriteString(fmt.Sprintf("      <style>#%s%s%s { %s: %s; }</style>\n",
+				targetID, sep, targetSelector, cssProp, val))
+		}
+
 		// Siblings before.
 		for _, sib := range bp.GetSiblingsBefore() {
 			sb.WriteString("      ")
@@ -175,9 +197,21 @@ func generateFromBlueprint(bp *bppb.TemplateBlueprint, outPath, prop string, val
 
 		// Target element with inline style.
 		baseStyle := bp.GetTargetBaseStyle()
-		fullStyle := buildInlineStyle(baseStyle, prop, val)
+		var fullStyle string
+		if targetSelector != "" {
+			// Property goes in the <style> block, not inline.
+			fullStyle = strings.TrimSpace(baseStyle)
+		} else {
+			fullStyle = buildInlineStyle(baseStyle, cssProp, val)
+		}
 
-		sb.WriteString(fmt.Sprintf("      <%s style=\"%s\">", tag, html.EscapeString(fullStyle)))
+		if targetSelector != "" {
+			targetID := fmt.Sprintf("t%d", i)
+			sb.WriteString(fmt.Sprintf("      <%s id=\"%s\" style=\"%s\">",
+				tag, targetID, html.EscapeString(fullStyle)))
+		} else {
+			sb.WriteString(fmt.Sprintf("      <%s style=\"%s\">", tag, html.EscapeString(fullStyle)))
+		}
 
 		// Inner HTML or child elements.
 		if inner := bp.GetTargetInnerHtml(); inner != "" {

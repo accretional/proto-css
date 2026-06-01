@@ -1,7 +1,6 @@
-demo_type: SVG
+demo_type: BOX
 title: "Corner End-End Shape"
-target_tag: "svg"
-target_inner_html: "<path d=\"M3 3 H137 V112 Q137 137 112 137 H3 Z\" fill=\"#16213e\" stroke=\"#e94560\" stroke-width=\"3\"/><circle cx=\"137\" cy=\"137\" r=\"6\" fill=\"#e94560\"/><text x=\"60\" y=\"75\" fill=\"#e0e0e0\" text-anchor=\"middle\" font-size=\"13\" font-family=\"system-ui\">round</text>"
-target_base_style: "width: 140px; height: 140px;"
-max_values: 5
+target_base_style: "width: 170px; height: 170px; background: linear-gradient(200deg, #16213e, #0f3460); border: 3px solid #e94560; border-radius: 30px; display: flex; align-items: center; justify-content: center; position: relative;"
+target_inner_html: "<span style=\"font-size:14px;color:#c0c0c0;\">round</span><div class=\"corner-dot dim\" style=\"top:-9px;left:-9px;\"></div><div class=\"corner-dot dim\" style=\"top:-9px;right:-9px;\"></div><div class=\"corner-dot dim\" style=\"bottom:-9px;left:-9px;\"></div><div class=\"corner-dot highlight\" style=\"bottom:-9px;right:-9px;\"></div>"
+extra_css: ".corner-dot { position: absolute; width: 18px; height: 18px; border-radius: 50%; }\n.highlight { background: #e94560; box-shadow: 0 0 10px #e9456088; }\n.dim { background: #444; opacity: 0.3; }"
 screenshot_textproto: "static"

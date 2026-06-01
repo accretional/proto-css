@@ -60,4 +60,16 @@ message TemplateBlueprint {
   // chrome-testing/screenshots/textproto/{name}.textproto.
   // Default: "static" (single screenshot).
   string screenshot_textproto = 12;
+
+  // Override the CSS property name emitted in the inline style.
+  // Use for vendor-prefixed properties, e.g. "-webkit-box-direction" when
+  // the grammar rule is "box-direction".
+  string property_name_override = 13;
+
+  // CSS selector (relative to the target) where the tested property should
+  // be applied instead of inline on the target element itself.
+  // Examples: "::before", "> .child", "> *:first-child"
+  // When set, the generator emits a per-card <style> block targeting this
+  // selector and does NOT add the property to the target's inline style.
+  string property_target_selector = 14;
 }
