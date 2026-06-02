@@ -118,7 +118,28 @@ func generateFromBlueprint(bp *bppb.TemplateBlueprint, outPath, prop string, val
 	sb.WriteString(html.EscapeString(prop))
 	sb.WriteString(`</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+`)
+
+	// Extract @import rules from extra_css and place them first (CSS spec requirement).
+	extraCSS := bp.GetExtraCss()
+	var importLines, otherCSS []string
+	if extraCSS != "" {
+		for _, line := range strings.Split(extraCSS, "\n") {
+			trimmed := strings.TrimSpace(line)
+			if strings.HasPrefix(trimmed, "@import ") {
+				importLines = append(importLines, trimmed)
+			} else if trimmed != "" {
+				otherCSS = append(otherCSS, line)
+			}
+		}
+	}
+	for _, imp := range importLines {
+		sb.WriteString("  ")
+		sb.WriteString(imp)
+		sb.WriteByte('\n')
+	}
+
+	sb.WriteString(`  * { margin: 0; padding: 0; box-sizing: border-box; }
   body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
@@ -130,10 +151,10 @@ func generateFromBlueprint(bp *bppb.TemplateBlueprint, outPath, prop string, val
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
 `)
 
-	// Extra CSS from blueprint.
-	if css := bp.GetExtraCss(); css != "" {
+	// Remaining extra CSS (non-import rules) from blueprint.
+	if len(otherCSS) > 0 {
 		sb.WriteString("  ")
-		sb.WriteString(css)
+		sb.WriteString(strings.Join(otherCSS, "\n"))
 		sb.WriteByte('\n')
 	}
 
@@ -161,6 +182,12 @@ func generateFromBlueprint(bp *bppb.TemplateBlueprint, outPath, prop string, val
 
 	// Check if property should be applied via a selector instead of inline.
 	targetSelector := bp.GetPropertyTargetSelector()
+
+	// expandIndex replaces {{INDEX}} placeholders with the card number,
+	// allowing blueprints to use unique SVG IDs per card.
+	expandIndex := func(s string, idx int) string {
+		return strings.ReplaceAll(s, "{{INDEX}}", fmt.Sprintf("%d", idx))
+	}
 
 	// Stamp out one card per value.
 	for i, val := range values {
@@ -191,7 +218,7 @@ func generateFromBlueprint(bp *bppb.TemplateBlueprint, outPath, prop string, val
 		// Siblings before.
 		for _, sib := range bp.GetSiblingsBefore() {
 			sb.WriteString("      ")
-			sb.WriteString(sib)
+			sb.WriteString(expandIndex(sib, i))
 			sb.WriteByte('\n')
 		}
 
@@ -215,7 +242,7 @@ func generateFromBlueprint(bp *bppb.TemplateBlueprint, outPath, prop string, val
 
 		// Inner HTML or child elements.
 		if inner := bp.GetTargetInnerHtml(); inner != "" {
-			sb.WriteString(inner)
+			sb.WriteString(expandIndex(inner, i))
 		}
 		for _, child := range bp.GetChildElements() {
 			sb.WriteString(child)
@@ -226,7 +253,7 @@ func generateFromBlueprint(bp *bppb.TemplateBlueprint, outPath, prop string, val
 		// Siblings after.
 		for _, sib := range bp.GetSiblingsAfter() {
 			sb.WriteString("      ")
-			sb.WriteString(sib)
+			sb.WriteString(expandIndex(sib, i))
 			sb.WriteByte('\n')
 		}
 

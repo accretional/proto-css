@@ -1,8 +1,8 @@
 demo_type: SVG
 title: "Stop Color"
 target_tag: "svg"
+property_target_selector: " stop.target"
 target_base_style: "display: block;"
-target_inner_html: "<defs><linearGradient id=\"grad-named\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\"><stop offset=\"0%\" stop-color=\"crimson\" /><stop offset=\"50%\" stop-color=\"gold\" /><stop offset=\"100%\" stop-color=\"dodgerblue\" /></linearGradient></defs><rect x=\"10\" y=\"10\" width=\"300\" height=\"80\" rx=\"12\" fill=\"url(#grad-named)\" /><text x=\"25\" y=\"55\" font-size=\"11\" fill=\"#fff\" font-family=\"monospace\" opacity=\"0.8\">crimson</text><text x=\"135\" y=\"55\" font-size=\"11\" fill=\"#333\" font-family=\"monospace\" opacity=\"0.8\">gold</text><text x=\"230\" y=\"55\" font-size=\"11\" fill=\"#fff\" font-family=\"monospace\" opacity=\"0.8\">dodgerblue</text>"
+target_inner_html: "<defs><linearGradient id=\"grad-{{INDEX}}\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\"><stop offset=\"0%\" stop-color=\"#0a0a1a\"/><stop class=\"target\" offset=\"100%\" stop-color=\"crimson\"/></linearGradient></defs><rect x=\"10\" y=\"10\" width=\"300\" height=\"80\" rx=\"12\" fill=\"url(#grad-{{INDEX}})\"/><text x=\"25\" y=\"55\" font-size=\"11\" fill=\"#666\" font-family=\"monospace\" opacity=\"0.8\">fixed #0a0a1a</text><text x=\"220\" y=\"55\" font-size=\"11\" fill=\"#fff\" font-family=\"monospace\" opacity=\"0.8\">varies</text>"
 wrapper_style: "background: #16213e; border-radius: 12px; padding: 20px; width: 370px;"
-extra_css: ".svg-container { background: #0a0a1a; border-radius: 8px; padding: 16px; display: flex; align-items: center; justify-content: center; }\n.stop-info { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }\n.stop-chip { display: flex; align-items: center; gap: 5px; padding: 3px 8px; background: #0a0a1a; border-radius: 4px; }\n.stop-dot { width: 10px; height: 10px; border-radius: 50%; border: 1px solid #333; }\n.stop-text { font-size: 10px; font-family: monospace; color: #9ca3af; }"
 screenshot_textproto: "static"

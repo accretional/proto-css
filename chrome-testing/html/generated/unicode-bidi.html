@@ -12,13 +12,6 @@
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
-  .info { width: 260px; flex-shrink: 0; }
-.demo-title { font-size: 14px; font-weight: 600; color: #e0e0e0; margin-bottom: 6px; }
-.desc { font-size: 11px; color: #6b7280; line-height: 1.5; margin-top: 4px; }
-.text-display { flex: 1; background: #0d1117; border-radius: 8px; padding: 14px 18px; font-size: 15px; line-height: 1.8; min-height: 56px; display: flex; align-items: center; }
-.rtl-text { color: #f39c12; }
-.ltr-text { color: #3498db; }
-.mixed { direction: ltr; }
 </style>
 </head>
 <body>
@@ -26,50 +19,50 @@
 <p class="prop-name">unicode-bidi</p>
 <div class="demos">
   <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 18px 24px; display: flex; align-items: flex-start; gap: 24px;">
-      <div class="info"><div class="demo-title">normal</div><div class="desc">Does not open an additional level of embedding. Default behavior.</div><div class="label">unicode-bidi: normal</div></div><div class="text-display mixed"><span>Hello </span>
-      <span style="color: #f39c12; unicode-bidi: normal; direction: rtl; unicode-bidi: normal;">&#1605;&#1585;&#1581;&#1576;&#1575;</span>
-      <span> World</span></div>
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 18px 24px; min-height: 60px; display: flex; align-items: center;">
+      <span style="color: #3498db; font-size: 20px;">Hello </span>
+      <span style="color: #f39c12; font-size: 20px; direction: rtl; unicode-bidi: normal;">&#1605;&#1585;&#1581;&#1576;&#1575;</span>
+      <span style="color: #3498db; font-size: 20px;"> World</span>
     </div>
     <div class="label">unicode-bidi: normal</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 18px 24px; display: flex; align-items: flex-start; gap: 24px;">
-      <div class="info"><div class="demo-title">normal</div><div class="desc">Does not open an additional level of embedding. Default behavior.</div><div class="label">unicode-bidi: normal</div></div><div class="text-display mixed"><span>Hello </span>
-      <span style="color: #f39c12; unicode-bidi: normal; direction: rtl; unicode-bidi: embed;">&#1605;&#1585;&#1581;&#1576;&#1575;</span>
-      <span> World</span></div>
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 18px 24px; min-height: 60px; display: flex; align-items: center;">
+      <span style="color: #3498db; font-size: 20px;">Hello </span>
+      <span style="color: #f39c12; font-size: 20px; direction: rtl; unicode-bidi: embed;">&#1605;&#1585;&#1581;&#1576;&#1575;</span>
+      <span style="color: #3498db; font-size: 20px;"> World</span>
     </div>
     <div class="label">unicode-bidi: embed</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 18px 24px; display: flex; align-items: flex-start; gap: 24px;">
-      <div class="info"><div class="demo-title">normal</div><div class="desc">Does not open an additional level of embedding. Default behavior.</div><div class="label">unicode-bidi: normal</div></div><div class="text-display mixed"><span>Hello </span>
-      <span style="color: #f39c12; unicode-bidi: normal; direction: rtl; unicode-bidi: isolate;">&#1605;&#1585;&#1581;&#1576;&#1575;</span>
-      <span> World</span></div>
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 18px 24px; min-height: 60px; display: flex; align-items: center;">
+      <span style="color: #3498db; font-size: 20px;">Hello </span>
+      <span style="color: #f39c12; font-size: 20px; direction: rtl; unicode-bidi: isolate;">&#1605;&#1585;&#1581;&#1576;&#1575;</span>
+      <span style="color: #3498db; font-size: 20px;"> World</span>
     </div>
     <div class="label">unicode-bidi: isolate</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 18px 24px; display: flex; align-items: flex-start; gap: 24px;">
-      <div class="info"><div class="demo-title">normal</div><div class="desc">Does not open an additional level of embedding. Default behavior.</div><div class="label">unicode-bidi: normal</div></div><div class="text-display mixed"><span>Hello </span>
-      <span style="color: #f39c12; unicode-bidi: normal; direction: rtl; unicode-bidi: bidi-override;">&#1605;&#1585;&#1581;&#1576;&#1575;</span>
-      <span> World</span></div>
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 18px 24px; min-height: 60px; display: flex; align-items: center;">
+      <span style="color: #3498db; font-size: 20px;">Hello </span>
+      <span style="color: #f39c12; font-size: 20px; direction: rtl; unicode-bidi: bidi-override;">&#1605;&#1585;&#1581;&#1576;&#1575;</span>
+      <span style="color: #3498db; font-size: 20px;"> World</span>
     </div>
     <div class="label">unicode-bidi: bidi-override</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 18px 24px; display: flex; align-items: flex-start; gap: 24px;">
-      <div class="info"><div class="demo-title">normal</div><div class="desc">Does not open an additional level of embedding. Default behavior.</div><div class="label">unicode-bidi: normal</div></div><div class="text-display mixed"><span>Hello </span>
-      <span style="color: #f39c12; unicode-bidi: normal; direction: rtl; unicode-bidi: isolate-override;">&#1605;&#1585;&#1581;&#1576;&#1575;</span>
-      <span> World</span></div>
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 18px 24px; min-height: 60px; display: flex; align-items: center;">
+      <span style="color: #3498db; font-size: 20px;">Hello </span>
+      <span style="color: #f39c12; font-size: 20px; direction: rtl; unicode-bidi: isolate-override;">&#1605;&#1585;&#1581;&#1576;&#1575;</span>
+      <span style="color: #3498db; font-size: 20px;"> World</span>
     </div>
     <div class="label">unicode-bidi: isolate-override</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 18px 24px; display: flex; align-items: flex-start; gap: 24px;">
-      <div class="info"><div class="demo-title">normal</div><div class="desc">Does not open an additional level of embedding. Default behavior.</div><div class="label">unicode-bidi: normal</div></div><div class="text-display mixed"><span>Hello </span>
-      <span style="color: #f39c12; unicode-bidi: normal; direction: rtl; unicode-bidi: plaintext;">&#1605;&#1585;&#1581;&#1576;&#1575;</span>
-      <span> World</span></div>
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 18px 24px; min-height: 60px; display: flex; align-items: center;">
+      <span style="color: #3498db; font-size: 20px;">Hello </span>
+      <span style="color: #f39c12; font-size: 20px; direction: rtl; unicode-bidi: plaintext;">&#1605;&#1585;&#1581;&#1576;&#1575;</span>
+      <span style="color: #3498db; font-size: 20px;"> World</span>
     </div>
     <div class="label">unicode-bidi: plaintext</div>
   </div>

@@ -12,10 +12,9 @@
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
-  .flex-item { border-radius: 6px; padding: 10px 14px; display: flex; flex-direction: column; justify-content: space-between; }
-.item-a { background: rgba(102, 126, 234, 0.4); border: 2px solid #667eea; font-size: 14px; height: 70px; width: 80px; }
-.item-c { background: rgba(254, 202, 87, 0.4); border: 2px solid #feca57; font-size: 14px; height: 100px; width: 80px; }
-.item-label { font-size: 10px; color: rgba(255,255,255,0.6); }
+  .flex-item { border-radius: 6px; padding: 10px 14px; display: flex; align-items: center; justify-content: center; }
+.item-a { background: rgba(102, 126, 234, 0.4); border: 2px solid #667eea; height: 70px; width: 80px; }
+.item-c { background: rgba(254, 202, 87, 0.4); border: 2px solid #feca57; height: 100px; width: 80px; }
 </style>
 </head>
 <body>
@@ -23,26 +22,26 @@
 <p class="prop-name">baseline-source</p>
 <div class="demos">
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: baseline; gap: 12px; background: #16213e; border-radius: 8px; border: 2px solid rgba(255,255,255,0.1); padding: 20px; height: 260px;">
-      <div class="flex-item item-a"><span>A</span><span class="item-label">14px</span></div>
-      <div style="border-radius: 6px; padding: 10px 14px; display: flex; flex-direction: column; justify-content: space-between; background: rgba(240, 147, 251, 0.4); border: 2px solid #f093fb; font-size: 24px; height: 140px; width: 100px; baseline-source: auto;"><span>Top</span><span class="item-label">auto</span><span>Bottom</span></div>
-      <div class="flex-item item-c"><span>C</span><span class="item-label">14px</span></div>
+    <div class="demo-area" style="display: flex; align-items: baseline; gap: 12px; background: #16213e; border-radius: 8px; border: 2px solid rgba(255,255,255,0.1); padding: 20px; height: 280px;">
+      <div class="flex-item item-a"><span style="font-size: 14px;">A ref</span></div>
+      <div style="border-radius: 6px; padding: 10px 14px; display: flex; flex-direction: column; justify-content: space-between; background: rgba(240, 147, 251, 0.4); border: 2px solid #f093fb; font-size: 24px; height: 160px; width: 100px; baseline-source: auto;"><span style="font-size: 24px;">Top</span><span style="font-size: 10px; color: rgba(255,255,255,0.5);">target</span><span style="font-size: 24px;">Bot</span></div>
+      <div class="flex-item item-c"><span style="font-size: 14px;">C ref</span></div>
     </div>
     <div class="label">baseline-source: auto</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: baseline; gap: 12px; background: #16213e; border-radius: 8px; border: 2px solid rgba(255,255,255,0.1); padding: 20px; height: 260px;">
-      <div class="flex-item item-a"><span>A</span><span class="item-label">14px</span></div>
-      <div style="border-radius: 6px; padding: 10px 14px; display: flex; flex-direction: column; justify-content: space-between; background: rgba(240, 147, 251, 0.4); border: 2px solid #f093fb; font-size: 24px; height: 140px; width: 100px; baseline-source: first;"><span>Top</span><span class="item-label">auto</span><span>Bottom</span></div>
-      <div class="flex-item item-c"><span>C</span><span class="item-label">14px</span></div>
+    <div class="demo-area" style="display: flex; align-items: baseline; gap: 12px; background: #16213e; border-radius: 8px; border: 2px solid rgba(255,255,255,0.1); padding: 20px; height: 280px;">
+      <div class="flex-item item-a"><span style="font-size: 14px;">A ref</span></div>
+      <div style="border-radius: 6px; padding: 10px 14px; display: flex; flex-direction: column; justify-content: space-between; background: rgba(240, 147, 251, 0.4); border: 2px solid #f093fb; font-size: 24px; height: 160px; width: 100px; baseline-source: first;"><span style="font-size: 24px;">Top</span><span style="font-size: 10px; color: rgba(255,255,255,0.5);">target</span><span style="font-size: 24px;">Bot</span></div>
+      <div class="flex-item item-c"><span style="font-size: 14px;">C ref</span></div>
     </div>
     <div class="label">baseline-source: first</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: baseline; gap: 12px; background: #16213e; border-radius: 8px; border: 2px solid rgba(255,255,255,0.1); padding: 20px; height: 260px;">
-      <div class="flex-item item-a"><span>A</span><span class="item-label">14px</span></div>
-      <div style="border-radius: 6px; padding: 10px 14px; display: flex; flex-direction: column; justify-content: space-between; background: rgba(240, 147, 251, 0.4); border: 2px solid #f093fb; font-size: 24px; height: 140px; width: 100px; baseline-source: last;"><span>Top</span><span class="item-label">auto</span><span>Bottom</span></div>
-      <div class="flex-item item-c"><span>C</span><span class="item-label">14px</span></div>
+    <div class="demo-area" style="display: flex; align-items: baseline; gap: 12px; background: #16213e; border-radius: 8px; border: 2px solid rgba(255,255,255,0.1); padding: 20px; height: 280px;">
+      <div class="flex-item item-a"><span style="font-size: 14px;">A ref</span></div>
+      <div style="border-radius: 6px; padding: 10px 14px; display: flex; flex-direction: column; justify-content: space-between; background: rgba(240, 147, 251, 0.4); border: 2px solid #f093fb; font-size: 24px; height: 160px; width: 100px; baseline-source: last;"><span style="font-size: 24px;">Top</span><span style="font-size: 10px; color: rgba(255,255,255,0.5);">target</span><span style="font-size: 24px;">Bot</span></div>
+      <div class="flex-item item-c"><span style="font-size: 14px;">C ref</span></div>
     </div>
     <div class="label">baseline-source: last</div>
   </div>

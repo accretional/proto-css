@@ -8,7 +8,7 @@
   body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
@@ -20,207 +20,117 @@
 <div class="demos">
   <div class="demo-box">
     <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: auto;"></div>
+      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; min-height: 20px; height: auto;"><span>Content</span></div>
     </div>
     <div class="label">height: auto</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: 10px;"></div>
+      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; min-height: 20px; height: 10px;"><span>Content</span></div>
     </div>
     <div class="label">height: 10px</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: min-content;"></div>
+      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; min-height: 20px; height: min-content;"><span>Content</span></div>
     </div>
     <div class="label">height: min-content</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: max-content;"></div>
+      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; min-height: 20px; height: max-content;"><span>Content</span></div>
     </div>
     <div class="label">height: max-content</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: fit-content(10px);"></div>
+      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; min-height: 20px; height: fit-content(10px);"><span>Content</span></div>
     </div>
     <div class="label">height: fit-content(10px)</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: calc-size(auto, 0);"></div>
+      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; min-height: 20px; height: calc-size(auto, size + 20px);"><span>Content</span></div>
     </div>
-    <div class="label">height: calc-size(auto, 0)</div>
+    <div class="label">height: calc-size(auto, size + 20px)</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: stretch;"></div>
-    </div>
-    <div class="label">height: stretch</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: fit-content;"></div>
-    </div>
-    <div class="label">height: fit-content</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: contain;"></div>
-    </div>
-    <div class="label">height: contain</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: 25%;"></div>
-    </div>
-    <div class="label">height: 25%</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: fit-content(25%);"></div>
-    </div>
-    <div class="label">height: fit-content(25%)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: calc-size(any, 0);"></div>
-    </div>
-    <div class="label">height: calc-size(any, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: anchor-size(--my-var);"></div>
-    </div>
-    <div class="label">height: anchor-size(--my-var)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: 50%;"></div>
-    </div>
-    <div class="label">height: 50%</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: fit-content(50%);"></div>
-    </div>
-    <div class="label">height: fit-content(50%)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: calc-size(min-content, 0);"></div>
-    </div>
-    <div class="label">height: calc-size(min-content, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: anchor-size(width);"></div>
+      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; min-height: 20px; height: anchor-size(width);"><span>Content</span></div>
     </div>
     <div class="label">height: anchor-size(width)</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: 0;"></div>
+      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; min-height: 20px; height: stretch;"><span>Content</span></div>
+    </div>
+    <div class="label">height: stretch</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
+      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; min-height: 20px; height: fit-content;"><span>Content</span></div>
+    </div>
+    <div class="label">height: fit-content</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
+      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; min-height: 20px; height: contain;"><span>Content</span></div>
+    </div>
+    <div class="label">height: contain</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
+      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; min-height: 20px; height: 25%;"><span>Content</span></div>
+    </div>
+    <div class="label">height: 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
+      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; min-height: 20px; height: fit-content(25%);"><span>Content</span></div>
+    </div>
+    <div class="label">height: fit-content(25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
+      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; min-height: 20px; height: calc-size(fit-content, size * 0.5);"><span>Content</span></div>
+    </div>
+    <div class="label">height: calc-size(fit-content, size * 0.5)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
+      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; min-height: 20px; height: anchor-size(height);"><span>Content</span></div>
+    </div>
+    <div class="label">height: anchor-size(height)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
+      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; min-height: 20px; height: 50%;"><span>Content</span></div>
+    </div>
+    <div class="label">height: 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
+      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; min-height: 20px; height: fit-content(50%);"><span>Content</span></div>
+    </div>
+    <div class="label">height: fit-content(50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
+      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; min-height: 20px; height: 0;"><span>Content</span></div>
     </div>
     <div class="label">height: 0</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: fit-content(100%);"></div>
+      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; min-height: 20px; height: fit-content(100%);"><span>Content</span></div>
     </div>
     <div class="label">height: fit-content(100%)</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: calc-size(0, 0);"></div>
-    </div>
-    <div class="label">height: calc-size(0, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: fit-content(0);"></div>
+      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; min-height: 20px; height: fit-content(0);"><span>Content</span></div>
     </div>
     <div class="label">height: fit-content(0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: calc-size(max-content, 0);"></div>
-    </div>
-    <div class="label">height: calc-size(max-content, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: calc-size(+0, 0);"></div>
-    </div>
-    <div class="label">height: calc-size(+0, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: calc-size(fit-content, 0);"></div>
-    </div>
-    <div class="label">height: calc-size(fit-content, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: calc-size(0cap, 0);"></div>
-    </div>
-    <div class="label">height: calc-size(0cap, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: calc-size(contain, 0);"></div>
-    </div>
-    <div class="label">height: calc-size(contain, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: calc-size(0%, 0);"></div>
-    </div>
-    <div class="label">height: calc-size(0%, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: calc-size(stretch, 0);"></div>
-    </div>
-    <div class="label">height: calc-size(stretch, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: calc-size(e, 0);"></div>
-    </div>
-    <div class="label">height: calc-size(e, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: calc-size(calc(50% + 20px), 0);"></div>
-    </div>
-    <div class="label">height: calc-size(calc(50% + 20px), 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: calc-size(var(--my-var), 0);"></div>
-    </div>
-    <div class="label">height: calc-size(var(--my-var), 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: calc-size(+0%, 0);"></div>
-    </div>
-    <div class="label">height: calc-size(+0%, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: calc-size(pi, 0);"></div>
-    </div>
-    <div class="label">height: calc-size(pi, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 100px; height: 250px; background: #16213e; border-radius: 8px; padding: 8px; display: flex; align-items: flex-end;">
-      <div style="width: 100%; background: linear-gradient(135deg, #e94560, #0f3460); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; overflow: hidden; height: calc-size(var(--my-var, 0), 0);"></div>
-    </div>
-    <div class="label">height: calc-size(var(--my-var, 0), 0)</div>
   </div>
 </div>
 </body>

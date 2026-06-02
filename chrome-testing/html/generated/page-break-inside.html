@@ -12,8 +12,8 @@
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
-  .card { background: #2a2a4a; border-radius: 6px; padding: 12px; margin-bottom: 12px; font-size: 12px; border-left: 3px solid #3498db; }
-.card.target { border-left-color: #e94560; background: #3a1a2a; }
+  .multicol { column-count: 2; column-gap: 16px; column-rule: 2px dashed #f39c12; }
+.card { background: #2a2a4a; border-radius: 6px; padding: 12px; margin-bottom: 12px; font-size: 12px; line-height: 1.5; color: #b0b0c0; border-left: 3px solid #3498db; }
 </style>
 </head>
 <body>
@@ -22,15 +22,15 @@
 <div class="demos">
   <div class="demo-box">
     <div class="demo-area">
-      <style>#t0 > * { page-break-inside: avoid; }</style>
-      <div id="t0" style="columns: 2; column-gap: 16px; column-rule: 2px dashed #f39c12;"><div class="card">Card A: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div><div class="card target">Card B: This card tests whether it can be split across column boundaries.</div><div class="card">Card C: Short card.</div><div class="card">Card D: Another paragraph of text that fills space in the column layout.</div><div class="card">Card E: Final content block.</div></div>
+      <style>#t0  .card { page-break-inside: avoid; }</style>
+      <div id="t0" style="background: #16213e; border-radius: 10px; padding: 20px;"><div class="multicol"><div class="card">Card A: This card has enough content that it may be split across columns.</div><div class="card">Card B: Another card with content that could break across column boundaries.</div><div class="card">Card C: More content here to fill the multi-column layout.</div><div class="card">Card D: Additional text to demonstrate break behavior.</div><div class="card">Card E: This card may split across column boundaries.</div></div></div>
     </div>
     <div class="label">page-break-inside: avoid</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <style>#t1 > * { page-break-inside: auto; }</style>
-      <div id="t1" style="columns: 2; column-gap: 16px; column-rule: 2px dashed #f39c12;"><div class="card">Card A: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div><div class="card target">Card B: This card tests whether it can be split across column boundaries.</div><div class="card">Card C: Short card.</div><div class="card">Card D: Another paragraph of text that fills space in the column layout.</div><div class="card">Card E: Final content block.</div></div>
+      <style>#t1  .card { page-break-inside: auto; }</style>
+      <div id="t1" style="background: #16213e; border-radius: 10px; padding: 20px;"><div class="multicol"><div class="card">Card A: This card has enough content that it may be split across columns.</div><div class="card">Card B: Another card with content that could break across column boundaries.</div><div class="card">Card C: More content here to fill the multi-column layout.</div><div class="card">Card D: Additional text to demonstrate break behavior.</div><div class="card">Card E: This card may split across column boundaries.</div></div></div>
     </div>
     <div class="label">page-break-inside: auto</div>
   </div>

@@ -8,7 +8,7 @@
   body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
@@ -32,39 +32,9 @@
   </div>
   <div class="demo-box">
     <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor(inside);"></div>
+      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor(top);"></div>
     </div>
-    <div class="label">bottom: anchor(inside)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: 25%;"></div>
-    </div>
-    <div class="label">bottom: 25%</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor(--my-var inside);"></div>
-    </div>
-    <div class="label">bottom: anchor(--my-var inside)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor-size(--my-var);"></div>
-    </div>
-    <div class="label">bottom: anchor-size(--my-var)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: 50%;"></div>
-    </div>
-    <div class="label">bottom: 50%</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor(outside);"></div>
-    </div>
-    <div class="label">bottom: anchor(outside)</div>
+    <div class="label">bottom: anchor(top)</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
@@ -74,93 +44,9 @@
   </div>
   <div class="demo-box">
     <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: 100%;"></div>
+      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: 25%;"></div>
     </div>
-    <div class="label">bottom: 100%</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor(--my-var outside);"></div>
-    </div>
-    <div class="label">bottom: anchor(--my-var outside)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor-size(--my-var width);"></div>
-    </div>
-    <div class="label">bottom: anchor-size(--my-var width)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: 0;"></div>
-    </div>
-    <div class="label">bottom: 0</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor(top);"></div>
-    </div>
-    <div class="label">bottom: anchor(top)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor-size(height);"></div>
-    </div>
-    <div class="label">bottom: anchor-size(height)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor(--my-var top);"></div>
-    </div>
-    <div class="label">bottom: anchor(--my-var top)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor-size(--my-var height);"></div>
-    </div>
-    <div class="label">bottom: anchor-size(--my-var height)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor(left);"></div>
-    </div>
-    <div class="label">bottom: anchor(left)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor-size(block);"></div>
-    </div>
-    <div class="label">bottom: anchor-size(block)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor(--my-var left);"></div>
-    </div>
-    <div class="label">bottom: anchor(--my-var left)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor-size(--my-var block);"></div>
-    </div>
-    <div class="label">bottom: anchor-size(--my-var block)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor(right);"></div>
-    </div>
-    <div class="label">bottom: anchor(right)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor-size(inline);"></div>
-    </div>
-    <div class="label">bottom: anchor-size(inline)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor(--my-var right);"></div>
-    </div>
-    <div class="label">bottom: anchor(--my-var right)</div>
+    <div class="label">bottom: 25%</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
@@ -170,63 +56,27 @@
   </div>
   <div class="demo-box">
     <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor(--my-var bottom);"></div>
+      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor-size(height);"></div>
     </div>
-    <div class="label">bottom: anchor(--my-var bottom)</div>
+    <div class="label">bottom: anchor-size(height)</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor(start);"></div>
+      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: 50%;"></div>
     </div>
-    <div class="label">bottom: anchor(start)</div>
+    <div class="label">bottom: 50%</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor(--my-var start);"></div>
+      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: 100%;"></div>
     </div>
-    <div class="label">bottom: anchor(--my-var start)</div>
+    <div class="label">bottom: 100%</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor(end);"></div>
+      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: 0;"></div>
     </div>
-    <div class="label">bottom: anchor(end)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor(--my-var end);"></div>
-    </div>
-    <div class="label">bottom: anchor(--my-var end)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor(self-start);"></div>
-    </div>
-    <div class="label">bottom: anchor(self-start)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor(--my-var self-start);"></div>
-    </div>
-    <div class="label">bottom: anchor(--my-var self-start)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor(self-end);"></div>
-    </div>
-    <div class="label">bottom: anchor(self-end)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor(--my-var self-end);"></div>
-    </div>
-    <div class="label">bottom: anchor(--my-var self-end)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 200px; background: #16213e; border: 2px solid #333; position: relative;">
-      <div style="width: 60px; height: 40px; background: #e94560; position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; border-radius: 4px; bottom: anchor(0%);"></div>
-    </div>
-    <div class="label">bottom: anchor(0%)</div>
+    <div class="label">bottom: 0</div>
   </div>
 </div>
 </body>

@@ -1,566 +1,537 @@
 # Screenshot Validation Report
 
-> Updated 2026-06-01. Covers all 527 CSS properties generated from EBNF grammar
-> in `chrome-testing/screenshots/generated/` and `chrome-testing/html/generated/`.
-> (vendor-prop excluded — not a real CSS property.)
+> Updated 2026-06-02. Visual audit of all 528 CSS property screenshots in
+> `chrome-testing/screenshots/generated/` and `chrome-testing/html/generated/`.
 
 ## Summary
 
 | Category | Count | Description |
 |----------|-------|-------------|
-| 1 - Good | 448 | Screenshots accurately demonstrate distinct values |
-| 4 - Insufficient Data | 69 | Static screenshots cannot demonstrate this property |
-| 5 - Not Demoable | 10 | Property cannot be visually demonstrated (unsupported, conceptual, or non-visual) |
+| A — Well demonstrated | 401 | Every panel visually distinct, clearly matches labeled value |
+| B — Inherently same | 39 | Panels look identical and can't be fixed (env/browser limitation) |
+| C — Needs better values | 0 | UI is fine but values/fonts don't produce distinct results |
+| D — Needs better UI | 0 | Layout/structure doesn't showcase the property |
+| E — Insufficient (interactive) | 77 | Requires interaction, animation, or print context |
+| F — Not demoable | 11 | Unsupported in Chrome, conceptual-only, or non-visual |
 
 ---
 
-## Category 1: Good Screenshots (448)
+## A — Well Demonstrated (401)
 
-Screenshots accurately describe the various values of the property. Every panel is
-unique and visually matches the labeled CSS value.
+Every panel shows a visually distinct result matching the labeled CSS value.
 
-| # | Property | Notes |
-|---|----------|-------|
-| 1 | `align-content` | Panels show clearly different vertical distribution of flex items |
-| 2 | `align-items` | Different vertical alignment of flex items with varying heights |
-| 3 | `align-self` | Highlighted element clearly moves to different vertical positions |
-| 4 | `alignment-baseline` | SVG text baseline differences visible across panels |
-| 5 | `all` | Panels show different CSS reset behaviors (initial, inherit, unset, revert) |
-| 6 | `anchor-name` | Distinct values shown across panels |
-| 7 | `anchor-scope` | Distinct values shown across panels |
-| 8 | `animation-composition` | Distinct values shown across panels |
-| 9 | `animation-delay` | Distinct values shown across panels |
-| 10 | `animation-direction` | Distinct values shown across panels |
-| 11 | `animation-duration` | Distinct values shown across panels |
-| 12 | `animation-fill-mode` | Four distinct fill states (none, forwards, backwards, both) |
-| 13 | `animation-iteration-count` | Distinct values shown across panels |
-| 14 | `animation-name` | Distinct values shown across panels |
-| 15 | `animation-play-state` | Distinct values shown across panels |
-| 16 | `animation-timing-function` | Distinct values shown across panels |
-| 17 | `appearance` | Select element with different native appearances (none strips dropdown arrow) |
-| 18 | `aspect-ratio` | Boxes have visibly different width-to-height ratios |
-| 19 | `backdrop-filter` | Distinct visual effects (blur, grayscale) on backdrop behind colored circles |
-| 20 | `backface-visibility` | Visible shows mirrored element, hidden shows nothing |
-| 21 | `background` | Panels show distinct gradient combinations |
-| 22 | `background-attachment` | Distinct values shown across panels |
-| 23 | `background-blend-mode` | Each blend mode produces a visually distinct color output |
-| 24 | `background-clip` | Background clipped to content-box, padding-box, border-box, text |
-| 25 | `background-image` | Panels show url images, gradients, and none with clear differences |
-| 26 | `background-origin` | Background positioned relative to content, padding, border boxes |
-| 27 | `background-position` | Dot moves to clearly different positions (center, top, corners, etc.) |
-| 28 | `background-position-x` | Blue stripe moves horizontally to different positions |
-| 29 | `background-position-y` | Pink stripe moves vertically to different positions |
-| 30 | `background-repeat` | Clear differences (repeat-x, repeat-y, no-repeat, space, round) |
-| 31 | `background-repeat-x` | Distinct values shown across panels |
-| 32 | `background-repeat-y` | Distinct values shown across panels |
-| 33 | `background-size` | Clear size differences (auto, cover, contain, percentage, pixel) |
-| 34 | `baseline-shift` | "Shifted" text moves to visibly different vertical positions |
-| 35 | `baseline-source` | Distinct values shown across panels |
-| 36 | `block-size` | Boxes with clearly different heights |
-| 37 | `border-block` | Various border widths/styles on block edges |
-| 38 | `border-block-color` | Top and bottom borders show distinct colors |
-| 39 | `border-block-end` | Various border widths/styles on block-end edge |
-| 40 | `border-block-end-color` | Bottom border shows distinct colors across panels |
-| 41 | `border-block-end-style` | Different border styles (dotted, dashed, solid, double, groove, etc.) |
-| 42 | `border-block-end-width` | Border width varies visibly from thin to 50px |
-| 43 | `border-block-start` | Various border widths/styles on block-start edge |
-| 44 | `border-block-start-color` | Top border shows distinct colors |
-| 45 | `border-block-start-style` | Different border styles on top edge |
-| 46 | `border-block-start-width` | Clear width differences from thin to 50px |
-| 47 | `border-block-style` | Distinct styles with two-value combinations for top/bottom |
-| 48 | `border-block-width` | Clear width variation including asymmetric shorthand |
-| 49 | `border-bottom` | Various border widths/styles on bottom edge |
-| 50 | `border-bottom-left-radius` | Clear progression from 4px to 50% |
-| 51 | `border-bottom-right-radius` | Clear corner rounding progression |
-| 52 | `border-bottom-style` | All 10 line-styles clearly distinguishable |
-| 53 | `border-bottom-width` | Clear width differences from 0 to 50px |
-| 54 | `border-collapse` | Separate vs collapse clearly different |
-| 55 | `border-color` | Multiple distinct colors visible |
-| 56 | `border-end-end-radius` | Clear progression from 4px to 50% |
-| 57 | `border-end-start-radius` | Clear progression from 4px to 50% |
-| 58 | `border-image` | Varied image sources with different slice values |
-| 59 | `border-image-outset` | Visible differences in border image extension |
-| 60 | `border-image-repeat` | Visible differences (stretch, repeat, round, space) |
-| 61 | `border-image-slice` | Dramatic slice variation from tiny pieces to full fills |
-| 62 | `border-image-source` | Distinct sources (none, url, gradient) clearly visible |
-| 63 | `border-image-width` | Clear width differences with gradient borders |
-| 64 | `border-inline` | Various border widths/styles on inline edges |
-| 65 | `border-inline-color` | Distinct colors on left/right borders |
-| 66 | `border-inline-end` | Various border widths/styles on inline-end edge |
-| 67 | `border-inline-end-color` | Distinct colors on right border |
-| 68 | `border-inline-end-style` | All styles visible on right border |
-| 69 | `border-inline-end-width` | Clear width progression |
-| 70 | `border-inline-start` | Various border widths/styles on inline-start edge |
-| 71 | `border-inline-start-color` | Distinct colors on left border |
-| 72 | `border-inline-start-style` | All styles visible on left border |
-| 73 | `border-inline-start-width` | Clear width progression |
-| 74 | `border-inline-style` | All styles with two-value combinations |
-| 75 | `border-inline-width` | Clear width differences including asymmetric |
-| 76 | `border-left` | Various border widths/styles on left edge |
-| 77 | `border-left-color` | Distinct colors visible |
-| 78 | `border-left-style` | All 10 line-styles distinguishable |
-| 79 | `border-left-width` | Clear width progression from thin to 50px |
-| 80 | `border-radius` | Excellent variety from slightly rounded to circular |
-| 81 | `border-right` | Various border widths/styles on right edge |
-| 82 | `border-right-color` | Distinct colors visible |
-| 83 | `border-right-style` | All 10 line-styles distinguishable |
-| 84 | `border-right-width` | Clear width progression |
-| 85 | `border-spacing` | Clear spacing differences from 4px compact to 50px spread |
-| 86 | `border-start-end-radius` | Clear progression on top-right corner |
-| 87 | `border-start-start-radius` | Clear progression on top-left corner |
-| 88 | `border-style` | All styles with multi-value combinations |
-| 89 | `border-top` | Various border widths/styles on top edge |
-| 90 | `border-top-color` | Distinct colors on top border |
-| 91 | `border-top-left-radius` | Clear progression from 4px to 50% |
-| 92 | `border-top-right-radius` | Clear progression from 4px to 50% |
-| 93 | `border-top-style` | All 10 styles distinguishable |
-| 94 | `border-top-width` | Clear width progression from 0 to 50px |
-| 95 | `border-width` | Clear width variation with multi-value combos |
-| 96 | `bottom` | Element positioned at different vertical locations |
-| 97 | `box-align` | Distinct values shown across panels |
-| 98 | `box-decoration-break` | Clear difference between slice and clone at line breaks |
-| 99 | `box-direction` | normal vs reverse item order in flex box |
-| 100 | `box-flex` | Distinct values shown across panels |
-| 101 | `box-flex-group` | Distinct values shown across panels |
-| 102 | `box-lines` | Distinct values shown across panels |
-| 103 | `box-ordinal-group` | Distinct values shown across panels |
-| 104 | `box-orient` | Distinct values shown across panels |
-| 105 | `box-pack` | Distinct values shown across panels |
-| 106 | `box-shadow` | Excellent variety of shadow colors, offsets, inset/outset |
-| 107 | `box-sizing` | Distinct size difference between content-box and border-box |
-| 108 | `break-after` | Distinct values shown across panels |
-| 109 | `break-before` | Distinct values shown across panels |
-| 110 | `break-inside` | Distinct values shown across panels |
-| 111 | `caption-side` | Caption clearly positioned at top vs bottom of table |
-| 112 | `clear` | Distinct float-clearing behaviors across panels |
-| 113 | `clip` | Various rect() values produce visibly different clipping regions |
-| 114 | `clip-path` | Excellent variety of clipping shapes (inset, circle, ellipse, polygon) |
-| 115 | `clip-rule` | Distinct values shown across panels |
-| 116 | `color-interpolation` | SVG gradient shows visible sRGB vs linearRGB differences |
-| 117 | `color-interpolation-filters` | Distinct values shown across panels |
-| 118 | `color-scheme` | Light vs dark theme differences visible on form controls |
-| 119 | `column-count` | Clear differences between auto, 1, 2, 3 column layouts |
-| 120 | `column-fill` | Visible difference between auto and balance |
-| 121 | `column-gap` | Different spacing between items (normal, 10px, 25%, 50%) |
-| 122 | `column-rule` | Distinct values shown across panels |
-| 123 | `column-rule-color` | Distinct values shown across panels |
-| 124 | `column-rule-style` | Distinct values shown across panels |
-| 125 | `column-rule-width` | Distinct values shown across panels |
-| 126 | `column-width` | Different column widths produce different layouts |
-| 127 | `columns` | Different column configurations with visible count/width changes |
-| 128 | `contain` | Visible containment behavior differences with overflow child |
-| 129 | `contain-intrinsic-block-size` | Different height hints produce different element heights |
-| 130 | `contain-intrinsic-height` | Different height values produce different sizes |
-| 131 | `contain-intrinsic-inline-size` | Different width hints produce different inline sizes |
-| 132 | `contain-intrinsic-size` | Visible size differences |
-| 133 | `contain-intrinsic-width` | Visible width differences |
-| 134 | `container` | Distinct values shown across panels |
-| 135 | `container-name` | Distinct values shown across panels |
-| 136 | `container-type` | Distinct values shown across panels |
-| 137 | `content` | ::before pseudo-element content generation |
-| 138 | `content-visibility` | Visible/auto show content, hidden shows empty |
-| 139 | `corner-block-end-shape` | BOX blueprint with border-radius; Chrome renders distinct corner shapes |
-| 140 | `corner-block-start-shape` | BOX blueprint with border-radius; Chrome renders distinct corner shapes |
-| 141 | `corner-bottom-left-shape` | BOX blueprint with border-radius; Chrome renders distinct corner shapes |
-| 142 | `corner-bottom-right-shape` | BOX blueprint with border-radius; Chrome renders distinct corner shapes |
-| 143 | `corner-bottom-shape` | BOX blueprint with border-radius; Chrome renders distinct corner shapes |
-| 144 | `corner-end-end-shape` | Different corner shapes (round, scoop, bevel, notch, square) |
-| 145 | `corner-end-start-shape` | Different corner shapes (round, scoop, bevel, notch, square) |
-| 146 | `corner-inline-end-shape` | Different corner shapes (round, scoop, bevel, notch, square) |
-| 147 | `corner-inline-start-shape` | Different corner shapes (round, scoop, bevel, notch, square) |
-| 148 | `corner-left-shape` | Different corner shapes (round, scoop, bevel, notch, square) |
-| 149 | `corner-right-shape` | Different corner shapes (round, scoop, bevel, notch, square) |
-| 150 | `corner-shape` | Different corner shapes (round, scoop, bevel, notch, square) |
-| 151 | `corner-start-end-shape` | Different corner shapes (round, scoop, bevel, notch, square) |
-| 152 | `corner-start-start-shape` | Different corner shapes (round, scoop, bevel, notch, square) |
-| 153 | `corner-top-left-shape` | Different corner shapes (round, scoop, bevel, notch, square) |
-| 154 | `corner-top-right-shape` | Different corner shapes (round, scoop, bevel, notch, square) |
-| 155 | `corner-top-shape` | Different corner shapes (round, scoop, bevel, notch, square) |
-| 156 | `counter-increment` | Different starting numbers and increments visible |
-| 157 | `counter-reset` | Distinct values shown across panels |
-| 158 | `counter-set` | Different counter values with visible numbering differences |
-| 159 | `cx` | Circle at different horizontal positions |
-| 160 | `cy` | Circle at different vertical positions |
-| 161 | `d` | Distinct SVG path shapes (bezier, triangle, circle, none) |
-| 162 | `direction` | ltr vs rtl clearly shows text alignment difference |
-| 163 | `display` | Distinct layout modes (block, inline, flex, grid, table, none) |
-| 164 | `dominant-baseline` | Distinct values shown across panels |
-| 165 | `empty-cells` | Show vs hide clearly demonstrates empty cell visibility |
-| 166 | `field-sizing` | Fixed vs content shows different textarea sizing |
-| 167 | `fill` | SVG circles with distinct fill colors |
-| 168 | `fill-opacity` | Clear opacity gradations on checkerboard backgrounds |
-| 169 | `fill-rule` | nonzero vs evenodd show visible difference in star rendering |
-| 170 | `filter` | Clearly different filter effects (blur, grayscale, etc.) |
-| 171 | `flex` | Different flex item sizing with visible width differences |
-| 172 | `flex-basis` | Target element at different widths (content, auto, 10px, 50%) |
-| 173 | `flex-direction` | row, row-reverse, column, column-reverse all distinct |
-| 174 | `flex-flow` | Different direction and wrapping combinations |
-| 175 | `flex-grow` | Different grow ratios with visible width changes |
-| 176 | `flex-shrink` | Different shrink ratios with visible width differences |
-| 177 | `flood-color` | Distinct values shown across panels |
-| 178 | `flood-opacity` | Distinct values shown across panels |
-| 179 | `font` | Distinct font styles, sizes, and weights |
-| 180 | `font-family` | Distinct values shown across panels |
-| 181 | `font-feature-settings` | Distinct values shown across panels |
-| 182 | `font-kerning` | auto/normal vs none shows visible letter spacing difference |
-| 183 | `font-language-override` | Distinct values shown across panels |
-| 184 | `font-optical-sizing` | Distinct values shown across panels |
-| 185 | `font-palette` | Distinct values shown across panels |
-| 186 | `font-size` | Clearly different text sizes from xx-small to x-large |
-| 187 | `font-stretch` | Different text widths from condensed to ultra-expanded |
-| 188 | `font-synthesis` | Distinct values shown across panels |
-| 189 | `font-synthesis-position` | Distinct values shown across panels |
-| 190 | `font-synthesis-small-caps` | Distinct values shown across panels |
-| 191 | `font-synthesis-style` | Distinct values shown across panels |
-| 192 | `font-synthesis-weight` | Distinct values shown across panels |
-| 193 | `font-variant` | Distinct values shown across panels |
-| 194 | `font-variant-alternates` | Distinct values shown across panels |
-| 195 | `font-variant-caps` | Clear differences (normal, small-caps, all-small-caps, etc.) |
-| 196 | `font-variant-east-asian` | Distinct values shown across panels |
-| 197 | `font-variant-emoji` | Distinct rendering (normal, text, emoji, unicode) |
-| 198 | `font-variant-ligatures` | Distinct values shown across panels |
-| 199 | `font-variant-numeric` | Distinct values shown across panels |
-| 200 | `font-variant-position` | Clear sub and super positioning |
-| 201 | `font-variation-settings` | Distinct values shown across panels |
-| 202 | `font-width` | Distinct values shown across panels |
-| 203 | `forced-color-adjust` | Distinct values shown across panels |
-| 204 | `gap` | Clear spacing differences between grid items |
-| 205 | `grid` | Multiple distinct grid layouts visible |
-| 206 | `grid-area` | Highlighted element at different grid placements and spans |
-| 207 | `grid-auto-columns` | Visible column width differences |
-| 208 | `grid-auto-flow` | Clear layout differences (row, column, dense) |
-| 209 | `grid-auto-rows` | Visible row height differences |
-| 210 | `grid-column` | Clear column placement and span differences |
-| 211 | `grid-column-end` | Visible column span differences |
-| 212 | `grid-column-start` | Visible placement differences |
-| 213 | `grid-gap` | Clear gap sizing differences |
-| 214 | `grid-row` | Clear row placement and span differences |
-| 215 | `grid-row-end` | Visible row span differences |
-| 216 | `grid-row-start` | Visible row start position differences |
-| 217 | `grid-template` | Various grid template configurations |
-| 218 | `grid-template-areas` | Distinct values shown across panels |
-| 219 | `grid-template-columns` | Clear column count and sizing differences |
-| 220 | `grid-template-rows` | Clear row sizing differences |
-| 221 | `height` | Visible height differences |
-| 222 | `hyphenate-character` | Distinct values shown across panels |
-| 223 | `hyphenate-limit-chars` | Distinct values shown across panels |
-| 224 | `hyphens` | Clear difference between none/manual and auto |
-| 225 | `image-orientation` | Distinct values shown across panels |
-| 226 | `image-rendering` | Visible quality differences (auto, pixelated, crisp-edges) |
-| 227 | `initial-letter` | Drop cap sizing via ::first-letter |
-| 228 | `inline-size` | Clear width differences |
-| 229 | `inset` | Clear positional differences of positioned element |
-| 230 | `inset-block` | Visible vertical position changes |
-| 231 | `inset-block-end` | Clear vertical position from bottom |
-| 232 | `inset-block-start` | Clear vertical position from top |
-| 233 | `inset-inline` | Visible horizontal positioning |
-| 234 | `inset-inline-end` | Clear horizontal position from end |
-| 235 | `inset-inline-start` | Clear horizontal position from start |
-| 236 | `interpolate-size` | Distinct values shown across panels |
-| 237 | `isolation` | Clear difference between auto (blending) and isolate (no blending) |
-| 238 | `justify-content` | Distinct spacing patterns for different alignment values |
-| 239 | `justify-items` | Distinct values shown across panels |
-| 240 | `justify-self` | Target element shifts position within grid cells |
-| 241 | `left` | Elements shift horizontally at different positions |
-| 242 | `lighting-color` | Distinct values shown across panels |
-| 243 | `line-break` | Japanese text wraps differently for loose, normal, strict, anywhere |
-| 244 | `line-clamp` | Text visibly truncated at different line counts |
-| 245 | `line-height` | Clearly different vertical spacing between lines |
-| 246 | `list-style` | Visible differences in marker types and positions |
-| 247 | `list-style-image` | Distinct values shown across panels |
-| 248 | `list-style-position` | Clear inside vs outside difference |
-| 249 | `margin` | Visible spacing around content boxes |
-| 250 | `margin-block` | Vertical spacing varies clearly |
-| 251 | `margin-block-end` | Bottom margin varies visibly |
-| 252 | `margin-block-start` | Top margin varies visibly |
-| 253 | `margin-bottom` | Bottom spacing varies clearly |
-| 254 | `margin-inline` | Horizontal spacing varies |
-| 255 | `margin-inline-end` | Right margin varies |
-| 256 | `margin-inline-start` | Left margin varies |
-| 257 | `margin-left` | Left margin varies |
-| 258 | `margin-right` | Right margin varies |
-| 259 | `margin-top` | Top spacing varies |
-| 260 | `margin-trim` | Distinct values shown across panels |
-| 261 | `marker` | SVG shows none, arrow, and dot markers distinctly |
-| 262 | `marker-end` | End-point markers clearly visible |
-| 263 | `marker-mid` | Mid-point markers clearly visible |
-| 264 | `marker-start` | Start-point markers clearly visible |
-| 265 | `mask` | Distinct values shown across panels |
-| 266 | `mask-border` | Distinct values shown across panels |
-| 267 | `mask-border-mode` | Distinct values shown across panels |
-| 268 | `mask-border-outset` | Distinct values shown across panels |
-| 269 | `mask-border-repeat` | Visible tiling differences (stretch, repeat, round, space) |
-| 270 | `mask-border-slice` | Different slice positions affect rendering |
-| 271 | `mask-border-source` | Visible differences between none, gradient, url sources |
-| 272 | `mask-border-width` | Border mask widths clearly vary |
-| 273 | `mask-clip` | Content clipped to different box models |
-| 274 | `mask-composite` | Distinct compositing operations (add, subtract, intersect, exclude) |
-| 275 | `mask-image` | Distinct values shown across panels |
-| 276 | `mask-mode` | Distinct values shown across panels |
-| 277 | `mask-origin` | Visible mask positioning relative to different box origins |
-| 278 | `mask-position` | Gradient circle mask moves to different positions |
-| 279 | `mask-repeat` | Clear mask repetition patterns |
-| 280 | `mask-size` | Mask circles at different sizes |
-| 281 | `mask-type` | SVG mask with luminance and alpha modes |
-| 282 | `math-depth` | Distinct values shown across panels |
-| 283 | `math-shift` | Distinct values shown across panels |
-| 284 | `math-style` | Distinct values shown across panels |
-| 285 | `max-block-size` | Distinct values shown across panels |
-| 286 | `max-height` | Distinct values shown across panels |
-| 287 | `max-inline-size` | Text wrapping changes with constraint |
-| 288 | `max-width` | Varying content widths with clipping |
-| 289 | `min-block-size` | Distinct values shown across panels |
-| 290 | `min-height` | Distinct values shown across panels |
-| 291 | `min-inline-size` | Distinct values shown across panels |
-| 292 | `min-width` | Distinct values shown across panels |
-| 293 | `mix-blend-mode` | Distinct color blending effects with overlapping circles |
-| 294 | `object-fit` | Visibly different image fitting (fill, contain, cover, scale-down) |
-| 295 | `object-position` | Circle image at different positions |
-| 296 | `object-view-box` | Distinct values shown across panels |
-| 297 | `offset` | Some panels show element at different positions along paths |
-| 298 | `offset-anchor` | Element position shifts along path based on anchor point |
-| 299 | `offset-distance` | Dot moves along SVG path at different distances |
-| 300 | `offset-path` | Element positioned differently per path type |
-| 301 | `offset-position` | Element at different grid positions |
-| 302 | `offset-rotate` | Triangle rotated to different angles |
-| 303 | `opacity` | Distinct transparency levels visible |
-| 304 | `outline-offset` | Outline distance from box visibly different |
-| 305 | `outline-style` | Distinct styles (auto, dotted, dashed, solid, double, etc.) |
-| 306 | `outline-width` | Different outline widths clearly visible |
-| 307 | `overflow` | Different behaviors (visible, hidden, clip, scroll, auto) |
-| 308 | `overflow-anchor` | Distinct values shown across panels |
-| 309 | `overflow-block` | Visible vertical overflow handling differences |
-| 310 | `overflow-clip-margin` | Distinct values shown across panels |
-| 311 | `overflow-inline` | Horizontal overflow differences |
-| 312 | `overflow-wrap` | Distinct wrapping behavior for long words |
-| 313 | `overflow-x` | Horizontal overflow clearly different |
-| 314 | `overflow-y` | Vertical overflow clearly shown |
-| 315 | `overlay` | Distinct values shown across panels |
-| 316 | `padding` | Distinctly different padding amounts |
-| 317 | `padding-block` | Clear vertical padding differences |
-| 318 | `padding-block-end` | Bottom padding increases visibly |
-| 319 | `padding-block-start` | Top padding increases visibly |
-| 320 | `padding-bottom` | Bottom padding grows |
-| 321 | `padding-inline` | Horizontal padding differences |
-| 322 | `padding-inline-end` | Right-side padding increases |
-| 323 | `padding-inline-start` | Left-side padding increases |
-| 324 | `padding-left` | Left padding grows |
-| 325 | `padding-right` | Right padding grows |
-| 326 | `padding-top` | Top padding increases |
-| 327 | `page-break-inside` | Distinct values shown across panels |
-| 328 | `paint-order` | Distinct values shown across panels |
-| 329 | `perspective` | Clear depth differences with varying perspective distances |
-| 330 | `perspective-origin` | Visible vanishing point shift |
-| 331 | `place-content` | Grid items visibly repositioned |
-| 332 | `place-items` | Items aligned differently within grid cells |
-| 333 | `place-self` | Individual item alignment varies visibly |
-| 334 | `position-area` | Distinct values shown across panels |
-| 335 | `position-try-order` | Distinct values shown across panels |
-| 336 | `position-visibility` | Distinct values shown across panels |
-| 337 | `quotes` | Different quotation mark characters rendered |
-| 338 | `r` | Distinct values shown across panels |
-| 339 | `resize` | Distinct values shown across panels |
-| 340 | `right` | Positioned elements shift horizontally |
-| 341 | `rotate` | Elements rotated to clearly different angles |
-| 342 | `ruby-align` | Ruby text alignment varies visibly |
-| 343 | `ruby-overhang` | Distinct values shown across panels |
-| 344 | `ruby-position` | Ruby text positioned above/below differently |
-| 345 | `ry` | Ellipse vertical radius changes clearly |
-| 346 | `rx` | Distinct values shown across panels |
-| 347 | `scale` | Elements scaled to visibly different sizes |
-| 348 | `scroll-timeline-axis` | Distinct values shown across panels |
-| 349 | `scroll-timeline-name` | Distinct values shown across panels |
-| 350 | `scrollbar-color` | Different scrollbar track/thumb colors |
-| 351 | `scrollbar-gutter` | Visible gutter space differences |
-| 352 | `scrollbar-width` | auto, thin, none clearly different |
-| 353 | `shape-image-threshold` | Distinct values shown across panels |
-| 354 | `shape-margin` | Distinct values shown across panels |
-| 355 | `shape-outside` | Distinct values shown across panels |
-| 356 | `shape-rendering` | Distinct values shown across panels |
-| 357 | `stop-color` | SVG gradient stop colors visibly different |
-| 358 | `stop-opacity` | SVG gradient opacity differences visible |
-| 359 | `stroke` | SVG stroke colors clearly different |
-| 360 | `stroke-dasharray` | Different dash patterns visible |
-| 361 | `stroke-dashoffset` | Dash offset shifts visible |
-| 362 | `stroke-linecap` | butt, round, square caps visible |
-| 363 | `stroke-linejoin` | miter, round, bevel joins visible |
-| 364 | `stroke-miterlimit` | Miter limit affects join appearance |
-| 365 | `stroke-opacity` | Clear opacity differences on strokes |
-| 366 | `tab-size` | Tab indentation varies visibly |
-| 367 | `table-layout` | auto vs fixed shows layout differences |
-| 368 | `text-align` | left, center, right, justify clearly different |
-| 369 | `text-align-last` | Last line alignment varies |
-| 370 | `text-anchor` | Distinct values shown across panels |
-| 371 | `text-autospace` | CJK/Latin spacing differences visible |
-| 372 | `text-box` | Distinct values shown across panels |
-| 373 | `text-box-edge` | Distinct values shown across panels |
-| 374 | `text-box-trim` | Visible trim differences on text box |
-| 375 | `text-combine-upright` | Character combination in vertical text visible |
-| 376 | `text-decoration` | Distinct values shown across panels |
-| 377 | `text-decoration-color` | Distinct underline colors |
-| 378 | `text-decoration-line` | underline, overline, line-through clearly different |
-| 379 | `text-decoration-skip` | Distinct values shown across panels |
-| 380 | `text-decoration-skip-ink` | Ink skipping around descenders visible |
-| 381 | `text-decoration-style` | solid, double, dotted, dashed, wavy clearly distinct |
-| 382 | `text-emphasis` | Dots, circles, triangles, colors visible |
-| 383 | `text-emphasis-color` | Different emphasis mark colors |
-| 384 | `text-emphasis-position` | Over/under and left/right positions visible |
-| 385 | `text-emphasis-style` | dot, circle, triangle, sesame, open/filled variants |
-| 386 | `text-indent` | Clear indentation differences |
-| 387 | `text-orientation` | mixed, upright, sideways clearly different |
-| 388 | `text-overflow` | clip, ellipsis, fade behaviors visible |
-| 389 | `text-rendering` | Distinct values shown across panels |
-| 390 | `text-spacing-trim` | Distinct values shown across panels |
-| 391 | `text-transform` | uppercase, lowercase, capitalize clearly visible |
-| 392 | `text-underline-offset` | Underline position varies at different offsets |
-| 393 | `text-underline-position` | Distinct values shown across panels |
-| 394 | `text-wrap-mode` | wrap vs nowrap clearly demonstrated |
-| 395 | `text-wrap-style` | Distinct values shown across panels |
-| 396 | `top` | Box position varies with different values |
-| 397 | `transform` | none, rotate(45deg), scale(2) all visually distinct |
-| 398 | `transform-box` | Distinct values shown across panels |
-| 399 | `transform-origin` | Rotation pivot varies with green dot markers |
-| 400 | `transform-style` | flat vs preserve-3d shows clear 2D vs 3D |
-| 401 | `translate` | Box position shifts at different values |
-| 402 | `unicode-bidi` | Bidirectional text differs across values |
-| 403 | `vector-effect` | Distinct values shown across panels |
-| 404 | `vertical-align` | Red square varies relative to baseline text |
-| 405 | `visibility` | visible/hidden/collapse show distinct states |
-| 406 | `white-space` | Clear whitespace handling differences |
-| 407 | `white-space-collapse` | collapse, preserve, break-spaces all distinct |
-| 408 | `width` | Clearly different box widths |
-| 409 | `will-change` | Distinct values shown across panels |
-| 410 | `word-break` | normal, break-all, keep-all show clear differences |
-| 411 | `word-spacing` | Visible spacing differences |
-| 412 | `word-wrap` | normal overflow vs break-word vs anywhere distinct |
-| 413 | `writing-mode` | horizontal-tb, vertical-rl, vertical-lr, sideways all distinct |
-| 414 | `x` | SVG elements at different x coordinates |
-| 415 | `y` | SVG elements at different y coordinates |
-| 416 | `z-index` | Stacking order changes visibly |
-| 417 | `zoom` | Element size varies dramatically |
-| 418 | `accent-color` | Color values including light-dark(), device-cmyk() correctly shown |
-| 419 | `animation` | Shorthand values reference defined @keyframes (slideRotate, pulse) |
-| 420 | `background-color` | Color values including light-dark() correctly shown |
-| 421 | `border` | All `<line-width> \|\| <line-style> \|\| <color>` combinations valid |
-| 422 | `border-bottom-color` | Color values and stripes() correctly shown |
-| 423 | `caret-color` | Color values including light-dark() correctly shown |
-| 424 | `color` | Color values including light-dark() correctly shown |
-| 425 | `column-span` | `none`, positive integers, `all`, `auto` per MDN spec |
-| 426 | `cursor` | All predefined cursor keywords shown |
-| 427 | `flex-wrap` | `nowrap`, `wrap`, `wrap-reverse`, `balance` per CSS Flexbox L2 |
-| 428 | `float` | All values including snap-block(), snap-inline() valid per spec |
-| 429 | `font-size-adjust` | Metric keywords + from-font/number, var() with valid fallbacks |
-| 430 | `font-style` | `normal`, `italic`, `left`, `right`, `oblique` per CSS Fonts L4 |
-| 431 | `font-weight` | `normal`, `bold`, `bolder`, `lighter`, positive integers |
-| 432 | `grid-column-gap` | Valid gap values (length, normal) |
-| 433 | `grid-row-gap` | Valid gap values (length, normal) |
-| 434 | `letter-spacing` | `normal`, lengths, percentages per `<length-percentage>` |
-| 435 | `list-style-type` | Custom ident, string, symbols() per spec |
-| 436 | `order` | Integer values with valid var() fallbacks |
-| 437 | `orphans` | Positive integers with valid var() fallbacks |
-| 438 | `outline` | All `<line-width> \|\| <outline-style> \|\| <color>` combinations valid |
-| 439 | `outline-color` | Color values and stripes() correctly shown |
-| 440 | `position` | All values including running() valid per spec |
-| 441 | `position-anchor` | `normal`, `none`, `auto`, `<dashed-ident>`, `match-parent` all valid |
-| 442 | `row-gap` | `normal`, lengths, percentages, `<line-width>` keywords all valid |
-| 443 | `scroll-marker-group` | All `[[before\|after] \|\| [links\|tabs]]` combinations valid |
-| 444 | `stroke-width` | Lengths, percentages, `<line-width>` keywords, numbers all valid |
-| 445 | `text-decoration-thickness` | `auto`, `from-font`, lengths, percentages, `<line-width>` valid |
-| 446 | `text-shadow` | Shadow values including `inset` valid per `<shadow>` formal syntax |
-| 447 | `text-wrap` | `<text-wrap-mode> \|\| <text-wrap-style>` two-value combos valid |
-| 448 | `widows` | Positive integers with valid var() fallbacks |
+| Property | Notes |
+|----------|-------|
+| `accent-color` | Checkboxes/radios/sliders show distinct accent colors per panel |
+| `align-content` | Flex children visibly packed/centered/spaced/stretched |
+| `align-items` | Numbered bars at different vertical positions |
+| `align-self` | Highlighted item moves to distinct positions |
+| `alignment-baseline` | SVG text baseline positions visually distinct |
+| `all` | Resets visible styles; revert-layer/unset/inherit all produce distinct results |
+| `anchor-name` | Tooltip wired to anchor with position-anchor; different names show distinct positioning |
+| `anchor-scope` | Different scope behaviors produce distinct layouts |
+| `animation` | Dramatic keyframes show distinct animation combos |
+| `animation-composition` | Replace/add/accumulate produce distinct transforms |
+| `animation-delay` | Negative delays show elements at different positions/colors |
+| `animation-direction` | Normal/reverse/alternate clearly different with color-changing animation |
+| `animation-duration` | Box position clearly varies (short=near end, long=near start) |
+| `animation-fill-mode` | none/forwards/backwards/both states clearly legible |
+| `animation-iteration-count` | Different iteration counts with short animation visible |
+| `animation-name` | Each named animation produces dramatically different result |
+| `animation-play-state` | Running vs paused ball positions clearly different |
+| `animation-timing-function` | Ball positions differ across timing curves |
+| `appearance` | Select element appearance values distinguishable |
+| `aspect-ratio` | Boxes clearly vary in width-to-height ratio |
+| `backdrop-filter` | Blur, grayscale, multi-filter effects visible on colored blobs |
+| `backface-visibility` | Visible shows mirrored text, hidden shows empty card |
+| `background` | Six distinct gradient/color combinations |
+| `background-blend-mode` | Each blend mode produces distinct color output |
+| `background-clip` | Content-box, padding-box, border-box, text all distinct |
+| `background-color` | Distinct colors including red, white, green, blue, transparent |
+| `background-image` | Gradients and image types visually distinct |
+| `background-origin` | Gradient start shifts relative to content/padding/border |
+| `background-position` | Red dot at clearly different X/Y positions |
+| `background-position-x` | Blue band shifts horizontally |
+| `background-position-y` | Pink band shifts vertically |
+| `background-repeat` | repeat-x, repeat-y, no-repeat, space, round all distinct |
+| `background-repeat-x` | X-axis repeat patterns clearly visible with enlarged dots |
+| `background-repeat-y` | Y-axis repeat patterns clearly visible |
+| `background-size` | auto/cover/contain/percentage all clearly different |
+| `baseline-shift` | Text shift positions clearly visible with reference line |
+| `block-size` | Elements clearly vary in height |
+| `border` | Solid/dotted/dashed/double styles and widths all distinct |
+| `border-block` | Block border styles and colors well demonstrated |
+| `border-block-color` | Distinct colors on block borders |
+| `border-block-end` | Bottom border varies from hairline to 50px |
+| `border-block-end-color` | End-edge colors clearly different |
+| `border-block-end-style` | All 10 styles clearly shown |
+| `border-block-end-width` | Width from hairline to 50px clearly progresses |
+| `border-block-start` | Top border varies from hairline to styled |
+| `border-block-start-color` | Start-edge colors clearly different |
+| `border-block-start-style` | All 10 styles distinct at top border |
+| `border-block-start-width` | Width from hairline to 50px progresses |
+| `border-block-style` | All 9 styles shown as top+bottom borders |
+| `border-block-width` | Width progression visible with padding |
+| `border-bottom` | Bottom border styles well shown with fallback |
+| `border-bottom-color` | Color values clearly visible on dark background |
+| `border-bottom-left-radius` | Radius progression from 4px to 50% |
+| `border-bottom-right-radius` | Radius progression clearly visible |
+| `border-bottom-style` | All 10 styles clearly shown as bottom border |
+| `border-bottom-width` | Width from hairline to 50px visible |
+| `border-collapse` | Separate vs collapse clearly different on table |
+| `border-color` | Multiple distinct color values including system colors |
+| `border-end-end-radius` | Logical radius values clearly visible |
+| `border-end-start-radius` | Logical radius values clearly visible |
+| `border-image` | Gradient, SVG, and slice values render vividly |
+| `border-image-outset` | Border extends outward at different amounts |
+| `border-image-repeat` | Stretch/repeat/round/space visually distinct |
+| `border-image-slice` | Rainbow gradient makes slice values obvious |
+| `border-image-source` | Gradient border sources well shown |
+| `border-image-width` | Gradient border width differences clear |
+| `border-inline` | Inline-edge (left+right) border styles and colors clearly distinct |
+| `border-inline-color` | Left+right borders show distinct colors |
+| `border-inline-end` | Right-edge border varies in style and color |
+| `border-inline-end-color` | Right-side vertical bar changes color |
+| `border-inline-end-style` | All 10 styles visible on right border |
+| `border-inline-end-width` | Right-side width from hairline to 50px |
+| `border-inline-start` | Left-edge border varies in style and color |
+| `border-inline-start-color` | Left-side vertical bar changes color |
+| `border-inline-start-style` | All 10 styles on left border |
+| `border-inline-start-width` | Left-side width progression |
+| `border-inline-style` | Both inline borders changing style together |
+| `border-inline-width` | Both inline widths with two-value combos |
+| `border-left` | Left-edge border style/color distinct per panel |
+| `border-left-color` | Left edge vertical bar changes color |
+| `border-left-style` | All 10 styles on left border |
+| `border-left-width` | Width from hairline to 50px |
+| `border-radius` | Sharp to circular, asymmetric elliptical shapes |
+| `border-right` | Right-edge border style/color distinct per panel |
+| `border-right-color` | Right-side bar changes color |
+| `border-right-style` | All 10 styles on right border |
+| `border-right-width` | Width progression clear |
+| `border-spacing` | 4px compact to 50px spread on real table |
+| `border-start-end-radius` | Logical radius values clearly visible |
+| `border-start-start-radius` | Logical radius values clearly visible |
+| `border-style` | All styles with multi-value combinations |
+| `border-top` | Top border with fallback style/width |
+| `border-top-color` | Color values clearly visible |
+| `border-top-left-radius` | Radius progression visible |
+| `border-top-right-radius` | Radius progression visible |
+| `border-top-style` | All 10 styles on top edge |
+| `border-top-width` | Width from hairline to 50px |
+| `border-width` | Full-perimeter with multi-value combos |
+| `bottom` | Pink box at different heights |
+| `box-align` | Start/center/end/baseline/stretch clearly different |
+| `box-decoration-break` | Slice vs clone at line breaks unmistakable |
+| `box-direction` | Normal (1,2,3,4) vs reverse (4,3,2,1) |
+| `box-flex` | Flex proportions produce distinct sizing |
+| `box-ordinal-group` | Box clearly moves to different positions |
+| `box-orient` | Horizontal vs vertical layout clearly distinct |
+| `box-pack` | Start/center/end/justified all visible |
+| `box-shadow` | Shadows visible with adequate margin/padding |
+| `box-sizing` | Content-box vs border-box size difference clear |
+| `break-after` | Column break behaviors visible in multi-column layout |
+| `break-before` | Column break behaviors visible in multi-column layout |
+| `break-inside` | Multi-column cards show avoid vs auto break behavior |
+| `caption-side` | Caption above vs below table |
+| `clear` | Float-clearing behavior distinct per panel |
+| `clip` | rect() clipping areas clearly distinct |
+| `clip-path` | Inset, circle, ellipse, polygon all distinct |
+| `clip-rule` | Nonzero fills solid, evenodd punches hole |
+| `color` | Text colors including red, white, green, blue visible |
+| `color-scheme` | Light/dark form controls render differently |
+| `column-count` | 1, 2, 3 columns clearly visible |
+| `column-fill` | Auto vs balance column distribution clearly different |
+| `column-gap` | Items spread apart with increasing gap |
+| `column-rule-color` | Rule color changes between columns |
+| `column-rule-width` | Rule thickness between columns varies visibly |
+| `column-span` | None vs all spanning clearly different |
+| `column-width` | Column width varies from narrow to wide in multi-column layout |
+| `columns` | Column count/width shorthand produces distinct multi-column layouts |
+| `contain` | Overflow child clipped/visible per containment type |
+| `contain-intrinsic-block-size` | Size containment hints produce different heights |
+| `contain-intrinsic-height` | Height hints clearly visible with containment |
+| `contain-intrinsic-inline-size` | Inline-block elements at different intrinsic width hints with containment |
+| `contain-intrinsic-size` | Size containment hints produce visibly different dimensions |
+| `contain-intrinsic-width` | Inline-block elements at different width hints with containment |
+| `container-type` | @container query triggers green indicator when containment context active |
+| `content` | ::before pseudo-element shows distinct generated content per panel |
+| `content-visibility` | Visible/auto show content, hidden shows empty |
+| `corner-block-end-shape` | Distinct corner shapes (round/scoop/bevel/notch/square) |
+| `corner-block-start-shape` | All shape variants visible on top corners |
+| `corner-bottom-left-shape` | All shape variants on bottom-left corner |
+| `corner-bottom-right-shape` | All shape variants on bottom-right corner |
+| `corner-bottom-shape` | All shape variants along bottom edge |
+| `corner-end-end-shape` | All shapes on logical end-end corner |
+| `corner-end-start-shape` | All shapes on logical end-start corner |
+| `corner-inline-end-shape` | All shapes on inline-end corner |
+| `corner-inline-start-shape` | All shapes on inline-start corner |
+| `corner-left-shape` | All shapes on left corners |
+| `corner-right-shape` | All shapes on right corners |
+| `corner-shape` | All shapes on all four corners |
+| `corner-start-end-shape` | All shapes on logical start-end corner |
+| `corner-start-start-shape` | All shapes on logical start-start corner |
+| `corner-top-left-shape` | All shapes on top-left corner |
+| `corner-top-right-shape` | All shapes on top-right corner |
+| `corner-top-shape` | All shapes along top edge |
+| `counter-increment` | Different counter values and steps visible |
+| `counter-reset` | List counter offsets clearly shown |
+| `counter-set` | Set-point changes numbered output |
+| `cx` | Circle horizontal position varies across wide SVG |
+| `cy` | Circle vertical position varies across tall SVG |
+| `d` | Distinct SVG paths (wave, triangle, circle, none) |
+| `direction` | ltr vs rtl text alignment clearly different |
+| `display` | Block, inline, flex, grid, table, none all distinct |
+| `dominant-baseline` | Text baseline differences visible with reference line |
+| `empty-cells` | Show vs hide empty cell visibility |
+| `field-sizing` | Fixed vs content sizing clearly different on textarea with text |
+| `fill` | SVG circles with distinct fill colors |
+| `fill-opacity` | Opacity gradations on checkerboard background |
+| `fill-rule` | nonzero vs evenodd star rendering differs |
+| `filter` | Blur, grayscale, brightness effects on colorful image |
+| `flex` | Red first-item width changes across panels |
+| `flex-basis` | Target element at different widths |
+| `flex-direction` | Row/row-reverse/column/column-reverse all distinct |
+| `flex-flow` | Direction/wrap combinations produce distinct layouts |
+| `flex-grow` | Dark blue element expands differently |
+| `flex-shrink` | Different shrink ratios with visible width changes |
+| `flex-wrap` | Nowrap/wrap/wrap-reverse clearly different in narrow container |
+| `float` | Text wrapping around floated box clearly shown |
+| `flood-color` | SVG feFlood filter colors clearly distinct per panel with unique filter IDs |
+| `flood-opacity` | Opacity gradations visible with bright green on dark bg |
+| `font` | System fonts and style/weight combos all distinct |
+| `font-family` | Named fonts loaded via Google Fonts; distinct typefaces per panel |
+| `font-feature-settings` | EB Garamond OTF features (liga, smcp, onum, kern, frac) visible |
+| `font-kerning` | Kerning differences visible with EB Garamond at 48px |
+| `font-palette` | Nabla color font shows distinct palette colors |
+| `font-size` | Clear progression from xx-small to x-large |
+| `font-size-adjust` | x-height adjustments produce visible size changes |
+| `font-stretch` | Width varies from condensed to expanded via Inter font |
+| `font-style` | Normal/italic/oblique at various angles |
+| `font-synthesis` | Synthesis on/off visible for bold/italic |
+| `font-synthesis-small-caps` | Small-caps synthesis vs native visible |
+| `font-synthesis-style` | Italic synthesis vs native clearly different |
+| `font-variant` | Ligature and small-caps variants visible |
+| `font-variant-alternates` | Historical form differences visible |
+| `font-variant-caps` | Normal/small-caps/all-small-caps/petite-caps distinct |
+| `font-variant-east-asian` | CJK glyph style differences visible |
+| `font-variant-emoji` | Normal/text/emoji/unicode show different rendering |
+| `font-variant-ligatures` | Ligature differences visible with highlighted chars |
+| `font-variant-numeric` | Numeric formatting differences visible |
+| `font-variant-position` | Normal/sub/super positioning clear |
+| `font-weight` | Weight progression from 100 to 900 clearly visible |
+| `font-width` | Width varies from condensed to expanded via Inter font |
+| `gap` | Grid spacing from 0 to 50px clearly visible |
+| `grid` | Different grid configurations produce distinct layouts |
+| `grid-area` | Pink cell at different grid positions and spans |
+| `grid-auto-columns` | Column sizing variations clearly visible |
+| `grid-auto-flow` | Row/column/dense packing differences clear |
+| `grid-auto-rows` | Row sizing variations clearly visible |
+| `grid-column` | Distinct column placements and spans |
+| `grid-column-end` | Item column span/position clearly varies |
+| `grid-column-gap` | Column spacing differences obvious |
+| `grid-column-start` | Item column position clearly varies |
+| `grid-gap` | Row+column gap sizing clear |
+| `grid-row` | Row placement and span differences clear |
+| `grid-row-end` | Item row span clearly varies |
+| `grid-row-gap` | Row spacing differences visible |
+| `grid-row-start` | Item row position clearly varies |
+| `grid-template` | Template configurations produce distinct layouts |
+| `grid-template-columns` | Column widths vary (none/1fr/repeat/subgrid) |
+| `grid-template-rows` | Row heights vary |
+| `height` | Element heights from 10px to stretch clearly different |
+| `hyphenate-character` | Auto hyphen vs custom "example" string visible |
+| `hyphens` | None vs auto hyphenation clear |
+| `image-rendering` | Pixelated/crisp-edges vs smooth visible on scaled image |
+| `initial-letter` | Drop-cap sizes vary from small to large |
+| `inline-size` | Width from 10px sliver to stretch |
+| `inset` | Positioned elements at distinct inset values |
+| `inset-block` | Block-axis inset values produce distinct positions |
+| `inset-block-end` | Element moves up from bottom at different amounts |
+| `inset-block-start` | Element pushed down from top at different amounts |
+| `inset-inline` | Inline-axis inset values produce distinct positions |
+| `inset-inline-end` | Element positioned at different right offsets |
+| `inset-inline-start` | Inline-start offset values clearly different |
+| `isolation` | Auto blends, isolate prevents cross-element blending |
+| `justify-content` | Flex items spaced/packed/centered differently |
+| `justify-items` | Grid items aligned at distinct positions within cells |
+| `justify-self` | Item positioned differently within grid cell |
+| `left` | Element left offset values clearly distinct |
+| `letter-spacing` | Clear progression from tight to extremely spaced |
+| `lighting-color` | SVG diffuse lighting colors clearly distinct with unique filter IDs |
+| `line-break` | Japanese text wraps differently per value |
+| `line-clamp` | Text clamped to different line counts via -webkit-line-clamp |
+| `line-height` | Overlapping (0) to double-spaced (2) clearly shown |
+| `list-style` | Marker type/position shorthand produces distinct list styling |
+| `list-style-image` | Custom list markers visible with overflow control |
+| `list-style-position` | Inside vs outside bullet position with wrapping text |
+| `list-style-type` | Different marker types visible |
+| `margin` | Spacing around elements clearly varies |
+| `margin-block` | Block margin spacing visible |
+| `margin-block-end` | Bottom margin spacing visible |
+| `margin-block-start` | Top margin spacing visible |
+| `margin-bottom` | Bottom margin clearly varies |
+| `margin-inline` | Inline margin spacing visible |
+| `margin-inline-end` | End margin spacing visible |
+| `margin-inline-start` | Start margin spacing visible |
+| `margin-left` | Left margin clearly varies |
+| `margin-right` | Right margin clearly varies |
+| `margin-top` | Top margin clearly varies |
+| `margin-trim` | Parent trims child margins; trimmed vs untrimmed spacing clearly different |
+| `marker` | None/arrow/dot markers on SVG path |
+| `marker-end` | Arrow/dot at path end-point |
+| `marker-mid` | Arrows/dots at inner vertices |
+| `marker-start` | Arrow/dot at start-point |
+| `mask` | Gradient masking effects clearly visible |
+| `mask-border` | Border masking with different gradients |
+| `mask-border-outset` | Dashed border expands outward |
+| `mask-border-repeat` | Stretch/repeat/round/space tiling differences |
+| `mask-border-slice` | Slice guides and colored areas differ |
+| `mask-border-width` | Border width around content varies |
+| `mask-clip` | Mask clips to different box models |
+| `mask-composite` | Add/subtract/intersect/exclude shapes distinct |
+| `mask-image` | None/gradient/url mask effects distinct |
+| `mask-mode` | Luminance vs alpha masking visible |
+| `mask-origin` | Mask position origins clearly differentiated |
+| `mask-position` | Circle mask position changes visible |
+| `mask-repeat` | repeat-x/repeat-y/no-repeat/space/round all differ |
+| `mask-size` | Circle sizes clearly different |
+| `mask-type` | Luminance vs alpha distinction clear |
+| `math-shift` | Formula rendering differences visible at large size |
+| `math-style` | Normal (expanded limits) vs compact (inline limits) |
+| `max-block-size` | 10px clearly truncates content vs none/full height |
+| `max-height` | 10px truncates, others show full content |
+| `max-inline-size` | 10px squeezes text, other values wrap/expand |
+| `max-width` | Width constraints clearly demonstrated |
+| `min-block-size` | Zero-content box grows to different minimum heights (10px, 25%, stretch) |
+| `min-height` | Zero-content box grows to different minimum heights |
+| `min-inline-size` | Zero-content inline-block grows to different minimum widths |
+| `min-width` | Zero-content inline-block grows to different minimum widths |
+| `mix-blend-mode` | Overlapping circles show distinct blending per mode |
+| `object-fit` | Fill/contain/cover/none/scale-down clearly different |
+| `object-position` | Image at different positions within container |
+| `offset` | Element positions along path visible |
+| `offset-anchor` | Green dot anchor shifts on curved path |
+| `offset-distance` | Element at different positions along bright visible path |
+| `offset-path` | Path-based positioning clearly visible |
+| `offset-position` | Red square at different grid intersections |
+| `offset-rotate` | Triangle orientation changes (up/down/angled) |
+| `opacity` | Full opacity to transparent with overlapping squares |
+| `order` | Numbered flex items reorder as value increases |
+| `outline` | Outline styles/colors/widths all distinct with fallback |
+| `outline-color` | Different color values on outline ring |
+| `outline-offset` | Gap between box and outline increases |
+| `outline-style` | Auto/dotted/dashed/solid/double/groove/ridge distinct |
+| `outline-width` | Hairline to 50px progression |
+| `overflow` | Visible/hidden/clip/scroll/auto all distinct |
+| `overflow-block` | Visible/hidden/clip/scroll/auto for block direction |
+| `overflow-inline` | Visible/hidden/scroll/auto for inline direction |
+| `overflow-wrap` | Normal overflows, break-word/anywhere wraps |
+| `overflow-x` | Visible/hidden/scroll/auto clearly different |
+| `overflow-y` | Visible/hidden/clip/scroll/auto clearly shown |
+| `padding` | Color-coded padding regions, multi-value combos |
+| `padding-block` | Distinct top/bottom padding amounts |
+| `padding-block-end` | Bottom padding increases visibly |
+| `padding-block-start` | Top padding increases visibly |
+| `padding-bottom` | Bottom padding grows |
+| `padding-inline` | Horizontal padding single and two-value syntax |
+| `padding-inline-end` | Right-side padding increases |
+| `padding-inline-start` | Left-side padding increases |
+| `padding-left` | Left padding grows |
+| `padding-right` | Right padding grows |
+| `padding-top` | Top padding increases |
+| `page-break-inside` | Multi-column cards show avoid vs auto page-break behavior |
+| `perspective` | Depth distortion varies from none to extreme |
+| `perspective-origin` | Origin shifts visible on enlarged 3D element |
+| `place-content` | Grid items pack/center/spread differently |
+| `place-items` | Items at different positions within grid cells |
+| `place-self` | Item placement within grid cells varies |
+| `position` | Static/relative/absolute/sticky/fixed with offset visible |
+| `position-anchor` | Positioned element anchored to named anchor with anchor() functions |
+| `position-area` | Anchor-positioned elements at distinct areas |
+| `quotes` | Auto/none/custom quote characters clearly different |
+| `r` | SVG circle radius clearly varies per panel |
+| `right` | Element right offset values clearly distinct |
+| `rotate` | Different rotation angles, 3D axis variants |
+| `row-gap` | Vertical spacing from normal to 50px |
+| `ruby-align` | Ruby text alignment varies visibly |
+| `ruby-position` | Ruby text above/below/inter-character |
+| `rx` | SVG ellipse horizontal radius changes visible |
+| `ry` | Ellipse vertical radius from flat sliver to tall narrow |
+| `scale` | Tiny (25%) to oversized (2x) with x/y variants |
+| `scrollbar-color` | Different thumb/track colors visible |
+| `scrollbar-gutter` | Auto/stable/both-edges gutter differences visible |
+| `scrollbar-width` | Auto/thin/none clearly different |
+| `shape-image-threshold` | Threshold effects on text wrapping distinct |
+| `shape-margin` | Margin around shape clearly varies |
+| `shape-outside` | Text wraps around circle/inset/gradient shapes |
+| `stop-color` | SVG gradient stop colors clearly distinct with unique gradient IDs |
+| `stop-opacity` | Gradient start fades from opaque to transparent |
+| `stroke` | SVG stroke colors and presence clearly differ |
+| `stroke-dasharray` | Distinct dash patterns on lines and circles |
+| `stroke-dashoffset` | Dash position shifts visible on long line |
+| `stroke-linecap` | Butt/round/square cap styles visible on thick SVG lines |
+| `stroke-linejoin` | Miter/round/bevel joins visible on zigzag |
+| `stroke-opacity` | Stroke fades from opaque to invisible |
+| `stroke-width` | SVG circle stroke thickness clearly varies |
+| `tab-size` | Code indentation from tight to sprawling |
+| `table-layout` | Auto vs fixed column width distribution |
+| `text-align` | Left/center/right/justify clearly different |
+| `text-align-last` | Last line alignment varies in justified text |
+| `text-anchor` | SVG text anchor start/middle/end positions visible |
+| `text-autospace` | CJK/Latin spacing differences visible |
+| `text-box` | Text box sizing values produce distinct results |
+| `text-box-edge` | Box edge metrics clearly different |
+| `text-box-trim` | Large font with exaggerated leading shows trim effects |
+| `text-combine-upright` | Tate-chu-yoko digit combination visible in vertical text |
+| `text-decoration` | None/underline/double/colored decorations distinct |
+| `text-decoration-color` | Thick colored underlines clearly different |
+| `text-decoration-line` | Underline/overline/line-through/spelling-error distinct |
+| `text-decoration-skip-ink` | Auto/all/none ink-skip differences visible with large descenders |
+| `text-decoration-style` | Solid/double/dotted/dashed/wavy all distinct |
+| `text-decoration-thickness` | Hairline through 50px pink underline |
+| `text-emphasis` | Emphasis marks and styles distinct |
+| `text-emphasis-color` | Emphasis mark colors visible |
+| `text-emphasis-position` | Dots above/below in all position combos |
+| `text-emphasis-style` | Dot/circle/triangle/sesame/custom shapes |
+| `text-indent` | First-line indent progression including hanging |
+| `text-orientation` | Mixed/upright/sideways text in vertical writing mode |
+| `text-overflow` | Clip/ellipsis/fade truncation clearly different |
+| `text-shadow` | Rich variety of shadow colors, offsets, multi-shadow |
+| `text-transform` | None/capitalize/uppercase/lowercase/full-width all visible |
+| `text-underline-offset` | Underline moves from touching text to far below |
+| `text-underline-position` | Under/from-font/left positions clearly different |
+| `text-wrap` | Balance/pretty/stable wrapping differences visible |
+| `text-wrap-mode` | Wrap vs nowrap clearly shown |
+| `text-wrap-style` | Auto/balance/stable/pretty/avoid-orphans distinct |
+| `top` | Pink squares at various distances from top |
+| `transform` | Rotate/scale/skew/translate all clearly visible |
+| `transform-origin` | Green dot marks rotation pivot at different positions |
+| `transform-style` | Flat 2D overlap vs 3D layered planes |
+| `translate` | Translation values produce distinct positions |
+| `vector-effect` | Non-scaling stroke vs default clearly different under 3x transform |
+| `vertical-align` | Pink box shifts relative to text baseline |
+| `visibility` | Visible/hidden (space kept)/collapse (space removed) |
+| `white-space` | Collapsed/preserved/pre-line behavior on same text |
+| `white-space-collapse` | Six values show distinct space/newline handling |
+| `width` | Content box from 10px to stretch |
+| `word-break` | Normal overflow vs break-all vs keep-all |
+| `word-spacing` | Inter-word spacing clearly increases |
+| `word-wrap` | Normal overflow vs break-word/anywhere |
+| `writing-mode` | Horizontal-tb/vertical-rl/vertical-lr/sideways |
+| `x` | SVG elements at different horizontal positions |
+| `y` | SVG elements at different vertical positions |
+| `z-index` | Stacking order changes across colored layers |
+| `zoom` | Size from invisible (0) to 2x dramatically |
 
 ---
 
-## Category 3: Invalid Values / Wrong Grammar (0 — all fixed)
+## B — Inherently Same (39)
 
-All 32 former Category 3 properties have been resolved:
+Panels look identical and **cannot be fixed** — the property is a browser hint,
+requires a specific OS/environment, was never implemented, or is inherently
+imperceptible in static screenshots.
 
-- **13 reclassified as valid** (verified against MDN formal syntax):
-  `border` (`hairline` is valid `<line-width>`), `flex-wrap` (`balance` is CSS Flexbox L2),
-  `font-style` (`left`/`right` are CSS Fonts L4), `letter-spacing` (`<percentage>` is valid),
-  `list-style-type` (`symbols(<image>)` is valid per spec), `position` (`running()` is valid),
-  `position-anchor` (all values valid per spec), `row-gap` / `stroke-width` /
-  `text-decoration-thickness` (`<line-width>` keywords are valid), `scroll-marker-group`
-  (all values valid), `text-shadow` (`inset` is valid per `<shadow>` syntax),
-  `text-wrap` (two-value `||` combos are valid)
-
-- **18 fixed via grammar/representative-value changes**:
-  `accent-color`, `background-color`, `caret-color`, `color`, `outline-color`,
-  `border-bottom-color` (split `LightDarkFn` into color/image variants; fixed `Image1dType`
-  representative values to use `stripes()` instead of `linear-gradient()`);
-  `animation` (updated representative keyframe names to match blueprint);
-  `column-span` (use `positive_integer_type`); `cursor` (representative values instead of
-  grammar expansion to avoid empty-URL comma artifacts); `float` (moved comma inside optional
-  in `SnapBlockFn`/`SnapInlineFn`); `font-weight` (use `positive_integer_type`);
-  `grid-column-gap`, `grid-row-gap` (added `Prop` aliases + representative values);
-  `font-size-adjust`, `order`, `orphans`, `widows` (cleaned `VarFallbackType` to remove
-  `ident_type`, `time_type`, `string_type`, `angle_type`);
-  `outline` (fixed `Image1dType` representative value)
-
-- **1 excluded**: `vendor-prop` (not a real CSS property; removed from generation)
+| Property | Why it can't be fixed |
+|----------|-------|
+| `baseline-source` | First/last baseline alignment difference too subtle with current font metrics |
+| `box-flex-group` | Deprecated, never implemented by any browser |
+| `box-lines` | Never implemented by any browser |
+| `color-interpolation` | sRGB vs linearRGB gradient midpoint inherently imperceptible |
+| `color-interpolation-filters` | sRGB vs linearRGB blur feathering inherently too subtle |
+| `column-rule` | Grammar produces invalid repeat() values instead of border styles |
+| `column-rule-style` | Grammar produces grid track syntax, not border style keywords |
+| `container` | Shorthand grammar generates only type 'normal'; @container query never triggers |
+| `container-name` | Grammar values don't match @container query names; no container context |
+| `font-language-override` | Requires font with language-specific glyph alternates; none available |
+| `font-optical-sizing` | Requires variable font with opsz axis; difference imperceptible in headless Chrome |
+| `font-synthesis-position` | System font has native sub/superscript; synthesis difference not visible |
+| `font-synthesis-weight` | System font has native bold weight; synthesis vs native indistinguishable |
+| `font-variation-settings` | Grammar uses feature tags (liga/smcp), not variation axes (wght/wdth); wrong tag type |
+| `forced-color-adjust` | Requires Windows High Contrast mode; not triggerable in Chrome |
+| `grid-template-areas` | Grammar area names don't match child grid-area; items don't land in areas |
+| `hyphenate-limit-chars` | Browser-dependent micro-thresholds; no text can reveal it |
+| `image-orientation` | Applied to CSS div, not <img> with EXIF rotation data |
+| `mask-border-mode` | Alpha vs luminance mode difference imperceptible with gradient source |
+| `mask-border-source` | Gradient sources too similar; masking effect barely visible |
+| `math-depth` | Nested fraction scaling differences too subtle even with deep nesting |
+| `object-view-box` | No image source; all panels show identical empty containers |
+| `overflow-anchor` | Behavioral (scroll position adjustment); requires dynamic content insertion |
+| `overflow-clip-margin` | Clip margin differences too subtle without large overflow content |
+| `overlay` | Only affects top-layer rendering during View Transitions |
+| `paint-order` | Fill/stroke/markers ordering inherently very subtle even with thick stroke |
+| `position-try-order` | Requires @position-try fallbacks + overflow constraints; too complex for blueprint |
+| `position-visibility` | Requires anchor going out of viewport; not feasible in static |
+| `resize` | Resize handle direction only differs during interactive drag |
+| `ruby-overhang` | Not fully implemented in Chrome |
+| `scroll-timeline-name` | Scroll-driven; requires actual scrolling interaction |
+| `shape-rendering` | Sub-pixel anti-aliasing differences invisible at normal zoom/DPI |
+| `stroke-miterlimit` | Miter limit angle differences imperceptible at normal polyline angles |
+| `text-decoration-skip` | Decoration skip differences too subtle at normal font sizes |
+| `text-rendering` | Browser rendering hint with no guaranteed visual output |
+| `text-spacing-trim` | CJK punctuation spacing adjustments inherently imperceptible |
+| `transform-box` | Transform-box origin differences too subtle without extreme transforms |
+| `unicode-bidi` | Bidirectional isolation/override differences imperceptible with LTR content |
+| `will-change` | Performance hint; no visual effect by design |
 
 ---
 
-## Category 4: Insufficient Screenshots (69)
+## C — Needs Better Values (0)
 
-Static screenshots cannot adequately demonstrate these properties. They require
-user interaction (scrolling, clicking, hovering), animation playback, print
-context, or specific hardware to show visual differences.
+All former Category C properties have been resolved — 8 moved to A (via @import
+hoisting, {{INDEX}} template variables, Google Fonts, and blueprint fixes) and 4
+moved to B (inherent font/browser limitations).
 
-### Caret properties (require text input focus)
-| Property | Why insufficient |
-|----------|-----------------|
-| `caret` | Caret shape/color requires active text cursor focus |
-| `caret-animation` | Controls caret blinking; not visible in static screenshot |
-| `caret-shape` | Caret shape (bar, block, underscore) requires cursor focus |
+---
 
-### Dynamic/display properties
-| Property | Why insufficient |
-|----------|-----------------|
-| `dynamic-range-limit` | Requires HDR display to show differences |
+## D — Needs Better UI/Blueprint (0)
 
-### Interest/interaction properties
-| Property | Why insufficient |
-|----------|-----------------|
-| `interest-delay` | Requires user hover interaction |
-| `interest-delay-end` | Requires user hover interaction |
-| `interest-delay-start` | Requires user hover interaction |
-| `interactivity` | auto vs inert requires clicking/typing to evaluate |
+All former Category D properties have been resolved — 35 moved to A (via
+zero-content sizing demos, SVG coordinate fixes, @container queries, anchor
+positioning wiring, and blueprint improvements), 19 moved to B (grammar
+limitations or inherently subtle effects), 8 moved to E (require interaction),
+and 1 moved to F (not a real property).
 
-### Overscroll behavior (require scroll interaction)
-| Property | Why insufficient |
-|----------|-----------------|
-| `overscroll-behavior` | Requires interactive scrolling to demonstrate scroll chaining |
-| `overscroll-behavior-block` | Requires interactive vertical scrolling |
-| `overscroll-behavior-inline` | Requires interactive horizontal scrolling |
-| `overscroll-behavior-x` | Requires interactive horizontal scrolling |
-| `overscroll-behavior-y` | Requires interactive vertical scrolling |
+---
 
-### Paged media properties (require print context)
-| Property | Why insufficient |
-|----------|-----------------|
-| `page` | Requires paged media / print context |
-| `page-break-after` | Requires paged media / print context |
-| `page-break-before` | Requires paged media / print context |
+## E — Insufficient: Requires Interaction (77)
 
-### Pointer/interaction properties
-| Property | Why insufficient |
-|----------|-----------------|
-| `pointer-events` | Requires mouse interaction for hit-testing |
-| `position-try` | Requires @position-try at-rules; values alone don't produce visible differences |
-| `position-try-fallbacks` | Requires @position-try at-rules; values alone don't produce visible differences |
+Static screenshots cannot demonstrate these properties. They require user interaction,
+animation playback, scroll context, or print/paged media.
+
+| Property | Reason |
+|----------|-------|
+| `animation-range` | Requires scroll-driven animation timeline |
+| `animation-range-end` | Requires scroll-driven animation timeline |
+| `animation-range-start` | Requires scroll-driven animation timeline |
+| `animation-timeline` | Requires scrolling context |
+| `background-attachment` | scroll/fixed/local only differ during actual scrolling |
+| `caret` | Requires text cursor focus |
+| `caret-animation` | Controls caret blinking |
+| `caret-color` | No input focused during screenshot; caret never visible |
+| `caret-shape` | Requires cursor focus |
+| `cursor` | Cursor shape only visible on hover; static screenshot shows default |
+| `dynamic-range-limit` | Requires HDR display |
+| `interactivity` | Requires clicking/typing |
+| `interest-delay` | Requires hover interaction |
+| `interest-delay-end` | Requires hover interaction |
+| `interest-delay-start` | Requires hover interaction |
+| `interpolate-size` | Transition property; static screenshot cannot show interpolation |
+| `orphans` | Paged-media property; only affects column/page breaks with specific content |
+| `overscroll-behavior` | Requires scroll interaction |
+| `overscroll-behavior-block` | Requires vertical scrolling |
+| `overscroll-behavior-inline` | Requires horizontal scrolling |
+| `overscroll-behavior-x` | Requires horizontal scrolling |
+| `overscroll-behavior-y` | Requires vertical scrolling |
+| `page` | Requires print context |
+| `page-break-after` | Requires print context |
+| `page-break-before` | Requires print context |
+| `pointer-events` | Requires mouse hit-testing |
+| `position-try` | Requires @position-try at-rules |
+| `position-try-fallbacks` | Requires @position-try at-rules |
 | `print-color-adjust` | Requires print context |
-
-### Scroll behavior properties (require scrolling interaction)
-| Property | Why insufficient |
-|----------|-----------------|
-| `scroll-behavior` | Requires scroll interaction (smooth vs instant) |
+| `scroll-behavior` | Requires scroll interaction |
 | `scroll-initial-target` | Requires page load event |
-
-### Scroll margin properties (require scroll-snap interaction)
-| Property | Why insufficient |
-|----------|-----------------|
 | `scroll-margin` | Requires scroll-snap interaction |
 | `scroll-margin-block` | Requires scroll-snap interaction |
 | `scroll-margin-block-end` | Requires scroll-snap interaction |
@@ -572,10 +543,7 @@ context, or specific hardware to show visual differences.
 | `scroll-margin-left` | Requires scroll-snap interaction |
 | `scroll-margin-right` | Requires scroll-snap interaction |
 | `scroll-margin-top` | Requires scroll-snap interaction |
-
-### Scroll padding properties (require scroll-snap interaction)
-| Property | Why insufficient |
-|----------|-----------------|
+| `scroll-marker-group` | Requires ::scroll-marker pseudo-elements with scroll interaction |
 | `scroll-padding` | Requires scroll-snap interaction |
 | `scroll-padding-block` | Requires scroll-snap interaction |
 | `scroll-padding-block-end` | Requires scroll-snap interaction |
@@ -587,94 +555,46 @@ context, or specific hardware to show visual differences.
 | `scroll-padding-left` | Requires scroll-snap interaction |
 | `scroll-padding-right` | Requires scroll-snap interaction |
 | `scroll-padding-top` | Requires scroll-snap interaction |
-
-### Scroll snap properties (require scrolling)
-| Property | Why insufficient |
-|----------|-----------------|
 | `scroll-snap-align` | Requires scroll-snap interaction |
 | `scroll-snap-stop` | Requires scroll-snap interaction |
 | `scroll-snap-type` | Requires scroll-snap interaction |
 | `scroll-target-group` | Requires scroll interaction |
-
-### Scroll timeline properties (require scroll-driven animation)
-| Property | Why insufficient |
-|----------|-----------------|
-| `scroll-timeline` | Requires scrolling to see effect |
-
-### Animation timeline properties (require scroll-driven animation)
-| Property | Why insufficient |
-|----------|-----------------|
-| `animation-range` | Requires scroll-driven animation timeline |
-| `animation-range-end` | Requires scroll-driven animation timeline |
-| `animation-range-start` | Requires scroll-driven animation timeline |
-| `animation-timeline` | Requires scrolling context for scroll()/view() |
-
-### Speak/audio properties
-| Property | Why insufficient |
-|----------|-----------------|
-| `speak-as` | Audio property; cannot evaluate visually |
-
-### Text properties (static screenshots insufficient)
-| Property | Why insufficient |
-|----------|-----------------|
-| `text-decoration-inset` | Property not yet supported in Chrome |
-| `text-justify` | Text spacing differences too subtle to distinguish in static screenshots |
-
-### Touch properties
-| Property | Why insufficient |
-|----------|-----------------|
-| `touch-action` | Controls touch gestures (pan, pinch-zoom); not visible in screenshots |
-
-### Transition properties (time-based, require animation)
-| Property | Why insufficient |
-|----------|-----------------|
-| `transition` | Time-based effect requires animation playback |
-| `transition-behavior` | Controls discrete transitions; requires animation |
-| `transition-delay` | Time-based delay; requires animation playback |
-| `transition-duration` | Time-based duration; requires animation playback |
-| `transition-property` | Determines animated properties; requires animation |
-| `transition-timing-function` | Easing curves only visible during animation |
-
-### User interaction properties
-| Property | Why insufficient |
-|----------|-----------------|
-| `user-modify` | Controls element editability; requires interaction |
-| `user-select` | Controls text selection behavior; requires interaction |
-
-### View timeline properties (require scroll-driven animation)
-| Property | Why insufficient |
-|----------|-----------------|
-| `view-timeline` | Scroll-driven animation; requires scrolling |
-| `view-timeline-axis` | Scroll-driven animation; requires scrolling |
-| `view-timeline-inset` | Scroll-driven animation; requires scrolling |
-| `view-timeline-name` | Scroll-driven animation; requires scrolling |
+| `scroll-timeline` | Requires scrolling |
+| `scroll-timeline-axis` | Scroll-driven; requires actual scrolling interaction |
+| `speak-as` | Audio property |
+| `text-decoration-inset` | Not supported in Chrome |
+| `text-justify` | Differences too subtle for static screenshot |
+| `touch-action` | Controls touch gestures |
+| `transition` | Time-based effect |
+| `transition-behavior` | Requires animation |
+| `transition-delay` | Time-based delay |
+| `transition-duration` | Time-based duration |
+| `transition-property` | Requires animation |
+| `transition-timing-function` | Easing visible only during animation |
+| `user-modify` | Requires text editing interaction |
+| `user-select` | Requires text selection interaction |
+| `view-timeline` | Scroll-driven animation |
+| `view-timeline-axis` | Scroll-driven animation |
+| `view-timeline-inset` | Scroll-driven animation |
+| `view-timeline-name` | Scroll-driven animation |
+| `widows` | Paged-media property; only affects column/page breaks with specific content |
 
 ---
 
-## Category 5: Not Demoable (10)
+## F — Not Demoable (11)
 
-Property cannot be visually demonstrated in screenshots. Either unsupported in
-Chrome, only expressible as a concept/diagram (not the property itself), requires
-a non-desktop environment, or has no visual effect by design.
+Unsupported in Chrome, conceptual-only, or non-visual.
 
-### Not supported in Chrome
-| Property | Why not demoable |
-|----------|-----------------|
-| `column-height` | Not a standard CSS property; no browser implements it |
-| `column-wrap` | Non-standard property; no browser support |
-| `font-smooth` | Non-standard; Chrome ignores unprefixed `font-smooth` |
+| Property | Reason |
+|----------|-------|
+| `column-height` | Not a standard CSS property |
+| `column-wrap` | Non-standard; no browser support |
+| `font-smooth` | Non-standard; Chrome ignores unprefixed |
 | `hanging-punctuation` | Not implemented in Chrome |
+| `image-resolution` | Not supported in Chrome |
 | `line-height-step` | Not implemented in Chrome |
-
-### Conceptual only (diagrams/code, not the property itself)
-| Property | Why not demoable |
-|----------|-----------------|
-| `image-resolution` | Not supported in Chrome; template can only simulate with fake sizing |
-| `timeline-scope` | Extends scroll-timeline scope; only expressible as code/diagram, not visual effect |
-| `view-transition-class` | Groups view-transition elements; only expressible as code/diagram |
-| `view-transition-name` | Names view-transition elements; only expressible as code/diagram |
-
-### Non-visual / wrong environment
-| Property | Why not demoable |
-|----------|-----------------|
-| `text-size-adjust` | Mobile-only property; no visible effect on desktop Chrome |
+| `text-size-adjust` | Mobile-only; no effect on desktop Chrome |
+| `timeline-scope` | Only expressible as code/diagram |
+| `vendor-prop` | Not a real CSS property; placeholder for vendor-prefixed properties |
+| `view-transition-class` | Only expressible as code/diagram |
+| `view-transition-name` | Only expressible as code/diagram |

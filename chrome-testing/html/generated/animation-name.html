@@ -13,22 +13,25 @@
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
   @keyframes slide {
-  0% { transform: translateX(0); }
-  50% { transform: translateX(40px); }
-  100% { transform: translateX(0); }
+  0% { transform: translateX(-100px); background: #e94560; }
+  50% { transform: translateX(100px); background: #3498db; }
+  100% { transform: translateX(-100px); background: #e94560; }
 }
 @keyframes fade {
-  0% { opacity: 1; }
-  50% { opacity: 0.2; }
-  100% { opacity: 1; }
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.1; transform: scale(0.3); }
+  100% { opacity: 1; transform: scale(1); }
 }
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% { transform: rotate(0deg) scale(1); border-radius: 8px; }
+  50% { transform: rotate(180deg) scale(1.8); border-radius: 50%; }
+  100% { transform: rotate(360deg) scale(1); border-radius: 8px; }
 }
 @keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-30px); }
+  0%, 100% { transform: translateY(0); background: #e94560; border-radius: 8px; }
+  25% { transform: translateY(-80px); background: #f39c12; border-radius: 50%; }
+  50% { transform: translateY(0); background: #2ecc71; border-radius: 0; }
+  75% { transform: translateY(-40px); background: #a855f7; border-radius: 50%; }
 }
 </style>
 </head>
@@ -37,38 +40,38 @@
 <p class="prop-name">animation-name</p>
 <div class="demos">
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; justify-content: center; min-height: 100px;">
-      <div style="width: 80px; height: 80px; background: #e94560; border-radius: 8px; animation-duration: 2s; animation-timing-function: ease; animation-iteration-count: infinite; animation-delay: -0.5s; animation-name: none;"></div>
+    <div class="demo-area" style="display: flex; align-items: center; justify-content: center; min-height: 140px; position: relative;">
+      <div style="width: 80px; height: 80px; background: #e94560; border-radius: 8px; animation-duration: 2s; animation-timing-function: linear; animation-iteration-count: infinite; animation-delay: -0.7s; animation-name: none;"></div>
     </div>
     <div class="label">animation-name: none</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; justify-content: center; min-height: 100px;">
-      <div style="width: 80px; height: 80px; background: #e94560; border-radius: 8px; animation-duration: 2s; animation-timing-function: ease; animation-iteration-count: infinite; animation-delay: -0.5s; animation-name: slide;"></div>
+    <div class="demo-area" style="display: flex; align-items: center; justify-content: center; min-height: 140px; position: relative;">
+      <div style="width: 80px; height: 80px; background: #e94560; border-radius: 8px; animation-duration: 2s; animation-timing-function: linear; animation-iteration-count: infinite; animation-delay: -0.7s; animation-name: slide;"></div>
     </div>
     <div class="label">animation-name: slide</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; justify-content: center; min-height: 100px;">
-      <div style="width: 80px; height: 80px; background: #e94560; border-radius: 8px; animation-duration: 2s; animation-timing-function: ease; animation-iteration-count: infinite; animation-delay: -0.5s; animation-name: bounce;"></div>
+    <div class="demo-area" style="display: flex; align-items: center; justify-content: center; min-height: 140px; position: relative;">
+      <div style="width: 80px; height: 80px; background: #e94560; border-radius: 8px; animation-duration: 2s; animation-timing-function: linear; animation-iteration-count: infinite; animation-delay: -0.7s; animation-name: bounce;"></div>
     </div>
     <div class="label">animation-name: bounce</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; justify-content: center; min-height: 100px;">
-      <div style="width: 80px; height: 80px; background: #e94560; border-radius: 8px; animation-duration: 2s; animation-timing-function: ease; animation-iteration-count: infinite; animation-delay: -0.5s; animation-name: none, none;"></div>
+    <div class="demo-area" style="display: flex; align-items: center; justify-content: center; min-height: 140px; position: relative;">
+      <div style="width: 80px; height: 80px; background: #e94560; border-radius: 8px; animation-duration: 2s; animation-timing-function: linear; animation-iteration-count: infinite; animation-delay: -0.7s; animation-name: none, none;"></div>
     </div>
     <div class="label">animation-name: none, none</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; justify-content: center; min-height: 100px;">
-      <div style="width: 80px; height: 80px; background: #e94560; border-radius: 8px; animation-duration: 2s; animation-timing-function: ease; animation-iteration-count: infinite; animation-delay: -0.5s; animation-name: slide, none;"></div>
+    <div class="demo-area" style="display: flex; align-items: center; justify-content: center; min-height: 140px; position: relative;">
+      <div style="width: 80px; height: 80px; background: #e94560; border-radius: 8px; animation-duration: 2s; animation-timing-function: linear; animation-iteration-count: infinite; animation-delay: -0.7s; animation-name: slide, none;"></div>
     </div>
     <div class="label">animation-name: slide, none</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; align-items: center; justify-content: center; min-height: 100px;">
-      <div style="width: 80px; height: 80px; background: #e94560; border-radius: 8px; animation-duration: 2s; animation-timing-function: ease; animation-iteration-count: infinite; animation-delay: -0.5s; animation-name: bounce, none;"></div>
+    <div class="demo-area" style="display: flex; align-items: center; justify-content: center; min-height: 140px; position: relative;">
+      <div style="width: 80px; height: 80px; background: #e94560; border-radius: 8px; animation-duration: 2s; animation-timing-function: linear; animation-iteration-count: infinite; animation-delay: -0.7s; animation-name: bounce, none;"></div>
     </div>
     <div class="label">animation-name: bounce, none</div>
   </div>

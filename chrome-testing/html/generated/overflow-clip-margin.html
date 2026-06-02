@@ -12,9 +12,7 @@
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
-  .clip-border { position: absolute; top: 30px; left: 30px; width: 100px; height: 100px; border: 2px dashed #3a3a5c; border-radius: 6px; pointer-events: none; }
-.overflow-content { width: 160px; height: 160px; position: relative; }
-.overflow-block { position: absolute; top: -10px; left: -10px; width: 120px; height: 120px; background: linear-gradient(135deg, #e94560 0%, #0077ff 100%); border-radius: 8px; opacity: 0.8; }
+  .overflow-content { position: absolute; top: -30px; left: -30px; width: 180px; height: 180px; background: linear-gradient(135deg, #e94560 0%, #a855f7 100%); border-radius: 12px; opacity: 0.85; }
 </style>
 </head>
 <body>
@@ -22,44 +20,38 @@
 <p class="prop-name">overflow-clip-margin</p>
 <div class="demos">
   <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 160px; position: relative;">
-      <div class="clip-border"></div>
-      <div style="position: absolute; top: 30px; left: 30px; width: 100px; height: 100px; overflow: clip; background: #0f3460; border-radius: 6px; overflow-clip-margin: content-box;"><div class="overflow-content"><div class="overflow-block"></div></div></div>
+    <div class="demo-area" style="width: 200px; height: 200px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="position: relative; width: 120px; height: 120px; overflow: clip; background: #0f3460; border: 3px solid #4fc3f7; border-radius: 6px; overflow-clip-margin: content-box;"><div class="overflow-content"></div></div>
     </div>
     <div class="label">overflow-clip-margin: content-box</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 160px; position: relative;">
-      <div class="clip-border"></div>
-      <div style="position: absolute; top: 30px; left: 30px; width: 100px; height: 100px; overflow: clip; background: #0f3460; border-radius: 6px; overflow-clip-margin: 0;"><div class="overflow-content"><div class="overflow-block"></div></div></div>
+    <div class="demo-area" style="width: 200px; height: 200px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="position: relative; width: 120px; height: 120px; overflow: clip; background: #0f3460; border: 3px solid #4fc3f7; border-radius: 6px; overflow-clip-margin: 0;"><div class="overflow-content"></div></div>
     </div>
     <div class="label">overflow-clip-margin: 0</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 160px; position: relative;">
-      <div class="clip-border"></div>
-      <div style="position: absolute; top: 30px; left: 30px; width: 100px; height: 100px; overflow: clip; background: #0f3460; border-radius: 6px; overflow-clip-margin: padding-box;"><div class="overflow-content"><div class="overflow-block"></div></div></div>
+    <div class="demo-area" style="width: 200px; height: 200px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="position: relative; width: 120px; height: 120px; overflow: clip; background: #0f3460; border: 3px solid #4fc3f7; border-radius: 6px; overflow-clip-margin: padding-box;"><div class="overflow-content"></div></div>
     </div>
     <div class="label">overflow-clip-margin: padding-box</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 160px; position: relative;">
-      <div class="clip-border"></div>
-      <div style="position: absolute; top: 30px; left: 30px; width: 100px; height: 100px; overflow: clip; background: #0f3460; border-radius: 6px; overflow-clip-margin: 0cap;"><div class="overflow-content"><div class="overflow-block"></div></div></div>
+    <div class="demo-area" style="width: 200px; height: 200px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="position: relative; width: 120px; height: 120px; overflow: clip; background: #0f3460; border: 3px solid #4fc3f7; border-radius: 6px; overflow-clip-margin: 0cap;"><div class="overflow-content"></div></div>
     </div>
     <div class="label">overflow-clip-margin: 0cap</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 160px; position: relative;">
-      <div class="clip-border"></div>
-      <div style="position: absolute; top: 30px; left: 30px; width: 100px; height: 100px; overflow: clip; background: #0f3460; border-radius: 6px; overflow-clip-margin: border-box;"><div class="overflow-content"><div class="overflow-block"></div></div></div>
+    <div class="demo-area" style="width: 200px; height: 200px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="position: relative; width: 120px; height: 120px; overflow: clip; background: #0f3460; border: 3px solid #4fc3f7; border-radius: 6px; overflow-clip-margin: border-box;"><div class="overflow-content"></div></div>
     </div>
     <div class="label">overflow-clip-margin: border-box</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="width: 160px; height: 160px; position: relative;">
-      <div class="clip-border"></div>
-      <div style="position: absolute; top: 30px; left: 30px; width: 100px; height: 100px; overflow: clip; background: #0f3460; border-radius: 6px; overflow-clip-margin: +0cap;"><div class="overflow-content"><div class="overflow-block"></div></div></div>
+    <div class="demo-area" style="width: 200px; height: 200px; display: flex; align-items: center; justify-content: center; position: relative;">
+      <div style="position: relative; width: 120px; height: 120px; overflow: clip; background: #0f3460; border: 3px solid #4fc3f7; border-radius: 6px; overflow-clip-margin: +0cap;"><div class="overflow-content"></div></div>
     </div>
     <div class="label">overflow-clip-margin: +0cap</div>
   </div>

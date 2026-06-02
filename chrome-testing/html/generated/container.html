@@ -12,10 +12,10 @@
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
-  .container-badge { position: absolute; top: -8px; right: 12px; background: #16213e; border: 1px solid #4fc3f7; color: #4fc3f7; font-size: 9px; font-family: monospace; padding: 2px 8px; border-radius: 3px; }
-.card-inside { background: linear-gradient(135deg, #1e2a4a, #16213e); border: 1px solid #3a3a5a; border-radius: 6px; padding: 12px; }
-.card-title { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 4px; }
-.card-text { font-size: 11px; color: #9ca3af; line-height: 1.5; }
+  .cq-child { padding: 12px; border-radius: 6px; background: #1a2440; border: 1px solid #3a3a5a; }
+.cq-status { font-size: 11px; font-family: monospace; color: #ef4444; margin-bottom: 8px; padding: 4px 8px; background: rgba(239,68,68,0.1); border-radius: 4px; display: inline-block; }
+.cq-content { font-size: 11px; color: #9ca3af; line-height: 1.5; }
+@container (min-width: 50px) { .cq-status { color: #22c55e; background: rgba(34,197,94,0.1); } .cq-status::after { content: ' — active!'; } .cq-content { color: #4fc3f7; } }
 </style>
 </head>
 <body>
@@ -24,37 +24,37 @@
 <div class="demos">
   <div class="demo-box">
     <div class="demo-area">
-      <div style="background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 8px; padding: 16px; position: relative; container: none;"><div class="container-badge">name</div><div class="card-inside"><div class="card-title">Container Title</div><div class="card-text">This container is established with a name and type via the container shorthand. Child elements can target it with @container queries.</div></div></div>
+      <div style="background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 8px; padding: 16px; position: relative; min-height: 100px; container: none;"><div class="cq-child"><div class="cq-status">No container context</div><div class="cq-content">Content responds to container queries when a containment context is established.</div></div></div>
     </div>
     <div class="label">container: none</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 8px; padding: 16px; position: relative; container: my-custom;"><div class="container-badge">name</div><div class="card-inside"><div class="card-title">Container Title</div><div class="card-text">This container is established with a name and type via the container shorthand. Child elements can target it with @container queries.</div></div></div>
+      <div style="background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 8px; padding: 16px; position: relative; min-height: 100px; container: my-custom;"><div class="cq-child"><div class="cq-status">No container context</div><div class="cq-content">Content responds to container queries when a containment context is established.</div></div></div>
     </div>
     <div class="label">container: my-custom</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 8px; padding: 16px; position: relative; container: my-custom my-custom;"><div class="container-badge">name</div><div class="card-inside"><div class="card-title">Container Title</div><div class="card-text">This container is established with a name and type via the container shorthand. Child elements can target it with @container queries.</div></div></div>
+      <div style="background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 8px; padding: 16px; position: relative; min-height: 100px; container: my-custom my-custom;"><div class="cq-child"><div class="cq-status">No container context</div><div class="cq-content">Content responds to container queries when a containment context is established.</div></div></div>
     </div>
     <div class="label">container: my-custom my-custom</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 8px; padding: 16px; position: relative; container: none / normal;"><div class="container-badge">name</div><div class="card-inside"><div class="card-title">Container Title</div><div class="card-text">This container is established with a name and type via the container shorthand. Child elements can target it with @container queries.</div></div></div>
+      <div style="background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 8px; padding: 16px; position: relative; min-height: 100px; container: none / normal;"><div class="cq-child"><div class="cq-status">No container context</div><div class="cq-content">Content responds to container queries when a containment context is established.</div></div></div>
     </div>
     <div class="label">container: none / normal</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 8px; padding: 16px; position: relative; container: my-custom / normal;"><div class="container-badge">name</div><div class="card-inside"><div class="card-title">Container Title</div><div class="card-text">This container is established with a name and type via the container shorthand. Child elements can target it with @container queries.</div></div></div>
+      <div style="background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 8px; padding: 16px; position: relative; min-height: 100px; container: my-custom / normal;"><div class="cq-child"><div class="cq-status">No container context</div><div class="cq-content">Content responds to container queries when a containment context is established.</div></div></div>
     </div>
     <div class="label">container: my-custom / normal</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 8px; padding: 16px; position: relative; container: my-custom my-custom / normal;"><div class="container-badge">name</div><div class="card-inside"><div class="card-title">Container Title</div><div class="card-text">This container is established with a name and type via the container shorthand. Child elements can target it with @container queries.</div></div></div>
+      <div style="background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 8px; padding: 16px; position: relative; min-height: 100px; container: my-custom my-custom / normal;"><div class="cq-child"><div class="cq-status">No container context</div><div class="cq-content">Content responds to container queries when a containment context is established.</div></div></div>
     </div>
     <div class="label">container: my-custom my-custom / normal</div>
   </div>

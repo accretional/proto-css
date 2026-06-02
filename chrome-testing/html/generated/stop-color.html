@@ -8,15 +8,10 @@
   body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
-  .svg-container { background: #0a0a1a; border-radius: 8px; padding: 16px; display: flex; align-items: center; justify-content: center; }
-.stop-info { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
-.stop-chip { display: flex; align-items: center; gap: 5px; padding: 3px 8px; background: #0a0a1a; border-radius: 4px; }
-.stop-dot { width: 10px; height: 10px; border-radius: 50%; border: 1px solid #333; }
-.stop-text { font-size: 10px; font-family: monospace; color: #9ca3af; }
 </style>
 </head>
 <body>
@@ -25,207 +20,94 @@
 <div class="demos">
   <div class="demo-box">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: red;"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
+      <style>#t0  stop.target { stop-color: red; }</style>
+      <svg id="t0" style="display: block;"><defs><linearGradient id="grad-0" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a0a1a"/><stop class="target" offset="100%" stop-color="crimson"/></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-0)"/><text x="25" y="55" font-size="11" fill="#666" font-family="monospace" opacity="0.8">fixed #0a0a1a</text><text x="220" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">varies</text></svg>
     </div>
     <div class="label">stop-color: red</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: currentcolor;"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
+      <style>#t1  stop.target { stop-color: currentcolor; }</style>
+      <svg id="t1" style="display: block;"><defs><linearGradient id="grad-1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a0a1a"/><stop class="target" offset="100%" stop-color="crimson"/></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-1)"/><text x="25" y="55" font-size="11" fill="#666" font-family="monospace" opacity="0.8">fixed #0a0a1a</text><text x="220" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">varies</text></svg>
     </div>
     <div class="label">stop-color: currentcolor</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: Canvas;"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
+      <style>#t2  stop.target { stop-color: Canvas; }</style>
+      <svg id="t2" style="display: block;"><defs><linearGradient id="grad-2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a0a1a"/><stop class="target" offset="100%" stop-color="crimson"/></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-2)"/><text x="25" y="55" font-size="11" fill="#666" font-family="monospace" opacity="0.8">fixed #0a0a1a</text><text x="220" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">varies</text></svg>
     </div>
     <div class="label">stop-color: Canvas</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: device-cmyk(1, 1, 1, 1);"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
+      <style>#t3  stop.target { stop-color: contrast-color(red); }</style>
+      <svg id="t3" style="display: block;"><defs><linearGradient id="grad-3" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a0a1a"/><stop class="target" offset="100%" stop-color="crimson"/></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-3)"/><text x="25" y="55" font-size="11" fill="#666" font-family="monospace" opacity="0.8">fixed #0a0a1a</text><text x="220" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">varies</text></svg>
     </div>
-    <div class="label">stop-color: device-cmyk(1, 1, 1, 1)</div>
+    <div class="label">stop-color: contrast-color(red)</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: light-dark(red, blue);"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
+      <style>#t4  stop.target { stop-color: device-cmyk(0, 0.7, 1, 0); }</style>
+      <svg id="t4" style="display: block;"><defs><linearGradient id="grad-4" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a0a1a"/><stop class="target" offset="100%" stop-color="crimson"/></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-4)"/><text x="25" y="55" font-size="11" fill="#666" font-family="monospace" opacity="0.8">fixed #0a0a1a</text><text x="220" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">varies</text></svg>
+    </div>
+    <div class="label">stop-color: device-cmyk(0, 0.7, 1, 0)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
+      <style>#t5  stop.target { stop-color: light-dark(red, blue); }</style>
+      <svg id="t5" style="display: block;"><defs><linearGradient id="grad-5" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a0a1a"/><stop class="target" offset="100%" stop-color="crimson"/></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-5)"/><text x="25" y="55" font-size="11" fill="#666" font-family="monospace" opacity="0.8">fixed #0a0a1a</text><text x="220" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">varies</text></svg>
     </div>
     <div class="label">stop-color: light-dark(red, blue)</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: var(--my-var);"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
+      <style>#t6  stop.target { stop-color: var(--my-var); }</style>
+      <svg id="t6" style="display: block;"><defs><linearGradient id="grad-6" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a0a1a"/><stop class="target" offset="100%" stop-color="crimson"/></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-6)"/><text x="25" y="55" font-size="11" fill="#666" font-family="monospace" opacity="0.8">fixed #0a0a1a</text><text x="220" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">varies</text></svg>
     </div>
     <div class="label">stop-color: var(--my-var)</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: #3498db;"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
+      <style>#t7  stop.target { stop-color: #3498db; }</style>
+      <svg id="t7" style="display: block;"><defs><linearGradient id="grad-7" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a0a1a"/><stop class="target" offset="100%" stop-color="crimson"/></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-7)"/><text x="25" y="55" font-size="11" fill="#666" font-family="monospace" opacity="0.8">fixed #0a0a1a</text><text x="220" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">varies</text></svg>
     </div>
     <div class="label">stop-color: #3498db</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: CanvasText;"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
+      <style>#t8  stop.target { stop-color: CanvasText; }</style>
+      <svg id="t8" style="display: block;"><defs><linearGradient id="grad-8" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a0a1a"/><stop class="target" offset="100%" stop-color="crimson"/></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-8)"/><text x="25" y="55" font-size="11" fill="#666" font-family="monospace" opacity="0.8">fixed #0a0a1a</text><text x="220" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">varies</text></svg>
     </div>
     <div class="label">stop-color: CanvasText</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: device-cmyk(1 1 1 1);"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
-    </div>
-    <div class="label">stop-color: device-cmyk(1 1 1 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: light-dark(#333, #ccc);"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
+      <style>#t9  stop.target { stop-color: light-dark(#333, #ccc); }</style>
+      <svg id="t9" style="display: block;"><defs><linearGradient id="grad-9" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a0a1a"/><stop class="target" offset="100%" stop-color="crimson"/></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-9)"/><text x="25" y="55" font-size="11" fill="#666" font-family="monospace" opacity="0.8">fixed #0a0a1a</text><text x="220" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">varies</text></svg>
     </div>
     <div class="label">stop-color: light-dark(#333, #ccc)</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: var(--my-var, 0);"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
-    </div>
-    <div class="label">stop-color: var(--my-var, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: rgb(0, 128, 0);"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
+      <style>#t10  stop.target { stop-color: rgb(0, 128, 0); }</style>
+      <svg id="t10" style="display: block;"><defs><linearGradient id="grad-10" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a0a1a"/><stop class="target" offset="100%" stop-color="crimson"/></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-10)"/><text x="25" y="55" font-size="11" fill="#666" font-family="monospace" opacity="0.8">fixed #0a0a1a</text><text x="220" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">varies</text></svg>
     </div>
     <div class="label">stop-color: rgb(0, 128, 0)</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: LinkText;"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
+      <style>#t11  stop.target { stop-color: LinkText; }</style>
+      <svg id="t11" style="display: block;"><defs><linearGradient id="grad-11" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a0a1a"/><stop class="target" offset="100%" stop-color="crimson"/></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-11)"/><text x="25" y="55" font-size="11" fill="#666" font-family="monospace" opacity="0.8">fixed #0a0a1a</text><text x="220" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">varies</text></svg>
     </div>
     <div class="label">stop-color: LinkText</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: device-cmyk(0.5, 1, 1, 1);"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
-    </div>
-    <div class="label">stop-color: device-cmyk(0.5, 1, 1, 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: var(--my-var, 0%);"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
-    </div>
-    <div class="label">stop-color: var(--my-var, 0%)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: transparent;"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
+      <style>#t12  stop.target { stop-color: transparent; }</style>
+      <svg id="t12" style="display: block;"><defs><linearGradient id="grad-12" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a0a1a"/><stop class="target" offset="100%" stop-color="crimson"/></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-12)"/><text x="25" y="55" font-size="11" fill="#666" font-family="monospace" opacity="0.8">fixed #0a0a1a</text><text x="220" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">varies</text></svg>
     </div>
     <div class="label">stop-color: transparent</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: device-cmyk(0.5 1 1 1);"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
-    </div>
-    <div class="label">stop-color: device-cmyk(0.5 1 1 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: device-cmyk(2, 1, 1, 1);"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
-    </div>
-    <div class="label">stop-color: device-cmyk(2, 1, 1, 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: var(--my-var, +0);"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
-    </div>
-    <div class="label">stop-color: var(--my-var, +0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: device-cmyk(25% 1 1 1);"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
-    </div>
-    <div class="label">stop-color: device-cmyk(25% 1 1 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: device-cmyk(none 1 1 1);"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
-    </div>
-    <div class="label">stop-color: device-cmyk(none 1 1 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: device-cmyk(0, 1, 1, 1);"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
-    </div>
-    <div class="label">stop-color: device-cmyk(0, 1, 1, 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: device-cmyk(1, 0.5, 1, 1);"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
-    </div>
-    <div class="label">stop-color: device-cmyk(1, 0.5, 1, 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: device-cmyk(50% 1 1 1);"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
-    </div>
-    <div class="label">stop-color: device-cmyk(50% 1 1 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: device-cmyk(0.5, 0.5, 1, 1);"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
-    </div>
-    <div class="label">stop-color: device-cmyk(0.5, 0.5, 1, 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: device-cmyk(2 1 1 1);"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
-    </div>
-    <div class="label">stop-color: device-cmyk(2 1 1 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: device-cmyk(2, 0.5, 1, 1);"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
-    </div>
-    <div class="label">stop-color: device-cmyk(2, 0.5, 1, 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: device-cmyk(75% 1 1 1);"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
-    </div>
-    <div class="label">stop-color: device-cmyk(75% 1 1 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: device-cmyk(0, 0.5, 1, 1);"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
-    </div>
-    <div class="label">stop-color: device-cmyk(0, 0.5, 1, 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: device-cmyk(0 1 1 1);"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
-    </div>
-    <div class="label">stop-color: device-cmyk(0 1 1 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: device-cmyk(1, 2, 1, 1);"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
-    </div>
-    <div class="label">stop-color: device-cmyk(1, 2, 1, 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: device-cmyk(100% 1 1 1);"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
-    </div>
-    <div class="label">stop-color: device-cmyk(100% 1 1 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: device-cmyk(0.5, 2, 1, 1);"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
-    </div>
-    <div class="label">stop-color: device-cmyk(0.5, 2, 1, 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
-      <svg style="display: block; stop-color: device-cmyk(0% 1 1 1);"><defs><linearGradient id="grad-named" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="crimson" /><stop offset="50%" stop-color="gold" /><stop offset="100%" stop-color="dodgerblue" /></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-named)" /><text x="25" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">crimson</text><text x="135" y="55" font-size="11" fill="#333" font-family="monospace" opacity="0.8">gold</text><text x="230" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">dodgerblue</text></svg>
-    </div>
-    <div class="label">stop-color: device-cmyk(0% 1 1 1)</div>
   </div>
 </div>
 </body>

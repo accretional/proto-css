@@ -12,17 +12,10 @@
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
-  .demo-title { font-size: 13px; color: #ccc; margin-bottom: 16px; }
-.track { width: 100%; height: 80px; background: #0f3460; border-radius: 8px; position: relative; display: flex; align-items: center; justify-content: center; }
-.guide { position: absolute; left: 30px; top: 50%; transform: translateY(-50%); width: 60px; height: 60px; border: 2px dashed #4a5568; border-radius: 8px; }
-@keyframes moveRight {
-  from { transform: translateX(0px) rotate(0deg); }
-  to { transform: translateX(100px) rotate(45deg); }
+  @keyframes composeDemo {
+  from { transform: rotate(0deg) scale(1); }
+  to { transform: rotate(180deg) scale(2); }
 }
-.note { font-size: 11px; color: #6b7280; margin-top: 4px; font-style: italic; }
-.legend { display: flex; align-items: center; gap: 6px; margin-top: 8px; }
-.legend-dot { width: 8px; height: 8px; border-radius: 2px; }
-.legend-text { font-size: 10px; color: #9ca3af; }
 </style>
 </head>
 <body>
@@ -30,20 +23,20 @@
 <p class="prop-name">animation-composition</p>
 <div class="demos">
   <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; width: 360px; height: 260px; position: relative;">
-      <div style="width: 60px; height: 60px; border-radius: 8px; position: absolute; transform: translateX(30px) rotate(20deg); background: #e94560; animation: moveRight 2s ease-in-out infinite; animation-delay: -1s; animation-composition: replace;"></div>
+    <div class="demo-area" style="position: relative; height: 80px; background: #0f3460; border-radius: 8px; overflow: hidden;">
+      <div style="width: 60px; height: 60px; border-radius: 8px; position: absolute; left: 10px; top: 50%; margin-top: -30px; transform: rotate(45deg) scale(1.5); background: #e94560; animation: composeDemo 3s linear infinite; animation-delay: -1.5s; animation-composition: replace;"></div>
     </div>
     <div class="label">animation-composition: replace</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; width: 360px; height: 260px; position: relative;">
-      <div style="width: 60px; height: 60px; border-radius: 8px; position: absolute; transform: translateX(30px) rotate(20deg); background: #e94560; animation: moveRight 2s ease-in-out infinite; animation-delay: -1s; animation-composition: add;"></div>
+    <div class="demo-area" style="position: relative; height: 80px; background: #0f3460; border-radius: 8px; overflow: hidden;">
+      <div style="width: 60px; height: 60px; border-radius: 8px; position: absolute; left: 10px; top: 50%; margin-top: -30px; transform: rotate(45deg) scale(1.5); background: #e94560; animation: composeDemo 3s linear infinite; animation-delay: -1.5s; animation-composition: add;"></div>
     </div>
     <div class="label">animation-composition: add</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; width: 360px; height: 260px; position: relative;">
-      <div style="width: 60px; height: 60px; border-radius: 8px; position: absolute; transform: translateX(30px) rotate(20deg); background: #e94560; animation: moveRight 2s ease-in-out infinite; animation-delay: -1s; animation-composition: accumulate;"></div>
+    <div class="demo-area" style="position: relative; height: 80px; background: #0f3460; border-radius: 8px; overflow: hidden;">
+      <div style="width: 60px; height: 60px; border-radius: 8px; position: absolute; left: 10px; top: 50%; margin-top: -30px; transform: rotate(45deg) scale(1.5); background: #e94560; animation: composeDemo 3s linear infinite; animation-delay: -1.5s; animation-composition: accumulate;"></div>
     </div>
     <div class="label">animation-composition: accumulate</div>
   </div>

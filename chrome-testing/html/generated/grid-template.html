@@ -12,7 +12,8 @@
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
-  .cell { background: #0f3460; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #e94560; font-weight: 600; padding: 6px; }
+  .cell { background: #0f3460; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e94560; font-weight: 600; padding: 8px; min-height: 40px; }
+.cell:nth-child(odd) { background: #1a4a7a; }
 </style>
 </head>
 <body>
@@ -21,217 +22,217 @@
 <div class="demos">
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: none;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: none</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: none / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: none / none;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: none / none</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: &#34;example&#34;;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: &#34;example&#34;;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: &#34;example&#34;</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: 1fr 1fr / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: 1fr 1fr / none;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: 1fr 1fr / none</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: [ ] &#34;example&#34;;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: [ ] &#34;example&#34;;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: [ ] &#34;example&#34;</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: repeat(1, 10px) / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: repeat(1, 10px) / none;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: repeat(1, 10px) / none</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: [ my-custom ] &#34;example&#34;;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: [ my-custom ] &#34;example&#34;;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: [ my-custom ] &#34;example&#34;</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: subgrid / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: subgrid / none;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: subgrid / none</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: &#34;example&#34; 10px;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: &#34;example&#34; 10px;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: &#34;example&#34; 10px</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: 100px 1fr 2fr / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: 100px 1fr 2fr / none;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: 100px 1fr 2fr / none</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: [ ] &#34;example&#34; 10px;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: [ ] &#34;example&#34; 10px;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: [ ] &#34;example&#34; 10px</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: 10px repeat(1, 10px) / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: 10px repeat(1, 10px) / none;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: 10px repeat(1, 10px) / none</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: [ my-custom ] &#34;example&#34; 10px;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: [ my-custom ] &#34;example&#34; 10px;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: [ my-custom ] &#34;example&#34; 10px</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: subgrid [ ] / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: subgrid [ ] / none;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: subgrid [ ] / none</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: &#34;example&#34; minmax(10px, 10px);"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: &#34;example&#34; minmax(10px, 10px);"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: &#34;example&#34; minmax(10px, 10px)</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: repeat(3, 1fr) / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: repeat(3, 1fr) / none;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: repeat(3, 1fr) / none</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: [ ] &#34;example&#34; minmax(10px, 10px);"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: [ ] &#34;example&#34; minmax(10px, 10px);"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: [ ] &#34;example&#34; minmax(10px, 10px)</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: [ ] 10px repeat(1, 10px) / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: [ ] 10px repeat(1, 10px) / none;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: [ ] 10px repeat(1, 10px) / none</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: [ my-custom ] &#34;example&#34; minmax(10px, 10px);"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: [ my-custom ] &#34;example&#34; minmax(10px, 10px);"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: [ my-custom ] &#34;example&#34; minmax(10px, 10px)</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: subgrid repeat(1, [ ]) / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: subgrid repeat(1, [ ]) / none;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: subgrid repeat(1, [ ]) / none</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: &#34;example&#34; fit-content(10px);"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: &#34;example&#34; fit-content(10px);"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: &#34;example&#34; fit-content(10px)</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: [ my-custom ] 10px repeat(1, 10px) / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: [ my-custom ] 10px repeat(1, 10px) / none;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: [ my-custom ] 10px repeat(1, 10px) / none</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: [ ] &#34;example&#34; fit-content(10px);"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: [ ] &#34;example&#34; fit-content(10px);"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: [ ] &#34;example&#34; fit-content(10px)</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: repeat(1, 10px) repeat(1, 10px) / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: repeat(1, 10px) repeat(1, 10px) / none;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: repeat(1, 10px) repeat(1, 10px) / none</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: [ my-custom ] &#34;example&#34; fit-content(10px);"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: [ my-custom ] &#34;example&#34; fit-content(10px);"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: [ my-custom ] &#34;example&#34; fit-content(10px)</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: subgrid [ my-custom ] / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: subgrid [ my-custom ] / none;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: subgrid [ my-custom ] / none</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: subgrid repeat(2, [ ]) / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: subgrid repeat(2, [ ]) / none;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: subgrid repeat(2, [ ]) / none</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: [ ] repeat(1, 10px) repeat(1, 10px) / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: [ ] repeat(1, 10px) repeat(1, 10px) / none;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: [ ] repeat(1, 10px) repeat(1, 10px) / none</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: [ my-custom ] repeat(1, 10px) repeat(1, 10px) / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: [ my-custom ] repeat(1, 10px) repeat(1, 10px) / none;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: [ my-custom ] repeat(1, 10px) repeat(1, 10px) / none</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: minmax(10px, 10px) repeat(1, 10px) / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: minmax(10px, 10px) repeat(1, 10px) / none;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: minmax(10px, 10px) repeat(1, 10px) / none</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: [ ] minmax(10px, 10px) repeat(1, 10px) / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: [ ] minmax(10px, 10px) repeat(1, 10px) / none;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: [ ] minmax(10px, 10px) repeat(1, 10px) / none</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: [ my-custom ] minmax(10px, 10px) repeat(1, 10px) / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: [ my-custom ] minmax(10px, 10px) repeat(1, 10px) / none;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: [ my-custom ] minmax(10px, 10px) repeat(1, 10px) / none</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: repeat(auto-fill, 10px) repeat(1, 10px) / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: repeat(auto-fill, 10px) repeat(1, 10px) / none;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: repeat(auto-fill, 10px) repeat(1, 10px) / none</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: [ ] repeat(auto-fill, 10px) repeat(1, 10px) / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: [ ] repeat(auto-fill, 10px) repeat(1, 10px) / none;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: [ ] repeat(auto-fill, 10px) repeat(1, 10px) / none</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: [ my-custom ] repeat(auto-fill, 10px) repeat(1, 10px) / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: [ my-custom ] repeat(auto-fill, 10px) repeat(1, 10px) / none;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: [ my-custom ] repeat(auto-fill, 10px) repeat(1, 10px) / none</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; gap: 6px; grid-template: 25% repeat(1, 10px) / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div></div>
+      <div style="display: grid; gap: 8px; min-height: 180px; min-width: 300px; grid-template: 25% repeat(1, 10px) / none;"><div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div><div class="cell">F</div></div>
     </div>
     <div class="label">grid-template: 25% repeat(1, 10px) / none</div>
   </div>

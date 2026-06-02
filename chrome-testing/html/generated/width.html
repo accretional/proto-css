@@ -8,7 +8,7 @@
   body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
@@ -50,9 +50,15 @@
   </div>
   <div class="demo-box">
     <div class="demo-area" style="flex: 1;">
-      <div style="height: 48px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; font-weight: 500; white-space: nowrap; overflow: hidden; width: calc-size(auto, 0);">content</div>
+      <div style="height: 48px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; font-weight: 500; white-space: nowrap; overflow: hidden; width: calc-size(auto, size + 20px);">content</div>
     </div>
-    <div class="label">width: calc-size(auto, 0)</div>
+    <div class="label">width: calc-size(auto, size + 20px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1;">
+      <div style="height: 48px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; font-weight: 500; white-space: nowrap; overflow: hidden; width: anchor-size(width);">content</div>
+    </div>
+    <div class="label">width: anchor-size(width)</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="flex: 1;">
@@ -86,15 +92,15 @@
   </div>
   <div class="demo-box">
     <div class="demo-area" style="flex: 1;">
-      <div style="height: 48px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; font-weight: 500; white-space: nowrap; overflow: hidden; width: calc-size(any, 0);">content</div>
+      <div style="height: 48px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; font-weight: 500; white-space: nowrap; overflow: hidden; width: calc-size(fit-content, size * 0.5);">content</div>
     </div>
-    <div class="label">width: calc-size(any, 0)</div>
+    <div class="label">width: calc-size(fit-content, size * 0.5)</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="flex: 1;">
-      <div style="height: 48px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; font-weight: 500; white-space: nowrap; overflow: hidden; width: anchor-size(--my-var);">content</div>
+      <div style="height: 48px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; font-weight: 500; white-space: nowrap; overflow: hidden; width: anchor-size(height);">content</div>
     </div>
-    <div class="label">width: anchor-size(--my-var)</div>
+    <div class="label">width: anchor-size(height)</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="flex: 1;">
@@ -110,18 +116,6 @@
   </div>
   <div class="demo-box">
     <div class="demo-area" style="flex: 1;">
-      <div style="height: 48px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; font-weight: 500; white-space: nowrap; overflow: hidden; width: calc-size(min-content, 0);">content</div>
-    </div>
-    <div class="label">width: calc-size(min-content, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1;">
-      <div style="height: 48px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; font-weight: 500; white-space: nowrap; overflow: hidden; width: anchor-size(width);">content</div>
-    </div>
-    <div class="label">width: anchor-size(width)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1;">
       <div style="height: 48px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; font-weight: 500; white-space: nowrap; overflow: hidden; width: 0;">content</div>
     </div>
     <div class="label">width: 0</div>
@@ -134,93 +128,9 @@
   </div>
   <div class="demo-box">
     <div class="demo-area" style="flex: 1;">
-      <div style="height: 48px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; font-weight: 500; white-space: nowrap; overflow: hidden; width: calc-size(0, 0);">content</div>
-    </div>
-    <div class="label">width: calc-size(0, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1;">
       <div style="height: 48px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; font-weight: 500; white-space: nowrap; overflow: hidden; width: fit-content(0);">content</div>
     </div>
     <div class="label">width: fit-content(0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1;">
-      <div style="height: 48px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; font-weight: 500; white-space: nowrap; overflow: hidden; width: calc-size(max-content, 0);">content</div>
-    </div>
-    <div class="label">width: calc-size(max-content, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1;">
-      <div style="height: 48px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; font-weight: 500; white-space: nowrap; overflow: hidden; width: calc-size(+0, 0);">content</div>
-    </div>
-    <div class="label">width: calc-size(+0, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1;">
-      <div style="height: 48px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; font-weight: 500; white-space: nowrap; overflow: hidden; width: calc-size(fit-content, 0);">content</div>
-    </div>
-    <div class="label">width: calc-size(fit-content, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1;">
-      <div style="height: 48px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; font-weight: 500; white-space: nowrap; overflow: hidden; width: calc-size(0cap, 0);">content</div>
-    </div>
-    <div class="label">width: calc-size(0cap, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1;">
-      <div style="height: 48px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; font-weight: 500; white-space: nowrap; overflow: hidden; width: calc-size(contain, 0);">content</div>
-    </div>
-    <div class="label">width: calc-size(contain, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1;">
-      <div style="height: 48px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; font-weight: 500; white-space: nowrap; overflow: hidden; width: calc-size(0%, 0);">content</div>
-    </div>
-    <div class="label">width: calc-size(0%, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1;">
-      <div style="height: 48px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; font-weight: 500; white-space: nowrap; overflow: hidden; width: calc-size(stretch, 0);">content</div>
-    </div>
-    <div class="label">width: calc-size(stretch, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1;">
-      <div style="height: 48px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; font-weight: 500; white-space: nowrap; overflow: hidden; width: calc-size(e, 0);">content</div>
-    </div>
-    <div class="label">width: calc-size(e, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1;">
-      <div style="height: 48px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; font-weight: 500; white-space: nowrap; overflow: hidden; width: calc-size(calc(50% + 20px), 0);">content</div>
-    </div>
-    <div class="label">width: calc-size(calc(50% + 20px), 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1;">
-      <div style="height: 48px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; font-weight: 500; white-space: nowrap; overflow: hidden; width: calc-size(var(--my-var), 0);">content</div>
-    </div>
-    <div class="label">width: calc-size(var(--my-var), 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1;">
-      <div style="height: 48px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; font-weight: 500; white-space: nowrap; overflow: hidden; width: calc-size(+0%, 0);">content</div>
-    </div>
-    <div class="label">width: calc-size(+0%, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1;">
-      <div style="height: 48px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; font-weight: 500; white-space: nowrap; overflow: hidden; width: calc-size(pi, 0);">content</div>
-    </div>
-    <div class="label">width: calc-size(pi, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1;">
-      <div style="height: 48px; background: linear-gradient(135deg, #e94560, #c23152); border-radius: 6px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; font-family: monospace; color: #fff; font-weight: 500; white-space: nowrap; overflow: hidden; width: calc-size(var(--my-var, 0), 0);">content</div>
-    </div>
-    <div class="label">width: calc-size(var(--my-var, 0), 0)</div>
   </div>
 </div>
 </body>

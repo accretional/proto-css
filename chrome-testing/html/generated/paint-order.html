@@ -8,11 +8,11 @@
   body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
-  text { fill: #e94560; stroke: #ffffff; stroke-width: 6; }
+  svg { width: 240px; height: 100px; }
 </style>
 </head>
 <body>
@@ -21,131 +21,45 @@
 <div class="demos">
   <div class="demo-box">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="100" viewBox="0 0 240 100">
-      <text style="font-family: system-ui, sans-serif; font-weight: 900; font-size: 72px; paint-order: normal;">Abc</text>
-      </svg>
+      <style>#t0  text.target { paint-order: normal; }</style>
+      <svg id="t0" style="display: block;"><text class="target" x="120" y="70" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="900" font-size="72" fill="#e94560" stroke="#ffffff" stroke-width="12">Abc</text></svg>
     </div>
     <div class="label">paint-order: normal</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="100" viewBox="0 0 240 100">
-      <text style="font-family: system-ui, sans-serif; font-weight: 900; font-size: 72px; paint-order: fill;">Abc</text>
-      </svg>
+      <style>#t1  text.target { paint-order: fill; }</style>
+      <svg id="t1" style="display: block;"><text class="target" x="120" y="70" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="900" font-size="72" fill="#e94560" stroke="#ffffff" stroke-width="12">Abc</text></svg>
     </div>
     <div class="label">paint-order: fill</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="100" viewBox="0 0 240 100">
-      <text style="font-family: system-ui, sans-serif; font-weight: 900; font-size: 72px; paint-order: stroke;">Abc</text>
-      </svg>
+      <style>#t2  text.target { paint-order: stroke; }</style>
+      <svg id="t2" style="display: block;"><text class="target" x="120" y="70" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="900" font-size="72" fill="#e94560" stroke="#ffffff" stroke-width="12">Abc</text></svg>
     </div>
     <div class="label">paint-order: stroke</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="100" viewBox="0 0 240 100">
-      <text style="font-family: system-ui, sans-serif; font-weight: 900; font-size: 72px; paint-order: markers;">Abc</text>
-      </svg>
+      <style>#t3  text.target { paint-order: markers; }</style>
+      <svg id="t3" style="display: block;"><text class="target" x="120" y="70" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="900" font-size="72" fill="#e94560" stroke="#ffffff" stroke-width="12">Abc</text></svg>
     </div>
     <div class="label">paint-order: markers</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="100" viewBox="0 0 240 100">
-      <text style="font-family: system-ui, sans-serif; font-weight: 900; font-size: 72px; paint-order: fill stroke;">Abc</text>
-      </svg>
+      <style>#t4  text.target { paint-order: fill stroke; }</style>
+      <svg id="t4" style="display: block;"><text class="target" x="120" y="70" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="900" font-size="72" fill="#e94560" stroke="#ffffff" stroke-width="12">Abc</text></svg>
     </div>
     <div class="label">paint-order: fill stroke</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="100" viewBox="0 0 240 100">
-      <text style="font-family: system-ui, sans-serif; font-weight: 900; font-size: 72px; paint-order: stroke fill;">Abc</text>
-      </svg>
+      <style>#t5  text.target { paint-order: stroke fill; }</style>
+      <svg id="t5" style="display: block;"><text class="target" x="120" y="70" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="900" font-size="72" fill="#e94560" stroke="#ffffff" stroke-width="12">Abc</text></svg>
     </div>
     <div class="label">paint-order: stroke fill</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="100" viewBox="0 0 240 100">
-      <text style="font-family: system-ui, sans-serif; font-weight: 900; font-size: 72px; paint-order: markers fill;">Abc</text>
-      </svg>
-    </div>
-    <div class="label">paint-order: markers fill</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="100" viewBox="0 0 240 100">
-      <text style="font-family: system-ui, sans-serif; font-weight: 900; font-size: 72px; paint-order: fill markers;">Abc</text>
-      </svg>
-    </div>
-    <div class="label">paint-order: fill markers</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="100" viewBox="0 0 240 100">
-      <text style="font-family: system-ui, sans-serif; font-weight: 900; font-size: 72px; paint-order: stroke markers;">Abc</text>
-      </svg>
-    </div>
-    <div class="label">paint-order: stroke markers</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="100" viewBox="0 0 240 100">
-      <text style="font-family: system-ui, sans-serif; font-weight: 900; font-size: 72px; paint-order: markers stroke;">Abc</text>
-      </svg>
-    </div>
-    <div class="label">paint-order: markers stroke</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="100" viewBox="0 0 240 100">
-      <text style="font-family: system-ui, sans-serif; font-weight: 900; font-size: 72px; paint-order: fill stroke markers;">Abc</text>
-      </svg>
-    </div>
-    <div class="label">paint-order: fill stroke markers</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="100" viewBox="0 0 240 100">
-      <text style="font-family: system-ui, sans-serif; font-weight: 900; font-size: 72px; paint-order: stroke fill markers;">Abc</text>
-      </svg>
-    </div>
-    <div class="label">paint-order: stroke fill markers</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="100" viewBox="0 0 240 100">
-      <text style="font-family: system-ui, sans-serif; font-weight: 900; font-size: 72px; paint-order: markers fill stroke;">Abc</text>
-      </svg>
-    </div>
-    <div class="label">paint-order: markers fill stroke</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="100" viewBox="0 0 240 100">
-      <text style="font-family: system-ui, sans-serif; font-weight: 900; font-size: 72px; paint-order: fill markers stroke;">Abc</text>
-      </svg>
-    </div>
-    <div class="label">paint-order: fill markers stroke</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="100" viewBox="0 0 240 100">
-      <text style="font-family: system-ui, sans-serif; font-weight: 900; font-size: 72px; paint-order: stroke markers fill;">Abc</text>
-      </svg>
-    </div>
-    <div class="label">paint-order: stroke markers fill</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center;">
-      <svg width="240" height="100" viewBox="0 0 240 100">
-      <text style="font-family: system-ui, sans-serif; font-weight: 900; font-size: 72px; paint-order: markers stroke fill;">Abc</text>
-      </svg>
-    </div>
-    <div class="label">paint-order: markers stroke fill</div>
   </div>
 </div>
 </body>

@@ -15,7 +15,7 @@ echo "############################################"
 echo "#                                          #"
 echo "#           LET IT RIP                     #"
 echo "#                                          #"
-echo "#  setup + gen + build + test + serve      #"
+echo "#  setup + test (gen+build) + serve        #"
 echo "#                                          #"
 echo "############################################"
 echo ""
@@ -52,25 +52,19 @@ trap cleanup EXIT
 
 # ── Step 1: Setup ───────────────────────────────────────────────────────────
 
-echo "============ Step 1/4: Setup ============"
+echo "============ Step 1/3: Setup ============"
 "$ROOT/setup.sh"
 echo ""
 
-# ── Step 2: Build (screenshots + galleries for both template sets) ─────────
+# ── Step 2: Test (builds + validates) ──────────────────────────────────────
 
-echo "============ Step 2/4: Build ============"
-"$ROOT/build.sh"
-echo ""
-
-# ── Step 3: Test ────────────────────────────────────────────────────────────
-
-echo "============ Step 3/4: Test ============"
+echo "============ Step 2/3: Test ============"
 "$ROOT/test.sh"
 echo ""
 
-# ── Step 4: Serve + Open Browser ────────────────────────────────────────────
+# ── Step 3: Serve + Open Browser ────────────────────────────────────────────
 
-echo "============ Step 4/4: Serve + Browser ============"
+echo "============ Step 3/3: Serve + Browser ============"
 
 GALLERY_DIR="$ROOT/chrome-testing/html"
 GALLERY_FILE="$GALLERY_DIR/generated_gallery.html"

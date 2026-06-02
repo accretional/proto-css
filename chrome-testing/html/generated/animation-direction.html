@@ -12,9 +12,10 @@
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
-  @keyframes moveCorner {
-  0% { top: 10px; left: 10px; background: #e94560; }
-  100% { top: 60px; left: calc(100% - 60px); background: #3498db; }
+  @keyframes moveAcross {
+  0% { left: 5px; top: 15px; background: #e94560; border-radius: 8px; }
+  50% { left: calc(50% - 25px); top: 15px; background: #f39c12; border-radius: 50%; }
+  100% { left: calc(100% - 55px); top: 15px; background: #3498db; border-radius: 8px; }
 }
 </style>
 </head>
@@ -23,50 +24,50 @@
 <p class="prop-name">animation-direction</p>
 <div class="demos">
   <div class="demo-box">
-    <div class="demo-area" style="position: relative; background: #0f3460; border-radius: 8px; width: 100%; height: 120px;">
-      <div style="width: 50px; height: 50px; border-radius: 8px; position: absolute; animation: moveCorner 2s linear infinite; animation-delay: -0.5s; background: #e94560; animation-direction: normal;"></div>
+    <div class="demo-area" style="position: relative; background: #0f3460; border-radius: 8px; width: 100%; height: 80px;">
+      <div style="width: 50px; height: 50px; border-radius: 8px; position: absolute; animation: moveAcross 4s linear infinite; animation-delay: -1s; background: #e94560; animation-direction: normal;"></div>
     </div>
     <div class="label">animation-direction: normal</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="position: relative; background: #0f3460; border-radius: 8px; width: 100%; height: 120px;">
-      <div style="width: 50px; height: 50px; border-radius: 8px; position: absolute; animation: moveCorner 2s linear infinite; animation-delay: -0.5s; background: #e94560; animation-direction: reverse;"></div>
+    <div class="demo-area" style="position: relative; background: #0f3460; border-radius: 8px; width: 100%; height: 80px;">
+      <div style="width: 50px; height: 50px; border-radius: 8px; position: absolute; animation: moveAcross 4s linear infinite; animation-delay: -1s; background: #e94560; animation-direction: reverse;"></div>
     </div>
     <div class="label">animation-direction: reverse</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="position: relative; background: #0f3460; border-radius: 8px; width: 100%; height: 120px;">
-      <div style="width: 50px; height: 50px; border-radius: 8px; position: absolute; animation: moveCorner 2s linear infinite; animation-delay: -0.5s; background: #e94560; animation-direction: alternate;"></div>
+    <div class="demo-area" style="position: relative; background: #0f3460; border-radius: 8px; width: 100%; height: 80px;">
+      <div style="width: 50px; height: 50px; border-radius: 8px; position: absolute; animation: moveAcross 4s linear infinite; animation-delay: -1s; background: #e94560; animation-direction: alternate;"></div>
     </div>
     <div class="label">animation-direction: alternate</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="position: relative; background: #0f3460; border-radius: 8px; width: 100%; height: 120px;">
-      <div style="width: 50px; height: 50px; border-radius: 8px; position: absolute; animation: moveCorner 2s linear infinite; animation-delay: -0.5s; background: #e94560; animation-direction: alternate-reverse;"></div>
+    <div class="demo-area" style="position: relative; background: #0f3460; border-radius: 8px; width: 100%; height: 80px;">
+      <div style="width: 50px; height: 50px; border-radius: 8px; position: absolute; animation: moveAcross 4s linear infinite; animation-delay: -1s; background: #e94560; animation-direction: alternate-reverse;"></div>
     </div>
     <div class="label">animation-direction: alternate-reverse</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="position: relative; background: #0f3460; border-radius: 8px; width: 100%; height: 120px;">
-      <div style="width: 50px; height: 50px; border-radius: 8px; position: absolute; animation: moveCorner 2s linear infinite; animation-delay: -0.5s; background: #e94560; animation-direction: normal, normal;"></div>
+    <div class="demo-area" style="position: relative; background: #0f3460; border-radius: 8px; width: 100%; height: 80px;">
+      <div style="width: 50px; height: 50px; border-radius: 8px; position: absolute; animation: moveAcross 4s linear infinite; animation-delay: -1s; background: #e94560; animation-direction: normal, normal;"></div>
     </div>
     <div class="label">animation-direction: normal, normal</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="position: relative; background: #0f3460; border-radius: 8px; width: 100%; height: 120px;">
-      <div style="width: 50px; height: 50px; border-radius: 8px; position: absolute; animation: moveCorner 2s linear infinite; animation-delay: -0.5s; background: #e94560; animation-direction: reverse, normal;"></div>
+    <div class="demo-area" style="position: relative; background: #0f3460; border-radius: 8px; width: 100%; height: 80px;">
+      <div style="width: 50px; height: 50px; border-radius: 8px; position: absolute; animation: moveAcross 4s linear infinite; animation-delay: -1s; background: #e94560; animation-direction: reverse, normal;"></div>
     </div>
     <div class="label">animation-direction: reverse, normal</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="position: relative; background: #0f3460; border-radius: 8px; width: 100%; height: 120px;">
-      <div style="width: 50px; height: 50px; border-radius: 8px; position: absolute; animation: moveCorner 2s linear infinite; animation-delay: -0.5s; background: #e94560; animation-direction: alternate, normal;"></div>
+    <div class="demo-area" style="position: relative; background: #0f3460; border-radius: 8px; width: 100%; height: 80px;">
+      <div style="width: 50px; height: 50px; border-radius: 8px; position: absolute; animation: moveAcross 4s linear infinite; animation-delay: -1s; background: #e94560; animation-direction: alternate, normal;"></div>
     </div>
     <div class="label">animation-direction: alternate, normal</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="position: relative; background: #0f3460; border-radius: 8px; width: 100%; height: 120px;">
-      <div style="width: 50px; height: 50px; border-radius: 8px; position: absolute; animation: moveCorner 2s linear infinite; animation-delay: -0.5s; background: #e94560; animation-direction: alternate-reverse, normal;"></div>
+    <div class="demo-area" style="position: relative; background: #0f3460; border-radius: 8px; width: 100%; height: 80px;">
+      <div style="width: 50px; height: 50px; border-radius: 8px; position: absolute; animation: moveAcross 4s linear infinite; animation-delay: -1s; background: #e94560; animation-direction: alternate-reverse, normal;"></div>
     </div>
     <div class="label">animation-direction: alternate-reverse, normal</div>
   </div>

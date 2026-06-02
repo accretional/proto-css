@@ -13,9 +13,7 @@
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
   .multicol { column-count: 3; column-gap: 14px; column-rule: 1px solid #2a2a4a; }
-.card { background: #0f3460; border-radius: 8px; padding: 12px; margin-bottom: 10px; border: 1px solid #1a4a8a; }
-.card h3 { font-size: 13px; color: #e94560; margin-bottom: 6px; }
-.card p { font-size: 11px; line-height: 1.5; color: #b0b0c0; }
+.card { background: #0f3460; border-radius: 8px; padding: 12px; margin-bottom: 10px; border: 1px solid #1a4a8a; font-size: 11px; line-height: 1.5; color: #b0b0c0; }
 </style>
 </head>
 <body>
@@ -23,26 +21,30 @@
 <p class="prop-name">break-inside</p>
 <div class="demos">
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; gap: 32px;">
-      <div style="background: #16213e; border-radius: 10px; padding: 20px; flex: 1; break-inside: auto;"><div class="multicol"><div class="card"><h3>Card A</h3><p>This card has enough content that it may be split across columns.</p></div><div class="card"><h3>Card B</h3><p>Another card with some content that could break.</p></div><div class="card"><h3>Card C</h3><p>More content here to demonstrate break behavior inside columns.</p></div><div class="card"><h3>Card D</h3><p>Additional card with text that fills space in the column layout.</p></div><div class="card"><h3>Card E</h3><p>This card also has content that may split across column boundaries.</p></div></div></div>
+    <div class="demo-area">
+      <style>#t0  .card { break-inside: auto; }</style>
+      <div id="t0" style="background: #16213e; border-radius: 10px; padding: 20px;"><div class="multicol"><div class="card">Card A: This card has enough content that it may be split across columns when break-inside allows it.</div><div class="card">Card B: Another card with content that could break across column boundaries.</div><div class="card">Card C: More content here to fill the multi-column layout nicely.</div><div class="card">Card D: Additional text to demonstrate break behavior inside columns clearly.</div><div class="card">Card E: This card also has content that may split across column boundaries.</div><div class="card">Card F: Final card with additional filler text for the layout.</div></div></div>
     </div>
     <div class="label">break-inside: auto</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; gap: 32px;">
-      <div style="background: #16213e; border-radius: 10px; padding: 20px; flex: 1; break-inside: avoid;"><div class="multicol"><div class="card"><h3>Card A</h3><p>This card has enough content that it may be split across columns.</p></div><div class="card"><h3>Card B</h3><p>Another card with some content that could break.</p></div><div class="card"><h3>Card C</h3><p>More content here to demonstrate break behavior inside columns.</p></div><div class="card"><h3>Card D</h3><p>Additional card with text that fills space in the column layout.</p></div><div class="card"><h3>Card E</h3><p>This card also has content that may split across column boundaries.</p></div></div></div>
+    <div class="demo-area">
+      <style>#t1  .card { break-inside: avoid; }</style>
+      <div id="t1" style="background: #16213e; border-radius: 10px; padding: 20px;"><div class="multicol"><div class="card">Card A: This card has enough content that it may be split across columns when break-inside allows it.</div><div class="card">Card B: Another card with content that could break across column boundaries.</div><div class="card">Card C: More content here to fill the multi-column layout nicely.</div><div class="card">Card D: Additional text to demonstrate break behavior inside columns clearly.</div><div class="card">Card E: This card also has content that may split across column boundaries.</div><div class="card">Card F: Final card with additional filler text for the layout.</div></div></div>
     </div>
     <div class="label">break-inside: avoid</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; gap: 32px;">
-      <div style="background: #16213e; border-radius: 10px; padding: 20px; flex: 1; break-inside: avoid-page;"><div class="multicol"><div class="card"><h3>Card A</h3><p>This card has enough content that it may be split across columns.</p></div><div class="card"><h3>Card B</h3><p>Another card with some content that could break.</p></div><div class="card"><h3>Card C</h3><p>More content here to demonstrate break behavior inside columns.</p></div><div class="card"><h3>Card D</h3><p>Additional card with text that fills space in the column layout.</p></div><div class="card"><h3>Card E</h3><p>This card also has content that may split across column boundaries.</p></div></div></div>
+    <div class="demo-area">
+      <style>#t2  .card { break-inside: avoid-page; }</style>
+      <div id="t2" style="background: #16213e; border-radius: 10px; padding: 20px;"><div class="multicol"><div class="card">Card A: This card has enough content that it may be split across columns when break-inside allows it.</div><div class="card">Card B: Another card with content that could break across column boundaries.</div><div class="card">Card C: More content here to fill the multi-column layout nicely.</div><div class="card">Card D: Additional text to demonstrate break behavior inside columns clearly.</div><div class="card">Card E: This card also has content that may split across column boundaries.</div><div class="card">Card F: Final card with additional filler text for the layout.</div></div></div>
     </div>
     <div class="label">break-inside: avoid-page</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="display: flex; gap: 32px;">
-      <div style="background: #16213e; border-radius: 10px; padding: 20px; flex: 1; break-inside: avoid-column;"><div class="multicol"><div class="card"><h3>Card A</h3><p>This card has enough content that it may be split across columns.</p></div><div class="card"><h3>Card B</h3><p>Another card with some content that could break.</p></div><div class="card"><h3>Card C</h3><p>More content here to demonstrate break behavior inside columns.</p></div><div class="card"><h3>Card D</h3><p>Additional card with text that fills space in the column layout.</p></div><div class="card"><h3>Card E</h3><p>This card also has content that may split across column boundaries.</p></div></div></div>
+    <div class="demo-area">
+      <style>#t3  .card { break-inside: avoid-column; }</style>
+      <div id="t3" style="background: #16213e; border-radius: 10px; padding: 20px;"><div class="multicol"><div class="card">Card A: This card has enough content that it may be split across columns when break-inside allows it.</div><div class="card">Card B: Another card with content that could break across column boundaries.</div><div class="card">Card C: More content here to fill the multi-column layout nicely.</div><div class="card">Card D: Additional text to demonstrate break behavior inside columns clearly.</div><div class="card">Card E: This card also has content that may split across column boundaries.</div><div class="card">Card F: Final card with additional filler text for the layout.</div></div></div>
     </div>
     <div class="label">break-inside: avoid-column</div>
   </div>

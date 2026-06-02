@@ -8,7 +8,7 @@
   body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
@@ -19,208 +19,118 @@
 <p class="prop-name">max-width</p>
 <div class="demos">
   <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: none;">Content fills available width</div>
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center; overflow: hidden;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 600px; max-width: none;">This is a very long content string that demonstrates how max-width constrains the element</div>
     </div>
     <div class="label">max-width: none</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: 10px;">Content fills available width</div>
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center; overflow: hidden;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 600px; max-width: 10px;">This is a very long content string that demonstrates how max-width constrains the element</div>
     </div>
     <div class="label">max-width: 10px</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: min-content;">Content fills available width</div>
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center; overflow: hidden;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 600px; max-width: min-content;">This is a very long content string that demonstrates how max-width constrains the element</div>
     </div>
     <div class="label">max-width: min-content</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: max-content;">Content fills available width</div>
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center; overflow: hidden;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 600px; max-width: max-content;">This is a very long content string that demonstrates how max-width constrains the element</div>
     </div>
     <div class="label">max-width: max-content</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: fit-content(10px);">Content fills available width</div>
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center; overflow: hidden;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 600px; max-width: fit-content(10px);">This is a very long content string that demonstrates how max-width constrains the element</div>
     </div>
     <div class="label">max-width: fit-content(10px)</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(auto, 0);">Content fills available width</div>
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center; overflow: hidden;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 600px; max-width: calc-size(auto, size + 20px);">This is a very long content string that demonstrates how max-width constrains the element</div>
     </div>
-    <div class="label">max-width: calc-size(auto, 0)</div>
+    <div class="label">max-width: calc-size(auto, size + 20px)</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: stretch;">Content fills available width</div>
-    </div>
-    <div class="label">max-width: stretch</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: fit-content;">Content fills available width</div>
-    </div>
-    <div class="label">max-width: fit-content</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: contain;">Content fills available width</div>
-    </div>
-    <div class="label">max-width: contain</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: 25%;">Content fills available width</div>
-    </div>
-    <div class="label">max-width: 25%</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: fit-content(25%);">Content fills available width</div>
-    </div>
-    <div class="label">max-width: fit-content(25%)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(any, 0);">Content fills available width</div>
-    </div>
-    <div class="label">max-width: calc-size(any, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: anchor-size(--my-var);">Content fills available width</div>
-    </div>
-    <div class="label">max-width: anchor-size(--my-var)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: 50%;">Content fills available width</div>
-    </div>
-    <div class="label">max-width: 50%</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: fit-content(50%);">Content fills available width</div>
-    </div>
-    <div class="label">max-width: fit-content(50%)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(min-content, 0);">Content fills available width</div>
-    </div>
-    <div class="label">max-width: calc-size(min-content, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: anchor-size(width);">Content fills available width</div>
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center; overflow: hidden;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 600px; max-width: anchor-size(width);">This is a very long content string that demonstrates how max-width constrains the element</div>
     </div>
     <div class="label">max-width: anchor-size(width)</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: 0;">Content fills available width</div>
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center; overflow: hidden;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 600px; max-width: stretch;">This is a very long content string that demonstrates how max-width constrains the element</div>
+    </div>
+    <div class="label">max-width: stretch</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center; overflow: hidden;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 600px; max-width: fit-content;">This is a very long content string that demonstrates how max-width constrains the element</div>
+    </div>
+    <div class="label">max-width: fit-content</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center; overflow: hidden;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 600px; max-width: contain;">This is a very long content string that demonstrates how max-width constrains the element</div>
+    </div>
+    <div class="label">max-width: contain</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center; overflow: hidden;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 600px; max-width: 25%;">This is a very long content string that demonstrates how max-width constrains the element</div>
+    </div>
+    <div class="label">max-width: 25%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center; overflow: hidden;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 600px; max-width: fit-content(25%);">This is a very long content string that demonstrates how max-width constrains the element</div>
+    </div>
+    <div class="label">max-width: fit-content(25%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center; overflow: hidden;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 600px; max-width: calc-size(fit-content, size * 0.5);">This is a very long content string that demonstrates how max-width constrains the element</div>
+    </div>
+    <div class="label">max-width: calc-size(fit-content, size * 0.5)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center; overflow: hidden;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 600px; max-width: anchor-size(height);">This is a very long content string that demonstrates how max-width constrains the element</div>
+    </div>
+    <div class="label">max-width: anchor-size(height)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center; overflow: hidden;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 600px; max-width: 50%;">This is a very long content string that demonstrates how max-width constrains the element</div>
+    </div>
+    <div class="label">max-width: 50%</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center; overflow: hidden;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 600px; max-width: fit-content(50%);">This is a very long content string that demonstrates how max-width constrains the element</div>
+    </div>
+    <div class="label">max-width: fit-content(50%)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center; overflow: hidden;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 600px; max-width: 0;">This is a very long content string that demonstrates how max-width constrains the element</div>
     </div>
     <div class="label">max-width: 0</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: fit-content(100%);">Content fills available width</div>
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center; overflow: hidden;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 600px; max-width: fit-content(100%);">This is a very long content string that demonstrates how max-width constrains the element</div>
     </div>
     <div class="label">max-width: fit-content(100%)</div>
   </div>
   <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(0, 0);">Content fills available width</div>
-    </div>
-    <div class="label">max-width: calc-size(0, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: fit-content(0);">Content fills available width</div>
+    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center; overflow: hidden;">
+      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 600px; max-width: fit-content(0);">This is a very long content string that demonstrates how max-width constrains the element</div>
     </div>
     <div class="label">max-width: fit-content(0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(max-content, 0);">Content fills available width</div>
-    </div>
-    <div class="label">max-width: calc-size(max-content, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(+0, 0);">Content fills available width</div>
-    </div>
-    <div class="label">max-width: calc-size(+0, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(fit-content, 0);">Content fills available width</div>
-    </div>
-    <div class="label">max-width: calc-size(fit-content, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(0cap, 0);">Content fills available width</div>
-    </div>
-    <div class="label">max-width: calc-size(0cap, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(contain, 0);">Content fills available width</div>
-    </div>
-    <div class="label">max-width: calc-size(contain, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(0%, 0);">Content fills available width</div>
-    </div>
-    <div class="label">max-width: calc-size(0%, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(stretch, 0);">Content fills available width</div>
-    </div>
-    <div class="label">max-width: calc-size(stretch, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(e, 0);">Content fills available width</div>
-    </div>
-    <div class="label">max-width: calc-size(e, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(calc(50% + 20px), 0);">Content fills available width</div>
-    </div>
-    <div class="label">max-width: calc-size(calc(50% + 20px), 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(var(--my-var), 0);">Content fills available width</div>
-    </div>
-    <div class="label">max-width: calc-size(var(--my-var), 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(+0%, 0);">Content fills available width</div>
-    </div>
-    <div class="label">max-width: calc-size(+0%, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(pi, 0);">Content fills available width</div>
-    </div>
-    <div class="label">max-width: calc-size(pi, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="flex: 1; background: #0f3460; border-radius: 6px; padding: 4px; min-height: 48px; display: flex; align-items: center;">
-      <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #fff; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; height: 40px; display: flex; align-items: center; width: 100%; max-width: calc-size(var(--my-var, 0), 0);">Content fills available width</div>
-    </div>
-    <div class="label">max-width: calc-size(var(--my-var, 0), 0)</div>
   </div>
 </div>
 </body>

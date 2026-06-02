@@ -8,7 +8,7 @@
   body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
@@ -63,10 +63,17 @@
   </div>
   <div class="demo-box">
     <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px; width: 100%;">
-      <div style="background: #533483; border: 2px solid #a78bfa; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: #fff; font-weight: 700; flex-grow: 0; flex-shrink: 0; min-width: 0; padding: 0 4px; flex-basis: calc-size(auto, 0);">target</div>
+      <div style="background: #533483; border: 2px solid #a78bfa; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: #fff; font-weight: 700; flex-grow: 0; flex-shrink: 0; min-width: 0; padding: 0 4px; flex-basis: calc-size(auto, size + 20px);">target</div>
       <div class="item">A</div><div class="item">B</div><div class="item">C</div>
     </div>
-    <div class="label">flex-basis: calc-size(auto, 0)</div>
+    <div class="label">flex-basis: calc-size(auto, size + 20px)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px; width: 100%;">
+      <div style="background: #533483; border: 2px solid #a78bfa; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: #fff; font-weight: 700; flex-grow: 0; flex-shrink: 0; min-width: 0; padding: 0 4px; flex-basis: anchor-size(width);">target</div>
+      <div class="item">A</div><div class="item">B</div><div class="item">C</div>
+    </div>
+    <div class="label">flex-basis: anchor-size(width)</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px; width: 100%;">
@@ -105,17 +112,17 @@
   </div>
   <div class="demo-box">
     <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px; width: 100%;">
-      <div style="background: #533483; border: 2px solid #a78bfa; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: #fff; font-weight: 700; flex-grow: 0; flex-shrink: 0; min-width: 0; padding: 0 4px; flex-basis: calc-size(min-content, 0);">target</div>
+      <div style="background: #533483; border: 2px solid #a78bfa; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: #fff; font-weight: 700; flex-grow: 0; flex-shrink: 0; min-width: 0; padding: 0 4px; flex-basis: calc-size(fit-content, size * 0.5);">target</div>
       <div class="item">A</div><div class="item">B</div><div class="item">C</div>
     </div>
-    <div class="label">flex-basis: calc-size(min-content, 0)</div>
+    <div class="label">flex-basis: calc-size(fit-content, size * 0.5)</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px; width: 100%;">
-      <div style="background: #533483; border: 2px solid #a78bfa; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: #fff; font-weight: 700; flex-grow: 0; flex-shrink: 0; min-width: 0; padding: 0 4px; flex-basis: anchor-size(--my-var);">target</div>
+      <div style="background: #533483; border: 2px solid #a78bfa; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: #fff; font-weight: 700; flex-grow: 0; flex-shrink: 0; min-width: 0; padding: 0 4px; flex-basis: anchor-size(height);">target</div>
       <div class="item">A</div><div class="item">B</div><div class="item">C</div>
     </div>
-    <div class="label">flex-basis: anchor-size(--my-var)</div>
+    <div class="label">flex-basis: anchor-size(height)</div>
   </div>
   <div class="demo-box">
     <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px; width: 100%;">
@@ -147,115 +154,10 @@
   </div>
   <div class="demo-box">
     <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px; width: 100%;">
-      <div style="background: #533483; border: 2px solid #a78bfa; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: #fff; font-weight: 700; flex-grow: 0; flex-shrink: 0; min-width: 0; padding: 0 4px; flex-basis: calc-size(any, 0);">target</div>
-      <div class="item">A</div><div class="item">B</div><div class="item">C</div>
-    </div>
-    <div class="label">flex-basis: calc-size(any, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px; width: 100%;">
-      <div style="background: #533483; border: 2px solid #a78bfa; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: #fff; font-weight: 700; flex-grow: 0; flex-shrink: 0; min-width: 0; padding: 0 4px; flex-basis: anchor-size(width);">target</div>
-      <div class="item">A</div><div class="item">B</div><div class="item">C</div>
-    </div>
-    <div class="label">flex-basis: anchor-size(width)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px; width: 100%;">
-      <div style="background: #533483; border: 2px solid #a78bfa; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: #fff; font-weight: 700; flex-grow: 0; flex-shrink: 0; min-width: 0; padding: 0 4px; flex-basis: calc-size(0, 0);">target</div>
-      <div class="item">A</div><div class="item">B</div><div class="item">C</div>
-    </div>
-    <div class="label">flex-basis: calc-size(0, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px; width: 100%;">
       <div style="background: #533483; border: 2px solid #a78bfa; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: #fff; font-weight: 700; flex-grow: 0; flex-shrink: 0; min-width: 0; padding: 0 4px; flex-basis: fit-content(0);">target</div>
       <div class="item">A</div><div class="item">B</div><div class="item">C</div>
     </div>
     <div class="label">flex-basis: fit-content(0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px; width: 100%;">
-      <div style="background: #533483; border: 2px solid #a78bfa; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: #fff; font-weight: 700; flex-grow: 0; flex-shrink: 0; min-width: 0; padding: 0 4px; flex-basis: calc-size(max-content, 0);">target</div>
-      <div class="item">A</div><div class="item">B</div><div class="item">C</div>
-    </div>
-    <div class="label">flex-basis: calc-size(max-content, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px; width: 100%;">
-      <div style="background: #533483; border: 2px solid #a78bfa; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: #fff; font-weight: 700; flex-grow: 0; flex-shrink: 0; min-width: 0; padding: 0 4px; flex-basis: calc-size(+0, 0);">target</div>
-      <div class="item">A</div><div class="item">B</div><div class="item">C</div>
-    </div>
-    <div class="label">flex-basis: calc-size(+0, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px; width: 100%;">
-      <div style="background: #533483; border: 2px solid #a78bfa; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: #fff; font-weight: 700; flex-grow: 0; flex-shrink: 0; min-width: 0; padding: 0 4px; flex-basis: calc-size(fit-content, 0);">target</div>
-      <div class="item">A</div><div class="item">B</div><div class="item">C</div>
-    </div>
-    <div class="label">flex-basis: calc-size(fit-content, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px; width: 100%;">
-      <div style="background: #533483; border: 2px solid #a78bfa; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: #fff; font-weight: 700; flex-grow: 0; flex-shrink: 0; min-width: 0; padding: 0 4px; flex-basis: calc-size(0cap, 0);">target</div>
-      <div class="item">A</div><div class="item">B</div><div class="item">C</div>
-    </div>
-    <div class="label">flex-basis: calc-size(0cap, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px; width: 100%;">
-      <div style="background: #533483; border: 2px solid #a78bfa; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: #fff; font-weight: 700; flex-grow: 0; flex-shrink: 0; min-width: 0; padding: 0 4px; flex-basis: calc-size(contain, 0);">target</div>
-      <div class="item">A</div><div class="item">B</div><div class="item">C</div>
-    </div>
-    <div class="label">flex-basis: calc-size(contain, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px; width: 100%;">
-      <div style="background: #533483; border: 2px solid #a78bfa; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: #fff; font-weight: 700; flex-grow: 0; flex-shrink: 0; min-width: 0; padding: 0 4px; flex-basis: calc-size(0%, 0);">target</div>
-      <div class="item">A</div><div class="item">B</div><div class="item">C</div>
-    </div>
-    <div class="label">flex-basis: calc-size(0%, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px; width: 100%;">
-      <div style="background: #533483; border: 2px solid #a78bfa; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: #fff; font-weight: 700; flex-grow: 0; flex-shrink: 0; min-width: 0; padding: 0 4px; flex-basis: calc-size(stretch, 0);">target</div>
-      <div class="item">A</div><div class="item">B</div><div class="item">C</div>
-    </div>
-    <div class="label">flex-basis: calc-size(stretch, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px; width: 100%;">
-      <div style="background: #533483; border: 2px solid #a78bfa; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: #fff; font-weight: 700; flex-grow: 0; flex-shrink: 0; min-width: 0; padding: 0 4px; flex-basis: calc-size(e, 0);">target</div>
-      <div class="item">A</div><div class="item">B</div><div class="item">C</div>
-    </div>
-    <div class="label">flex-basis: calc-size(e, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px; width: 100%;">
-      <div style="background: #533483; border: 2px solid #a78bfa; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: #fff; font-weight: 700; flex-grow: 0; flex-shrink: 0; min-width: 0; padding: 0 4px; flex-basis: calc-size(calc(50% + 20px), 0);">target</div>
-      <div class="item">A</div><div class="item">B</div><div class="item">C</div>
-    </div>
-    <div class="label">flex-basis: calc-size(calc(50% + 20px), 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px; width: 100%;">
-      <div style="background: #533483; border: 2px solid #a78bfa; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: #fff; font-weight: 700; flex-grow: 0; flex-shrink: 0; min-width: 0; padding: 0 4px; flex-basis: calc-size(var(--my-var), 0);">target</div>
-      <div class="item">A</div><div class="item">B</div><div class="item">C</div>
-    </div>
-    <div class="label">flex-basis: calc-size(var(--my-var), 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px; width: 100%;">
-      <div style="background: #533483; border: 2px solid #a78bfa; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: #fff; font-weight: 700; flex-grow: 0; flex-shrink: 0; min-width: 0; padding: 0 4px; flex-basis: calc-size(+0%, 0);">target</div>
-      <div class="item">A</div><div class="item">B</div><div class="item">C</div>
-    </div>
-    <div class="label">flex-basis: calc-size(+0%, 0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area" style="display: flex; background: #16213e; border-radius: 8px; padding: 12px; height: 70px; align-items: stretch; gap: 8px; width: 100%;">
-      <div style="background: #533483; border: 2px solid #a78bfa; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: monospace; color: #fff; font-weight: 700; flex-grow: 0; flex-shrink: 0; min-width: 0; padding: 0 4px; flex-basis: calc-size(pi, 0);">target</div>
-      <div class="item">A</div><div class="item">B</div><div class="item">C</div>
-    </div>
-    <div class="label">flex-basis: calc-size(pi, 0)</div>
   </div>
 </div>
 </body>

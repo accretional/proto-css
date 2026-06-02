@@ -8,7 +8,7 @@
   body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
@@ -44,9 +44,15 @@
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="width: 180px; height: 100px; background: #16213e; border-inline-start: 8px solid; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; border-inline-start-color: device-cmyk(1, 1, 1, 1);"></div>
+      <div style="width: 180px; height: 100px; background: #16213e; border-inline-start: 8px solid; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; border-inline-start-color: contrast-color(red);"></div>
     </div>
-    <div class="label">border-inline-start-color: device-cmyk(1, 1, 1, 1)</div>
+    <div class="label">border-inline-start-color: contrast-color(red)</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
+      <div style="width: 180px; height: 100px; background: #16213e; border-inline-start: 8px solid; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; border-inline-start-color: device-cmyk(0, 0.7, 1, 0);"></div>
+    </div>
+    <div class="label">border-inline-start-color: device-cmyk(0, 0.7, 1, 0)</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
@@ -74,21 +80,9 @@
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="width: 180px; height: 100px; background: #16213e; border-inline-start: 8px solid; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; border-inline-start-color: device-cmyk(0.5, 1, 1, 1);"></div>
-    </div>
-    <div class="label">border-inline-start-color: device-cmyk(0.5, 1, 1, 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
       <div style="width: 180px; height: 100px; background: #16213e; border-inline-start: 8px solid; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; border-inline-start-color: light-dark(#333, #ccc);"></div>
     </div>
     <div class="label">border-inline-start-color: light-dark(#333, #ccc)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="width: 180px; height: 100px; background: #16213e; border-inline-start: 8px solid; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; border-inline-start-color: var(--my-var, 0);"></div>
-    </div>
-    <div class="label">border-inline-start-color: var(--my-var, 0)</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
@@ -104,123 +98,9 @@
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="width: 180px; height: 100px; background: #16213e; border-inline-start: 8px solid; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; border-inline-start-color: device-cmyk(1 1 1 1);"></div>
-    </div>
-    <div class="label">border-inline-start-color: device-cmyk(1 1 1 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
       <div style="width: 180px; height: 100px; background: #16213e; border-inline-start: 8px solid; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; border-inline-start-color: transparent;"></div>
     </div>
     <div class="label">border-inline-start-color: transparent</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="width: 180px; height: 100px; background: #16213e; border-inline-start: 8px solid; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; border-inline-start-color: device-cmyk(0.5 1 1 1);"></div>
-    </div>
-    <div class="label">border-inline-start-color: device-cmyk(0.5 1 1 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="width: 180px; height: 100px; background: #16213e; border-inline-start: 8px solid; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; border-inline-start-color: device-cmyk(2, 1, 1, 1);"></div>
-    </div>
-    <div class="label">border-inline-start-color: device-cmyk(2, 1, 1, 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="width: 180px; height: 100px; background: #16213e; border-inline-start: 8px solid; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; border-inline-start-color: var(--my-var, 0%);"></div>
-    </div>
-    <div class="label">border-inline-start-color: var(--my-var, 0%)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="width: 180px; height: 100px; background: #16213e; border-inline-start: 8px solid; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; border-inline-start-color: var(--my-var, +0);"></div>
-    </div>
-    <div class="label">border-inline-start-color: var(--my-var, +0)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="width: 180px; height: 100px; background: #16213e; border-inline-start: 8px solid; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; border-inline-start-color: device-cmyk(25% 1 1 1);"></div>
-    </div>
-    <div class="label">border-inline-start-color: device-cmyk(25% 1 1 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="width: 180px; height: 100px; background: #16213e; border-inline-start: 8px solid; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; border-inline-start-color: device-cmyk(none 1 1 1);"></div>
-    </div>
-    <div class="label">border-inline-start-color: device-cmyk(none 1 1 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="width: 180px; height: 100px; background: #16213e; border-inline-start: 8px solid; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; border-inline-start-color: device-cmyk(0, 1, 1, 1);"></div>
-    </div>
-    <div class="label">border-inline-start-color: device-cmyk(0, 1, 1, 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="width: 180px; height: 100px; background: #16213e; border-inline-start: 8px solid; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; border-inline-start-color: device-cmyk(1, 0.5, 1, 1);"></div>
-    </div>
-    <div class="label">border-inline-start-color: device-cmyk(1, 0.5, 1, 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="width: 180px; height: 100px; background: #16213e; border-inline-start: 8px solid; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; border-inline-start-color: device-cmyk(50% 1 1 1);"></div>
-    </div>
-    <div class="label">border-inline-start-color: device-cmyk(50% 1 1 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="width: 180px; height: 100px; background: #16213e; border-inline-start: 8px solid; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; border-inline-start-color: device-cmyk(0.5, 0.5, 1, 1);"></div>
-    </div>
-    <div class="label">border-inline-start-color: device-cmyk(0.5, 0.5, 1, 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="width: 180px; height: 100px; background: #16213e; border-inline-start: 8px solid; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; border-inline-start-color: device-cmyk(2 1 1 1);"></div>
-    </div>
-    <div class="label">border-inline-start-color: device-cmyk(2 1 1 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="width: 180px; height: 100px; background: #16213e; border-inline-start: 8px solid; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; border-inline-start-color: device-cmyk(2, 0.5, 1, 1);"></div>
-    </div>
-    <div class="label">border-inline-start-color: device-cmyk(2, 0.5, 1, 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="width: 180px; height: 100px; background: #16213e; border-inline-start: 8px solid; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; border-inline-start-color: device-cmyk(75% 1 1 1);"></div>
-    </div>
-    <div class="label">border-inline-start-color: device-cmyk(75% 1 1 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="width: 180px; height: 100px; background: #16213e; border-inline-start: 8px solid; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; border-inline-start-color: device-cmyk(0, 0.5, 1, 1);"></div>
-    </div>
-    <div class="label">border-inline-start-color: device-cmyk(0, 0.5, 1, 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="width: 180px; height: 100px; background: #16213e; border-inline-start: 8px solid; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; border-inline-start-color: device-cmyk(0 1 1 1);"></div>
-    </div>
-    <div class="label">border-inline-start-color: device-cmyk(0 1 1 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="width: 180px; height: 100px; background: #16213e; border-inline-start: 8px solid; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; border-inline-start-color: device-cmyk(1, 2, 1, 1);"></div>
-    </div>
-    <div class="label">border-inline-start-color: device-cmyk(1, 2, 1, 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="width: 180px; height: 100px; background: #16213e; border-inline-start: 8px solid; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; border-inline-start-color: device-cmyk(100% 1 1 1);"></div>
-    </div>
-    <div class="label">border-inline-start-color: device-cmyk(100% 1 1 1)</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="width: 180px; height: 100px; background: #16213e; border-inline-start: 8px solid; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #ccc; font-family: monospace; border-inline-start-color: device-cmyk(0.5, 2, 1, 1);"></div>
-    </div>
-    <div class="label">border-inline-start-color: device-cmyk(0.5, 2, 1, 1)</div>
   </div>
 </div>
 </body>
