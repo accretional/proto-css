@@ -97,11 +97,19 @@
       margin-top: 8px;
       font-style: italic;
     }
+    .replay-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #0f3460; color: #e0e0e0; border: 1px solid #1a4a8a;
+      border-radius: 6px; padding: 6px 14px; font-size: 12px;
+      font-family: monospace; cursor: pointer; margin-bottom: 16px;
+    }
+    .replay-btn:hover { background: #1a4a8a; }
   </style>
 </head>
 <body>
   <h1>Animation Delay</h1>
   <p class="prop-name">animation-delay</p>
+  <button class="replay-btn" onclick="replayAnimations()">&#9654; Replay</button>
   <div class="demos">
     <div class="demo-row">
       <div class="row-label">animation-delay: 0s</div>
@@ -135,5 +143,18 @@
     </div>
   </div>
   <p class="explanation">Negative delays start the animation partway through. Each box begins at a different point in the timeline.</p>
+  <script>
+    function replayAnimations() {
+      var animated = [];
+      document.querySelectorAll('*').forEach(function(el) {
+        if (getComputedStyle(el).animationName !== 'none') {
+          animated.push(el);
+          el.style.animation = 'none';
+        }
+      });
+      void document.body.offsetHeight;
+      animated.forEach(function(el) { el.style.animation = ''; });
+    }
+  </script>
 </body>
 </html>

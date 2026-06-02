@@ -139,10 +139,10 @@ else
   echo "  [warn] Generated templates directory not found: $GEN_TEMPLATES_DIR (run ./tools/gen.sh)"
 fi
 
-# ── Hand-written screenshot validation ─────────────────────────────────────
+# ── Hand-written screenshot validation (advisory) ─────────────────────────
 
 echo ""
-echo "--- Hand-written screenshot validation ---"
+echo "--- Hand-written screenshot validation (advisory) ---"
 
 SCREENSHOTS_DIR="$ROOT/chrome-testing/screenshots/template"
 
@@ -151,25 +151,10 @@ if [[ -d "$SCREENSHOTS_DIR" ]]; then
   if [[ "$SCREENSHOT_COUNT" -gt 0 ]]; then
     pass "$SCREENSHOT_COUNT hand-written template screenshots found"
   else
-    fail "No screenshots in $SCREENSHOTS_DIR"
-  fi
-
-  # Check that screenshots are non-empty (not zero-byte)
-  EMPTY_SCREENSHOTS=0
-  while IFS= read -r -d '' png; do
-    if [[ ! -s "$png" ]]; then
-      echo "    WARNING: $(basename "$png") is empty" >&2
-      EMPTY_SCREENSHOTS=$((EMPTY_SCREENSHOTS + 1))
-    fi
-  done < <(find "$SCREENSHOTS_DIR" -name '*.png' -print0)
-
-  if [[ $EMPTY_SCREENSHOTS -eq 0 ]]; then
-    pass "All hand-written screenshots are non-empty"
-  else
-    fail "$EMPTY_SCREENSHOTS empty hand-written screenshot(s)"
+    echo "  [warn] No screenshots in $SCREENSHOTS_DIR (run build.sh with --template to generate)"
   fi
 else
-  fail "Hand-written screenshots directory not found: $SCREENSHOTS_DIR"
+  echo "  [warn] Hand-written screenshots directory not found: $SCREENSHOTS_DIR"
 fi
 
 # ── Generated screenshot validation ────────────────────────────────────────

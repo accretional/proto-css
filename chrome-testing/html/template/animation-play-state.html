@@ -30,14 +30,22 @@
     }
     .paused .ball {
       animation: moveAcross 2s ease-in-out infinite alternate;
-      
+
       animation-delay: -0.3s;
     }
+    .replay-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #0f3460; color: #e0e0e0; border: 1px solid #1a4a8a;
+      border-radius: 6px; padding: 6px 14px; font-size: 12px;
+      font-family: monospace; cursor: pointer; margin-bottom: 16px;
+    }
+    .replay-btn:hover { background: #1a4a8a; }
   </style>
 </head>
 <body>
   <h1>Animation Play State</h1>
   <p class="prop-name">animation-play-state</p>
+  <button class="replay-btn" onclick="replayAnimations()">&#9654; Replay</button>
   <div class="demos">
     <div class="demo-box">
       <span class="status status-running">Running</span>
@@ -54,5 +62,18 @@
       <p class="label">animation-play-state: paused</p>
     </div>
   </div>
+  <script>
+    function replayAnimations() {
+      var animated = [];
+      document.querySelectorAll('*').forEach(function(el) {
+        if (getComputedStyle(el).animationName !== 'none') {
+          animated.push(el);
+          el.style.animation = 'none';
+        }
+      });
+      void document.body.offsetHeight;
+      animated.forEach(function(el) { el.style.animation = ''; });
+    }
+  </script>
 </body>
 </html>
