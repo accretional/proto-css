@@ -4,21 +4,23 @@
 <meta charset="UTF-8">
 <title>unicode-bidi</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
 </style>
 </head>
 <body>
 <h1>Unicode Bidi</h1>
 <p class="prop-name">unicode-bidi</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="unicode-bidi" data-value="normal">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 18px 24px; min-height: 60px; display: flex; align-items: center;">
       <span style="color: #3498db; font-size: 20px;">Hello </span>
       <span style="color: #f39c12; font-size: 20px; direction: rtl; unicode-bidi: normal;">&#1605;&#1585;&#1581;&#1576;&#1575;</span>
@@ -26,7 +28,7 @@
     </div>
     <div class="label">unicode-bidi: normal</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="unicode-bidi" data-value="embed">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 18px 24px; min-height: 60px; display: flex; align-items: center;">
       <span style="color: #3498db; font-size: 20px;">Hello </span>
       <span style="color: #f39c12; font-size: 20px; direction: rtl; unicode-bidi: embed;">&#1605;&#1585;&#1581;&#1576;&#1575;</span>
@@ -34,7 +36,7 @@
     </div>
     <div class="label">unicode-bidi: embed</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="unicode-bidi" data-value="isolate">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 18px 24px; min-height: 60px; display: flex; align-items: center;">
       <span style="color: #3498db; font-size: 20px;">Hello </span>
       <span style="color: #f39c12; font-size: 20px; direction: rtl; unicode-bidi: isolate;">&#1605;&#1585;&#1581;&#1576;&#1575;</span>
@@ -42,7 +44,7 @@
     </div>
     <div class="label">unicode-bidi: isolate</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="unicode-bidi" data-value="bidi-override">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 18px 24px; min-height: 60px; display: flex; align-items: center;">
       <span style="color: #3498db; font-size: 20px;">Hello </span>
       <span style="color: #f39c12; font-size: 20px; direction: rtl; unicode-bidi: bidi-override;">&#1605;&#1585;&#1581;&#1576;&#1575;</span>
@@ -50,7 +52,7 @@
     </div>
     <div class="label">unicode-bidi: bidi-override</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="unicode-bidi" data-value="isolate-override">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 18px 24px; min-height: 60px; display: flex; align-items: center;">
       <span style="color: #3498db; font-size: 20px;">Hello </span>
       <span style="color: #f39c12; font-size: 20px; direction: rtl; unicode-bidi: isolate-override;">&#1605;&#1585;&#1581;&#1576;&#1575;</span>
@@ -58,7 +60,7 @@
     </div>
     <div class="label">unicode-bidi: isolate-override</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="unicode-bidi" data-value="plaintext">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 18px 24px; min-height: 60px; display: flex; align-items: center;">
       <span style="color: #3498db; font-size: 20px;">Hello </span>
       <span style="color: #f39c12; font-size: 20px; direction: rtl; unicode-bidi: plaintext;">&#1605;&#1585;&#1581;&#1576;&#1575;</span>
@@ -67,5 +69,7 @@
     <div class="label">unicode-bidi: plaintext</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>mix-blend-mode</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .circle { position: absolute; width: 80px; height: 80px; border-radius: 50%; }
 .circle-g { background: #44cc44; top: 36px; left: 4px; }
 .circle-b { background: #4488ff; top: 36px; left: 36px; }
@@ -21,7 +23,7 @@
 <h1>Mix Blend Mode</h1>
 <p class="prop-name">mix-blend-mode</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mix-blend-mode" data-value="normal">
     <div class="demo-area" style="width: 120px; height: 120px; position: relative; background: #222; border-radius: 8px; overflow: hidden;">
       <div style="position: absolute; width: 80px; height: 80px; border-radius: 50%; background: #ff4444; top: 8px; left: 20px; mix-blend-mode: normal;"></div>
       <div class="circle circle-g"></div>
@@ -29,7 +31,7 @@
     </div>
     <div class="label">mix-blend-mode: normal</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mix-blend-mode" data-value="plus-darker">
     <div class="demo-area" style="width: 120px; height: 120px; position: relative; background: #222; border-radius: 8px; overflow: hidden;">
       <div style="position: absolute; width: 80px; height: 80px; border-radius: 50%; background: #ff4444; top: 8px; left: 20px; mix-blend-mode: plus-darker;"></div>
       <div class="circle circle-g"></div>
@@ -37,7 +39,7 @@
     </div>
     <div class="label">mix-blend-mode: plus-darker</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mix-blend-mode" data-value="plus-lighter">
     <div class="demo-area" style="width: 120px; height: 120px; position: relative; background: #222; border-radius: 8px; overflow: hidden;">
       <div style="position: absolute; width: 80px; height: 80px; border-radius: 50%; background: #ff4444; top: 8px; left: 20px; mix-blend-mode: plus-lighter;"></div>
       <div class="circle circle-g"></div>
@@ -45,7 +47,7 @@
     </div>
     <div class="label">mix-blend-mode: plus-lighter</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mix-blend-mode" data-value="darken">
     <div class="demo-area" style="width: 120px; height: 120px; position: relative; background: #222; border-radius: 8px; overflow: hidden;">
       <div style="position: absolute; width: 80px; height: 80px; border-radius: 50%; background: #ff4444; top: 8px; left: 20px; mix-blend-mode: darken;"></div>
       <div class="circle circle-g"></div>
@@ -53,7 +55,7 @@
     </div>
     <div class="label">mix-blend-mode: darken</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mix-blend-mode" data-value="multiply">
     <div class="demo-area" style="width: 120px; height: 120px; position: relative; background: #222; border-radius: 8px; overflow: hidden;">
       <div style="position: absolute; width: 80px; height: 80px; border-radius: 50%; background: #ff4444; top: 8px; left: 20px; mix-blend-mode: multiply;"></div>
       <div class="circle circle-g"></div>
@@ -61,7 +63,7 @@
     </div>
     <div class="label">mix-blend-mode: multiply</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mix-blend-mode" data-value="color-burn">
     <div class="demo-area" style="width: 120px; height: 120px; position: relative; background: #222; border-radius: 8px; overflow: hidden;">
       <div style="position: absolute; width: 80px; height: 80px; border-radius: 50%; background: #ff4444; top: 8px; left: 20px; mix-blend-mode: color-burn;"></div>
       <div class="circle circle-g"></div>
@@ -69,7 +71,7 @@
     </div>
     <div class="label">mix-blend-mode: color-burn</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mix-blend-mode" data-value="lighten">
     <div class="demo-area" style="width: 120px; height: 120px; position: relative; background: #222; border-radius: 8px; overflow: hidden;">
       <div style="position: absolute; width: 80px; height: 80px; border-radius: 50%; background: #ff4444; top: 8px; left: 20px; mix-blend-mode: lighten;"></div>
       <div class="circle circle-g"></div>
@@ -77,7 +79,7 @@
     </div>
     <div class="label">mix-blend-mode: lighten</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mix-blend-mode" data-value="screen">
     <div class="demo-area" style="width: 120px; height: 120px; position: relative; background: #222; border-radius: 8px; overflow: hidden;">
       <div style="position: absolute; width: 80px; height: 80px; border-radius: 50%; background: #ff4444; top: 8px; left: 20px; mix-blend-mode: screen;"></div>
       <div class="circle circle-g"></div>
@@ -85,7 +87,7 @@
     </div>
     <div class="label">mix-blend-mode: screen</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mix-blend-mode" data-value="color-dodge">
     <div class="demo-area" style="width: 120px; height: 120px; position: relative; background: #222; border-radius: 8px; overflow: hidden;">
       <div style="position: absolute; width: 80px; height: 80px; border-radius: 50%; background: #ff4444; top: 8px; left: 20px; mix-blend-mode: color-dodge;"></div>
       <div class="circle circle-g"></div>
@@ -93,7 +95,7 @@
     </div>
     <div class="label">mix-blend-mode: color-dodge</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mix-blend-mode" data-value="overlay">
     <div class="demo-area" style="width: 120px; height: 120px; position: relative; background: #222; border-radius: 8px; overflow: hidden;">
       <div style="position: absolute; width: 80px; height: 80px; border-radius: 50%; background: #ff4444; top: 8px; left: 20px; mix-blend-mode: overlay;"></div>
       <div class="circle circle-g"></div>
@@ -101,7 +103,7 @@
     </div>
     <div class="label">mix-blend-mode: overlay</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mix-blend-mode" data-value="soft-light">
     <div class="demo-area" style="width: 120px; height: 120px; position: relative; background: #222; border-radius: 8px; overflow: hidden;">
       <div style="position: absolute; width: 80px; height: 80px; border-radius: 50%; background: #ff4444; top: 8px; left: 20px; mix-blend-mode: soft-light;"></div>
       <div class="circle circle-g"></div>
@@ -109,7 +111,7 @@
     </div>
     <div class="label">mix-blend-mode: soft-light</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mix-blend-mode" data-value="hard-light">
     <div class="demo-area" style="width: 120px; height: 120px; position: relative; background: #222; border-radius: 8px; overflow: hidden;">
       <div style="position: absolute; width: 80px; height: 80px; border-radius: 50%; background: #ff4444; top: 8px; left: 20px; mix-blend-mode: hard-light;"></div>
       <div class="circle circle-g"></div>
@@ -117,7 +119,7 @@
     </div>
     <div class="label">mix-blend-mode: hard-light</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mix-blend-mode" data-value="difference">
     <div class="demo-area" style="width: 120px; height: 120px; position: relative; background: #222; border-radius: 8px; overflow: hidden;">
       <div style="position: absolute; width: 80px; height: 80px; border-radius: 50%; background: #ff4444; top: 8px; left: 20px; mix-blend-mode: difference;"></div>
       <div class="circle circle-g"></div>
@@ -125,7 +127,7 @@
     </div>
     <div class="label">mix-blend-mode: difference</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mix-blend-mode" data-value="exclusion">
     <div class="demo-area" style="width: 120px; height: 120px; position: relative; background: #222; border-radius: 8px; overflow: hidden;">
       <div style="position: absolute; width: 80px; height: 80px; border-radius: 50%; background: #ff4444; top: 8px; left: 20px; mix-blend-mode: exclusion;"></div>
       <div class="circle circle-g"></div>
@@ -133,7 +135,7 @@
     </div>
     <div class="label">mix-blend-mode: exclusion</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mix-blend-mode" data-value="hue">
     <div class="demo-area" style="width: 120px; height: 120px; position: relative; background: #222; border-radius: 8px; overflow: hidden;">
       <div style="position: absolute; width: 80px; height: 80px; border-radius: 50%; background: #ff4444; top: 8px; left: 20px; mix-blend-mode: hue;"></div>
       <div class="circle circle-g"></div>
@@ -141,7 +143,7 @@
     </div>
     <div class="label">mix-blend-mode: hue</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mix-blend-mode" data-value="saturation">
     <div class="demo-area" style="width: 120px; height: 120px; position: relative; background: #222; border-radius: 8px; overflow: hidden;">
       <div style="position: absolute; width: 80px; height: 80px; border-radius: 50%; background: #ff4444; top: 8px; left: 20px; mix-blend-mode: saturation;"></div>
       <div class="circle circle-g"></div>
@@ -149,7 +151,7 @@
     </div>
     <div class="label">mix-blend-mode: saturation</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mix-blend-mode" data-value="color">
     <div class="demo-area" style="width: 120px; height: 120px; position: relative; background: #222; border-radius: 8px; overflow: hidden;">
       <div style="position: absolute; width: 80px; height: 80px; border-radius: 50%; background: #ff4444; top: 8px; left: 20px; mix-blend-mode: color;"></div>
       <div class="circle circle-g"></div>
@@ -157,7 +159,7 @@
     </div>
     <div class="label">mix-blend-mode: color</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mix-blend-mode" data-value="luminosity">
     <div class="demo-area" style="width: 120px; height: 120px; position: relative; background: #222; border-radius: 8px; overflow: hidden;">
       <div style="position: absolute; width: 80px; height: 80px; border-radius: 50%; background: #ff4444; top: 8px; left: 20px; mix-blend-mode: luminosity;"></div>
       <div class="circle circle-g"></div>
@@ -166,5 +168,7 @@
     <div class="label">mix-blend-mode: luminosity</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>view-timeline</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .demo-label { font-size: 13px; font-weight: 600; color: #64ffda; font-family: 'SF Mono', 'Fira Code', monospace; margin-bottom: 12px; background: #0d1117; padding: 6px 10px; border-radius: 6px; display: inline-block; }
 .demo-desc { font-size: 12px; color: #8888aa; margin-bottom: 12px; line-height: 1.5; }
@@ -30,7 +32,7 @@
 <h1>View Timeline</h1>
 <p class="prop-name">view-timeline</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="none">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: none;">view()</div>
@@ -38,7 +40,7 @@
     </div>
     <div class="label">view-timeline: none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="--my-var">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: --my-var;">view()</div>
@@ -46,7 +48,7 @@
     </div>
     <div class="label">view-timeline: --my-var</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="none block">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: none block;">view()</div>
@@ -54,7 +56,7 @@
     </div>
     <div class="label">view-timeline: none block</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="--my-var block">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: --my-var block;">view()</div>
@@ -62,7 +64,7 @@
     </div>
     <div class="label">view-timeline: --my-var block</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="none auto">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: none auto;">view()</div>
@@ -70,7 +72,7 @@
     </div>
     <div class="label">view-timeline: none auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="--my-var auto">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: --my-var auto;">view()</div>
@@ -78,7 +80,7 @@
     </div>
     <div class="label">view-timeline: --my-var auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="none inline">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: none inline;">view()</div>
@@ -86,7 +88,7 @@
     </div>
     <div class="label">view-timeline: none inline</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="--my-var inline">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: --my-var inline;">view()</div>
@@ -94,7 +96,7 @@
     </div>
     <div class="label">view-timeline: --my-var inline</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="none 10px">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: none 10px;">view()</div>
@@ -102,7 +104,7 @@
     </div>
     <div class="label">view-timeline: none 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="--my-var 10px">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: --my-var 10px;">view()</div>
@@ -110,7 +112,7 @@
     </div>
     <div class="label">view-timeline: --my-var 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="none x">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: none x;">view()</div>
@@ -118,7 +120,7 @@
     </div>
     <div class="label">view-timeline: none x</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="--my-var x">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: --my-var x;">view()</div>
@@ -126,7 +128,7 @@
     </div>
     <div class="label">view-timeline: --my-var x</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="none 25%">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: none 25%;">view()</div>
@@ -134,7 +136,7 @@
     </div>
     <div class="label">view-timeline: none 25%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="--my-var 25%">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: --my-var 25%;">view()</div>
@@ -142,7 +144,7 @@
     </div>
     <div class="label">view-timeline: --my-var 25%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="none y">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: none y;">view()</div>
@@ -150,7 +152,7 @@
     </div>
     <div class="label">view-timeline: none y</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="--my-var y">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: --my-var y;">view()</div>
@@ -158,7 +160,7 @@
     </div>
     <div class="label">view-timeline: --my-var y</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="none 50%">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: none 50%;">view()</div>
@@ -166,7 +168,7 @@
     </div>
     <div class="label">view-timeline: none 50%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="--my-var 50%">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: --my-var 50%;">view()</div>
@@ -174,7 +176,7 @@
     </div>
     <div class="label">view-timeline: --my-var 50%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="none block auto">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: none block auto;">view()</div>
@@ -182,7 +184,7 @@
     </div>
     <div class="label">view-timeline: none block auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="--my-var block auto">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: --my-var block auto;">view()</div>
@@ -190,7 +192,7 @@
     </div>
     <div class="label">view-timeline: --my-var block auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="none 100%">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: none 100%;">view()</div>
@@ -198,7 +200,7 @@
     </div>
     <div class="label">view-timeline: none 100%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="--my-var 100%">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: --my-var 100%;">view()</div>
@@ -206,7 +208,7 @@
     </div>
     <div class="label">view-timeline: --my-var 100%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="none inline auto">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: none inline auto;">view()</div>
@@ -214,7 +216,7 @@
     </div>
     <div class="label">view-timeline: none inline auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="--my-var inline auto">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: --my-var inline auto;">view()</div>
@@ -222,7 +224,7 @@
     </div>
     <div class="label">view-timeline: --my-var inline auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="none 0">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: none 0;">view()</div>
@@ -230,7 +232,7 @@
     </div>
     <div class="label">view-timeline: none 0</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="--my-var 0">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: --my-var 0;">view()</div>
@@ -238,7 +240,7 @@
     </div>
     <div class="label">view-timeline: --my-var 0</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="none x auto">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: none x auto;">view()</div>
@@ -246,7 +248,7 @@
     </div>
     <div class="label">view-timeline: none x auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="--my-var x auto">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: --my-var x auto;">view()</div>
@@ -254,7 +256,7 @@
     </div>
     <div class="label">view-timeline: --my-var x auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="none auto auto">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: none auto auto;">view()</div>
@@ -262,7 +264,7 @@
     </div>
     <div class="label">view-timeline: none auto auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="--my-var auto auto">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: --my-var auto auto;">view()</div>
@@ -270,7 +272,7 @@
     </div>
     <div class="label">view-timeline: --my-var auto auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="none y auto">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: none y auto;">view()</div>
@@ -278,7 +280,7 @@
     </div>
     <div class="label">view-timeline: none y auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="--my-var y auto">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: --my-var y auto;">view()</div>
@@ -286,7 +288,7 @@
     </div>
     <div class="label">view-timeline: --my-var y auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="none 10px auto">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: none 10px auto;">view()</div>
@@ -294,7 +296,7 @@
     </div>
     <div class="label">view-timeline: none 10px auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="--my-var 10px auto">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: --my-var 10px auto;">view()</div>
@@ -302,7 +304,7 @@
     </div>
     <div class="label">view-timeline: --my-var 10px auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="none block 10px">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: none block 10px;">view()</div>
@@ -310,7 +312,7 @@
     </div>
     <div class="label">view-timeline: none block 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="view-timeline" data-value="--my-var block 10px">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
       <div class="scroll-spacer"></div><div class="static-item">Spacer</div>
       <div style="padding: 16px; margin: 8px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; color: #fff; background: linear-gradient(135deg, #7b2ff7, #c471f5); animation: fadeScale 1s linear both; animation-timeline: view(); animation-range: entry 0% entry 100%; view-timeline: --my-var block 10px;">view()</div>
@@ -319,5 +321,7 @@
     <div class="label">view-timeline: --my-var block 10px</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

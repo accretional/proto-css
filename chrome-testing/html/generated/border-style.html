@@ -4,236 +4,240 @@
 <meta charset="UTF-8">
 <title>border-style</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
 </style>
 </head>
 <body>
 <h1>Border Style</h1>
 <p class="prop-name">border-style</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="none">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: none;"></div>
     </div>
     <div class="label">border-style: none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="hidden">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: hidden;"></div>
     </div>
     <div class="label">border-style: hidden</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="dotted">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: dotted;"></div>
     </div>
     <div class="label">border-style: dotted</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="dashed">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: dashed;"></div>
     </div>
     <div class="label">border-style: dashed</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="solid">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: solid;"></div>
     </div>
     <div class="label">border-style: solid</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="double">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: double;"></div>
     </div>
     <div class="label">border-style: double</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="groove">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: groove;"></div>
     </div>
     <div class="label">border-style: groove</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="ridge">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: ridge;"></div>
     </div>
     <div class="label">border-style: ridge</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="inset">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: inset;"></div>
     </div>
     <div class="label">border-style: inset</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="outset">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: outset;"></div>
     </div>
     <div class="label">border-style: outset</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="none none">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: none none;"></div>
     </div>
     <div class="label">border-style: none none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="hidden none">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: hidden none;"></div>
     </div>
     <div class="label">border-style: hidden none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="dotted none">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: dotted none;"></div>
     </div>
     <div class="label">border-style: dotted none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="dashed none">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: dashed none;"></div>
     </div>
     <div class="label">border-style: dashed none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="solid none">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: solid none;"></div>
     </div>
     <div class="label">border-style: solid none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="double none">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: double none;"></div>
     </div>
     <div class="label">border-style: double none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="groove none">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: groove none;"></div>
     </div>
     <div class="label">border-style: groove none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="ridge none">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: ridge none;"></div>
     </div>
     <div class="label">border-style: ridge none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="inset none">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: inset none;"></div>
     </div>
     <div class="label">border-style: inset none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="outset none">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: outset none;"></div>
     </div>
     <div class="label">border-style: outset none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="none hidden">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: none hidden;"></div>
     </div>
     <div class="label">border-style: none hidden</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="hidden hidden">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: hidden hidden;"></div>
     </div>
     <div class="label">border-style: hidden hidden</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="dotted hidden">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: dotted hidden;"></div>
     </div>
     <div class="label">border-style: dotted hidden</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="dashed hidden">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: dashed hidden;"></div>
     </div>
     <div class="label">border-style: dashed hidden</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="solid hidden">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: solid hidden;"></div>
     </div>
     <div class="label">border-style: solid hidden</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="double hidden">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: double hidden;"></div>
     </div>
     <div class="label">border-style: double hidden</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="groove hidden">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: groove hidden;"></div>
     </div>
     <div class="label">border-style: groove hidden</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="ridge hidden">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: ridge hidden;"></div>
     </div>
     <div class="label">border-style: ridge hidden</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="inset hidden">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: inset hidden;"></div>
     </div>
     <div class="label">border-style: inset hidden</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="outset hidden">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: outset hidden;"></div>
     </div>
     <div class="label">border-style: outset hidden</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="none dotted">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: none dotted;"></div>
     </div>
     <div class="label">border-style: none dotted</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="hidden dotted">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: hidden dotted;"></div>
     </div>
     <div class="label">border-style: hidden dotted</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="dotted dotted">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: dotted dotted;"></div>
     </div>
     <div class="label">border-style: dotted dotted</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="dashed dotted">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: dashed dotted;"></div>
     </div>
     <div class="label">border-style: dashed dotted</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="solid dotted">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: solid dotted;"></div>
     </div>
     <div class="label">border-style: solid dotted</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="border-style" data-value="double dotted">
     <div class="demo-area">
       <div style="width: 140px; height: 80px; background: #0f3460; border-width: 6px; border-color: #e94560; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e0e0e0; border-style: double dotted;"></div>
     </div>
     <div class="label">border-style: double dotted</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

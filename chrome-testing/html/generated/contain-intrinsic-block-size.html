@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>contain-intrinsic-block-size</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .inner { font-size: 11px; color: #c0c8d4; line-height: 1.5; }
 </style>
 </head>
@@ -19,78 +21,80 @@
 <h1>Contain Intrinsic Block Size</h1>
 <p class="prop-name">contain-intrinsic-block-size</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain-intrinsic-block-size" data-value="none">
     <div class="demo-area">
       <div style="contain: size; background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 6px; padding: 12px; position: relative; overflow: hidden; contain-intrinsic-block-size: none;"><div class="inner">This element has an intrinsic block size hint. The browser uses this as the height when size containment is active.</div></div>
     </div>
     <div class="label">contain-intrinsic-block-size: none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain-intrinsic-block-size" data-value="auto none">
     <div class="demo-area">
       <div style="contain: size; background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 6px; padding: 12px; position: relative; overflow: hidden; contain-intrinsic-block-size: auto none;"><div class="inner">This element has an intrinsic block size hint. The browser uses this as the height when size containment is active.</div></div>
     </div>
     <div class="label">contain-intrinsic-block-size: auto none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain-intrinsic-block-size" data-value="10px">
     <div class="demo-area">
       <div style="contain: size; background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 6px; padding: 12px; position: relative; overflow: hidden; contain-intrinsic-block-size: 10px;"><div class="inner">This element has an intrinsic block size hint. The browser uses this as the height when size containment is active.</div></div>
     </div>
     <div class="label">contain-intrinsic-block-size: 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain-intrinsic-block-size" data-value="auto 10px">
     <div class="demo-area">
       <div style="contain: size; background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 6px; padding: 12px; position: relative; overflow: hidden; contain-intrinsic-block-size: auto 10px;"><div class="inner">This element has an intrinsic block size hint. The browser uses this as the height when size containment is active.</div></div>
     </div>
     <div class="label">contain-intrinsic-block-size: auto 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain-intrinsic-block-size" data-value="20px">
     <div class="demo-area">
       <div style="contain: size; background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 6px; padding: 12px; position: relative; overflow: hidden; contain-intrinsic-block-size: 20px;"><div class="inner">This element has an intrinsic block size hint. The browser uses this as the height when size containment is active.</div></div>
     </div>
     <div class="label">contain-intrinsic-block-size: 20px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain-intrinsic-block-size" data-value="auto 20px">
     <div class="demo-area">
       <div style="contain: size; background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 6px; padding: 12px; position: relative; overflow: hidden; contain-intrinsic-block-size: auto 20px;"><div class="inner">This element has an intrinsic block size hint. The browser uses this as the height when size containment is active.</div></div>
     </div>
     <div class="label">contain-intrinsic-block-size: auto 20px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain-intrinsic-block-size" data-value="50px">
     <div class="demo-area">
       <div style="contain: size; background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 6px; padding: 12px; position: relative; overflow: hidden; contain-intrinsic-block-size: 50px;"><div class="inner">This element has an intrinsic block size hint. The browser uses this as the height when size containment is active.</div></div>
     </div>
     <div class="label">contain-intrinsic-block-size: 50px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain-intrinsic-block-size" data-value="auto 50px">
     <div class="demo-area">
       <div style="contain: size; background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 6px; padding: 12px; position: relative; overflow: hidden; contain-intrinsic-block-size: auto 50px;"><div class="inner">This element has an intrinsic block size hint. The browser uses this as the height when size containment is active.</div></div>
     </div>
     <div class="label">contain-intrinsic-block-size: auto 50px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain-intrinsic-block-size" data-value="4px">
     <div class="demo-area">
       <div style="contain: size; background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 6px; padding: 12px; position: relative; overflow: hidden; contain-intrinsic-block-size: 4px;"><div class="inner">This element has an intrinsic block size hint. The browser uses this as the height when size containment is active.</div></div>
     </div>
     <div class="label">contain-intrinsic-block-size: 4px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain-intrinsic-block-size" data-value="auto 4px">
     <div class="demo-area">
       <div style="contain: size; background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 6px; padding: 12px; position: relative; overflow: hidden; contain-intrinsic-block-size: auto 4px;"><div class="inner">This element has an intrinsic block size hint. The browser uses this as the height when size containment is active.</div></div>
     </div>
     <div class="label">contain-intrinsic-block-size: auto 4px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain-intrinsic-block-size" data-value="0">
     <div class="demo-area">
       <div style="contain: size; background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 6px; padding: 12px; position: relative; overflow: hidden; contain-intrinsic-block-size: 0;"><div class="inner">This element has an intrinsic block size hint. The browser uses this as the height when size containment is active.</div></div>
     </div>
     <div class="label">contain-intrinsic-block-size: 0</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain-intrinsic-block-size" data-value="auto 0">
     <div class="demo-area">
       <div style="contain: size; background: #0f1a30; border: 2px solid #2a2a4a; border-radius: 6px; padding: 12px; position: relative; overflow: hidden; contain-intrinsic-block-size: auto 0;"><div class="inner">This element has an intrinsic block size hint. The browser uses this as the height when size containment is active.</div></div>
     </div>
     <div class="label">contain-intrinsic-block-size: auto 0</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

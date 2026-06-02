@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>anchor-scope</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .scope-label { font-size: 10px; font-family: monospace; color: #f39c12; position: absolute; top: -8px; left: 12px; background: #16213e; padding: 0 4px; }
 .anchor-el { anchor-name: --scoped-anchor; background: #e94560; color: #fff; padding: 8px 16px; border-radius: 6px; font-size: 12px; display: inline-block; font-weight: bold; }
 .positioned-el { background: #3498db; color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 11px; display: inline-block; margin-top: 8px; }
@@ -28,30 +30,32 @@
 <h1>Anchor Scope</h1>
 <p class="prop-name">anchor-scope</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="anchor-scope" data-value="none">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; width: 380px; min-height: 300px; position: relative;">
       <div style="border: 2px dashed #4a5568; border-radius: 8px; padding: 16px; margin-bottom: 12px; position: relative; anchor-scope: none;"><div class="scope-label">Container</div><div class="anchor-el">Anchor</div><div class="positioned-el">Positioned element</div></div>
     </div>
     <div class="label">anchor-scope: none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="anchor-scope" data-value="all">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; width: 380px; min-height: 300px; position: relative;">
       <div style="border: 2px dashed #4a5568; border-radius: 8px; padding: 16px; margin-bottom: 12px; position: relative; anchor-scope: all;"><div class="scope-label">Container</div><div class="anchor-el">Anchor</div><div class="positioned-el">Positioned element</div></div>
     </div>
     <div class="label">anchor-scope: all</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="anchor-scope" data-value="--my-anchor">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; width: 380px; min-height: 300px; position: relative;">
       <div style="border: 2px dashed #4a5568; border-radius: 8px; padding: 16px; margin-bottom: 12px; position: relative; anchor-scope: --my-anchor;"><div class="scope-label">Container</div><div class="anchor-el">Anchor</div><div class="positioned-el">Positioned element</div></div>
     </div>
     <div class="label">anchor-scope: --my-anchor</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="anchor-scope" data-value="--my-anchor, --my-anchor">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; width: 380px; min-height: 300px; position: relative;">
       <div style="border: 2px dashed #4a5568; border-radius: 8px; padding: 16px; margin-bottom: 12px; position: relative; anchor-scope: --my-anchor, --my-anchor;"><div class="scope-label">Container</div><div class="anchor-el">Anchor</div><div class="positioned-el">Positioned element</div></div>
     </div>
     <div class="label">anchor-scope: --my-anchor, --my-anchor</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

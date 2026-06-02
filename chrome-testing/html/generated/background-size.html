@@ -4,236 +4,240 @@
 <meta charset="UTF-8">
 <title>background-size</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
 </style>
 </head>
 <body>
 <h1>Background Size</h1>
 <p class="prop-name">background-size</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="auto">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: auto;"></div>
     </div>
     <div class="label">background-size: auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="cover">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: cover;"></div>
     </div>
     <div class="label">background-size: cover</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="contain">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: contain;"></div>
     </div>
     <div class="label">background-size: contain</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="50% 50%">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: 50% 50%;"></div>
     </div>
     <div class="label">background-size: 50% 50%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="200px 100px">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: 200px 100px;"></div>
     </div>
     <div class="label">background-size: 200px 100px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="100% auto">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: 100% auto;"></div>
     </div>
     <div class="label">background-size: 100% auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="auto, auto">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: auto, auto;"></div>
     </div>
     <div class="label">background-size: auto, auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="cover, auto">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: cover, auto;"></div>
     </div>
     <div class="label">background-size: cover, auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="contain, auto">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: contain, auto;"></div>
     </div>
     <div class="label">background-size: contain, auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="50% 50%, auto">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: 50% 50%, auto;"></div>
     </div>
     <div class="label">background-size: 50% 50%, auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="200px 100px, auto">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: 200px 100px, auto;"></div>
     </div>
     <div class="label">background-size: 200px 100px, auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="100% auto, auto">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: 100% auto, auto;"></div>
     </div>
     <div class="label">background-size: 100% auto, auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="auto, cover">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: auto, cover;"></div>
     </div>
     <div class="label">background-size: auto, cover</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="cover, cover">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: cover, cover;"></div>
     </div>
     <div class="label">background-size: cover, cover</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="contain, cover">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: contain, cover;"></div>
     </div>
     <div class="label">background-size: contain, cover</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="50% 50%, cover">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: 50% 50%, cover;"></div>
     </div>
     <div class="label">background-size: 50% 50%, cover</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="200px 100px, cover">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: 200px 100px, cover;"></div>
     </div>
     <div class="label">background-size: 200px 100px, cover</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="100% auto, cover">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: 100% auto, cover;"></div>
     </div>
     <div class="label">background-size: 100% auto, cover</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="auto, contain">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: auto, contain;"></div>
     </div>
     <div class="label">background-size: auto, contain</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="cover, contain">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: cover, contain;"></div>
     </div>
     <div class="label">background-size: cover, contain</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="contain, contain">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: contain, contain;"></div>
     </div>
     <div class="label">background-size: contain, contain</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="50% 50%, contain">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: 50% 50%, contain;"></div>
     </div>
     <div class="label">background-size: 50% 50%, contain</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="200px 100px, contain">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: 200px 100px, contain;"></div>
     </div>
     <div class="label">background-size: 200px 100px, contain</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="100% auto, contain">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: 100% auto, contain;"></div>
     </div>
     <div class="label">background-size: 100% auto, contain</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="auto, 50% 50%">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: auto, 50% 50%;"></div>
     </div>
     <div class="label">background-size: auto, 50% 50%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="cover, 50% 50%">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: cover, 50% 50%;"></div>
     </div>
     <div class="label">background-size: cover, 50% 50%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="contain, 50% 50%">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: contain, 50% 50%;"></div>
     </div>
     <div class="label">background-size: contain, 50% 50%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="50% 50%, 50% 50%">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: 50% 50%, 50% 50%;"></div>
     </div>
     <div class="label">background-size: 50% 50%, 50% 50%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="200px 100px, 50% 50%">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: 200px 100px, 50% 50%;"></div>
     </div>
     <div class="label">background-size: 200px 100px, 50% 50%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="100% auto, 50% 50%">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: 100% auto, 50% 50%;"></div>
     </div>
     <div class="label">background-size: 100% auto, 50% 50%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="auto, 200px 100px">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: auto, 200px 100px;"></div>
     </div>
     <div class="label">background-size: auto, 200px 100px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="cover, 200px 100px">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: cover, 200px 100px;"></div>
     </div>
     <div class="label">background-size: cover, 200px 100px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="contain, 200px 100px">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: contain, 200px 100px;"></div>
     </div>
     <div class="label">background-size: contain, 200px 100px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="50% 50%, 200px 100px">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: 50% 50%, 200px 100px;"></div>
     </div>
     <div class="label">background-size: 50% 50%, 200px 100px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="200px 100px, 200px 100px">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: 200px 100px, 200px 100px;"></div>
     </div>
     <div class="label">background-size: 200px 100px, 200px 100px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-size" data-value="100% auto, 200px 100px">
     <div class="demo-area">
       <div style="width: 210px; height: 150px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.15); background-color: #2d2d4e; background-image: url(&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;60&#39; height=&#39;60&#39;%3E%3Crect width=&#39;60&#39; height=&#39;60&#39; fill=&#39;%23e94560&#39;/%3E%3Ccircle cx=&#39;30&#39; cy=&#39;30&#39; r=&#39;20&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E&#34;); background-repeat: no-repeat; background-size: 100% auto, 200px 100px;"></div>
     </div>
     <div class="label">background-size: 100% auto, 200px 100px</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

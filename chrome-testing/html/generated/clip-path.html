@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>clip-path</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .ghost { width: 150px; height: 150px; border: 2px dashed #2a2a5a; border-radius: 4px; position: absolute; top: 0; left: 0; }
 </style>
 </head>
@@ -19,238 +21,238 @@
 <h1>Clip Path</h1>
 <p class="prop-name">clip-path</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="url(clown.jpg)">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: url(clown.jpg);"></div>
     </div>
     <div class="label">clip-path: url(clown.jpg)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="inset(10px)">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: inset(10px);"></div>
     </div>
     <div class="label">clip-path: inset(10px)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="content-box">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: content-box;"></div>
     </div>
     <div class="label">clip-path: content-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="none">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: none;"></div>
     </div>
     <div class="label">clip-path: none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="url(statue.svg)">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: url(statue.svg);"></div>
     </div>
     <div class="label">clip-path: url(statue.svg)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="padding-box">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: padding-box;"></div>
     </div>
     <div class="label">clip-path: padding-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="border-box">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: border-box;"></div>
     </div>
     <div class="label">clip-path: border-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="polygon(10px 10px)">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: polygon(10px 10px);"></div>
     </div>
     <div class="label">clip-path: polygon(10px 10px)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="margin-box">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: margin-box;"></div>
     </div>
     <div class="label">clip-path: margin-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="path(&#34;example&#34;)">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: path(&#34;example&#34;);"></div>
     </div>
     <div class="label">clip-path: path(&#34;example&#34;)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="fill-box">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: fill-box;"></div>
     </div>
     <div class="label">clip-path: fill-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="inset(25%)">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: inset(25%);"></div>
     </div>
     <div class="label">clip-path: inset(25%)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="stroke-box">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: stroke-box;"></div>
     </div>
     <div class="label">clip-path: stroke-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="circle(10px)">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: circle(10px);"></div>
     </div>
     <div class="label">clip-path: circle(10px)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="view-box">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: view-box;"></div>
     </div>
     <div class="label">clip-path: view-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="ellipse(10px 10px)">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: ellipse(10px 10px);"></div>
     </div>
     <div class="label">clip-path: ellipse(10px 10px)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="content-box inset(10px)">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: content-box inset(10px);"></div>
     </div>
     <div class="label">clip-path: content-box inset(10px)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="polygon(nonzero, 10px 10px)">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: polygon(nonzero, 10px 10px);"></div>
     </div>
     <div class="label">clip-path: polygon(nonzero, 10px 10px)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="padding-box inset(10px)">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: padding-box inset(10px);"></div>
     </div>
     <div class="label">clip-path: padding-box inset(10px)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="shape(from center, move to center)">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: shape(from center, move to center);"></div>
     </div>
     <div class="label">clip-path: shape(from center, move to center)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="rect(10px, 10px, 10px, 10px)">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: rect(10px, 10px, 10px, 10px);"></div>
     </div>
     <div class="label">clip-path: rect(10px, 10px, 10px, 10px)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="xywh(10px 10px 10px 10px)">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: xywh(10px 10px 10px 10px);"></div>
     </div>
     <div class="label">clip-path: xywh(10px 10px 10px 10px)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="path(nonzero, &#34;example&#34;)">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: path(nonzero, &#34;example&#34;);"></div>
     </div>
     <div class="label">clip-path: path(nonzero, &#34;example&#34;)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="shape(nonzero from center, move to center)">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: shape(nonzero from center, move to center);"></div>
     </div>
     <div class="label">clip-path: shape(nonzero from center, move to center)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="rect(10px 10px 10px 10px)">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: rect(10px 10px 10px 10px);"></div>
     </div>
     <div class="label">clip-path: rect(10px 10px 10px 10px)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="xywh(25% 10px 10px 10px)">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: xywh(25% 10px 10px 10px);"></div>
     </div>
     <div class="label">clip-path: xywh(25% 10px 10px 10px)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="inset(50%)">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: inset(50%);"></div>
     </div>
     <div class="label">clip-path: inset(50%)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="circle(closest-side)">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: circle(closest-side);"></div>
     </div>
     <div class="label">clip-path: circle(closest-side)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="ellipse(closest-side 10px)">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: ellipse(closest-side 10px);"></div>
     </div>
     <div class="label">clip-path: ellipse(closest-side 10px)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="polygon(evenodd, 10px 10px)">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: polygon(evenodd, 10px 10px);"></div>
     </div>
     <div class="label">clip-path: polygon(evenodd, 10px 10px)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="path(evenodd, &#34;example&#34;)">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: path(evenodd, &#34;example&#34;);"></div>
     </div>
     <div class="label">clip-path: path(evenodd, &#34;example&#34;)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="shape(evenodd from center, move to center)">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: shape(evenodd from center, move to center);"></div>
     </div>
     <div class="label">clip-path: shape(evenodd from center, move to center)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="rect(25%, 10px, 10px, 10px)">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: rect(25%, 10px, 10px, 10px);"></div>
     </div>
     <div class="label">clip-path: rect(25%, 10px, 10px, 10px)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="clip-path" data-value="xywh(50% 10px 10px 10px)">
     <div class="demo-area" style="position: relative; width: 150px; height: 150px;">
       <div class="ghost"></div>
       <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #e94560, #ff9f43, #7b61ff); position: relative; clip-path: xywh(50% 10px 10px 10px);"></div>
@@ -258,5 +260,7 @@
     <div class="label">clip-path: xywh(50% 10px 10px 10px)</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

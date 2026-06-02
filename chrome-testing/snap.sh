@@ -125,10 +125,14 @@ find_free_port() {
 # ── Start local HTTP server (only for local HTML inputs) ──────────────────────
 
 HTML_SERVE_DIR=""
+URL_PREFIX=""
 
 if [[ "$is_url" == false ]]; then
   if [[ "$is_dir" == true ]]; then
-    HTML_SERVE_DIR="$(cd "$INPUT" && pwd)"
+    # Serve from the parent directory so ../interactive.js resolves correctly
+    local_input_dir="$(cd "$INPUT" && pwd)"
+    HTML_SERVE_DIR="$(dirname "$local_input_dir")"
+    URL_PREFIX="$(basename "$local_input_dir")"
   else
     HTML_SERVE_DIR="$(cd "$(dirname "$INPUT")" && pwd)"
   fi
@@ -336,8 +340,13 @@ elif [[ "$is_dir" == true ]]; then
   for html in "${html_files[@]}"; do
     filename="$(basename "$html")"
     slug="${filename%.html}"
-    url="http://localhost:$HTTP_PORT/$filename"
     mode="$(get_mode "$slug")"
+    # Only add ?static=1 for static mode; interactive modes need JS simulation loop
+    if [[ "$mode" == "static" ]]; then
+      url="http://localhost:$HTTP_PORT/${URL_PREFIX}/${filename}?static=1"
+    else
+      url="http://localhost:$HTTP_PORT/${URL_PREFIX}/${filename}"
+    fi
     outdir="$OUTPUT/${slug}"
     take_screenshot_with_mode "$url" "$outdir" "$slug" "$mode"
   done
@@ -345,7 +354,7 @@ elif [[ "$is_dir" == true ]]; then
 else
   # Single HTML file mode — single file output
   filename="$(basename "$INPUT")"
-  url="http://localhost:$HTTP_PORT/$filename"
+  url="http://localhost:$HTTP_PORT/${filename}?static=1"
   take_screenshot_single "$url" "$OUTPUT"
 fi
 

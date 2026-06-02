@@ -4,56 +4,58 @@
 <meta charset="UTF-8">
 <title>offset-path</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
 </style>
 </head>
 <body>
 <h1>Offset Path</h1>
 <p class="prop-name">offset-path</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="offset-path" data-value="none">
     <div class="demo-area" style="width: 240px; height: 220px; position: relative;">
       <svg class="path-visual" viewBox="0 0 240 220" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><circle cx="120" cy="110" r="90" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
       <div style="width: 20px; height: 20px; background: #e94560; border-radius: 3px; position: absolute; top: 0; left: 0; offset-distance: 30%; box-shadow: 0 0 10px rgba(233,69,96,0.5); offset-path: none;"></div>
     </div>
     <div class="label">offset-path: none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="offset-path" data-value="ray(45deg)">
     <div class="demo-area" style="width: 240px; height: 220px; position: relative;">
       <svg class="path-visual" viewBox="0 0 240 220" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><circle cx="120" cy="110" r="90" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
       <div style="width: 20px; height: 20px; background: #e94560; border-radius: 3px; position: absolute; top: 0; left: 0; offset-distance: 30%; box-shadow: 0 0 10px rgba(233,69,96,0.5); offset-path: ray(45deg);"></div>
     </div>
     <div class="label">offset-path: ray(45deg)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="offset-path" data-value="content-box">
     <div class="demo-area" style="width: 240px; height: 220px; position: relative;">
       <svg class="path-visual" viewBox="0 0 240 220" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><circle cx="120" cy="110" r="90" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
       <div style="width: 20px; height: 20px; background: #e94560; border-radius: 3px; position: absolute; top: 0; left: 0; offset-distance: 30%; box-shadow: 0 0 10px rgba(233,69,96,0.5); offset-path: content-box;"></div>
     </div>
     <div class="label">offset-path: content-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="offset-path" data-value="url(clown.jpg)">
     <div class="demo-area" style="width: 240px; height: 220px; position: relative;">
       <svg class="path-visual" viewBox="0 0 240 220" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><circle cx="120" cy="110" r="90" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
       <div style="width: 20px; height: 20px; background: #e94560; border-radius: 3px; position: absolute; top: 0; left: 0; offset-distance: 30%; box-shadow: 0 0 10px rgba(233,69,96,0.5); offset-path: url(clown.jpg);"></div>
     </div>
     <div class="label">offset-path: url(clown.jpg)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="offset-path" data-value="view-box">
     <div class="demo-area" style="width: 240px; height: 220px; position: relative;">
       <svg class="path-visual" viewBox="0 0 240 220" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><circle cx="120" cy="110" r="90" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
       <div style="width: 20px; height: 20px; background: #e94560; border-radius: 3px; position: absolute; top: 0; left: 0; offset-distance: 30%; box-shadow: 0 0 10px rgba(233,69,96,0.5); offset-path: view-box;"></div>
     </div>
     <div class="label">offset-path: view-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="offset-path" data-value="inset(10px)">
     <div class="demo-area" style="width: 240px; height: 220px; position: relative;">
       <svg class="path-visual" viewBox="0 0 240 220" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"><circle cx="120" cy="110" r="90" fill="none" stroke="#3a3a5c" stroke-width="2" stroke-dasharray="4 4"/></svg>
       <div style="width: 20px; height: 20px; background: #e94560; border-radius: 3px; position: absolute; top: 0; left: 0; offset-distance: 30%; box-shadow: 0 0 10px rgba(233,69,96,0.5); offset-path: inset(10px);"></div>
@@ -61,5 +63,7 @@
     <div class="label">offset-path: inset(10px)</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

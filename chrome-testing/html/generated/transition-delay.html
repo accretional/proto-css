@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>transition-delay</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .demo-row { display: flex; align-items: center; gap: 16px; }
 .label { font-size: 12px; font-family: monospace; color: #9ca3af; width: 280px; flex-shrink: 0; }
 .delay-zone { position: absolute; top: 0; left: 0; height: 100%; background: repeating-linear-gradient(90deg, #1e2a45 0px, #1e2a45 10px, #16213e 10px, #16213e 20px); }
@@ -30,222 +32,224 @@
 <h1>Transition Delay</h1>
 <p class="prop-name">transition-delay</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="0s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: 0s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: 0s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="var(--my-var)">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: var(--my-var);"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: var(--my-var)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="+0s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: +0s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: +0s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="-0s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: -0s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: -0s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="1s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: 1s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: 1s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="+1s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: +1s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: +1s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="-1s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: -1s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: -1s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="2s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: 2s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: 2s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="+2s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: +2s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: +2s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="-2s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: -2s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: -2s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="3s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: 3s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: 3s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="+3s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: +3s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: +3s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="-3s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: -3s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: -3s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="4s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: 4s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: 4s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="+4s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: +4s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: +4s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="-4s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: -4s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: -4s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="5s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: 5s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: 5s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="+5s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: +5s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: +5s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="-5s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: -5s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: -5s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="6s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: 6s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: 6s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="+6s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: +6s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: +6s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="-6s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: -6s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: -6s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="7s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: 7s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: 7s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="+7s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: +7s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: +7s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="-7s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: -7s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: -7s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="8s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: 8s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: 8s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="+8s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: +8s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: +8s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="-8s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: -8s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: -8s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="9s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: 9s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: 9s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="+9s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: +9s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: +9s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="-9s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: -9s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: -9s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="00s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: 00s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: 00s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="+00s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: +00s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: +00s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="-00s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: -00s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: -00s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="10s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: 10s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: 10s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-delay" data-value="+10s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
       <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: +10s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
     </div>
     <div class="label">transition-delay: +10s</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

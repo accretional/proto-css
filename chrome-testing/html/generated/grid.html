@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>grid</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .cell { background: #0f3460; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #e94560; font-weight: 600; min-height: 40px; padding: 8px; }
 .cell:nth-child(odd) { background: #1a4a7a; }
 </style>
@@ -20,210 +22,212 @@
 <h1>Grid (Shorthand)</h1>
 <p class="prop-name">grid</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="none">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="none / auto-flow">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: none / auto-flow;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: none / auto-flow</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="auto-flow / none">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: auto-flow / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: auto-flow / none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="none / none">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: none / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: none / none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="1fr 1fr / auto-flow">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: 1fr 1fr / auto-flow;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: 1fr 1fr / auto-flow</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="auto-flow dense / none">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: auto-flow dense / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: auto-flow dense / none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="&#34;example&#34;">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: &#34;example&#34;;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: &#34;example&#34;</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="repeat(1, 10px) / auto-flow">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: repeat(1, 10px) / auto-flow;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: repeat(1, 10px) / auto-flow</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="auto-flow 10px / none">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: auto-flow 10px / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: auto-flow 10px / none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="1fr 1fr / none">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: 1fr 1fr / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: 1fr 1fr / none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="subgrid / auto-flow">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: subgrid / auto-flow;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: subgrid / auto-flow</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="auto-flow dense 10px / none">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: auto-flow dense 10px / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: auto-flow dense 10px / none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="[ ] &#34;example&#34;">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: [ ] &#34;example&#34;;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: [ ] &#34;example&#34;</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="100px 1fr 2fr / auto-flow">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: 100px 1fr 2fr / auto-flow;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: 100px 1fr 2fr / auto-flow</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="auto-flow minmax(10px, 10px) / none">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: auto-flow minmax(10px, 10px) / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: auto-flow minmax(10px, 10px) / none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="repeat(1, 10px) / none">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: repeat(1, 10px) / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: repeat(1, 10px) / none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="10px repeat(1, 10px) / auto-flow">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: 10px repeat(1, 10px) / auto-flow;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: 10px repeat(1, 10px) / auto-flow</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="auto-flow dense minmax(10px, 10px) / none">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: auto-flow dense minmax(10px, 10px) / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: auto-flow dense minmax(10px, 10px) / none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="[ my-custom ] &#34;example&#34;">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: [ my-custom ] &#34;example&#34;;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: [ my-custom ] &#34;example&#34;</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="subgrid [ ] / auto-flow">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: subgrid [ ] / auto-flow;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: subgrid [ ] / auto-flow</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="auto-flow fit-content(10px) / none">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: auto-flow fit-content(10px) / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: auto-flow fit-content(10px) / none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="100px 1fr 2fr / none">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: 100px 1fr 2fr / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: 100px 1fr 2fr / none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="repeat(3, 1fr) / auto-flow">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: repeat(3, 1fr) / auto-flow;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: repeat(3, 1fr) / auto-flow</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="auto-flow dense fit-content(10px) / none">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: auto-flow dense fit-content(10px) / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: auto-flow dense fit-content(10px) / none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="&#34;example&#34; 10px">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: &#34;example&#34; 10px;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: &#34;example&#34; 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="[ ] 10px repeat(1, 10px) / auto-flow">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: [ ] 10px repeat(1, 10px) / auto-flow;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: [ ] 10px repeat(1, 10px) / auto-flow</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="auto-flow 0fr / none">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: auto-flow 0fr / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: auto-flow 0fr / none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="subgrid / none">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: subgrid / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: subgrid / none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="subgrid repeat(1, [ ]) / auto-flow">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: subgrid repeat(1, [ ]) / auto-flow;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: subgrid repeat(1, [ ]) / auto-flow</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="auto-flow dense 0fr / none">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: auto-flow dense 0fr / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: auto-flow dense 0fr / none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="10px repeat(1, 10px) / none">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: 10px repeat(1, 10px) / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: 10px repeat(1, 10px) / none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="[ my-custom ] 10px repeat(1, 10px) / auto-flow">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: [ my-custom ] 10px repeat(1, 10px) / auto-flow;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: [ my-custom ] 10px repeat(1, 10px) / auto-flow</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="subgrid [ ] / none">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: subgrid [ ] / none;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: subgrid [ ] / none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid" data-value="repeat(1, 10px) repeat(1, 10px) / auto-flow">
     <div class="demo-area">
       <div style="display: grid; gap: 8px; min-height: 200px; min-width: 300px; grid: repeat(1, 10px) repeat(1, 10px) / auto-flow;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div><div class="cell">7</div><div class="cell">8</div><div class="cell">9</div></div>
     </div>
     <div class="label">grid: repeat(1, 10px) repeat(1, 10px) / auto-flow</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

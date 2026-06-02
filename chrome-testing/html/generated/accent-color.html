@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>accent-color</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .controls { display: flex; flex-direction: column; gap: 10px; }
 .control-row { display: flex; align-items: center; gap: 10px; }
 .control-row span { font-size: 13px; color: #ccc; }
@@ -23,90 +25,92 @@ input[type="range"] { width: 160px; }
 <h1>Accent Color</h1>
 <p class="prop-name">accent-color</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="accent-color" data-value="auto">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; min-width: 200px; accent-color: auto;"><div class="controls"><div class="control-row"><input type="checkbox" checked><span>Checkbox</span></div><div class="control-row"><input type="radio" name="demo" checked><span>Radio</span></div><div class="control-row"><input type="range" value="60"></div></div></div>
     </div>
     <div class="label">accent-color: auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="accent-color" data-value="red">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; min-width: 200px; accent-color: red;"><div class="controls"><div class="control-row"><input type="checkbox" checked><span>Checkbox</span></div><div class="control-row"><input type="radio" name="demo" checked><span>Radio</span></div><div class="control-row"><input type="range" value="60"></div></div></div>
     </div>
     <div class="label">accent-color: red</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="accent-color" data-value="currentcolor">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; min-width: 200px; accent-color: currentcolor;"><div class="controls"><div class="control-row"><input type="checkbox" checked><span>Checkbox</span></div><div class="control-row"><input type="radio" name="demo" checked><span>Radio</span></div><div class="control-row"><input type="range" value="60"></div></div></div>
     </div>
     <div class="label">accent-color: currentcolor</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="accent-color" data-value="Canvas">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; min-width: 200px; accent-color: Canvas;"><div class="controls"><div class="control-row"><input type="checkbox" checked><span>Checkbox</span></div><div class="control-row"><input type="radio" name="demo" checked><span>Radio</span></div><div class="control-row"><input type="range" value="60"></div></div></div>
     </div>
     <div class="label">accent-color: Canvas</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="accent-color" data-value="contrast-color(red)">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; min-width: 200px; accent-color: contrast-color(red);"><div class="controls"><div class="control-row"><input type="checkbox" checked><span>Checkbox</span></div><div class="control-row"><input type="radio" name="demo" checked><span>Radio</span></div><div class="control-row"><input type="range" value="60"></div></div></div>
     </div>
     <div class="label">accent-color: contrast-color(red)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="accent-color" data-value="device-cmyk(0, 0.7, 1, 0)">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; min-width: 200px; accent-color: device-cmyk(0, 0.7, 1, 0);"><div class="controls"><div class="control-row"><input type="checkbox" checked><span>Checkbox</span></div><div class="control-row"><input type="radio" name="demo" checked><span>Radio</span></div><div class="control-row"><input type="range" value="60"></div></div></div>
     </div>
     <div class="label">accent-color: device-cmyk(0, 0.7, 1, 0)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="accent-color" data-value="light-dark(red, blue)">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; min-width: 200px; accent-color: light-dark(red, blue);"><div class="controls"><div class="control-row"><input type="checkbox" checked><span>Checkbox</span></div><div class="control-row"><input type="radio" name="demo" checked><span>Radio</span></div><div class="control-row"><input type="range" value="60"></div></div></div>
     </div>
     <div class="label">accent-color: light-dark(red, blue)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="accent-color" data-value="var(--my-var)">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; min-width: 200px; accent-color: var(--my-var);"><div class="controls"><div class="control-row"><input type="checkbox" checked><span>Checkbox</span></div><div class="control-row"><input type="radio" name="demo" checked><span>Radio</span></div><div class="control-row"><input type="range" value="60"></div></div></div>
     </div>
     <div class="label">accent-color: var(--my-var)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="accent-color" data-value="#3498db">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; min-width: 200px; accent-color: #3498db;"><div class="controls"><div class="control-row"><input type="checkbox" checked><span>Checkbox</span></div><div class="control-row"><input type="radio" name="demo" checked><span>Radio</span></div><div class="control-row"><input type="range" value="60"></div></div></div>
     </div>
     <div class="label">accent-color: #3498db</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="accent-color" data-value="CanvasText">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; min-width: 200px; accent-color: CanvasText;"><div class="controls"><div class="control-row"><input type="checkbox" checked><span>Checkbox</span></div><div class="control-row"><input type="radio" name="demo" checked><span>Radio</span></div><div class="control-row"><input type="range" value="60"></div></div></div>
     </div>
     <div class="label">accent-color: CanvasText</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="accent-color" data-value="light-dark(#333, #ccc)">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; min-width: 200px; accent-color: light-dark(#333, #ccc);"><div class="controls"><div class="control-row"><input type="checkbox" checked><span>Checkbox</span></div><div class="control-row"><input type="radio" name="demo" checked><span>Radio</span></div><div class="control-row"><input type="range" value="60"></div></div></div>
     </div>
     <div class="label">accent-color: light-dark(#333, #ccc)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="accent-color" data-value="rgb(0, 128, 0)">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; min-width: 200px; accent-color: rgb(0, 128, 0);"><div class="controls"><div class="control-row"><input type="checkbox" checked><span>Checkbox</span></div><div class="control-row"><input type="radio" name="demo" checked><span>Radio</span></div><div class="control-row"><input type="range" value="60"></div></div></div>
     </div>
     <div class="label">accent-color: rgb(0, 128, 0)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="accent-color" data-value="LinkText">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; min-width: 200px; accent-color: LinkText;"><div class="controls"><div class="control-row"><input type="checkbox" checked><span>Checkbox</span></div><div class="control-row"><input type="radio" name="demo" checked><span>Radio</span></div><div class="control-row"><input type="range" value="60"></div></div></div>
     </div>
     <div class="label">accent-color: LinkText</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="accent-color" data-value="transparent">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; min-width: 200px; accent-color: transparent;"><div class="controls"><div class="control-row"><input type="checkbox" checked><span>Checkbox</span></div><div class="control-row"><input type="radio" name="demo" checked><span>Radio</span></div><div class="control-row"><input type="range" value="60"></div></div></div>
     </div>
     <div class="label">accent-color: transparent</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

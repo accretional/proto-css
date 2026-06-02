@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>scroll-padding-right</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .snap-item { min-width: 280px; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; scroll-snap-align: end; flex-shrink: 0; }
 .snap-item:nth-child(odd) { background: linear-gradient(135deg, #ef4444, #dc2626); }
 .snap-item:nth-child(even) { background: #22224a; color: #fca5a5; }
@@ -21,42 +23,44 @@
 <h1>Scroll Padding Right</h1>
 <p class="prop-name">scroll-padding-right</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-padding-right" data-value="auto">
     <div class="demo-area">
       <div style="width: 100%; height: 130px; overflow-x: auto; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: x mandatory; display: flex; scroll-padding-right: auto;"><div class="snap-item">Slide 1</div><div class="snap-item">Slide 2</div><div class="snap-item">Slide 3</div><div class="snap-item">Slide 4</div><div class="snap-item">Slide 5</div></div>
     </div>
     <div class="label">scroll-padding-right: auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-padding-right" data-value="10px">
     <div class="demo-area">
       <div style="width: 100%; height: 130px; overflow-x: auto; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: x mandatory; display: flex; scroll-padding-right: 10px;"><div class="snap-item">Slide 1</div><div class="snap-item">Slide 2</div><div class="snap-item">Slide 3</div><div class="snap-item">Slide 4</div><div class="snap-item">Slide 5</div></div>
     </div>
     <div class="label">scroll-padding-right: 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-padding-right" data-value="25%">
     <div class="demo-area">
       <div style="width: 100%; height: 130px; overflow-x: auto; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: x mandatory; display: flex; scroll-padding-right: 25%;"><div class="snap-item">Slide 1</div><div class="snap-item">Slide 2</div><div class="snap-item">Slide 3</div><div class="snap-item">Slide 4</div><div class="snap-item">Slide 5</div></div>
     </div>
     <div class="label">scroll-padding-right: 25%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-padding-right" data-value="50%">
     <div class="demo-area">
       <div style="width: 100%; height: 130px; overflow-x: auto; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: x mandatory; display: flex; scroll-padding-right: 50%;"><div class="snap-item">Slide 1</div><div class="snap-item">Slide 2</div><div class="snap-item">Slide 3</div><div class="snap-item">Slide 4</div><div class="snap-item">Slide 5</div></div>
     </div>
     <div class="label">scroll-padding-right: 50%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-padding-right" data-value="100%">
     <div class="demo-area">
       <div style="width: 100%; height: 130px; overflow-x: auto; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: x mandatory; display: flex; scroll-padding-right: 100%;"><div class="snap-item">Slide 1</div><div class="snap-item">Slide 2</div><div class="snap-item">Slide 3</div><div class="snap-item">Slide 4</div><div class="snap-item">Slide 5</div></div>
     </div>
     <div class="label">scroll-padding-right: 100%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-padding-right" data-value="0">
     <div class="demo-area">
       <div style="width: 100%; height: 130px; overflow-x: auto; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: x mandatory; display: flex; scroll-padding-right: 0;"><div class="snap-item">Slide 1</div><div class="snap-item">Slide 2</div><div class="snap-item">Slide 3</div><div class="snap-item">Slide 4</div><div class="snap-item">Slide 5</div></div>
     </div>
     <div class="label">scroll-padding-right: 0</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>transition</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .state-row { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
 .state-label { font-size: 10px; font-family: monospace; color: #6b7280; width: 50px; text-align: center; }
 .box { width: 70px; height: 70px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; }
@@ -26,216 +28,218 @@
 <h1>Transition Shorthand</h1>
 <p class="prop-name">transition</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="none">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: none;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="all">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: all;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: all</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="my-custom">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: my-custom;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: my-custom</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="0.3s">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: 0.3s;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: 0.3s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="none 0.3s">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: none 0.3s;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: none 0.3s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="all 0.3s">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: all 0.3s;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: all 0.3s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="my-custom 0.3s">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: my-custom 0.3s;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: my-custom 0.3s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="1s">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: 1s;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: 1s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="none 1s">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: none 1s;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: none 1s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="all 1s">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: all 1s;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: all 1s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="my-custom 1s">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: my-custom 1s;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: my-custom 1s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="2s">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: 2s;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: 2s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="none 2s">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: none 2s;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: none 2s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="all 2s">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: all 2s;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: all 2s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="my-custom 2s">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: my-custom 2s;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: my-custom 2s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="0s">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: 0s;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: 0s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="none 0s">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: none 0s;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: none 0s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="all 0s">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: all 0s;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: all 0s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="my-custom 0s">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: my-custom 0s;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: my-custom 0s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="ease">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: ease;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: ease</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="none ease">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: none ease;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: none ease</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="all ease">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: all ease;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: all ease</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="my-custom ease">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: my-custom ease;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: my-custom ease</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="0.3s ease">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: 0.3s ease;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: 0.3s ease</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="none 0.3s ease">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: none 0.3s ease;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: none 0.3s ease</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="all 0.3s ease">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: all 0.3s ease;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: all 0.3s ease</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="my-custom 0.3s ease">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: my-custom 0.3s ease;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: my-custom 0.3s ease</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="1s ease">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: 1s ease;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: 1s ease</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="none 1s ease">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: none 1s ease;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: none 1s ease</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="all 1s ease">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: all 1s ease;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: all 1s ease</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="my-custom 1s ease">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: my-custom 1s ease;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: my-custom 1s ease</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="2s ease">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: 2s ease;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: 2s ease</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="none 2s ease">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: none 2s ease;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: none 2s ease</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="all 2s ease">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: all 2s ease;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: all 2s ease</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition" data-value="my-custom 2s ease">
     <div class="demo-area">
       <div style="background: #16213e; border-radius: 12px; padding: 20px; width: 380px; transition: my-custom 2s ease;"><div class="state-row"><div class="state-label">before</div><div class="box d1-before"></div><div class="arrow">&#10132;</div><div class="state-label">after</div><div class="box d1-after"></div></div></div>
     </div>
     <div class="label">transition: my-custom 2s ease</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

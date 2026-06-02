@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>box-align</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .child { width: 50px; background: #e94560; margin: 4px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; }
 .child.short { height: 40px; }
 .child.medium { height: 60px; }
@@ -22,36 +24,38 @@
 <h1>Box Align (deprecated)</h1>
 <p class="prop-name">box-align</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-align" data-value="start">
     <div class="demo-area">
       <div style="display: -webkit-box; -webkit-box-orient: horizontal; width: 200px; height: 150px; background: #16213e; border: 2px solid #333; box-align: start;"><div class="child short">A</div><div class="child medium">B</div><div class="child tall">C</div></div>
     </div>
     <div class="label">box-align: start</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-align" data-value="center">
     <div class="demo-area">
       <div style="display: -webkit-box; -webkit-box-orient: horizontal; width: 200px; height: 150px; background: #16213e; border: 2px solid #333; box-align: center;"><div class="child short">A</div><div class="child medium">B</div><div class="child tall">C</div></div>
     </div>
     <div class="label">box-align: center</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-align" data-value="end">
     <div class="demo-area">
       <div style="display: -webkit-box; -webkit-box-orient: horizontal; width: 200px; height: 150px; background: #16213e; border: 2px solid #333; box-align: end;"><div class="child short">A</div><div class="child medium">B</div><div class="child tall">C</div></div>
     </div>
     <div class="label">box-align: end</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-align" data-value="baseline">
     <div class="demo-area">
       <div style="display: -webkit-box; -webkit-box-orient: horizontal; width: 200px; height: 150px; background: #16213e; border: 2px solid #333; box-align: baseline;"><div class="child short">A</div><div class="child medium">B</div><div class="child tall">C</div></div>
     </div>
     <div class="label">box-align: baseline</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-align" data-value="stretch">
     <div class="demo-area">
       <div style="display: -webkit-box; -webkit-box-orient: horizontal; width: 200px; height: 150px; background: #16213e; border: 2px solid #333; box-align: stretch;"><div class="child short">A</div><div class="child medium">B</div><div class="child tall">C</div></div>
     </div>
     <div class="label">box-align: stretch</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

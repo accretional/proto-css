@@ -4,21 +4,23 @@
 <meta charset="UTF-8">
 <title>dominant-baseline</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
 </style>
 </head>
 <body>
 <h1>SVG Text Baseline Alignment</h1>
 <p class="prop-name">dominant-baseline</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="dominant-baseline" data-value="auto">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; align-items: center;">
       <svg width="340" height="200" viewBox="0 0 340 200"><rect width="340" height="200" fill="#0f3460" rx="8"/><line x1="10" y1="100" x2="330" y2="100" stroke="#e94560" stroke-width="2" stroke-dasharray="6,3"/><text x="20" y="18" fill="#9ca3af" font-size="11" font-family="monospace">baseline ref (y=100)</text>
       <text style="text-anchor: middle; fill: #e0e0e0; font-size: 36px; font-family: system-ui; dominant-baseline: auto;">Hello World</text>
@@ -26,7 +28,7 @@
     </div>
     <div class="label">dominant-baseline: auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="dominant-baseline" data-value="text-bottom">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; align-items: center;">
       <svg width="340" height="200" viewBox="0 0 340 200"><rect width="340" height="200" fill="#0f3460" rx="8"/><line x1="10" y1="100" x2="330" y2="100" stroke="#e94560" stroke-width="2" stroke-dasharray="6,3"/><text x="20" y="18" fill="#9ca3af" font-size="11" font-family="monospace">baseline ref (y=100)</text>
       <text style="text-anchor: middle; fill: #e0e0e0; font-size: 36px; font-family: system-ui; dominant-baseline: text-bottom;">Hello World</text>
@@ -34,7 +36,7 @@
     </div>
     <div class="label">dominant-baseline: text-bottom</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="dominant-baseline" data-value="alphabetic">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; align-items: center;">
       <svg width="340" height="200" viewBox="0 0 340 200"><rect width="340" height="200" fill="#0f3460" rx="8"/><line x1="10" y1="100" x2="330" y2="100" stroke="#e94560" stroke-width="2" stroke-dasharray="6,3"/><text x="20" y="18" fill="#9ca3af" font-size="11" font-family="monospace">baseline ref (y=100)</text>
       <text style="text-anchor: middle; fill: #e0e0e0; font-size: 36px; font-family: system-ui; dominant-baseline: alphabetic;">Hello World</text>
@@ -42,7 +44,7 @@
     </div>
     <div class="label">dominant-baseline: alphabetic</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="dominant-baseline" data-value="ideographic">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; align-items: center;">
       <svg width="340" height="200" viewBox="0 0 340 200"><rect width="340" height="200" fill="#0f3460" rx="8"/><line x1="10" y1="100" x2="330" y2="100" stroke="#e94560" stroke-width="2" stroke-dasharray="6,3"/><text x="20" y="18" fill="#9ca3af" font-size="11" font-family="monospace">baseline ref (y=100)</text>
       <text style="text-anchor: middle; fill: #e0e0e0; font-size: 36px; font-family: system-ui; dominant-baseline: ideographic;">Hello World</text>
@@ -50,7 +52,7 @@
     </div>
     <div class="label">dominant-baseline: ideographic</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="dominant-baseline" data-value="middle">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; align-items: center;">
       <svg width="340" height="200" viewBox="0 0 340 200"><rect width="340" height="200" fill="#0f3460" rx="8"/><line x1="10" y1="100" x2="330" y2="100" stroke="#e94560" stroke-width="2" stroke-dasharray="6,3"/><text x="20" y="18" fill="#9ca3af" font-size="11" font-family="monospace">baseline ref (y=100)</text>
       <text style="text-anchor: middle; fill: #e0e0e0; font-size: 36px; font-family: system-ui; dominant-baseline: middle;">Hello World</text>
@@ -58,7 +60,7 @@
     </div>
     <div class="label">dominant-baseline: middle</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="dominant-baseline" data-value="central">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; align-items: center;">
       <svg width="340" height="200" viewBox="0 0 340 200"><rect width="340" height="200" fill="#0f3460" rx="8"/><line x1="10" y1="100" x2="330" y2="100" stroke="#e94560" stroke-width="2" stroke-dasharray="6,3"/><text x="20" y="18" fill="#9ca3af" font-size="11" font-family="monospace">baseline ref (y=100)</text>
       <text style="text-anchor: middle; fill: #e0e0e0; font-size: 36px; font-family: system-ui; dominant-baseline: central;">Hello World</text>
@@ -66,7 +68,7 @@
     </div>
     <div class="label">dominant-baseline: central</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="dominant-baseline" data-value="mathematical">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; align-items: center;">
       <svg width="340" height="200" viewBox="0 0 340 200"><rect width="340" height="200" fill="#0f3460" rx="8"/><line x1="10" y1="100" x2="330" y2="100" stroke="#e94560" stroke-width="2" stroke-dasharray="6,3"/><text x="20" y="18" fill="#9ca3af" font-size="11" font-family="monospace">baseline ref (y=100)</text>
       <text style="text-anchor: middle; fill: #e0e0e0; font-size: 36px; font-family: system-ui; dominant-baseline: mathematical;">Hello World</text>
@@ -74,7 +76,7 @@
     </div>
     <div class="label">dominant-baseline: mathematical</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="dominant-baseline" data-value="hanging">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; align-items: center;">
       <svg width="340" height="200" viewBox="0 0 340 200"><rect width="340" height="200" fill="#0f3460" rx="8"/><line x1="10" y1="100" x2="330" y2="100" stroke="#e94560" stroke-width="2" stroke-dasharray="6,3"/><text x="20" y="18" fill="#9ca3af" font-size="11" font-family="monospace">baseline ref (y=100)</text>
       <text style="text-anchor: middle; fill: #e0e0e0; font-size: 36px; font-family: system-ui; dominant-baseline: hanging;">Hello World</text>
@@ -82,7 +84,7 @@
     </div>
     <div class="label">dominant-baseline: hanging</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="dominant-baseline" data-value="text-top">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; align-items: center;">
       <svg width="340" height="200" viewBox="0 0 340 200"><rect width="340" height="200" fill="#0f3460" rx="8"/><line x1="10" y1="100" x2="330" y2="100" stroke="#e94560" stroke-width="2" stroke-dasharray="6,3"/><text x="20" y="18" fill="#9ca3af" font-size="11" font-family="monospace">baseline ref (y=100)</text>
       <text style="text-anchor: middle; fill: #e0e0e0; font-size: 36px; font-family: system-ui; dominant-baseline: text-top;">Hello World</text>
@@ -91,5 +93,7 @@
     <div class="label">dominant-baseline: text-top</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

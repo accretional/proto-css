@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>font-smooth</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .sample-small { font-size: 14px; color: #a0a0b0; line-height: 1.5; }
 .sample-tiny { font-size: 11px; color: #808090; line-height: 1.5; }
 </style>
@@ -20,108 +22,110 @@
 <h1>Font Smooth</h1>
 <p class="prop-name">font-smooth</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-smooth" data-value="auto">
     <div class="demo-area">
       <div style="font-size: 36px; line-height: 1.3; font-smooth: auto;">Hamburgefons</div>
     </div>
     <div class="label">font-smooth: auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-smooth" data-value="never">
     <div class="demo-area">
       <div style="font-size: 36px; line-height: 1.3; font-smooth: never;">Hamburgefons</div>
     </div>
     <div class="label">font-smooth: never</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-smooth" data-value="always">
     <div class="demo-area">
       <div style="font-size: 36px; line-height: 1.3; font-smooth: always;">Hamburgefons</div>
     </div>
     <div class="label">font-smooth: always</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-smooth" data-value="xx-small">
     <div class="demo-area">
       <div style="font-size: 36px; line-height: 1.3; font-smooth: xx-small;">Hamburgefons</div>
     </div>
     <div class="label">font-smooth: xx-small</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-smooth" data-value="10px">
     <div class="demo-area">
       <div style="font-size: 36px; line-height: 1.3; font-smooth: 10px;">Hamburgefons</div>
     </div>
     <div class="label">font-smooth: 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-smooth" data-value="x-small">
     <div class="demo-area">
       <div style="font-size: 36px; line-height: 1.3; font-smooth: x-small;">Hamburgefons</div>
     </div>
     <div class="label">font-smooth: x-small</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-smooth" data-value="20px">
     <div class="demo-area">
       <div style="font-size: 36px; line-height: 1.3; font-smooth: 20px;">Hamburgefons</div>
     </div>
     <div class="label">font-smooth: 20px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-smooth" data-value="small">
     <div class="demo-area">
       <div style="font-size: 36px; line-height: 1.3; font-smooth: small;">Hamburgefons</div>
     </div>
     <div class="label">font-smooth: small</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-smooth" data-value="50px">
     <div class="demo-area">
       <div style="font-size: 36px; line-height: 1.3; font-smooth: 50px;">Hamburgefons</div>
     </div>
     <div class="label">font-smooth: 50px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-smooth" data-value="medium">
     <div class="demo-area">
       <div style="font-size: 36px; line-height: 1.3; font-smooth: medium;">Hamburgefons</div>
     </div>
     <div class="label">font-smooth: medium</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-smooth" data-value="4px">
     <div class="demo-area">
       <div style="font-size: 36px; line-height: 1.3; font-smooth: 4px;">Hamburgefons</div>
     </div>
     <div class="label">font-smooth: 4px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-smooth" data-value="large">
     <div class="demo-area">
       <div style="font-size: 36px; line-height: 1.3; font-smooth: large;">Hamburgefons</div>
     </div>
     <div class="label">font-smooth: large</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-smooth" data-value="2em">
     <div class="demo-area">
       <div style="font-size: 36px; line-height: 1.3; font-smooth: 2em;">Hamburgefons</div>
     </div>
     <div class="label">font-smooth: 2em</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-smooth" data-value="x-large">
     <div class="demo-area">
       <div style="font-size: 36px; line-height: 1.3; font-smooth: x-large;">Hamburgefons</div>
     </div>
     <div class="label">font-smooth: x-large</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-smooth" data-value="0">
     <div class="demo-area">
       <div style="font-size: 36px; line-height: 1.3; font-smooth: 0;">Hamburgefons</div>
     </div>
     <div class="label">font-smooth: 0</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-smooth" data-value="xx-large">
     <div class="demo-area">
       <div style="font-size: 36px; line-height: 1.3; font-smooth: xx-large;">Hamburgefons</div>
     </div>
     <div class="label">font-smooth: xx-large</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-smooth" data-value="xxx-large">
     <div class="demo-area">
       <div style="font-size: 36px; line-height: 1.3; font-smooth: xxx-large;">Hamburgefons</div>
     </div>
     <div class="label">font-smooth: xxx-large</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

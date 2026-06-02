@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>position</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .flow-box { width: 80px; height: 30px; background: rgba(255,255,255,0.1); border-radius: 4px; margin: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #777; }
 </style>
 </head>
@@ -19,7 +21,7 @@
 <h1>Position</h1>
 <p class="prop-name">position</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="position" data-value="static">
     <div class="demo-area" style="width: 190px; height: 180px; position: relative; border: 2px dashed rgba(255,255,255,0.15); border-radius: 6px; overflow: hidden; background: rgba(0,0,0,0.2);">
       <div class="flow-box">sibling</div>
       <div style="width: 80px; height: 36px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #fff; background: linear-gradient(135deg, #e94560, #c23066); border: 2px solid rgba(255,255,255,0.3); margin: 6px; top: 20px; left: 20px; position: static;">target</div>
@@ -27,7 +29,7 @@
     </div>
     <div class="label">position: static</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="position" data-value="relative">
     <div class="demo-area" style="width: 190px; height: 180px; position: relative; border: 2px dashed rgba(255,255,255,0.15); border-radius: 6px; overflow: hidden; background: rgba(0,0,0,0.2);">
       <div class="flow-box">sibling</div>
       <div style="width: 80px; height: 36px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #fff; background: linear-gradient(135deg, #e94560, #c23066); border: 2px solid rgba(255,255,255,0.3); margin: 6px; top: 20px; left: 20px; position: relative;">target</div>
@@ -35,7 +37,7 @@
     </div>
     <div class="label">position: relative</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="position" data-value="absolute">
     <div class="demo-area" style="width: 190px; height: 180px; position: relative; border: 2px dashed rgba(255,255,255,0.15); border-radius: 6px; overflow: hidden; background: rgba(0,0,0,0.2);">
       <div class="flow-box">sibling</div>
       <div style="width: 80px; height: 36px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #fff; background: linear-gradient(135deg, #e94560, #c23066); border: 2px solid rgba(255,255,255,0.3); margin: 6px; top: 20px; left: 20px; position: absolute;">target</div>
@@ -43,7 +45,7 @@
     </div>
     <div class="label">position: absolute</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="position" data-value="sticky">
     <div class="demo-area" style="width: 190px; height: 180px; position: relative; border: 2px dashed rgba(255,255,255,0.15); border-radius: 6px; overflow: hidden; background: rgba(0,0,0,0.2);">
       <div class="flow-box">sibling</div>
       <div style="width: 80px; height: 36px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #fff; background: linear-gradient(135deg, #e94560, #c23066); border: 2px solid rgba(255,255,255,0.3); margin: 6px; top: 20px; left: 20px; position: sticky;">target</div>
@@ -51,7 +53,7 @@
     </div>
     <div class="label">position: sticky</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="position" data-value="fixed">
     <div class="demo-area" style="width: 190px; height: 180px; position: relative; border: 2px dashed rgba(255,255,255,0.15); border-radius: 6px; overflow: hidden; background: rgba(0,0,0,0.2);">
       <div class="flow-box">sibling</div>
       <div style="width: 80px; height: 36px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #fff; background: linear-gradient(135deg, #e94560, #c23066); border: 2px solid rgba(255,255,255,0.3); margin: 6px; top: 20px; left: 20px; position: fixed;">target</div>
@@ -59,7 +61,7 @@
     </div>
     <div class="label">position: fixed</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="position" data-value="running(my-custom)">
     <div class="demo-area" style="width: 190px; height: 180px; position: relative; border: 2px dashed rgba(255,255,255,0.15); border-radius: 6px; overflow: hidden; background: rgba(0,0,0,0.2);">
       <div class="flow-box">sibling</div>
       <div style="width: 80px; height: 36px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #fff; background: linear-gradient(135deg, #e94560, #c23066); border: 2px solid rgba(255,255,255,0.3); margin: 6px; top: 20px; left: 20px; position: running(my-custom);">target</div>
@@ -68,5 +70,7 @@
     <div class="label">position: running(my-custom)</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

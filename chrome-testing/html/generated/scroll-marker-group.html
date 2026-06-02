@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>scroll-marker-group</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .slide { min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 700; scroll-snap-align: start; flex-shrink: 0; }
 .slide:nth-child(1) { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
 .slide:nth-child(2) { background: linear-gradient(135deg, #ec4899, #f43f5e); }
@@ -23,60 +25,62 @@
 <h1>Scroll Marker Group</h1>
 <p class="prop-name">scroll-marker-group</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-marker-group" data-value="none">
     <div class="demo-area">
       <div style="width: 100%; height: 220px; overflow-x: auto; overflow-y: hidden; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: x mandatory; display: flex; position: relative; scroll-marker-group: none;"><div class="slide">Slide 1</div><div class="slide">Slide 2</div><div class="slide">Slide 3</div><div class="slide">Slide 4</div></div>
     </div>
     <div class="label">scroll-marker-group: none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-marker-group" data-value="before">
     <div class="demo-area">
       <div style="width: 100%; height: 220px; overflow-x: auto; overflow-y: hidden; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: x mandatory; display: flex; position: relative; scroll-marker-group: before;"><div class="slide">Slide 1</div><div class="slide">Slide 2</div><div class="slide">Slide 3</div><div class="slide">Slide 4</div></div>
     </div>
     <div class="label">scroll-marker-group: before</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-marker-group" data-value="after">
     <div class="demo-area">
       <div style="width: 100%; height: 220px; overflow-x: auto; overflow-y: hidden; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: x mandatory; display: flex; position: relative; scroll-marker-group: after;"><div class="slide">Slide 1</div><div class="slide">Slide 2</div><div class="slide">Slide 3</div><div class="slide">Slide 4</div></div>
     </div>
     <div class="label">scroll-marker-group: after</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-marker-group" data-value="links">
     <div class="demo-area">
       <div style="width: 100%; height: 220px; overflow-x: auto; overflow-y: hidden; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: x mandatory; display: flex; position: relative; scroll-marker-group: links;"><div class="slide">Slide 1</div><div class="slide">Slide 2</div><div class="slide">Slide 3</div><div class="slide">Slide 4</div></div>
     </div>
     <div class="label">scroll-marker-group: links</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-marker-group" data-value="before links">
     <div class="demo-area">
       <div style="width: 100%; height: 220px; overflow-x: auto; overflow-y: hidden; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: x mandatory; display: flex; position: relative; scroll-marker-group: before links;"><div class="slide">Slide 1</div><div class="slide">Slide 2</div><div class="slide">Slide 3</div><div class="slide">Slide 4</div></div>
     </div>
     <div class="label">scroll-marker-group: before links</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-marker-group" data-value="after links">
     <div class="demo-area">
       <div style="width: 100%; height: 220px; overflow-x: auto; overflow-y: hidden; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: x mandatory; display: flex; position: relative; scroll-marker-group: after links;"><div class="slide">Slide 1</div><div class="slide">Slide 2</div><div class="slide">Slide 3</div><div class="slide">Slide 4</div></div>
     </div>
     <div class="label">scroll-marker-group: after links</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-marker-group" data-value="tabs">
     <div class="demo-area">
       <div style="width: 100%; height: 220px; overflow-x: auto; overflow-y: hidden; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: x mandatory; display: flex; position: relative; scroll-marker-group: tabs;"><div class="slide">Slide 1</div><div class="slide">Slide 2</div><div class="slide">Slide 3</div><div class="slide">Slide 4</div></div>
     </div>
     <div class="label">scroll-marker-group: tabs</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-marker-group" data-value="before tabs">
     <div class="demo-area">
       <div style="width: 100%; height: 220px; overflow-x: auto; overflow-y: hidden; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: x mandatory; display: flex; position: relative; scroll-marker-group: before tabs;"><div class="slide">Slide 1</div><div class="slide">Slide 2</div><div class="slide">Slide 3</div><div class="slide">Slide 4</div></div>
     </div>
     <div class="label">scroll-marker-group: before tabs</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-marker-group" data-value="after tabs">
     <div class="demo-area">
       <div style="width: 100%; height: 220px; overflow-x: auto; overflow-y: hidden; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: x mandatory; display: flex; position: relative; scroll-marker-group: after tabs;"><div class="slide">Slide 1</div><div class="slide">Slide 2</div><div class="slide">Slide 3</div><div class="slide">Slide 4</div></div>
     </div>
     <div class="label">scroll-marker-group: after tabs</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

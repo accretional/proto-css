@@ -4,49 +4,51 @@
 <meta charset="UTF-8">
 <title>offset-distance</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
 </style>
 </head>
 <body>
 <h1>Offset Distance</h1>
 <p class="prop-name">offset-distance</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="offset-distance" data-value="10px">
     <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; position: relative; width: 100%; height: 200px;">
       <svg class="path-visual" viewBox="0 0 500 240" style="position: absolute; top: 20px; left: 20px; width: calc(100% - 40px); height: calc(100% - 40px);"><path d="M 30,120 C 100,20 200,20 270,120 C 340,220 400,120 470,120" fill="none" stroke="#4fc3f7" stroke-width="3" stroke-dasharray="8 4"/><circle cx="30" cy="120" r="5" fill="#22c55e"/><circle cx="470" cy="120" r="5" fill="#ef4444"/></svg>
       <div style="width: 24px; height: 24px; background: #e94560; border-radius: 50%; position: absolute; offset-path: path(&#39;M 30,120 C 100,20 200,20 270,120 C 340,220 400,120 470,120&#39;); display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: bold; color: #fff; box-shadow: 0 0 12px rgba(233,69,96,0.8); offset-distance: 10px;"></div>
     </div>
     <div class="label">offset-distance: 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="offset-distance" data-value="25%">
     <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; position: relative; width: 100%; height: 200px;">
       <svg class="path-visual" viewBox="0 0 500 240" style="position: absolute; top: 20px; left: 20px; width: calc(100% - 40px); height: calc(100% - 40px);"><path d="M 30,120 C 100,20 200,20 270,120 C 340,220 400,120 470,120" fill="none" stroke="#4fc3f7" stroke-width="3" stroke-dasharray="8 4"/><circle cx="30" cy="120" r="5" fill="#22c55e"/><circle cx="470" cy="120" r="5" fill="#ef4444"/></svg>
       <div style="width: 24px; height: 24px; background: #e94560; border-radius: 50%; position: absolute; offset-path: path(&#39;M 30,120 C 100,20 200,20 270,120 C 340,220 400,120 470,120&#39;); display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: bold; color: #fff; box-shadow: 0 0 12px rgba(233,69,96,0.8); offset-distance: 25%;"></div>
     </div>
     <div class="label">offset-distance: 25%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="offset-distance" data-value="50%">
     <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; position: relative; width: 100%; height: 200px;">
       <svg class="path-visual" viewBox="0 0 500 240" style="position: absolute; top: 20px; left: 20px; width: calc(100% - 40px); height: calc(100% - 40px);"><path d="M 30,120 C 100,20 200,20 270,120 C 340,220 400,120 470,120" fill="none" stroke="#4fc3f7" stroke-width="3" stroke-dasharray="8 4"/><circle cx="30" cy="120" r="5" fill="#22c55e"/><circle cx="470" cy="120" r="5" fill="#ef4444"/></svg>
       <div style="width: 24px; height: 24px; background: #e94560; border-radius: 50%; position: absolute; offset-path: path(&#39;M 30,120 C 100,20 200,20 270,120 C 340,220 400,120 470,120&#39;); display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: bold; color: #fff; box-shadow: 0 0 12px rgba(233,69,96,0.8); offset-distance: 50%;"></div>
     </div>
     <div class="label">offset-distance: 50%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="offset-distance" data-value="100%">
     <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; position: relative; width: 100%; height: 200px;">
       <svg class="path-visual" viewBox="0 0 500 240" style="position: absolute; top: 20px; left: 20px; width: calc(100% - 40px); height: calc(100% - 40px);"><path d="M 30,120 C 100,20 200,20 270,120 C 340,220 400,120 470,120" fill="none" stroke="#4fc3f7" stroke-width="3" stroke-dasharray="8 4"/><circle cx="30" cy="120" r="5" fill="#22c55e"/><circle cx="470" cy="120" r="5" fill="#ef4444"/></svg>
       <div style="width: 24px; height: 24px; background: #e94560; border-radius: 50%; position: absolute; offset-path: path(&#39;M 30,120 C 100,20 200,20 270,120 C 340,220 400,120 470,120&#39;); display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: bold; color: #fff; box-shadow: 0 0 12px rgba(233,69,96,0.8); offset-distance: 100%;"></div>
     </div>
     <div class="label">offset-distance: 100%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="offset-distance" data-value="0">
     <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 20px; position: relative; width: 100%; height: 200px;">
       <svg class="path-visual" viewBox="0 0 500 240" style="position: absolute; top: 20px; left: 20px; width: calc(100% - 40px); height: calc(100% - 40px);"><path d="M 30,120 C 100,20 200,20 270,120 C 340,220 400,120 470,120" fill="none" stroke="#4fc3f7" stroke-width="3" stroke-dasharray="8 4"/><circle cx="30" cy="120" r="5" fill="#22c55e"/><circle cx="470" cy="120" r="5" fill="#ef4444"/></svg>
       <div style="width: 24px; height: 24px; background: #e94560; border-radius: 50%; position: absolute; offset-path: path(&#39;M 30,120 C 100,20 200,20 270,120 C 340,220 400,120 470,120&#39;); display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: bold; color: #fff; box-shadow: 0 0 12px rgba(233,69,96,0.8); offset-distance: 0;"></div>
@@ -54,5 +56,7 @@
     <div class="label">offset-distance: 0</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

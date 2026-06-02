@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>transition-duration</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .demo-row { display: flex; align-items: center; gap: 16px; }
 .label { font-size: 12px; font-family: monospace; color: #9ca3af; width: 300px; flex-shrink: 0; }
 .bar-fill { position: absolute; top: 0; left: 0; height: 100%; border-radius: 8px; display: flex; align-items: center; padding-left: 12px; font-size: 10px; font-family: monospace; color: #fff; }
@@ -24,126 +26,128 @@
 <h1>Transition Duration</h1>
 <p class="prop-name">transition-duration</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-duration" data-value="0.3s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 16px;">
       <div style="position: relative; height: 36px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 750px; transition-duration: 0.3s;"><div class="bar-fill" style="width: 2px; background: #e94560;"></div><span class="duration-label">instant (no transition)</span></div>
     </div>
     <div class="label">transition-duration: 0.3s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-duration" data-value="1s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 16px;">
       <div style="position: relative; height: 36px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 750px; transition-duration: 1s;"><div class="bar-fill" style="width: 2px; background: #e94560;"></div><span class="duration-label">instant (no transition)</span></div>
     </div>
     <div class="label">transition-duration: 1s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-duration" data-value="2s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 16px;">
       <div style="position: relative; height: 36px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 750px; transition-duration: 2s;"><div class="bar-fill" style="width: 2px; background: #e94560;"></div><span class="duration-label">instant (no transition)</span></div>
     </div>
     <div class="label">transition-duration: 2s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-duration" data-value="0s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 16px;">
       <div style="position: relative; height: 36px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 750px; transition-duration: 0s;"><div class="bar-fill" style="width: 2px; background: #e94560;"></div><span class="duration-label">instant (no transition)</span></div>
     </div>
     <div class="label">transition-duration: 0s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-duration" data-value="0.3s, 0.3s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 16px;">
       <div style="position: relative; height: 36px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 750px; transition-duration: 0.3s, 0.3s;"><div class="bar-fill" style="width: 2px; background: #e94560;"></div><span class="duration-label">instant (no transition)</span></div>
     </div>
     <div class="label">transition-duration: 0.3s, 0.3s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-duration" data-value="1s, 0.3s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 16px;">
       <div style="position: relative; height: 36px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 750px; transition-duration: 1s, 0.3s;"><div class="bar-fill" style="width: 2px; background: #e94560;"></div><span class="duration-label">instant (no transition)</span></div>
     </div>
     <div class="label">transition-duration: 1s, 0.3s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-duration" data-value="2s, 0.3s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 16px;">
       <div style="position: relative; height: 36px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 750px; transition-duration: 2s, 0.3s;"><div class="bar-fill" style="width: 2px; background: #e94560;"></div><span class="duration-label">instant (no transition)</span></div>
     </div>
     <div class="label">transition-duration: 2s, 0.3s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-duration" data-value="0s, 0.3s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 16px;">
       <div style="position: relative; height: 36px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 750px; transition-duration: 0s, 0.3s;"><div class="bar-fill" style="width: 2px; background: #e94560;"></div><span class="duration-label">instant (no transition)</span></div>
     </div>
     <div class="label">transition-duration: 0s, 0.3s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-duration" data-value="0.3s, 1s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 16px;">
       <div style="position: relative; height: 36px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 750px; transition-duration: 0.3s, 1s;"><div class="bar-fill" style="width: 2px; background: #e94560;"></div><span class="duration-label">instant (no transition)</span></div>
     </div>
     <div class="label">transition-duration: 0.3s, 1s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-duration" data-value="1s, 1s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 16px;">
       <div style="position: relative; height: 36px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 750px; transition-duration: 1s, 1s;"><div class="bar-fill" style="width: 2px; background: #e94560;"></div><span class="duration-label">instant (no transition)</span></div>
     </div>
     <div class="label">transition-duration: 1s, 1s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-duration" data-value="2s, 1s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 16px;">
       <div style="position: relative; height: 36px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 750px; transition-duration: 2s, 1s;"><div class="bar-fill" style="width: 2px; background: #e94560;"></div><span class="duration-label">instant (no transition)</span></div>
     </div>
     <div class="label">transition-duration: 2s, 1s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-duration" data-value="0s, 1s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 16px;">
       <div style="position: relative; height: 36px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 750px; transition-duration: 0s, 1s;"><div class="bar-fill" style="width: 2px; background: #e94560;"></div><span class="duration-label">instant (no transition)</span></div>
     </div>
     <div class="label">transition-duration: 0s, 1s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-duration" data-value="0.3s, 2s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 16px;">
       <div style="position: relative; height: 36px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 750px; transition-duration: 0.3s, 2s;"><div class="bar-fill" style="width: 2px; background: #e94560;"></div><span class="duration-label">instant (no transition)</span></div>
     </div>
     <div class="label">transition-duration: 0.3s, 2s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-duration" data-value="1s, 2s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 16px;">
       <div style="position: relative; height: 36px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 750px; transition-duration: 1s, 2s;"><div class="bar-fill" style="width: 2px; background: #e94560;"></div><span class="duration-label">instant (no transition)</span></div>
     </div>
     <div class="label">transition-duration: 1s, 2s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-duration" data-value="2s, 2s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 16px;">
       <div style="position: relative; height: 36px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 750px; transition-duration: 2s, 2s;"><div class="bar-fill" style="width: 2px; background: #e94560;"></div><span class="duration-label">instant (no transition)</span></div>
     </div>
     <div class="label">transition-duration: 2s, 2s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-duration" data-value="0s, 2s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 16px;">
       <div style="position: relative; height: 36px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 750px; transition-duration: 0s, 2s;"><div class="bar-fill" style="width: 2px; background: #e94560;"></div><span class="duration-label">instant (no transition)</span></div>
     </div>
     <div class="label">transition-duration: 0s, 2s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-duration" data-value="0.3s, 0s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 16px;">
       <div style="position: relative; height: 36px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 750px; transition-duration: 0.3s, 0s;"><div class="bar-fill" style="width: 2px; background: #e94560;"></div><span class="duration-label">instant (no transition)</span></div>
     </div>
     <div class="label">transition-duration: 0.3s, 0s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-duration" data-value="1s, 0s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 16px;">
       <div style="position: relative; height: 36px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 750px; transition-duration: 1s, 0s;"><div class="bar-fill" style="width: 2px; background: #e94560;"></div><span class="duration-label">instant (no transition)</span></div>
     </div>
     <div class="label">transition-duration: 1s, 0s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-duration" data-value="2s, 0s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 16px;">
       <div style="position: relative; height: 36px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 750px; transition-duration: 2s, 0s;"><div class="bar-fill" style="width: 2px; background: #e94560;"></div><span class="duration-label">instant (no transition)</span></div>
     </div>
     <div class="label">transition-duration: 2s, 0s</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="transition-duration" data-value="0s, 0s">
     <div class="demo-area" style="display: flex; flex-direction: column; gap: 16px;">
       <div style="position: relative; height: 36px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 750px; transition-duration: 0s, 0s;"><div class="bar-fill" style="width: 2px; background: #e94560;"></div><span class="duration-label">instant (no transition)</span></div>
     </div>
     <div class="label">transition-duration: 0s, 0s</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

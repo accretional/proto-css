@@ -4,68 +4,72 @@
 <meta charset="UTF-8">
 <title>text-emphasis</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
 </style>
 </head>
 <body>
 <h1>Text Emphasis</h1>
 <p class="prop-name">text-emphasis</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-emphasis" data-value="none">
     <div class="demo-area">
       <div style="font-size: 32px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2.2; color: #e0e0e0; text-emphasis: none;">Emphasis</div>
     </div>
     <div class="label">text-emphasis: none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-emphasis" data-value="red">
     <div class="demo-area">
       <div style="font-size: 32px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2.2; color: #e0e0e0; text-emphasis: red;">Emphasis</div>
     </div>
     <div class="label">text-emphasis: red</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-emphasis" data-value="#3498db">
     <div class="demo-area">
       <div style="font-size: 32px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2.2; color: #e0e0e0; text-emphasis: #3498db;">Emphasis</div>
     </div>
     <div class="label">text-emphasis: #3498db</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-emphasis" data-value="&#34;example&#34;">
     <div class="demo-area">
       <div style="font-size: 32px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2.2; color: #e0e0e0; text-emphasis: &#34;example&#34;;">Emphasis</div>
     </div>
     <div class="label">text-emphasis: &#34;example&#34;</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-emphasis" data-value="rgb(0, 128, 0)">
     <div class="demo-area">
       <div style="font-size: 32px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2.2; color: #e0e0e0; text-emphasis: rgb(0, 128, 0);">Emphasis</div>
     </div>
     <div class="label">text-emphasis: rgb(0, 128, 0)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-emphasis" data-value="filled">
     <div class="demo-area">
       <div style="font-size: 32px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2.2; color: #e0e0e0; text-emphasis: filled;">Emphasis</div>
     </div>
     <div class="label">text-emphasis: filled</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-emphasis" data-value="transparent">
     <div class="demo-area">
       <div style="font-size: 32px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2.2; color: #e0e0e0; text-emphasis: transparent;">Emphasis</div>
     </div>
     <div class="label">text-emphasis: transparent</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-emphasis" data-value="open">
     <div class="demo-area">
       <div style="font-size: 32px; padding: 24px 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2.2; color: #e0e0e0; text-emphasis: open;">Emphasis</div>
     </div>
     <div class="label">text-emphasis: open</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

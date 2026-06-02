@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>animation-range</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .demo-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
 .demo-title { font-size: 13px; color: #e0e0e0; font-weight: 600; }
 .timeline-full { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(90deg, transparent, transparent 9.8%, rgba(255,255,255,0.08) 9.8%, rgba(255,255,255,0.08) 10.2%); }
@@ -26,222 +28,224 @@
 <h1>Animation Range</h1>
 <p class="prop-name">animation-range</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="normal">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: normal;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: normal</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="10px">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: 10px;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="cover">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: cover;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: cover</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="25%">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: 25%;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: 25%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="contain">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: contain;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: contain</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="50%">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: 50%;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: 50%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="entry">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: entry;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: entry</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="100%">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: 100%;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: 100%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="exit">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: exit;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: exit</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="0">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: 0;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: 0</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="entry-crossing">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: entry-crossing;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: entry-crossing</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="exit-crossing">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: exit-crossing;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: exit-crossing</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="cover 10px">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: cover 10px;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: cover 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="contain 10px">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: contain 10px;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: contain 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="entry 10px">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: entry 10px;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: entry 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="exit 10px">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: exit 10px;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: exit 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="entry-crossing 10px">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: entry-crossing 10px;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: entry-crossing 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="exit-crossing 10px">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: exit-crossing 10px;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: exit-crossing 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="cover 25%">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: cover 25%;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: cover 25%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="contain 25%">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: contain 25%;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: contain 25%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="entry 25%">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: entry 25%;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: entry 25%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="exit 25%">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: exit 25%;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: exit 25%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="entry-crossing 25%">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: entry-crossing 25%;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: entry-crossing 25%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="exit-crossing 25%">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: exit-crossing 25%;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: exit-crossing 25%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="cover 50%">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: cover 50%;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: cover 50%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="contain 50%">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: contain 50%;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: contain 50%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="entry 50%">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: entry 50%;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: entry 50%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="exit 50%">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: exit 50%;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: exit 50%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="entry-crossing 50%">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: entry-crossing 50%;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: entry-crossing 50%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="exit-crossing 50%">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: exit-crossing 50%;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: exit-crossing 50%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="cover 100%">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: cover 100%;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: cover 100%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="contain 100%">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: contain 100%;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: contain 100%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="entry 100%">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: entry 100%;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: entry 100%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="exit 100%">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: exit 100%;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: exit 100%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="entry-crossing 100%">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: entry-crossing 100%;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: entry-crossing 100%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-range" data-value="exit-crossing 100%">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px 28px;">
       <div style="position: relative; height: 40px; background: #0f3460; border-radius: 6px; overflow: hidden; animation-range: exit-crossing 100%;"><div class="timeline-full"></div><div class="timeline-range">0% &ndash; 100%</div><div class="marker marker-start"></div><div class="marker marker-end"></div></div>
     </div>
     <div class="label">animation-range: exit-crossing 100%</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

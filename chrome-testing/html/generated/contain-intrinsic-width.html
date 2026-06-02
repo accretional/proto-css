@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>contain-intrinsic-width</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .inner { font-size: 11px; color: #c0c8d4; line-height: 1.5; white-space: nowrap; }
 </style>
 </head>
@@ -19,78 +21,80 @@
 <h1>Contain Intrinsic Width</h1>
 <p class="prop-name">contain-intrinsic-width</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain-intrinsic-width" data-value="none">
     <div class="demo-area">
       <div style="contain: size layout; background: #0f1a30; border: 2px solid #4fc3f7; border-radius: 6px; padding: 12px; height: 60px; overflow: hidden; display: inline-block; contain-intrinsic-width: none;"><div class="inner">Width placeholder text</div></div>
     </div>
     <div class="label">contain-intrinsic-width: none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain-intrinsic-width" data-value="auto none">
     <div class="demo-area">
       <div style="contain: size layout; background: #0f1a30; border: 2px solid #4fc3f7; border-radius: 6px; padding: 12px; height: 60px; overflow: hidden; display: inline-block; contain-intrinsic-width: auto none;"><div class="inner">Width placeholder text</div></div>
     </div>
     <div class="label">contain-intrinsic-width: auto none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain-intrinsic-width" data-value="10px">
     <div class="demo-area">
       <div style="contain: size layout; background: #0f1a30; border: 2px solid #4fc3f7; border-radius: 6px; padding: 12px; height: 60px; overflow: hidden; display: inline-block; contain-intrinsic-width: 10px;"><div class="inner">Width placeholder text</div></div>
     </div>
     <div class="label">contain-intrinsic-width: 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain-intrinsic-width" data-value="auto 10px">
     <div class="demo-area">
       <div style="contain: size layout; background: #0f1a30; border: 2px solid #4fc3f7; border-radius: 6px; padding: 12px; height: 60px; overflow: hidden; display: inline-block; contain-intrinsic-width: auto 10px;"><div class="inner">Width placeholder text</div></div>
     </div>
     <div class="label">contain-intrinsic-width: auto 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain-intrinsic-width" data-value="20px">
     <div class="demo-area">
       <div style="contain: size layout; background: #0f1a30; border: 2px solid #4fc3f7; border-radius: 6px; padding: 12px; height: 60px; overflow: hidden; display: inline-block; contain-intrinsic-width: 20px;"><div class="inner">Width placeholder text</div></div>
     </div>
     <div class="label">contain-intrinsic-width: 20px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain-intrinsic-width" data-value="auto 20px">
     <div class="demo-area">
       <div style="contain: size layout; background: #0f1a30; border: 2px solid #4fc3f7; border-radius: 6px; padding: 12px; height: 60px; overflow: hidden; display: inline-block; contain-intrinsic-width: auto 20px;"><div class="inner">Width placeholder text</div></div>
     </div>
     <div class="label">contain-intrinsic-width: auto 20px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain-intrinsic-width" data-value="50px">
     <div class="demo-area">
       <div style="contain: size layout; background: #0f1a30; border: 2px solid #4fc3f7; border-radius: 6px; padding: 12px; height: 60px; overflow: hidden; display: inline-block; contain-intrinsic-width: 50px;"><div class="inner">Width placeholder text</div></div>
     </div>
     <div class="label">contain-intrinsic-width: 50px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain-intrinsic-width" data-value="auto 50px">
     <div class="demo-area">
       <div style="contain: size layout; background: #0f1a30; border: 2px solid #4fc3f7; border-radius: 6px; padding: 12px; height: 60px; overflow: hidden; display: inline-block; contain-intrinsic-width: auto 50px;"><div class="inner">Width placeholder text</div></div>
     </div>
     <div class="label">contain-intrinsic-width: auto 50px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain-intrinsic-width" data-value="4px">
     <div class="demo-area">
       <div style="contain: size layout; background: #0f1a30; border: 2px solid #4fc3f7; border-radius: 6px; padding: 12px; height: 60px; overflow: hidden; display: inline-block; contain-intrinsic-width: 4px;"><div class="inner">Width placeholder text</div></div>
     </div>
     <div class="label">contain-intrinsic-width: 4px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain-intrinsic-width" data-value="auto 4px">
     <div class="demo-area">
       <div style="contain: size layout; background: #0f1a30; border: 2px solid #4fc3f7; border-radius: 6px; padding: 12px; height: 60px; overflow: hidden; display: inline-block; contain-intrinsic-width: auto 4px;"><div class="inner">Width placeholder text</div></div>
     </div>
     <div class="label">contain-intrinsic-width: auto 4px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain-intrinsic-width" data-value="0">
     <div class="demo-area">
       <div style="contain: size layout; background: #0f1a30; border: 2px solid #4fc3f7; border-radius: 6px; padding: 12px; height: 60px; overflow: hidden; display: inline-block; contain-intrinsic-width: 0;"><div class="inner">Width placeholder text</div></div>
     </div>
     <div class="label">contain-intrinsic-width: 0</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain-intrinsic-width" data-value="auto 0">
     <div class="demo-area">
       <div style="contain: size layout; background: #0f1a30; border: 2px solid #4fc3f7; border-radius: 6px; padding: 12px; height: 60px; overflow: hidden; display: inline-block; contain-intrinsic-width: auto 0;"><div class="inner">Width placeholder text</div></div>
     </div>
     <div class="label">contain-intrinsic-width: auto 0</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

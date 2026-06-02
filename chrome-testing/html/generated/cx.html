@@ -4,49 +4,51 @@
 <meta charset="UTF-8">
 <title>cx</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
 </style>
 </head>
 <body>
 <h1>SVG Circle cx</h1>
 <p class="prop-name">cx</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="cx" data-value="10px" data-target-selector=" circle.target" data-target-id="t0">
     <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 14px 18px;">
       <style>#t0  circle.target { cx: 10px; }</style>
       <svg id="t0" style="width: 300px; height: 100px;"><rect x="0" y="0" width="300" height="100" fill="none" stroke="#0f3460" stroke-width="1" rx="4"/><line x1="50" y1="0" x2="50" y2="100" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/><line x1="150" y1="0" x2="150" y2="100" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/><line x1="250" y1="0" x2="250" y2="100" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/><circle class="target" cx="150" cy="50" r="12" fill="#e9456088" stroke="#e94560" stroke-width="2"/></svg>
     </div>
     <div class="label">cx: 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="cx" data-value="25%" data-target-selector=" circle.target" data-target-id="t1">
     <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 14px 18px;">
       <style>#t1  circle.target { cx: 25%; }</style>
       <svg id="t1" style="width: 300px; height: 100px;"><rect x="0" y="0" width="300" height="100" fill="none" stroke="#0f3460" stroke-width="1" rx="4"/><line x1="50" y1="0" x2="50" y2="100" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/><line x1="150" y1="0" x2="150" y2="100" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/><line x1="250" y1="0" x2="250" y2="100" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/><circle class="target" cx="150" cy="50" r="12" fill="#e9456088" stroke="#e94560" stroke-width="2"/></svg>
     </div>
     <div class="label">cx: 25%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="cx" data-value="50%" data-target-selector=" circle.target" data-target-id="t2">
     <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 14px 18px;">
       <style>#t2  circle.target { cx: 50%; }</style>
       <svg id="t2" style="width: 300px; height: 100px;"><rect x="0" y="0" width="300" height="100" fill="none" stroke="#0f3460" stroke-width="1" rx="4"/><line x1="50" y1="0" x2="50" y2="100" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/><line x1="150" y1="0" x2="150" y2="100" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/><line x1="250" y1="0" x2="250" y2="100" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/><circle class="target" cx="150" cy="50" r="12" fill="#e9456088" stroke="#e94560" stroke-width="2"/></svg>
     </div>
     <div class="label">cx: 50%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="cx" data-value="100%" data-target-selector=" circle.target" data-target-id="t3">
     <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 14px 18px;">
       <style>#t3  circle.target { cx: 100%; }</style>
       <svg id="t3" style="width: 300px; height: 100px;"><rect x="0" y="0" width="300" height="100" fill="none" stroke="#0f3460" stroke-width="1" rx="4"/><line x1="50" y1="0" x2="50" y2="100" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/><line x1="150" y1="0" x2="150" y2="100" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/><line x1="250" y1="0" x2="250" y2="100" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/><circle class="target" cx="150" cy="50" r="12" fill="#e9456088" stroke="#e94560" stroke-width="2"/></svg>
     </div>
     <div class="label">cx: 100%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="cx" data-value="0" data-target-selector=" circle.target" data-target-id="t4">
     <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 14px 18px;">
       <style>#t4  circle.target { cx: 0; }</style>
       <svg id="t4" style="width: 300px; height: 100px;"><rect x="0" y="0" width="300" height="100" fill="none" stroke="#0f3460" stroke-width="1" rx="4"/><line x1="50" y1="0" x2="50" y2="100" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/><line x1="150" y1="0" x2="150" y2="100" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/><line x1="250" y1="0" x2="250" y2="100" stroke="#0f3460" stroke-width="1" stroke-dasharray="4"/><circle class="target" cx="150" cy="50" r="12" fill="#e9456088" stroke="#e94560" stroke-width="2"/></svg>
@@ -54,5 +56,7 @@
     <div class="label">cx: 0</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

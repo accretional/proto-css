@@ -4,68 +4,72 @@
 <meta charset="UTF-8">
 <title>font-variant</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
 </style>
 </head>
 <body>
 <h1>Font Variant</h1>
 <p class="prop-name">font-variant</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-variant" data-value="normal">
     <div class="demo-area">
       <div style="font-size: 24px; line-height: 1.5; font-family: Georgia, &#34;Times New Roman&#34;, serif; font-variant: normal;">fi fl 0123456789 Small Caps</div>
     </div>
     <div class="label">font-variant: normal</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-variant" data-value="none">
     <div class="demo-area">
       <div style="font-size: 24px; line-height: 1.5; font-family: Georgia, &#34;Times New Roman&#34;, serif; font-variant: none;">fi fl 0123456789 Small Caps</div>
     </div>
     <div class="label">font-variant: none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-variant" data-value="common-ligatures">
     <div class="demo-area">
       <div style="font-size: 24px; line-height: 1.5; font-family: Georgia, &#34;Times New Roman&#34;, serif; font-variant: common-ligatures;">fi fl 0123456789 Small Caps</div>
     </div>
     <div class="label">font-variant: common-ligatures</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-variant" data-value="no-common-ligatures">
     <div class="demo-area">
       <div style="font-size: 24px; line-height: 1.5; font-family: Georgia, &#34;Times New Roman&#34;, serif; font-variant: no-common-ligatures;">fi fl 0123456789 Small Caps</div>
     </div>
     <div class="label">font-variant: no-common-ligatures</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-variant" data-value="discretionary-ligatures">
     <div class="demo-area">
       <div style="font-size: 24px; line-height: 1.5; font-family: Georgia, &#34;Times New Roman&#34;, serif; font-variant: discretionary-ligatures;">fi fl 0123456789 Small Caps</div>
     </div>
     <div class="label">font-variant: discretionary-ligatures</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-variant" data-value="common-ligatures discretionary-ligatures">
     <div class="demo-area">
       <div style="font-size: 24px; line-height: 1.5; font-family: Georgia, &#34;Times New Roman&#34;, serif; font-variant: common-ligatures discretionary-ligatures;">fi fl 0123456789 Small Caps</div>
     </div>
     <div class="label">font-variant: common-ligatures discretionary-ligatures</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-variant" data-value="no-common-ligatures discretionary-ligatures">
     <div class="demo-area">
       <div style="font-size: 24px; line-height: 1.5; font-family: Georgia, &#34;Times New Roman&#34;, serif; font-variant: no-common-ligatures discretionary-ligatures;">fi fl 0123456789 Small Caps</div>
     </div>
     <div class="label">font-variant: no-common-ligatures discretionary-ligatures</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-variant" data-value="no-discretionary-ligatures">
     <div class="demo-area">
       <div style="font-size: 24px; line-height: 1.5; font-family: Georgia, &#34;Times New Roman&#34;, serif; font-variant: no-discretionary-ligatures;">fi fl 0123456789 Small Caps</div>
     </div>
     <div class="label">font-variant: no-discretionary-ligatures</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

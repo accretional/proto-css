@@ -4,140 +4,144 @@
 <meta charset="UTF-8">
 <title>mask-composite</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
 </style>
 </head>
 <body>
 <h1>Mask Composite</h1>
 <p class="prop-name">mask-composite</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-composite" data-value="add">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 150px;">
       <div style="width: 100%; height: 140px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-composite: add;"></div>
     </div>
     <div class="label">mask-composite: add</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-composite" data-value="subtract">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 150px;">
       <div style="width: 100%; height: 140px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-composite: subtract;"></div>
     </div>
     <div class="label">mask-composite: subtract</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-composite" data-value="intersect">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 150px;">
       <div style="width: 100%; height: 140px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-composite: intersect;"></div>
     </div>
     <div class="label">mask-composite: intersect</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-composite" data-value="exclude">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 150px;">
       <div style="width: 100%; height: 140px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-composite: exclude;"></div>
     </div>
     <div class="label">mask-composite: exclude</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-composite" data-value="add, add">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 150px;">
       <div style="width: 100%; height: 140px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-composite: add, add;"></div>
     </div>
     <div class="label">mask-composite: add, add</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-composite" data-value="subtract, add">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 150px;">
       <div style="width: 100%; height: 140px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-composite: subtract, add;"></div>
     </div>
     <div class="label">mask-composite: subtract, add</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-composite" data-value="intersect, add">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 150px;">
       <div style="width: 100%; height: 140px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-composite: intersect, add;"></div>
     </div>
     <div class="label">mask-composite: intersect, add</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-composite" data-value="exclude, add">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 150px;">
       <div style="width: 100%; height: 140px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-composite: exclude, add;"></div>
     </div>
     <div class="label">mask-composite: exclude, add</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-composite" data-value="add, subtract">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 150px;">
       <div style="width: 100%; height: 140px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-composite: add, subtract;"></div>
     </div>
     <div class="label">mask-composite: add, subtract</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-composite" data-value="subtract, subtract">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 150px;">
       <div style="width: 100%; height: 140px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-composite: subtract, subtract;"></div>
     </div>
     <div class="label">mask-composite: subtract, subtract</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-composite" data-value="intersect, subtract">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 150px;">
       <div style="width: 100%; height: 140px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-composite: intersect, subtract;"></div>
     </div>
     <div class="label">mask-composite: intersect, subtract</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-composite" data-value="exclude, subtract">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 150px;">
       <div style="width: 100%; height: 140px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-composite: exclude, subtract;"></div>
     </div>
     <div class="label">mask-composite: exclude, subtract</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-composite" data-value="add, intersect">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 150px;">
       <div style="width: 100%; height: 140px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-composite: add, intersect;"></div>
     </div>
     <div class="label">mask-composite: add, intersect</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-composite" data-value="subtract, intersect">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 150px;">
       <div style="width: 100%; height: 140px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-composite: subtract, intersect;"></div>
     </div>
     <div class="label">mask-composite: subtract, intersect</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-composite" data-value="intersect, intersect">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 150px;">
       <div style="width: 100%; height: 140px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-composite: intersect, intersect;"></div>
     </div>
     <div class="label">mask-composite: intersect, intersect</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-composite" data-value="exclude, intersect">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 150px;">
       <div style="width: 100%; height: 140px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-composite: exclude, intersect;"></div>
     </div>
     <div class="label">mask-composite: exclude, intersect</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-composite" data-value="add, exclude">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 150px;">
       <div style="width: 100%; height: 140px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-composite: add, exclude;"></div>
     </div>
     <div class="label">mask-composite: add, exclude</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-composite" data-value="subtract, exclude">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 150px;">
       <div style="width: 100%; height: 140px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-composite: subtract, exclude;"></div>
     </div>
     <div class="label">mask-composite: subtract, exclude</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-composite" data-value="intersect, exclude">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 150px;">
       <div style="width: 100%; height: 140px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-composite: intersect, exclude;"></div>
     </div>
     <div class="label">mask-composite: intersect, exclude</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-composite" data-value="exclude, exclude">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 150px;">
       <div style="width: 100%; height: 140px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff, #4ade80); border-radius: 8px; -webkit-mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-image: radial-gradient(circle 70px at 35% 50%, black 60%, transparent 61%), radial-gradient(circle 70px at 65% 50%, black 60%, transparent 61%); mask-composite: exclude, exclude;"></div>
     </div>
     <div class="label">mask-composite: exclude, exclude</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

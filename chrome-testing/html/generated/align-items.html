@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>align-items</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .item { width: 36px; background: #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; }
 .item:nth-child(1) { height: 40px; }
 .item:nth-child(2) { height: 70px; }
@@ -23,162 +25,164 @@
 <h1>Align Items</h1>
 <p class="prop-name">align-items</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="align-items" data-value="normal">
     <div class="demo-area">
       <div style="display: flex; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-items: normal;"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div>
     </div>
     <div class="label">align-items: normal</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="align-items" data-value="stretch">
     <div class="demo-area">
       <div style="display: flex; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-items: stretch;"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div>
     </div>
     <div class="label">align-items: stretch</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="align-items" data-value="baseline">
     <div class="demo-area">
       <div style="display: flex; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-items: baseline;"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div>
     </div>
     <div class="label">align-items: baseline</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="align-items" data-value="center">
     <div class="demo-area">
       <div style="display: flex; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-items: center;"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div>
     </div>
     <div class="label">align-items: center</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="align-items" data-value="first baseline">
     <div class="demo-area">
       <div style="display: flex; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-items: first baseline;"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div>
     </div>
     <div class="label">align-items: first baseline</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="align-items" data-value="unsafe center">
     <div class="demo-area">
       <div style="display: flex; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-items: unsafe center;"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div>
     </div>
     <div class="label">align-items: unsafe center</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="align-items" data-value="last baseline">
     <div class="demo-area">
       <div style="display: flex; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-items: last baseline;"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div>
     </div>
     <div class="label">align-items: last baseline</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="align-items" data-value="safe center">
     <div class="demo-area">
       <div style="display: flex; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-items: safe center;"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div>
     </div>
     <div class="label">align-items: safe center</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="align-items" data-value="start">
     <div class="demo-area">
       <div style="display: flex; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-items: start;"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div>
     </div>
     <div class="label">align-items: start</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="align-items" data-value="unsafe start">
     <div class="demo-area">
       <div style="display: flex; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-items: unsafe start;"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div>
     </div>
     <div class="label">align-items: unsafe start</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="align-items" data-value="safe start">
     <div class="demo-area">
       <div style="display: flex; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-items: safe start;"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div>
     </div>
     <div class="label">align-items: safe start</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="align-items" data-value="end">
     <div class="demo-area">
       <div style="display: flex; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-items: end;"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div>
     </div>
     <div class="label">align-items: end</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="align-items" data-value="unsafe end">
     <div class="demo-area">
       <div style="display: flex; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-items: unsafe end;"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div>
     </div>
     <div class="label">align-items: unsafe end</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="align-items" data-value="safe end">
     <div class="demo-area">
       <div style="display: flex; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-items: safe end;"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div>
     </div>
     <div class="label">align-items: safe end</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="align-items" data-value="self-start">
     <div class="demo-area">
       <div style="display: flex; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-items: self-start;"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div>
     </div>
     <div class="label">align-items: self-start</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="align-items" data-value="unsafe self-start">
     <div class="demo-area">
       <div style="display: flex; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-items: unsafe self-start;"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div>
     </div>
     <div class="label">align-items: unsafe self-start</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="align-items" data-value="safe self-start">
     <div class="demo-area">
       <div style="display: flex; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-items: safe self-start;"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div>
     </div>
     <div class="label">align-items: safe self-start</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="align-items" data-value="self-end">
     <div class="demo-area">
       <div style="display: flex; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-items: self-end;"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div>
     </div>
     <div class="label">align-items: self-end</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="align-items" data-value="unsafe self-end">
     <div class="demo-area">
       <div style="display: flex; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-items: unsafe self-end;"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div>
     </div>
     <div class="label">align-items: unsafe self-end</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="align-items" data-value="safe self-end">
     <div class="demo-area">
       <div style="display: flex; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-items: safe self-end;"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div>
     </div>
     <div class="label">align-items: safe self-end</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="align-items" data-value="flex-start">
     <div class="demo-area">
       <div style="display: flex; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-items: flex-start;"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div>
     </div>
     <div class="label">align-items: flex-start</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="align-items" data-value="unsafe flex-start">
     <div class="demo-area">
       <div style="display: flex; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-items: unsafe flex-start;"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div>
     </div>
     <div class="label">align-items: unsafe flex-start</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="align-items" data-value="safe flex-start">
     <div class="demo-area">
       <div style="display: flex; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-items: safe flex-start;"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div>
     </div>
     <div class="label">align-items: safe flex-start</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="align-items" data-value="flex-end">
     <div class="demo-area">
       <div style="display: flex; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-items: flex-end;"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div>
     </div>
     <div class="label">align-items: flex-end</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="align-items" data-value="unsafe flex-end">
     <div class="demo-area">
       <div style="display: flex; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-items: unsafe flex-end;"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div>
     </div>
     <div class="label">align-items: unsafe flex-end</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="align-items" data-value="safe flex-end">
     <div class="demo-area">
       <div style="display: flex; width: 180px; height: 160px; background: #0f3460; border-radius: 8px; gap: 8px; padding: 8px; align-items: safe flex-end;"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div>
     </div>
     <div class="label">align-items: safe flex-end</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

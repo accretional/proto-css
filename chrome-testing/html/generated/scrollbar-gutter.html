@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>scrollbar-gutter</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .box-wrapper { background: #0a0a1a; border-radius: 8px; padding: 12px; }
 .gutter-visual { display: flex; align-items: stretch; height: 40px; border-radius: 4px; overflow: hidden; margin-top: 10px; }
 .gv-content { flex: 1; background: #0f3460; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #7b8794; }
@@ -24,24 +26,26 @@
 <h1>Scrollbar Gutter</h1>
 <p class="prop-name">scrollbar-gutter</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scrollbar-gutter" data-value="auto">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
       <div style="width: 100%; height: 140px; overflow: auto; border: 1px solid #333; border-radius: 6px; padding: 12px; font-size: 12px; color: #9ca3af; line-height: 1.6; background: #16213e; scrollbar-gutter: auto;"><p>Line 1: Scrollbar gutter reserves space for the scrollbar.</p><p>Line 2: This prevents layout shifts when content changes.</p><p>Line 3: The stable value always reserves space.</p><p>Line 4: Both-edges reserves space on both sides.</p><p>Line 5: Additional content to ensure scrolling is triggered.</p><p>Line 6: More content for overflow.</p><p>Line 7: Even more text to guarantee the scrollbar appears.</p><p>Line 8: This line pushes content well beyond the container height.</p><p>Line 9: Final line of overflow content.</p></div>
     </div>
     <div class="label">scrollbar-gutter: auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scrollbar-gutter" data-value="stable">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
       <div style="width: 100%; height: 140px; overflow: auto; border: 1px solid #333; border-radius: 6px; padding: 12px; font-size: 12px; color: #9ca3af; line-height: 1.6; background: #16213e; scrollbar-gutter: stable;"><p>Line 1: Scrollbar gutter reserves space for the scrollbar.</p><p>Line 2: This prevents layout shifts when content changes.</p><p>Line 3: The stable value always reserves space.</p><p>Line 4: Both-edges reserves space on both sides.</p><p>Line 5: Additional content to ensure scrolling is triggered.</p><p>Line 6: More content for overflow.</p><p>Line 7: Even more text to guarantee the scrollbar appears.</p><p>Line 8: This line pushes content well beyond the container height.</p><p>Line 9: Final line of overflow content.</p></div>
     </div>
     <div class="label">scrollbar-gutter: stable</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scrollbar-gutter" data-value="stable both-edges">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
       <div style="width: 100%; height: 140px; overflow: auto; border: 1px solid #333; border-radius: 6px; padding: 12px; font-size: 12px; color: #9ca3af; line-height: 1.6; background: #16213e; scrollbar-gutter: stable both-edges;"><p>Line 1: Scrollbar gutter reserves space for the scrollbar.</p><p>Line 2: This prevents layout shifts when content changes.</p><p>Line 3: The stable value always reserves space.</p><p>Line 4: Both-edges reserves space on both sides.</p><p>Line 5: Additional content to ensure scrolling is triggered.</p><p>Line 6: More content for overflow.</p><p>Line 7: Even more text to guarantee the scrollbar appears.</p><p>Line 8: This line pushes content well beyond the container height.</p><p>Line 9: Final line of overflow content.</p></div>
     </div>
     <div class="label">scrollbar-gutter: stable both-edges</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>scroll-snap-align</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .snap-item { min-width: 200px; height: 120px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 600; color: #fff; flex-shrink: 0; }
 </style>
 </head>
@@ -19,126 +21,128 @@
 <h1>Scroll Snap Align</h1>
 <p class="prop-name">scroll-snap-align</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-snap-align" data-value="none">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px;">
       <div style="width: 240px; height: 120px; overflow-x: scroll; display: flex; gap: 0; scroll-snap-type: x mandatory; border-radius: 8px; background: #0f3460; scroll-snap-align: none;"><div class="snap-item" style="background: #e94560;">A</div><div class="snap-item" style="background: #0f3460;">B</div><div class="snap-item" style="background: #533483;">C</div><div class="snap-item" style="background: #2b6e4e;">D</div></div>
     </div>
     <div class="label">scroll-snap-align: none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-snap-align" data-value="start">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px;">
       <div style="width: 240px; height: 120px; overflow-x: scroll; display: flex; gap: 0; scroll-snap-type: x mandatory; border-radius: 8px; background: #0f3460; scroll-snap-align: start;"><div class="snap-item" style="background: #e94560;">A</div><div class="snap-item" style="background: #0f3460;">B</div><div class="snap-item" style="background: #533483;">C</div><div class="snap-item" style="background: #2b6e4e;">D</div></div>
     </div>
     <div class="label">scroll-snap-align: start</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-snap-align" data-value="end">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px;">
       <div style="width: 240px; height: 120px; overflow-x: scroll; display: flex; gap: 0; scroll-snap-type: x mandatory; border-radius: 8px; background: #0f3460; scroll-snap-align: end;"><div class="snap-item" style="background: #e94560;">A</div><div class="snap-item" style="background: #0f3460;">B</div><div class="snap-item" style="background: #533483;">C</div><div class="snap-item" style="background: #2b6e4e;">D</div></div>
     </div>
     <div class="label">scroll-snap-align: end</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-snap-align" data-value="center">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px;">
       <div style="width: 240px; height: 120px; overflow-x: scroll; display: flex; gap: 0; scroll-snap-type: x mandatory; border-radius: 8px; background: #0f3460; scroll-snap-align: center;"><div class="snap-item" style="background: #e94560;">A</div><div class="snap-item" style="background: #0f3460;">B</div><div class="snap-item" style="background: #533483;">C</div><div class="snap-item" style="background: #2b6e4e;">D</div></div>
     </div>
     <div class="label">scroll-snap-align: center</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-snap-align" data-value="none none">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px;">
       <div style="width: 240px; height: 120px; overflow-x: scroll; display: flex; gap: 0; scroll-snap-type: x mandatory; border-radius: 8px; background: #0f3460; scroll-snap-align: none none;"><div class="snap-item" style="background: #e94560;">A</div><div class="snap-item" style="background: #0f3460;">B</div><div class="snap-item" style="background: #533483;">C</div><div class="snap-item" style="background: #2b6e4e;">D</div></div>
     </div>
     <div class="label">scroll-snap-align: none none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-snap-align" data-value="start none">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px;">
       <div style="width: 240px; height: 120px; overflow-x: scroll; display: flex; gap: 0; scroll-snap-type: x mandatory; border-radius: 8px; background: #0f3460; scroll-snap-align: start none;"><div class="snap-item" style="background: #e94560;">A</div><div class="snap-item" style="background: #0f3460;">B</div><div class="snap-item" style="background: #533483;">C</div><div class="snap-item" style="background: #2b6e4e;">D</div></div>
     </div>
     <div class="label">scroll-snap-align: start none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-snap-align" data-value="end none">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px;">
       <div style="width: 240px; height: 120px; overflow-x: scroll; display: flex; gap: 0; scroll-snap-type: x mandatory; border-radius: 8px; background: #0f3460; scroll-snap-align: end none;"><div class="snap-item" style="background: #e94560;">A</div><div class="snap-item" style="background: #0f3460;">B</div><div class="snap-item" style="background: #533483;">C</div><div class="snap-item" style="background: #2b6e4e;">D</div></div>
     </div>
     <div class="label">scroll-snap-align: end none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-snap-align" data-value="center none">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px;">
       <div style="width: 240px; height: 120px; overflow-x: scroll; display: flex; gap: 0; scroll-snap-type: x mandatory; border-radius: 8px; background: #0f3460; scroll-snap-align: center none;"><div class="snap-item" style="background: #e94560;">A</div><div class="snap-item" style="background: #0f3460;">B</div><div class="snap-item" style="background: #533483;">C</div><div class="snap-item" style="background: #2b6e4e;">D</div></div>
     </div>
     <div class="label">scroll-snap-align: center none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-snap-align" data-value="none start">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px;">
       <div style="width: 240px; height: 120px; overflow-x: scroll; display: flex; gap: 0; scroll-snap-type: x mandatory; border-radius: 8px; background: #0f3460; scroll-snap-align: none start;"><div class="snap-item" style="background: #e94560;">A</div><div class="snap-item" style="background: #0f3460;">B</div><div class="snap-item" style="background: #533483;">C</div><div class="snap-item" style="background: #2b6e4e;">D</div></div>
     </div>
     <div class="label">scroll-snap-align: none start</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-snap-align" data-value="start start">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px;">
       <div style="width: 240px; height: 120px; overflow-x: scroll; display: flex; gap: 0; scroll-snap-type: x mandatory; border-radius: 8px; background: #0f3460; scroll-snap-align: start start;"><div class="snap-item" style="background: #e94560;">A</div><div class="snap-item" style="background: #0f3460;">B</div><div class="snap-item" style="background: #533483;">C</div><div class="snap-item" style="background: #2b6e4e;">D</div></div>
     </div>
     <div class="label">scroll-snap-align: start start</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-snap-align" data-value="end start">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px;">
       <div style="width: 240px; height: 120px; overflow-x: scroll; display: flex; gap: 0; scroll-snap-type: x mandatory; border-radius: 8px; background: #0f3460; scroll-snap-align: end start;"><div class="snap-item" style="background: #e94560;">A</div><div class="snap-item" style="background: #0f3460;">B</div><div class="snap-item" style="background: #533483;">C</div><div class="snap-item" style="background: #2b6e4e;">D</div></div>
     </div>
     <div class="label">scroll-snap-align: end start</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-snap-align" data-value="center start">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px;">
       <div style="width: 240px; height: 120px; overflow-x: scroll; display: flex; gap: 0; scroll-snap-type: x mandatory; border-radius: 8px; background: #0f3460; scroll-snap-align: center start;"><div class="snap-item" style="background: #e94560;">A</div><div class="snap-item" style="background: #0f3460;">B</div><div class="snap-item" style="background: #533483;">C</div><div class="snap-item" style="background: #2b6e4e;">D</div></div>
     </div>
     <div class="label">scroll-snap-align: center start</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-snap-align" data-value="none end">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px;">
       <div style="width: 240px; height: 120px; overflow-x: scroll; display: flex; gap: 0; scroll-snap-type: x mandatory; border-radius: 8px; background: #0f3460; scroll-snap-align: none end;"><div class="snap-item" style="background: #e94560;">A</div><div class="snap-item" style="background: #0f3460;">B</div><div class="snap-item" style="background: #533483;">C</div><div class="snap-item" style="background: #2b6e4e;">D</div></div>
     </div>
     <div class="label">scroll-snap-align: none end</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-snap-align" data-value="start end">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px;">
       <div style="width: 240px; height: 120px; overflow-x: scroll; display: flex; gap: 0; scroll-snap-type: x mandatory; border-radius: 8px; background: #0f3460; scroll-snap-align: start end;"><div class="snap-item" style="background: #e94560;">A</div><div class="snap-item" style="background: #0f3460;">B</div><div class="snap-item" style="background: #533483;">C</div><div class="snap-item" style="background: #2b6e4e;">D</div></div>
     </div>
     <div class="label">scroll-snap-align: start end</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-snap-align" data-value="end end">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px;">
       <div style="width: 240px; height: 120px; overflow-x: scroll; display: flex; gap: 0; scroll-snap-type: x mandatory; border-radius: 8px; background: #0f3460; scroll-snap-align: end end;"><div class="snap-item" style="background: #e94560;">A</div><div class="snap-item" style="background: #0f3460;">B</div><div class="snap-item" style="background: #533483;">C</div><div class="snap-item" style="background: #2b6e4e;">D</div></div>
     </div>
     <div class="label">scroll-snap-align: end end</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-snap-align" data-value="center end">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px;">
       <div style="width: 240px; height: 120px; overflow-x: scroll; display: flex; gap: 0; scroll-snap-type: x mandatory; border-radius: 8px; background: #0f3460; scroll-snap-align: center end;"><div class="snap-item" style="background: #e94560;">A</div><div class="snap-item" style="background: #0f3460;">B</div><div class="snap-item" style="background: #533483;">C</div><div class="snap-item" style="background: #2b6e4e;">D</div></div>
     </div>
     <div class="label">scroll-snap-align: center end</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-snap-align" data-value="none center">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px;">
       <div style="width: 240px; height: 120px; overflow-x: scroll; display: flex; gap: 0; scroll-snap-type: x mandatory; border-radius: 8px; background: #0f3460; scroll-snap-align: none center;"><div class="snap-item" style="background: #e94560;">A</div><div class="snap-item" style="background: #0f3460;">B</div><div class="snap-item" style="background: #533483;">C</div><div class="snap-item" style="background: #2b6e4e;">D</div></div>
     </div>
     <div class="label">scroll-snap-align: none center</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-snap-align" data-value="start center">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px;">
       <div style="width: 240px; height: 120px; overflow-x: scroll; display: flex; gap: 0; scroll-snap-type: x mandatory; border-radius: 8px; background: #0f3460; scroll-snap-align: start center;"><div class="snap-item" style="background: #e94560;">A</div><div class="snap-item" style="background: #0f3460;">B</div><div class="snap-item" style="background: #533483;">C</div><div class="snap-item" style="background: #2b6e4e;">D</div></div>
     </div>
     <div class="label">scroll-snap-align: start center</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-snap-align" data-value="end center">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px;">
       <div style="width: 240px; height: 120px; overflow-x: scroll; display: flex; gap: 0; scroll-snap-type: x mandatory; border-radius: 8px; background: #0f3460; scroll-snap-align: end center;"><div class="snap-item" style="background: #e94560;">A</div><div class="snap-item" style="background: #0f3460;">B</div><div class="snap-item" style="background: #533483;">C</div><div class="snap-item" style="background: #2b6e4e;">D</div></div>
     </div>
     <div class="label">scroll-snap-align: end center</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-snap-align" data-value="center center">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 280px;">
       <div style="width: 240px; height: 120px; overflow-x: scroll; display: flex; gap: 0; scroll-snap-type: x mandatory; border-radius: 8px; background: #0f3460; scroll-snap-align: center center;"><div class="snap-item" style="background: #e94560;">A</div><div class="snap-item" style="background: #0f3460;">B</div><div class="snap-item" style="background: #533483;">C</div><div class="snap-item" style="background: #2b6e4e;">D</div></div>
     </div>
     <div class="label">scroll-snap-align: center center</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

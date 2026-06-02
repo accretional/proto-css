@@ -4,134 +4,138 @@
 <meta charset="UTF-8">
 <title>text-emphasis-style</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
 </style>
 </head>
 <body>
 <h1>Text Emphasis Style</h1>
 <p class="prop-name">text-emphasis-style</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-emphasis-style" data-value="none">
     <div class="demo-area">
       <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: none;">Styled</div>
     </div>
     <div class="label">text-emphasis-style: none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-emphasis-style" data-value="&#34;example&#34;">
     <div class="demo-area">
       <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: &#34;example&#34;;">Styled</div>
     </div>
     <div class="label">text-emphasis-style: &#34;example&#34;</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-emphasis-style" data-value="filled">
     <div class="demo-area">
       <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: filled;">Styled</div>
     </div>
     <div class="label">text-emphasis-style: filled</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-emphasis-style" data-value="open">
     <div class="demo-area">
       <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: open;">Styled</div>
     </div>
     <div class="label">text-emphasis-style: open</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-emphasis-style" data-value="dot">
     <div class="demo-area">
       <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: dot;">Styled</div>
     </div>
     <div class="label">text-emphasis-style: dot</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-emphasis-style" data-value="filled dot">
     <div class="demo-area">
       <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: filled dot;">Styled</div>
     </div>
     <div class="label">text-emphasis-style: filled dot</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-emphasis-style" data-value="open dot">
     <div class="demo-area">
       <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: open dot;">Styled</div>
     </div>
     <div class="label">text-emphasis-style: open dot</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-emphasis-style" data-value="circle">
     <div class="demo-area">
       <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: circle;">Styled</div>
     </div>
     <div class="label">text-emphasis-style: circle</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-emphasis-style" data-value="filled circle">
     <div class="demo-area">
       <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: filled circle;">Styled</div>
     </div>
     <div class="label">text-emphasis-style: filled circle</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-emphasis-style" data-value="open circle">
     <div class="demo-area">
       <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: open circle;">Styled</div>
     </div>
     <div class="label">text-emphasis-style: open circle</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-emphasis-style" data-value="double-circle">
     <div class="demo-area">
       <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: double-circle;">Styled</div>
     </div>
     <div class="label">text-emphasis-style: double-circle</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-emphasis-style" data-value="filled double-circle">
     <div class="demo-area">
       <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: filled double-circle;">Styled</div>
     </div>
     <div class="label">text-emphasis-style: filled double-circle</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-emphasis-style" data-value="open double-circle">
     <div class="demo-area">
       <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: open double-circle;">Styled</div>
     </div>
     <div class="label">text-emphasis-style: open double-circle</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-emphasis-style" data-value="triangle">
     <div class="demo-area">
       <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: triangle;">Styled</div>
     </div>
     <div class="label">text-emphasis-style: triangle</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-emphasis-style" data-value="filled triangle">
     <div class="demo-area">
       <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: filled triangle;">Styled</div>
     </div>
     <div class="label">text-emphasis-style: filled triangle</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-emphasis-style" data-value="open triangle">
     <div class="demo-area">
       <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: open triangle;">Styled</div>
     </div>
     <div class="label">text-emphasis-style: open triangle</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-emphasis-style" data-value="sesame">
     <div class="demo-area">
       <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: sesame;">Styled</div>
     </div>
     <div class="label">text-emphasis-style: sesame</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-emphasis-style" data-value="filled sesame">
     <div class="demo-area">
       <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: filled sesame;">Styled</div>
     </div>
     <div class="label">text-emphasis-style: filled sesame</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-emphasis-style" data-value="open sesame">
     <div class="demo-area">
       <div style="font-size: 26px; padding: 22px 14px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; line-height: 2; text-emphasis-color: #a78bfa; text-emphasis-style: open sesame;">Styled</div>
     </div>
     <div class="label">text-emphasis-style: open sesame</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

@@ -4,62 +4,66 @@
 <meta charset="UTF-8">
 <title>column-height</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
 </style>
 </head>
 <body>
 <h1>Column Height</h1>
 <p class="prop-name">column-height</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="column-height" data-value="auto">
     <div class="demo-area">
       <div style="column-count: 3; column-rule: 1px solid #3a3a5a; font-size: 11px; line-height: 1.5; color: #c0c8d4; background: #0f1a30; border-radius: 6px; padding: 12px; overflow: hidden; column-height: auto;">Columns grow to fit their content naturally. The container expands or contracts as needed. Text flows across columns and the overall height adjusts to accommodate all content. This simulates how column-height would constrain the column layout if supported.</div>
     </div>
     <div class="label">column-height: auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="column-height" data-value="10px">
     <div class="demo-area">
       <div style="column-count: 3; column-rule: 1px solid #3a3a5a; font-size: 11px; line-height: 1.5; color: #c0c8d4; background: #0f1a30; border-radius: 6px; padding: 12px; overflow: hidden; column-height: 10px;">Columns grow to fit their content naturally. The container expands or contracts as needed. Text flows across columns and the overall height adjusts to accommodate all content. This simulates how column-height would constrain the column layout if supported.</div>
     </div>
     <div class="label">column-height: 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="column-height" data-value="20px">
     <div class="demo-area">
       <div style="column-count: 3; column-rule: 1px solid #3a3a5a; font-size: 11px; line-height: 1.5; color: #c0c8d4; background: #0f1a30; border-radius: 6px; padding: 12px; overflow: hidden; column-height: 20px;">Columns grow to fit their content naturally. The container expands or contracts as needed. Text flows across columns and the overall height adjusts to accommodate all content. This simulates how column-height would constrain the column layout if supported.</div>
     </div>
     <div class="label">column-height: 20px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="column-height" data-value="50px">
     <div class="demo-area">
       <div style="column-count: 3; column-rule: 1px solid #3a3a5a; font-size: 11px; line-height: 1.5; color: #c0c8d4; background: #0f1a30; border-radius: 6px; padding: 12px; overflow: hidden; column-height: 50px;">Columns grow to fit their content naturally. The container expands or contracts as needed. Text flows across columns and the overall height adjusts to accommodate all content. This simulates how column-height would constrain the column layout if supported.</div>
     </div>
     <div class="label">column-height: 50px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="column-height" data-value="4px">
     <div class="demo-area">
       <div style="column-count: 3; column-rule: 1px solid #3a3a5a; font-size: 11px; line-height: 1.5; color: #c0c8d4; background: #0f1a30; border-radius: 6px; padding: 12px; overflow: hidden; column-height: 4px;">Columns grow to fit their content naturally. The container expands or contracts as needed. Text flows across columns and the overall height adjusts to accommodate all content. This simulates how column-height would constrain the column layout if supported.</div>
     </div>
     <div class="label">column-height: 4px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="column-height" data-value="2em">
     <div class="demo-area">
       <div style="column-count: 3; column-rule: 1px solid #3a3a5a; font-size: 11px; line-height: 1.5; color: #c0c8d4; background: #0f1a30; border-radius: 6px; padding: 12px; overflow: hidden; column-height: 2em;">Columns grow to fit their content naturally. The container expands or contracts as needed. Text flows across columns and the overall height adjusts to accommodate all content. This simulates how column-height would constrain the column layout if supported.</div>
     </div>
     <div class="label">column-height: 2em</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="column-height" data-value="0">
     <div class="demo-area">
       <div style="column-count: 3; column-rule: 1px solid #3a3a5a; font-size: 11px; line-height: 1.5; color: #c0c8d4; background: #0f1a30; border-radius: 6px; padding: 12px; overflow: hidden; column-height: 0;">Columns grow to fit their content naturally. The container expands or contracts as needed. Text flows across columns and the overall height adjusts to accommodate all content. This simulates how column-height would constrain the column layout if supported.</div>
     </div>
     <div class="label">column-height: 0</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

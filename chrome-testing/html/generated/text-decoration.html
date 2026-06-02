@@ -4,92 +4,96 @@
 <meta charset="UTF-8">
 <title>text-decoration</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
 </style>
 </head>
 <body>
 <h1>Text Decoration</h1>
 <p class="prop-name">text-decoration</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-decoration" data-value="none">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
       <div style="font-size: 32px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; color: #e0e0e0; line-height: 2; text-decoration-line: underline; text-decoration: none;">Decorated Text</div>
     </div>
     <div class="label">text-decoration: none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-decoration" data-value="auto">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
       <div style="font-size: 32px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; color: #e0e0e0; line-height: 2; text-decoration-line: underline; text-decoration: auto;">Decorated Text</div>
     </div>
     <div class="label">text-decoration: auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-decoration" data-value="solid">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
       <div style="font-size: 32px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; color: #e0e0e0; line-height: 2; text-decoration-line: underline; text-decoration: solid;">Decorated Text</div>
     </div>
     <div class="label">text-decoration: solid</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-decoration" data-value="red">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
       <div style="font-size: 32px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; color: #e0e0e0; line-height: 2; text-decoration-line: underline; text-decoration: red;">Decorated Text</div>
     </div>
     <div class="label">text-decoration: red</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-decoration" data-value="underline">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
       <div style="font-size: 32px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; color: #e0e0e0; line-height: 2; text-decoration-line: underline; text-decoration: underline;">Decorated Text</div>
     </div>
     <div class="label">text-decoration: underline</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-decoration" data-value="from-font">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
       <div style="font-size: 32px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; color: #e0e0e0; line-height: 2; text-decoration-line: underline; text-decoration: from-font;">Decorated Text</div>
     </div>
     <div class="label">text-decoration: from-font</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-decoration" data-value="double">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
       <div style="font-size: 32px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; color: #e0e0e0; line-height: 2; text-decoration-line: underline; text-decoration: double;">Decorated Text</div>
     </div>
     <div class="label">text-decoration: double</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-decoration" data-value="#3498db">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
       <div style="font-size: 32px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; color: #e0e0e0; line-height: 2; text-decoration-line: underline; text-decoration: #3498db;">Decorated Text</div>
     </div>
     <div class="label">text-decoration: #3498db</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-decoration" data-value="spelling-error">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
       <div style="font-size: 32px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; color: #e0e0e0; line-height: 2; text-decoration-line: underline; text-decoration: spelling-error;">Decorated Text</div>
     </div>
     <div class="label">text-decoration: spelling-error</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-decoration" data-value="10px">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
       <div style="font-size: 32px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; color: #e0e0e0; line-height: 2; text-decoration-line: underline; text-decoration: 10px;">Decorated Text</div>
     </div>
     <div class="label">text-decoration: 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-decoration" data-value="dotted">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
       <div style="font-size: 32px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; color: #e0e0e0; line-height: 2; text-decoration-line: underline; text-decoration: dotted;">Decorated Text</div>
     </div>
     <div class="label">text-decoration: dotted</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-decoration" data-value="rgb(0, 128, 0)">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; min-width: 260px; flex: 1;">
       <div style="font-size: 32px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; color: #e0e0e0; line-height: 2; text-decoration-line: underline; text-decoration: rgb(0, 128, 0);">Decorated Text</div>
     </div>
     <div class="label">text-decoration: rgb(0, 128, 0)</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

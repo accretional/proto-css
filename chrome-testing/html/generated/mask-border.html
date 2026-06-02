@@ -4,230 +4,234 @@
 <meta charset="UTF-8">
 <title>mask-border</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
 </style>
 </head>
 <body>
 <h1>Mask Border</h1>
 <p class="prop-name">mask-border</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="none">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: none;">Content Area</div>
     </div>
     <div class="label">mask-border: none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="linear-gradient(red, blue)">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: linear-gradient(red, blue);">Content Area</div>
     </div>
     <div class="label">mask-border: linear-gradient(red, blue)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="url(statue.svg)">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: url(statue.svg);">Content Area</div>
     </div>
     <div class="label">mask-border: url(statue.svg)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="1">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: 1;">Content Area</div>
     </div>
     <div class="label">mask-border: 1</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="none 1">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: none 1;">Content Area</div>
     </div>
     <div class="label">mask-border: none 1</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="linear-gradient(red, blue) 1">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: linear-gradient(red, blue) 1;">Content Area</div>
     </div>
     <div class="label">mask-border: linear-gradient(red, blue) 1</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="url(statue.svg) 1">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: url(statue.svg) 1;">Content Area</div>
     </div>
     <div class="label">mask-border: url(statue.svg) 1</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="25%">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: 25%;">Content Area</div>
     </div>
     <div class="label">mask-border: 25%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="none 25%">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: none 25%;">Content Area</div>
     </div>
     <div class="label">mask-border: none 25%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="linear-gradient(red, blue) 25%">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: linear-gradient(red, blue) 25%;">Content Area</div>
     </div>
     <div class="label">mask-border: linear-gradient(red, blue) 25%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="url(statue.svg) 25%">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: url(statue.svg) 25%;">Content Area</div>
     </div>
     <div class="label">mask-border: url(statue.svg) 25%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="0.5">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: 0.5;">Content Area</div>
     </div>
     <div class="label">mask-border: 0.5</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="none 0.5">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: none 0.5;">Content Area</div>
     </div>
     <div class="label">mask-border: none 0.5</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="linear-gradient(red, blue) 0.5">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: linear-gradient(red, blue) 0.5;">Content Area</div>
     </div>
     <div class="label">mask-border: linear-gradient(red, blue) 0.5</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="url(statue.svg) 0.5">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: url(statue.svg) 0.5;">Content Area</div>
     </div>
     <div class="label">mask-border: url(statue.svg) 0.5</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="50%">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: 50%;">Content Area</div>
     </div>
     <div class="label">mask-border: 50%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="none 50%">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: none 50%;">Content Area</div>
     </div>
     <div class="label">mask-border: none 50%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="linear-gradient(red, blue) 50%">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: linear-gradient(red, blue) 50%;">Content Area</div>
     </div>
     <div class="label">mask-border: linear-gradient(red, blue) 50%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="url(statue.svg) 50%">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: url(statue.svg) 50%;">Content Area</div>
     </div>
     <div class="label">mask-border: url(statue.svg) 50%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="2">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: 2;">Content Area</div>
     </div>
     <div class="label">mask-border: 2</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="none 2">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: none 2;">Content Area</div>
     </div>
     <div class="label">mask-border: none 2</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="linear-gradient(red, blue) 2">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: linear-gradient(red, blue) 2;">Content Area</div>
     </div>
     <div class="label">mask-border: linear-gradient(red, blue) 2</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="url(statue.svg) 2">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: url(statue.svg) 2;">Content Area</div>
     </div>
     <div class="label">mask-border: url(statue.svg) 2</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="75%">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: 75%;">Content Area</div>
     </div>
     <div class="label">mask-border: 75%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="none 75%">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: none 75%;">Content Area</div>
     </div>
     <div class="label">mask-border: none 75%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="linear-gradient(red, blue) 75%">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: linear-gradient(red, blue) 75%;">Content Area</div>
     </div>
     <div class="label">mask-border: linear-gradient(red, blue) 75%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="url(statue.svg) 75%">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: url(statue.svg) 75%;">Content Area</div>
     </div>
     <div class="label">mask-border: url(statue.svg) 75%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="0">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: 0;">Content Area</div>
     </div>
     <div class="label">mask-border: 0</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="none 0">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: none 0;">Content Area</div>
     </div>
     <div class="label">mask-border: none 0</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="linear-gradient(red, blue) 0">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: linear-gradient(red, blue) 0;">Content Area</div>
     </div>
     <div class="label">mask-border: linear-gradient(red, blue) 0</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="url(statue.svg) 0">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: url(statue.svg) 0;">Content Area</div>
     </div>
     <div class="label">mask-border: url(statue.svg) 0</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="100%">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: 100%;">Content Area</div>
     </div>
     <div class="label">mask-border: 100%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="none 100%">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: none 100%;">Content Area</div>
     </div>
     <div class="label">mask-border: none 100%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="linear-gradient(red, blue) 100%">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: linear-gradient(red, blue) 100%;">Content Area</div>
     </div>
     <div class="label">mask-border: linear-gradient(red, blue) 100%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-border" data-value="url(statue.svg) 100%">
     <div class="demo-area">
       <div style="width: 100%; height: 120px; background: linear-gradient(135deg, #e94560, #0f3460, #00d2ff); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; border-radius: 4px; border: 20px solid transparent; -webkit-mask-image: linear-gradient(to right, black, transparent); mask-image: linear-gradient(to right, black, transparent); border-image-source: linear-gradient(45deg, #e94560, #3498db, #2ecc71); border-image-slice: 1; mask-border: url(statue.svg) 100%;">Content Area</div>
     </div>
     <div class="label">mask-border: url(statue.svg) 100%</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

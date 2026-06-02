@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>image-orientation</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .landscape { width: 100%; height: 100%; background: linear-gradient(180deg, #e94560 0%, #e94560 40%, #0f3460 40%, #0f3460 60%, #53a653 60%); display: flex; align-items: center; justify-content: center; }
 .landscape::after { content: "\25B2"; font-size: 40px; color: rgba(255,255,255,0.6); position: absolute; bottom: 20%; left: 50%; transform: translateX(-50%); }
 .sun { width: 30px; height: 30px; border-radius: 50%; background: #f5c542; position: absolute; top: 15px; right: 25px; }
@@ -22,114 +24,116 @@
 <h1>Image Orientation</h1>
 <p class="prop-name">image-orientation</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="image-orientation" data-value="from-image">
     <div class="demo-area">
       <div style="width: 180px; height: 140px; border-radius: 6px; position: relative; overflow: hidden; image-orientation: from-image;"><div class="landscape"><div class="sun"></div><span class="arrow">TOP &#8593;</span></div></div>
     </div>
     <div class="label">image-orientation: from-image</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="image-orientation" data-value="none">
     <div class="demo-area">
       <div style="width: 180px; height: 140px; border-radius: 6px; position: relative; overflow: hidden; image-orientation: none;"><div class="landscape"><div class="sun"></div><span class="arrow">TOP &#8593;</span></div></div>
     </div>
     <div class="label">image-orientation: none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="image-orientation" data-value="45deg">
     <div class="demo-area">
       <div style="width: 180px; height: 140px; border-radius: 6px; position: relative; overflow: hidden; image-orientation: 45deg;"><div class="landscape"><div class="sun"></div><span class="arrow">TOP &#8593;</span></div></div>
     </div>
     <div class="label">image-orientation: 45deg</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="image-orientation" data-value="flip">
     <div class="demo-area">
       <div style="width: 180px; height: 140px; border-radius: 6px; position: relative; overflow: hidden; image-orientation: flip;"><div class="landscape"><div class="sun"></div><span class="arrow">TOP &#8593;</span></div></div>
     </div>
     <div class="label">image-orientation: flip</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="image-orientation" data-value="90deg">
     <div class="demo-area">
       <div style="width: 180px; height: 140px; border-radius: 6px; position: relative; overflow: hidden; image-orientation: 90deg;"><div class="landscape"><div class="sun"></div><span class="arrow">TOP &#8593;</span></div></div>
     </div>
     <div class="label">image-orientation: 90deg</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="image-orientation" data-value="flip 45deg">
     <div class="demo-area">
       <div style="width: 180px; height: 140px; border-radius: 6px; position: relative; overflow: hidden; image-orientation: flip 45deg;"><div class="landscape"><div class="sun"></div><span class="arrow">TOP &#8593;</span></div></div>
     </div>
     <div class="label">image-orientation: flip 45deg</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="image-orientation" data-value="180deg">
     <div class="demo-area">
       <div style="width: 180px; height: 140px; border-radius: 6px; position: relative; overflow: hidden; image-orientation: 180deg;"><div class="landscape"><div class="sun"></div><span class="arrow">TOP &#8593;</span></div></div>
     </div>
     <div class="label">image-orientation: 180deg</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="image-orientation" data-value="flip 90deg">
     <div class="demo-area">
       <div style="width: 180px; height: 140px; border-radius: 6px; position: relative; overflow: hidden; image-orientation: flip 90deg;"><div class="landscape"><div class="sun"></div><span class="arrow">TOP &#8593;</span></div></div>
     </div>
     <div class="label">image-orientation: flip 90deg</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="image-orientation" data-value="0deg">
     <div class="demo-area">
       <div style="width: 180px; height: 140px; border-radius: 6px; position: relative; overflow: hidden; image-orientation: 0deg;"><div class="landscape"><div class="sun"></div><span class="arrow">TOP &#8593;</span></div></div>
     </div>
     <div class="label">image-orientation: 0deg</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="image-orientation" data-value="flip 180deg">
     <div class="demo-area">
       <div style="width: 180px; height: 140px; border-radius: 6px; position: relative; overflow: hidden; image-orientation: flip 180deg;"><div class="landscape"><div class="sun"></div><span class="arrow">TOP &#8593;</span></div></div>
     </div>
     <div class="label">image-orientation: flip 180deg</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="image-orientation" data-value="360deg">
     <div class="demo-area">
       <div style="width: 180px; height: 140px; border-radius: 6px; position: relative; overflow: hidden; image-orientation: 360deg;"><div class="landscape"><div class="sun"></div><span class="arrow">TOP &#8593;</span></div></div>
     </div>
     <div class="label">image-orientation: 360deg</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="image-orientation" data-value="flip 0deg">
     <div class="demo-area">
       <div style="width: 180px; height: 140px; border-radius: 6px; position: relative; overflow: hidden; image-orientation: flip 0deg;"><div class="landscape"><div class="sun"></div><span class="arrow">TOP &#8593;</span></div></div>
     </div>
     <div class="label">image-orientation: flip 0deg</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="image-orientation" data-value="45deg flip">
     <div class="demo-area">
       <div style="width: 180px; height: 140px; border-radius: 6px; position: relative; overflow: hidden; image-orientation: 45deg flip;"><div class="landscape"><div class="sun"></div><span class="arrow">TOP &#8593;</span></div></div>
     </div>
     <div class="label">image-orientation: 45deg flip</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="image-orientation" data-value="flip 360deg">
     <div class="demo-area">
       <div style="width: 180px; height: 140px; border-radius: 6px; position: relative; overflow: hidden; image-orientation: flip 360deg;"><div class="landscape"><div class="sun"></div><span class="arrow">TOP &#8593;</span></div></div>
     </div>
     <div class="label">image-orientation: flip 360deg</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="image-orientation" data-value="90deg flip">
     <div class="demo-area">
       <div style="width: 180px; height: 140px; border-radius: 6px; position: relative; overflow: hidden; image-orientation: 90deg flip;"><div class="landscape"><div class="sun"></div><span class="arrow">TOP &#8593;</span></div></div>
     </div>
     <div class="label">image-orientation: 90deg flip</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="image-orientation" data-value="180deg flip">
     <div class="demo-area">
       <div style="width: 180px; height: 140px; border-radius: 6px; position: relative; overflow: hidden; image-orientation: 180deg flip;"><div class="landscape"><div class="sun"></div><span class="arrow">TOP &#8593;</span></div></div>
     </div>
     <div class="label">image-orientation: 180deg flip</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="image-orientation" data-value="0deg flip">
     <div class="demo-area">
       <div style="width: 180px; height: 140px; border-radius: 6px; position: relative; overflow: hidden; image-orientation: 0deg flip;"><div class="landscape"><div class="sun"></div><span class="arrow">TOP &#8593;</span></div></div>
     </div>
     <div class="label">image-orientation: 0deg flip</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="image-orientation" data-value="360deg flip">
     <div class="demo-area">
       <div style="width: 180px; height: 140px; border-radius: 6px; position: relative; overflow: hidden; image-orientation: 360deg flip;"><div class="landscape"><div class="sun"></div><span class="arrow">TOP &#8593;</span></div></div>
     </div>
     <div class="label">image-orientation: 360deg flip</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

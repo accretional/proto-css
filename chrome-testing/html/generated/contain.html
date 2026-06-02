@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>contain</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .inner-content { font-size: 11px; line-height: 1.5; color: #c0c8d4; }
 .overflow-child { width: 120%; height: 30px; background: linear-gradient(90deg, rgba(233, 69, 96, 0.4), rgba(233, 69, 96, 0.1)); border: 1px dashed #e94560; border-radius: 4px; margin-top: 8px; display: flex; align-items: center; padding-left: 8px; font-size: 10px; color: #e94560; font-family: monospace; }
 </style>
@@ -20,222 +22,224 @@
 <h1>Contain</h1>
 <p class="prop-name">contain</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="none">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: none;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="strict">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: strict;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: strict</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="content">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: content;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: content</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="size">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: size;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: size</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="layout">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: layout;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: layout</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="style">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: style;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: style</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="paint">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: paint;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: paint</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="inline-size">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: inline-size;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: inline-size</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="layout size">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: layout size;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: layout size</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="style size">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: style size;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: style size</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="paint size">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: paint size;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: paint size</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="size layout">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: size layout;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: size layout</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="layout style">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: layout style;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: layout style</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="style layout">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: style layout;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: style layout</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="paint layout">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: paint layout;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: paint layout</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="inline-size layout">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: inline-size layout;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: inline-size layout</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="layout paint">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: layout paint;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: layout paint</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="style paint">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: style paint;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: style paint</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="paint style">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: paint style;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: paint style</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="size style">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: size style;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: size style</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="layout inline-size">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: layout inline-size;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: layout inline-size</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="style inline-size">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: style inline-size;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: style inline-size</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="paint inline-size">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: paint inline-size;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: paint inline-size</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="inline-size style">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: inline-size style;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: inline-size style</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="size paint">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: size paint;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: size paint</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="inline-size paint">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: inline-size paint;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: inline-size paint</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="size layout style">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: size layout style;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: size layout style</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="inline-size layout style">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: inline-size layout style;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: inline-size layout style</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="size style layout">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: size style layout;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: size style layout</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="inline-size style layout">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: inline-size style layout;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: inline-size style layout</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="size paint layout">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: size paint layout;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: size paint layout</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="inline-size paint layout">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: inline-size paint layout;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: inline-size paint layout</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="size layout paint">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: size layout paint;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: size layout paint</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="inline-size layout paint">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: inline-size layout paint;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: inline-size layout paint</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="size style paint">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: size style paint;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: size style paint</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="contain" data-value="inline-size style paint">
     <div class="demo-area">
       <div style="width: 100%; min-height: 100px; background: #0f1a30; border-radius: 6px; padding: 12px; border: 2px solid #2a2a4a; position: relative; contain: inline-size style paint;"><div class="inner-content">Content inside a contained element. Overflow child below tests containment behavior.</div><div class="overflow-child">overflows parent</div></div>
     </div>
     <div class="label">contain: inline-size style paint</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

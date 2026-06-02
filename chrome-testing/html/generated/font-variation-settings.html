@@ -5,80 +5,84 @@
 <title>font-variation-settings</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@100..1000&display=swap');
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
 </style>
 </head>
 <body>
 <h1>Font Variation Settings</h1>
 <p class="prop-name">font-variation-settings</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-variation-settings" data-value="normal">
     <div class="demo-area">
       <span style="font-family: &#39;Roboto Flex&#39;, sans-serif; color: #fff; font-size: 30px; white-space: nowrap; font-variation-settings: normal;">Default Text</span>
     </div>
     <div class="label">font-variation-settings: normal</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-variation-settings" data-value="&#34;liga&#34; 1">
     <div class="demo-area">
       <span style="font-family: &#39;Roboto Flex&#39;, sans-serif; color: #fff; font-size: 30px; white-space: nowrap; font-variation-settings: &#34;liga&#34; 1;">Default Text</span>
     </div>
     <div class="label">font-variation-settings: &#34;liga&#34; 1</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-variation-settings" data-value="&#34;smcp&#34; 1">
     <div class="demo-area">
       <span style="font-family: &#39;Roboto Flex&#39;, sans-serif; color: #fff; font-size: 30px; white-space: nowrap; font-variation-settings: &#34;smcp&#34; 1;">Default Text</span>
     </div>
     <div class="label">font-variation-settings: &#34;smcp&#34; 1</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-variation-settings" data-value="&#34;onum&#34; 1">
     <div class="demo-area">
       <span style="font-family: &#39;Roboto Flex&#39;, sans-serif; color: #fff; font-size: 30px; white-space: nowrap; font-variation-settings: &#34;onum&#34; 1;">Default Text</span>
     </div>
     <div class="label">font-variation-settings: &#34;onum&#34; 1</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-variation-settings" data-value="&#34;kern&#34; 1">
     <div class="demo-area">
       <span style="font-family: &#39;Roboto Flex&#39;, sans-serif; color: #fff; font-size: 30px; white-space: nowrap; font-variation-settings: &#34;kern&#34; 1;">Default Text</span>
     </div>
     <div class="label">font-variation-settings: &#34;kern&#34; 1</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-variation-settings" data-value="&#34;frac&#34; 1">
     <div class="demo-area">
       <span style="font-family: &#39;Roboto Flex&#39;, sans-serif; color: #fff; font-size: 30px; white-space: nowrap; font-variation-settings: &#34;frac&#34; 1;">Default Text</span>
     </div>
     <div class="label">font-variation-settings: &#34;frac&#34; 1</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-variation-settings" data-value="&#34;swsh&#34; 1">
     <div class="demo-area">
       <span style="font-family: &#39;Roboto Flex&#39;, sans-serif; color: #fff; font-size: 30px; white-space: nowrap; font-variation-settings: &#34;swsh&#34; 1;">Default Text</span>
     </div>
     <div class="label">font-variation-settings: &#34;swsh&#34; 1</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-variation-settings" data-value="&#34;liga&#34; 0.5">
     <div class="demo-area">
       <span style="font-family: &#39;Roboto Flex&#39;, sans-serif; color: #fff; font-size: 30px; white-space: nowrap; font-variation-settings: &#34;liga&#34; 0.5;">Default Text</span>
     </div>
     <div class="label">font-variation-settings: &#34;liga&#34; 0.5</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-variation-settings" data-value="&#34;smcp&#34; 0.5">
     <div class="demo-area">
       <span style="font-family: &#39;Roboto Flex&#39;, sans-serif; color: #fff; font-size: 30px; white-space: nowrap; font-variation-settings: &#34;smcp&#34; 0.5;">Default Text</span>
     </div>
     <div class="label">font-variation-settings: &#34;smcp&#34; 0.5</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="font-variation-settings" data-value="&#34;onum&#34; 0.5">
     <div class="demo-area">
       <span style="font-family: &#39;Roboto Flex&#39;, sans-serif; color: #fff; font-size: 30px; white-space: nowrap; font-variation-settings: &#34;onum&#34; 0.5;">Default Text</span>
     </div>
     <div class="label">font-variation-settings: &#34;onum&#34; 0.5</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

@@ -139,16 +139,18 @@ func generateFromBlueprint(bp *bppb.TemplateBlueprint, outPath, prop string, val
 		sb.WriteByte('\n')
 	}
 
-	sb.WriteString(`  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+	sb.WriteString(`  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
   .demos { display: grid; grid-template-columns: repeat(`)
 	sb.WriteString(fmt.Sprintf("%d", cols))
-	sb.WriteString(`, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+	sb.WriteString(`, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
 `)
 
 	// Remaining extra CSS (non-import rules) from blueprint.
@@ -191,8 +193,13 @@ func generateFromBlueprint(bp *bppb.TemplateBlueprint, outPath, prop string, val
 
 	// Stamp out one card per value.
 	for i, val := range values {
-		sb.WriteString(`  <div class="demo-box">
-`)
+		if targetSelector != "" {
+			sb.WriteString(fmt.Sprintf("  <div class=\"demo-box\" data-css-prop=\"%s\" data-value=\"%s\" data-target-selector=\"%s\" data-target-id=\"t%d\">\n",
+				html.EscapeString(cssProp), html.EscapeString(val), html.EscapeString(targetSelector), i))
+		} else {
+			sb.WriteString(fmt.Sprintf("  <div class=\"demo-box\" data-css-prop=\"%s\" data-value=\"%s\">\n",
+				html.EscapeString(cssProp), html.EscapeString(val)))
+		}
 		// Demo area wrapper.
 		wrapStyle := bp.GetWrapperStyle()
 		if wrapStyle != "" {
@@ -266,6 +273,8 @@ func generateFromBlueprint(bp *bppb.TemplateBlueprint, outPath, prop string, val
 	}
 
 	sb.WriteString(`</div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>
 `)
@@ -298,16 +307,18 @@ func generateFallback(outPath, prop, title string, values []string) error {
 	sb.WriteString(html.EscapeString(prop))
 	sb.WriteString(`</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
   .demos { display: grid; grid-template-columns: repeat(`)
 	sb.WriteString(fmt.Sprintf("%d", cols))
-	sb.WriteString(`, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+	sb.WriteString(`, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .target { width: 100%; height: 80px; background: cornflowerblue; border-radius: 6px; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
 </style>
 </head>
 <body>
@@ -321,15 +332,18 @@ func generateFallback(outPath, prop, title string, values []string) error {
 `)
 
 	for _, val := range values {
-		sb.WriteString(fmt.Sprintf(`  <div class="demo-box">
+		sb.WriteString(fmt.Sprintf(`  <div class="demo-box" data-css-prop="%s" data-value="%s">
     <div class="target" style="%s: %s;"></div>
     <div class="label">%s: %s</div>
   </div>
 `, html.EscapeString(prop), html.EscapeString(val),
+			html.EscapeString(prop), html.EscapeString(val),
 			html.EscapeString(prop), html.EscapeString(val)))
 	}
 
 	sb.WriteString(`</div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>
 `)

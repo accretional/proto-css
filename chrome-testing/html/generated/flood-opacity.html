@@ -4,21 +4,23 @@
 <meta charset="UTF-8">
 <title>flood-opacity</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
 </style>
 </head>
 <body>
 <h1>Flood Opacity (SVG Filter)</h1>
 <p class="prop-name">flood-opacity</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="flood-opacity" data-value="1">
     <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
       <svg width="220" height="160" viewBox="0 0 220 160"><defs><filter id="fo" x="0" y="0" width="100%" height="100%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse">
       <feFlood style="flood-color: #00ff88; flood-opacity: 1;"></feFlood>
@@ -26,7 +28,7 @@
     </div>
     <div class="label">flood-opacity: 1</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="flood-opacity" data-value="25%">
     <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
       <svg width="220" height="160" viewBox="0 0 220 160"><defs><filter id="fo" x="0" y="0" width="100%" height="100%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse">
       <feFlood style="flood-color: #00ff88; flood-opacity: 25%;"></feFlood>
@@ -34,7 +36,7 @@
     </div>
     <div class="label">flood-opacity: 25%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="flood-opacity" data-value="0.5">
     <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
       <svg width="220" height="160" viewBox="0 0 220 160"><defs><filter id="fo" x="0" y="0" width="100%" height="100%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse">
       <feFlood style="flood-color: #00ff88; flood-opacity: 0.5;"></feFlood>
@@ -42,7 +44,7 @@
     </div>
     <div class="label">flood-opacity: 0.5</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="flood-opacity" data-value="50%">
     <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
       <svg width="220" height="160" viewBox="0 0 220 160"><defs><filter id="fo" x="0" y="0" width="100%" height="100%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse">
       <feFlood style="flood-color: #00ff88; flood-opacity: 50%;"></feFlood>
@@ -50,7 +52,7 @@
     </div>
     <div class="label">flood-opacity: 50%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="flood-opacity" data-value="2">
     <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
       <svg width="220" height="160" viewBox="0 0 220 160"><defs><filter id="fo" x="0" y="0" width="100%" height="100%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse">
       <feFlood style="flood-color: #00ff88; flood-opacity: 2;"></feFlood>
@@ -58,7 +60,7 @@
     </div>
     <div class="label">flood-opacity: 2</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="flood-opacity" data-value="75%">
     <div class="demo-area" style="display: flex; flex-direction: column; align-items: center;">
       <svg width="220" height="160" viewBox="0 0 220 160"><defs><filter id="fo" x="0" y="0" width="100%" height="100%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse">
       <feFlood style="flood-color: #00ff88; flood-opacity: 75%;"></feFlood>
@@ -67,5 +69,7 @@
     <div class="label">flood-opacity: 75%</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

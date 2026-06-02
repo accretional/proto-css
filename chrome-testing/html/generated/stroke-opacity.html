@@ -4,21 +4,23 @@
 <meta charset="UTF-8">
 <title>stroke-opacity</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
 </style>
 </head>
 <body>
 <h1>Stroke Opacity</h1>
 <p class="prop-name">stroke-opacity</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="stroke-opacity" data-value="1">
     <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
       <svg width="160" height="160">
       <rect style="fill: #2a2a4e; stroke: #06b6d4; stroke-width: 10; x: 20px; y: 20px; width: 120px; height: 120px; rx: 8px; stroke-opacity: 1;"></rect>
@@ -26,7 +28,7 @@
     </div>
     <div class="label">stroke-opacity: 1</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="stroke-opacity" data-value="25%">
     <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
       <svg width="160" height="160">
       <rect style="fill: #2a2a4e; stroke: #06b6d4; stroke-width: 10; x: 20px; y: 20px; width: 120px; height: 120px; rx: 8px; stroke-opacity: 25%;"></rect>
@@ -34,7 +36,7 @@
     </div>
     <div class="label">stroke-opacity: 25%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="stroke-opacity" data-value="0.5">
     <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
       <svg width="160" height="160">
       <rect style="fill: #2a2a4e; stroke: #06b6d4; stroke-width: 10; x: 20px; y: 20px; width: 120px; height: 120px; rx: 8px; stroke-opacity: 0.5;"></rect>
@@ -42,7 +44,7 @@
     </div>
     <div class="label">stroke-opacity: 0.5</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="stroke-opacity" data-value="50%">
     <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
       <svg width="160" height="160">
       <rect style="fill: #2a2a4e; stroke: #06b6d4; stroke-width: 10; x: 20px; y: 20px; width: 120px; height: 120px; rx: 8px; stroke-opacity: 50%;"></rect>
@@ -50,7 +52,7 @@
     </div>
     <div class="label">stroke-opacity: 50%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="stroke-opacity" data-value="2">
     <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
       <svg width="160" height="160">
       <rect style="fill: #2a2a4e; stroke: #06b6d4; stroke-width: 10; x: 20px; y: 20px; width: 120px; height: 120px; rx: 8px; stroke-opacity: 2;"></rect>
@@ -58,7 +60,7 @@
     </div>
     <div class="label">stroke-opacity: 2</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="stroke-opacity" data-value="75%">
     <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
       <svg width="160" height="160">
       <rect style="fill: #2a2a4e; stroke: #06b6d4; stroke-width: 10; x: 20px; y: 20px; width: 120px; height: 120px; rx: 8px; stroke-opacity: 75%;"></rect>
@@ -66,7 +68,7 @@
     </div>
     <div class="label">stroke-opacity: 75%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="stroke-opacity" data-value="0">
     <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
       <svg width="160" height="160">
       <rect style="fill: #2a2a4e; stroke: #06b6d4; stroke-width: 10; x: 20px; y: 20px; width: 120px; height: 120px; rx: 8px; stroke-opacity: 0;"></rect>
@@ -74,7 +76,7 @@
     </div>
     <div class="label">stroke-opacity: 0</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="stroke-opacity" data-value="100%">
     <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
       <svg width="160" height="160">
       <rect style="fill: #2a2a4e; stroke: #06b6d4; stroke-width: 10; x: 20px; y: 20px; width: 120px; height: 120px; rx: 8px; stroke-opacity: 100%;"></rect>
@@ -82,7 +84,7 @@
     </div>
     <div class="label">stroke-opacity: 100%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="stroke-opacity" data-value="0%">
     <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px 28px;">
       <svg width="160" height="160">
       <rect style="fill: #2a2a4e; stroke: #06b6d4; stroke-width: 10; x: 20px; y: 20px; width: 120px; height: 120px; rx: 8px; stroke-opacity: 0%;"></rect>
@@ -91,5 +93,7 @@
     <div class="label">stroke-opacity: 0%</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

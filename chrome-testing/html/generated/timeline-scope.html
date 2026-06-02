@@ -4,44 +4,48 @@
 <meta charset="UTF-8">
 <title>timeline-scope</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
 </style>
 </head>
 <body>
 <h1>Timeline Scope</h1>
 <p class="prop-name">timeline-scope</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="timeline-scope" data-value="none">
     <div class="demo-area">
       <div style="background: #0a0a1a; border-radius: 8px; padding: 16px; font-family: monospace; font-size: 12px; line-height: 1.7; color: #a5b4fc; min-height: 100px; timeline-scope: none;"><span style="color:#6b7280; font-style:italic;">/* Extend a named timeline to an ancestor */</span><br><span style="color:#e94560;">.ancestor</span> {<br>&nbsp;&nbsp;<span style="color:#34d399;">timeline-scope</span>: <span style="color:#fbbf24;">--my-scroll</span>;<br>&nbsp;&nbsp;<span style="color:#34d399;">animation-timeline</span>: <span style="color:#fbbf24;">--my-scroll</span>;<br>}<br><br><span style="color:#e94560;">.descendant</span> {<br>&nbsp;&nbsp;<span style="color:#34d399;">scroll-timeline-name</span>: <span style="color:#fbbf24;">--my-scroll</span>;<br>}</div>
     </div>
     <div class="label">timeline-scope: none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="timeline-scope" data-value="all">
     <div class="demo-area">
       <div style="background: #0a0a1a; border-radius: 8px; padding: 16px; font-family: monospace; font-size: 12px; line-height: 1.7; color: #a5b4fc; min-height: 100px; timeline-scope: all;"><span style="color:#6b7280; font-style:italic;">/* Extend a named timeline to an ancestor */</span><br><span style="color:#e94560;">.ancestor</span> {<br>&nbsp;&nbsp;<span style="color:#34d399;">timeline-scope</span>: <span style="color:#fbbf24;">--my-scroll</span>;<br>&nbsp;&nbsp;<span style="color:#34d399;">animation-timeline</span>: <span style="color:#fbbf24;">--my-scroll</span>;<br>}<br><br><span style="color:#e94560;">.descendant</span> {<br>&nbsp;&nbsp;<span style="color:#34d399;">scroll-timeline-name</span>: <span style="color:#fbbf24;">--my-scroll</span>;<br>}</div>
     </div>
     <div class="label">timeline-scope: all</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="timeline-scope" data-value="--my-var">
     <div class="demo-area">
       <div style="background: #0a0a1a; border-radius: 8px; padding: 16px; font-family: monospace; font-size: 12px; line-height: 1.7; color: #a5b4fc; min-height: 100px; timeline-scope: --my-var;"><span style="color:#6b7280; font-style:italic;">/* Extend a named timeline to an ancestor */</span><br><span style="color:#e94560;">.ancestor</span> {<br>&nbsp;&nbsp;<span style="color:#34d399;">timeline-scope</span>: <span style="color:#fbbf24;">--my-scroll</span>;<br>&nbsp;&nbsp;<span style="color:#34d399;">animation-timeline</span>: <span style="color:#fbbf24;">--my-scroll</span>;<br>}<br><br><span style="color:#e94560;">.descendant</span> {<br>&nbsp;&nbsp;<span style="color:#34d399;">scroll-timeline-name</span>: <span style="color:#fbbf24;">--my-scroll</span>;<br>}</div>
     </div>
     <div class="label">timeline-scope: --my-var</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="timeline-scope" data-value="--my-var, --my-var">
     <div class="demo-area">
       <div style="background: #0a0a1a; border-radius: 8px; padding: 16px; font-family: monospace; font-size: 12px; line-height: 1.7; color: #a5b4fc; min-height: 100px; timeline-scope: --my-var, --my-var;"><span style="color:#6b7280; font-style:italic;">/* Extend a named timeline to an ancestor */</span><br><span style="color:#e94560;">.ancestor</span> {<br>&nbsp;&nbsp;<span style="color:#34d399;">timeline-scope</span>: <span style="color:#fbbf24;">--my-scroll</span>;<br>&nbsp;&nbsp;<span style="color:#34d399;">animation-timeline</span>: <span style="color:#fbbf24;">--my-scroll</span>;<br>}<br><br><span style="color:#e94560;">.descendant</span> {<br>&nbsp;&nbsp;<span style="color:#34d399;">scroll-timeline-name</span>: <span style="color:#fbbf24;">--my-scroll</span>;<br>}</div>
     </div>
     <div class="label">timeline-scope: --my-var, --my-var</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

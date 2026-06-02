@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>stroke-miterlimit</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   svg { width: 220px; height: 200px; }
 </style>
 </head>
@@ -19,28 +21,28 @@
 <h1>Stroke Miter Limit</h1>
 <p class="prop-name">stroke-miterlimit</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="stroke-miterlimit" data-value="1" data-target-selector=" polyline.target" data-target-id="t0">
     <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px;">
       <style>#t0  polyline.target { stroke-miterlimit: 1; }</style>
       <svg id="t0" style="display: block;"><polyline class="target" points="30,170 110,20 190,170" fill="none" stroke="#06b6d4" stroke-width="16" stroke-linejoin="miter"/><polyline points="30,170 110,20 190,170" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="3 3"/></svg>
     </div>
     <div class="label">stroke-miterlimit: 1</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="stroke-miterlimit" data-value="0.5" data-target-selector=" polyline.target" data-target-id="t1">
     <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px;">
       <style>#t1  polyline.target { stroke-miterlimit: 0.5; }</style>
       <svg id="t1" style="display: block;"><polyline class="target" points="30,170 110,20 190,170" fill="none" stroke="#06b6d4" stroke-width="16" stroke-linejoin="miter"/><polyline points="30,170 110,20 190,170" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="3 3"/></svg>
     </div>
     <div class="label">stroke-miterlimit: 0.5</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="stroke-miterlimit" data-value="2" data-target-selector=" polyline.target" data-target-id="t2">
     <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px;">
       <style>#t2  polyline.target { stroke-miterlimit: 2; }</style>
       <svg id="t2" style="display: block;"><polyline class="target" points="30,170 110,20 190,170" fill="none" stroke="#06b6d4" stroke-width="16" stroke-linejoin="miter"/><polyline points="30,170 110,20 190,170" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="3 3"/></svg>
     </div>
     <div class="label">stroke-miterlimit: 2</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="stroke-miterlimit" data-value="0" data-target-selector=" polyline.target" data-target-id="t3">
     <div class="demo-area" style="display: flex; flex-direction: column; align-items: center; background: #16213e; border-radius: 12px; padding: 24px;">
       <style>#t3  polyline.target { stroke-miterlimit: 0; }</style>
       <svg id="t3" style="display: block;"><polyline class="target" points="30,170 110,20 190,170" fill="none" stroke="#06b6d4" stroke-width="16" stroke-linejoin="miter"/><polyline points="30,170 110,20 190,170" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="3 3"/></svg>
@@ -48,5 +50,7 @@
     <div class="label">stroke-miterlimit: 0</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

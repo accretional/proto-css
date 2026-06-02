@@ -4,236 +4,240 @@
 <meta charset="UTF-8">
 <title>text-overflow</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
 </style>
 </head>
 <body>
 <h1>Text Overflow</h1>
 <p class="prop-name">text-overflow</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="clip">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: clip;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: clip</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="ellipsis">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: ellipsis;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: ellipsis</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="&#34;example&#34;">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: &#34;example&#34;;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: &#34;example&#34;</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="fade">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: fade;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: fade</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="fade(10px)">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: fade(10px);">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: fade(10px)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="fade(25%)">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: fade(25%);">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: fade(25%)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="fade(50%)">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: fade(50%);">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: fade(50%)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="fade(100%)">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: fade(100%);">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: fade(100%)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="fade(0)">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: fade(0);">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: fade(0)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="clip clip">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: clip clip;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: clip clip</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="ellipsis clip">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: ellipsis clip;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: ellipsis clip</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="&#34;example&#34; clip">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: &#34;example&#34; clip;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: &#34;example&#34; clip</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="fade clip">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: fade clip;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: fade clip</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="fade(10px) clip">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: fade(10px) clip;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: fade(10px) clip</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="fade(25%) clip">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: fade(25%) clip;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: fade(25%) clip</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="fade(50%) clip">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: fade(50%) clip;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: fade(50%) clip</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="fade(100%) clip">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: fade(100%) clip;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: fade(100%) clip</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="fade(0) clip">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: fade(0) clip;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: fade(0) clip</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="clip ellipsis">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: clip ellipsis;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: clip ellipsis</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="ellipsis ellipsis">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: ellipsis ellipsis;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: ellipsis ellipsis</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="&#34;example&#34; ellipsis">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: &#34;example&#34; ellipsis;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: &#34;example&#34; ellipsis</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="fade ellipsis">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: fade ellipsis;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: fade ellipsis</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="fade(10px) ellipsis">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: fade(10px) ellipsis;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: fade(10px) ellipsis</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="fade(25%) ellipsis">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: fade(25%) ellipsis;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: fade(25%) ellipsis</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="fade(50%) ellipsis">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: fade(50%) ellipsis;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: fade(50%) ellipsis</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="fade(100%) ellipsis">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: fade(100%) ellipsis;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: fade(100%) ellipsis</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="fade(0) ellipsis">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: fade(0) ellipsis;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: fade(0) ellipsis</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="clip &#34;example&#34;">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: clip &#34;example&#34;;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: clip &#34;example&#34;</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="ellipsis &#34;example&#34;">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: ellipsis &#34;example&#34;;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: ellipsis &#34;example&#34;</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="&#34;example&#34; &#34;example&#34;">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: &#34;example&#34; &#34;example&#34;;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: &#34;example&#34; &#34;example&#34;</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="fade &#34;example&#34;">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: fade &#34;example&#34;;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: fade &#34;example&#34;</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="fade(10px) &#34;example&#34;">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: fade(10px) &#34;example&#34;;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: fade(10px) &#34;example&#34;</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="fade(25%) &#34;example&#34;">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: fade(25%) &#34;example&#34;;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: fade(25%) &#34;example&#34;</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="fade(50%) &#34;example&#34;">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: fade(50%) &#34;example&#34;;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: fade(50%) &#34;example&#34;</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="fade(100%) &#34;example&#34;">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: fade(100%) &#34;example&#34;;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: fade(100%) &#34;example&#34;</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-overflow" data-value="fade(0) &#34;example&#34;">
     <div class="demo-area">
       <div style="font-size: 18px; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; white-space: nowrap; overflow: hidden; width: 150px; text-overflow: fade(0) &#34;example&#34;;">This is a very long text that should be truncated with an ellipsis indicator</div>
     </div>
     <div class="label">text-overflow: fade(0) &#34;example&#34;</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

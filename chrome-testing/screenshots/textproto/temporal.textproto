@@ -1,4 +1,4 @@
-# Temporal mode: 5 screenshots with delays to capture animation/transition progress.
+# Temporal mode: 6 screenshots at 500ms intervals to capture animation/transition/interaction progress.
 # After frame 1, toggles .active class on targets to trigger transitions.
 # Placeholders: {{URL}}, {{OUTPUT_DIR}}, {{SLUG}}
 
@@ -45,7 +45,7 @@ steps: {
 steps: {
   label: "wait_2"
   wait: {
-    milliseconds: 300
+    milliseconds: 500
   }
 }
 
@@ -60,7 +60,7 @@ steps: {
 steps: {
   label: "wait_3"
   wait: {
-    milliseconds: 300
+    milliseconds: 500
   }
 }
 
@@ -75,7 +75,7 @@ steps: {
 steps: {
   label: "wait_4"
   wait: {
-    milliseconds: 300
+    milliseconds: 500
   }
 }
 
@@ -90,7 +90,7 @@ steps: {
 steps: {
   label: "wait_5"
   wait: {
-    milliseconds: 400
+    milliseconds: 500
   }
 }
 
@@ -98,6 +98,21 @@ steps: {
   label: "frame_5"
   screenshot: {
     output_path: "{{OUTPUT_DIR}}/5.png"
+    format: "png"
+  }
+}
+
+steps: {
+  label: "wait_6"
+  wait: {
+    milliseconds: 500
+  }
+}
+
+steps: {
+  label: "frame_6"
+  screenshot: {
+    output_path: "{{OUTPUT_DIR}}/6.png"
     format: "png"
   }
 }

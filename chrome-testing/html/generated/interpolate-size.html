@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>interpolate-size</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .instruction { font-size: 11px; color: #9ca3af; margin-bottom: 12px; font-style: italic; }
 .vis-row { display: flex; gap: 8px; align-items: flex-end; margin-bottom: 12px; }
 .vis-box { border-radius: 4px; display: flex; align-items: flex-end; justify-content: center; padding: 4px; font-size: 9px; font-family: monospace; color: rgba(255,255,255,0.7); width: 60px; background: linear-gradient(180deg, #e94560, #921b33); }
@@ -22,18 +24,20 @@
 <h1>Interpolate Size</h1>
 <p class="prop-name">interpolate-size</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="interpolate-size" data-value="numeric-only">
     <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 24px; width: 360px;">
       <div style="background: #0f3460; border-radius: 6px; padding: 16px; min-height: 200px; interpolate-size: numeric-only;"><p class="instruction">Transition behavior with keyword sizes like auto</p><div class="vis-row"><div class="vis-box" style="height: 40px;">40px</div><div class="arrow">&#8594;</div><div class="vis-box" style="height: 100px;">100px</div></div><div class="vis-row"><div class="vis-box" style="height: 40px;">40px</div><div class="arrow">&#8594;</div><div class="vis-box" style="height: 80px;">auto</div></div></div>
     </div>
     <div class="label">interpolate-size: numeric-only</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="interpolate-size" data-value="allow-keywords">
     <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 24px; width: 360px;">
       <div style="background: #0f3460; border-radius: 6px; padding: 16px; min-height: 200px; interpolate-size: allow-keywords;"><p class="instruction">Transition behavior with keyword sizes like auto</p><div class="vis-row"><div class="vis-box" style="height: 40px;">40px</div><div class="arrow">&#8594;</div><div class="vis-box" style="height: 100px;">100px</div></div><div class="vis-row"><div class="vis-box" style="height: 40px;">40px</div><div class="arrow">&#8594;</div><div class="vis-box" style="height: 80px;">auto</div></div></div>
     </div>
     <div class="label">interpolate-size: allow-keywords</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

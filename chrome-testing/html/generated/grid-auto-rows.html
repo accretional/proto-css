@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>grid-auto-rows</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .cell { background: #0f3460; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #e94560; font-weight: 600; padding: 6px; }
 .cell:nth-child(n+4) { background: #1a4a7a; }
 </style>
@@ -20,198 +22,200 @@
 <h1>Grid Auto Rows</h1>
 <p class="prop-name">grid-auto-rows</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="10px">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: 10px;"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="minmax(10px, 10px)">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: minmax(10px, 10px);"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: minmax(10px, 10px)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="fit-content(10px)">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: fit-content(10px);"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: fit-content(10px)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="0fr">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: 0fr;"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: 0fr</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="fit-content(25%)">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: fit-content(25%);"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: fit-content(25%)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="min-content">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: min-content;"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: min-content</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="minmax(min-content, 10px)">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: minmax(min-content, 10px);"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: minmax(min-content, 10px)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="fit-content(50%)">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: fit-content(50%);"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: fit-content(50%)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="max-content">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: max-content;"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: max-content</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="minmax(25%, 10px)">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: minmax(25%, 10px);"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: minmax(25%, 10px)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="fit-content(100%)">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: fit-content(100%);"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: fit-content(100%)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="auto">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: auto;"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="minmax(max-content, 10px)">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: minmax(max-content, 10px);"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: minmax(max-content, 10px)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="fit-content(0)">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: fit-content(0);"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: fit-content(0)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="25%">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: 25%;"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: 25%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="minmax(50%, 10px)">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: minmax(50%, 10px);"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: minmax(50%, 10px)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="+0fr">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: +0fr;"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: +0fr</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="minmax(auto, 10px)">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: minmax(auto, 10px);"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: minmax(auto, 10px)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="50%">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: 50%;"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: 50%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="minmax(100%, 10px)">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: minmax(100%, 10px);"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: minmax(100%, 10px)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="var(--my-var)">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: var(--my-var);"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: var(--my-var)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="100%">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: 100%;"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: 100%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="minmax(0, 10px)">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: minmax(0, 10px);"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: minmax(0, 10px)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="1fr">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: 1fr;"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: 1fr</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="0">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: 0;"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: 0</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="+1fr">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: +1fr;"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: +1fr</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="2fr">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: 2fr;"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: 2fr</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="+2fr">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: +2fr;"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: +2fr</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="3fr">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: 3fr;"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: 3fr</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="+3fr">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: +3fr;"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: +3fr</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="4fr">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: 4fr;"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: 4fr</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="grid-auto-rows" data-value="+4fr">
     <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 40px; gap: 8px; min-width: 300px; grid-auto-rows: +4fr;"><div class="cell">Defined</div><div class="cell">40px</div><div class="cell">40px</div><div class="cell">Auto 1</div><div class="cell">Auto 2</div><div class="cell">Auto 3</div><div class="cell">Auto 4</div><div class="cell">Auto 5</div><div class="cell">Auto 6</div></div>
     </div>
     <div class="label">grid-auto-rows: +4fr</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

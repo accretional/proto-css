@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>row-gap</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .grid-item { background: #0f3460; border: 1px solid #e94560; border-radius: 4px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; color: #e2b714; }
 </style>
 </head>
@@ -19,78 +21,80 @@
 <h1>Row Gap</h1>
 <p class="prop-name">row-gap</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="row-gap" data-value="normal">
     <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 16px; width: 200px; display: flex; flex-direction: column; align-items: center;">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 6px; width: 100%; row-gap: normal;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div><div class="grid-item">7</div><div class="grid-item">8</div><div class="grid-item">9</div></div>
     </div>
     <div class="label">row-gap: normal</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="row-gap" data-value="10px">
     <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 16px; width: 200px; display: flex; flex-direction: column; align-items: center;">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 6px; width: 100%; row-gap: 10px;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div><div class="grid-item">7</div><div class="grid-item">8</div><div class="grid-item">9</div></div>
     </div>
     <div class="label">row-gap: 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="row-gap" data-value="25%">
     <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 16px; width: 200px; display: flex; flex-direction: column; align-items: center;">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 6px; width: 100%; row-gap: 25%;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div><div class="grid-item">7</div><div class="grid-item">8</div><div class="grid-item">9</div></div>
     </div>
     <div class="label">row-gap: 25%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="row-gap" data-value="hairline">
     <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 16px; width: 200px; display: flex; flex-direction: column; align-items: center;">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 6px; width: 100%; row-gap: hairline;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div><div class="grid-item">7</div><div class="grid-item">8</div><div class="grid-item">9</div></div>
     </div>
     <div class="label">row-gap: hairline</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="row-gap" data-value="50%">
     <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 16px; width: 200px; display: flex; flex-direction: column; align-items: center;">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 6px; width: 100%; row-gap: 50%;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div><div class="grid-item">7</div><div class="grid-item">8</div><div class="grid-item">9</div></div>
     </div>
     <div class="label">row-gap: 50%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="row-gap" data-value="thin">
     <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 16px; width: 200px; display: flex; flex-direction: column; align-items: center;">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 6px; width: 100%; row-gap: thin;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div><div class="grid-item">7</div><div class="grid-item">8</div><div class="grid-item">9</div></div>
     </div>
     <div class="label">row-gap: thin</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="row-gap" data-value="0">
     <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 16px; width: 200px; display: flex; flex-direction: column; align-items: center;">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 6px; width: 100%; row-gap: 0;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div><div class="grid-item">7</div><div class="grid-item">8</div><div class="grid-item">9</div></div>
     </div>
     <div class="label">row-gap: 0</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="row-gap" data-value="medium">
     <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 16px; width: 200px; display: flex; flex-direction: column; align-items: center;">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 6px; width: 100%; row-gap: medium;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div><div class="grid-item">7</div><div class="grid-item">8</div><div class="grid-item">9</div></div>
     </div>
     <div class="label">row-gap: medium</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="row-gap" data-value="thick">
     <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 16px; width: 200px; display: flex; flex-direction: column; align-items: center;">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 6px; width: 100%; row-gap: thick;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div><div class="grid-item">7</div><div class="grid-item">8</div><div class="grid-item">9</div></div>
     </div>
     <div class="label">row-gap: thick</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="row-gap" data-value="20px">
     <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 16px; width: 200px; display: flex; flex-direction: column; align-items: center;">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 6px; width: 100%; row-gap: 20px;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div><div class="grid-item">7</div><div class="grid-item">8</div><div class="grid-item">9</div></div>
     </div>
     <div class="label">row-gap: 20px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="row-gap" data-value="50px">
     <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 16px; width: 200px; display: flex; flex-direction: column; align-items: center;">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 6px; width: 100%; row-gap: 50px;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div><div class="grid-item">7</div><div class="grid-item">8</div><div class="grid-item">9</div></div>
     </div>
     <div class="label">row-gap: 50px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="row-gap" data-value="4px">
     <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 16px; width: 200px; display: flex; flex-direction: column; align-items: center;">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 6px; width: 100%; row-gap: 4px;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div><div class="grid-item">7</div><div class="grid-item">8</div><div class="grid-item">9</div></div>
     </div>
     <div class="label">row-gap: 4px</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

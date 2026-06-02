@@ -4,176 +4,180 @@
 <meta charset="UTF-8">
 <title>text-autospace</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
 </style>
 </head>
 <body>
 <h1>Text Autospace</h1>
 <p class="prop-name">text-autospace</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-autospace" data-value="normal">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
       <div style="font-size: 28px; line-height: 1.8; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: normal;">日本語とEnglishの混在テスト123。CSSは便利なWeb技術です。</div>
     </div>
     <div class="label">text-autospace: normal</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-autospace" data-value="no-autospace">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
       <div style="font-size: 28px; line-height: 1.8; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: no-autospace;">日本語とEnglishの混在テスト123。CSSは便利なWeb技術です。</div>
     </div>
     <div class="label">text-autospace: no-autospace</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-autospace" data-value="auto">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
       <div style="font-size: 28px; line-height: 1.8; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: auto;">日本語とEnglishの混在テスト123。CSSは便利なWeb技術です。</div>
     </div>
     <div class="label">text-autospace: auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-autospace" data-value="ideograph-alpha">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
       <div style="font-size: 28px; line-height: 1.8; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-alpha;">日本語とEnglishの混在テスト123。CSSは便利なWeb技術です。</div>
     </div>
     <div class="label">text-autospace: ideograph-alpha</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-autospace" data-value="ideograph-numeric">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
       <div style="font-size: 28px; line-height: 1.8; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-numeric;">日本語とEnglishの混在テスト123。CSSは便利なWeb技術です。</div>
     </div>
     <div class="label">text-autospace: ideograph-numeric</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-autospace" data-value="ideograph-alpha ideograph-numeric">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
       <div style="font-size: 28px; line-height: 1.8; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-alpha ideograph-numeric;">日本語とEnglishの混在テスト123。CSSは便利なWeb技術です。</div>
     </div>
     <div class="label">text-autospace: ideograph-alpha ideograph-numeric</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-autospace" data-value="punctuation">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
       <div style="font-size: 28px; line-height: 1.8; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: punctuation;">日本語とEnglishの混在テスト123。CSSは便利なWeb技術です。</div>
     </div>
     <div class="label">text-autospace: punctuation</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-autospace" data-value="ideograph-alpha punctuation">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
       <div style="font-size: 28px; line-height: 1.8; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-alpha punctuation;">日本語とEnglishの混在テスト123。CSSは便利なWeb技術です。</div>
     </div>
     <div class="label">text-autospace: ideograph-alpha punctuation</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-autospace" data-value="ideograph-numeric punctuation">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
       <div style="font-size: 28px; line-height: 1.8; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-numeric punctuation;">日本語とEnglishの混在テスト123。CSSは便利なWeb技術です。</div>
     </div>
     <div class="label">text-autospace: ideograph-numeric punctuation</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-autospace" data-value="ideograph-alpha ideograph-numeric punctuation">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
       <div style="font-size: 28px; line-height: 1.8; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-alpha ideograph-numeric punctuation;">日本語とEnglishの混在テスト123。CSSは便利なWeb技術です。</div>
     </div>
     <div class="label">text-autospace: ideograph-alpha ideograph-numeric punctuation</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-autospace" data-value="insert">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
       <div style="font-size: 28px; line-height: 1.8; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: insert;">日本語とEnglishの混在テスト123。CSSは便利なWeb技術です。</div>
     </div>
     <div class="label">text-autospace: insert</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-autospace" data-value="ideograph-alpha insert">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
       <div style="font-size: 28px; line-height: 1.8; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-alpha insert;">日本語とEnglishの混在テスト123。CSSは便利なWeb技術です。</div>
     </div>
     <div class="label">text-autospace: ideograph-alpha insert</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-autospace" data-value="ideograph-numeric insert">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
       <div style="font-size: 28px; line-height: 1.8; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-numeric insert;">日本語とEnglishの混在テスト123。CSSは便利なWeb技術です。</div>
     </div>
     <div class="label">text-autospace: ideograph-numeric insert</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-autospace" data-value="ideograph-alpha ideograph-numeric insert">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
       <div style="font-size: 28px; line-height: 1.8; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-alpha ideograph-numeric insert;">日本語とEnglishの混在テスト123。CSSは便利なWeb技術です。</div>
     </div>
     <div class="label">text-autospace: ideograph-alpha ideograph-numeric insert</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-autospace" data-value="punctuation insert">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
       <div style="font-size: 28px; line-height: 1.8; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: punctuation insert;">日本語とEnglishの混在テスト123。CSSは便利なWeb技術です。</div>
     </div>
     <div class="label">text-autospace: punctuation insert</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-autospace" data-value="ideograph-alpha punctuation insert">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
       <div style="font-size: 28px; line-height: 1.8; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-alpha punctuation insert;">日本語とEnglishの混在テスト123。CSSは便利なWeb技術です。</div>
     </div>
     <div class="label">text-autospace: ideograph-alpha punctuation insert</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-autospace" data-value="ideograph-numeric punctuation insert">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
       <div style="font-size: 28px; line-height: 1.8; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-numeric punctuation insert;">日本語とEnglishの混在テスト123。CSSは便利なWeb技術です。</div>
     </div>
     <div class="label">text-autospace: ideograph-numeric punctuation insert</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-autospace" data-value="ideograph-alpha ideograph-numeric punctuation insert">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
       <div style="font-size: 28px; line-height: 1.8; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-alpha ideograph-numeric punctuation insert;">日本語とEnglishの混在テスト123。CSSは便利なWeb技術です。</div>
     </div>
     <div class="label">text-autospace: ideograph-alpha ideograph-numeric punctuation insert</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-autospace" data-value="replace">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
       <div style="font-size: 28px; line-height: 1.8; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: replace;">日本語とEnglishの混在テスト123。CSSは便利なWeb技術です。</div>
     </div>
     <div class="label">text-autospace: replace</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-autospace" data-value="ideograph-alpha replace">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
       <div style="font-size: 28px; line-height: 1.8; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-alpha replace;">日本語とEnglishの混在テスト123。CSSは便利なWeb技術です。</div>
     </div>
     <div class="label">text-autospace: ideograph-alpha replace</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-autospace" data-value="ideograph-numeric replace">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
       <div style="font-size: 28px; line-height: 1.8; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-numeric replace;">日本語とEnglishの混在テスト123。CSSは便利なWeb技術です。</div>
     </div>
     <div class="label">text-autospace: ideograph-numeric replace</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-autospace" data-value="ideograph-alpha ideograph-numeric replace">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
       <div style="font-size: 28px; line-height: 1.8; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-alpha ideograph-numeric replace;">日本語とEnglishの混在テスト123。CSSは便利なWeb技術です。</div>
     </div>
     <div class="label">text-autospace: ideograph-alpha ideograph-numeric replace</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-autospace" data-value="punctuation replace">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
       <div style="font-size: 28px; line-height: 1.8; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: punctuation replace;">日本語とEnglishの混在テスト123。CSSは便利なWeb技術です。</div>
     </div>
     <div class="label">text-autospace: punctuation replace</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-autospace" data-value="ideograph-alpha punctuation replace">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
       <div style="font-size: 28px; line-height: 1.8; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-alpha punctuation replace;">日本語とEnglishの混在テスト123。CSSは便利なWeb技術です。</div>
     </div>
     <div class="label">text-autospace: ideograph-alpha punctuation replace</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-autospace" data-value="ideograph-numeric punctuation replace">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
       <div style="font-size: 28px; line-height: 1.8; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-numeric punctuation replace;">日本語とEnglishの混在テスト123。CSSは便利なWeb技術です。</div>
     </div>
     <div class="label">text-autospace: ideograph-numeric punctuation replace</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="text-autospace" data-value="ideograph-alpha ideograph-numeric punctuation replace">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px;">
       <div style="font-size: 28px; line-height: 1.8; padding: 16px; background: #0f1a30; border-radius: 8px; border: 1px solid #2a2a4a; text-autospace: ideograph-alpha ideograph-numeric punctuation replace;">日本語とEnglishの混在テスト123。CSSは便利なWeb技術です。</div>
     </div>
     <div class="label">text-autospace: ideograph-alpha ideograph-numeric punctuation replace</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

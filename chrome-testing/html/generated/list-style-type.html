@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>list-style-type</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   ul, ol { font-size: 13px; line-height: 2; color: #e0e0e0; }
 </style>
 </head>
@@ -19,222 +21,224 @@
 <h1>List Style Type</h1>
 <p class="prop-name">list-style-type</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="my-custom">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: my-custom;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: my-custom</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="&#34;example&#34;">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: &#34;example&#34;;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: &#34;example&#34;</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="none">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: none;"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(&#34;example&#34;)">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(&#34;example&#34;);"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(&#34;example&#34;)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(cyclic &#34;example&#34;)">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(cyclic &#34;example&#34;);"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(cyclic &#34;example&#34;)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(numeric &#34;example&#34;)">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(numeric &#34;example&#34;);"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(numeric &#34;example&#34;)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(alphabetic &#34;example&#34;)">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(alphabetic &#34;example&#34;);"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(alphabetic &#34;example&#34;)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(symbolic &#34;example&#34;)">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(symbolic &#34;example&#34;);"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(symbolic &#34;example&#34;)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(fixed &#34;example&#34;)">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(fixed &#34;example&#34;);"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(fixed &#34;example&#34;)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(linear-gradient(red, blue))">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(linear-gradient(red, blue));"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(linear-gradient(red, blue))</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(cyclic linear-gradient(red, blue))">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(cyclic linear-gradient(red, blue));"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(cyclic linear-gradient(red, blue))</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(numeric linear-gradient(red, blue))">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(numeric linear-gradient(red, blue));"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(numeric linear-gradient(red, blue))</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(alphabetic linear-gradient(red, blue))">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(alphabetic linear-gradient(red, blue));"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(alphabetic linear-gradient(red, blue))</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(symbolic linear-gradient(red, blue))">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(symbolic linear-gradient(red, blue));"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(symbolic linear-gradient(red, blue))</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(fixed linear-gradient(red, blue))">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(fixed linear-gradient(red, blue));"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(fixed linear-gradient(red, blue))</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(url(statue.svg))">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(url(statue.svg));"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(url(statue.svg))</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(cyclic url(statue.svg))">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(cyclic url(statue.svg));"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(cyclic url(statue.svg))</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(numeric url(statue.svg))">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(numeric url(statue.svg));"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(numeric url(statue.svg))</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(alphabetic url(statue.svg))">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(alphabetic url(statue.svg));"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(alphabetic url(statue.svg))</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(symbolic url(statue.svg))">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(symbolic url(statue.svg));"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(symbolic url(statue.svg))</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(fixed url(statue.svg))">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(fixed url(statue.svg));"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(fixed url(statue.svg))</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(&#34;example&#34; &#34;example&#34;)">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(&#34;example&#34; &#34;example&#34;);"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(&#34;example&#34; &#34;example&#34;)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(cyclic &#34;example&#34; &#34;example&#34;)">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(cyclic &#34;example&#34; &#34;example&#34;);"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(cyclic &#34;example&#34; &#34;example&#34;)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(numeric &#34;example&#34; &#34;example&#34;)">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(numeric &#34;example&#34; &#34;example&#34;);"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(numeric &#34;example&#34; &#34;example&#34;)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(alphabetic &#34;example&#34; &#34;example&#34;)">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(alphabetic &#34;example&#34; &#34;example&#34;);"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(alphabetic &#34;example&#34; &#34;example&#34;)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(symbolic &#34;example&#34; &#34;example&#34;)">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(symbolic &#34;example&#34; &#34;example&#34;);"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(symbolic &#34;example&#34; &#34;example&#34;)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(fixed &#34;example&#34; &#34;example&#34;)">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(fixed &#34;example&#34; &#34;example&#34;);"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(fixed &#34;example&#34; &#34;example&#34;)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(linear-gradient(red, blue) &#34;example&#34;)">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(linear-gradient(red, blue) &#34;example&#34;);"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(linear-gradient(red, blue) &#34;example&#34;)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(cyclic linear-gradient(red, blue) &#34;example&#34;)">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(cyclic linear-gradient(red, blue) &#34;example&#34;);"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(cyclic linear-gradient(red, blue) &#34;example&#34;)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(numeric linear-gradient(red, blue) &#34;example&#34;)">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(numeric linear-gradient(red, blue) &#34;example&#34;);"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(numeric linear-gradient(red, blue) &#34;example&#34;)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(alphabetic linear-gradient(red, blue) &#34;example&#34;)">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(alphabetic linear-gradient(red, blue) &#34;example&#34;);"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(alphabetic linear-gradient(red, blue) &#34;example&#34;)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(symbolic linear-gradient(red, blue) &#34;example&#34;)">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(symbolic linear-gradient(red, blue) &#34;example&#34;);"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(symbolic linear-gradient(red, blue) &#34;example&#34;)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(fixed linear-gradient(red, blue) &#34;example&#34;)">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(fixed linear-gradient(red, blue) &#34;example&#34;);"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(fixed linear-gradient(red, blue) &#34;example&#34;)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(url(statue.svg) &#34;example&#34;)">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(url(statue.svg) &#34;example&#34;);"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(url(statue.svg) &#34;example&#34;)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(cyclic url(statue.svg) &#34;example&#34;)">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(cyclic url(statue.svg) &#34;example&#34;);"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(cyclic url(statue.svg) &#34;example&#34;)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="list-style-type" data-value="symbols(numeric url(statue.svg) &#34;example&#34;)">
     <div class="demo-area" style="background: #0f3460; border-radius: 8px; padding: 12px 12px 12px 40px;">
       <ul style=" list-style-type: symbols(numeric url(statue.svg) &#34;example&#34;);"><li>First item</li><li>Second item</li><li>Third item</li><li>Fourth item</li></ul>
     </div>
     <div class="label">list-style-type: symbols(numeric url(statue.svg) &#34;example&#34;)</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

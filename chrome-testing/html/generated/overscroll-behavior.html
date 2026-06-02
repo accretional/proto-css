@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>overscroll-behavior</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .outer-label { font-size: 11px; color: #5a7aa0; margin-bottom: 6px; padding: 0 12px; }
 p { margin-bottom: 6px; }
 </style>
@@ -20,7 +22,7 @@ p { margin-bottom: 6px; }
 <h1>Overscroll Behavior</h1>
 <p class="prop-name">overscroll-behavior</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="overscroll-behavior" data-value="contain">
     <div class="demo-area" style="width: 320px; height: 200px; background: #0f3460; border-radius: 8px; overflow: auto; position: relative;">
       <p class="outer-label">Outer scrollable container</p>
       <div style="width: 260px; height: 120px; border-radius: 6px; overflow: auto; margin: 8px auto; padding: 10px; font-size: 12px; line-height: 1.6; color: #c0c0c0; background: #2a1a3e; border: 2px solid #e94560; overscroll-behavior: contain;"><p>Inner scrollable content. Scroll down past this content...</p><p>When you reach the end of this inner scroll area, the scroll will chain to the outer container.</p><p>This is the default browser behavior.</p><p>Line 4 of inner content.</p><p>Line 5 of inner content.</p><p>Line 6 - end of inner.</p></div>
@@ -28,7 +30,7 @@ p { margin-bottom: 6px; }
     </div>
     <div class="label">overscroll-behavior: contain</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="overscroll-behavior" data-value="none">
     <div class="demo-area" style="width: 320px; height: 200px; background: #0f3460; border-radius: 8px; overflow: auto; position: relative;">
       <p class="outer-label">Outer scrollable container</p>
       <div style="width: 260px; height: 120px; border-radius: 6px; overflow: auto; margin: 8px auto; padding: 10px; font-size: 12px; line-height: 1.6; color: #c0c0c0; background: #2a1a3e; border: 2px solid #e94560; overscroll-behavior: none;"><p>Inner scrollable content. Scroll down past this content...</p><p>When you reach the end of this inner scroll area, the scroll will chain to the outer container.</p><p>This is the default browser behavior.</p><p>Line 4 of inner content.</p><p>Line 5 of inner content.</p><p>Line 6 - end of inner.</p></div>
@@ -36,7 +38,7 @@ p { margin-bottom: 6px; }
     </div>
     <div class="label">overscroll-behavior: none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="overscroll-behavior" data-value="auto">
     <div class="demo-area" style="width: 320px; height: 200px; background: #0f3460; border-radius: 8px; overflow: auto; position: relative;">
       <p class="outer-label">Outer scrollable container</p>
       <div style="width: 260px; height: 120px; border-radius: 6px; overflow: auto; margin: 8px auto; padding: 10px; font-size: 12px; line-height: 1.6; color: #c0c0c0; background: #2a1a3e; border: 2px solid #e94560; overscroll-behavior: auto;"><p>Inner scrollable content. Scroll down past this content...</p><p>When you reach the end of this inner scroll area, the scroll will chain to the outer container.</p><p>This is the default browser behavior.</p><p>Line 4 of inner content.</p><p>Line 5 of inner content.</p><p>Line 6 - end of inner.</p></div>
@@ -44,7 +46,7 @@ p { margin-bottom: 6px; }
     </div>
     <div class="label">overscroll-behavior: auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="overscroll-behavior" data-value="chain">
     <div class="demo-area" style="width: 320px; height: 200px; background: #0f3460; border-radius: 8px; overflow: auto; position: relative;">
       <p class="outer-label">Outer scrollable container</p>
       <div style="width: 260px; height: 120px; border-radius: 6px; overflow: auto; margin: 8px auto; padding: 10px; font-size: 12px; line-height: 1.6; color: #c0c0c0; background: #2a1a3e; border: 2px solid #e94560; overscroll-behavior: chain;"><p>Inner scrollable content. Scroll down past this content...</p><p>When you reach the end of this inner scroll area, the scroll will chain to the outer container.</p><p>This is the default browser behavior.</p><p>Line 4 of inner content.</p><p>Line 5 of inner content.</p><p>Line 6 - end of inner.</p></div>
@@ -52,7 +54,7 @@ p { margin-bottom: 6px; }
     </div>
     <div class="label">overscroll-behavior: chain</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="overscroll-behavior" data-value="contain contain">
     <div class="demo-area" style="width: 320px; height: 200px; background: #0f3460; border-radius: 8px; overflow: auto; position: relative;">
       <p class="outer-label">Outer scrollable container</p>
       <div style="width: 260px; height: 120px; border-radius: 6px; overflow: auto; margin: 8px auto; padding: 10px; font-size: 12px; line-height: 1.6; color: #c0c0c0; background: #2a1a3e; border: 2px solid #e94560; overscroll-behavior: contain contain;"><p>Inner scrollable content. Scroll down past this content...</p><p>When you reach the end of this inner scroll area, the scroll will chain to the outer container.</p><p>This is the default browser behavior.</p><p>Line 4 of inner content.</p><p>Line 5 of inner content.</p><p>Line 6 - end of inner.</p></div>
@@ -60,7 +62,7 @@ p { margin-bottom: 6px; }
     </div>
     <div class="label">overscroll-behavior: contain contain</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="overscroll-behavior" data-value="none contain">
     <div class="demo-area" style="width: 320px; height: 200px; background: #0f3460; border-radius: 8px; overflow: auto; position: relative;">
       <p class="outer-label">Outer scrollable container</p>
       <div style="width: 260px; height: 120px; border-radius: 6px; overflow: auto; margin: 8px auto; padding: 10px; font-size: 12px; line-height: 1.6; color: #c0c0c0; background: #2a1a3e; border: 2px solid #e94560; overscroll-behavior: none contain;"><p>Inner scrollable content. Scroll down past this content...</p><p>When you reach the end of this inner scroll area, the scroll will chain to the outer container.</p><p>This is the default browser behavior.</p><p>Line 4 of inner content.</p><p>Line 5 of inner content.</p><p>Line 6 - end of inner.</p></div>
@@ -68,7 +70,7 @@ p { margin-bottom: 6px; }
     </div>
     <div class="label">overscroll-behavior: none contain</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="overscroll-behavior" data-value="auto contain">
     <div class="demo-area" style="width: 320px; height: 200px; background: #0f3460; border-radius: 8px; overflow: auto; position: relative;">
       <p class="outer-label">Outer scrollable container</p>
       <div style="width: 260px; height: 120px; border-radius: 6px; overflow: auto; margin: 8px auto; padding: 10px; font-size: 12px; line-height: 1.6; color: #c0c0c0; background: #2a1a3e; border: 2px solid #e94560; overscroll-behavior: auto contain;"><p>Inner scrollable content. Scroll down past this content...</p><p>When you reach the end of this inner scroll area, the scroll will chain to the outer container.</p><p>This is the default browser behavior.</p><p>Line 4 of inner content.</p><p>Line 5 of inner content.</p><p>Line 6 - end of inner.</p></div>
@@ -76,7 +78,7 @@ p { margin-bottom: 6px; }
     </div>
     <div class="label">overscroll-behavior: auto contain</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="overscroll-behavior" data-value="chain contain">
     <div class="demo-area" style="width: 320px; height: 200px; background: #0f3460; border-radius: 8px; overflow: auto; position: relative;">
       <p class="outer-label">Outer scrollable container</p>
       <div style="width: 260px; height: 120px; border-radius: 6px; overflow: auto; margin: 8px auto; padding: 10px; font-size: 12px; line-height: 1.6; color: #c0c0c0; background: #2a1a3e; border: 2px solid #e94560; overscroll-behavior: chain contain;"><p>Inner scrollable content. Scroll down past this content...</p><p>When you reach the end of this inner scroll area, the scroll will chain to the outer container.</p><p>This is the default browser behavior.</p><p>Line 4 of inner content.</p><p>Line 5 of inner content.</p><p>Line 6 - end of inner.</p></div>
@@ -84,7 +86,7 @@ p { margin-bottom: 6px; }
     </div>
     <div class="label">overscroll-behavior: chain contain</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="overscroll-behavior" data-value="contain none">
     <div class="demo-area" style="width: 320px; height: 200px; background: #0f3460; border-radius: 8px; overflow: auto; position: relative;">
       <p class="outer-label">Outer scrollable container</p>
       <div style="width: 260px; height: 120px; border-radius: 6px; overflow: auto; margin: 8px auto; padding: 10px; font-size: 12px; line-height: 1.6; color: #c0c0c0; background: #2a1a3e; border: 2px solid #e94560; overscroll-behavior: contain none;"><p>Inner scrollable content. Scroll down past this content...</p><p>When you reach the end of this inner scroll area, the scroll will chain to the outer container.</p><p>This is the default browser behavior.</p><p>Line 4 of inner content.</p><p>Line 5 of inner content.</p><p>Line 6 - end of inner.</p></div>
@@ -92,7 +94,7 @@ p { margin-bottom: 6px; }
     </div>
     <div class="label">overscroll-behavior: contain none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="overscroll-behavior" data-value="none none">
     <div class="demo-area" style="width: 320px; height: 200px; background: #0f3460; border-radius: 8px; overflow: auto; position: relative;">
       <p class="outer-label">Outer scrollable container</p>
       <div style="width: 260px; height: 120px; border-radius: 6px; overflow: auto; margin: 8px auto; padding: 10px; font-size: 12px; line-height: 1.6; color: #c0c0c0; background: #2a1a3e; border: 2px solid #e94560; overscroll-behavior: none none;"><p>Inner scrollable content. Scroll down past this content...</p><p>When you reach the end of this inner scroll area, the scroll will chain to the outer container.</p><p>This is the default browser behavior.</p><p>Line 4 of inner content.</p><p>Line 5 of inner content.</p><p>Line 6 - end of inner.</p></div>
@@ -100,7 +102,7 @@ p { margin-bottom: 6px; }
     </div>
     <div class="label">overscroll-behavior: none none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="overscroll-behavior" data-value="auto none">
     <div class="demo-area" style="width: 320px; height: 200px; background: #0f3460; border-radius: 8px; overflow: auto; position: relative;">
       <p class="outer-label">Outer scrollable container</p>
       <div style="width: 260px; height: 120px; border-radius: 6px; overflow: auto; margin: 8px auto; padding: 10px; font-size: 12px; line-height: 1.6; color: #c0c0c0; background: #2a1a3e; border: 2px solid #e94560; overscroll-behavior: auto none;"><p>Inner scrollable content. Scroll down past this content...</p><p>When you reach the end of this inner scroll area, the scroll will chain to the outer container.</p><p>This is the default browser behavior.</p><p>Line 4 of inner content.</p><p>Line 5 of inner content.</p><p>Line 6 - end of inner.</p></div>
@@ -108,7 +110,7 @@ p { margin-bottom: 6px; }
     </div>
     <div class="label">overscroll-behavior: auto none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="overscroll-behavior" data-value="chain none">
     <div class="demo-area" style="width: 320px; height: 200px; background: #0f3460; border-radius: 8px; overflow: auto; position: relative;">
       <p class="outer-label">Outer scrollable container</p>
       <div style="width: 260px; height: 120px; border-radius: 6px; overflow: auto; margin: 8px auto; padding: 10px; font-size: 12px; line-height: 1.6; color: #c0c0c0; background: #2a1a3e; border: 2px solid #e94560; overscroll-behavior: chain none;"><p>Inner scrollable content. Scroll down past this content...</p><p>When you reach the end of this inner scroll area, the scroll will chain to the outer container.</p><p>This is the default browser behavior.</p><p>Line 4 of inner content.</p><p>Line 5 of inner content.</p><p>Line 6 - end of inner.</p></div>
@@ -116,7 +118,7 @@ p { margin-bottom: 6px; }
     </div>
     <div class="label">overscroll-behavior: chain none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="overscroll-behavior" data-value="contain auto">
     <div class="demo-area" style="width: 320px; height: 200px; background: #0f3460; border-radius: 8px; overflow: auto; position: relative;">
       <p class="outer-label">Outer scrollable container</p>
       <div style="width: 260px; height: 120px; border-radius: 6px; overflow: auto; margin: 8px auto; padding: 10px; font-size: 12px; line-height: 1.6; color: #c0c0c0; background: #2a1a3e; border: 2px solid #e94560; overscroll-behavior: contain auto;"><p>Inner scrollable content. Scroll down past this content...</p><p>When you reach the end of this inner scroll area, the scroll will chain to the outer container.</p><p>This is the default browser behavior.</p><p>Line 4 of inner content.</p><p>Line 5 of inner content.</p><p>Line 6 - end of inner.</p></div>
@@ -124,7 +126,7 @@ p { margin-bottom: 6px; }
     </div>
     <div class="label">overscroll-behavior: contain auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="overscroll-behavior" data-value="none auto">
     <div class="demo-area" style="width: 320px; height: 200px; background: #0f3460; border-radius: 8px; overflow: auto; position: relative;">
       <p class="outer-label">Outer scrollable container</p>
       <div style="width: 260px; height: 120px; border-radius: 6px; overflow: auto; margin: 8px auto; padding: 10px; font-size: 12px; line-height: 1.6; color: #c0c0c0; background: #2a1a3e; border: 2px solid #e94560; overscroll-behavior: none auto;"><p>Inner scrollable content. Scroll down past this content...</p><p>When you reach the end of this inner scroll area, the scroll will chain to the outer container.</p><p>This is the default browser behavior.</p><p>Line 4 of inner content.</p><p>Line 5 of inner content.</p><p>Line 6 - end of inner.</p></div>
@@ -132,7 +134,7 @@ p { margin-bottom: 6px; }
     </div>
     <div class="label">overscroll-behavior: none auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="overscroll-behavior" data-value="auto auto">
     <div class="demo-area" style="width: 320px; height: 200px; background: #0f3460; border-radius: 8px; overflow: auto; position: relative;">
       <p class="outer-label">Outer scrollable container</p>
       <div style="width: 260px; height: 120px; border-radius: 6px; overflow: auto; margin: 8px auto; padding: 10px; font-size: 12px; line-height: 1.6; color: #c0c0c0; background: #2a1a3e; border: 2px solid #e94560; overscroll-behavior: auto auto;"><p>Inner scrollable content. Scroll down past this content...</p><p>When you reach the end of this inner scroll area, the scroll will chain to the outer container.</p><p>This is the default browser behavior.</p><p>Line 4 of inner content.</p><p>Line 5 of inner content.</p><p>Line 6 - end of inner.</p></div>
@@ -140,7 +142,7 @@ p { margin-bottom: 6px; }
     </div>
     <div class="label">overscroll-behavior: auto auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="overscroll-behavior" data-value="chain auto">
     <div class="demo-area" style="width: 320px; height: 200px; background: #0f3460; border-radius: 8px; overflow: auto; position: relative;">
       <p class="outer-label">Outer scrollable container</p>
       <div style="width: 260px; height: 120px; border-radius: 6px; overflow: auto; margin: 8px auto; padding: 10px; font-size: 12px; line-height: 1.6; color: #c0c0c0; background: #2a1a3e; border: 2px solid #e94560; overscroll-behavior: chain auto;"><p>Inner scrollable content. Scroll down past this content...</p><p>When you reach the end of this inner scroll area, the scroll will chain to the outer container.</p><p>This is the default browser behavior.</p><p>Line 4 of inner content.</p><p>Line 5 of inner content.</p><p>Line 6 - end of inner.</p></div>
@@ -148,7 +150,7 @@ p { margin-bottom: 6px; }
     </div>
     <div class="label">overscroll-behavior: chain auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="overscroll-behavior" data-value="contain chain">
     <div class="demo-area" style="width: 320px; height: 200px; background: #0f3460; border-radius: 8px; overflow: auto; position: relative;">
       <p class="outer-label">Outer scrollable container</p>
       <div style="width: 260px; height: 120px; border-radius: 6px; overflow: auto; margin: 8px auto; padding: 10px; font-size: 12px; line-height: 1.6; color: #c0c0c0; background: #2a1a3e; border: 2px solid #e94560; overscroll-behavior: contain chain;"><p>Inner scrollable content. Scroll down past this content...</p><p>When you reach the end of this inner scroll area, the scroll will chain to the outer container.</p><p>This is the default browser behavior.</p><p>Line 4 of inner content.</p><p>Line 5 of inner content.</p><p>Line 6 - end of inner.</p></div>
@@ -156,7 +158,7 @@ p { margin-bottom: 6px; }
     </div>
     <div class="label">overscroll-behavior: contain chain</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="overscroll-behavior" data-value="none chain">
     <div class="demo-area" style="width: 320px; height: 200px; background: #0f3460; border-radius: 8px; overflow: auto; position: relative;">
       <p class="outer-label">Outer scrollable container</p>
       <div style="width: 260px; height: 120px; border-radius: 6px; overflow: auto; margin: 8px auto; padding: 10px; font-size: 12px; line-height: 1.6; color: #c0c0c0; background: #2a1a3e; border: 2px solid #e94560; overscroll-behavior: none chain;"><p>Inner scrollable content. Scroll down past this content...</p><p>When you reach the end of this inner scroll area, the scroll will chain to the outer container.</p><p>This is the default browser behavior.</p><p>Line 4 of inner content.</p><p>Line 5 of inner content.</p><p>Line 6 - end of inner.</p></div>
@@ -164,7 +166,7 @@ p { margin-bottom: 6px; }
     </div>
     <div class="label">overscroll-behavior: none chain</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="overscroll-behavior" data-value="auto chain">
     <div class="demo-area" style="width: 320px; height: 200px; background: #0f3460; border-radius: 8px; overflow: auto; position: relative;">
       <p class="outer-label">Outer scrollable container</p>
       <div style="width: 260px; height: 120px; border-radius: 6px; overflow: auto; margin: 8px auto; padding: 10px; font-size: 12px; line-height: 1.6; color: #c0c0c0; background: #2a1a3e; border: 2px solid #e94560; overscroll-behavior: auto chain;"><p>Inner scrollable content. Scroll down past this content...</p><p>When you reach the end of this inner scroll area, the scroll will chain to the outer container.</p><p>This is the default browser behavior.</p><p>Line 4 of inner content.</p><p>Line 5 of inner content.</p><p>Line 6 - end of inner.</p></div>
@@ -172,7 +174,7 @@ p { margin-bottom: 6px; }
     </div>
     <div class="label">overscroll-behavior: auto chain</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="overscroll-behavior" data-value="chain chain">
     <div class="demo-area" style="width: 320px; height: 200px; background: #0f3460; border-radius: 8px; overflow: auto; position: relative;">
       <p class="outer-label">Outer scrollable container</p>
       <div style="width: 260px; height: 120px; border-radius: 6px; overflow: auto; margin: 8px auto; padding: 10px; font-size: 12px; line-height: 1.6; color: #c0c0c0; background: #2a1a3e; border: 2px solid #e94560; overscroll-behavior: chain chain;"><p>Inner scrollable content. Scroll down past this content...</p><p>When you reach the end of this inner scroll area, the scroll will chain to the outer container.</p><p>This is the default browser behavior.</p><p>Line 4 of inner content.</p><p>Line 5 of inner content.</p><p>Line 6 - end of inner.</p></div>
@@ -181,5 +183,7 @@ p { margin-bottom: 6px; }
     <div class="label">overscroll-behavior: chain chain</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

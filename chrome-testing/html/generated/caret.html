@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>caret</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   input:focus { border-color: #e94560; }
 </style>
 </head>
@@ -19,168 +21,170 @@
 <h1>Caret</h1>
 <p class="prop-name">caret</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="caret" data-value="auto">
     <div class="demo-area">
       <input style="width: 100%; padding: 12px 14px; background: #0f3460; border: 2px solid #1a4a8a; border-radius: 8px; color: #e0e0e0; font-size: 15px; outline: none; font-family: system-ui, sans-serif; caret: auto;"></input>
     </div>
     <div class="label">caret: auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="caret" data-value="red">
     <div class="demo-area">
       <input style="width: 100%; padding: 12px 14px; background: #0f3460; border: 2px solid #1a4a8a; border-radius: 8px; color: #e0e0e0; font-size: 15px; outline: none; font-family: system-ui, sans-serif; caret: red;"></input>
     </div>
     <div class="label">caret: red</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="caret" data-value="manual">
     <div class="demo-area">
       <input style="width: 100%; padding: 12px 14px; background: #0f3460; border: 2px solid #1a4a8a; border-radius: 8px; color: #e0e0e0; font-size: 15px; outline: none; font-family: system-ui, sans-serif; caret: manual;"></input>
     </div>
     <div class="label">caret: manual</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="caret" data-value="bar">
     <div class="demo-area">
       <input style="width: 100%; padding: 12px 14px; background: #0f3460; border: 2px solid #1a4a8a; border-radius: 8px; color: #e0e0e0; font-size: 15px; outline: none; font-family: system-ui, sans-serif; caret: bar;"></input>
     </div>
     <div class="label">caret: bar</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="caret" data-value="#3498db">
     <div class="demo-area">
       <input style="width: 100%; padding: 12px 14px; background: #0f3460; border: 2px solid #1a4a8a; border-radius: 8px; color: #e0e0e0; font-size: 15px; outline: none; font-family: system-ui, sans-serif; caret: #3498db;"></input>
     </div>
     <div class="label">caret: #3498db</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="caret" data-value="auto auto">
     <div class="demo-area">
       <input style="width: 100%; padding: 12px 14px; background: #0f3460; border: 2px solid #1a4a8a; border-radius: 8px; color: #e0e0e0; font-size: 15px; outline: none; font-family: system-ui, sans-serif; caret: auto auto;"></input>
     </div>
     <div class="label">caret: auto auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="caret" data-value="block">
     <div class="demo-area">
       <input style="width: 100%; padding: 12px 14px; background: #0f3460; border: 2px solid #1a4a8a; border-radius: 8px; color: #e0e0e0; font-size: 15px; outline: none; font-family: system-ui, sans-serif; caret: block;"></input>
     </div>
     <div class="label">caret: block</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="caret" data-value="rgb(0, 128, 0)">
     <div class="demo-area">
       <input style="width: 100%; padding: 12px 14px; background: #0f3460; border: 2px solid #1a4a8a; border-radius: 8px; color: #e0e0e0; font-size: 15px; outline: none; font-family: system-ui, sans-serif; caret: rgb(0, 128, 0);"></input>
     </div>
     <div class="label">caret: rgb(0, 128, 0)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="caret" data-value="manual auto">
     <div class="demo-area">
       <input style="width: 100%; padding: 12px 14px; background: #0f3460; border: 2px solid #1a4a8a; border-radius: 8px; color: #e0e0e0; font-size: 15px; outline: none; font-family: system-ui, sans-serif; caret: manual auto;"></input>
     </div>
     <div class="label">caret: manual auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="caret" data-value="underscore">
     <div class="demo-area">
       <input style="width: 100%; padding: 12px 14px; background: #0f3460; border: 2px solid #1a4a8a; border-radius: 8px; color: #e0e0e0; font-size: 15px; outline: none; font-family: system-ui, sans-serif; caret: underscore;"></input>
     </div>
     <div class="label">caret: underscore</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="caret" data-value="transparent">
     <div class="demo-area">
       <input style="width: 100%; padding: 12px 14px; background: #0f3460; border: 2px solid #1a4a8a; border-radius: 8px; color: #e0e0e0; font-size: 15px; outline: none; font-family: system-ui, sans-serif; caret: transparent;"></input>
     </div>
     <div class="label">caret: transparent</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="caret" data-value="currentcolor">
     <div class="demo-area">
       <input style="width: 100%; padding: 12px 14px; background: #0f3460; border: 2px solid #1a4a8a; border-radius: 8px; color: #e0e0e0; font-size: 15px; outline: none; font-family: system-ui, sans-serif; caret: currentcolor;"></input>
     </div>
     <div class="label">caret: currentcolor</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="caret" data-value="bar auto">
     <div class="demo-area">
       <input style="width: 100%; padding: 12px 14px; background: #0f3460; border: 2px solid #1a4a8a; border-radius: 8px; color: #e0e0e0; font-size: 15px; outline: none; font-family: system-ui, sans-serif; caret: bar auto;"></input>
     </div>
     <div class="label">caret: bar auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="caret" data-value="red auto">
     <div class="demo-area">
       <input style="width: 100%; padding: 12px 14px; background: #0f3460; border: 2px solid #1a4a8a; border-radius: 8px; color: #e0e0e0; font-size: 15px; outline: none; font-family: system-ui, sans-serif; caret: red auto;"></input>
     </div>
     <div class="label">caret: red auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="caret" data-value="auto red">
     <div class="demo-area">
       <input style="width: 100%; padding: 12px 14px; background: #0f3460; border: 2px solid #1a4a8a; border-radius: 8px; color: #e0e0e0; font-size: 15px; outline: none; font-family: system-ui, sans-serif; caret: auto red;"></input>
     </div>
     <div class="label">caret: auto red</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="caret" data-value="block auto">
     <div class="demo-area">
       <input style="width: 100%; padding: 12px 14px; background: #0f3460; border: 2px solid #1a4a8a; border-radius: 8px; color: #e0e0e0; font-size: 15px; outline: none; font-family: system-ui, sans-serif; caret: block auto;"></input>
     </div>
     <div class="label">caret: block auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="caret" data-value="#3498db auto">
     <div class="demo-area">
       <input style="width: 100%; padding: 12px 14px; background: #0f3460; border: 2px solid #1a4a8a; border-radius: 8px; color: #e0e0e0; font-size: 15px; outline: none; font-family: system-ui, sans-serif; caret: #3498db auto;"></input>
     </div>
     <div class="label">caret: #3498db auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="caret" data-value="manual red">
     <div class="demo-area">
       <input style="width: 100%; padding: 12px 14px; background: #0f3460; border: 2px solid #1a4a8a; border-radius: 8px; color: #e0e0e0; font-size: 15px; outline: none; font-family: system-ui, sans-serif; caret: manual red;"></input>
     </div>
     <div class="label">caret: manual red</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="caret" data-value="underscore auto">
     <div class="demo-area">
       <input style="width: 100%; padding: 12px 14px; background: #0f3460; border: 2px solid #1a4a8a; border-radius: 8px; color: #e0e0e0; font-size: 15px; outline: none; font-family: system-ui, sans-serif; caret: underscore auto;"></input>
     </div>
     <div class="label">caret: underscore auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="caret" data-value="rgb(0, 128, 0) auto">
     <div class="demo-area">
       <input style="width: 100%; padding: 12px 14px; background: #0f3460; border: 2px solid #1a4a8a; border-radius: 8px; color: #e0e0e0; font-size: 15px; outline: none; font-family: system-ui, sans-serif; caret: rgb(0, 128, 0) auto;"></input>
     </div>
     <div class="label">caret: rgb(0, 128, 0) auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="caret" data-value="auto bar">
     <div class="demo-area">
       <input style="width: 100%; padding: 12px 14px; background: #0f3460; border: 2px solid #1a4a8a; border-radius: 8px; color: #e0e0e0; font-size: 15px; outline: none; font-family: system-ui, sans-serif; caret: auto bar;"></input>
     </div>
     <div class="label">caret: auto bar</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="caret" data-value="transparent auto">
     <div class="demo-area">
       <input style="width: 100%; padding: 12px 14px; background: #0f3460; border: 2px solid #1a4a8a; border-radius: 8px; color: #e0e0e0; font-size: 15px; outline: none; font-family: system-ui, sans-serif; caret: transparent auto;"></input>
     </div>
     <div class="label">caret: transparent auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="caret" data-value="manual bar">
     <div class="demo-area">
       <input style="width: 100%; padding: 12px 14px; background: #0f3460; border: 2px solid #1a4a8a; border-radius: 8px; color: #e0e0e0; font-size: 15px; outline: none; font-family: system-ui, sans-serif; caret: manual bar;"></input>
     </div>
     <div class="label">caret: manual bar</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="caret" data-value="currentcolor auto">
     <div class="demo-area">
       <input style="width: 100%; padding: 12px 14px; background: #0f3460; border: 2px solid #1a4a8a; border-radius: 8px; color: #e0e0e0; font-size: 15px; outline: none; font-family: system-ui, sans-serif; caret: currentcolor auto;"></input>
     </div>
     <div class="label">caret: currentcolor auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="caret" data-value="auto #3498db">
     <div class="demo-area">
       <input style="width: 100%; padding: 12px 14px; background: #0f3460; border: 2px solid #1a4a8a; border-radius: 8px; color: #e0e0e0; font-size: 15px; outline: none; font-family: system-ui, sans-serif; caret: auto #3498db;"></input>
     </div>
     <div class="label">caret: auto #3498db</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="caret" data-value="red red">
     <div class="demo-area">
       <input style="width: 100%; padding: 12px 14px; background: #0f3460; border: 2px solid #1a4a8a; border-radius: 8px; color: #e0e0e0; font-size: 15px; outline: none; font-family: system-ui, sans-serif; caret: red red;"></input>
     </div>
     <div class="label">caret: red red</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="caret" data-value="manual #3498db">
     <div class="demo-area">
       <input style="width: 100%; padding: 12px 14px; background: #0f3460; border: 2px solid #1a4a8a; border-radius: 8px; color: #e0e0e0; font-size: 15px; outline: none; font-family: system-ui, sans-serif; caret: manual #3498db;"></input>
     </div>
     <div class="label">caret: manual #3498db</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

@@ -4,236 +4,240 @@
 <meta charset="UTF-8">
 <title>inset-block</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
 </style>
 </head>
 <body>
 <h1>Inset Block</h1>
 <p class="prop-name">inset-block</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="auto">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: auto;"></div>
     </div>
     <div class="label">inset-block: auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="10px">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: 10px;"></div>
     </div>
     <div class="label">inset-block: 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="anchor(top)">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: anchor(top);"></div>
     </div>
     <div class="label">inset-block: anchor(top)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="anchor-size(width)">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: anchor-size(width);"></div>
     </div>
     <div class="label">inset-block: anchor-size(width)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="25%">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: 25%;"></div>
     </div>
     <div class="label">inset-block: 25%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="anchor(bottom)">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: anchor(bottom);"></div>
     </div>
     <div class="label">inset-block: anchor(bottom)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="anchor-size(height)">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: anchor-size(height);"></div>
     </div>
     <div class="label">inset-block: anchor-size(height)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="50%">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: 50%;"></div>
     </div>
     <div class="label">inset-block: 50%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="100%">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: 100%;"></div>
     </div>
     <div class="label">inset-block: 100%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="0">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: 0;"></div>
     </div>
     <div class="label">inset-block: 0</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="auto auto">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: auto auto;"></div>
     </div>
     <div class="label">inset-block: auto auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="10px auto">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: 10px auto;"></div>
     </div>
     <div class="label">inset-block: 10px auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="anchor(top) auto">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: anchor(top) auto;"></div>
     </div>
     <div class="label">inset-block: anchor(top) auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="anchor-size(width) auto">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: anchor-size(width) auto;"></div>
     </div>
     <div class="label">inset-block: anchor-size(width) auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="25% auto">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: 25% auto;"></div>
     </div>
     <div class="label">inset-block: 25% auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="anchor(bottom) auto">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: anchor(bottom) auto;"></div>
     </div>
     <div class="label">inset-block: anchor(bottom) auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="anchor-size(height) auto">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: anchor-size(height) auto;"></div>
     </div>
     <div class="label">inset-block: anchor-size(height) auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="50% auto">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: 50% auto;"></div>
     </div>
     <div class="label">inset-block: 50% auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="100% auto">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: 100% auto;"></div>
     </div>
     <div class="label">inset-block: 100% auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="0 auto">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: 0 auto;"></div>
     </div>
     <div class="label">inset-block: 0 auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="auto 10px">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: auto 10px;"></div>
     </div>
     <div class="label">inset-block: auto 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="10px 10px">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: 10px 10px;"></div>
     </div>
     <div class="label">inset-block: 10px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="anchor(top) 10px">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: anchor(top) 10px;"></div>
     </div>
     <div class="label">inset-block: anchor(top) 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="anchor-size(width) 10px">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: anchor-size(width) 10px;"></div>
     </div>
     <div class="label">inset-block: anchor-size(width) 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="25% 10px">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: 25% 10px;"></div>
     </div>
     <div class="label">inset-block: 25% 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="anchor(bottom) 10px">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: anchor(bottom) 10px;"></div>
     </div>
     <div class="label">inset-block: anchor(bottom) 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="anchor-size(height) 10px">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: anchor-size(height) 10px;"></div>
     </div>
     <div class="label">inset-block: anchor-size(height) 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="50% 10px">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: 50% 10px;"></div>
     </div>
     <div class="label">inset-block: 50% 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="100% 10px">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: 100% 10px;"></div>
     </div>
     <div class="label">inset-block: 100% 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="0 10px">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: 0 10px;"></div>
     </div>
     <div class="label">inset-block: 0 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="auto anchor(top)">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: auto anchor(top);"></div>
     </div>
     <div class="label">inset-block: auto anchor(top)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="10px anchor(top)">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: 10px anchor(top);"></div>
     </div>
     <div class="label">inset-block: 10px anchor(top)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="anchor(top) anchor(top)">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: anchor(top) anchor(top);"></div>
     </div>
     <div class="label">inset-block: anchor(top) anchor(top)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="anchor-size(width) anchor(top)">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: anchor-size(width) anchor(top);"></div>
     </div>
     <div class="label">inset-block: anchor-size(width) anchor(top)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="25% anchor(top)">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: 25% anchor(top);"></div>
     </div>
     <div class="label">inset-block: 25% anchor(top)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="inset-block" data-value="anchor(bottom) anchor(top)">
     <div class="demo-area" style="width: 200px; height: 220px; background: #16213e; border-radius: 8px; position: relative; border: 1px dashed #3a3a5e;">
       <div style="position: absolute; left: 20px; right: 20px; background: linear-gradient(180deg, rgba(233,69,96,0.7), rgba(15,52,96,0.7)); border: 2px solid #e94560; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; inset-block: anchor(bottom) anchor(top);"></div>
     </div>
     <div class="label">inset-block: anchor(bottom) anchor(top)</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>background-clip</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .inner-content { width: 100%; height: 100%; border: 2px dotted rgba(255,255,255,0.2); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: rgba(255,255,255,0.5); font-family: monospace; }
 </style>
 </head>
@@ -19,222 +21,224 @@
 <h1>Background Clip</h1>
 <p class="prop-name">background-clip</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="content-box">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: content-box;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: content-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="border-area">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: border-area;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: border-area</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="text">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: text;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: text</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="padding-box">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: padding-box;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: padding-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="border-area text">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: border-area text;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: border-area text</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="text border-area">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: text border-area;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: text border-area</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="border-box">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: border-box;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: border-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="content-box, content-box">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: content-box, content-box;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: content-box, content-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="border-area, content-box">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: border-area, content-box;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: border-area, content-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="text, content-box">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: text, content-box;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: text, content-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="padding-box, content-box">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: padding-box, content-box;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: padding-box, content-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="border-area text, content-box">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: border-area text, content-box;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: border-area text, content-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="text border-area, content-box">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: text border-area, content-box;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: text border-area, content-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="border-box, content-box">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: border-box, content-box;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: border-box, content-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="content-box, border-area">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: content-box, border-area;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: content-box, border-area</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="border-area, border-area">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: border-area, border-area;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: border-area, border-area</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="text, border-area">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: text, border-area;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: text, border-area</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="padding-box, border-area">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: padding-box, border-area;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: padding-box, border-area</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="border-area text, border-area">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: border-area text, border-area;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: border-area text, border-area</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="text border-area, border-area">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: text border-area, border-area;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: text border-area, border-area</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="border-box, border-area">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: border-box, border-area;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: border-box, border-area</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="content-box, text">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: content-box, text;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: content-box, text</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="border-area, text">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: border-area, text;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: border-area, text</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="text, text">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: text, text;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: text, text</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="padding-box, text">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: padding-box, text;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: padding-box, text</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="border-area text, text">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: border-area text, text;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: border-area text, text</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="text border-area, text">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: text border-area, text;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: text border-area, text</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="border-box, text">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: border-box, text;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: border-box, text</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="content-box, padding-box">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: content-box, padding-box;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: content-box, padding-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="border-area, padding-box">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: border-area, padding-box;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: border-area, padding-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="text, padding-box">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: text, padding-box;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: text, padding-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="padding-box, padding-box">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: padding-box, padding-box;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: padding-box, padding-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="border-area text, padding-box">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: border-area text, padding-box;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: border-area text, padding-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="text border-area, padding-box">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: text border-area, padding-box;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: text border-area, padding-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="border-box, padding-box">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: border-box, padding-box;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: border-box, padding-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="background-clip" data-value="content-box, border-area text">
     <div class="demo-area">
       <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #e94560, #533bdb, #0ea5e9); border: 16px dashed rgba(255, 255, 255, 0.35); padding: 24px; display: flex; align-items: center; justify-content: center; background-clip: content-box, border-area text;"><div class="inner-content">content</div></div>
     </div>
     <div class="label">background-clip: content-box, border-area text</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

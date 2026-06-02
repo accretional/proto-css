@@ -4,236 +4,240 @@
 <meta charset="UTF-8">
 <title>box-shadow</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
 </style>
 </head>
 <body>
 <h1>Box Shadow</h1>
 <p class="prop-name">box-shadow</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="none">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: none;"></div>
     </div>
     <div class="label">box-shadow: none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="10px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 10px 10px;"></div>
     </div>
     <div class="label">box-shadow: 10px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="red 10px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: red 10px 10px;"></div>
     </div>
     <div class="label">box-shadow: red 10px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="#3498db 10px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: #3498db 10px 10px;"></div>
     </div>
     <div class="label">box-shadow: #3498db 10px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="rgb(0, 128, 0) 10px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: rgb(0, 128, 0) 10px 10px;"></div>
     </div>
     <div class="label">box-shadow: rgb(0, 128, 0) 10px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="transparent 10px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: transparent 10px 10px;"></div>
     </div>
     <div class="label">box-shadow: transparent 10px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="currentcolor 10px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: currentcolor 10px 10px;"></div>
     </div>
     <div class="label">box-shadow: currentcolor 10px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="inset 10px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: inset 10px 10px;"></div>
     </div>
     <div class="label">box-shadow: inset 10px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="red inset 10px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: red inset 10px 10px;"></div>
     </div>
     <div class="label">box-shadow: red inset 10px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="#3498db inset 10px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: #3498db inset 10px 10px;"></div>
     </div>
     <div class="label">box-shadow: #3498db inset 10px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="rgb(0, 128, 0) inset 10px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: rgb(0, 128, 0) inset 10px 10px;"></div>
     </div>
     <div class="label">box-shadow: rgb(0, 128, 0) inset 10px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="transparent inset 10px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: transparent inset 10px 10px;"></div>
     </div>
     <div class="label">box-shadow: transparent inset 10px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="currentcolor inset 10px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: currentcolor inset 10px 10px;"></div>
     </div>
     <div class="label">box-shadow: currentcolor inset 10px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="20px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 20px 10px;"></div>
     </div>
     <div class="label">box-shadow: 20px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="red 20px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: red 20px 10px;"></div>
     </div>
     <div class="label">box-shadow: red 20px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="#3498db 20px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: #3498db 20px 10px;"></div>
     </div>
     <div class="label">box-shadow: #3498db 20px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="rgb(0, 128, 0) 20px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: rgb(0, 128, 0) 20px 10px;"></div>
     </div>
     <div class="label">box-shadow: rgb(0, 128, 0) 20px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="transparent 20px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: transparent 20px 10px;"></div>
     </div>
     <div class="label">box-shadow: transparent 20px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="currentcolor 20px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: currentcolor 20px 10px;"></div>
     </div>
     <div class="label">box-shadow: currentcolor 20px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="inset 20px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: inset 20px 10px;"></div>
     </div>
     <div class="label">box-shadow: inset 20px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="red inset 20px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: red inset 20px 10px;"></div>
     </div>
     <div class="label">box-shadow: red inset 20px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="#3498db inset 20px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: #3498db inset 20px 10px;"></div>
     </div>
     <div class="label">box-shadow: #3498db inset 20px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="rgb(0, 128, 0) inset 20px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: rgb(0, 128, 0) inset 20px 10px;"></div>
     </div>
     <div class="label">box-shadow: rgb(0, 128, 0) inset 20px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="transparent inset 20px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: transparent inset 20px 10px;"></div>
     </div>
     <div class="label">box-shadow: transparent inset 20px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="currentcolor inset 20px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: currentcolor inset 20px 10px;"></div>
     </div>
     <div class="label">box-shadow: currentcolor inset 20px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="50px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: 50px 10px;"></div>
     </div>
     <div class="label">box-shadow: 50px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="red 50px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: red 50px 10px;"></div>
     </div>
     <div class="label">box-shadow: red 50px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="#3498db 50px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: #3498db 50px 10px;"></div>
     </div>
     <div class="label">box-shadow: #3498db 50px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="rgb(0, 128, 0) 50px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: rgb(0, 128, 0) 50px 10px;"></div>
     </div>
     <div class="label">box-shadow: rgb(0, 128, 0) 50px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="transparent 50px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: transparent 50px 10px;"></div>
     </div>
     <div class="label">box-shadow: transparent 50px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="currentcolor 50px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: currentcolor 50px 10px;"></div>
     </div>
     <div class="label">box-shadow: currentcolor 50px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="inset 50px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: inset 50px 10px;"></div>
     </div>
     <div class="label">box-shadow: inset 50px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="red inset 50px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: red inset 50px 10px;"></div>
     </div>
     <div class="label">box-shadow: red inset 50px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="#3498db inset 50px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: #3498db inset 50px 10px;"></div>
     </div>
     <div class="label">box-shadow: #3498db inset 50px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="rgb(0, 128, 0) inset 50px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: rgb(0, 128, 0) inset 50px 10px;"></div>
     </div>
     <div class="label">box-shadow: rgb(0, 128, 0) inset 50px 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="box-shadow" data-value="transparent inset 50px 10px">
     <div class="demo-area">
       <div style="width: 140px; height: 90px; margin: 24px; background: #0f3460; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; box-shadow: transparent inset 50px 10px;"></div>
     </div>
     <div class="label">box-shadow: transparent inset 50px 10px</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

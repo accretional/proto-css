@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>ruby-overhang</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   ruby { font-size: 32px; }
 rt { font-size: 13px; color: #e94560; font-weight: 600; }
 </style>
@@ -20,18 +22,20 @@ rt { font-size: 13px; color: #e94560; font-weight: 600; }
 <h1>Ruby Overhang</h1>
 <p class="prop-name">ruby-overhang</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="ruby-overhang" data-value="auto">
     <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 28px 24px; width: 480px;">
       <div style="font-size: 32px; color: #fff; line-height: 2; margin-bottom: 8px; ruby-overhang: auto;"><ruby>紅<rt>べに</rt></ruby><ruby>玉<rt>たま</rt></ruby>が<ruby>転<rt>ころ</rt></ruby>がる</div>
     </div>
     <div class="label">ruby-overhang: auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="ruby-overhang" data-value="spaces">
     <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 28px 24px; width: 480px;">
       <div style="font-size: 32px; color: #fff; line-height: 2; margin-bottom: 8px; ruby-overhang: spaces;"><ruby>紅<rt>べに</rt></ruby><ruby>玉<rt>たま</rt></ruby>が<ruby>転<rt>ころ</rt></ruby>がる</div>
     </div>
     <div class="label">ruby-overhang: spaces</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

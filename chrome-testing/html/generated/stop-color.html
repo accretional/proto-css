@@ -4,105 +4,107 @@
 <meta charset="UTF-8">
 <title>stop-color</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
 </style>
 </head>
 <body>
 <h1>Stop Color</h1>
 <p class="prop-name">stop-color</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="stop-color" data-value="red" data-target-selector=" stop.target" data-target-id="t0">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
       <style>#t0  stop.target { stop-color: red; }</style>
       <svg id="t0" style="display: block;"><defs><linearGradient id="grad-0" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a0a1a"/><stop class="target" offset="100%" stop-color="crimson"/></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-0)"/><text x="25" y="55" font-size="11" fill="#666" font-family="monospace" opacity="0.8">fixed #0a0a1a</text><text x="220" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">varies</text></svg>
     </div>
     <div class="label">stop-color: red</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="stop-color" data-value="currentcolor" data-target-selector=" stop.target" data-target-id="t1">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
       <style>#t1  stop.target { stop-color: currentcolor; }</style>
       <svg id="t1" style="display: block;"><defs><linearGradient id="grad-1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a0a1a"/><stop class="target" offset="100%" stop-color="crimson"/></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-1)"/><text x="25" y="55" font-size="11" fill="#666" font-family="monospace" opacity="0.8">fixed #0a0a1a</text><text x="220" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">varies</text></svg>
     </div>
     <div class="label">stop-color: currentcolor</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="stop-color" data-value="Canvas" data-target-selector=" stop.target" data-target-id="t2">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
       <style>#t2  stop.target { stop-color: Canvas; }</style>
       <svg id="t2" style="display: block;"><defs><linearGradient id="grad-2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a0a1a"/><stop class="target" offset="100%" stop-color="crimson"/></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-2)"/><text x="25" y="55" font-size="11" fill="#666" font-family="monospace" opacity="0.8">fixed #0a0a1a</text><text x="220" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">varies</text></svg>
     </div>
     <div class="label">stop-color: Canvas</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="stop-color" data-value="contrast-color(red)" data-target-selector=" stop.target" data-target-id="t3">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
       <style>#t3  stop.target { stop-color: contrast-color(red); }</style>
       <svg id="t3" style="display: block;"><defs><linearGradient id="grad-3" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a0a1a"/><stop class="target" offset="100%" stop-color="crimson"/></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-3)"/><text x="25" y="55" font-size="11" fill="#666" font-family="monospace" opacity="0.8">fixed #0a0a1a</text><text x="220" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">varies</text></svg>
     </div>
     <div class="label">stop-color: contrast-color(red)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="stop-color" data-value="device-cmyk(0, 0.7, 1, 0)" data-target-selector=" stop.target" data-target-id="t4">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
       <style>#t4  stop.target { stop-color: device-cmyk(0, 0.7, 1, 0); }</style>
       <svg id="t4" style="display: block;"><defs><linearGradient id="grad-4" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a0a1a"/><stop class="target" offset="100%" stop-color="crimson"/></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-4)"/><text x="25" y="55" font-size="11" fill="#666" font-family="monospace" opacity="0.8">fixed #0a0a1a</text><text x="220" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">varies</text></svg>
     </div>
     <div class="label">stop-color: device-cmyk(0, 0.7, 1, 0)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="stop-color" data-value="light-dark(red, blue)" data-target-selector=" stop.target" data-target-id="t5">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
       <style>#t5  stop.target { stop-color: light-dark(red, blue); }</style>
       <svg id="t5" style="display: block;"><defs><linearGradient id="grad-5" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a0a1a"/><stop class="target" offset="100%" stop-color="crimson"/></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-5)"/><text x="25" y="55" font-size="11" fill="#666" font-family="monospace" opacity="0.8">fixed #0a0a1a</text><text x="220" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">varies</text></svg>
     </div>
     <div class="label">stop-color: light-dark(red, blue)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="stop-color" data-value="var(--my-var)" data-target-selector=" stop.target" data-target-id="t6">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
       <style>#t6  stop.target { stop-color: var(--my-var); }</style>
       <svg id="t6" style="display: block;"><defs><linearGradient id="grad-6" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a0a1a"/><stop class="target" offset="100%" stop-color="crimson"/></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-6)"/><text x="25" y="55" font-size="11" fill="#666" font-family="monospace" opacity="0.8">fixed #0a0a1a</text><text x="220" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">varies</text></svg>
     </div>
     <div class="label">stop-color: var(--my-var)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="stop-color" data-value="#3498db" data-target-selector=" stop.target" data-target-id="t7">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
       <style>#t7  stop.target { stop-color: #3498db; }</style>
       <svg id="t7" style="display: block;"><defs><linearGradient id="grad-7" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a0a1a"/><stop class="target" offset="100%" stop-color="crimson"/></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-7)"/><text x="25" y="55" font-size="11" fill="#666" font-family="monospace" opacity="0.8">fixed #0a0a1a</text><text x="220" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">varies</text></svg>
     </div>
     <div class="label">stop-color: #3498db</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="stop-color" data-value="CanvasText" data-target-selector=" stop.target" data-target-id="t8">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
       <style>#t8  stop.target { stop-color: CanvasText; }</style>
       <svg id="t8" style="display: block;"><defs><linearGradient id="grad-8" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a0a1a"/><stop class="target" offset="100%" stop-color="crimson"/></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-8)"/><text x="25" y="55" font-size="11" fill="#666" font-family="monospace" opacity="0.8">fixed #0a0a1a</text><text x="220" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">varies</text></svg>
     </div>
     <div class="label">stop-color: CanvasText</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="stop-color" data-value="light-dark(#333, #ccc)" data-target-selector=" stop.target" data-target-id="t9">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
       <style>#t9  stop.target { stop-color: light-dark(#333, #ccc); }</style>
       <svg id="t9" style="display: block;"><defs><linearGradient id="grad-9" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a0a1a"/><stop class="target" offset="100%" stop-color="crimson"/></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-9)"/><text x="25" y="55" font-size="11" fill="#666" font-family="monospace" opacity="0.8">fixed #0a0a1a</text><text x="220" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">varies</text></svg>
     </div>
     <div class="label">stop-color: light-dark(#333, #ccc)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="stop-color" data-value="rgb(0, 128, 0)" data-target-selector=" stop.target" data-target-id="t10">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
       <style>#t10  stop.target { stop-color: rgb(0, 128, 0); }</style>
       <svg id="t10" style="display: block;"><defs><linearGradient id="grad-10" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a0a1a"/><stop class="target" offset="100%" stop-color="crimson"/></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-10)"/><text x="25" y="55" font-size="11" fill="#666" font-family="monospace" opacity="0.8">fixed #0a0a1a</text><text x="220" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">varies</text></svg>
     </div>
     <div class="label">stop-color: rgb(0, 128, 0)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="stop-color" data-value="LinkText" data-target-selector=" stop.target" data-target-id="t11">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
       <style>#t11  stop.target { stop-color: LinkText; }</style>
       <svg id="t11" style="display: block;"><defs><linearGradient id="grad-11" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a0a1a"/><stop class="target" offset="100%" stop-color="crimson"/></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-11)"/><text x="25" y="55" font-size="11" fill="#666" font-family="monospace" opacity="0.8">fixed #0a0a1a</text><text x="220" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">varies</text></svg>
     </div>
     <div class="label">stop-color: LinkText</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="stop-color" data-value="transparent" data-target-selector=" stop.target" data-target-id="t12">
     <div class="demo-area" style="background: #16213e; border-radius: 12px; padding: 20px; width: 370px;">
       <style>#t12  stop.target { stop-color: transparent; }</style>
       <svg id="t12" style="display: block;"><defs><linearGradient id="grad-12" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0a0a1a"/><stop class="target" offset="100%" stop-color="crimson"/></linearGradient></defs><rect x="10" y="10" width="300" height="80" rx="12" fill="url(#grad-12)"/><text x="25" y="55" font-size="11" fill="#666" font-family="monospace" opacity="0.8">fixed #0a0a1a</text><text x="220" y="55" font-size="11" fill="#fff" font-family="monospace" opacity="0.8">varies</text></svg>
@@ -110,5 +112,7 @@
     <div class="label">stop-color: transparent</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

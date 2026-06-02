@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>ruby-position</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   ruby { font-size: 36px; color: #fff; }
 rt { font-size: 13px; color: #e94560; font-weight: 600; }
 </style>
@@ -20,42 +22,44 @@ rt { font-size: 13px; color: #e94560; font-weight: 600; }
 <h1>Ruby Position</h1>
 <p class="prop-name">ruby-position</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="ruby-position" data-value="inter-character">
     <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 28px 24px; width: 340px;">
       <div style="background: #0f3460; border: 1px solid #3a4a5e; border-radius: 6px; padding: 24px 20px; display: flex; gap: 2px; justify-content: center; ruby-position: inter-character;"><ruby>東<rt>ひがし</rt></ruby><ruby>京<rt>きょう</rt></ruby><ruby>都<rt>と</rt></ruby></div>
     </div>
     <div class="label">ruby-position: inter-character</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="ruby-position" data-value="alternate">
     <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 28px 24px; width: 340px;">
       <div style="background: #0f3460; border: 1px solid #3a4a5e; border-radius: 6px; padding: 24px 20px; display: flex; gap: 2px; justify-content: center; ruby-position: alternate;"><ruby>東<rt>ひがし</rt></ruby><ruby>京<rt>きょう</rt></ruby><ruby>都<rt>と</rt></ruby></div>
     </div>
     <div class="label">ruby-position: alternate</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="ruby-position" data-value="over">
     <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 28px 24px; width: 340px;">
       <div style="background: #0f3460; border: 1px solid #3a4a5e; border-radius: 6px; padding: 24px 20px; display: flex; gap: 2px; justify-content: center; ruby-position: over;"><ruby>東<rt>ひがし</rt></ruby><ruby>京<rt>きょう</rt></ruby><ruby>都<rt>と</rt></ruby></div>
     </div>
     <div class="label">ruby-position: over</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="ruby-position" data-value="alternate over">
     <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 28px 24px; width: 340px;">
       <div style="background: #0f3460; border: 1px solid #3a4a5e; border-radius: 6px; padding: 24px 20px; display: flex; gap: 2px; justify-content: center; ruby-position: alternate over;"><ruby>東<rt>ひがし</rt></ruby><ruby>京<rt>きょう</rt></ruby><ruby>都<rt>と</rt></ruby></div>
     </div>
     <div class="label">ruby-position: alternate over</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="ruby-position" data-value="under">
     <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 28px 24px; width: 340px;">
       <div style="background: #0f3460; border: 1px solid #3a4a5e; border-radius: 6px; padding: 24px 20px; display: flex; gap: 2px; justify-content: center; ruby-position: under;"><ruby>東<rt>ひがし</rt></ruby><ruby>京<rt>きょう</rt></ruby><ruby>都<rt>と</rt></ruby></div>
     </div>
     <div class="label">ruby-position: under</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="ruby-position" data-value="alternate under">
     <div class="demo-area" style="background: #16213e; border-radius: 10px; padding: 28px 24px; width: 340px;">
       <div style="background: #0f3460; border: 1px solid #3a4a5e; border-radius: 6px; padding: 24px 20px; display: flex; gap: 2px; justify-content: center; ruby-position: alternate under;"><ruby>東<rt>ひがし</rt></ruby><ruby>京<rt>きょう</rt></ruby><ruby>都<rt>と</rt></ruby></div>
     </div>
     <div class="label">ruby-position: alternate under</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

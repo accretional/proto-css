@@ -4,110 +4,114 @@
 <meta charset="UTF-8">
 <title>min-inline-size</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
 </style>
 </head>
 <body>
 <h1>Min Inline Size</h1>
 <p class="prop-name">min-inline-size</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="min-inline-size" data-value="auto">
     <div class="demo-area" style="background: #0a0a1a; border-radius: 6px; padding: 4px; border-bottom: 2px dashed #3a4a5e;">
       <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 4px; display: inline-block; height: 44px; vertical-align: top; min-inline-size: auto;"></div>
     </div>
     <div class="label">min-inline-size: auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="min-inline-size" data-value="10px">
     <div class="demo-area" style="background: #0a0a1a; border-radius: 6px; padding: 4px; border-bottom: 2px dashed #3a4a5e;">
       <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 4px; display: inline-block; height: 44px; vertical-align: top; min-inline-size: 10px;"></div>
     </div>
     <div class="label">min-inline-size: 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="min-inline-size" data-value="min-content">
     <div class="demo-area" style="background: #0a0a1a; border-radius: 6px; padding: 4px; border-bottom: 2px dashed #3a4a5e;">
       <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 4px; display: inline-block; height: 44px; vertical-align: top; min-inline-size: min-content;"></div>
     </div>
     <div class="label">min-inline-size: min-content</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="min-inline-size" data-value="max-content">
     <div class="demo-area" style="background: #0a0a1a; border-radius: 6px; padding: 4px; border-bottom: 2px dashed #3a4a5e;">
       <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 4px; display: inline-block; height: 44px; vertical-align: top; min-inline-size: max-content;"></div>
     </div>
     <div class="label">min-inline-size: max-content</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="min-inline-size" data-value="fit-content(10px)">
     <div class="demo-area" style="background: #0a0a1a; border-radius: 6px; padding: 4px; border-bottom: 2px dashed #3a4a5e;">
       <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 4px; display: inline-block; height: 44px; vertical-align: top; min-inline-size: fit-content(10px);"></div>
     </div>
     <div class="label">min-inline-size: fit-content(10px)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="min-inline-size" data-value="calc-size(auto, size + 20px)">
     <div class="demo-area" style="background: #0a0a1a; border-radius: 6px; padding: 4px; border-bottom: 2px dashed #3a4a5e;">
       <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 4px; display: inline-block; height: 44px; vertical-align: top; min-inline-size: calc-size(auto, size + 20px);"></div>
     </div>
     <div class="label">min-inline-size: calc-size(auto, size + 20px)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="min-inline-size" data-value="anchor-size(width)">
     <div class="demo-area" style="background: #0a0a1a; border-radius: 6px; padding: 4px; border-bottom: 2px dashed #3a4a5e;">
       <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 4px; display: inline-block; height: 44px; vertical-align: top; min-inline-size: anchor-size(width);"></div>
     </div>
     <div class="label">min-inline-size: anchor-size(width)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="min-inline-size" data-value="stretch">
     <div class="demo-area" style="background: #0a0a1a; border-radius: 6px; padding: 4px; border-bottom: 2px dashed #3a4a5e;">
       <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 4px; display: inline-block; height: 44px; vertical-align: top; min-inline-size: stretch;"></div>
     </div>
     <div class="label">min-inline-size: stretch</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="min-inline-size" data-value="fit-content">
     <div class="demo-area" style="background: #0a0a1a; border-radius: 6px; padding: 4px; border-bottom: 2px dashed #3a4a5e;">
       <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 4px; display: inline-block; height: 44px; vertical-align: top; min-inline-size: fit-content;"></div>
     </div>
     <div class="label">min-inline-size: fit-content</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="min-inline-size" data-value="contain">
     <div class="demo-area" style="background: #0a0a1a; border-radius: 6px; padding: 4px; border-bottom: 2px dashed #3a4a5e;">
       <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 4px; display: inline-block; height: 44px; vertical-align: top; min-inline-size: contain;"></div>
     </div>
     <div class="label">min-inline-size: contain</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="min-inline-size" data-value="25%">
     <div class="demo-area" style="background: #0a0a1a; border-radius: 6px; padding: 4px; border-bottom: 2px dashed #3a4a5e;">
       <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 4px; display: inline-block; height: 44px; vertical-align: top; min-inline-size: 25%;"></div>
     </div>
     <div class="label">min-inline-size: 25%</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="min-inline-size" data-value="fit-content(25%)">
     <div class="demo-area" style="background: #0a0a1a; border-radius: 6px; padding: 4px; border-bottom: 2px dashed #3a4a5e;">
       <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 4px; display: inline-block; height: 44px; vertical-align: top; min-inline-size: fit-content(25%);"></div>
     </div>
     <div class="label">min-inline-size: fit-content(25%)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="min-inline-size" data-value="calc-size(fit-content, size * 0.5)">
     <div class="demo-area" style="background: #0a0a1a; border-radius: 6px; padding: 4px; border-bottom: 2px dashed #3a4a5e;">
       <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 4px; display: inline-block; height: 44px; vertical-align: top; min-inline-size: calc-size(fit-content, size * 0.5);"></div>
     </div>
     <div class="label">min-inline-size: calc-size(fit-content, size * 0.5)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="min-inline-size" data-value="anchor-size(height)">
     <div class="demo-area" style="background: #0a0a1a; border-radius: 6px; padding: 4px; border-bottom: 2px dashed #3a4a5e;">
       <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 4px; display: inline-block; height: 44px; vertical-align: top; min-inline-size: anchor-size(height);"></div>
     </div>
     <div class="label">min-inline-size: anchor-size(height)</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="min-inline-size" data-value="50%">
     <div class="demo-area" style="background: #0a0a1a; border-radius: 6px; padding: 4px; border-bottom: 2px dashed #3a4a5e;">
       <div style="background: linear-gradient(90deg, #4fc3f7, #7c4dff); border-radius: 4px; display: inline-block; height: 44px; vertical-align: top; min-inline-size: 50%;"></div>
     </div>
     <div class="label">min-inline-size: 50%</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

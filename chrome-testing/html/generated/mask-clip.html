@@ -4,236 +4,240 @@
 <meta charset="UTF-8">
 <title>mask-clip</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
 </style>
 </head>
 <body>
 <h1>Mask Clip</h1>
 <p class="prop-name">mask-clip</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="content-box">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: content-box;">content</div>
     </div>
     <div class="label">mask-clip: content-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="no-clip">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: no-clip;">content</div>
     </div>
     <div class="label">mask-clip: no-clip</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="view-box">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: view-box;">content</div>
     </div>
     <div class="label">mask-clip: view-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="fill-box">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: fill-box;">content</div>
     </div>
     <div class="label">mask-clip: fill-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="stroke-box">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: stroke-box;">content</div>
     </div>
     <div class="label">mask-clip: stroke-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="padding-box">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: padding-box;">content</div>
     </div>
     <div class="label">mask-clip: padding-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="border-box">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: border-box;">content</div>
     </div>
     <div class="label">mask-clip: border-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="content-box, content-box">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: content-box, content-box;">content</div>
     </div>
     <div class="label">mask-clip: content-box, content-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="no-clip, content-box">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: no-clip, content-box;">content</div>
     </div>
     <div class="label">mask-clip: no-clip, content-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="view-box, content-box">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: view-box, content-box;">content</div>
     </div>
     <div class="label">mask-clip: view-box, content-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="fill-box, content-box">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: fill-box, content-box;">content</div>
     </div>
     <div class="label">mask-clip: fill-box, content-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="stroke-box, content-box">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: stroke-box, content-box;">content</div>
     </div>
     <div class="label">mask-clip: stroke-box, content-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="padding-box, content-box">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: padding-box, content-box;">content</div>
     </div>
     <div class="label">mask-clip: padding-box, content-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="border-box, content-box">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: border-box, content-box;">content</div>
     </div>
     <div class="label">mask-clip: border-box, content-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="content-box, no-clip">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: content-box, no-clip;">content</div>
     </div>
     <div class="label">mask-clip: content-box, no-clip</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="no-clip, no-clip">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: no-clip, no-clip;">content</div>
     </div>
     <div class="label">mask-clip: no-clip, no-clip</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="view-box, no-clip">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: view-box, no-clip;">content</div>
     </div>
     <div class="label">mask-clip: view-box, no-clip</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="fill-box, no-clip">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: fill-box, no-clip;">content</div>
     </div>
     <div class="label">mask-clip: fill-box, no-clip</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="stroke-box, no-clip">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: stroke-box, no-clip;">content</div>
     </div>
     <div class="label">mask-clip: stroke-box, no-clip</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="padding-box, no-clip">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: padding-box, no-clip;">content</div>
     </div>
     <div class="label">mask-clip: padding-box, no-clip</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="border-box, no-clip">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: border-box, no-clip;">content</div>
     </div>
     <div class="label">mask-clip: border-box, no-clip</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="content-box, view-box">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: content-box, view-box;">content</div>
     </div>
     <div class="label">mask-clip: content-box, view-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="no-clip, view-box">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: no-clip, view-box;">content</div>
     </div>
     <div class="label">mask-clip: no-clip, view-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="view-box, view-box">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: view-box, view-box;">content</div>
     </div>
     <div class="label">mask-clip: view-box, view-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="fill-box, view-box">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: fill-box, view-box;">content</div>
     </div>
     <div class="label">mask-clip: fill-box, view-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="stroke-box, view-box">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: stroke-box, view-box;">content</div>
     </div>
     <div class="label">mask-clip: stroke-box, view-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="padding-box, view-box">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: padding-box, view-box;">content</div>
     </div>
     <div class="label">mask-clip: padding-box, view-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="border-box, view-box">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: border-box, view-box;">content</div>
     </div>
     <div class="label">mask-clip: border-box, view-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="content-box, fill-box">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: content-box, fill-box;">content</div>
     </div>
     <div class="label">mask-clip: content-box, fill-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="no-clip, fill-box">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: no-clip, fill-box;">content</div>
     </div>
     <div class="label">mask-clip: no-clip, fill-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="view-box, fill-box">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: view-box, fill-box;">content</div>
     </div>
     <div class="label">mask-clip: view-box, fill-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="fill-box, fill-box">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: fill-box, fill-box;">content</div>
     </div>
     <div class="label">mask-clip: fill-box, fill-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="stroke-box, fill-box">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: stroke-box, fill-box;">content</div>
     </div>
     <div class="label">mask-clip: stroke-box, fill-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="padding-box, fill-box">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: padding-box, fill-box;">content</div>
     </div>
     <div class="label">mask-clip: padding-box, fill-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="border-box, fill-box">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: border-box, fill-box;">content</div>
     </div>
     <div class="label">mask-clip: border-box, fill-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="mask-clip" data-value="content-box, stroke-box">
     <div class="demo-area" style="display: flex; align-items: center; justify-content: center; height: 120px;">
       <div style="width: 100%; height: 100px; background: linear-gradient(135deg, #e94560, #a855f7, #00d2ff); border: 12px solid rgba(233, 69, 96, 0.4); padding: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-family: monospace; -webkit-mask: linear-gradient(black, black); mask: linear-gradient(black, black); mask-clip: content-box, stroke-box;">content</div>
     </div>
     <div class="label">mask-clip: content-box, stroke-box</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

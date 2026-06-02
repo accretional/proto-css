@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>place-content</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .grid-item { background: linear-gradient(135deg, #e94560, #c23066); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; color: #fff; }
 </style>
 </head>
@@ -19,222 +21,224 @@
 <h1>Place Content</h1>
 <p class="prop-name">place-content</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="normal">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: normal;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: normal</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="baseline">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: baseline;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: baseline</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="space-between">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: space-between;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: space-between</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="center">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: center;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: center</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="first baseline">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: first baseline;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: first baseline</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="space-around">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: space-around;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: space-around</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="unsafe center">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: unsafe center;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: unsafe center</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="last baseline">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: last baseline;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: last baseline</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="space-evenly">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: space-evenly;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: space-evenly</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="safe center">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: safe center;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: safe center</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="stretch">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: stretch;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: stretch</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="start">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: start;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: start</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="unsafe start">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: unsafe start;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: unsafe start</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="safe start">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: safe start;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: safe start</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="end">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: end;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: end</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="unsafe end">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: unsafe end;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: unsafe end</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="safe end">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: safe end;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: safe end</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="flex-start">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: flex-start;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: flex-start</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="unsafe flex-start">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: unsafe flex-start;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: unsafe flex-start</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="safe flex-start">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: safe flex-start;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: safe flex-start</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="flex-end">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: flex-end;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: flex-end</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="unsafe flex-end">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: unsafe flex-end;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: unsafe flex-end</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="safe flex-end">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: safe flex-end;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: safe flex-end</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="normal normal">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: normal normal;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: normal normal</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="baseline normal">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: baseline normal;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: baseline normal</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="space-between normal">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: space-between normal;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: space-between normal</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="center normal">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: center normal;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: center normal</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="first baseline normal">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: first baseline normal;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: first baseline normal</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="space-around normal">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: space-around normal;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: space-around normal</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="unsafe center normal">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: unsafe center normal;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: unsafe center normal</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="last baseline normal">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: last baseline normal;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: last baseline normal</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="space-evenly normal">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: space-evenly normal;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: space-evenly normal</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="safe center normal">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: safe center normal;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: safe center normal</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="stretch normal">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: stretch normal;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: stretch normal</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="start normal">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: start normal;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: start normal</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="place-content" data-value="unsafe start normal">
     <div class="demo-area">
       <div style="width: 300px; height: 200px; display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 50px 50px; border: 2px dashed rgba(255,255,255,0.2); border-radius: 6px; place-content: unsafe start normal;"><div class="grid-item">1</div><div class="grid-item">2</div><div class="grid-item">3</div><div class="grid-item">4</div><div class="grid-item">5</div><div class="grid-item">6</div></div>
     </div>
     <div class="label">place-content: unsafe start normal</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

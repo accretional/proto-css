@@ -4,86 +4,90 @@
 <meta charset="UTF-8">
 <title>pointer-events</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
 </style>
 </head>
 <body>
 <h1>Pointer Events</h1>
 <p class="prop-name">pointer-events</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="pointer-events" data-value="auto">
     <div class="demo-area" style="width: 280px; height: 160px; position: relative; border: 2px dashed rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
       <div style="width: 180px; height: 80px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; background: linear-gradient(135deg, #00b4d8, #0077b6); color: #fff; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; pointer-events: auto;">Click Me</div>
     </div>
     <div class="label">pointer-events: auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="pointer-events" data-value="bounding-box">
     <div class="demo-area" style="width: 280px; height: 160px; position: relative; border: 2px dashed rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
       <div style="width: 180px; height: 80px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; background: linear-gradient(135deg, #00b4d8, #0077b6); color: #fff; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; pointer-events: bounding-box;">Click Me</div>
     </div>
     <div class="label">pointer-events: bounding-box</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="pointer-events" data-value="visiblePainted">
     <div class="demo-area" style="width: 280px; height: 160px; position: relative; border: 2px dashed rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
       <div style="width: 180px; height: 80px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; background: linear-gradient(135deg, #00b4d8, #0077b6); color: #fff; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; pointer-events: visiblePainted;">Click Me</div>
     </div>
     <div class="label">pointer-events: visiblePainted</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="pointer-events" data-value="visibleFill">
     <div class="demo-area" style="width: 280px; height: 160px; position: relative; border: 2px dashed rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
       <div style="width: 180px; height: 80px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; background: linear-gradient(135deg, #00b4d8, #0077b6); color: #fff; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; pointer-events: visibleFill;">Click Me</div>
     </div>
     <div class="label">pointer-events: visibleFill</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="pointer-events" data-value="visibleStroke">
     <div class="demo-area" style="width: 280px; height: 160px; position: relative; border: 2px dashed rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
       <div style="width: 180px; height: 80px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; background: linear-gradient(135deg, #00b4d8, #0077b6); color: #fff; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; pointer-events: visibleStroke;">Click Me</div>
     </div>
     <div class="label">pointer-events: visibleStroke</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="pointer-events" data-value="visible">
     <div class="demo-area" style="width: 280px; height: 160px; position: relative; border: 2px dashed rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
       <div style="width: 180px; height: 80px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; background: linear-gradient(135deg, #00b4d8, #0077b6); color: #fff; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; pointer-events: visible;">Click Me</div>
     </div>
     <div class="label">pointer-events: visible</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="pointer-events" data-value="painted">
     <div class="demo-area" style="width: 280px; height: 160px; position: relative; border: 2px dashed rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
       <div style="width: 180px; height: 80px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; background: linear-gradient(135deg, #00b4d8, #0077b6); color: #fff; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; pointer-events: painted;">Click Me</div>
     </div>
     <div class="label">pointer-events: painted</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="pointer-events" data-value="fill">
     <div class="demo-area" style="width: 280px; height: 160px; position: relative; border: 2px dashed rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
       <div style="width: 180px; height: 80px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; background: linear-gradient(135deg, #00b4d8, #0077b6); color: #fff; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; pointer-events: fill;">Click Me</div>
     </div>
     <div class="label">pointer-events: fill</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="pointer-events" data-value="stroke">
     <div class="demo-area" style="width: 280px; height: 160px; position: relative; border: 2px dashed rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
       <div style="width: 180px; height: 80px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; background: linear-gradient(135deg, #00b4d8, #0077b6); color: #fff; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; pointer-events: stroke;">Click Me</div>
     </div>
     <div class="label">pointer-events: stroke</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="pointer-events" data-value="all">
     <div class="demo-area" style="width: 280px; height: 160px; position: relative; border: 2px dashed rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
       <div style="width: 180px; height: 80px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; background: linear-gradient(135deg, #00b4d8, #0077b6); color: #fff; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; pointer-events: all;">Click Me</div>
     </div>
     <div class="label">pointer-events: all</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="pointer-events" data-value="none">
     <div class="demo-area" style="width: 280px; height: 160px; position: relative; border: 2px dashed rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
       <div style="width: 180px; height: 80px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; background: linear-gradient(135deg, #00b4d8, #0077b6); color: #fff; border: 2px solid rgba(255,255,255,0.3); cursor: pointer; pointer-events: none;">Click Me</div>
     </div>
     <div class="label">pointer-events: none</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

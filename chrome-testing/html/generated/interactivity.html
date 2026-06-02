@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>interactivity</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .interactive-area button { background: #e94560; color: #fff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-size: 14px; margin-bottom: 12px; }
 .interactive-area button:hover { background: #c73652; }
 .interactive-area input { display: block; width: 100%; padding: 8px 12px; border-radius: 4px; border: 1px solid #3a3a5e; background: #16213e; color: #e0e0e0; font-size: 14px; margin-bottom: 12px; }
@@ -23,18 +25,20 @@
 <h1>Interactivity</h1>
 <p class="prop-name">interactivity</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="interactivity" data-value="auto">
     <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 24px; width: 360px;">
       <div style="background: #0f3460; border-radius: 6px; padding: 20px; min-height: 180px; interactivity: auto;"><button>Click Me</button><input type="text" placeholder="Type here..." value="Editable text"><a href="#">Focusable Link</a><p>This text is selectable. All elements are interactive and respond to user input normally.</p></div>
     </div>
     <div class="label">interactivity: auto</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="interactivity" data-value="inert">
     <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 24px; width: 360px;">
       <div style="background: #0f3460; border-radius: 6px; padding: 20px; min-height: 180px; interactivity: inert;"><button>Click Me</button><input type="text" placeholder="Type here..." value="Editable text"><a href="#">Focusable Link</a><p>This text is selectable. All elements are interactive and respond to user input normally.</p></div>
     </div>
     <div class="label">interactivity: inert</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

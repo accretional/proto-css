@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>animation-fill-mode</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   @keyframes slideRight {
   from { left: 20px; background: #06b6d4; }
   to { left: calc(100% - 60px); background: #e94560; }
@@ -22,30 +24,32 @@
 <h1>Animation Fill Mode</h1>
 <p class="prop-name">animation-fill-mode</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-fill-mode" data-value="none">
     <div class="demo-area" style="position: relative; height: 70px; background: #0f3460; border-radius: 8px; overflow: hidden;">
       <div style="width: 50px; height: 50px; border-radius: 8px; position: absolute; top: 50%; transform: translateY(-50%); background: #6b7280; animation: slideRight 0.001s ease 0s 1; animation-fill-mode: none;"></div>
     </div>
     <div class="label">animation-fill-mode: none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-fill-mode" data-value="forwards">
     <div class="demo-area" style="position: relative; height: 70px; background: #0f3460; border-radius: 8px; overflow: hidden;">
       <div style="width: 50px; height: 50px; border-radius: 8px; position: absolute; top: 50%; transform: translateY(-50%); background: #6b7280; animation: slideRight 0.001s ease 0s 1; animation-fill-mode: forwards;"></div>
     </div>
     <div class="label">animation-fill-mode: forwards</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-fill-mode" data-value="backwards">
     <div class="demo-area" style="position: relative; height: 70px; background: #0f3460; border-radius: 8px; overflow: hidden;">
       <div style="width: 50px; height: 50px; border-radius: 8px; position: absolute; top: 50%; transform: translateY(-50%); background: #6b7280; animation: slideRight 0.001s ease 0s 1; animation-fill-mode: backwards;"></div>
     </div>
     <div class="label">animation-fill-mode: backwards</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="animation-fill-mode" data-value="both">
     <div class="demo-area" style="position: relative; height: 70px; background: #0f3460; border-radius: 8px; overflow: hidden;">
       <div style="width: 50px; height: 50px; border-radius: 8px; position: absolute; top: 50%; transform: translateY(-50%); background: #6b7280; animation: slideRight 0.001s ease 0s 1; animation-fill-mode: both;"></div>
     </div>
     <div class="label">animation-fill-mode: both</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

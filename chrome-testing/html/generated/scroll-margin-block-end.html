@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>scroll-margin-block-end</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .snap-item { height: 125px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; scroll-snap-align: end; border-bottom: 1px solid #2a2a4a; }
 .snap-item:nth-child(odd) { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
 .snap-item:nth-child(even) { background: #22224a; }
@@ -21,42 +23,44 @@
 <h1>Scroll Margin Block End</h1>
 <p class="prop-name">scroll-margin-block-end</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-margin-block-end" data-value="10px">
     <div class="demo-area">
       <div style="width: 100%; height: 250px; overflow-y: auto; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: y mandatory; position: relative; scroll-margin-block-end: 10px;"><div class="snap-item">1</div><div class="snap-item">2</div><div class="snap-item">3</div><div class="snap-item">4</div><div class="snap-item">5</div></div>
     </div>
     <div class="label">scroll-margin-block-end: 10px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-margin-block-end" data-value="20px">
     <div class="demo-area">
       <div style="width: 100%; height: 250px; overflow-y: auto; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: y mandatory; position: relative; scroll-margin-block-end: 20px;"><div class="snap-item">1</div><div class="snap-item">2</div><div class="snap-item">3</div><div class="snap-item">4</div><div class="snap-item">5</div></div>
     </div>
     <div class="label">scroll-margin-block-end: 20px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-margin-block-end" data-value="50px">
     <div class="demo-area">
       <div style="width: 100%; height: 250px; overflow-y: auto; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: y mandatory; position: relative; scroll-margin-block-end: 50px;"><div class="snap-item">1</div><div class="snap-item">2</div><div class="snap-item">3</div><div class="snap-item">4</div><div class="snap-item">5</div></div>
     </div>
     <div class="label">scroll-margin-block-end: 50px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-margin-block-end" data-value="4px">
     <div class="demo-area">
       <div style="width: 100%; height: 250px; overflow-y: auto; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: y mandatory; position: relative; scroll-margin-block-end: 4px;"><div class="snap-item">1</div><div class="snap-item">2</div><div class="snap-item">3</div><div class="snap-item">4</div><div class="snap-item">5</div></div>
     </div>
     <div class="label">scroll-margin-block-end: 4px</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-margin-block-end" data-value="2em">
     <div class="demo-area">
       <div style="width: 100%; height: 250px; overflow-y: auto; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: y mandatory; position: relative; scroll-margin-block-end: 2em;"><div class="snap-item">1</div><div class="snap-item">2</div><div class="snap-item">3</div><div class="snap-item">4</div><div class="snap-item">5</div></div>
     </div>
     <div class="label">scroll-margin-block-end: 2em</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="scroll-margin-block-end" data-value="0">
     <div class="demo-area">
       <div style="width: 100%; height: 250px; overflow-y: auto; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: y mandatory; position: relative; scroll-margin-block-end: 0;"><div class="snap-item">1</div><div class="snap-item">2</div><div class="snap-item">3</div><div class="snap-item">4</div><div class="snap-item">5</div></div>
     </div>
     <div class="label">scroll-margin-block-end: 0</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>

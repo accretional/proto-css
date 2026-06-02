@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>overlay</title>
 <style>
+  :root { --bg: #1a1a2e; --card-bg: #16213e; --accent: #4fc3f7; --font: system-ui, sans-serif; --font-size: 1; --gap: 20px; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
+  body { background: var(--bg); color: #e0e0e0; font-family: var(--font); padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
+  .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap); }
+  .demo-box { background: var(--card-bg); border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
+  .card-iframe { border: none; width: 100%; display: block; }
   .page-content { padding: 16px; font-size: 13px; color: #b0b0b0; line-height: 1.6; }
 .page-content p { margin-bottom: 8px; }
 .backdrop-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.55); z-index: 5; }
@@ -24,7 +26,7 @@ button { background: #e94560; color: #fff; border: none; border-radius: 6px; pad
 <h1>Overlay</h1>
 <p class="prop-name">overlay</p>
 <div class="demos">
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="overlay" data-value="none">
     <div class="demo-area" style="width: 100%; height: 220px; background: #0f3460; border-radius: 8px; position: relative; overflow: hidden;">
       <div class="page-content"><p>Background page content is visible behind the overlay backdrop.</p><p>The dialog is promoted to the top layer.</p></div>
       <div class="backdrop-overlay"></div>
@@ -32,7 +34,7 @@ button { background: #e94560; color: #fff; border: none; border-radius: 6px; pad
     </div>
     <div class="label">overlay: none</div>
   </div>
-  <div class="demo-box">
+  <div class="demo-box" data-css-prop="overlay" data-value="auto">
     <div class="demo-area" style="width: 100%; height: 220px; background: #0f3460; border-radius: 8px; position: relative; overflow: hidden;">
       <div class="page-content"><p>Background page content is visible behind the overlay backdrop.</p><p>The dialog is promoted to the top layer.</p></div>
       <div class="backdrop-overlay"></div>
@@ -41,5 +43,7 @@ button { background: #e94560; color: #fff; border: none; border-radius: 6px; pad
     <div class="label">overlay: auto</div>
   </div>
 </div>
+<div id="control-bar"></div>
+<script src="../interactive.js"></script>
 </body>
 </html>
