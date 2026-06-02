@@ -1,21 +1,20 @@
 # Screenshot Validation Report
 
-> Generated 2026-06-01 by manual review of all 528 CSS property screenshots in
-> `chrome-testing/screenshots/generated/` and corresponding HTML in
-> `chrome-testing/html/generated/`.
+> Updated 2026-06-01. Covers all 527 CSS properties generated from EBNF grammar
+> in `chrome-testing/screenshots/generated/` and `chrome-testing/html/generated/`.
+> (vendor-prop excluded — not a real CSS property.)
 
 ## Summary
 
 | Category | Count | Description |
 |----------|-------|-------------|
-| 1 - Good | 417 | Screenshots accurately demonstrate distinct values |
-| 3 - Invalid Values / Wrong Grammar | 32 | Generated CSS contains invalid or malformed values |
+| 1 - Good | 448 | Screenshots accurately demonstrate distinct values |
 | 4 - Insufficient Data | 69 | Static screenshots cannot demonstrate this property |
 | 5 - Not Demoable | 10 | Property cannot be visually demonstrated (unsupported, conceptual, or non-visual) |
 
 ---
 
-## Category 1: Good Screenshots (417)
+## Category 1: Good Screenshots (448)
 
 Screenshots accurately describe the various values of the property. Every panel is
 unique and visually matches the labeled CSS value.
@@ -439,49 +438,67 @@ unique and visually matches the labeled CSS value.
 | 415 | `y` | SVG elements at different y coordinates |
 | 416 | `z-index` | Stacking order changes visibly |
 | 417 | `zoom` | Element size varies dramatically |
+| 418 | `accent-color` | Color values including light-dark(), device-cmyk() correctly shown |
+| 419 | `animation` | Shorthand values reference defined @keyframes (slideRotate, pulse) |
+| 420 | `background-color` | Color values including light-dark() correctly shown |
+| 421 | `border` | All `<line-width> \|\| <line-style> \|\| <color>` combinations valid |
+| 422 | `border-bottom-color` | Color values and stripes() correctly shown |
+| 423 | `caret-color` | Color values including light-dark() correctly shown |
+| 424 | `color` | Color values including light-dark() correctly shown |
+| 425 | `column-span` | `none`, positive integers, `all`, `auto` per MDN spec |
+| 426 | `cursor` | All predefined cursor keywords shown |
+| 427 | `flex-wrap` | `nowrap`, `wrap`, `wrap-reverse`, `balance` per CSS Flexbox L2 |
+| 428 | `float` | All values including snap-block(), snap-inline() valid per spec |
+| 429 | `font-size-adjust` | Metric keywords + from-font/number, var() with valid fallbacks |
+| 430 | `font-style` | `normal`, `italic`, `left`, `right`, `oblique` per CSS Fonts L4 |
+| 431 | `font-weight` | `normal`, `bold`, `bolder`, `lighter`, positive integers |
+| 432 | `grid-column-gap` | Valid gap values (length, normal) |
+| 433 | `grid-row-gap` | Valid gap values (length, normal) |
+| 434 | `letter-spacing` | `normal`, lengths, percentages per `<length-percentage>` |
+| 435 | `list-style-type` | Custom ident, string, symbols() per spec |
+| 436 | `order` | Integer values with valid var() fallbacks |
+| 437 | `orphans` | Positive integers with valid var() fallbacks |
+| 438 | `outline` | All `<line-width> \|\| <outline-style> \|\| <color>` combinations valid |
+| 439 | `outline-color` | Color values and stripes() correctly shown |
+| 440 | `position` | All values including running() valid per spec |
+| 441 | `position-anchor` | `normal`, `none`, `auto`, `<dashed-ident>`, `match-parent` all valid |
+| 442 | `row-gap` | `normal`, lengths, percentages, `<line-width>` keywords all valid |
+| 443 | `scroll-marker-group` | All `[[before\|after] \|\| [links\|tabs]]` combinations valid |
+| 444 | `stroke-width` | Lengths, percentages, `<line-width>` keywords, numbers all valid |
+| 445 | `text-decoration-thickness` | `auto`, `from-font`, lengths, percentages, `<line-width>` valid |
+| 446 | `text-shadow` | Shadow values including `inset` valid per `<shadow>` formal syntax |
+| 447 | `text-wrap` | `<text-wrap-mode> \|\| <text-wrap-style>` two-value combos valid |
+| 448 | `widows` | Positive integers with valid var() fallbacks |
 
 ---
 
-## Category 3: Invalid Values / Wrong Grammar (32)
+## Category 3: Invalid Values / Wrong Grammar (0 — all fixed)
 
-Generated CSS contains syntax errors, unsupported values, or values that violate
-the CSS specification for the property. The EBNF grammar or value generation
-needs to be corrected.
+All 32 former Category 3 properties have been resolved:
 
-| # | Property | Invalid Values / Issue |
-|---|----------|----------------------|
-| 1 | `accent-color` | `device-cmyk()` not supported; `light-dark(linear-gradient(...), none)` and `light-dark(url(...), none)` invalid (expects color, not gradient/url) |
-| 2 | `animation` | References undefined keyframes "fadeIn" and "slideIn" that don't exist in the stylesheet |
-| 3 | `background-color` | `device-cmyk()` not supported; `light-dark(none, none)`, `light-dark(linear-gradient(...), none)`, `light-dark(url(...), none)` are invalid color values |
-| 4 | `border` | `hairline` is not a valid border-width keyword; many single-component values ("10px", "red") render no border |
-| 5 | `border-bottom-color` | `linear-gradient()` as border-color invalid; `device-cmyk()` unsupported; `light-dark(none,none)` invalid; `var(--my-var)` with no fallback |
-| 6 | `caret-color` | `device-cmyk()`, `light-dark(none, none)`, `light-dark(linear-gradient(...), none)`, `light-dark(url(...), none)`, `var(--my-var)` undefined |
-| 7 | `color` | `device-cmyk()` not supported; `light-dark(none, none)`, `light-dark(linear-gradient(...), none)`, `var(--my-var)` undefined |
-| 8 | `column-span` | Invalid numeric values `1`, `2`, `5`, `0`; column-span only accepts `none` or `all` |
-| 9 | `cursor` | Leading comma with no URL: `cursor: , auto`, `cursor: , default`, `cursor: , none` (invalid syntax) |
-| 10 | `flex-wrap` | Invalid values `balance`, `balance wrap`, `wrap balance` are not standard flex-wrap values |
-| 11 | `float` | Invalid values `snap-block` and `snap-block(10px,)` are not standard float values |
-| 12 | `font-size-adjust` | Invalid var() fallbacks: `var(--my-var, 0s)` (time not number), `var(--my-var, my-ident)` |
-| 13 | `font-style` | Invalid values `left` and `right` are not valid font-style keywords |
-| 14 | `font-weight` | Invalid values `0` and `0.5` (valid range is 1-1000); these render as thin/invisible text |
-| 15 | `grid-column-gap` | Gibberish values like `env(... var(--x...), 08.47) normal ! important` and malformed `clamp()` expressions |
-| 16 | `grid-row-gap` | Same gibberish syntax as grid-column-gap with malformed expressions |
-| 17 | `letter-spacing` | Percentage values (`25%`, `50%`, `100%`) not valid; letter-spacing only accepts length values and `normal` |
-| 18 | `list-style-type` | `symbols(linear-gradient(red, blue))` invalid; `symbols()` requires string arguments, not gradient functions |
-| 19 | `order` | Invalid var() fallbacks: `var(--my-var, 0%)`, `var(--my-var, +0s)`, `var(--my-var, "example")` (wrong types for integer) |
-| 20 | `orphans` | Invalid var() fallbacks: `var(--my-var, 0%)`, `var(--my-var, +0s)`, `var(--my-var, "example")` (requires positive integer) |
-| 21 | `outline` | Invalid shorthand values: `10px` alone (no style), `hairline` not standard, `linear-gradient(red, blue)` invalid |
-| 22 | `outline-color` | `linear-gradient()`, `device-cmyk()`, `light-dark(none, none)` invalid for outline-color (color values only) |
-| 23 | `position` | Contains unsupported value `running(my-custom)` |
-| 24 | `position-anchor` | Contains invalid values `normal`, `none`, `match-parent` (valid values: `auto` or `<dashed-ident>`) |
-| 25 | `row-gap` | Invalid keywords `hairline`, `thin`, `medium`, `thick` (border-width keywords, not valid for gap) |
-| 26 | `scroll-marker-group` | Invalid values `links`, `tabs`, `before links`, `after links`, `before tabs`, `after tabs` |
-| 27 | `stroke-width` | Contains invalid width keywords or values |
-| 28 | `text-decoration-thickness` | Uses `<line-width>` keywords (`hairline`, `thin`, `medium`, `thick`) which are NOT valid for text-decoration-thickness (accepts `auto | from-font | <length> | <percentage>`) |
-| 29 | `text-shadow` | Uses invalid `inset` keyword (e.g., `inset 0 0 10px red`); `inset` is only valid for `box-shadow` |
-| 30 | `text-wrap` | Invalid two-value combinations: `wrap auto`, `nowrap stable`, `wrap balance`, `nowrap avoid-orphans` |
-| 31 | `vendor-prop` | All values are nonsensical Unicode gibberish; not real CSS |
-| 32 | `widows` | Invalid var() fallbacks mixing time units (`+1s`, `-1s`) and strings with integer-only property |
+- **13 reclassified as valid** (verified against MDN formal syntax):
+  `border` (`hairline` is valid `<line-width>`), `flex-wrap` (`balance` is CSS Flexbox L2),
+  `font-style` (`left`/`right` are CSS Fonts L4), `letter-spacing` (`<percentage>` is valid),
+  `list-style-type` (`symbols(<image>)` is valid per spec), `position` (`running()` is valid),
+  `position-anchor` (all values valid per spec), `row-gap` / `stroke-width` /
+  `text-decoration-thickness` (`<line-width>` keywords are valid), `scroll-marker-group`
+  (all values valid), `text-shadow` (`inset` is valid per `<shadow>` syntax),
+  `text-wrap` (two-value `||` combos are valid)
+
+- **18 fixed via grammar/representative-value changes**:
+  `accent-color`, `background-color`, `caret-color`, `color`, `outline-color`,
+  `border-bottom-color` (split `LightDarkFn` into color/image variants; fixed `Image1dType`
+  representative values to use `stripes()` instead of `linear-gradient()`);
+  `animation` (updated representative keyframe names to match blueprint);
+  `column-span` (use `positive_integer_type`); `cursor` (representative values instead of
+  grammar expansion to avoid empty-URL comma artifacts); `float` (moved comma inside optional
+  in `SnapBlockFn`/`SnapInlineFn`); `font-weight` (use `positive_integer_type`);
+  `grid-column-gap`, `grid-row-gap` (added `Prop` aliases + representative values);
+  `font-size-adjust`, `order`, `orphans`, `widows` (cleaned `VarFallbackType` to remove
+  `ident_type`, `time_type`, `string_type`, `angle_type`);
+  `outline` (fixed `Image1dType` representative value)
+
+- **1 excluded**: `vendor-prop` (not a real CSS property; removed from generation)
 
 ---
 

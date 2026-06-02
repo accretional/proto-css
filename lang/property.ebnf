@@ -182,8 +182,8 @@ Property =
     | WordBreakExpr | WordSpacingExpr | WordWrapExpr | WritingModeExpr
     | XExpr | YExpr | ZIndexExpr
     | ZoomExpr
-    | GridGapExpr | GridRowGapExpr | GridColumnGapExpr
-    | VendorPropExpr ;      (* 523 properties + grid-gap aliases + vendor-prefixed *)
+    | GridGapExpr | GridRowGapExpr | GridColumnGapExpr ;
+    (* 527 properties + grid-gap aliases; vendor-prefixed excluded from generation *)
 
 (* ── CSS Property declarations (name : value ;) ─────────────────────────── *)
 
@@ -2158,10 +2158,10 @@ FlexShrinkType = NumberType ;
 FlexBasisType = content | width ;
 
 (* <snap-block()> *)
-SnapBlockFn = snap_block , left_parenthesis_symbol , LengthType , comma_symbol , [ ( start | end | near ) ] , right_parenthesis_symbol ;
+SnapBlockFn = snap_block , left_parenthesis_symbol , LengthType , [ comma_symbol , ( start | end | near ) ] , right_parenthesis_symbol ;
 
 (* <snap-inline()> *)
-SnapInlineFn = snap_inline , left_parenthesis_symbol , LengthType , comma_symbol , [ ( left | right | near ) ] , right_parenthesis_symbol ;
+SnapInlineFn = snap_inline , left_parenthesis_symbol , LengthType , [ comma_symbol , ( left | right | near ) ] , right_parenthesis_symbol ;
 
 (* <font-family-name> *)
 FontFamilyNameType = string_type | custom_ident_type , { custom_ident_type } ;
@@ -2218,7 +2218,7 @@ NumericSpacingValuesType = proportional_nums | tabular_nums ;
 NumericFractionValuesType = diagonal_fractions | stacked_fractions ;
 
 (* <font-weight-absolute> *)
-FontWeightAbsoluteType = normal | bold | NumberType ;
+FontWeightAbsoluteType = normal | bold | positive_integer_type ;
 
 (* <font-style> *)
 FontStyleType = normal | italic | left | right | oblique , [ AngleType ] ;
@@ -2981,7 +2981,7 @@ ColumnRuleWidthProp = LineWidthListType | AutoLineWidthListType ;
 ColumnRuleProp = GapRuleListType | GapAutoRuleListType ;
 
 (* column-span *)
-ColumnSpanProp = none | IntegerType | all | auto ;
+ColumnSpanProp = none | positive_integer_type | all | auto ;
 
 (* column-width *)
 ColumnWidthProp = auto | NonNegativeLengthType | min_content | max_content | FitContentFn ;
@@ -3096,7 +3096,7 @@ CounterSetProp = CounterSetPropItem , { CounterSetPropItem } | none ;
 CounterSetPropItem = CounterNameType , [ IntegerType ] ;
 
 (* cursor *)
-CursorProp = { CursorImageType , comma_symbol } , CursorPredefinedType ;
+CursorProp = [ CursorImageType , { comma_symbol , CursorImageType } , comma_symbol ] , CursorPredefinedType ;
 
 (* cx *)
 CxProp = LengthPercentageType ;
@@ -4289,8 +4289,11 @@ GridGapExpr    = grid_gap    , colon_symbol , ( GridGapProp    | AllProp ) , [ e
 GridRowGapExpr    = grid_row_gap    , colon_symbol , ( GridGapProp    | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
 GridColumnGapExpr = grid_column_gap , colon_symbol , ( GridGapProp    | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
 GridGapProp = ( LengthPercentageType | normal ) , [ LengthPercentageType | normal ] ;
+GridRowGapProp = GridGapProp ;
+GridColumnGapProp = GridGapProp ;
 
-(* Vendor-prefixed property — -vendor-name: <value> ; *)
-VendorPropExpr = hyphen_symbol , ident_type , colon_symbol , VendorPropValue , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
+(* Vendor-prefixed property — -vendor-name: <value> ;
+   Not included in generation — not a real CSS property. *)
+VendorPropRule = hyphen_symbol , ident_type , colon_symbol , VendorPropValue , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
 VendorPropValue = string_type | ColorType | LengthPercentageType | NumberType | ident_type ;
 

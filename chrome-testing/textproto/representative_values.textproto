@@ -238,7 +238,6 @@ types {
 
 types {
   type_name: "ImageType"
-  values: "none"
   values: "linear-gradient(red, blue)"
   values: "url(statue.svg)"
   primary_rules: "background-image"
@@ -322,6 +321,12 @@ types {
 # --- Functions (complex/recursive) ---
 
 types {
+  type_name: "LightDarkColorFn"
+  values: "light-dark(red, blue)"
+  values: "light-dark(#333, #ccc)"
+}
+
+types {
   type_name: "CalcFn"
   values: "calc(50% - 10px)"
 }
@@ -329,6 +334,12 @@ types {
 types {
   type_name: "MathFunctionType"
   values: "calc(50% + 20px)"
+}
+
+types {
+  type_name: "EnvFn"
+  values: "env(safe-area-inset-top)"
+  values: "env(safe-area-inset-bottom, 20px)"
 }
 
 types {
@@ -456,8 +467,8 @@ types {
 
 types {
   type_name: "SingleAnimationType"
-  values: "fadeIn 1s ease"
-  values: "slideIn 0.5s linear forwards"
+  values: "slideRotate 1s ease"
+  values: "pulse 0.5s linear forwards"
 }
 
 types {
@@ -484,6 +495,30 @@ types {
   values: "1"
   values: "span 2"
   values: "auto"
+}
+
+types {
+  type_name: "CursorProp"
+  values: "auto"
+  values: "default"
+  values: "pointer"
+  values: "move"
+  values: "text"
+  values: "wait"
+  values: "help"
+  values: "not-allowed"
+  values: "grab"
+  values: "crosshair"
+  values: "zoom-in"
+  values: "none"
+}
+
+types {
+  type_name: "GridGapProp"
+  values: "10px"
+  values: "20px"
+  values: "normal"
+  values: "10px 20px"
 }
 
 # --- Shorthand types ---
@@ -534,8 +569,7 @@ types {
 
 types {
   type_name: "Image1dType"
-  values: "red"
-  values: "linear-gradient(red, blue)"
+  values: "stripes(red 50%, blue 50%)"
 }
 
 # --- Mask ---

@@ -8,7 +8,7 @@
   body { background: #1a1a2e; color: #e0e0e0; font-family: system-ui, sans-serif; padding: 32px; }
   h1 { font-size: 22px; color: #fff; margin-bottom: 4px; }
   .prop-name { font-size: 14px; color: #7b8794; font-family: monospace; margin-bottom: 24px; }
-  .demos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .demo-box { background: #16213e; border-radius: 10px; padding: 16px; }
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
@@ -27,213 +27,21 @@
   </div>
   <div class="demo-box">
     <div class="demo-area">
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 20px;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
+    </div>
+    <div class="label">grid-gap: 20px</div>
+  </div>
+  <div class="demo-box">
+    <div class="demo-area">
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: normal;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
     </div>
     <div class="label">grid-gap: normal</div>
   </div>
   <div class="demo-box">
     <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 25%;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 10px 20px;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
     </div>
-    <div class="label">grid-gap: 25%</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 50%;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: 50%</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 100%;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: 100%</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 0;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: 0</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 10px 10px;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: 10px 10px</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: normal 10px;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: normal 10px</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 25% 10px;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: 25% 10px</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 50% 10px;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: 50% 10px</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 100% 10px;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: 100% 10px</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 0 10px;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: 0 10px</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 10px normal;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: 10px normal</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: normal normal;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: normal normal</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 25% normal;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: 25% normal</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 50% normal;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: 50% normal</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 100% normal;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: 100% normal</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 0 normal;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: 0 normal</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 10px 25%;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: 10px 25%</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: normal 25%;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: normal 25%</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 25% 25%;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: 25% 25%</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 50% 25%;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: 50% 25%</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 100% 25%;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: 100% 25%</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 0 25%;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: 0 25%</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 10px 50%;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: 10px 50%</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: normal 50%;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: normal 50%</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 25% 50%;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: 25% 50%</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 50% 50%;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: 50% 50%</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 100% 50%;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: 100% 50%</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 0 50%;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: 0 50%</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 10px 100%;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: 10px 100%</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: normal 100%;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: normal 100%</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 25% 100%;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: 25% 100%</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 50% 100%;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: 50% 100%</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 100% 100%;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: 100% 100%</div>
-  </div>
-  <div class="demo-box">
-    <div class="demo-area">
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; grid-gap: 0 100%;"><div class="cell">1</div><div class="cell">2</div><div class="cell">3</div><div class="cell">4</div><div class="cell">5</div><div class="cell">6</div></div>
-    </div>
-    <div class="label">grid-gap: 0 100%</div>
+    <div class="label">grid-gap: 10px 20px</div>
   </div>
 </div>
 </body>

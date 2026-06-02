@@ -141,7 +141,7 @@ ColorBaseType = hex_color_type | ColorFunctionType | NamedColorType | ColorMixFn
 SystemColorType = accentcolor | accentcolortext | activetext | buttonborder | buttonface | buttontext | canvas | canvastext | field | fieldtext | graytext | highlight | highlighttext | linktext | mark | marktext | selecteditem | selecteditemtext | visitedtext | DeprecatedColorType ;
 
 (* <light-dark-color> *)
-LightDarkColorType = LightDarkFn ;
+LightDarkColorType = LightDarkColorFn ;
 
 (* <color-function> *)
 ColorFunctionType = RgbFn | RgbaFn | HslFn | HslaFn | HwbFn | LabFn | LchFn | OklabFn | OklchFn | IctcpFn | JzazbzFn | JzczhzFn | AlphaFn | ColorFn | HdrColorFn ;
@@ -379,7 +379,7 @@ ColorStopAngleType = ColorStopAngleItem , [ ColorStopAngleItem ] ;
 ColorStopAngleItem = ( AnglePercentageType | "0" ) ;
 
 (* <image> *)
-ImageType = UrlType | ImageFn | ImageSetFn | CrossFadeFn | ElementFn | GradientType | LightDarkFn | VarFn ;
+ImageType = UrlType | ImageFn | ImageSetFn | CrossFadeFn | ElementFn | GradientType | LightDarkImageFn ;
 
 (* <image-tags> *)
 ImageTagsType = ltr | rtl ;

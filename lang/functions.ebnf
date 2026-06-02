@@ -414,7 +414,7 @@ DeclarationValueInParensType = { DeclarationValueTokenType | DeclarationValuePar
 (* Free-form variant: includes bare ( and ) as flat tokens.
    Used where parens are just part of the value stream (e.g. MediaQueryListType). *)
 DeclarationValueType = { DeclarationValueTokenType | left_parenthesis_symbol | right_parenthesis_symbol } ;
-EnvFn = env , left_parenthesis_symbol , custom_ident_type , { IntegerType } , [ comma_symbol , DeclarationValueTokenType ] , right_parenthesis_symbol ;
+EnvFn = env , left_parenthesis_symbol , custom_ident_type , { IntegerType } , [ comma_symbol , ( length_type | percentage_type | number_type ) ] , right_parenthesis_symbol ;
 
 (* fit-content( <length-percentage> ) *)
 FitContentFn = fit_content , left_parenthesis_symbol , LengthPercentageType , right_parenthesis_symbol ;
@@ -467,9 +467,11 @@ DynamicRangeLimitMixFn = dynamic_range_limit_mix , left_parenthesis_symbol ,
     { comma_symbol , DynamicRangeLimitMixItem } ,
   right_parenthesis_symbol ;
 
-(* light-dark( <color> , <color> )            — color variant
-   light-dark( [ <image> | none ] , [ <image> | none ] ) — image variant *)
-LightDarkFn = light_dark , left_parenthesis_symbol , ( ColorType | ImageType | none ) , comma_symbol , ( ColorType | ImageType | none ) , right_parenthesis_symbol ;
+(* light-dark( <color> , <color> )            — color variant *)
+LightDarkColorFn = light_dark , left_parenthesis_symbol , ColorType , comma_symbol , ColorType , right_parenthesis_symbol ;
+
+(* light-dark( [ <image> | none ] , [ <image> | none ] ) — image variant *)
+LightDarkImageFn = light_dark , left_parenthesis_symbol , ( ImageType | none ) , comma_symbol , ( ImageType | none ) , right_parenthesis_symbol ;
 
 (* palette-mix( <color-interpolation-method> , [ palette-entry && <percentage [0,100]>? ]#{2} )
    palette-entry = normal | light | dark | <palette-identifier> | <palette-mix()>
@@ -523,11 +525,10 @@ UrlFn = url , left_parenthesis_symbol , string_type , right_parenthesis_symbol ;
 
 (* var( <custom-Property-name> , <declaration-value>? )
    <custom-Property-name> = --<ident>  (same form as <dashed-ident>) *)
-(* Fallback for var(): meaningful CSS value types only; bare punctuation excluded.
-   Per spec, <declaration-value> allows any token except ), ], }, ;, ! but bare
-   symbols (: + > etc.) produce visually useless fallbacks for testing purposes. *)
-VarFallbackType = ident_type | number_type | percentage_type | length_type
-                | time_type | angle_type | string_type | hex_color_type | dashed_ident_type ;
+(* Fallback for var(): contextually-safe CSS value types only.
+   Per spec, <declaration-value> allows any token except ), ], }, ;, ! but types
+   like ident, time, angle, and string produce invalid fallbacks for most properties. *)
+VarFallbackType = number_type | percentage_type | length_type | hex_color_type ;
 VarFn = var , left_parenthesis_symbol , dashed_ident_type , [ comma_symbol , VarFallbackType ] , right_parenthesis_symbol ;
 
 
