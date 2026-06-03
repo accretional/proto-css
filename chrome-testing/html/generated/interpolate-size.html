@@ -17,7 +17,9 @@
   .instruction { font-size: 11px; color: #9ca3af; margin-bottom: 12px; font-style: italic; }
 .vis-row { display: flex; gap: 8px; align-items: flex-end; margin-bottom: 12px; }
 .vis-box { border-radius: 4px; display: flex; align-items: flex-end; justify-content: center; padding: 4px; font-size: 9px; font-family: monospace; color: rgba(255,255,255,0.7); width: 60px; background: linear-gradient(180deg, #e94560, #921b33); }
+.grow-box { transition: height 1.5s ease; }
 .arrow { color: #e94560; font-size: 18px; align-self: center; }
+.demo-area .grow-box.active { height: 100px !important; }
 </style>
 </head>
 <body>
@@ -26,13 +28,13 @@
 <div class="demos">
   <div class="demo-box" data-css-prop="interpolate-size" data-value="numeric-only">
     <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 24px; width: 360px;">
-      <div style="background: #0f3460; border-radius: 6px; padding: 16px; min-height: 200px; interpolate-size: numeric-only;"><p class="instruction">Transition behavior with keyword sizes like auto</p><div class="vis-row"><div class="vis-box" style="height: 40px;">40px</div><div class="arrow">&#8594;</div><div class="vis-box" style="height: 100px;">100px</div></div><div class="vis-row"><div class="vis-box" style="height: 40px;">40px</div><div class="arrow">&#8594;</div><div class="vis-box" style="height: 80px;">auto</div></div></div>
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; min-height: 200px; interpolate-size: numeric-only;"><p class="instruction">Transition behavior with keyword sizes like auto</p><div class="vis-row"><div class="vis-box grow-box" style="height: 40px;">40px</div><div class="arrow">&#8594;</div><div class="vis-box" style="height: 100px;">100px</div></div><div class="vis-row"><div class="vis-box grow-box" style="height: 40px;">40px</div><div class="arrow">&#8594;</div><div class="vis-box" style="height: 80px;">auto</div></div></div>
     </div>
     <div class="label">interpolate-size: numeric-only</div>
   </div>
   <div class="demo-box" data-css-prop="interpolate-size" data-value="allow-keywords">
     <div class="demo-area" style="background: #16213e; border-radius: 8px; padding: 24px; width: 360px;">
-      <div style="background: #0f3460; border-radius: 6px; padding: 16px; min-height: 200px; interpolate-size: allow-keywords;"><p class="instruction">Transition behavior with keyword sizes like auto</p><div class="vis-row"><div class="vis-box" style="height: 40px;">40px</div><div class="arrow">&#8594;</div><div class="vis-box" style="height: 100px;">100px</div></div><div class="vis-row"><div class="vis-box" style="height: 40px;">40px</div><div class="arrow">&#8594;</div><div class="vis-box" style="height: 80px;">auto</div></div></div>
+      <div style="background: #0f3460; border-radius: 6px; padding: 16px; min-height: 200px; interpolate-size: allow-keywords;"><p class="instruction">Transition behavior with keyword sizes like auto</p><div class="vis-row"><div class="vis-box grow-box" style="height: 40px;">40px</div><div class="arrow">&#8594;</div><div class="vis-box" style="height: 100px;">100px</div></div><div class="vis-row"><div class="vis-box grow-box" style="height: 40px;">40px</div><div class="arrow">&#8594;</div><div class="vis-box" style="height: 80px;">auto</div></div></div>
     </div>
     <div class="label">interpolate-size: allow-keywords</div>
   </div>

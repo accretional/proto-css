@@ -1,7 +1,7 @@
 demo_type: BOX
 title: "Transition Timing Function"
-target_inner_html: "<div class=\"progress\" style=\"width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);\"><div class=\"ball\" style=\"left: calc(65% - 10px);\"></div></div>"
-target_base_style: "position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px;"
-wrapper_style: "display: flex; flex-direction: column; gap: 18px;"
-extra_css: ".demo-row { display: flex; align-items: center; gap: 16px; }\n.label-col { width: 320px; flex-shrink: 0; }\n.fn-name { font-size: 13px; font-family: monospace; color: #e0e0e0; font-weight: 600; }\n.fn-desc { font-size: 10px; font-family: monospace; color: #6b7280; margin-top: 2px; }\n.progress { position: absolute; top: 0; left: 0; height: 100%; border-radius: 6px; }\n.curve-svg { width: 50px; height: 50px; }\n.ball { position: absolute; width: 20px; height: 20px; border-radius: 50%; background: #fff; top: 6px; box-shadow: 0 0 6px rgba(255,255,255,0.4); }\n.demo-area .progress.active { width: 100% !important; }\n.demo-area .progress.active .ball { left: calc(100% - 10px) !important; }"
+property_target_selector: ".box"
+target_inner_html: "<div class=\"box\" style=\"width: 60px; height: 60px; background: #e94560;\"></div>"
+target_base_style: "display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"
+extra_css: ".box { border-radius: 8px; transition-property: width, height, background, border-radius; transition-duration: 2s; transition-delay: 0s; }\n.demo-area .box.active { width: 100% !important; height: 30px !important; background: #16c79a !important; border-radius: 4px !important; }"
 screenshot_textproto: "temporal"

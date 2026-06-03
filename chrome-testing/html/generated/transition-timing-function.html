@@ -14,234 +14,263 @@
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
   .card-iframe { border: none; width: 100%; display: block; }
-  .demo-row { display: flex; align-items: center; gap: 16px; }
-.label-col { width: 320px; flex-shrink: 0; }
-.fn-name { font-size: 13px; font-family: monospace; color: #e0e0e0; font-weight: 600; }
-.fn-desc { font-size: 10px; font-family: monospace; color: #6b7280; margin-top: 2px; }
-.progress { position: absolute; top: 0; left: 0; height: 100%; border-radius: 6px; }
-.curve-svg { width: 50px; height: 50px; }
-.ball { position: absolute; width: 20px; height: 20px; border-radius: 50%; background: #fff; top: 6px; box-shadow: 0 0 6px rgba(255,255,255,0.4); }
-.demo-area .progress.active { width: 100% !important; }
-.demo-area .progress.active .ball { left: calc(100% - 10px) !important; }
+  .box { border-radius: 8px; transition-property: width, height, background, border-radius; transition-duration: 2s; transition-delay: 0s; }
+.demo-area .box.active { width: 100% !important; height: 30px !important; background: #16c79a !important; border-radius: 4px !important; }
 </style>
 </head>
 <body>
 <h1>Transition Timing Function</h1>
 <p class="prop-name">transition-timing-function</p>
 <div class="demos">
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="linear">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: linear;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="linear" data-target-selector=".box" data-target-id="t0">
+    <div class="demo-area">
+      <style>#t0 .box { transition-timing-function: linear; }</style>
+      <div id="t0" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: linear</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: ease;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease" data-target-selector=".box" data-target-id="t1">
+    <div class="demo-area">
+      <style>#t1 .box { transition-timing-function: ease; }</style>
+      <div id="t1" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: ease</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="step-start">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: step-start;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="step-start" data-target-selector=".box" data-target-id="t2">
+    <div class="demo-area">
+      <style>#t2 .box { transition-timing-function: step-start; }</style>
+      <div id="t2" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: step-start</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-in">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: ease-in;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-in" data-target-selector=".box" data-target-id="t3">
+    <div class="demo-area">
+      <style>#t3 .box { transition-timing-function: ease-in; }</style>
+      <div id="t3" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: ease-in</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="step-end">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: step-end;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="step-end" data-target-selector=".box" data-target-id="t4">
+    <div class="demo-area">
+      <style>#t4 .box { transition-timing-function: step-end; }</style>
+      <div id="t4" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: step-end</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-out">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: ease-out;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-out" data-target-selector=".box" data-target-id="t5">
+    <div class="demo-area">
+      <style>#t5 .box { transition-timing-function: ease-out; }</style>
+      <div id="t5" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: ease-out</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-in-out">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: ease-in-out;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-in-out" data-target-selector=".box" data-target-id="t6">
+    <div class="demo-area">
+      <style>#t6 .box { transition-timing-function: ease-in-out; }</style>
+      <div id="t6" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: ease-in-out</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="linear, linear">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: linear, linear;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="linear, linear" data-target-selector=".box" data-target-id="t7">
+    <div class="demo-area">
+      <style>#t7 .box { transition-timing-function: linear, linear; }</style>
+      <div id="t7" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: linear, linear</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease, linear">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: ease, linear;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease, linear" data-target-selector=".box" data-target-id="t8">
+    <div class="demo-area">
+      <style>#t8 .box { transition-timing-function: ease, linear; }</style>
+      <div id="t8" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: ease, linear</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="step-start, linear">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: step-start, linear;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="step-start, linear" data-target-selector=".box" data-target-id="t9">
+    <div class="demo-area">
+      <style>#t9 .box { transition-timing-function: step-start, linear; }</style>
+      <div id="t9" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: step-start, linear</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-in, linear">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: ease-in, linear;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-in, linear" data-target-selector=".box" data-target-id="t10">
+    <div class="demo-area">
+      <style>#t10 .box { transition-timing-function: ease-in, linear; }</style>
+      <div id="t10" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: ease-in, linear</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="step-end, linear">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: step-end, linear;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="step-end, linear" data-target-selector=".box" data-target-id="t11">
+    <div class="demo-area">
+      <style>#t11 .box { transition-timing-function: step-end, linear; }</style>
+      <div id="t11" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: step-end, linear</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-out, linear">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: ease-out, linear;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-out, linear" data-target-selector=".box" data-target-id="t12">
+    <div class="demo-area">
+      <style>#t12 .box { transition-timing-function: ease-out, linear; }</style>
+      <div id="t12" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: ease-out, linear</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-in-out, linear">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: ease-in-out, linear;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-in-out, linear" data-target-selector=".box" data-target-id="t13">
+    <div class="demo-area">
+      <style>#t13 .box { transition-timing-function: ease-in-out, linear; }</style>
+      <div id="t13" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: ease-in-out, linear</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="linear, ease">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: linear, ease;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="linear, ease" data-target-selector=".box" data-target-id="t14">
+    <div class="demo-area">
+      <style>#t14 .box { transition-timing-function: linear, ease; }</style>
+      <div id="t14" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: linear, ease</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease, ease">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: ease, ease;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease, ease" data-target-selector=".box" data-target-id="t15">
+    <div class="demo-area">
+      <style>#t15 .box { transition-timing-function: ease, ease; }</style>
+      <div id="t15" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: ease, ease</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="step-start, ease">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: step-start, ease;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="step-start, ease" data-target-selector=".box" data-target-id="t16">
+    <div class="demo-area">
+      <style>#t16 .box { transition-timing-function: step-start, ease; }</style>
+      <div id="t16" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: step-start, ease</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-in, ease">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: ease-in, ease;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-in, ease" data-target-selector=".box" data-target-id="t17">
+    <div class="demo-area">
+      <style>#t17 .box { transition-timing-function: ease-in, ease; }</style>
+      <div id="t17" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: ease-in, ease</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="step-end, ease">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: step-end, ease;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="step-end, ease" data-target-selector=".box" data-target-id="t18">
+    <div class="demo-area">
+      <style>#t18 .box { transition-timing-function: step-end, ease; }</style>
+      <div id="t18" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: step-end, ease</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-out, ease">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: ease-out, ease;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-out, ease" data-target-selector=".box" data-target-id="t19">
+    <div class="demo-area">
+      <style>#t19 .box { transition-timing-function: ease-out, ease; }</style>
+      <div id="t19" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: ease-out, ease</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-in-out, ease">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: ease-in-out, ease;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-in-out, ease" data-target-selector=".box" data-target-id="t20">
+    <div class="demo-area">
+      <style>#t20 .box { transition-timing-function: ease-in-out, ease; }</style>
+      <div id="t20" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: ease-in-out, ease</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="linear, step-start">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: linear, step-start;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="linear, step-start" data-target-selector=".box" data-target-id="t21">
+    <div class="demo-area">
+      <style>#t21 .box { transition-timing-function: linear, step-start; }</style>
+      <div id="t21" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: linear, step-start</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease, step-start">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: ease, step-start;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease, step-start" data-target-selector=".box" data-target-id="t22">
+    <div class="demo-area">
+      <style>#t22 .box { transition-timing-function: ease, step-start; }</style>
+      <div id="t22" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: ease, step-start</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="step-start, step-start">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: step-start, step-start;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="step-start, step-start" data-target-selector=".box" data-target-id="t23">
+    <div class="demo-area">
+      <style>#t23 .box { transition-timing-function: step-start, step-start; }</style>
+      <div id="t23" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: step-start, step-start</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-in, step-start">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: ease-in, step-start;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-in, step-start" data-target-selector=".box" data-target-id="t24">
+    <div class="demo-area">
+      <style>#t24 .box { transition-timing-function: ease-in, step-start; }</style>
+      <div id="t24" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: ease-in, step-start</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="step-end, step-start">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: step-end, step-start;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="step-end, step-start" data-target-selector=".box" data-target-id="t25">
+    <div class="demo-area">
+      <style>#t25 .box { transition-timing-function: step-end, step-start; }</style>
+      <div id="t25" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: step-end, step-start</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-out, step-start">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: ease-out, step-start;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-out, step-start" data-target-selector=".box" data-target-id="t26">
+    <div class="demo-area">
+      <style>#t26 .box { transition-timing-function: ease-out, step-start; }</style>
+      <div id="t26" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: ease-out, step-start</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-in-out, step-start">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: ease-in-out, step-start;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-in-out, step-start" data-target-selector=".box" data-target-id="t27">
+    <div class="demo-area">
+      <style>#t27 .box { transition-timing-function: ease-in-out, step-start; }</style>
+      <div id="t27" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: ease-in-out, step-start</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="linear, ease-in">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: linear, ease-in;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="linear, ease-in" data-target-selector=".box" data-target-id="t28">
+    <div class="demo-area">
+      <style>#t28 .box { transition-timing-function: linear, ease-in; }</style>
+      <div id="t28" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: linear, ease-in</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease, ease-in">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: ease, ease-in;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease, ease-in" data-target-selector=".box" data-target-id="t29">
+    <div class="demo-area">
+      <style>#t29 .box { transition-timing-function: ease, ease-in; }</style>
+      <div id="t29" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: ease, ease-in</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="step-start, ease-in">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: step-start, ease-in;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="step-start, ease-in" data-target-selector=".box" data-target-id="t30">
+    <div class="demo-area">
+      <style>#t30 .box { transition-timing-function: step-start, ease-in; }</style>
+      <div id="t30" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: step-start, ease-in</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-in, ease-in">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: ease-in, ease-in;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-in, ease-in" data-target-selector=".box" data-target-id="t31">
+    <div class="demo-area">
+      <style>#t31 .box { transition-timing-function: ease-in, ease-in; }</style>
+      <div id="t31" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: ease-in, ease-in</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="step-end, ease-in">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: step-end, ease-in;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="step-end, ease-in" data-target-selector=".box" data-target-id="t32">
+    <div class="demo-area">
+      <style>#t32 .box { transition-timing-function: step-end, ease-in; }</style>
+      <div id="t32" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: step-end, ease-in</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-out, ease-in">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: ease-out, ease-in;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-out, ease-in" data-target-selector=".box" data-target-id="t33">
+    <div class="demo-area">
+      <style>#t33 .box { transition-timing-function: ease-out, ease-in; }</style>
+      <div id="t33" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: ease-out, ease-in</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-in-out, ease-in">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: ease-in-out, ease-in;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="ease-in-out, ease-in" data-target-selector=".box" data-target-id="t34">
+    <div class="demo-area">
+      <style>#t34 .box { transition-timing-function: ease-in-out, ease-in; }</style>
+      <div id="t34" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: ease-in-out, ease-in</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-timing-function" data-value="linear, step-end">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 18px;">
-      <div style="position: relative; height: 32px; flex: 1; background: #16213e; border-radius: 6px; overflow: hidden; max-width: 700px; transition-timing-function: linear, step-end;"><div class="progress" style="width: 65%; background: linear-gradient(90deg, #e94560 0%, #e94560 10%, #ff6b6b 30%, #ff8e8e 60%, #e94560 90%, #e94560 100%);"><div class="ball" style="left: calc(65% - 10px);"></div></div></div>
+  <div class="demo-box" data-css-prop="transition-timing-function" data-value="linear, step-end" data-target-selector=".box" data-target-id="t35">
+    <div class="demo-area">
+      <style>#t35 .box { transition-timing-function: linear, step-end; }</style>
+      <div id="t35" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-timing-function: linear, step-end</div>
   </div>

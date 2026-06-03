@@ -38,14 +38,14 @@ steps: {
 steps: {
   label: "focus_target"
   evaluate_script: {
-    expression: "(function(){var el=document.querySelector('.demo-area input,.demo-area textarea,.demo-area [contenteditable],.demo-area select');if(el){el.focus();el.click()}})()"
+    expression: "(function(){var el=document.querySelector('.demo-area input,.demo-area textarea,.demo-area [contenteditable],.demo-area select');if(el){el.focus();if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'){el.value='Hello';el.setSelectionRange(5,5)}else if(el.isContentEditable){el.textContent='Hello'}}})()"
   }
 }
 
 steps: {
   label: "wait_focus"
   wait: {
-    milliseconds: 300
+    milliseconds: 500
   }
 }
 

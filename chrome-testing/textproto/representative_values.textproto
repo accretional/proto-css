@@ -363,6 +363,9 @@ types {
   values: "rotate(45deg)"
   values: "scale(1.5)"
   values: "translateX(10px)"
+  values: "skewX(15deg)"
+  values: "translateY(20px)"
+  values: "perspective(200px)"
   primary_rules: "transform"
 }
 
@@ -370,6 +373,8 @@ types {
   type_name: "TransformListType"
   values: "rotate(45deg)"
   values: "scale(2) translateX(10px)"
+  values: "skewX(15deg) translateY(20px)"
+  values: "rotate(30deg) scale(0.5) translateX(30px)"
 }
 
 # --- Easing ---
@@ -494,7 +499,10 @@ types {
 types {
   type_name: "GridLineType"
   values: "1"
+  values: "2"
+  values: "3"
   values: "span 2"
+  values: "span 3"
   values: "auto"
 }
 
@@ -564,7 +572,9 @@ types {
   type_name: "BorderRadiusType"
   values: "4px"
   values: "10px"
+  values: "20px"
   values: "50%"
+  values: "30px 10px"
   values: "0"
 }
 
@@ -654,4 +664,96 @@ types {
   values: "2"
   values: "3"
   values: "4"
+}
+
+# --- Function types (cap combinatorial explosions) ---
+
+types {
+  type_name: "AnchorSizeFn"
+  values: "anchor-size(width)"
+  values: "anchor-size(height)"
+}
+
+types {
+  type_name: "AnchorFn"
+  values: "anchor(top)"
+  values: "anchor(bottom)"
+}
+
+types {
+  type_name: "DeviceCmykFn"
+  values: "device-cmyk(0, 0.7, 1, 0)"
+}
+
+types {
+  type_name: "VarFn"
+  values: "var(--my-var)"
+}
+
+types {
+  type_name: "ContrastColorFn"
+  values: "contrast-color(red)"
+}
+
+types {
+  type_name: "ImageFn"
+  values: "image(url(clown.jpg))"
+}
+
+types {
+  type_name: "CrossFadeFn"
+  values: "cross-fade(url(clown.jpg) 50%)"
+}
+
+types {
+  type_name: "ImageSetFn"
+  values: "image-set(url(clown.jpg) 1x)"
+}
+
+types {
+  type_name: "CalcSizeFn"
+  values: "calc-size(auto, size + 20px)"
+  values: "calc-size(fit-content, size * 0.5)"
+}
+
+# --- Font weight (proper numeric range) ---
+
+types {
+  type_name: "FontWeightAbsoluteType"
+  values: "normal"
+  values: "bold"
+  values: "100"
+  values: "400"
+  values: "700"
+  values: "900"
+}
+
+types {
+  type_name: "OpentypeTagType"
+  values: "\"liga\""
+  values: "\"smcp\""
+  values: "\"onum\""
+  values: "\"kern\""
+  values: "\"frac\""
+  values: "\"swsh\""
+}
+
+types {
+  type_name: "FeatureTagValueType"
+  values: "\"liga\""
+  values: "\"smcp\""
+  values: "\"onum\""
+  values: "\"kern\" 0"
+  values: "\"frac\""
+  values: "\"liga\" 0"
+}
+
+types {
+  type_name: "FontFamilyNameType"
+  values: "\"Playfair Display\""
+  values: "\"Fira Code\""
+  values: "\"Dancing Script\""
+  values: "Georgia"
+  values: "\"Courier New\""
+  values: "\"Times New Roman\""
 }

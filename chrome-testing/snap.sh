@@ -341,12 +341,9 @@ elif [[ "$is_dir" == true ]]; then
     filename="$(basename "$html")"
     slug="${filename%.html}"
     mode="$(get_mode "$slug")"
-    # Only add ?static=1 for static mode; interactive modes need JS simulation loop
-    if [[ "$mode" == "static" ]]; then
-      url="http://localhost:$HTTP_PORT/${URL_PREFIX}/${filename}?static=1"
-    else
-      url="http://localhost:$HTTP_PORT/${URL_PREFIX}/${filename}"
-    fi
+    # Always use ?static=1 to prevent interactive.js from converting cards to iframes.
+    # The textproto templates handle all interaction (scroll, hover, focus, etc.) directly.
+    url="http://localhost:$HTTP_PORT/${URL_PREFIX}/${filename}?static=1"
     outdir="$OUTPUT/${slug}"
     take_screenshot_with_mode "$url" "$outdir" "$slug" "$mode"
   done

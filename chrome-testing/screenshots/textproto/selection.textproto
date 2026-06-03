@@ -38,7 +38,7 @@ steps: {
 steps: {
   label: "select_text"
   evaluate_script: {
-    expression: "(function(){var sel=window.getSelection();sel.removeAllRanges();document.querySelectorAll('.demo-area [style]').forEach(function(el){var range=document.createRange();range.selectNodeContents(el);sel.addRange(range)})})()"
+    expression: "(function(){var sel=window.getSelection();sel.removeAllRanges();var targets=document.querySelectorAll('.demo-area [style]');for(var i=0;i<Math.min(targets.length,3);i++){try{var range=document.createRange();range.selectNodeContents(targets[i]);sel.addRange(range)}catch(e){}}})()"
   }
 }
 

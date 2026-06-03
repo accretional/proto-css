@@ -7,18 +7,19 @@
 
 | Category | Count | Description |
 |----------|-------|-------------|
-| A — Well demonstrated | 401 | Every panel visually distinct, clearly matches labeled value |
-| B — Inherently same | 39 | Panels look identical and can't be fixed (env/browser limitation) |
+| A — Well demonstrated | 466 | Every panel visually distinct, clearly matches labeled value |
+| B — Inherently same | 40 | Panels look identical and can't be fixed (env/browser limitation) |
 | C — Needs better values | 0 | UI is fine but values/fonts don't produce distinct results |
 | D — Needs better UI | 0 | Layout/structure doesn't showcase the property |
-| E — Insufficient (interactive) | 77 | Requires interaction, animation, or print context |
-| F — Not demoable | 11 | Unsupported in Chrome, conceptual-only, or non-visual |
+| E — Insufficient (interactive) | 2 | Requires interaction, animation, or print context |
+| F — Not demoable | 20 | Unsupported in Chrome, conceptual-only, or non-visual |
 
 ---
 
-## A — Well Demonstrated (401)
+## A — Well Demonstrated (466)
 
 Every panel shows a visually distinct result matching the labeled CSS value.
+Includes 65 formerly-E properties now captured via multi-frame interactive modes.
 
 | Property | Notes |
 |----------|-------|
@@ -423,10 +424,75 @@ Every panel shows a visually distinct result matching the labeled CSS value.
 | `y` | SVG elements at different vertical positions |
 | `z-index` | Stacking order changes across colored layers |
 | `zoom` | Size from invisible (0) to 2x dramatically |
+| `animation-range` | Temporal mode captures scroll-driven animation progress across 6 frames |
+| `animation-range-end` | Temporal mode captures scroll-driven animation end-range states |
+| `animation-range-start` | Temporal mode captures scroll-driven animation start-range states |
+| `animation-timeline` | Temporal mode shows scroll/view timeline animation progress |
+| `background-attachment` | Scroll mode shows fixed vs scroll vs local attachment during scrolling |
+| `caret` | Focus mode types into input, showing caret appearance |
+| `caret-animation` | Focus mode shows caret in focused input field |
+| `caret-color` | Focus mode types "Hello" into input; caret color visible |
+| `caret-shape` | Focus mode shows caret shape in focused input |
+| `cursor` | Hover mode shows cursor area with labeled cursor types |
+| `interactivity` | Hover mode demonstrates interactivity states |
+| `interest-delay` | Hover mode triggers interest/popover delay interaction |
+| `interest-delay-end` | Hover mode triggers interest delay end states |
+| `interest-delay-start` | Hover mode triggers interest delay start states |
+| `interpolate-size` | Temporal mode shows size interpolation transition across frames |
+| `overscroll-behavior` | Scroll mode shows nested scroll containers with overscroll behavior |
+| `overscroll-behavior-block` | Scroll mode captures block-direction overscroll containment |
+| `overscroll-behavior-inline` | Scroll mode captures inline-direction overscroll containment |
+| `overscroll-behavior-x` | Scroll mode captures x-axis overscroll containment |
+| `overscroll-behavior-y` | Scroll mode captures y-axis overscroll containment |
+| `pointer-events` | Hover mode shows clickable elements with pointer-event values |
+| `scroll-behavior` | Scroll mode shows all containers scrolling (auto vs smooth) |
+| `scroll-initial-target` | Scroll mode captures initial scroll target positioning |
+| `scroll-margin` | Scroll mode shows scroll-snap with margin offsets |
+| `scroll-margin-block` | Scroll mode captures block-direction scroll margin |
+| `scroll-margin-block-end` | Scroll mode captures block-end scroll margin |
+| `scroll-margin-block-start` | Scroll mode captures block-start scroll margin |
+| `scroll-margin-bottom` | Scroll mode captures bottom scroll margin |
+| `scroll-margin-inline` | Scroll mode captures inline-direction scroll margin |
+| `scroll-margin-inline-end` | Scroll mode captures inline-end scroll margin |
+| `scroll-margin-inline-start` | Scroll mode captures inline-start scroll margin |
+| `scroll-margin-left` | Scroll mode captures left scroll margin |
+| `scroll-margin-right` | Scroll mode captures right scroll margin |
+| `scroll-margin-top` | Scroll mode captures top scroll margin with different values |
+| `scroll-marker-group` | Scroll mode shows scroll markers during scrolling |
+| `scroll-padding` | Scroll mode shows scroll-snap with padding offsets |
+| `scroll-padding-block` | Scroll mode captures block-direction scroll padding |
+| `scroll-padding-block-end` | Scroll mode captures block-end scroll padding |
+| `scroll-padding-block-start` | Scroll mode captures block-start scroll padding |
+| `scroll-padding-bottom` | Scroll mode captures bottom scroll padding |
+| `scroll-padding-inline` | Scroll mode captures inline-direction scroll padding |
+| `scroll-padding-inline-end` | Scroll mode captures inline-end scroll padding |
+| `scroll-padding-inline-start` | Scroll mode captures inline-start scroll padding |
+| `scroll-padding-left` | Scroll mode captures left scroll padding |
+| `scroll-padding-right` | Scroll mode captures right scroll padding |
+| `scroll-padding-top` | Scroll mode captures top scroll padding |
+| `scroll-snap-align` | Scroll mode shows snap alignment during scrolling |
+| `scroll-snap-stop` | Scroll mode captures snap stopping behavior |
+| `scroll-snap-type` | Scroll mode shows different snap types (x, both, mandatory, proximity) |
+| `scroll-target-group` | Scroll mode captures scroll target grouping |
+| `scroll-timeline` | Scroll mode shows scroll-driven timeline behavior |
+| `scroll-timeline-axis` | Scroll mode captures timeline axis during scrolling |
+| `touch-action` | Hover mode shows touch action areas with labeled gestures |
+| `transition` | Temporal mode captures full transition shorthand across 6 frames |
+| `transition-behavior` | Temporal mode shows normal vs allow-discrete with opacity fade |
+| `transition-delay` | Temporal mode shows different delays; some boxes still red at mid-frames |
+| `transition-duration` | Temporal mode shows different durations; faster transitions complete first |
+| `transition-property` | Temporal mode captures which properties transition |
+| `transition-timing-function` | Temporal mode shows easing differences (step-end still red at frame 4) |
+| `user-modify` | Focus mode types into editable elements |
+| `user-select` | Selection mode selects text; auto/text show selection, none blocks it |
+| `view-timeline` | Scroll mode captures view-driven timeline states |
+| `view-timeline-axis` | Scroll mode captures view timeline axis behavior |
+| `view-timeline-inset` | Scroll mode captures view timeline inset offsets |
+| `view-timeline-name` | Scroll mode captures named view timeline behavior |
 
 ---
 
-## B — Inherently Same (39)
+## B — Inherently Same (40)
 
 Panels look identical and **cannot be fixed** — the property is a browser hint,
 requires a specific OS/environment, was never implemented, or is inherently
@@ -468,6 +534,7 @@ imperceptible in static screenshots.
 | `shape-rendering` | Sub-pixel anti-aliasing differences invisible at normal zoom/DPI |
 | `stroke-miterlimit` | Miter limit angle differences imperceptible at normal polyline angles |
 | `text-decoration-skip` | Decoration skip differences too subtle at normal font sizes |
+| `text-justify` | Justification differences too subtle between auto/inter-word/inter-character |
 | `text-rendering` | Browser rendering hint with no guaranteed visual output |
 | `text-spacing-trim` | CJK punctuation spacing adjustments inherently imperceptible |
 | `transform-box` | Transform-box origin differences too subtle without extreme transforms |
@@ -494,107 +561,49 @@ and 1 moved to F (not a real property).
 
 ---
 
-## E — Insufficient: Requires Interaction (77)
+## E — Insufficient: Requires Interaction (2)
 
-Static screenshots cannot demonstrate these properties. They require user interaction,
-animation playback, scroll context, or print/paged media.
+These properties require anchor positioning context with @position-try at-rules
+that the current generator does not produce.
 
 | Property | Reason |
 |----------|-------|
-| `animation-range` | Requires scroll-driven animation timeline |
-| `animation-range-end` | Requires scroll-driven animation timeline |
-| `animation-range-start` | Requires scroll-driven animation timeline |
-| `animation-timeline` | Requires scrolling context |
-| `background-attachment` | scroll/fixed/local only differ during actual scrolling |
-| `caret` | Requires text cursor focus |
-| `caret-animation` | Controls caret blinking |
-| `caret-color` | No input focused during screenshot; caret never visible |
-| `caret-shape` | Requires cursor focus |
-| `cursor` | Cursor shape only visible on hover; static screenshot shows default |
-| `dynamic-range-limit` | Requires HDR display |
-| `interactivity` | Requires clicking/typing |
-| `interest-delay` | Requires hover interaction |
-| `interest-delay-end` | Requires hover interaction |
-| `interest-delay-start` | Requires hover interaction |
-| `interpolate-size` | Transition property; static screenshot cannot show interpolation |
-| `orphans` | Paged-media property; only affects column/page breaks with specific content |
-| `overscroll-behavior` | Requires scroll interaction |
-| `overscroll-behavior-block` | Requires vertical scrolling |
-| `overscroll-behavior-inline` | Requires horizontal scrolling |
-| `overscroll-behavior-x` | Requires horizontal scrolling |
-| `overscroll-behavior-y` | Requires vertical scrolling |
-| `page` | Requires print context |
-| `page-break-after` | Requires print context |
-| `page-break-before` | Requires print context |
-| `pointer-events` | Requires mouse hit-testing |
-| `position-try` | Requires @position-try at-rules |
-| `position-try-fallbacks` | Requires @position-try at-rules |
-| `print-color-adjust` | Requires print context |
-| `scroll-behavior` | Requires scroll interaction |
-| `scroll-initial-target` | Requires page load event |
-| `scroll-margin` | Requires scroll-snap interaction |
-| `scroll-margin-block` | Requires scroll-snap interaction |
-| `scroll-margin-block-end` | Requires scroll-snap interaction |
-| `scroll-margin-block-start` | Requires scroll-snap interaction |
-| `scroll-margin-bottom` | Requires scroll-snap interaction |
-| `scroll-margin-inline` | Requires scroll-snap interaction |
-| `scroll-margin-inline-end` | Requires scroll-snap interaction |
-| `scroll-margin-inline-start` | Requires scroll-snap interaction |
-| `scroll-margin-left` | Requires scroll-snap interaction |
-| `scroll-margin-right` | Requires scroll-snap interaction |
-| `scroll-margin-top` | Requires scroll-snap interaction |
-| `scroll-marker-group` | Requires ::scroll-marker pseudo-elements with scroll interaction |
-| `scroll-padding` | Requires scroll-snap interaction |
-| `scroll-padding-block` | Requires scroll-snap interaction |
-| `scroll-padding-block-end` | Requires scroll-snap interaction |
-| `scroll-padding-block-start` | Requires scroll-snap interaction |
-| `scroll-padding-bottom` | Requires scroll-snap interaction |
-| `scroll-padding-inline` | Requires scroll-snap interaction |
-| `scroll-padding-inline-end` | Requires scroll-snap interaction |
-| `scroll-padding-inline-start` | Requires scroll-snap interaction |
-| `scroll-padding-left` | Requires scroll-snap interaction |
-| `scroll-padding-right` | Requires scroll-snap interaction |
-| `scroll-padding-top` | Requires scroll-snap interaction |
-| `scroll-snap-align` | Requires scroll-snap interaction |
-| `scroll-snap-stop` | Requires scroll-snap interaction |
-| `scroll-snap-type` | Requires scroll-snap interaction |
-| `scroll-target-group` | Requires scroll interaction |
-| `scroll-timeline` | Requires scrolling |
-| `scroll-timeline-axis` | Scroll-driven; requires actual scrolling interaction |
-| `speak-as` | Audio property |
-| `text-decoration-inset` | Not supported in Chrome |
-| `text-justify` | Differences too subtle for static screenshot |
-| `touch-action` | Controls touch gestures |
-| `transition` | Time-based effect |
-| `transition-behavior` | Requires animation |
-| `transition-delay` | Time-based delay |
-| `transition-duration` | Time-based duration |
-| `transition-property` | Requires animation |
-| `transition-timing-function` | Easing visible only during animation |
-| `user-modify` | Requires text editing interaction |
-| `user-select` | Requires text selection interaction |
-| `view-timeline` | Scroll-driven animation |
-| `view-timeline-axis` | Scroll-driven animation |
-| `view-timeline-inset` | Scroll-driven animation |
-| `view-timeline-name` | Scroll-driven animation |
-| `widows` | Paged-media property; only affects column/page breaks with specific content |
+| `position-try` | Requires @position-try at-rules with anchor positioning |
+| `position-try-fallbacks` | Requires @position-try at-rules with anchor positioning |
+
+### Formerly E, now resolved (65 → A, 1 → B, 9 → F)
+
+Multi-frame screenshot modes (temporal, scroll, hover, focus, selection) now
+capture interaction states via chromerpc automation. Transition-* properties use
+temporal mode with `.active` class toggling. Scroll-* properties use scroll mode
+that programmatically scrolls all containers. Focus/caret properties type into
+inputs. Selection properties select text. Print/audio/HDR properties moved to F.
 
 ---
 
-## F — Not Demoable (11)
+## F — Not Demoable (20)
 
-Unsupported in Chrome, conceptual-only, or non-visual.
+Unsupported in Chrome, conceptual-only, non-visual, or requires print/audio/HDR context.
 
 | Property | Reason |
 |----------|-------|
 | `column-height` | Not a standard CSS property |
 | `column-wrap` | Non-standard; no browser support |
+| `dynamic-range-limit` | Requires HDR display; no effect in standard Chrome |
 | `font-smooth` | Non-standard; Chrome ignores unprefixed |
 | `hanging-punctuation` | Not implemented in Chrome |
 | `image-resolution` | Not supported in Chrome |
 | `line-height-step` | Not implemented in Chrome |
+| `orphans` | Paged-media property; only affects print/column breaks |
+| `page` | Requires print context |
+| `page-break-after` | Requires print context |
+| `page-break-before` | Requires print context |
+| `print-color-adjust` | Requires print context |
+| `speak-as` | Audio property; no visual effect |
+| `text-decoration-inset` | Not supported in Chrome |
 | `text-size-adjust` | Mobile-only; no effect on desktop Chrome |
 | `timeline-scope` | Only expressible as code/diagram |
 | `vendor-prop` | Not a real CSS property; placeholder for vendor-prefixed properties |
 | `view-transition-class` | Only expressible as code/diagram |
 | `view-transition-name` | Only expressible as code/diagram |
+| `widows` | Paged-media property; only affects print/column breaks |

@@ -1,7 +1,7 @@
 demo_type: BOX
 title: "Transition Delay"
-target_inner_html: "<div class=\"active-zone\" style=\"left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);\">starts immediately</div>"
-target_base_style: "position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px;"
-wrapper_style: "display: flex; flex-direction: column; gap: 14px;"
-extra_css: ".demo-row { display: flex; align-items: center; gap: 16px; }\n.label { font-size: 12px; font-family: monospace; color: #9ca3af; width: 280px; flex-shrink: 0; }\n.delay-zone { position: absolute; top: 0; left: 0; height: 100%; background: repeating-linear-gradient(90deg, #1e2a45 0px, #1e2a45 10px, #16213e 10px, #16213e 20px); }\n.active-zone { position: absolute; top: 0; height: 100%; background: linear-gradient(90deg, #e94560, #ff6b6b); border-radius: 0 8px 8px 0; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; }\n.marker { position: absolute; top: 0; height: 100%; width: 2px; background: #ffd700; }\n.marker-label { position: absolute; top: -16px; font-size: 9px; font-family: monospace; color: #ffd700; transform: translateX(-50%); }\n.time-axis { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; padding-left: 296px; }\n.time-tick { font-size: 10px; font-family: monospace; color: #6b7280; }\n.legend { display: flex; gap: 24px; margin-top: 20px; }\n.legend-item { display: flex; align-items: center; gap: 8px; font-size: 11px; font-family: monospace; color: #9ca3af; }\n.legend-swatch { width: 16px; height: 12px; border-radius: 3px; }\n.demo-area .active-zone.active { left: 0%; width: 100%; }"
+property_target_selector: ".box"
+target_inner_html: "<div class=\"box\" style=\"width: 60px; height: 60px; background: #e94560;\"></div>"
+target_base_style: "display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"
+extra_css: ".box { border-radius: 8px; transition-property: width, height, background, border-radius; transition-duration: 1.5s; transition-timing-function: ease; }\n.demo-area .box.active { width: 100% !important; height: 30px !important; background: #16c79a !important; border-radius: 4px !important; }"
 screenshot_textproto: "temporal"

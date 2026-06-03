@@ -1,5 +1,5 @@
 # Scroll mode: 3 screenshots — before, mid, and after scrolling.
-# Targets .scroll-container if present, otherwise scrolls the page.
+# Scrolls ALL scrollable containers (not just the first), so multi-card pages work.
 # Placeholders: {{URL}}, {{OUTPUT_DIR}}, {{SLUG}}
 
 name: "screenshot_{{SLUG}}"
@@ -38,7 +38,7 @@ steps: {
 steps: {
   label: "scroll_mid"
   evaluate_script: {
-    expression: "(function(){var c=document.querySelector('.scroll-container');if(!c)c=document.scrollingElement;c.scrollTo({top:Math.floor(c.scrollHeight/3),behavior:'instant'})})()"
+    expression: "(function(){var containers=[];var sc=document.querySelectorAll('.scroll-container');for(var j=0;j<sc.length;j++)containers.push(sc[j]);var all=document.querySelectorAll('[style]');for(var i=0;i<all.length;i++){var s=getComputedStyle(all[i]);if((s.overflow==='auto'||s.overflow==='scroll'||s.overflowY==='auto'||s.overflowY==='scroll')&&all[i].scrollHeight>all[i].clientHeight+10){var dup=false;for(var k=0;k<containers.length;k++){if(containers[k]===all[i]){dup=true;break}}if(!dup)containers.push(all[i])}}if(containers.length===0)containers.push(document.scrollingElement);for(var n=0;n<containers.length;n++){containers[n].scrollTo({top:Math.floor(containers[n].scrollHeight/3),behavior:'instant'})}})()"
   }
 }
 
@@ -60,7 +60,7 @@ steps: {
 steps: {
   label: "scroll_end"
   evaluate_script: {
-    expression: "(function(){var c=document.querySelector('.scroll-container');if(!c)c=document.scrollingElement;c.scrollTo({top:c.scrollHeight,behavior:'instant'})})()"
+    expression: "(function(){var containers=[];var sc=document.querySelectorAll('.scroll-container');for(var j=0;j<sc.length;j++)containers.push(sc[j]);var all=document.querySelectorAll('[style]');for(var i=0;i<all.length;i++){var s=getComputedStyle(all[i]);if((s.overflow==='auto'||s.overflow==='scroll'||s.overflowY==='auto'||s.overflowY==='scroll')&&all[i].scrollHeight>all[i].clientHeight+10){var dup=false;for(var k=0;k<containers.length;k++){if(containers[k]===all[i]){dup=true;break}}if(!dup)containers.push(all[i])}}if(containers.length===0)containers.push(document.scrollingElement);for(var n=0;n<containers.length;n++){containers[n].scrollTo({top:containers[n].scrollHeight,behavior:'instant'})}})()"
   }
 }
 

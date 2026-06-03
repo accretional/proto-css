@@ -15,6 +15,12 @@ echo "========================================="
 echo "  test.sh — Test & Validate"
 echo "========================================="
 
+# ── Full pipeline build (gen + screenshots + galleries) ────────────────────
+
+echo ""
+echo "--- Full pipeline build ---"
+"$ROOT/chrome-testing/run.sh"
+
 fail() {
   echo "  [FAIL] $1" >&2
   FAILURES=$((FAILURES + 1))

@@ -14,237 +14,263 @@
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
   .card-iframe { border: none; width: 100%; display: block; }
-  .demo-row { display: flex; align-items: center; gap: 16px; }
-.label { font-size: 12px; font-family: monospace; color: #9ca3af; width: 280px; flex-shrink: 0; }
-.delay-zone { position: absolute; top: 0; left: 0; height: 100%; background: repeating-linear-gradient(90deg, #1e2a45 0px, #1e2a45 10px, #16213e 10px, #16213e 20px); }
-.active-zone { position: absolute; top: 0; height: 100%; background: linear-gradient(90deg, #e94560, #ff6b6b); border-radius: 0 8px 8px 0; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: monospace; color: #fff; }
-.marker { position: absolute; top: 0; height: 100%; width: 2px; background: #ffd700; }
-.marker-label { position: absolute; top: -16px; font-size: 9px; font-family: monospace; color: #ffd700; transform: translateX(-50%); }
-.time-axis { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; padding-left: 296px; }
-.time-tick { font-size: 10px; font-family: monospace; color: #6b7280; }
-.legend { display: flex; gap: 24px; margin-top: 20px; }
-.legend-item { display: flex; align-items: center; gap: 8px; font-size: 11px; font-family: monospace; color: #9ca3af; }
-.legend-swatch { width: 16px; height: 12px; border-radius: 3px; }
-.demo-area .active-zone.active { left: 0%; width: 100%; }
+  .box { border-radius: 8px; transition-property: width, height, background, border-radius; transition-duration: 1.5s; transition-timing-function: ease; }
+.demo-area .box.active { width: 100% !important; height: 30px !important; background: #16c79a !important; border-radius: 4px !important; }
 </style>
 </head>
 <body>
 <h1>Transition Delay</h1>
 <p class="prop-name">transition-delay</p>
 <div class="demos">
-  <div class="demo-box" data-css-prop="transition-delay" data-value="0s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: 0s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="0s" data-target-selector=".box" data-target-id="t0">
+    <div class="demo-area">
+      <style>#t0 .box { transition-delay: 0s; }</style>
+      <div id="t0" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: 0s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="var(--my-var)">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: var(--my-var);"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="var(--my-var)" data-target-selector=".box" data-target-id="t1">
+    <div class="demo-area">
+      <style>#t1 .box { transition-delay: var(--my-var); }</style>
+      <div id="t1" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: var(--my-var)</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="+0s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: +0s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="+0s" data-target-selector=".box" data-target-id="t2">
+    <div class="demo-area">
+      <style>#t2 .box { transition-delay: +0s; }</style>
+      <div id="t2" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: +0s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="-0s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: -0s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="-0s" data-target-selector=".box" data-target-id="t3">
+    <div class="demo-area">
+      <style>#t3 .box { transition-delay: -0s; }</style>
+      <div id="t3" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: -0s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="1s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: 1s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="1s" data-target-selector=".box" data-target-id="t4">
+    <div class="demo-area">
+      <style>#t4 .box { transition-delay: 1s; }</style>
+      <div id="t4" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: 1s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="+1s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: +1s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="+1s" data-target-selector=".box" data-target-id="t5">
+    <div class="demo-area">
+      <style>#t5 .box { transition-delay: +1s; }</style>
+      <div id="t5" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: +1s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="-1s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: -1s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="-1s" data-target-selector=".box" data-target-id="t6">
+    <div class="demo-area">
+      <style>#t6 .box { transition-delay: -1s; }</style>
+      <div id="t6" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: -1s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="2s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: 2s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="2s" data-target-selector=".box" data-target-id="t7">
+    <div class="demo-area">
+      <style>#t7 .box { transition-delay: 2s; }</style>
+      <div id="t7" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: 2s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="+2s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: +2s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="+2s" data-target-selector=".box" data-target-id="t8">
+    <div class="demo-area">
+      <style>#t8 .box { transition-delay: +2s; }</style>
+      <div id="t8" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: +2s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="-2s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: -2s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="-2s" data-target-selector=".box" data-target-id="t9">
+    <div class="demo-area">
+      <style>#t9 .box { transition-delay: -2s; }</style>
+      <div id="t9" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: -2s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="3s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: 3s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="3s" data-target-selector=".box" data-target-id="t10">
+    <div class="demo-area">
+      <style>#t10 .box { transition-delay: 3s; }</style>
+      <div id="t10" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: 3s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="+3s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: +3s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="+3s" data-target-selector=".box" data-target-id="t11">
+    <div class="demo-area">
+      <style>#t11 .box { transition-delay: +3s; }</style>
+      <div id="t11" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: +3s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="-3s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: -3s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="-3s" data-target-selector=".box" data-target-id="t12">
+    <div class="demo-area">
+      <style>#t12 .box { transition-delay: -3s; }</style>
+      <div id="t12" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: -3s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="4s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: 4s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="4s" data-target-selector=".box" data-target-id="t13">
+    <div class="demo-area">
+      <style>#t13 .box { transition-delay: 4s; }</style>
+      <div id="t13" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: 4s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="+4s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: +4s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="+4s" data-target-selector=".box" data-target-id="t14">
+    <div class="demo-area">
+      <style>#t14 .box { transition-delay: +4s; }</style>
+      <div id="t14" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: +4s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="-4s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: -4s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="-4s" data-target-selector=".box" data-target-id="t15">
+    <div class="demo-area">
+      <style>#t15 .box { transition-delay: -4s; }</style>
+      <div id="t15" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: -4s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="5s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: 5s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="5s" data-target-selector=".box" data-target-id="t16">
+    <div class="demo-area">
+      <style>#t16 .box { transition-delay: 5s; }</style>
+      <div id="t16" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: 5s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="+5s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: +5s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="+5s" data-target-selector=".box" data-target-id="t17">
+    <div class="demo-area">
+      <style>#t17 .box { transition-delay: +5s; }</style>
+      <div id="t17" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: +5s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="-5s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: -5s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="-5s" data-target-selector=".box" data-target-id="t18">
+    <div class="demo-area">
+      <style>#t18 .box { transition-delay: -5s; }</style>
+      <div id="t18" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: -5s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="6s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: 6s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="6s" data-target-selector=".box" data-target-id="t19">
+    <div class="demo-area">
+      <style>#t19 .box { transition-delay: 6s; }</style>
+      <div id="t19" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: 6s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="+6s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: +6s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="+6s" data-target-selector=".box" data-target-id="t20">
+    <div class="demo-area">
+      <style>#t20 .box { transition-delay: +6s; }</style>
+      <div id="t20" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: +6s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="-6s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: -6s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="-6s" data-target-selector=".box" data-target-id="t21">
+    <div class="demo-area">
+      <style>#t21 .box { transition-delay: -6s; }</style>
+      <div id="t21" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: -6s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="7s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: 7s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="7s" data-target-selector=".box" data-target-id="t22">
+    <div class="demo-area">
+      <style>#t22 .box { transition-delay: 7s; }</style>
+      <div id="t22" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: 7s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="+7s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: +7s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="+7s" data-target-selector=".box" data-target-id="t23">
+    <div class="demo-area">
+      <style>#t23 .box { transition-delay: +7s; }</style>
+      <div id="t23" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: +7s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="-7s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: -7s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="-7s" data-target-selector=".box" data-target-id="t24">
+    <div class="demo-area">
+      <style>#t24 .box { transition-delay: -7s; }</style>
+      <div id="t24" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: -7s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="8s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: 8s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="8s" data-target-selector=".box" data-target-id="t25">
+    <div class="demo-area">
+      <style>#t25 .box { transition-delay: 8s; }</style>
+      <div id="t25" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: 8s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="+8s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: +8s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="+8s" data-target-selector=".box" data-target-id="t26">
+    <div class="demo-area">
+      <style>#t26 .box { transition-delay: +8s; }</style>
+      <div id="t26" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: +8s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="-8s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: -8s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="-8s" data-target-selector=".box" data-target-id="t27">
+    <div class="demo-area">
+      <style>#t27 .box { transition-delay: -8s; }</style>
+      <div id="t27" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: -8s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="9s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: 9s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="9s" data-target-selector=".box" data-target-id="t28">
+    <div class="demo-area">
+      <style>#t28 .box { transition-delay: 9s; }</style>
+      <div id="t28" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: 9s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="+9s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: +9s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="+9s" data-target-selector=".box" data-target-id="t29">
+    <div class="demo-area">
+      <style>#t29 .box { transition-delay: +9s; }</style>
+      <div id="t29" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: +9s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="-9s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: -9s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="-9s" data-target-selector=".box" data-target-id="t30">
+    <div class="demo-area">
+      <style>#t30 .box { transition-delay: -9s; }</style>
+      <div id="t30" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: -9s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="00s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: 00s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="00s" data-target-selector=".box" data-target-id="t31">
+    <div class="demo-area">
+      <style>#t31 .box { transition-delay: 00s; }</style>
+      <div id="t31" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: 00s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="+00s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: +00s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="+00s" data-target-selector=".box" data-target-id="t32">
+    <div class="demo-area">
+      <style>#t32 .box { transition-delay: +00s; }</style>
+      <div id="t32" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: +00s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="-00s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: -00s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="-00s" data-target-selector=".box" data-target-id="t33">
+    <div class="demo-area">
+      <style>#t33 .box { transition-delay: -00s; }</style>
+      <div id="t33" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: -00s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="10s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: 10s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="10s" data-target-selector=".box" data-target-id="t34">
+    <div class="demo-area">
+      <style>#t34 .box { transition-delay: 10s; }</style>
+      <div id="t34" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: 10s</div>
   </div>
-  <div class="demo-box" data-css-prop="transition-delay" data-value="+10s">
-    <div class="demo-area" style="display: flex; flex-direction: column; gap: 14px;">
-      <div style="position: relative; height: 40px; flex: 1; background: #16213e; border-radius: 8px; overflow: hidden; max-width: 800px; transition-delay: +10s;"><div class="active-zone" style="left: 0%; width: 33%; background: linear-gradient(90deg, #e94560, #ff6b6b);">starts immediately</div></div>
+  <div class="demo-box" data-css-prop="transition-delay" data-value="+10s" data-target-selector=".box" data-target-id="t35">
+    <div class="demo-area">
+      <style>#t35 .box { transition-delay: +10s; }</style>
+      <div id="t35" style="display: flex; align-items: center; justify-content: center; min-height: 100px; background: #0f3460; border-radius: 8px; padding: 16px;"><div class="box" style="width: 60px; height: 60px; background: #e94560;"></div></div>
     </div>
     <div class="label">transition-delay: +10s</div>
   </div>
