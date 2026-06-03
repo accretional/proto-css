@@ -1,5 +1,5 @@
-# Temporal mode: 6 screenshots at 500ms intervals to capture animation/transition/interaction progress.
-# After frame 1, toggles .active class on targets to trigger transitions.
+# Temporal mode: 6 screenshots at 500ms intervals to capture animation/transition progress.
+# interactive.js runs animations automatically. Frames capture the progression.
 # Placeholders: {{URL}}, {{OUTPUT_DIR}}, {{SLUG}}
 
 name: "screenshot_{{SLUG}}"
@@ -21,9 +21,9 @@ steps: {
 }
 
 steps: {
-  label: "wait_initial"
+  label: "wait_for_iframes"
   wait: {
-    milliseconds: 200
+    milliseconds: 400
   }
 }
 
@@ -32,13 +32,6 @@ steps: {
   screenshot: {
     output_path: "{{OUTPUT_DIR}}/1.png"
     format: "png"
-  }
-}
-
-steps: {
-  label: "trigger_transition"
-  evaluate_script: {
-    expression: "document.querySelectorAll('[style]').forEach(function(el){el.classList.add('active')})"
   }
 }
 

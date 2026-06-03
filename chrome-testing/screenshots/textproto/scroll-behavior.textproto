@@ -1,0 +1,69 @@
+# Scroll-behavior mode: 3 screenshots — top, during scroll, after completion.
+# interactive.js uses behavior:'auto' which defers to CSS scroll-behavior.
+# auto cards jump instantly, smooth cards animate.
+# Timeline: 200ms start → 700ms tick 1 (scroll to mid) → 1200ms tick 2 (scroll to bottom)
+# Frame 2 captured shortly after tick to catch smooth scroll mid-animation.
+# Placeholders: {{URL}}, {{OUTPUT_DIR}}, {{SLUG}}
+
+name: "screenshot_{{SLUG}}"
+
+steps: {
+  label: "set_viewport"
+  set_viewport: {
+    width: 1280
+    height: 800
+    device_scale_factor: 2
+  }
+}
+
+steps: {
+  label: "navigate"
+  navigate: {
+    url: "{{URL}}"
+  }
+}
+
+steps: {
+  label: "wait_for_iframes"
+  wait: {
+    milliseconds: 600
+  }
+}
+
+steps: {
+  label: "frame_1"
+  screenshot: {
+    output_path: "{{OUTPUT_DIR}}/1.png"
+    format: "png"
+  }
+}
+
+steps: {
+  label: "wait_for_scroll_start"
+  wait: {
+    milliseconds: 150
+  }
+}
+
+steps: {
+  label: "frame_2"
+  screenshot: {
+    output_path: "{{OUTPUT_DIR}}/2.png"
+    format: "png"
+  }
+}
+
+steps: {
+  label: "wait_for_scroll_complete"
+  wait: {
+    milliseconds: 1000
+  }
+}
+
+steps: {
+  label: "frame_3"
+  screenshot: {
+    output_path: "{{OUTPUT_DIR}}/3.png"
+    format: "png"
+  }
+}

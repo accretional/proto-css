@@ -1,10 +1,16 @@
 // interactive.js — Control bar, iframe isolation, and simulation loop for CSS property pages.
-// Loaded by generated HTML pages. Skips execution when ?static URL param is present (screenshot mode).
+// Loaded by generated HTML pages.
+// URL params:
+//   ?static     — exit immediately (legacy static screenshots)
+//   ?screenshot — hide control bar, start simulation immediately, no lazy loading
 (function() {
   'use strict';
 
   // --- Static mode: exit immediately (for screenshots) ---
   if (new URLSearchParams(window.location.search).has('static')) return;
+
+  // --- Screenshot mode: no control bar, immediate start, eager iframe loading ---
+  var screenshotMode = new URLSearchParams(window.location.search).has('screenshot');
 
   // --- State ---
   var sim = { playing: false, interval: null, step: 0, caps: null, focusIndex: 0 };
@@ -15,11 +21,14 @@
   window.addEventListener('DOMContentLoaded', function() {
     pageStyles = collectPageStyles();
     processCards();
-    buildControlBar();
-    wireControls();
+    if (!screenshotMode) {
+      buildControlBar();
+      wireControls();
+    }
     sim.caps = detectCapabilities();
-    // Auto-start simulation after a short delay to let iframes load
-    setTimeout(function() { startLoop(); }, 600);
+    // Auto-start simulation: immediate in screenshot mode, delayed otherwise
+    var delay = screenshotMode ? 200 : 600;
+    setTimeout(function() { startLoop(); }, delay);
   });
 
   // ==========================================================================
@@ -37,8 +46,8 @@
 
   function processCards() {
     var boxes = document.querySelectorAll('.demo-box');
-    if (!('IntersectionObserver' in window)) {
-      // Fallback: convert all at once
+    // Screenshot mode or no IntersectionObserver: convert all at once
+    if (screenshotMode || !('IntersectionObserver' in window)) {
       for (var i = 0; i < boxes.length; i++) convertToIframe(boxes[i]);
       return;
     }
@@ -99,8 +108,6 @@
   }
 
   function buildSrcdoc(cardStyle, wrapperStyle, content) {
-    // Escape for srcdoc attribute: we use srcdoc property (JS string), not HTML attribute,
-    // so we only need to handle the string correctly.
     return '<!DOCTYPE html><html><head><style>' +
       pageStyles + '\n' + cardStyle + '\n' +
       'html, body { background: transparent !important; margin: 0 !important; padding: 0 !important; overflow: hidden; }' +
@@ -173,7 +180,7 @@
     var style = document.createElement('style');
     style.textContent =
       '#control-bar { position: sticky; top: 0; z-index: 9999; background: #111; ' +
-        'padding: 8px 16px; border-bottom: 1px solid #333; margin: -32px -32px 24px; }' +
+        'padding: 8px 16px; border-bottom: 1px solid #333; margin: -32px -32px 24px -32px; }' +
       '.ctl-bar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }' +
       '.ctl-label { font-size: 11px; font-family: monospace; color: #9ca3af; display: flex; align-items: center; gap: 4px; }' +
       '.ctl-label input[type="color"] { width: 24px; height: 24px; border: 1px solid #444; border-radius: 4px; background: none; cursor: pointer; padding: 0; }' +
@@ -233,8 +240,6 @@
   }
 
   function pushAllCustomProps() {
-    var root = document.documentElement;
-    var vars = ['--bg', '--card-bg', '--accent', '--font', '--font-size', '--gap'];
     for (var i = 0; i < iframes.length; i++) {
       pushCustomPropsToIframe(iframes[i]);
     }
@@ -257,12 +262,14 @@
   // ==========================================================================
 
   function detectCapabilities() {
+    // Always enable all capabilities — the tick functions gracefully no-op
+    // when there are no targets. This avoids issues where elements are inside
+    // iframes and not detectable from the main page.
     return {
-      hasAnimation: /@keyframes\s/.test(pageStyles),
-      hasHover: true, // hover simulation always available
-      hasFocus: !!document.querySelector('input, textarea, select, [contenteditable]'),
-      hasScroll: pageStyles.indexOf('scroll-container') !== -1 ||
-                 pageStyles.indexOf('overflow') !== -1
+      hasAnimation: true,
+      hasHover: true,
+      hasFocus: true,
+      hasScroll: true
     };
   }
 
@@ -324,8 +331,10 @@
 
     // Reset scroll
     forEachIframeDoc(function(doc) {
-      var sc = doc.querySelector('.scroll-container') || doc.scrollingElement;
-      if (sc) try { sc.scrollTo({ top: 0, behavior: 'instant' }); } catch(e) {}
+      var containers = findScrollContainers(doc);
+      for (var i = 0; i < containers.length; i++) {
+        try { containers[i].scrollTo({ top: 0, left: 0, behavior: 'instant' }); } catch(e) {}
+      }
     });
 
     sim.focusIndex = 0;
@@ -349,7 +358,10 @@
   function tickHover(step) {
     var add = (step % 2 === 0);
     forEachIframeDoc(function(doc) {
-      var target = doc.querySelector('[style]') || doc.querySelector('.demo-area > *');
+      // Target the content element inside .demo-area (the element with the CSS property).
+      // .demo-area itself is the wrapper — hover rules target its children.
+      var target = doc.querySelector('.demo-area > *');
+      if (!target) target = doc.querySelector('[style]');
       if (!target) return;
       if (add) target.classList.add('simulated-hover');
       else target.classList.remove('simulated-hover');
@@ -357,33 +369,75 @@
   }
 
   function tickFocus(step) {
-    var focusable = [];
-    forEachIframeDoc(function(doc) {
-      var els = doc.querySelectorAll('input, textarea, select, [contenteditable]');
-      for (var i = 0; i < els.length; i++) focusable.push(els[i]);
-    });
-    if (focusable.length === 0) return;
-    sim.focusIndex = step % focusable.length;
-    try { focusable[sim.focusIndex].focus(); } catch(e) {}
+    // Collect focusable elements paired with their iframe
+    var items = [];
+    for (var i = 0; i < iframes.length; i++) {
+      try {
+        var doc = iframes[i].contentDocument;
+        if (!doc || !doc.body) continue;
+        var els = doc.querySelectorAll('input, textarea, select, [contenteditable]');
+        for (var j = 0; j < els.length; j++) {
+          items.push({ iframe: iframes[i], el: els[j] });
+        }
+      } catch(e) {}
+    }
+    if (items.length === 0) return;
+    sim.focusIndex = step % items.length;
+    var item = items[sim.focusIndex];
+    try {
+      // Focus the iframe first, then the element inside it
+      item.iframe.focus();
+      item.el.focus();
+    } catch(e) {}
   }
 
   function tickScroll(step) {
-    // Cycle: top(0) → mid(1) → bottom(2) → mid(3) → repeat
+    // Cycle: top(0) -> mid(1) -> bottom(2) -> mid(3) -> repeat
     var phase = step % 4;
     forEachIframeDoc(function(doc) {
-      var sc = doc.querySelector('.scroll-container');
-      if (!sc) {
-        // Look for any scrollable element
-        var all = doc.querySelectorAll('[style]');
-        for (var i = 0; i < all.length; i++) {
-          if (all[i].scrollHeight > all[i].clientHeight + 10) { sc = all[i]; break; }
+      var containers = findScrollContainers(doc);
+      for (var c = 0; c < containers.length; c++) {
+        var sc = containers[c];
+        var isVertical = sc.scrollHeight > sc.clientHeight + 10;
+        var isHorizontal = sc.scrollWidth > sc.clientWidth + 10;
+
+        if (isVertical) {
+          var maxV = sc.scrollHeight - sc.clientHeight;
+          var vPositions = [0, maxV * 0.5, maxV, maxV * 0.5];
+          try { sc.scrollTo({ top: vPositions[phase], behavior: 'auto' }); } catch(e) {}
+        }
+        if (isHorizontal) {
+          var maxH = sc.scrollWidth - sc.clientWidth;
+          var hPositions = [0, maxH * 0.5, maxH, maxH * 0.5];
+          try { sc.scrollTo({ left: hPositions[phase], behavior: 'auto' }); } catch(e) {}
         }
       }
-      if (!sc) return;
-      var max = sc.scrollHeight - sc.clientHeight;
-      var positions = [0, max * 0.5, max, max * 0.5];
-      try { sc.scrollTo({ top: positions[phase], behavior: 'smooth' }); } catch(e) {}
     });
+  }
+
+  function findScrollContainers(doc) {
+    var containers = [];
+    var seen = [];
+    // Check .scroll-container elements
+    var sc = doc.querySelectorAll('.scroll-container');
+    for (var j = 0; j < sc.length; j++) { containers.push(sc[j]); seen.push(sc[j]); }
+    // Check any element with overflow style that is actually scrollable
+    var all = doc.querySelectorAll('[style]');
+    for (var i = 0; i < all.length; i++) {
+      var s = getComputedStyle(all[i]);
+      var isScrollableV = (s.overflow === 'auto' || s.overflow === 'scroll' ||
+                           s.overflowY === 'auto' || s.overflowY === 'scroll') &&
+                          all[i].scrollHeight > all[i].clientHeight + 10;
+      var isScrollableH = (s.overflow === 'auto' || s.overflow === 'scroll' ||
+                           s.overflowX === 'auto' || s.overflowX === 'scroll') &&
+                          all[i].scrollWidth > all[i].clientWidth + 10;
+      if (isScrollableV || isScrollableH) {
+        var dup = false;
+        for (var k = 0; k < seen.length; k++) { if (seen[k] === all[i]) { dup = true; break; } }
+        if (!dup) { containers.push(all[i]); seen.push(all[i]); }
+      }
+    }
+    return containers;
   }
 
   function setAnimationState(state) {

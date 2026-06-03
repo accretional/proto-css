@@ -1,5 +1,7 @@
-# Scroll mode: 3 screenshots — before, mid, and after scrolling.
-# Scrolls ALL scrollable containers (not just the first), so multi-card pages work.
+# Scroll mode: 3 screenshots — top, mid, bottom positions.
+# interactive.js runs the simulation: scroll cycles every 500ms (top → mid → bottom → mid).
+# Timeline: 200ms start → 700ms tick 1 (mid) → 1200ms tick 2 (bottom) → 1700ms tick 3 (mid)
+# Supports both vertical and horizontal scroll containers.
 # Placeholders: {{URL}}, {{OUTPUT_DIR}}, {{SLUG}}
 
 name: "screenshot_{{SLUG}}"
@@ -21,9 +23,9 @@ steps: {
 }
 
 steps: {
-  label: "wait_for_render"
+  label: "wait_for_iframes"
   wait: {
-    milliseconds: 500
+    milliseconds: 600
   }
 }
 
@@ -36,16 +38,9 @@ steps: {
 }
 
 steps: {
-  label: "scroll_mid"
-  evaluate_script: {
-    expression: "(function(){var containers=[];var sc=document.querySelectorAll('.scroll-container');for(var j=0;j<sc.length;j++)containers.push(sc[j]);var all=document.querySelectorAll('[style]');for(var i=0;i<all.length;i++){var s=getComputedStyle(all[i]);if((s.overflow==='auto'||s.overflow==='scroll'||s.overflowY==='auto'||s.overflowY==='scroll')&&all[i].scrollHeight>all[i].clientHeight+10){var dup=false;for(var k=0;k<containers.length;k++){if(containers[k]===all[i]){dup=true;break}}if(!dup)containers.push(all[i])}}if(containers.length===0)containers.push(document.scrollingElement);for(var n=0;n<containers.length;n++){containers[n].scrollTo({top:Math.floor(containers[n].scrollHeight/3),behavior:'instant'})}})()"
-  }
-}
-
-steps: {
-  label: "wait_mid"
+  label: "wait_for_mid_scroll"
   wait: {
-    milliseconds: 300
+    milliseconds: 500
   }
 }
 
@@ -58,16 +53,9 @@ steps: {
 }
 
 steps: {
-  label: "scroll_end"
-  evaluate_script: {
-    expression: "(function(){var containers=[];var sc=document.querySelectorAll('.scroll-container');for(var j=0;j<sc.length;j++)containers.push(sc[j]);var all=document.querySelectorAll('[style]');for(var i=0;i<all.length;i++){var s=getComputedStyle(all[i]);if((s.overflow==='auto'||s.overflow==='scroll'||s.overflowY==='auto'||s.overflowY==='scroll')&&all[i].scrollHeight>all[i].clientHeight+10){var dup=false;for(var k=0;k<containers.length;k++){if(containers[k]===all[i]){dup=true;break}}if(!dup)containers.push(all[i])}}if(containers.length===0)containers.push(document.scrollingElement);for(var n=0;n<containers.length;n++){containers[n].scrollTo({top:containers[n].scrollHeight,behavior:'instant'})}})()"
-  }
-}
-
-steps: {
-  label: "wait_end"
+  label: "wait_for_bottom_scroll"
   wait: {
-    milliseconds: 300
+    milliseconds: 500
   }
 }
 
