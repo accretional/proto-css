@@ -163,6 +163,7 @@ func generateFromBlueprint(bp *bppb.TemplateBlueprint, outPath, prop string, val
 	sb.WriteString(`</style>
 </head>
 <body>
+<div id="control-bar"></div>
 <h1>`)
 	title := bp.GetTitle()
 	if title == "" {
@@ -273,7 +274,6 @@ func generateFromBlueprint(bp *bppb.TemplateBlueprint, outPath, prop string, val
 	}
 
 	sb.WriteString(`</div>
-<div id="control-bar"></div>
 <script src="../interactive.js"></script>
 </body>
 </html>
@@ -322,6 +322,7 @@ func generateFallback(outPath, prop, title string, values []string) error {
 </style>
 </head>
 <body>
+<div id="control-bar"></div>
 <h1>`)
 	sb.WriteString(html.EscapeString(title))
 	sb.WriteString(`</h1>
@@ -342,7 +343,6 @@ func generateFallback(outPath, prop, title string, values []string) error {
 	}
 
 	sb.WriteString(`</div>
-<div id="control-bar"></div>
 <script src="../interactive.js"></script>
 </body>
 </html>

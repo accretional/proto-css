@@ -151,7 +151,7 @@ build_gallery() {
       width: 95vw;
       height: 95vh;
       max-width: 1400px;
-      max-height: 920px;
+      max-height: 95vh;
     }
     .overlay-header {
       display: flex;
@@ -166,6 +166,10 @@ build_gallery() {
       font-size: 14px;
       font-family: "SF Mono", "Fira Code", monospace;
       color: #a0cfff;
+      text-decoration: none;
+    }
+    .overlay-title:hover {
+      text-decoration: underline;
     }
     .overlay-close {
       width: 32px;
@@ -183,7 +187,7 @@ build_gallery() {
     .overlay-close:hover { background: #333; color: #fff; }
     .overlay-content {
       flex: 1;
-      overflow: auto;
+      overflow: hidden;
       min-height: 0;
     }
     .overlay-content iframe {
@@ -222,11 +226,11 @@ GALLERY_HEAD
   <div class="overlay" id="overlay" onclick="if(event.target===this)closeOverlay()">
     <div class="overlay-box">
       <div class="overlay-header">
-        <span class="overlay-title" id="overlay-title"></span>
+        <a class="overlay-title" id="overlay-title" target="_blank"></a>
         <button class="overlay-close" onclick="closeOverlay()">&times;</button>
       </div>
       <div class="overlay-content" id="overlay-content">
-        <iframe id="overlay-iframe" sandbox="allow-same-origin allow-scripts" scrolling="no"></iframe>
+        <iframe id="overlay-iframe" sandbox="allow-same-origin allow-scripts"></iframe>
       </div>
     </div>
   </div>
@@ -245,7 +249,9 @@ GALLERY_HEAD
       iframe.style.transform = 'none';
     }
     function openOverlay(src, title) {
-      document.getElementById('overlay-title').textContent = title;
+      var titleEl = document.getElementById('overlay-title');
+      titleEl.textContent = title;
+      titleEl.href = src;
       document.getElementById('overlay-iframe').src = src;
       document.getElementById('overlay').classList.add('active');
       requestAnimationFrame(scaleOverlay);
