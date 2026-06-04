@@ -14,12 +14,17 @@
   .demo-area { width: 100%; }
   .label { font-size: 11px; font-family: monospace; color: #9ca3af; margin-top: 8px; word-break: break-all; }
   .card-iframe { border: none; width: 100%; display: block; }
-  .demo-card { flex: 1; min-width: 200px; }
-.snap-item { height: 125px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; scroll-snap-align: start; border-bottom: 1px solid #2a2a4a; }
-.snap-item:nth-child(odd) { background: linear-gradient(135deg, #8b5cf6, #6366f1); }
-.snap-item:nth-child(even) { background: #22224a; }
-.pad-top { position: absolute; top: 0; left: 0; right: 0; background: rgba(251, 191, 36, 0.12); border-bottom: 2px dashed #fbbf24; pointer-events: none; z-index: 2; }
-.note { font-size: 10px; color: #6b7280; margin-top: 4px; }
+  .snap-item { height: 50px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; scroll-snap-align: start; color: #fff; }
+.snap-item:nth-child(1) { background: #8b5cf6; }
+.snap-item:nth-child(2) { background: #22224a; }
+.snap-item:nth-child(3) { background: #6366f1; }
+.snap-item:nth-child(4) { background: #22224a; }
+.snap-item:nth-child(5) { background: #8b5cf6; }
+.snap-item:nth-child(6) { background: #22224a; }
+.snap-item:nth-child(7) { background: #6366f1; }
+.snap-item:nth-child(8) { background: #22224a; }
+.snap-item:nth-child(9) { background: #8b5cf6; }
+.snap-item:nth-child(10) { background: #22224a; }
 </style>
 </head>
 <body>
@@ -28,38 +33,38 @@
 <p class="prop-name">scroll-padding-block-start</p>
 <div class="demos">
   <div class="demo-box" data-css-prop="scroll-padding-block-start" data-value="auto">
-    <div class="demo-area" style="position: relative; border-radius: 10px; overflow: hidden;">
-      <div style="width: 100%; height: 250px; overflow-y: auto; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: y mandatory; scroll-padding-block-start: auto;"><div class="snap-item">1</div><div class="snap-item">2</div><div class="snap-item">3</div><div class="snap-item">4</div><div class="snap-item">5</div></div>
+    <div class="demo-area">
+      <div style="width: 100%; height: 250px; overflow-y: auto; border: 2px solid #333; border-radius: 10px; background: #0a0a1a; scroll-snap-type: y mandatory; scroll-padding-block-start: auto;"><div class="snap-item">1</div><div class="snap-item">2</div><div class="snap-item">3</div><div class="snap-item">4</div><div class="snap-item">5</div><div class="snap-item">6</div><div class="snap-item">7</div><div class="snap-item">8</div><div class="snap-item">9</div><div class="snap-item">10</div></div>
     </div>
     <div class="label">scroll-padding-block-start: auto</div>
   </div>
   <div class="demo-box" data-css-prop="scroll-padding-block-start" data-value="10px">
-    <div class="demo-area" style="position: relative; border-radius: 10px; overflow: hidden;">
-      <div style="width: 100%; height: 250px; overflow-y: auto; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: y mandatory; scroll-padding-block-start: 10px;"><div class="snap-item">1</div><div class="snap-item">2</div><div class="snap-item">3</div><div class="snap-item">4</div><div class="snap-item">5</div></div>
+    <div class="demo-area">
+      <div style="width: 100%; height: 250px; overflow-y: auto; border: 2px solid #333; border-radius: 10px; background: #0a0a1a; scroll-snap-type: y mandatory; scroll-padding-block-start: 10px;"><div class="snap-item">1</div><div class="snap-item">2</div><div class="snap-item">3</div><div class="snap-item">4</div><div class="snap-item">5</div><div class="snap-item">6</div><div class="snap-item">7</div><div class="snap-item">8</div><div class="snap-item">9</div><div class="snap-item">10</div></div>
     </div>
     <div class="label">scroll-padding-block-start: 10px</div>
   </div>
   <div class="demo-box" data-css-prop="scroll-padding-block-start" data-value="25%">
-    <div class="demo-area" style="position: relative; border-radius: 10px; overflow: hidden;">
-      <div style="width: 100%; height: 250px; overflow-y: auto; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: y mandatory; scroll-padding-block-start: 25%;"><div class="snap-item">1</div><div class="snap-item">2</div><div class="snap-item">3</div><div class="snap-item">4</div><div class="snap-item">5</div></div>
+    <div class="demo-area">
+      <div style="width: 100%; height: 250px; overflow-y: auto; border: 2px solid #333; border-radius: 10px; background: #0a0a1a; scroll-snap-type: y mandatory; scroll-padding-block-start: 25%;"><div class="snap-item">1</div><div class="snap-item">2</div><div class="snap-item">3</div><div class="snap-item">4</div><div class="snap-item">5</div><div class="snap-item">6</div><div class="snap-item">7</div><div class="snap-item">8</div><div class="snap-item">9</div><div class="snap-item">10</div></div>
     </div>
     <div class="label">scroll-padding-block-start: 25%</div>
   </div>
   <div class="demo-box" data-css-prop="scroll-padding-block-start" data-value="50%">
-    <div class="demo-area" style="position: relative; border-radius: 10px; overflow: hidden;">
-      <div style="width: 100%; height: 250px; overflow-y: auto; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: y mandatory; scroll-padding-block-start: 50%;"><div class="snap-item">1</div><div class="snap-item">2</div><div class="snap-item">3</div><div class="snap-item">4</div><div class="snap-item">5</div></div>
+    <div class="demo-area">
+      <div style="width: 100%; height: 250px; overflow-y: auto; border: 2px solid #333; border-radius: 10px; background: #0a0a1a; scroll-snap-type: y mandatory; scroll-padding-block-start: 50%;"><div class="snap-item">1</div><div class="snap-item">2</div><div class="snap-item">3</div><div class="snap-item">4</div><div class="snap-item">5</div><div class="snap-item">6</div><div class="snap-item">7</div><div class="snap-item">8</div><div class="snap-item">9</div><div class="snap-item">10</div></div>
     </div>
     <div class="label">scroll-padding-block-start: 50%</div>
   </div>
   <div class="demo-box" data-css-prop="scroll-padding-block-start" data-value="100%">
-    <div class="demo-area" style="position: relative; border-radius: 10px; overflow: hidden;">
-      <div style="width: 100%; height: 250px; overflow-y: auto; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: y mandatory; scroll-padding-block-start: 100%;"><div class="snap-item">1</div><div class="snap-item">2</div><div class="snap-item">3</div><div class="snap-item">4</div><div class="snap-item">5</div></div>
+    <div class="demo-area">
+      <div style="width: 100%; height: 250px; overflow-y: auto; border: 2px solid #333; border-radius: 10px; background: #0a0a1a; scroll-snap-type: y mandatory; scroll-padding-block-start: 100%;"><div class="snap-item">1</div><div class="snap-item">2</div><div class="snap-item">3</div><div class="snap-item">4</div><div class="snap-item">5</div><div class="snap-item">6</div><div class="snap-item">7</div><div class="snap-item">8</div><div class="snap-item">9</div><div class="snap-item">10</div></div>
     </div>
     <div class="label">scroll-padding-block-start: 100%</div>
   </div>
   <div class="demo-box" data-css-prop="scroll-padding-block-start" data-value="0">
-    <div class="demo-area" style="position: relative; border-radius: 10px; overflow: hidden;">
-      <div style="width: 100%; height: 250px; overflow-y: auto; border: 2px solid #333; border-radius: 10px; background: #16213e; scroll-snap-type: y mandatory; scroll-padding-block-start: 0;"><div class="snap-item">1</div><div class="snap-item">2</div><div class="snap-item">3</div><div class="snap-item">4</div><div class="snap-item">5</div></div>
+    <div class="demo-area">
+      <div style="width: 100%; height: 250px; overflow-y: auto; border: 2px solid #333; border-radius: 10px; background: #0a0a1a; scroll-snap-type: y mandatory; scroll-padding-block-start: 0;"><div class="snap-item">1</div><div class="snap-item">2</div><div class="snap-item">3</div><div class="snap-item">4</div><div class="snap-item">5</div><div class="snap-item">6</div><div class="snap-item">7</div><div class="snap-item">8</div><div class="snap-item">9</div><div class="snap-item">10</div></div>
     </div>
     <div class="label">scroll-padding-block-start: 0</div>
   </div>
