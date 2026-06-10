@@ -1931,7 +1931,7 @@ BorderImageRepeatType = BorderImageRepeatTypeItem , [ BorderImageRepeatTypeItem 
 BorderImageRepeatTypeItem = ( stretch | repeat | round | space ) ;
 
 (* <spread-shadow> — [ <color>? && [ <length>{2,4} && inset? ] ] *)
-SpreadShadowType = [ ColorType ] , [ inset ] , LengthType , LengthType , [ LengthType , [ LengthType ] ] , [ inset ] , [ ColorType ] ;
+SpreadShadowType = [ ColorType ] , [ inset ] , LengthType , LengthType , [ LengthType , [ LengthType ] ] ;
 
 (* <box-shadow-color> *)
 BoxShadowColorType = ColorType , { comma_symbol , ColorType } ;
@@ -2137,7 +2137,7 @@ OpacityType = OpacityValueType ;
 OpacityValueType = NonNegativeNumberType | PercentageType ;
 
 (* <paint> *)
-PaintType = none | ImageType | SvgPaintType ;
+PaintType = none | ColorType | SvgPaintType ;
 
 (* <svg-paint> *)
 SvgPaintType = child , [ left_parenthesis_symbol , IntegerType , right_parenthesis_symbol ] ;
@@ -2179,10 +2179,18 @@ GenericFontCompleteType = serif | sans_serif | system_ui | cursive | fantasy | m
 GenericFontIncompleteType = ui_serif | ui_sans_serif | ui_monospace | ui_rounded ;
 
 (* <feature-tag-value> *)
-FeatureTagValueType = OpentypeTagType , [ ( IntegerType | on | off ) ] ;
+FeatureTagValueType = FeatureTagType , [ ( IntegerType | on | off ) ] ;
 
-(* <opentype-tag> *)
+(* <opentype-tag> — split into feature vs axis tags so each gets a real,
+   context-valid sample (a feature tag like "liga" is not a valid variation
+   axis, and vice-versa). Both are still just <string> leaves. *)
 OpentypeTagType = string_type ;
+FeatureTagType = string_type ;
+AxisTagType = string_type ;
+
+(* a variation-axis value is a <number>, but its meaningful range is axis-specific
+   and far above the generic <number> rep, so it gets its own leaf (see reps.go). *)
+AxisValueType = number_type ;
 
 (* <palette-identifier> *)
 PaletteIdentifierType = dashed_ident_type ;
@@ -2352,10 +2360,13 @@ MaskBorderModeType = luminance | alpha ;
 CompositingOperatorType = add | subtract | intersect | exclude ;
 
 (* <mask-reference> *)
-MaskReferenceType = none | ImageType | MaskSourceType ;
+MaskReferenceType = ImageType | MaskSourceType | none ;
 
-(* <mask-source> *)
-MaskSourceType = UrlType ;
+(* <mask-source> — its own url leaf (MaskUrlType) so the rep points at a real
+   alpha cut-out source (a shape on transparent ground) instead of the opaque
+   photo every other url leaf uses; an opaque source is a no-op full reveal. *)
+MaskSourceType = MaskUrlType ;
+MaskUrlType = url , left_parenthesis_symbol , [ string_type ] , right_parenthesis_symbol ;
 
 (* <masking-mode> *)
 MaskingModeType = alpha | luminance | match_source ;
@@ -2475,7 +2486,7 @@ TextEmphasisColorType = ColorType ;
 FadeFn = fade , left_parenthesis_symbol , LengthPercentageType , right_parenthesis_symbol ;
 
 (* <shadow> — color may appear before or after the lengths *)
-ShadowType = [ ColorType ] , LengthType , LengthType , [ LengthType , [ LengthType ] ] , [ ColorType ] ;
+ShadowType = [ ColorType ] , LengthType , LengthType , [ LengthType , [ LengthType ] ] ;
 
 (* <spacing-trim> *)
 SpacingTrimType = space_all | normal | space_first | trim_start | trim_both | trim_all ;
@@ -2708,10 +2719,10 @@ BorderBlockProp = BorderBlockStartProp ;
 BorderBottomColorProp = ColorType | Image1dType ;
 
 (* border-bottom-left-radius *)
-BorderBottomLeftRadiusProp = BorderRadiusType ;
+BorderBottomLeftRadiusProp = NonNegativeLengthPercentageType , [ NonNegativeLengthPercentageType ] ;
 
 (* border-bottom-right-radius *)
-BorderBottomRightRadiusProp = BorderRadiusType ;
+BorderBottomRightRadiusProp = NonNegativeLengthPercentageType , [ NonNegativeLengthPercentageType ] ;
 
 (* border-bottom-style *)
 BorderBottomStyleProp = LineStyleType ;
@@ -2733,10 +2744,10 @@ BorderColorProp = BorderColorPropItem , [ BorderColorPropItem ] , [ BorderColorP
 BorderColorPropItem = ( ColorType | Image1dType ) ;
 
 (* border-end-end-radius *)
-BorderEndEndRadiusProp = BorderRadiusType ;
+BorderEndEndRadiusProp = NonNegativeLengthPercentageType , [ NonNegativeLengthPercentageType ] ;
 
 (* border-end-start-radius *)
-BorderEndStartRadiusProp = BorderRadiusType ;
+BorderEndStartRadiusProp = NonNegativeLengthPercentageType , [ NonNegativeLengthPercentageType ] ;
 
 (* border-image-outset *)
 BorderImageOutsetProp = BorderImageOutsetPropItem , [ BorderImageOutsetPropItem ] , [ BorderImageOutsetPropItem ] , [ BorderImageOutsetPropItem ] ;
@@ -2751,7 +2762,7 @@ BorderImageSliceProp = BorderImageSlicePropItem , [ BorderImageSlicePropItem ] ,
 BorderImageSlicePropItem = ( NonNegativeNumberType | PercentageType ) ;
 
 (* border-image-source *)
-BorderImageSourceProp = none | ImageType ;
+BorderImageSourceProp = ImageType | none ;
 
 (* border-image-width *)
 BorderImageWidthProp = BorderImageWidthPropItem , [ BorderImageWidthPropItem ] , [ BorderImageWidthPropItem ] , [ BorderImageWidthPropItem ] ;
@@ -2827,10 +2838,10 @@ BorderRightProp = [ LineWidthType ] , [ LineStyleType ] , [ ColorType ] ;
 BorderSpacingProp = NonNegativeLengthType , [ NonNegativeLengthType ] ;
 
 (* border-start-end-radius *)
-BorderStartEndRadiusProp = BorderRadiusType ;
+BorderStartEndRadiusProp = NonNegativeLengthPercentageType , [ NonNegativeLengthPercentageType ] ;
 
 (* border-start-start-radius *)
-BorderStartStartRadiusProp = BorderRadiusType ;
+BorderStartStartRadiusProp = NonNegativeLengthPercentageType , [ NonNegativeLengthPercentageType ] ;
 
 (* border-style *)
 BorderStyleProp = BorderTopStyleProp , [ BorderTopStyleProp ] , [ BorderTopStyleProp ] , [ BorderTopStyleProp ] ;
@@ -2839,10 +2850,10 @@ BorderStyleProp = BorderTopStyleProp , [ BorderTopStyleProp ] , [ BorderTopStyle
 BorderTopColorProp = ColorType | Image1dType ;
 
 (* border-top-left-radius *)
-BorderTopLeftRadiusProp = BorderRadiusType ;
+BorderTopLeftRadiusProp = NonNegativeLengthPercentageType , [ NonNegativeLengthPercentageType ] ;
 
 (* border-top-right-radius *)
-BorderTopRightRadiusProp = BorderRadiusType ;
+BorderTopRightRadiusProp = NonNegativeLengthPercentageType , [ NonNegativeLengthPercentageType ] ;
 
 (* border-top-style *)
 BorderTopStyleProp = LineStyleType ;
@@ -2917,7 +2928,7 @@ CaptionSideProp = top | bottom ;
 CaretAnimationProp = auto | manual ;
 
 (* caret-color *)
-CaretColorProp = auto | ColorType , [ ( auto | ColorType ) ] ;
+CaretColorProp = auto | ColorType ;
 
 (* caret-shape *)
 CaretShapeProp = auto | bar | block | underscore ;
@@ -2975,13 +2986,13 @@ ColumnRuleColorProp = LineColorListType | AutoLineColorListType ;
 ColumnRuleStyleProp = LineStyleListType | AutoLineStyleListType ;
 
 (* column-rule-width *)
-ColumnRuleWidthProp = LineWidthListType | AutoLineWidthListType ;
+ColumnRuleWidthProp = LineWidthType ;
 
 (* column-rule *)
 ColumnRuleProp = GapRuleListType | GapAutoRuleListType ;
 
 (* column-span *)
-ColumnSpanProp = none | positive_integer_type | all | auto ;
+ColumnSpanProp = none | all ;
 
 (* column-width *)
 ColumnWidthProp = auto | NonNegativeLengthType | min_content | max_content | FitContentFn ;
@@ -3283,7 +3294,7 @@ FontVariantProp = normal | none | ( [ ( [ CommonLigValuesType ] , [ Discretionar
 
 (* font-variation-settings *)
 FontVariationSettingsProp = normal | FontVariationSettingsPropItem , { comma_symbol , FontVariationSettingsPropItem } ;
-FontVariationSettingsPropItem = OpentypeTagType , NumberType ;
+FontVariationSettingsPropItem = AxisTagType , AxisValueType ;
 
 (* font-weight *)
 FontWeightProp = FontWeightAbsoluteType | bolder | lighter ;
@@ -3996,7 +4007,7 @@ StopColorProp = ColorType ;
 StopOpacityProp = NumberType | PercentageType ;
 
 (* stroke-dasharray *)
-StrokeDasharrayProp = none | StrokeDasharrayPropItem , { StrokeDasharrayPropItem } , (* skip: # *) ;
+StrokeDasharrayProp = StrokeDasharrayPropItem , { StrokeDasharrayPropItem } | none ;
 StrokeDasharrayPropItem = ( LengthPercentageType | NumberType ) ;
 
 (* stroke-dashoffset *)
@@ -4006,8 +4017,7 @@ StrokeDashoffsetProp = LengthPercentageType | NumberType ;
 StrokeLinecapProp = butt | round | square ;
 
 (* stroke-linejoin *)
-StrokeLinejoinProp =
-    ( crop | arcs | miter ) , [ ( bevel | round | fallback ) ] | ( bevel | round | fallback ) , [ ( crop | arcs | miter ) ] ;
+StrokeLinejoinProp = miter | round | bevel | arcs | miter_clip ;
 
 (* stroke-miterlimit *)
 StrokeMiterlimitProp = NumberType ;
@@ -4060,7 +4070,7 @@ TextDecorationInsetProp = LengthType , [ LengthType ] | auto ;
 
 (* text-decoration-line *)
 TextDecorationLineKeyword = underline | overline | line_through | blink ;
-TextDecorationLineProp = none | TextDecorationLineKeyword , { TextDecorationLineKeyword } | spelling_error | grammar_error ;
+TextDecorationLineProp = TextDecorationLineKeyword , { TextDecorationLineKeyword } | none | spelling_error | grammar_error ;
 
 (* text-decoration-skip-ink *)
 TextDecorationSkipInkProp = auto | none | all ;
@@ -4111,7 +4121,7 @@ TextEmphasisPositionProp =
     | ( right | left ) , ( over | under ) ;
 
 (* text-emphasis-style *)
-TextEmphasisStyleProp = none | ( [ ( filled | open ) ] , [ ( dot | circle | double_circle | triangle | sesame ) ] ) | string_type ;
+TextEmphasisStyleProp = dot | circle | double_circle | triangle | sesame | ( open , dot ) | ( open , circle ) | ( open , double_circle ) | ( open , triangle ) | ( open , sesame ) | none | string_type ;
 
 (* text-emphasis *)
 TextEmphasisProp =
@@ -4217,10 +4227,9 @@ UserSelectProp = auto | text | none | contain | all ;
 VectorEffectProp = none | non_scaling_stroke | non_scaling_size | non_rotation | fixed_position ;
 
 (* vertical-align *)
-VerticalAlignProp =
-    ( first | last ) , [ AlignmentBaselineProp , [ BaselineShiftProp ] | BaselineShiftProp , [ AlignmentBaselineProp ] ]
-    | AlignmentBaselineProp , [ ( first | last ) , [ BaselineShiftProp ] | BaselineShiftProp , [ ( first | last ) ] ]
-    | BaselineShiftProp , [ ( first | last ) , [ AlignmentBaselineProp ] | AlignmentBaselineProp , [ ( first | last ) ] ] ;
+(* the classic, browser-supported vertical-align (the Inline-Layout-3
+   first/last + baseline syntax is unimplemented in Chrome) *)
+VerticalAlignProp = baseline | sub | super | text_top | text_bottom | middle | top | bottom | LengthPercentageType ;
 
 (* view-timeline-axis *)
 ViewTimelineAxisProp = ViewTimelineAxisPropItem , { comma_symbol , ViewTimelineAxisPropItem } ;
@@ -4289,8 +4298,9 @@ GridGapExpr    = grid_gap    , colon_symbol , ( GridGapProp    | AllProp ) , [ e
 GridRowGapExpr    = grid_row_gap    , colon_symbol , ( GridGapProp    | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
 GridColumnGapExpr = grid_column_gap , colon_symbol , ( GridGapProp    | AllProp ) , [ exclamation_mark_symbol , important ] , semicolon_symbol ;
 GridGapProp = ( LengthPercentageType | normal ) , [ LengthPercentageType | normal ] ;
-GridRowGapProp = GridGapProp ;
-GridColumnGapProp = GridGapProp ;
+(* row-gap / column-gap (and the grid-*-gap aliases) take a SINGLE value *)
+GridRowGapProp = LengthPercentageType | normal ;
+GridColumnGapProp = LengthPercentageType | normal ;
 
 (* Vendor-prefixed property — -vendor-name: <value> ;
    Not included in generation — not a real CSS property. *)

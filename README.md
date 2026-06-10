@@ -5,7 +5,11 @@ CSS as a formal grammar. 12 EBNF files define the complete syntax of CSS — pro
 ## What's here
 
 - **`lang/`** — 12 EBNF grammar files (~3900 rules covering CSS)
-- **`chrome-testing/`** — HTML templates, screenshots, and browsable galleries for all CSS properties
+- **`chrome-testing-2.0/`** — **The CSS Codex**: a specimen atlas where every property/value
+  pair is walked from the grammar, rendered in a React gallery, and screenshotted in headless
+  Chrome. This is the current gallery — see [its README](chrome-testing-2.0/README.md) for the
+  screenshot showcase.
+- **`chrome-testing/`** — the original hand-written HTML template galleries
 - **`docs/`** — Reference documentation, syntax data, and EBNF transformation guides
 
 ## Getting started
@@ -13,11 +17,10 @@ CSS as a formal grammar. 12 EBNF files define the complete syntax of CSS — pro
 Prerequisites: Go, Google Chrome, Python 3.
 
 ```bash
-./setup.sh          # check prerequisites, build chromerpc, tidy modules
-./build.sh          # screenshot all templates, generate galleries
-./test.sh           # validate everything
-./LET_IT_RIP.sh     # full pipeline + open gallery in browser
+./LET_IT_RIP.sh     # The CSS Codex: setup → generate → screenshot → serve (chrome-testing-2.0)
 ```
+
+The original template pipeline still lives under `chrome-testing/` (`./build.sh`, `./test.sh`).
 
 Generate HTML from EBNF grammar:
 

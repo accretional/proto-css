@@ -177,14 +177,14 @@ LegacyRgbSyntaxType = rgb , left_parenthesis_symbol , PercentageType , comma_sym
 
 (* <modern-rgb-syntax> *)
 ModernRgbSyntaxType = rgb , left_parenthesis_symbol , [ from , ColorType ] , ModernRgbSyntaxItem , ModernRgbSyntaxItem , ModernRgbSyntaxItem , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
-ModernRgbSyntaxItem = ( NumberType | PercentageType | none ) ;
+ModernRgbSyntaxItem = ( PercentageType | NumberType | none ) ;
 
 (* <legacy-rgba-syntax> *)
 LegacyRgbaSyntaxType = rgba , left_parenthesis_symbol , PercentageType , comma_symbol , PercentageType , comma_symbol , PercentageType , comma_symbol , [ AlphaValueType ] , right_parenthesis_symbol | rgba , left_parenthesis_symbol , NumberType , comma_symbol , NumberType , comma_symbol , NumberType , comma_symbol , [ AlphaValueType ] , right_parenthesis_symbol ;
 
 (* <modern-rgba-syntax> *)
 ModernRgbaSyntaxType = rgba , left_parenthesis_symbol , [ from , ColorType ] , ModernRgbaSyntaxItem , ModernRgbaSyntaxItem , ModernRgbaSyntaxItem , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
-ModernRgbaSyntaxItem = ( NumberType | PercentageType | none ) ;
+ModernRgbaSyntaxItem = ( PercentageType | NumberType | none ) ;
 
 (* <legacy-hsl-syntax> *)
 LegacyHslSyntaxType = hsl , left_parenthesis_symbol , HueType , comma_symbol , PercentageType , comma_symbol , PercentageType , [ comma_symbol , AlphaValueType ] , right_parenthesis_symbol ;
@@ -199,7 +199,7 @@ LegacyHslaSyntaxType = hsla , left_parenthesis_symbol , HueType , comma_symbol ,
 ModernHslaSyntaxType = hsla , left_parenthesis_symbol , [ from , ColorType ] , ( HueType | none ) , ( PercentageType | NumberType | none ) , ( PercentageType | NumberType | none ) , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
 
 (* <hue> *)
-HueType = NumberType | AngleType ;
+HueType = AngleType | NumberType ;
 
 (* <colorspace-params> *)
 ColorspaceParamsType = CustomParamsType | PredefinedRgbParamsType | XyzParamsType ;
@@ -397,7 +397,7 @@ CfImageType = ( ImageType | ColorType ) , [ PercentageType ] ;
 IdSelectorType = number_sign_symbol , ident_type ;
 
 (* <line-style> *)
-LineStyleType = none | hidden | dotted | dashed | solid | double | groove | ridge | inset | outset ;
+LineStyleType = solid | none | hidden | dotted | dashed | double | groove | ridge | inset | outset ;
 
 (* <ratio> *)
 RatioType = NumberType , [ solidus_symbol , NumberType ] ;
@@ -527,7 +527,10 @@ CalcProductType = CalcValueType , { ( asterisk_symbol | solidus_symbol ) , CalcV
 (* <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | ( <calc-sum> )
    Browsers also allow var(), env(), anchor(), anchor-size(), and math functions as calc values
    via custom-property substitution, even though the formal BNF omits them. *)
-CalcValueType = number_type | DimensionType | percentage_type | calc_keyword_type
+(* DimensionType first so calc()/clamp()/min()/max() in the (dominant) length
+   contexts resolve to a real length — calc(24px + 48px), not the unitless
+   calc(1) — and the per-position cycling then varies the operands. *)
+CalcValueType = DimensionType | percentage_type | number_type | calc_keyword_type
               | MathFunctionType | VarFn | EnvFn | AnchorFn | AnchorSizeFn
               | ( left_parenthesis_symbol , CalcSumType , right_parenthesis_symbol ) ;
 
