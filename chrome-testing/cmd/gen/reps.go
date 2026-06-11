@@ -29,6 +29,21 @@ var reps = map[string][]string{
 	"PositiveIntegerType":    {"2", "3", "1", "5", "4"},
 	// angles — a hue spread so cycled hsl/conic hues read; all valid for rotate too
 	"AngleType":           {"45deg", "135deg", "250deg", "320deg", "90deg"},
+	// Range-constrained scalars the CFG cannot bound (see datatype.ebnf range note):
+	// a dedicated rule + rep keeps every sample inside the documented range so Chrome
+	// does not drop it. oblique angle ∈ [-90deg,90deg]; cubic-bezier control-point x
+	// ∈ [0,1]; stroke-miterlimit ∈ [1,∞].
+	"ObliqueAngleType":        {"14deg", "-14deg", "45deg", "-45deg", "90deg"},
+	"CubicBezierProgressType": {"0.25", "0.5", "0.75", "0", "1"},
+	"MiterlimitType":          {"4", "1", "10", "2", "1.5"},
+	// rotate's <number>{3} axis vector. Three identical adjacent <number> leaves
+	// collapse to one repeated proto field (emitting a single number → the invalid
+	// "1 45deg"), so the whole triple is supplied as one multi-token rep.
+	"RotateAxisVectorType": {"1 1 1", "1 0 0", "0 1 0", "1 1 0"},
+	// quotes pairs: QuotesPropItem is <string> <string> (open + close). Two
+	// identical adjacent <string> leaves collapse to one, so the whole pair is a
+	// single multi-token rep — a real open/close quote pair per nesting level.
+	"QuotesPropItem": {`"\201C" "\201D"`, `"\00AB" "\00BB"`, `"\2039" "\203A"`},
 	"TimeType":            {"0.3s", "1s", "200ms"},
 	"NonNegativeTimeType": {"0.3s", "1s"},
 	"FrequencyType":       {"440Hz", "1kHz"},
@@ -54,6 +69,9 @@ var reps = map[string][]string{
 	"StringType":      {`"Specimen"`, `"Aa"`},
 	"IdentType":       {"alpha", "beta"},
 	"CustomIdentType": {"my-ident", "tag-a"},
+	// transition-property / will-change name a real animatable property so the
+	// transition is meaningful rather than 'my-ident' (which transitions nothing).
+	"TransitionPropertyNameType": {"opacity", "transform", "background-color", "width", "color"},
 	"DashedIdentType": {"--my-var"},
 	// url() token — point at a real asset so image properties show a real image
 	// (the "very last literal" of a url is its string; we supply a real one).

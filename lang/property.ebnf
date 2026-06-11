@@ -1988,12 +1988,13 @@ AutoLineStyleListType = [ LineStyleOrRepeatType , { comma_symbol , LineStyleOrRe
 (* <line-style-or-repeat> *)
 LineStyleOrRepeatType = LineStyleType | RepeatLineStyleType ;
 
-(* <auto-repeat-line-style> *)
-AutoRepeatLineStyleType = RepeatFn ;
+(* <auto-repeat-line-style> = repeat( auto, [ <line-style> ]# ) — repeats
+   LINE-STYLES, not grid track sizes (RepeatFn put lengths like 48px here). *)
+AutoRepeatLineStyleType = repeat , left_parenthesis_symbol , auto , comma_symbol , LineStyleType , { comma_symbol , LineStyleType } , right_parenthesis_symbol ;
 AutoRepeatLineStyleTypeItem = LineStyleType ;
 
-(* <repeat-line-style> *)
-RepeatLineStyleType = RepeatFn ;
+(* <repeat-line-style> = repeat( <integer [1,∞]>, [ <line-style> ]# ) *)
+RepeatLineStyleType = repeat , left_parenthesis_symbol , positive_integer_type , comma_symbol , LineStyleType , { comma_symbol , LineStyleType } , right_parenthesis_symbol ;
 RepeatLineStyleTypeItem = LineStyleType ;
 
 (* <line-width-list> *)
@@ -2230,7 +2231,7 @@ NumericFractionValuesType = diagonal_fractions | stacked_fractions ;
 FontWeightAbsoluteType = normal | bold | positive_integer_type ;
 
 (* <font-style> *)
-FontStyleType = normal | italic | left | right | oblique , [ AngleType ] ;
+FontStyleType = normal | italic | left | right | oblique , [ ObliqueAngleType ] ;
 
 (* <font-variant-css2> *)
 FontVariantCss2Type = normal | small_caps ;
@@ -2502,10 +2503,13 @@ TextWrapStyleType = auto | balance | stable | pretty | avoid_orphans ;
 TransitionBehaviorValueType = normal | allow_discrete ;
 
 (* <single-transition-Property> *)
-SingleTransitionPropertyType = all | custom_ident_type ;
+(* the transitioned property name — a real animatable property (rep in reps.go)
+   so the transition is meaningful, not the placeholder ident 'my-ident'. *)
+TransitionPropertyNameType = custom_ident_type ;
+SingleTransitionPropertyType = all | TransitionPropertyNameType ;
 
 (* <single-transition> *)
-SingleTransitionType = [ ( none | SingleTransitionPropertyType ) ] , [ TimeType ] , [ EasingFunctionType ] , [ TimeType ] , [ TransitionBehaviorValueType ] ;
+SingleTransitionType = [ ( SingleTransitionPropertyType | none ) ] , [ TimeType ] , [ EasingFunctionType ] , [ TimeType ] , [ TransitionBehaviorValueType ] ;
 
 (* <alignment-baseline> *)
 AlignmentBaselineType = baseline | BaselineMetricType ;
@@ -2574,7 +2578,9 @@ AnimationDirectionProp = SingleAnimationDirectionType , { comma_symbol , SingleA
 
 (* animation-duration *)
 AnimationDurationProp = AnimationDurationPropItem , { comma_symbol , AnimationDurationPropItem } ;
-AnimationDurationPropItem = ( auto | NonNegativeTimeType | MathFunctionType ) ;
+(* auto | <time>. The generator can only feed MathFunctionType length operands
+   (calc(24px)), which is invalid in a <time> slot, so math is omitted here. *)
+AnimationDurationPropItem = ( auto | NonNegativeTimeType ) ;
 
 (* animation-fill-mode *)
 AnimationFillModeProp = SingleAnimationFillModeType , { comma_symbol , SingleAnimationFillModeType } ;
@@ -2952,8 +2958,9 @@ ClipPathProp =
 (* clip-rule *)
 ClipRuleProp = nonzero | evenodd ;
 
-(* clip *)
-ClipProp = RectFn | auto ;
+(* clip = rect( <top>, <right>, <bottom>, <left> ) | auto (docs). The legacy
+   comma rect() only — clip does NOT take the modern space/round rect(). *)
+ClipProp = LegacyRectSyntaxType | auto ;
 
 (* color-interpolation-filters *)
 ColorInterpolationFiltersProp = auto | sRGB | linearrgb ;
@@ -2969,7 +2976,7 @@ ColorSchemePropItem = ( light | dark | custom_ident_type ) ;
 ColorProp = ColorType ;
 
 (* column-count *)
-ColumnCountProp = auto | positive_integer_type | VarFn ;
+ColumnCountProp = auto | positive_integer_type | IntegerVarFn ;
 
 (* column-fill *)
 ColumnFillProp = auto | balance | balance_all ;
@@ -3165,8 +3172,9 @@ FlexGrowProp = NonNegativeNumberType ;
 (* flex-shrink *)
 FlexShrinkProp = NonNegativeNumberType ;
 
-(* flex-wrap *)
-FlexWrapProp = nowrap | ( wrap | wrap_reverse ) , [ balance ] | balance , [ ( wrap | wrap_reverse ) ] ;
+(* flex-wrap = nowrap | wrap | wrap-reverse (docs/syntax/properties.txt). 'balance'
+   is not a flex-wrap value (Chrome drops 'wrap balance'); removed. *)
+FlexWrapProp = nowrap | wrap | wrap_reverse ;
 
 (* flex *)
 FlexProp = none
@@ -3217,7 +3225,7 @@ FontSmoothProp = auto | never | always | AbsoluteSizeType | LengthType ;
 FontStretchProp = normal | NonNegativePercentageType | ultra_condensed | extra_condensed | condensed | semi_condensed | semi_expanded | expanded | extra_expanded | ultra_expanded ;
 
 (* font-style *)
-FontStyleProp = normal | italic | left | right | oblique , [ AngleType ] ;
+FontStyleProp = normal | italic | left | right | oblique , [ ObliqueAngleType ] ;
 
 (* font-synthesis-position *)
 FontSynthesisPositionProp = auto | none ;
@@ -3843,7 +3851,15 @@ ResizeProp = none | both | horizontal | vertical | block | inline ;
 RightProp = auto | LengthPercentageType | AnchorFn | AnchorSizeFn ;
 
 (* rotate *)
-RotateProp = none | AngleType | AttrFn | ( "x" | "y" | "z" | NumberType , NumberType , NumberType ) , AngleType ;
+(* rotate = none | <angle> | [ x | y | z | <number>{3} ] && <angle> (docs).
+   The number axis needs exactly THREE numbers (grouped); attr() is not a rotate
+   value. *)
+(* rotate = none | <angle> | [ x | y | z | <number>{3} ] && <angle>. The
+   <number>{3} axis vector is a dedicated rule carrying a multi-token rep (a whole
+   "1 1 1" triple, in reps.go): three identical adjacent <number> leaves otherwise
+   collapse to one repeated proto field and emit a single number ("1 45deg"). *)
+RotateAxisVectorType = number_type ;
+RotateProp = none | AngleType | ( ( "x" | "y" | "z" | RotateAxisVectorType ) , AngleType ) ;
 
 (* row-gap *)
 RowGapProp = normal | NonNegativeLengthPercentageType | LineWidthType ;
@@ -4021,7 +4037,7 @@ StrokeLinecapProp = butt | round | square ;
 StrokeLinejoinProp = miter | round | bevel | arcs | miter_clip ;
 
 (* stroke-miterlimit *)
-StrokeMiterlimitProp = NumberType ;
+StrokeMiterlimitProp = MiterlimitType ;
 
 (* stroke-opacity *)
 StrokeOpacityProp = OpacityProp ;

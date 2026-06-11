@@ -116,6 +116,14 @@ FlexType                = flex_type | VarFn ;
 LengthType              = length_type | LengthVarFn ;
 PercentageType          = percentage_type | PercentageVarFn ;
 
+(* Range-constrained scalar wrappers. The CFG cannot encode upper-bound ranges
+   (see the range note above), so these dedicated rules exist only to carry a
+   range-safe representative sample (defined in cmd/gen/reps.go): oblique angle
+   ∈ [-90deg,90deg], cubic-bezier control-point x ∈ [0,1], miterlimit ∈ [1,∞]. *)
+ObliqueAngleType        = angle_type ;
+CubicBezierProgressType = number_type ;
+MiterlimitType          = number_type ;
+
 (* <absolute-size> CSS type: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/absolute-size *)
 AbsoluteSizeType = xx_small | x_small | small | medium | large | x_large | xx_large | xxx_large ;
 
@@ -274,7 +282,9 @@ CubicBezierEasingFunctionType = ease | ease_in | ease_out | ease_in_out | CubicB
 (* <step-easing-function> *)
 StepEasingFunctionType = step_start | step_end | StepsFn ;
 LinearFnItem = ( NumberType , [ PercentageType ] , [ PercentageType ] ) ;
-CubicBezierFnItem = NumberType , comma_symbol , NumberType ;
+(* cubic-bezier( <x1> <y1> , <x2> <y2> ) — the control-point x (first of each
+   pair) must be in [0,1]; y is unrestricted. *)
+CubicBezierFnItem = CubicBezierProgressType , comma_symbol , NumberType ;
 
 (* <step-position> *)
 StepPositionType = jump_start | jump_end | jump_none | jump_both | start | end ;
