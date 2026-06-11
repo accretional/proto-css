@@ -1893,8 +1893,9 @@ StripesFn = stripes , left_parenthesis_symbol , ColorStripeType , { comma_symbol
 (* <color-stripe> *)
 ColorStripeType = ColorType , [ ( LengthPercentageType | FlexType ) ] ;
 
-(* <line-width> *)
-LineWidthType = NonNegativeLengthType | hairline | thin | medium | thick ;
+(* <line-width> = <length> | thin | medium | thick. 'hairline' is not a CSS
+   keyword (Chrome drops it), so it is removed. *)
+LineWidthType = NonNegativeLengthType | thin | medium | thick ;
 
 (* <border-top-style> *)
 BorderTopStyleType = LineStyleType ;

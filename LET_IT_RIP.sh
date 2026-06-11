@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# LET_IT_RIP.sh — Full chrome-testing-2.0 pipeline:
+# LET_IT_RIP.sh — Full chrome-testing pipeline:
 #   setup → generate gallery data from the CSS grammar → screenshot every
 #   property (static PNGs, temporal GIFs, paged-media PDFs rasterised to PNG) →
 #   serve the gallery in a browser.
@@ -13,12 +13,12 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")" && pwd)"
-CT2="$ROOT/chrome-testing-2.0"
+CT="$ROOT/chrome-testing"
 
 echo ""
 echo "############################################"
 echo "#               LET IT RIP                 #"
-echo "#  setup · gen · shoot · serve (ct 2.0)    #"
+echo "#     setup · gen · shoot · serve           #"
 echo "############################################"
 echo ""
 
@@ -27,11 +27,11 @@ echo "============ Step 1/4: Setup ============"
 echo ""
 
 echo "============ Step 2/4: Generate gallery data ============"
-"$CT2/gen.sh"
+"$CT/gen.sh"
 echo ""
 
 echo "============ Step 3/4: Screenshot every property ============"
-"$CT2/shoot.sh"
+"$CT/shoot.sh"
 echo ""
 
 if [[ -n "${SKIP_SERVE:-}" ]]; then
@@ -42,4 +42,4 @@ if [[ -n "${SKIP_SERVE:-}" ]]; then
 fi
 
 echo "============ Step 4/4: Serve + Browser ============"
-exec "$CT2/serve.sh"
+exec "$CT/serve.sh"

@@ -89,7 +89,7 @@ negative_integer_type = hyphen_symbol , natural_number ;
    Math functions (calc, min, max, …) are included: their sign cannot be known
    at parse time, so they are accepted here and validated at runtime. *)
 NonNegativeLengthPercentageType = NonNegativeLengthType | NonNegativePercentageType
-                                | MathFunctionType | AnchorSizeFn | AnchorFn | CalcSizeFn | EnvFn ;
+                                | MathFunctionType | EnvFn ;
 
 (* ── VarFn-lifting wrappers ──────────────────────────────────────────────────
    These syntactic (PascalCase) wrappers allow var() to substitute any typed
@@ -100,21 +100,21 @@ NonNegativeLengthPercentageType = NonNegativeLengthType | NonNegativePercentageT
    Rule: use these wrappers *only* inside other syntactic (PascalCase) rules.
    Never replace primitive refs inside lowercase (lexical) rules.
    ──────────────────────────────────────────────────────────────────────────── *)
-NumberType              = number_type | VarFn ;
-IntegerType             = integer_type | VarFn ;
-NonNegativeIntegerType  = non_negative_integer_type | VarFn ;
-NonNegativeNumberType   = non_negative_number_type | VarFn ;
-NonNegativeLengthType   = non_negative_length_type | VarFn ;
-NonNegativePercentageType = non_negative_percentage_type | VarFn ;
+NumberType              = number_type | NumberVarFn ;
+IntegerType             = integer_type | IntegerVarFn ;
+NonNegativeIntegerType  = non_negative_integer_type | IntegerVarFn ;
+NonNegativeNumberType   = non_negative_number_type | NumberVarFn ;
+NonNegativeLengthType   = non_negative_length_type | LengthVarFn ;
+NonNegativePercentageType = non_negative_percentage_type | PercentageVarFn ;
 NonNegativeFlexType     = non_negative_flex_type | VarFn ;
-NonNegativeTimeType     = non_negative_time_type | VarFn ;
-AngleType               = angle_type | VarFn ;
-TimeType                = time_type | VarFn ;
+NonNegativeTimeType     = non_negative_time_type | TimeVarFn ;
+AngleType               = angle_type | AngleVarFn ;
+TimeType                = time_type | TimeVarFn ;
 FrequencyType           = frequency_type | VarFn ;
 ResolutionType          = resolution_type | VarFn ;
 FlexType                = flex_type | VarFn ;
-LengthType              = length_type | VarFn ;
-PercentageType          = percentage_type | VarFn ;
+LengthType              = length_type | LengthVarFn ;
+PercentageType          = percentage_type | PercentageVarFn ;
 
 (* <absolute-size> CSS type: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/absolute-size *)
 AbsoluteSizeType = xx_small | x_small | small | medium | large | x_large | xx_large | xxx_large ;
@@ -144,7 +144,14 @@ SystemColorType = accentcolor | accentcolortext | activetext | buttonborder | bu
 LightDarkColorType = LightDarkColorFn ;
 
 (* <color-function> *)
-ColorFunctionType = RgbFn | RgbaFn | HslFn | HslaFn | HwbFn | LabFn | LchFn | OklabFn | OklchFn | IctcpFn | JzazbzFn | JzczhzFn | AlphaFn | ColorFn | HdrColorFn ;
+(* Order preserved from the original <color-function> list so colour properties
+   regenerate identically. The HDR/wide-gamut research functions
+   (ictcp/jzazbz/jzczhz/alpha, and color-hdr below) are in the <color> grammar
+   (docs/syntax/datatypes.txt) but NOT implemented by Chrome — grouped into
+   UnimplementedColorFunctionType so the UI can flag them; Chrome drops them, so
+   properties that include them are category 3 (valid CSS rendered identically). *)
+ColorFunctionType = RgbFn | RgbaFn | HslFn | HslaFn | HwbFn | LabFn | LchFn | OklabFn | OklchFn | UnimplementedColorFunctionType | ColorFn | HdrColorFn ;
+UnimplementedColorFunctionType = IctcpFn | JzazbzFn | JzczhzFn | AlphaFn ;
 
 (* <named-color> *)
 NamedColorType = aliceblue | antiquewhite | aqua | aquamarine | azure | beige | bisque | black | blanchedalmond | blue | blueviolet | brown | burlywood | cadetblue | chartreuse | chocolate | coral | cornflowerblue | cornsilk | crimson | cyan | darkblue | darkcyan | darkgoldenrod | darkgray | darkgreen | darkgrey | darkkhaki | darkmagenta | darkolivegreen | darkorange | darkorchid | darkred | darksalmon | darkseagreen | darkslateblue | darkslategray | darkslategrey | darkturquoise | darkviolet | deeppink | deepskyblue | dimgray | dimgrey | dodgerblue | firebrick | floralwhite | forestgreen | fuchsia | gainsboro | ghostwhite | gold | goldenrod | gray | green | greenyellow | grey | honeydew | hotpink | indianred | indigo | ivory | khaki | lavender | lavenderblush | lawngreen | lemonchiffon | lightblue | lightcoral | lightcyan | lightgoldenrodyellow | lightgray | lightgreen | lightgrey | lightpink | lightsalmon | lightseagreen | lightskyblue | lightslategray | lightslategrey | lightsteelblue | lightyellow | lime | limegreen | linen | magenta | maroon | mediumaquamarine | mediumblue | mediumorchid | mediumpurple | mediumseagreen | mediumslateblue | mediumspringgreen | mediumturquoise | mediumvioletred | midnightblue | mintcream | mistyrose | moccasin | navajowhite | navy | oldlace | olive | olivedrab | orange | orangered | orchid | palegoldenrod | palegreen | paleturquoise | palevioletred | papayawhip | peachpuff | peru | pink | plum | powderblue | purple | rebeccapurple | red | rosybrown | royalblue | saddlebrown | salmon | sandybrown | seagreen | seashell | sienna | silver | skyblue | slateblue | slategray | slategrey | snow | springgreen | steelblue | tan | teal | thistle | tomato | turquoise | violet | wheat | white | whitesmoke | yellow | yellowgreen | transparent ;
@@ -342,11 +349,16 @@ LinearColorHintType = LengthPercentageType ;
 (* <radial-extent> *)
 RadialExtentType = closest_corner | closest_side | farthest_corner | farthest_side ;
 
-(* <length-percentage> *)
-MathFunctionType = CalcFn | ClampFn | MinFn | MaxFn | RoundFn | AbsFn | SignFn
-                 | AcosFn | AsinFn | AtanFn | Atan2Fn
-                 | SinFn | CosFn | TanFn | ExpFn | LogFn | PowFn ;
-LengthPercentageType = length_type | percentage_type | MathFunctionType | AnchorSizeFn | AnchorFn | CalcSizeFn | VarFn | EnvFn ;
+(* Math functions valid where a <length>/<dimension> is expected: only the
+   type-preserving / length-resolving ones. Per CSS Values 4 the trig/number
+   functions (sin cos tan asin acos atan atan2 exp log pow sign) resolve to a
+   <number> or <angle>, never a <length>, so they are NOT valid as a bare
+   length value and were previously emitted as invalid `sin(24px)` etc. (the
+   generator can only feed them a length argument). They are omitted here so the
+   grammar never produces a value Chrome drops. abs()/round()/min()/max()/
+   clamp()/calc() preserve or compute the operand's type and stay. *)
+MathFunctionType = CalcFn | ClampFn | MinFn | MaxFn | RoundFn | AbsFn ;
+LengthPercentageType = length_type | percentage_type | MathFunctionType | LengthPercentageVarFn | EnvFn ;
 
 (* <position-one> *)
 PositionOneType = left | center | right | top | bottom | x_start | x_end | y_start | y_end | block_start | block_end | inline_start | inline_end | LengthPercentageType ;

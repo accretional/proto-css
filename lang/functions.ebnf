@@ -531,6 +531,19 @@ UrlFn = url , left_parenthesis_symbol , string_type , right_parenthesis_symbol ;
 VarFallbackType = number_type | percentage_type | length_type | hex_color_type ;
 VarFn = var , left_parenthesis_symbol , dashed_ident_type , [ comma_symbol , VarFallbackType ] , right_parenthesis_symbol ;
 
+(* Typed var() wrappers — the fallback must be valid for the typed slot the var()
+   sits in. The generic VarFn above used a number fallback (e.g. 0.5) which is
+   invalid in length/integer/angle/time contexts (a bare number is not a length).
+   These give var() a context-correct fallback so the declaration is never
+   dropped when the custom property is undefined. *)
+LengthVarFn            = var , left_parenthesis_symbol , dashed_ident_type , [ comma_symbol , length_type ] , right_parenthesis_symbol ;
+LengthPercentageVarFn  = var , left_parenthesis_symbol , dashed_ident_type , [ comma_symbol , ( length_type | percentage_type ) ] , right_parenthesis_symbol ;
+PercentageVarFn        = var , left_parenthesis_symbol , dashed_ident_type , [ comma_symbol , percentage_type ] , right_parenthesis_symbol ;
+IntegerVarFn           = var , left_parenthesis_symbol , dashed_ident_type , [ comma_symbol , integer_type ] , right_parenthesis_symbol ;
+NumberVarFn            = var , left_parenthesis_symbol , dashed_ident_type , [ comma_symbol , number_type ] , right_parenthesis_symbol ;
+AngleVarFn             = var , left_parenthesis_symbol , dashed_ident_type , [ comma_symbol , angle_type ] , right_parenthesis_symbol ;
+TimeVarFn              = var , left_parenthesis_symbol , dashed_ident_type , [ comma_symbol , time_type ] , right_parenthesis_symbol ;
+
 
 (* ── Animation / motion functions ────────────────────────────────────────── *)
 
