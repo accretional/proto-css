@@ -12,36 +12,36 @@
    If any selector in a non-forgiving list is invalid, the entire list is
    invalidated. *)
 
-ComplexSelectorList = ComplexSelector , { comma_symbol , ComplexSelector } ;
+ComplexSelectorList = ComplexSelector , { "," , ComplexSelector } ;
 
 (* Forgiving selector list: structurally identical to ComplexSelectorList.
    Used by :is() and :where() — invalid individual selectors are silently
    ignored rather than invalidating the whole list. *)
 
-ForgivingSelectorList = ComplexSelector , { comma_symbol , ComplexSelector } ;
+ForgivingSelectorList = ComplexSelector , { "," , ComplexSelector } ;
 
 (* Compound selector list: comma-separated compound selectors.
    Used by :current(). Narrower than ComplexSelectorList — no combinators
    allowed within each item. *)
 
-CompoundSelectorList = CompoundSelector , { comma_symbol , CompoundSelector } ;
+CompoundSelectorList = CompoundSelector , { "," , CompoundSelector } ;
 
 (* Relative selector list: used by :has(). *)
 
-RelativeSelectorList = RelativeSelector , { comma_symbol , RelativeSelector } ;
+RelativeSelectorList = RelativeSelector , { "," , RelativeSelector } ;
 
 (* Nested selector list: used by CSS Nesting. & is valid in place of a
    simple selector at the start of a compound selector. *)
 
-NestedComplexSelectorList = NestedComplexSelector , { comma_symbol , NestedComplexSelector } ;
+NestedComplexSelectorList = NestedComplexSelector , { "," , NestedComplexSelector } ;
 
 
 (* ── No-pseudo-element selector lists ────────────────────────────────────── *)
 (* Used by :is(), :not(), :where() whose argument lists must not contain
    pseudo-elements. *)
 
-ComplexSelectorListNoPe   = ComplexSelectorNoPe , { comma_symbol , ComplexSelectorNoPe } ;
-ForgivingSelectorListNoPe = ComplexSelectorNoPe , { comma_symbol , ComplexSelectorNoPe } ;
+ComplexSelectorListNoPe   = ComplexSelectorNoPe , { "," , ComplexSelectorNoPe } ;
+ForgivingSelectorListNoPe = ComplexSelectorNoPe , { "," , ComplexSelectorNoPe } ;
 
 
 (* ── Complex selectors ────────────────────────────────────────────────────── *)
@@ -89,7 +89,7 @@ ComplexSelectorNoPe = CompoundSelectorNoPe , { [ Combinator ] , CompoundSelector
 CompoundSelector = SimpleSelector , { QualifyingSelector } ;
 
 (* & is valid in place of a simple selector at the start of a nested compound selector. *)
-NestedCompoundSelector = ( ampersand_symbol | SimpleSelector ) , { QualifyingSelector } ;
+NestedCompoundSelector = ( "&" | SimpleSelector ) , { QualifyingSelector } ;
 
 CompoundSelectorNoPe = SimpleSelectorNoPe , { QualifyingSelectorNoPe } ;
 
@@ -122,26 +122,26 @@ BasicSelector = TypeSelector | UniversalSelector | ClassSelector | IdSelector | 
 
 (* Namespace prefix: svg|, *|, or just | (no namespace).
    Lexical rule — no whitespace allowed between the prefix and the pipe. *)
-ns_prefix = ident_type , vertical_line_symbol
-          | asterisk_symbol , vertical_line_symbol ;
+ns_prefix = ident_type , "|"
+          | "*" , "|" ;
 
 TypeSelector = [ ns_prefix ] , ElementName ;
 (* For now ElementName is any <ident> string. When HTML elements are defined,
    this will be replaced with an enum. proto-html will constrain this boundary. *)
 ElementName = ident_type ;
 
-UniversalSelector = [ ns_prefix ] , asterisk_symbol ;
+UniversalSelector = [ ns_prefix ] , "*" ;
 
-ClassSelector = full_stop_symbol , ident_type ;
+ClassSelector = "." , ident_type ;
 
-IdSelector = number_sign_symbol , ident_type ;
+IdSelector = "#" , ident_type ;
 
-AttributeSelector = left_square_bracket_symbol , AttrName ,
+AttributeSelector = "[" , AttrName ,
                      [ AttrMatcher , AttrValue , [ AttrModifier ] ] ,
-                     right_square_bracket_symbol ;
+                     "]" ;
 
 AttrName     = ident_type ;
-AttrMatcher  = [ tilde_symbol | vertical_line_symbol | circumflex_accent_symbol
-               | dollar_sign_symbol | asterisk_symbol ] , equals_sign_symbol ;
+AttrMatcher  = [ "~" | "|" | "^"
+               | "$" | "*" ] , "=" ;
 AttrValue    = string_type | ident_type ;
 AttrModifier = "i" | "s" ;
