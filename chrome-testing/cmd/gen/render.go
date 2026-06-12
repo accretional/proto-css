@@ -151,10 +151,27 @@ func (r *Renderer) render(fqn string, depth int, seen map[string]int, argPos boo
 	defer func() { seen[fqn]-- }()
 
 	if len(m.GetOneofDecl()) > 0 {
-		// Alternation: union of all variants (argPos passes through unchanged).
+		fields := m.GetField()
+		// A calc-value inside a math function (argPos) must stay dimensional:
+		// emit only the leading dimensional alternative so calc() resolves to a
+		// length — calc(24px), never the type-invalid calc(1)/calc(pi)/calc(NaN)
+		// /calc(infinity) — and so the MathFunctionType branch is never taken,
+		// which also prevents nested calc(calc(...)).
+		if name == "CalcValueType" && argPos && len(fields) > 0 {
+			return r.renderField(fields[0], depth, seen, argPos)
+		}
+		// Alternation: union of all variants, capped at maxVals*2. To stop one
+		// exploding variant (e.g. linear()'s cartesian product) from filling the
+		// cap before its siblings (cubic-bezier/ease/steps) are reached, cap each
+		// variant's *own* contribution — but only loosely (maxVals), so a
+		// legitimately large variant (e.g. the 147 named colors) keeps its values.
 		var out []string
-		for _, f := range m.GetField() {
-			out = append(out, r.renderField(f, depth, seen, argPos)...)
+		for _, f := range fields {
+			vs := r.renderField(f, depth, seen, argPos)
+			if len(vs) > r.maxVals {
+				vs = vs[:r.maxVals]
+			}
+			out = append(out, vs...)
 			if len(out) >= r.maxVals*2 {
 				if r.cur != nil {
 					r.cur.capped = true
@@ -220,7 +237,10 @@ func (r *Renderer) render(fqn string, depth int, seen map[string]int, argPos boo
 // i.e. one of its fields is the "(" terminal (left_parenthesis_symbol).
 func (r *Renderer) isFunctionSeq(m *descriptorpb.DescriptorProto) bool {
 	for _, f := range m.GetField() {
-		if simpleName(f.GetTypeName()) == "LeftParenthesisSymbol" {
+		// "(" is now an inline string-literal terminal (recorded in kw), not a
+		// named LeftParenthesisSymbol message. Detect either form so functions
+		// still render as one canonical instance instead of exploding.
+		if r.kw[f.GetTypeName()] == "(" || simpleName(f.GetTypeName()) == "LeftParenthesisSymbol" {
 			return true
 		}
 	}

@@ -3,6 +3,20 @@
 
 # Compiled binaries
 /generate.DS_Store
+# Go build artifacts from `go build ./cmd/...` (the cmd/* source dirs are kept)
+/gen
+/shoot
+/chrome-testing/gen
+/chrome-testing/shoot
 
 # Generated files
 .DS_STORE
+# Self-contained deployable gallery bundle (regenerate via chrome-testing/dist.sh)
+/chrome-testing/dist/
+
+# Vendored React/Babel cache for the dist bundle
+/chrome-testing/.vendor-cache/
+
+# Parallel-shoot scratch sequence dirs (regenerated each run)
+/chrome-testing/generated/_seq*
+/chrome-testing/generated/shots*.textproto

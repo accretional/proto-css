@@ -10,13 +10,18 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"   # go-run paths below are repo-root-relative; be CWD-independent
 CT="$ROOT/chrome-testing"
 SCREENS="$CT/screenshots"
-SEQ="$CT/generated/shots.textproto"
 CHROMERPC_SRC="${CHROMERPC_SRC:-$HOME/Documents/chromerpc}"
 CACHE="/tmp/chromerpc-ct2"
 BIN="$CACHE/bin"
 ONLY="${ONLY:-}"
 RESUME="${RESUME:-}"
 RESTART_EVERY="${RESTART_EVERY:-40}"   # relaunch chromerpc every N chunks (Chrome leaks)
+# RUN_TAG namespaces the per-run sequence chunks so several shoots can run in
+# PARALLEL (e.g. one per family) without clobbering each other's textproto files.
+# Screenshot output dirs are per-property, so disjoint ONLY sets never collide.
+RUN_TAG="${RUN_TAG:-}"
+SEQDIR="$CT/generated/_seq${RUN_TAG:+-$RUN_TAG}"
+SEQ="$SEQDIR/shots.textproto"
 
 HTTP_PID=""
 RPC_PID=""
@@ -24,6 +29,7 @@ RPC_PORT=""
 cleanup() {
   [[ -n "$HTTP_PID" ]] && kill "$HTTP_PID" 2>/dev/null || true
   [[ -n "$RPC_PID" ]] && kill "$RPC_PID" 2>/dev/null || true
+  rm -rf "$SEQDIR" 2>/dev/null || true
 }
 trap cleanup EXIT
 
@@ -69,8 +75,8 @@ HTTP_PID=$!
 
 # ── build the automation sequence (chunked to keep gRPC responses small) ──────
 BASE="http://localhost:$SERVE_PORT/gallery/index.html"
-mkdir -p "$SCREENS"
-rm -f "$CT"/generated/shots-*.textproto
+mkdir -p "$SCREENS" "$SEQDIR"
+rm -f "$SEQDIR"/shots-*.textproto
 
 # Clean the target property dirs first so screenshots for values that no longer
 # exist (e.g. after a grammar change removes invalid values) don't linger as
@@ -83,10 +89,14 @@ else
     | while IFS= read -r _p; do [[ -n "$_p" ]] && rm -rf "$SCREENS/$_p"; done
 fi
 
+# Emit ROOT-relative output_path values in the textprotos (not machine-specific
+# absolute paths). chromerpc + automate are launched below from $ROOT (this
+# script cd'd there), so a relative path resolves to the same screenshots dir.
+REL_SCREENS="${SCREENS#$ROOT/}"
 go run ./chrome-testing/cmd/shoot/ \
   -values "$CT/generated/values.json" \
   -manifest "$CT/generated/manifest.tsv" \
-  -base "$BASE" -outdir "$SCREENS" -seq "$SEQ" \
+  -base "$BASE" -outdir "$REL_SCREENS" -seq "$SEQ" \
   ${ONLY:+-only "$ONLY"}
 
 # ── start headless chromerpc + warm up the SPA once ───────────────────────────
@@ -97,7 +107,7 @@ echo "==> chromerpc ready on :$RPC_PORT (SPA warmed)"
 
 # ── run each chunk; recycle + re-warm the browser periodically and on failure ─
 echo "==> Capturing screenshots (this can take a while) ..."
-chunks=( "$CT"/generated/shots-*.textproto )
+chunks=( "$SEQDIR"/shots-*.textproto )
 total=${#chunks[@]}
 [[ $total -eq 0 ]] && { echo "Nothing to capture (all present?)."; exit 0; }
 i=0
@@ -115,10 +125,21 @@ done
 echo ""
 
 echo ""
+# Scope the post-processing (PDF→PNG, frames→GIF) to just this run's properties
+# so parallel family shoots don't reprocess or race on each other's output dirs.
+scope_dirs=()
+if [[ -n "$ONLY" ]]; then
+  IFS=',' read -ra _scope_props <<< "$ONLY"
+  for _p in "${_scope_props[@]}"; do _p="${_p// /}"; [[ -n "$_p" && -d "$SCREENS/$_p" ]] && scope_dirs+=("$SCREENS/$_p"); done
+else
+  scope_dirs=("$SCREENS")
+fi
+
 # ── Rasterise paged-media PDFs (printToPDF output) into stacked PNGs ──────────
-if find "$SCREENS" -name '*.pdf' -print -quit | grep -q .; then
+if [[ ${#scope_dirs[@]} -gt 0 ]] && find "${scope_dirs[@]}" -name '*.pdf' -print -quit | grep -q .; then
   echo "==> Rasterising paged-media PDFs to PNG..."
-  python3 - "$SCREENS" <<'PY'
+  for _sd in "${scope_dirs[@]}"; do
+  python3 - "$_sd" <<'PY'
 import sys, os, glob, subprocess, tempfile
 from PIL import Image
 root = sys.argv[1]
@@ -145,10 +166,13 @@ for pdf in glob.glob(os.path.join(root, "**", "*.pdf"), recursive=True):
     except Exception as e:
         print(f"  ! {pdf}: {e}", file=sys.stderr)
 PY
+  done
 fi
 
 echo "==> Encoding temporal frame sequences into GIFs..."
-go run ./chrome-testing/cmd/gifenc/ -dir "$SCREENS"
+for _sd in "${scope_dirs[@]}"; do
+  go run ./chrome-testing/cmd/gifenc/ -dir "$_sd"
+done
 
 echo "==> Screenshots under $SCREENS"
 find "$SCREENS" -name '*.png' | wc -l | xargs echo "Total PNGs:"

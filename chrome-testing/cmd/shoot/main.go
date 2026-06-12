@@ -69,7 +69,10 @@ func main() {
 	w.start()
 
 	// index page first (full page; the SPA is pre-loaded by shoot.sh's warmup).
-	w.shot("location.hash='#/';void 0", filepath.Join(*outdir, "index.png"), true)
+	// Skipped for -only runs so parallel family shoots don't all race on index.png.
+	if len(limit) == 0 {
+		w.shot("location.hash='#/';void 0", filepath.Join(*outdir, "index.png"), true)
+	}
 
 	shots, temporal := 0, 0
 	for _, name := range names {
@@ -114,16 +117,30 @@ func main() {
 // frame). Mirrors the live-demo behaviour classification in gallery/live.jsx.
 func captureMode(name string) string {
 	switch {
+	// Scroll/view timelines & ranges are driven by the SCROLL OFFSET, not by time.
+	// "scrollramp": the engine blindly scrolls the demo's [data-codex-scroll] element
+	// 0→100% and captures a frame at each fraction. Used for props whose demo has NO
+	// smart trigger of its own (timelines, sticky/fixed position, bg-attachment, cv).
+	// Must precede the "animation" prefix case (else animation-timeline/range → anim).
+	case hasAnyPrefix(name, "scroll-timeline", "view-timeline") ||
+		name == "timeline-scope" || name == "animation-timeline" ||
+		name == "animation-range" || name == "animation-range-start" || name == "animation-range-end" ||
+		name == "scroll-initial-target" || name == "scroll-target-group" ||
+		name == "position" || name == "background-attachment" || name == "content-visibility":
+		return "scrollramp"
 	case name == "animation-fill-mode" || name == "animation-iteration-count" || name == "animation-composition":
 		return "settle" // capture after the run completes so the held/stopped state shows
 	case strings.HasPrefix(name, "animation"):
 		return "anim"
-	case strings.HasPrefix(name, "transition"):
-		return "transition"
-	case name == "page" || hasAnyPrefix(name, "page-break", "break-") || name == "orphans" || name == "widows":
-		return "print" // print the document to PDF so page-boundary behaviour shows
+	case name == "interpolate-size" || strings.HasPrefix(name, "transition") ||
+		name == "overlay" || name == "view-transition-name" || name == "view-transition-class":
+		return "transition" // fire the demo's [data-codex-trigger] (transition / popover / view transition)
+	case name == "page" || hasAnyPrefix(name, "page-break", "break-") || name == "orphans" || name == "widows" || name == "print-color-adjust":
+		return "print" // print the document to PDF so page-boundary / print-only behaviour shows
 	case name == "scroll-behavior" || hasAnyPrefix(name, "scroll-snap", "scroll-padding", "scroll-margin", "overflow", "overscroll", "scrollbar"):
-		return "scroll"
+		return "scroll" // demo-driven: fire the demo's own [data-codex-trigger] snap/scroll logic
+	case name == "text-size-adjust":
+		return "mobile" // render under a narrow mobile viewport so text inflation applies
 	case name == "pointer-events":
 		return "click"
 	case name == "user-select" || name == "user-modify":
@@ -139,8 +156,12 @@ func captureMode(name string) string {
 
 func frameCount(mode string) int {
 	switch mode {
+	case "mobile":
+		return 1
 	case "click", "select", "focus", "settle", "touch":
 		return 2
+	case "scrollramp":
+		return 7 // dense scroll sampling so scroll/view-timeline RANGE differences read
 	default:
 		return 4
 	}
@@ -228,6 +249,40 @@ func (w *chunkWriter) frames(embed, framedir, mode string) {
 	}
 	w.line(fmt.Sprintf("steps { evaluate_script { expression: %q } }", embed))
 	w.line(fmt.Sprintf("steps { wait { milliseconds: %d } }", w.navWait))
+
+	// scrollramp: the engine drives a real scrollTop/scrollLeft ramp over the demo's
+	// scrollable element ([data-codex-scroll], else the first overflowing node) and
+	// captures a frame at each scroll fraction. This is what actually exercises
+	// sticky/fixed position, background-attachment, content-visibility AND
+	// scroll/view-timeline-driven animations (whose progress IS the scroll offset),
+	// for demos that have no smart trigger of their own.
+	if mode == "scrollramp" {
+		const findScroller = "var el=document.querySelector('[data-codex-scroll]');if(!el){el=[].slice.call(document.querySelectorAll('.spec-stage *,.glass *')).filter(function(e){return e.scrollHeight>e.clientHeight+4||e.scrollWidth>e.clientWidth+4})[0];}"
+		for i := 0; i < n; i++ {
+			frac := 0.0
+			if n > 1 {
+				frac = float64(i) / float64(n-1)
+			}
+			js := findScroller + fmt.Sprintf("if(el){el.scrollTo({top:(el.scrollHeight-el.clientHeight)*%[1]g,left:(el.scrollWidth-el.clientWidth)*%[1]g,behavior:'auto'});}void 0", frac)
+			w.line(fmt.Sprintf("steps { evaluate_script { expression: %q } }", js))
+			w.line("steps { wait { milliseconds: 260 } }") // settle for snap re-alignment / sticky recompute
+			w.line(fmt.Sprintf("steps { screenshot { output_path: %q format: \"png\" } }", filepath.Join(framedir, fmt.Sprintf("frame-%02d.png", i))))
+			w.shots++
+		}
+		return
+	}
+
+	// mobile: render the property under a narrow mobile viewport (text-size-adjust only
+	// inflates text in a mobile layout), capture one frame, then restore the embed viewport.
+	if mode == "mobile" {
+		w.line("steps { set_viewport { width: 380 height: 720 device_scale_factor: 2 mobile: true } }")
+		w.line("steps { wait { milliseconds: 220 } }")
+		w.line(fmt.Sprintf("steps { screenshot { output_path: %q format: \"png\" } }", filepath.Join(framedir, "frame-00.png")))
+		w.line("steps { set_viewport { width: 1024 height: 656 device_scale_factor: 1 } }")
+		w.shots++
+		return
+	}
+
 	// JS recipes run with evaluate_script — no extra proto steps needed.
 	const selectJS = "var el=document.querySelector('.glass [data-codex-select]')||document.querySelector('.glass p')||document.querySelector('.glass');var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);void 0"
 	const focusJS = "var el=document.querySelector('.glass [contenteditable],.glass input,.glass textarea');if(el)el.focus();void 0"

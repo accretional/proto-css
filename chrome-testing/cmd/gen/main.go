@@ -25,7 +25,9 @@ import (
 )
 
 var ebnfFiles = []string{
-	"css.ebnf", "symbol.ebnf", "primitive.ebnf", "keyword.ebnf",
+	// keyword.ebnf + symbol.ebnf were removed: keywords and symbols are now
+	// inlined as string literals directly in the rules.
+	"css.ebnf", "primitive.ebnf",
 	"combinator.ebnf", "datatype.ebnf", "functions.ebnf",
 	"pseudo-class.ebnf", "pseudo-element.ebnf", "selector.ebnf",
 	"property.ebnf", "atrule.ebnf",

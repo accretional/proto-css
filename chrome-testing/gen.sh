@@ -13,3 +13,9 @@ go run ./chrome-testing/cmd/gen/ \
   -out "$ROOT/chrome-testing/generated"
 
 echo "==> Done. Data at chrome-testing/generated/codex-data.jsx"
+
+# Assemble the self-contained, deployable gallery bundle (dist/). Set
+# SKIP_DIST=1 to regenerate only the data without rebundling.
+if [[ -z "${SKIP_DIST:-}" ]]; then
+  "$ROOT/chrome-testing/dist.sh"
+fi
