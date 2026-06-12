@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package css;
+
+import "css.proto";
+
+option go_package = "github.com/accretional/proto-css/proto/pb/cssservice;cssservicepb";
+
+// CssService renders a typed CssStyleSheet to CSS text and parses CSS text back
+// into a CssStyleSheet. A stylesheet is the root of all CSS — every rule,
+// selector, declaration and value hangs off it — so both directions are rooted
+// there. Both are pure reflection over the grammar-derived schema in css.proto
+// plus the generated tables (MessagePrefix, FieldSeparator); there is no
+// per-property logic in the server.
+service CssService {
+  // Render serializes a CssStyleSheet into CSS text.
+  rpc Render(RenderRequest) returns (RenderResponse);
+
+  // RenderStream serializes a CssStyleSheet and streams the CSS text in chunks.
+  // The concatenation of all chunks equals Render's `css`.
+  rpc RenderStream(RenderRequest) returns (stream RenderChunk);
+
+  // Parse parses CSS text into a CssStyleSheet.
+  rpc Parse(ParseRequest) returns (ParseResponse);
+}
+
+message RenderRequest {
+  // The stylesheet to render. Any css.* subtree is reachable from here.
+  CssStyleSheet sheet = 1;
+}
+
+message RenderResponse {
+  // The rendered CSS text.
+  string css = 1;
+}
+
+message RenderChunk {
+  // A slice of the rendered CSS text. Concatenate chunks in arrival order.
+  string css = 1;
+}
+
+message ParseRequest {
+  // The CSS text to parse.
+  string css = 1;
+}
+
+message ParseResponse {
+  // The parsed stylesheet.
+  CssStyleSheet sheet = 1;
+}
