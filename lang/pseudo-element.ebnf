@@ -53,68 +53,68 @@ PseudoElement =
 
 (* ── Generated content ───────────────────────────────────────────────────── *)
 
-PeBefore = double_colon_symbol , before ;
-PeAfter  = double_colon_symbol , after ;
+PeBefore = "::" , "before" ;
+PeAfter  = "::" , "after" ;
 
 
 (* ── Display / layout ────────────────────────────────────────────────────── *)
 
-PeBackdrop           = double_colon_symbol , backdrop ;
-PeColumn             = double_colon_symbol , column ;
-PeDetailsContent    = double_colon_symbol , details_content ;
-PeFileSelectorButton = double_colon_symbol , file_selector_button ;
+PeBackdrop           = "::" , "backdrop" ;
+PeColumn             = "::" , "column" ;
+PeDetailsContent    = "::" , "details-content" ;
+PeFileSelectorButton = "::" , "file-selector-button" ;
 
 
 (* ── Typography ──────────────────────────────────────────────────────────── *)
 
-PeFirstLetter = double_colon_symbol , first_letter ;
-PeFirstLine   = double_colon_symbol , first_line ;
-PePlaceholder  = double_colon_symbol , placeholder ;
+PeFirstLetter = "::" , "first-letter" ;
+PeFirstLine   = "::" , "first-line" ;
+PePlaceholder  = "::" , "placeholder" ;
 
 
 (* ── List / marker ───────────────────────────────────────────────────────── *)
 
-PeMarker    = double_colon_symbol , marker ;
-PeCheckmark = double_colon_symbol , checkmark ;
+PeMarker    = "::" , "marker" ;
+PeCheckmark = "::" , "checkmark" ;
 
 
 (* ── Selection / highlight ───────────────────────────────────────────────── *)
 
-PeSelection  = double_colon_symbol , selection ;
-PeTargetText  = double_colon_symbol , target_text ;
-PeSearchText  = double_colon_symbol , search_text ;
+PeSelection  = "::" , "selection" ;
+PeTargetText  = "::" , "target-text" ;
+PeSearchText  = "::" , "search-text" ;
 
 (* ::highlight(<custom-ident>) — names a custom highlight registered via the
    CSS Custom Highlight API (HighlightRegistry). The argument is the highlight name. *)
-PeHighlight = double_colon_symbol , highlight ,
-               left_parenthesis_symbol , custom_ident_type , right_parenthesis_symbol ;
+PeHighlight = "::" , "highlight" ,
+               "(" , custom_ident_type , ")" ;
 
 
 (* ── Spelling / grammar ──────────────────────────────────────────────────── *)
 
-PeSpellingError = double_colon_symbol , spelling_error ;
-PeGrammarError  = double_colon_symbol , grammar_error ;
+PeSpellingError = "::" , "spelling-error" ;
+PeGrammarError  = "::" , "grammar-error" ;
 
 
 (* ── Shadow DOM ──────────────────────────────────────────────────────────── *)
 
 (* ::part(<ident>+) — one or more part names exposed by a shadow host element. *)
-PePart = double_colon_symbol , part ,
-          left_parenthesis_symbol , ident_type , { ident_type } , right_parenthesis_symbol ;
+PePart = "::" , "part" ,
+          "(" , ident_type , { ident_type } , ")" ;
 
 (* ::slotted(<compound-selector>) — elements placed into a shadow DOM slot. *)
-PeSlotted = double_colon_symbol , slotted ,
-             left_parenthesis_symbol , CompoundSelector , right_parenthesis_symbol ;
+PeSlotted = "::" , "slotted" ,
+             "(" , CompoundSelector , ")" ;
 
 
 (* ── Web Components / picker ─────────────────────────────────────────────── *)
 
 (* ::picker(<ident>) — targets the picker of a form control that has base appearance.
    Currently only "select" is supported as the ident value. *)
-PePicker      = double_colon_symbol , picker ,
-                 left_parenthesis_symbol , ident_type , right_parenthesis_symbol ;
+PePicker      = "::" , "picker" ,
+                 "(" , ident_type , ")" ;
 
-PePickerIcon = double_colon_symbol , picker_icon ;
+PePickerIcon = "::" , "picker-icon" ;
 
 
 (* ── Scroll ──────────────────────────────────────────────────────────────── *)
@@ -122,11 +122,11 @@ PePickerIcon = double_colon_symbol , picker_icon ;
 (* ::scroll-button(<scroll-button-direction>)
    Selects scroll buttons generated on a scroll container.
    * = all scroll buttons; directional keywords select a specific one. *)
-PeScrollButton = double_colon_symbol , scroll_button ,
-                   left_parenthesis_symbol , ScrollButtonDirection , right_parenthesis_symbol ;
+PeScrollButton = "::" , "scroll-button" ,
+                   "(" , ScrollButtonDirection , ")" ;
 
-PeScrollMarker       = double_colon_symbol , scroll_marker ;
-PeScrollMarkerGroup = double_colon_symbol , scroll_marker_group ;
+PeScrollMarker       = "::" , "scroll-marker" ;
+PeScrollMarkerGroup = "::" , "scroll-marker-group" ;
 
 
 (* ── WebVTT ──────────────────────────────────────────────────────────────── *)
@@ -135,25 +135,25 @@ PeScrollMarkerGroup = double_colon_symbol , scroll_marker_group ;
    Matches WebVTT cues. The optional argument is a compound selector that
    filters which cues are matched. WebVTT cue selectors are a subset of
    CSS compound selectors (no combinators). *)
-PeCue = double_colon_symbol , cue ,
-         [ left_parenthesis_symbol , CompoundSelector , right_parenthesis_symbol ] ;
+PeCue = "::" , "cue" ,
+         [ "(" , CompoundSelector , ")" ] ;
 
 
 (* ── View transitions ────────────────────────────────────────────────────── *)
 
-PeViewTransition = double_colon_symbol , view_transition ;
+PeViewTransition = "::" , "view-transition" ;
 
 (* ::view-transition-group(), ::view-transition-image-pair(),
    ::view-transition-new(), ::view-transition-old()
    all share the same argument syntax — see ViewTransitionArg below. *)
-PeViewTransitionGroup      = double_colon_symbol , view_transition_group ,
-                                 left_parenthesis_symbol , ViewTransitionArg , right_parenthesis_symbol ;
-PeViewTransitionImagePair = double_colon_symbol , view_transition_image_pair ,
-                                 left_parenthesis_symbol , ViewTransitionArg , right_parenthesis_symbol ;
-PeViewTransitionNew        = double_colon_symbol , view_transition_new ,
-                                 left_parenthesis_symbol , ViewTransitionArg , right_parenthesis_symbol ;
-PeViewTransitionOld        = double_colon_symbol , view_transition_old ,
-                                 left_parenthesis_symbol , ViewTransitionArg , right_parenthesis_symbol ;
+PeViewTransitionGroup      = "::" , "view-transition-group" ,
+                                 "(" , ViewTransitionArg , ")" ;
+PeViewTransitionImagePair = "::" , "view-transition-image-pair" ,
+                                 "(" , ViewTransitionArg , ")" ;
+PeViewTransitionNew        = "::" , "view-transition-new" ,
+                                 "(" , ViewTransitionArg , ")" ;
+PeViewTransitionOld        = "::" , "view-transition-old" ,
+                                 "(" , ViewTransitionArg , ")" ;
 
 
 (* ── Supporting types ────────────────────────────────────────────────────── *)
@@ -162,9 +162,9 @@ PeViewTransitionOld        = double_colon_symbol , view_transition_old ,
    * selects all scroll buttons; directional keywords select a specific one.
    next / prev are spec-defined but not yet browser-supported. *)
 ScrollButtonDirection =
-    asterisk_symbol
-    | up | down | left | right
-    | block_start | block_end | inline_start | inline_end ;
+    "*"
+    | "up" | "down" | "left" | "right"
+    | "block-start" | "block-end" | "inline-start" | "inline-end" ;
 
 (* View-transition argument syntax:
      [ <pt-name-selector> <pt-class-selector>? ] | <pt-class-selector>
@@ -174,14 +174,14 @@ ScrollButtonDirection =
      - a name (with optional class):  custom_ident [ . custom_ident ]
      - a class alone:                 . custom_ident
      - the universal selector:        * [ . custom_ident ] *)
-PtNameSelector  = asterisk_symbol | custom_ident_type ;
-PtClassSelector = full_stop_symbol , custom_ident_type ;
+PtNameSelector  = "*" | custom_ident_type ;
+PtClassSelector = "." , custom_ident_type ;
 
 ViewTransitionArg =
     ( PtNameSelector , [ PtClassSelector ] )
     | PtClassSelector ;
 
 (* Vendor-prefixed pseudo-elements: ::-webkit-*, ::-moz-*, ::-ms-*, etc. *)
-PeVendor = double_colon_symbol , hyphen_symbol , ident_type ;
+PeVendor = "::" , "-" , ident_type ;
 
 (* CompoundSelectorType is defined in pseudo-class.ebnf — shared alias. *)

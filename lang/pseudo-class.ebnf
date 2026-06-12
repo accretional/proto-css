@@ -78,206 +78,206 @@ PseudoClass =
 
 (* ── Elemental / general ─────────────────────────────────────────────────── *)
 
-PcDefined         = colon_symbol , defined ;
+PcDefined         = ":" , "defined" ;
 (* :heading — also has a functional form :heading(<integer>#) handled below *)
-PcHeading         = colon_symbol , heading , [ left_parenthesis_symbol , IntegerType , { comma_symbol , IntegerType } , right_parenthesis_symbol ] ;
+PcHeading         = ":" , "heading" , [ "(" , IntegerType , { "," , IntegerType } , ")" ] ;
 
 
 (* ── Element-display-state ───────────────────────────────────────────────── *)
 
-PcOpen              = colon_symbol , open ;
-PcPopoverOpen      = colon_symbol , popover_open ;
-PcModal             = colon_symbol , modal ;
-PcFullscreen        = colon_symbol , fullscreen ;
-PcPictureInPicture = colon_symbol , picture_in_picture ;
-PcXrOverlay        = colon_symbol , xr_overlay ;
+PcOpen              = ":" , "open" ;
+PcPopoverOpen      = ":" , "popover-open" ;
+PcModal             = ":" , "modal" ;
+PcFullscreen        = ":" , "fullscreen" ;
+PcPictureInPicture = ":" , "picture-in-picture" ;
+PcXrOverlay        = ":" , "xr-overlay" ;
 
 
 (* ── Input pseudo-classes ────────────────────────────────────────────────── *)
 
-PcEnabled           = colon_symbol , enabled ;
-PcDisabled          = colon_symbol , disabled ;
-PcReadOnly         = colon_symbol , read_only ;
-PcReadWrite        = colon_symbol , read_write ;
-PcPlaceholderShown = colon_symbol , placeholder_shown ;
-PcAutofill          = colon_symbol , autofill ;
-PcDefault           = colon_symbol , default ;
-PcChecked           = colon_symbol , checked ;
-PcIndeterminate     = colon_symbol , indeterminate ;
-PcBlank             = colon_symbol , blank ;
-PcValid             = colon_symbol , valid ;
-PcInvalid           = colon_symbol , invalid ;
-PcInRange          = colon_symbol , in_range ;
-PcOutOfRange      = colon_symbol , out_of_range ;
-PcRequired          = colon_symbol , required ;
-PcOptional          = colon_symbol , optional ;
-PcUserValid        = colon_symbol , user_valid ;
-PcUserInvalid      = colon_symbol , user_invalid ;
+PcEnabled           = ":" , "enabled" ;
+PcDisabled          = ":" , "disabled" ;
+PcReadOnly         = ":" , "read-only" ;
+PcReadWrite        = ":" , "read-write" ;
+PcPlaceholderShown = ":" , "placeholder-shown" ;
+PcAutofill          = ":" , "autofill" ;
+PcDefault           = ":" , "default" ;
+PcChecked           = ":" , "checked" ;
+PcIndeterminate     = ":" , "indeterminate" ;
+PcBlank             = ":" , "blank" ;
+PcValid             = ":" , "valid" ;
+PcInvalid           = ":" , "invalid" ;
+PcInRange          = ":" , "in-range" ;
+PcOutOfRange      = ":" , "out-of-range" ;
+PcRequired          = ":" , "required" ;
+PcOptional          = ":" , "optional" ;
+PcUserValid        = ":" , "user-valid" ;
+PcUserInvalid      = ":" , "user-invalid" ;
 
 
 (* ── Linguistic ──────────────────────────────────────────────────────────── *)
 
 (* :dir(ltr | rtl) *)
-PcDir  = colon_symbol , dir , left_parenthesis_symbol , ( ltr | rtl ) , right_parenthesis_symbol ;
+PcDir  = ":" , "dir" , "(" , ( "ltr" | "rtl" ) , ")" ;
 
 (* :lang(<language-code>[,<language-code>]* ) — language code is an ident or string *)
-PcLang = colon_symbol , lang , left_parenthesis_symbol , LanguageCodeType , { comma_symbol , LanguageCodeType } , right_parenthesis_symbol ;
+PcLang = ":" , "lang" , "(" , LanguageCodeType , { "," , LanguageCodeType } , ")" ;
 
 
 (* ── Location ────────────────────────────────────────────────────────────── *)
 
-PcAnyLink   = colon_symbol , any_link ;
-PcVisited    = colon_symbol , visited ;
-PcLink       = colon_symbol , link ;
-PcLocalLink = colon_symbol , local_link ;
-PcTarget     = colon_symbol , target ;
-PcScope      = colon_symbol , scope ;
+PcAnyLink   = ":" , "any-link" ;
+PcVisited    = ":" , "visited" ;
+PcLink       = ":" , "link" ;
+PcLocalLink = ":" , "local-link" ;
+PcTarget     = ":" , "target" ;
+PcScope      = ":" , "scope" ;
 
 
 (* ── Resource-state (media playback) ─────────────────────────────────────── *)
 
-PcPlaying      = colon_symbol , playing ;
-PcPaused       = colon_symbol , paused ;
-PcSeeking      = colon_symbol , seeking ;
-PcBuffering    = colon_symbol , buffering ;
-PcStalled      = colon_symbol , stalled ;
-PcMuted        = colon_symbol , muted ;
-PcVolumeLocked = colon_symbol , volume_locked ;
+PcPlaying      = ":" , "playing" ;
+PcPaused       = ":" , "paused" ;
+PcSeeking      = ":" , "seeking" ;
+PcBuffering    = ":" , "buffering" ;
+PcStalled      = ":" , "stalled" ;
+PcMuted        = ":" , "muted" ;
+PcVolumeLocked = ":" , "volume-locked" ;
 
 
 (* ── Time-dimensional (WebVTT) ───────────────────────────────────────────── *)
 
 (* :current — also accepts an optional compound-selector-list argument *)
-PcCurrent = colon_symbol , current , [ left_parenthesis_symbol , CompoundSelectorListType , right_parenthesis_symbol ] ;
-PcPast    = colon_symbol , past ;
-PcFuture  = colon_symbol , future , [ left_parenthesis_symbol , ForgivingSelectorListType , right_parenthesis_symbol ] ;
+PcCurrent = ":" , "current" , [ "(" , CompoundSelectorListType , ")" ] ;
+PcPast    = ":" , "past" ;
+PcFuture  = ":" , "future" , [ "(" , ForgivingSelectorListType , ")" ] ;
 
 
 (* ── Tree-structural ─────────────────────────────────────────────────────── *)
 
-PcRoot  = colon_symbol , root ;
-PcEmpty = colon_symbol , empty ;
+PcRoot  = ":" , "root" ;
+PcEmpty = ":" , "empty" ;
 
 (* :nth-child([ <An+B> | even | odd ] [of <complex-selector-list>]?) *)
-PcNthChild      = colon_symbol , nth_child , left_parenthesis_symbol ,
-                      ( AnPlusBType | even | odd ) ,
-                      [ of , ComplexSelectorListType ] ,
-                      right_parenthesis_symbol ;
+PcNthChild      = ":" , "nth-child" , "(" ,
+                      ( AnPlusBType | "even" | "odd" ) ,
+                      [ "of" , ComplexSelectorListType ] ,
+                      ")" ;
 
 (* :nth-last-child(<nth> [of <complex-selector-list>]?) *)
-PcNthLastChild = colon_symbol , nth_last_child , left_parenthesis_symbol ,
-                      ( AnPlusBType | even | odd ) ,
-                      [ of , ComplexSelectorListType ] ,
-                      right_parenthesis_symbol ;
+PcNthLastChild = ":" , "nth-last-child" , "(" ,
+                      ( AnPlusBType | "even" | "odd" ) ,
+                      [ "of" , ComplexSelectorListType ] ,
+                      ")" ;
 
-PcFirstChild = colon_symbol , first_child ;
-PcLastChild  = colon_symbol , last_child ;
-PcOnlyChild  = colon_symbol , only_child ;
+PcFirstChild = ":" , "first-child" ;
+PcLastChild  = ":" , "last-child" ;
+PcOnlyChild  = ":" , "only-child" ;
 
 (* :nth-of-type(<An+B> | even | odd) *)
-PcNthOfType      = colon_symbol , nth_of_type , left_parenthesis_symbol ,
-                        ( AnPlusBType | even | odd ) ,
-                        right_parenthesis_symbol ;
+PcNthOfType      = ":" , "nth-of-type" , "(" ,
+                        ( AnPlusBType | "even" | "odd" ) ,
+                        ")" ;
 
 (* :nth-last-of-type(<An+B> | even | odd) *)
-PcNthLastOfType = colon_symbol , nth_last_of_type , left_parenthesis_symbol ,
-                        ( AnPlusBType | even | odd ) ,
-                        right_parenthesis_symbol ;
+PcNthLastOfType = ":" , "nth-last-of-type" , "(" ,
+                        ( AnPlusBType | "even" | "odd" ) ,
+                        ")" ;
 
-PcFirstOfType = colon_symbol , first_of_type ;
-PcLastOfType  = colon_symbol , last_of_type ;
-PcOnlyOfType  = colon_symbol , only_of_type ;
+PcFirstOfType = ":" , "first-of-type" ;
+PcLastOfType  = ":" , "last-of-type" ;
+PcOnlyOfType  = ":" , "only-of-type" ;
 
 
 (* ── Shadow DOM ──────────────────────────────────────────────────────────── *)
 
 (* :host — also has functional form :host(<compound-selector>) *)
-PcHost         = colon_symbol , host , [ left_parenthesis_symbol , CompoundSelectorType , right_parenthesis_symbol ] ;
-PcHostContext = colon_symbol , host_context , left_parenthesis_symbol , CompoundSelectorType , right_parenthesis_symbol ;
-PcHasSlotted  = colon_symbol , has_slotted ;
+PcHost         = ":" , "host" , [ "(" , CompoundSelectorType , ")" ] ;
+PcHostContext = ":" , "host-context" , "(" , CompoundSelectorType , ")" ;
+PcHasSlotted  = ":" , "has-slotted" ;
 
 
 (* ── User-action ─────────────────────────────────────────────────────────── *)
 
-PcHover         = colon_symbol , hover ;
-PcActive        = colon_symbol , active ;
-PcFocus         = colon_symbol , focus ;
-PcFocusVisible = colon_symbol , focus_visible ;
-PcFocusWithin  = colon_symbol , focus_within ;
+PcHover         = ":" , "hover" ;
+PcActive        = ":" , "active" ;
+PcFocus         = ":" , "focus" ;
+PcFocusVisible = ":" , "focus-visible" ;
+PcFocusWithin  = ":" , "focus-within" ;
 
 
 (* ── Scroll-target ───────────────────────────────────────────────────────── *)
 
-PcTargetCurrent = colon_symbol , target_current ;
+PcTargetCurrent = ":" , "target-current" ;
 
 
 (* ── Logical combination ─────────────────────────────────────────────────── *)
 
 (* :is(<forgiving-selector-list>) — invalid selectors silently ignored *)
-PcIs    = colon_symbol , is    , left_parenthesis_symbol , ForgivingSelectorListType , right_parenthesis_symbol ;
+PcIs    = ":" , "is"    , "(" , ForgivingSelectorListType , ")" ;
 
 (* :not(<complex-selector-list>) *)
-PcNot   = colon_symbol , not   , left_parenthesis_symbol , ComplexSelectorListType   , right_parenthesis_symbol ;
+PcNot   = ":" , "not"   , "(" , ComplexSelectorListType   , ")" ;
 
 (* :where(<complex-selector-list>) — like :is() but zero specificity *)
-PcWhere = colon_symbol , where , left_parenthesis_symbol , ComplexSelectorListType   , right_parenthesis_symbol ;
+PcWhere = ":" , "where" , "(" , ComplexSelectorListType   , ")" ;
 
 (* :has(<relative-selector-list>) *)
-PcHas   = colon_symbol , has   , left_parenthesis_symbol , RelativeSelectorListType  , right_parenthesis_symbol ;
+PcHas   = ":" , "has"   , "(" , RelativeSelectorListType  , ")" ;
 
 
 (* ── Custom state ────────────────────────────────────────────────────────── *)
 
 (* :state(<custom-ident>) — custom element internal state *)
-PcState = colon_symbol , state , left_parenthesis_symbol , custom_ident_type , right_parenthesis_symbol ;
+PcState = ":" , "state" , "(" , custom_ident_type , ")" ;
 
 
 (* ── @page pseudo-classes ───────────────────────────────────────────────── *)
 
-PcLeft  = colon_symbol , left ;
-PcRight = colon_symbol , right ;
-PcFirst = colon_symbol , first ;
+PcLeft  = ":" , "left" ;
+PcRight = ":" , "right" ;
+PcFirst = ":" , "first" ;
 
 
 (* ── View-transition ─────────────────────────────────────────────────────── *)
 
-PcActiveViewTransition      = colon_symbol , active_view_transition ;
-PcActiveViewTransitionType = colon_symbol , active_view_transition_type ,
-                                   left_parenthesis_symbol ,
-                                   custom_ident_type , { comma_symbol , custom_ident_type } ,
-                                   right_parenthesis_symbol ;
+PcActiveViewTransition      = ":" , "active-view-transition" ;
+PcActiveViewTransitionType = ":" , "active-view-transition-type" ,
+                                   "(" ,
+                                   custom_ident_type , { "," , custom_ident_type } ,
+                                   ")" ;
 
 
 (* ── Experimental / future ───────────────────────────────────────────────── *)
 
-PcInterestSource = colon_symbol , interest_source ;
-PcInterestTarget = colon_symbol , interest_target ;
-PcTargetAfter    = colon_symbol , target_after ;
-PcTargetBefore   = colon_symbol , target_before ;
+PcInterestSource = ":" , "interest-source" ;
+PcInterestTarget = ":" , "interest-target" ;
+PcTargetAfter    = ":" , "target-after" ;
+PcTargetBefore   = ":" , "target-before" ;
 
 
 (* ── Vendor-prefixed: Firefox (-moz-) ───────────────────────────────────── *)
 
-PcMozBroken          = colon_symbol , moz_broken ;
-PcMozDragOver       = colon_symbol , moz_drag_over ;
-PcMozFirstNode      = colon_symbol , moz_first_node ;
-PcMozHandlerBlocked = colon_symbol , moz_handler_blocked ;
-PcMozHandlerCrashed = colon_symbol , moz_handler_crashed ;
-PcMozHandlerDisabled = colon_symbol , moz_handler_disabled ;
-PcMozLastNode       = colon_symbol , moz_last_node ;
-PcMozLoading         = colon_symbol , moz_loading ;
+PcMozBroken          = ":" , "-moz-broken" ;
+PcMozDragOver       = ":" , "-moz-drag-over" ;
+PcMozFirstNode      = ":" , "-moz-first-node" ;
+PcMozHandlerBlocked = ":" , "-moz-handler-blocked" ;
+PcMozHandlerCrashed = ":" , "-moz-handler-crashed" ;
+PcMozHandlerDisabled = ":" , "-moz-handler-disabled" ;
+PcMozLastNode       = ":" , "-moz-last-node" ;
+PcMozLoading         = ":" , "-moz-loading" ;
 (* :-moz-locale-dir(ltr | rtl) *)
-PcMozLocaleDir      = colon_symbol , moz_locale_dir , left_parenthesis_symbol , ( ltr | rtl ) , right_parenthesis_symbol ;
-PcMozOnlyWhitespace = colon_symbol , moz_only_whitespace ;
-PcMozSubmitInvalid  = colon_symbol , moz_submit_invalid ;
-PcMozSuppressed      = colon_symbol , moz_suppressed ;
-PcMozUserDisabled   = colon_symbol , moz_user_disabled ;
-PcMozWindowInactive = colon_symbol , moz_window_inactive ;
+PcMozLocaleDir      = ":" , "-moz-locale-dir" , "(" , ( "ltr" | "rtl" ) , ")" ;
+PcMozOnlyWhitespace = ":" , "-moz-only-whitespace" ;
+PcMozSubmitInvalid  = ":" , "-moz-submit-invalid" ;
+PcMozSuppressed      = ":" , "-moz-suppressed" ;
+PcMozUserDisabled   = ":" , "-moz-user-disabled" ;
+PcMozWindowInactive = ":" , "-moz-window-inactive" ;
 
 (* Generic vendor-prefixed pseudo-class: colon + hyphen + ident (+ optional arg)
    Matches :-webkit-any-link, :-moz-placeholder, :-ms-input-placeholder, etc. *)
-PcVendor = colon_symbol , hyphen_symbol , ident_type ,
-           [ left_parenthesis_symbol , { DeclarationValueInParensType } , right_parenthesis_symbol ] ;
+PcVendor = ":" , "-" , ident_type ,
+           [ "(" , { DeclarationValueInParensType } , ")" ] ;
 
 
 (* ── Supporting types ────────────────────────────────────────────────────── *)
@@ -287,9 +287,9 @@ PcVendor = colon_symbol , hyphen_symbol , ident_type ,
    The sign between A*n and B is written as + or -.
    "even" = 2n, "odd" = 2n+1 are handled as keywords in the caller. *)
 AnPlusBType =
-    integer_type , [ "n" , [ ( plus_sign_symbol | hyphen_symbol ) , whole_number ] ]
-    | "n" , [ ( plus_sign_symbol | hyphen_symbol ) , whole_number ]
-    | hyphen_symbol , "n" , [ ( plus_sign_symbol | hyphen_symbol ) , whole_number ] ;
+    integer_type , [ "n" , [ ( "+" | "-" ) , whole_number ] ]
+    | "n" , [ ( "+" | "-" ) , whole_number ]
+    | "-" , "n" , [ ( "+" | "-" ) , whole_number ] ;
 
 (* Language code: BCP 47 tag — <ident> or <string> per CSS Selectors 4 spec, e.g. en, "en", "zh-hans" *)
 LanguageCodeType = ident_type | string_type ;

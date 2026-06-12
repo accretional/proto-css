@@ -9,19 +9,19 @@
 
 
 (* <contrast-color()> *)
-ContrastColorFn = contrast_color , left_parenthesis_symbol , ColorType , right_parenthesis_symbol ;
+ContrastColorFn = "contrast-color" , "(" , ColorType , ")" ;
 
 (* <sibling-count()> — takes no parameters; returns sibling count as integer *)
-SiblingCountFn = sibling_count , left_parenthesis_symbol , right_parenthesis_symbol ;
+SiblingCountFn = "sibling-count" , "(" , ")" ;
 
 (* <sibling-index()> — takes no parameters; returns element's 1-based sibling position *)
-SiblingIndexFn = sibling_index , left_parenthesis_symbol , right_parenthesis_symbol ;
+SiblingIndexFn = "sibling-index" , "(" , ")" ;
 
 (* <device-cmyk()> *)
 DeviceCmykFn = LegacyDeviceCmykSyntaxType | ModernDeviceCmykSyntaxType ;
 
 (* <color-mix()> *)
-ColorMixFn = color_mix , left_parenthesis_symbol , [ ColorInterpolationMethodType ] , comma_symbol , ColorMixFnItem , { comma_symbol , ColorMixFnItem } , right_parenthesis_symbol ;
+ColorMixFn = "color-mix" , "(" , [ ColorInterpolationMethodType ] , "," , ColorMixFnItem , { "," , ColorMixFnItem } , ")" ;
 
 (* <rgb()> *)
 RgbFn = LegacyRgbSyntaxType | ModernRgbSyntaxType ;
@@ -36,329 +36,324 @@ HslFn = LegacyHslSyntaxType | ModernHslSyntaxType ;
 HslaFn = LegacyHslaSyntaxType | ModernHslaSyntaxType ;
 
 (* <hwb()> *)
-HwbFn = hwb , left_parenthesis_symbol , [ from , ColorType ] , ( HueType | none ) , ( PercentageType | NumberType | none ) , ( PercentageType | NumberType | none ) , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
+HwbFn = "hwb" , "(" , [ "from" , ColorType ] , ( HueType | "none" ) , ( PercentageType | NumberType | "none" ) , ( PercentageType | NumberType | "none" ) , [ "/" , ( AlphaValueType | "none" ) ] , ")" ;
 
 (* <lab()> *)
-LabFn = lab , left_parenthesis_symbol , [ from , ColorType ] , ColorChannelValue , ColorChannelValue , ColorChannelValue , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
+LabFn = "lab" , "(" , [ "from" , ColorType ] , ColorChannelValue , ColorChannelValue , ColorChannelValue , [ "/" , ( AlphaValueType | "none" ) ] , ")" ;
 
 (* <lch()> *)
-LchFn = lch , left_parenthesis_symbol , [ from , ColorType ] , ColorChannelValue , ColorChannelValue , ( HueType | none | ident_type | MathFunctionType ) , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
+LchFn = "lch" , "(" , [ "from" , ColorType ] , ColorChannelValue , ColorChannelValue , ( HueType | "none" | ident_type | MathFunctionType ) , [ "/" , ( AlphaValueType | "none" ) ] , ")" ;
 
 (* <oklab()> *)
-OklabFn = oklab , left_parenthesis_symbol , [ from , ColorType ] , ColorChannelValue , ColorChannelValue , ColorChannelValue , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
+OklabFn = "oklab" , "(" , [ "from" , ColorType ] , ColorChannelValue , ColorChannelValue , ColorChannelValue , [ "/" , ( AlphaValueType | "none" ) ] , ")" ;
 
 (* <oklch()> *)
-OklchFn = oklch , left_parenthesis_symbol , [ from , ColorType ] , ColorChannelValue , ColorChannelValue , ( HueType | none | ident_type | MathFunctionType ) , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
+OklchFn = "oklch" , "(" , [ "from" , ColorType ] , ColorChannelValue , ColorChannelValue , ( HueType | "none" | ident_type | MathFunctionType ) , [ "/" , ( AlphaValueType | "none" ) ] , ")" ;
 
 (* <ictcp()> *)
-IctcpFn = ictcp , left_parenthesis_symbol , [ from , ColorType ] , ColorChannelValue , ColorChannelValue , ColorChannelValue , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
+IctcpFn = "ictcp" , "(" , [ "from" , ColorType ] , ColorChannelValue , ColorChannelValue , ColorChannelValue , [ "/" , ( AlphaValueType | "none" ) ] , ")" ;
 
 (* <jzazbz()> *)
-JzazbzFn = jzazbz , left_parenthesis_symbol , [ from , ColorType ] , ColorChannelValue , ColorChannelValue , ColorChannelValue , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
+JzazbzFn = "jzazbz" , "(" , [ "from" , ColorType ] , ColorChannelValue , ColorChannelValue , ColorChannelValue , [ "/" , ( AlphaValueType | "none" ) ] , ")" ;
 
 (* <jzczhz()> *)
-JzczhzFn = jzczhz , left_parenthesis_symbol , [ from , ColorType ] , ColorChannelValue , ColorChannelValue , ( HueType | none | ident_type | MathFunctionType ) , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
+JzczhzFn = "jzczhz" , "(" , [ "from" , ColorType ] , ColorChannelValue , ColorChannelValue , ( HueType | "none" | ident_type | MathFunctionType ) , [ "/" , ( AlphaValueType | "none" ) ] , ")" ;
 
 (* <color-channel-value> — for relative color syntax: number, percentage, none, or channel ident *)
-ColorChannelValue = percentage_type | number_type | none | ident_type | MathFunctionType | VarFn ;
+ColorChannelValue = percentage_type | number_type | "none" | ident_type | MathFunctionType | VarFn ;
 
 (* <alpha()> *)
-AlphaFn = alpha , left_parenthesis_symbol , from , ColorType , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
+AlphaFn = "alpha" , "(" , "from" , ColorType , [ "/" , ( AlphaValueType | "none" ) ] , ")" ;
 
 (* <color()> *)
-ColorFn = color , left_parenthesis_symbol , [ from , ColorType ] , ColorspaceParamsType , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
+ColorFn = "color" , "(" , [ "from" , ColorType ] , ColorspaceParamsType , [ "/" , ( AlphaValueType | "none" ) ] , ")" ;
 
 (* <hdr-color()> *)
-HdrColorFn = color_hdr , left_parenthesis_symbol , HdrColorFnItem , comma_symbol , HdrColorFnItem , right_parenthesis_symbol ;
+HdrColorFn = "color-hdr" , "(" , HdrColorFnItem , "," , HdrColorFnItem , ")" ;
 
 (* <superellipse()> *)
-SuperellipseFn = superellipse , left_parenthesis_symbol , ( NumberType | infinity | negative_infinity ) , right_parenthesis_symbol ;
+SuperellipseFn = "superellipse" , "(" , ( NumberType | "infinity" | "-infinity" ) , ")" ;
 
 (* <linear()> *)
-LinearFn = linear , left_parenthesis_symbol , LinearFnItem , { comma_symbol , LinearFnItem } , right_parenthesis_symbol ;
+LinearFn = "linear" , "(" , LinearFnItem , { "," , LinearFnItem } , ")" ;
 
 (* <cubic-bezier()> *)
-CubicBezierFn = cubic_bezier , left_parenthesis_symbol , CubicBezierFnItem , comma_symbol , CubicBezierFnItem , right_parenthesis_symbol ;
+CubicBezierFn = "cubic-bezier" , "(" , CubicBezierFnItem , "," , CubicBezierFnItem , ")" ;
 
 (* <steps()> *)
-StepsFn = steps , left_parenthesis_symbol , IntegerType , comma_symbol , [ StepPositionType ] , right_parenthesis_symbol ;
+StepsFn = "steps" , "(" , IntegerType , "," , [ StepPositionType ] , ")" ;
 
 (* <blur()> *)
-BlurFn = blur , left_parenthesis_symbol , [ LengthType ] , right_parenthesis_symbol ;
+BlurFn = "blur" , "(" , [ LengthType ] , ")" ;
 
 (* <brightness()> *)
-BrightnessFn = brightness , left_parenthesis_symbol , [ ( NumberType | PercentageType ) ] , right_parenthesis_symbol ;
+BrightnessFn = "brightness" , "(" , [ ( FilterAmountType | PercentageType ) ] , ")" ;
 
 (* <contrast()> *)
-ContrastFn = contrast , left_parenthesis_symbol , [ ( NumberType | PercentageType ) ] , right_parenthesis_symbol ;
+ContrastFn = "contrast" , "(" , [ ( FilterAmountType | PercentageType ) ] , ")" ;
 
 (* <drop-shadow()> *)
-DropShadowFn = drop_shadow , left_parenthesis_symbol ,
+DropShadowFn = "drop-shadow" , "(" ,
     ( [ ColorType ] , LengthType , LengthType , [ LengthType ]
     | LengthType , LengthType , [ LengthType ] , ColorType ) ,
-    right_parenthesis_symbol ;
+    ")" ;
 
 (* <grayscale()> *)
-GrayscaleFn = grayscale , left_parenthesis_symbol , [ ( NumberType | PercentageType ) ] , right_parenthesis_symbol ;
+GrayscaleFn = "grayscale" , "(" , [ ( FilterAmountType | PercentageType ) ] , ")" ;
 
 (* <hue-rotate()> *)
-HueRotateFn = hue_rotate , left_parenthesis_symbol , [ ( AngleType | "0" ) ] , right_parenthesis_symbol ;
+HueRotateFn = "hue-rotate" , "(" , [ ( AngleType | "0" ) ] , ")" ;
 
 (* <invert()> *)
-InvertFn = invert , left_parenthesis_symbol , [ ( NumberType | PercentageType ) ] , right_parenthesis_symbol ;
+InvertFn = "invert" , "(" , [ ( FilterAmountType | PercentageType ) ] , ")" ;
 
 (* <opacity()> *)
-OpacityFn = opacity , left_parenthesis_symbol , [ ( NumberType | PercentageType ) ] , right_parenthesis_symbol ;
+OpacityFn = "opacity" , "(" , [ ( FilterAmountType | PercentageType ) ] , ")" ;
 
 (* <sepia()> *)
-SepiaFn = sepia , left_parenthesis_symbol , [ ( NumberType | PercentageType ) ] , right_parenthesis_symbol ;
+SepiaFn = "sepia" , "(" , [ ( FilterAmountType | PercentageType ) ] , ")" ;
 
 (* <saturate()> *)
-SaturateFn = saturate , left_parenthesis_symbol , [ ( NumberType | PercentageType ) ] , right_parenthesis_symbol ;
+SaturateFn = "saturate" , "(" , [ ( FilterAmountType | PercentageType ) ] , ")" ;
 
 (* <linear-gradient()> *)
-LinearGradientFn = linear_gradient , left_parenthesis_symbol , LinearGradientSyntaxType , right_parenthesis_symbol ;
+LinearGradientFn = "linear-gradient" , "(" , LinearGradientSyntaxType , ")" ;
 
 (* <repeating-linear-gradient()> *)
-RepeatingLinearGradientFn = repeating_linear_gradient , left_parenthesis_symbol , LinearGradientSyntaxType , right_parenthesis_symbol ;
+RepeatingLinearGradientFn = "repeating-linear-gradient" , "(" , LinearGradientSyntaxType , ")" ;
 
 (* <radial-gradient()> *)
-RadialGradientFn = radial_gradient , left_parenthesis_symbol , RadialGradientSyntaxType , right_parenthesis_symbol ;
+RadialGradientFn = "radial-gradient" , "(" , RadialGradientSyntaxType , ")" ;
 
 (* <repeating-radial-gradient()> *)
-RepeatingRadialGradientFn = repeating_radial_gradient , left_parenthesis_symbol , RadialGradientSyntaxType , right_parenthesis_symbol ;
+RepeatingRadialGradientFn = "repeating-radial-gradient" , "(" , RadialGradientSyntaxType , ")" ;
 
 (* <conic-gradient()> *)
-ConicGradientFn = conic_gradient , left_parenthesis_symbol , ConicGradientSyntaxType , right_parenthesis_symbol ;
+ConicGradientFn = "conic-gradient" , "(" , ConicGradientSyntaxType , ")" ;
 
 (* <repeating-conic-gradient()> *)
-RepeatingConicGradientFn = repeating_conic_gradient , left_parenthesis_symbol , ConicGradientSyntaxType , right_parenthesis_symbol ;
+RepeatingConicGradientFn = "repeating-conic-gradient" , "(" , ConicGradientSyntaxType , ")" ;
 
 (* <image()> — [ <image-src>? , <color>? ]! : at least one of src or color must be present;
    comma only appears when both are present. *)
-ImageFn = image , left_parenthesis_symbol ,
+ImageFn = "image" , "(" ,
     [ ImageTagsType ] ,
-    ( ImageSrcType | ColorType | ( ImageSrcType , comma_symbol , ColorType ) ) ,
-    right_parenthesis_symbol ;
+    ( ImageSrcType | ColorType | ( ImageSrcType , "," , ColorType ) ) ,
+    ")" ;
 
 (* <image-set()> *)
-ImageSetFn = image_set , left_parenthesis_symbol , ImageSetOptionType , { comma_symbol , ImageSetOptionType } , right_parenthesis_symbol ;
+ImageSetFn = "image-set" , "(" , ImageSetOptionType , { "," , ImageSetOptionType } , ")" ;
 
 (* <cross-fade()> *)
-CrossFadeFn = cross_fade , left_parenthesis_symbol , CfImageType , { comma_symbol , CfImageType } , right_parenthesis_symbol ;
+CrossFadeFn = "cross-fade" , "(" , CfImageType , { "," , CfImageType } , ")" ;
 
 (* <element()> *)
-ElementFn = element , left_parenthesis_symbol , IdSelectorType , right_parenthesis_symbol ;
+ElementFn = "element" , "(" , IdSelectorType , ")" ;
 
 (* scale3d( [ <number> | <percentage> ]#{3} ) *)
 Scale3dFn =
-  scale3d , left_parenthesis_symbol ,
-    ( NumberType | PercentageType ) , comma_symbol ,
-    ( NumberType | PercentageType ) , comma_symbol ,
-    ( NumberType | PercentageType ) ,
-  right_parenthesis_symbol ;
+  "scale3d" , "(" ,
+    ( ScaleFactorType | PercentageType ) , "," ,
+    ( ScaleFactorType | PercentageType ) , "," ,
+    ( ScaleFactorType | PercentageType ) ,
+  ")" ;
 
 (* scale( <number> , <number>? ) *)
-ScaleFn = scale , left_parenthesis_symbol , NumberType , [ comma_symbol , NumberType ] , right_parenthesis_symbol ;
+ScaleFn = "scale" , "(" , ScaleFactorType , [ "," , ScaleFactorType ] , ")" ;
 
 (* scaleX( <number> ) *)
-ScalexFn = scaleX , left_parenthesis_symbol , NumberType , right_parenthesis_symbol ;
+ScalexFn = "scaleX" , "(" , ScaleFactorType , ")" ;
 
 (* scaleY( <number> ) *)
-ScaleyFn = scaleY , left_parenthesis_symbol , NumberType , right_parenthesis_symbol ;
+ScaleyFn = "scaleY" , "(" , ScaleFactorType , ")" ;
 
 (* scaleZ( [ <number> | <percentage> ] ) *)
-ScalezFn = scaleZ , left_parenthesis_symbol , ( NumberType | PercentageType ) , right_parenthesis_symbol ;
+ScalezFn = "scaleZ" , "(" , ( ScaleFactorType | PercentageType ) , ")" ;
 
 (* translate3d( <length-percentage> , <length-percentage> , <length> ) *)
 Translate3dFn =
-  translate3d , left_parenthesis_symbol ,
-    LengthPercentageType , comma_symbol ,
-    LengthPercentageType , comma_symbol ,
+  "translate3d" , "(" ,
+    LengthPercentageType , "," ,
+    LengthPercentageType , "," ,
     LengthType ,
-  right_parenthesis_symbol ;
+  ")" ;
 
 (* translate( <length-percentage> , <length-percentage>? ) *)
-TranslateFn = translate , left_parenthesis_symbol , LengthPercentageType , [ comma_symbol , LengthPercentageType ] , right_parenthesis_symbol ;
+TranslateFn = "translate" , "(" , LengthPercentageType , [ "," , LengthPercentageType ] , ")" ;
 
 (* translateX( <length-percentage> ) *)
-TranslatexFn = translateX , left_parenthesis_symbol , LengthPercentageType , right_parenthesis_symbol ;
+TranslatexFn = "translateX" , "(" , LengthPercentageType , ")" ;
 
 (* translateY( <length-percentage> ) *)
-TranslateyFn = translateY , left_parenthesis_symbol , LengthPercentageType , right_parenthesis_symbol ;
+TranslateyFn = "translateY" , "(" , LengthPercentageType , ")" ;
 
 (* translateZ( <length> ) *)
-TranslatezFn = translateZ , left_parenthesis_symbol , LengthType , right_parenthesis_symbol ;
+TranslatezFn = "translateZ" , "(" , LengthType , ")" ;
 
 (* rotate3d( <number> , <number> , <number> , [ <angle> | <0> ] ) *)
 Rotate3dFn =
-  rotate3d , left_parenthesis_symbol ,
-    NumberType , comma_symbol , NumberType , comma_symbol , NumberType , comma_symbol ,
+  "rotate3d" , "(" ,
+    NumberType , "," , NumberType , "," , NumberType , "," ,
     ( AngleType | "0" ) ,
-  right_parenthesis_symbol ;
+  ")" ;
 
 (* rotate( [ <angle> | <0> ] ) *)
-RotateFn = rotate , left_parenthesis_symbol , ( AngleType | MathFunctionType | "0" ) , right_parenthesis_symbol ;
+RotateFn = "rotate" , "(" , ( AngleType | MathFunctionType | "0" ) , ")" ;
 
 (* rotateX( [ <angle> | <0> ] ) *)
-RotatexFn = rotateX , left_parenthesis_symbol , ( AngleType | MathFunctionType | "0" ) , right_parenthesis_symbol ;
+RotatexFn = "rotateX" , "(" , ( AngleType | MathFunctionType | "0" ) , ")" ;
 
 (* rotateY( [ <angle> | <0> ] ) *)
-RotateyFn = rotateY , left_parenthesis_symbol , ( AngleType | MathFunctionType | "0" ) , right_parenthesis_symbol ;
+RotateyFn = "rotateY" , "(" , ( AngleType | MathFunctionType | "0" ) , ")" ;
 
 (* rotateZ( [ <angle> | <0> ] ) *)
-RotatezFn = rotateZ , left_parenthesis_symbol , ( AngleType | MathFunctionType | "0" ) , right_parenthesis_symbol ;
+RotatezFn = "rotateZ" , "(" , ( AngleType | MathFunctionType | "0" ) , ")" ;
 
 (* skew( [ <angle> | <0> ] , [ <angle> | <0> ]? ) *)
-SkewFn = skew , left_parenthesis_symbol , ( AngleType | MathFunctionType | "0" ) , [ comma_symbol , ( AngleType | MathFunctionType | "0" ) ] , right_parenthesis_symbol ;
+SkewFn = "skew" , "(" , ( AngleType | MathFunctionType | "0" ) , [ "," , ( AngleType | MathFunctionType | "0" ) ] , ")" ;
 
 (* skewX( [ <angle> | <0> ] ) *)
-SkewxFn = skewX , left_parenthesis_symbol , ( AngleType | MathFunctionType | "0" ) , right_parenthesis_symbol ;
+SkewxFn = "skewX" , "(" , ( AngleType | MathFunctionType | "0" ) , ")" ;
 
 (* skewY( [ <angle> | <0> ] ) *)
-SkewyFn = skewY , left_parenthesis_symbol , ( AngleType | MathFunctionType | "0" ) , right_parenthesis_symbol ;
+SkewyFn = "skewY" , "(" , ( AngleType | MathFunctionType | "0" ) , ")" ;
 
 (* matrix3d( <number>#{16} ) — 4×4 homogeneous matrix, 16 comma-separated numbers *)
 Matrix3dFn =
-  matrix3d , left_parenthesis_symbol ,
-    NumberType , comma_symbol , NumberType , comma_symbol , NumberType , comma_symbol , NumberType , comma_symbol ,
-    NumberType , comma_symbol , NumberType , comma_symbol , NumberType , comma_symbol , NumberType , comma_symbol ,
-    NumberType , comma_symbol , NumberType , comma_symbol , NumberType , comma_symbol , NumberType , comma_symbol ,
-    NumberType , comma_symbol , NumberType , comma_symbol , NumberType , comma_symbol , NumberType ,
-  right_parenthesis_symbol ;
+  "matrix3d" , "(" ,
+    NumberType , "," , NumberType , "," , NumberType , "," , NumberType , "," ,
+    NumberType , "," , NumberType , "," , NumberType , "," , NumberType , "," ,
+    NumberType , "," , NumberType , "," , NumberType , "," , NumberType , "," ,
+    NumberType , "," , NumberType , "," , NumberType , "," , NumberType ,
+  ")" ;
 
 (* matrix( <number>#{6} ) — 2D homogeneous matrix, 6 comma-separated numbers *)
 MatrixFn =
-  matrix , left_parenthesis_symbol ,
-    NumberType , comma_symbol , NumberType , comma_symbol ,
-    NumberType , comma_symbol , NumberType , comma_symbol ,
-    NumberType , comma_symbol , NumberType ,
-  right_parenthesis_symbol ;
+  "matrix" , "(" ,
+    NumberType , "," , NumberType , "," ,
+    NumberType , "," , NumberType , "," ,
+    NumberType , "," , NumberType ,
+  ")" ;
 
 (* perspective( [ <length [0,∞]> | none ] ) *)
-PerspectiveFn = perspective , left_parenthesis_symbol , ( LengthType | none ) , right_parenthesis_symbol ;
+PerspectiveFn = "perspective" , "(" , ( LengthType | "none" ) , ")" ;
 
 (* inset( <length-percentage>{1,4} [ round <border-radius> ]? ) *)
-InsetFn = inset , left_parenthesis_symbol ,
+InsetFn = "inset" , "(" ,
     LengthPercentageType , [ LengthPercentageType ] , [ LengthPercentageType ] , [ LengthPercentageType ] ,
-    [ round , BorderRadiusType ] ,
-  right_parenthesis_symbol ;
+    [ "round" , BorderRadiusType ] ,
+  ")" ;
 
 (* circle( <radial-size>? [ at <position> ]? ) *)
-CircleFn = circle , left_parenthesis_symbol , [ ShapeRadiusType ] , [ at , PositionType ] , right_parenthesis_symbol ;
+CircleFn = "circle" , "(" , [ ShapeRadiusType ] , [ "at" , PositionType ] , ")" ;
 
 (* ellipse( <shape-radius>{2}? [ at <position> ]? ) *)
-EllipseFn = ellipse , left_parenthesis_symbol , [ ShapeRadiusType , ShapeRadiusType ] , [ at , PositionType ] , right_parenthesis_symbol ;
+EllipseFn = "ellipse" , "(" , [ ShapeRadiusType , ShapeRadiusType ] , [ "at" , PositionType ] , ")" ;
 
 (* polygon( <fill-rule>? [ round <length> ]? , [ <length-percentage> <length-percentage> ]# ) *)
-PolygonFn = polygon , left_parenthesis_symbol ,
-    [ FillRuleType , comma_symbol ] , [ round , LengthType , comma_symbol ] ,
-    LengthPercentageType , LengthPercentageType , { comma_symbol , LengthPercentageType , LengthPercentageType } ,
-  right_parenthesis_symbol ;
+PolygonFn = "polygon" , "(" ,
+    [ FillRuleType , "," ] , [ "round" , LengthType , "," ] ,
+    LengthPercentageType , LengthPercentageType , { "," , LengthPercentageType , LengthPercentageType } ,
+  ")" ;
 
 (* path( <fill-rule>? , <string> )  — comma only present when fill-rule given *)
-PathFn = path , left_parenthesis_symbol , [ FillRuleType , comma_symbol ] , string_type , right_parenthesis_symbol ;
+PathFn = "path" , "(" , [ FillRuleType , "," ] , string_type , ")" ;
 
 (* rect( [ <length-percentage> | auto ]{4} [ round <border-radius> ]? ) *)
-LegacyRectSyntaxType = rect , left_parenthesis_symbol ,
-    ( LengthPercentageType | auto ) , comma_symbol ,
-    ( LengthPercentageType | auto ) , comma_symbol ,
-    ( LengthPercentageType | auto ) , comma_symbol ,
-    ( LengthPercentageType | auto ) ,
-    right_parenthesis_symbol ;
+LegacyRectSyntaxType = "rect" , "(" , ClipRectEdgesType , ")" ;
 
 RectFn = LegacyRectSyntaxType
-    | rect , left_parenthesis_symbol ,
-        ( LengthPercentageType | auto ) , ( LengthPercentageType | auto ) ,
-        ( LengthPercentageType | auto ) , ( LengthPercentageType | auto ) ,
-        [ round , BorderRadiusType ] ,
-      right_parenthesis_symbol ;
+    | "rect" , "(" ,
+        ( LengthPercentageType | "auto" ) , ( LengthPercentageType | "auto" ) ,
+        ( LengthPercentageType | "auto" ) , ( LengthPercentageType | "auto" ) ,
+        [ "round" , BorderRadiusType ] ,
+      ")" ;
 
 (* xywh( <length-percentage>{2} <length-percentage>{2} [ round <border-radius> ]? ) *)
-XywhFn = xywh , left_parenthesis_symbol ,
+XywhFn = "xywh" , "(" ,
     LengthPercentageType , LengthPercentageType ,
     LengthPercentageType , LengthPercentageType ,
-    [ round , BorderRadiusType ] ,
-  right_parenthesis_symbol ;
+    [ "round" , BorderRadiusType ] ,
+  ")" ;
 
 (* ── shape() ─────────────────────────────────────────────────────────────── *)
 
 (* shape( <fill-rule>? from <position> , <shape-command># ) *)
-ShapeFn = shape , left_parenthesis_symbol ,
-    [ FillRuleType ] , from , PositionType , comma_symbol ,
-    ShapeCommandType , { comma_symbol , ShapeCommandType } ,
-  right_parenthesis_symbol ;
+ShapeFn = "shape" , "(" ,
+    [ FillRuleType ] , "from" , PositionType , "," ,
+    ShapeCommandType , { "," , ShapeCommandType } ,
+  ")" ;
 
 
 (* ── Math functions ─────────────────────────────────────────────────────── *)
 
 (* abs( <calc-sum> ) *)
-AbsFn = abs , left_parenthesis_symbol , CalcSumType , right_parenthesis_symbol ;
+AbsFn = "abs" , "(" , CalcSumType , ")" ;
 
 (* acos( <calc-sum> ) *)
-AcosFn = acos , left_parenthesis_symbol , CalcSumType , right_parenthesis_symbol ;
+AcosFn = "acos" , "(" , CalcSumType , ")" ;
 
 (* asin( <calc-sum> ) *)
-AsinFn = asin , left_parenthesis_symbol , CalcSumType , right_parenthesis_symbol ;
+AsinFn = "asin" , "(" , CalcSumType , ")" ;
 
 (* atan( <calc-sum> ) *)
-AtanFn = atan , left_parenthesis_symbol , CalcSumType , right_parenthesis_symbol ;
+AtanFn = "atan" , "(" , CalcSumType , ")" ;
 
 (* atan2( <calc-sum> , <calc-sum> ) *)
-Atan2Fn = atan2 , left_parenthesis_symbol , CalcSumType , comma_symbol , CalcSumType , right_parenthesis_symbol ;
+Atan2Fn = "atan2" , "(" , CalcSumType , "," , CalcSumType , ")" ;
 
 (* calc( <calc-sum> ) *)
-CalcFn = calc , left_parenthesis_symbol , CalcSumType , right_parenthesis_symbol ;
+CalcFn = "calc" , "(" , CalcSumType , ")" ;
 
 (* clamp( [ <calc-sum> | none ] , <calc-sum> , [ <calc-sum> | none ] ) *)
-ClampFn = clamp , left_parenthesis_symbol , ( CalcSumType | none ) , comma_symbol , CalcSumType , comma_symbol , ( CalcSumType | none ) , right_parenthesis_symbol ;
+ClampFn = "clamp" , "(" , ( CalcSumType | "none" ) , "," , CalcSumType , "," , ( CalcSumType | "none" ) , ")" ;
 
 (* cos( <calc-sum> ) *)
-CosFn = cos , left_parenthesis_symbol , CalcSumType , right_parenthesis_symbol ;
+CosFn = "cos" , "(" , CalcSumType , ")" ;
 
 (* exp( <calc-sum> ) *)
-ExpFn = exp , left_parenthesis_symbol , CalcSumType , right_parenthesis_symbol ;
+ExpFn = "exp" , "(" , CalcSumType , ")" ;
 
 (* hypot( <calc-sum># ) *)
-HypotFn = hypot , left_parenthesis_symbol , CalcSumType , { comma_symbol , CalcSumType } , right_parenthesis_symbol ;
+HypotFn = "hypot" , "(" , CalcSumType , { "," , CalcSumType } , ")" ;
 
 (* log( <calc-sum> , <calc-sum>? ) *)
-LogFn = log , left_parenthesis_symbol , CalcSumType , [ comma_symbol , CalcSumType ] , right_parenthesis_symbol ;
+LogFn = "log" , "(" , CalcSumType , [ "," , CalcSumType ] , ")" ;
 
 (* max( <calc-sum># ) *)
-MaxFn = max , left_parenthesis_symbol , CalcSumType , { comma_symbol , CalcSumType } , right_parenthesis_symbol ;
+MaxFn = "max" , "(" , CalcSumType , { "," , CalcSumType } , ")" ;
 
 (* min( <calc-sum># ) *)
-MinFn = min , left_parenthesis_symbol , CalcSumType , { comma_symbol , CalcSumType } , right_parenthesis_symbol ;
+MinFn = "min" , "(" , CalcSumType , { "," , CalcSumType } , ")" ;
 
 (* mod( <calc-sum> , <calc-sum> ) *)
-ModFn = mod , left_parenthesis_symbol , CalcSumType , comma_symbol , CalcSumType , right_parenthesis_symbol ;
+ModFn = "mod" , "(" , CalcSumType , "," , CalcSumType , ")" ;
 
 (* pow( <calc-sum> , <calc-sum> ) *)
-PowFn = pow , left_parenthesis_symbol , CalcSumType , comma_symbol , CalcSumType , right_parenthesis_symbol ;
+PowFn = "pow" , "(" , CalcSumType , "," , CalcSumType , ")" ;
 
 (* progress( <calc-sum> , <calc-sum> , <calc-sum> ) *)
-ProgressFn = progress , left_parenthesis_symbol , CalcSumType , comma_symbol , CalcSumType , comma_symbol , CalcSumType , right_parenthesis_symbol ;
+ProgressFn = "progress" , "(" , CalcSumType , "," , CalcSumType , "," , CalcSumType , ")" ;
 
 (* rem( <calc-sum> , <calc-sum> ) *)
-RemFn = rem , left_parenthesis_symbol , CalcSumType , comma_symbol , CalcSumType , right_parenthesis_symbol ;
+RemFn = "rem" , "(" , CalcSumType , "," , CalcSumType , ")" ;
 
 (* round( <rounding-strategy>? , <calc-sum> , <calc-sum>? )
    <rounding-strategy> = nearest | up | down | to-0 | line-width *)
-RoundingStrategyType = nearest | up | down | to_zero | line_width ;
-RoundFn = round , left_parenthesis_symbol , [ RoundingStrategyType , comma_symbol ] , CalcSumType , [ comma_symbol , CalcSumType ] , right_parenthesis_symbol ;
+RoundingStrategyType = "nearest" | "up" | "down" | "to-zero" | "line-width" ;
+RoundFn = "round" , "(" , [ RoundingStrategyType , "," ] , CalcSumType , [ "," , CalcSumType ] , ")" ;
 
 (* sign( <calc-sum> ) *)
-SignFn = sign , left_parenthesis_symbol , CalcSumType , right_parenthesis_symbol ;
+SignFn = "sign" , "(" , CalcSumType , ")" ;
 
 (* sin( <calc-sum> ) *)
-SinFn = sin , left_parenthesis_symbol , CalcSumType , right_parenthesis_symbol ;
+SinFn = "sin" , "(" , CalcSumType , ")" ;
 
 (* sqrt( <calc-sum> ) *)
-SqrtFn = sqrt , left_parenthesis_symbol , CalcSumType , right_parenthesis_symbol ;
+SqrtFn = "sqrt" , "(" , CalcSumType , ")" ;
 
 (* tan( <calc-sum> ) *)
-TanFn = tan , left_parenthesis_symbol , CalcSumType , right_parenthesis_symbol ;
+TanFn = "tan" , "(" , CalcSumType , ")" ;
 
 
 (* ── Sizing / layout functions ──────────────────────────────────────────── *)
@@ -368,22 +363,22 @@ TanFn = tan , left_parenthesis_symbol , CalcSumType , right_parenthesis_symbol ;
    <anchor-side> = inside | outside | top | left | right | bottom | start | end
                  | self-start | self-end | <percentage> | center
    Note: && allows any order; grammar places optional anchor-name before anchor-side *)
-AnchorSideType = inside | outside | top | left | right | bottom | start | end
-                 | self_start | self_end | percentage_type | center ;
-AnchorFn = anchor , left_parenthesis_symbol , [ dashed_ident_type ] , AnchorSideType , [ comma_symbol , LengthPercentageType ] , right_parenthesis_symbol ;
+AnchorSideType = "inside" | "outside" | "top" | "left" | "right" | "bottom" | "start" | "end"
+                 | "self-start" | "self-end" | percentage_type | "center" ;
+AnchorFn = "anchor" , "(" , [ dashed_ident_type ] , AnchorSideType , [ "," , LengthPercentageType ] , ")" ;
 
 (* anchor-size( [ <anchor-name> || <anchor-size-dimension> ]? , <length-percentage>? )
    <anchor-size-dimension> = width | height | block | inline | self-block | self-inline
    Note: || means one or both in any order; grammar places anchor-name before dimension *)
-AnchorDimType = width | height | block | inline | self_block | self_inline ;
-AnchorSizeFn = anchor_size , left_parenthesis_symbol , [ dashed_ident_type ] , [ AnchorDimType ] , [ comma_symbol , LengthPercentageType ] , right_parenthesis_symbol ;
+AnchorDimType = "width" | "height" | "block" | "inline" | "self-block" | "self-inline" ;
+AnchorSizeFn = "anchor-size" , "(" , [ dashed_ident_type ] , [ AnchorDimType ] , [ "," , LengthPercentageType ] , ")" ;
 
 (* calc-size( <calc-size-basis> , <calc-sum> )
    <calc-size-basis> = <size-keyword> | <calc-size()> | any | <calc-sum>
    <size-keyword>    = auto | min-content | max-content | fit-content | contain | stretch *)
-SizeKeywordType = auto | min_content | max_content | fit_content | contain | stretch ;
-CalcSizeBasisType = SizeKeywordType | CalcSizeFn | any | CalcSumType ;
-CalcSizeFn = calc_size , left_parenthesis_symbol , CalcSizeBasisType , comma_symbol , CalcSumType , right_parenthesis_symbol ;
+SizeKeywordType = "auto" | "min-content" | "max-content" | "fit-content" | "contain" | "stretch" ;
+CalcSizeBasisType = SizeKeywordType | CalcSizeFn | "any" | CalcSumType ;
+CalcSizeFn = "calc-size" , "(" , CalcSizeBasisType , "," , CalcSumType , ")" ;
 
 (* env( <custom-ident> <integer [0,∞]>* , <declaration-value>? )
    <declaration-value>: any sequence of CSS component values, stopping before { } ;
@@ -399,13 +394,13 @@ CalcSizeFn = calc_size , left_parenthesis_symbol , CalcSizeBasisType , comma_sym
 DeclarationValueTokenType = ident_type | number_type | percentage_type | length_type
                            | time_type | angle_type | frequency_type | resolution_type
                            | string_type | hex_color_type | dashed_ident_type
-                           | comma_symbol | solidus_symbol | colon_symbol
-                           | equals_sign_symbol | asterisk_symbol | hyphen_symbol
-                           | plus_sign_symbol | less_than_sign_symbol | greater_than_sign_symbol
-                           | exclamation_mark_symbol ;
+                           | "," | "/" | ":"
+                           | "=" | "*" | "-"
+                           | "+" | "<" | ">"
+                           | "!" ;
 
 (* Balanced parenthesis group: ( <declaration-value-in-parens> ) — allows nesting. *)
-DeclarationValueParenGroupType = left_parenthesis_symbol , DeclarationValueInParensType , right_parenthesis_symbol ;
+DeclarationValueParenGroupType = "(" , DeclarationValueInParensType , ")" ;
 
 (* Used inside explicit "(" … ")" wrappers (SupportsDeclType, QueryInParensType, etc.)
    Handles nested function calls via the recursive paren-group alternative. *)
@@ -413,20 +408,20 @@ DeclarationValueInParensType = { DeclarationValueTokenType | DeclarationValuePar
 
 (* Free-form variant: includes bare ( and ) as flat tokens.
    Used where parens are just part of the value stream (e.g. MediaQueryListType). *)
-DeclarationValueType = { DeclarationValueTokenType | left_parenthesis_symbol | right_parenthesis_symbol } ;
-EnvFn = env , left_parenthesis_symbol , custom_ident_type , { IntegerType } , [ comma_symbol , ( length_type | percentage_type | number_type ) ] , right_parenthesis_symbol ;
+DeclarationValueType = { DeclarationValueTokenType | "(" | ")" } ;
+EnvFn = "env" , "(" , custom_ident_type , { IntegerType } , [ "," , ( length_type | percentage_type | number_type ) ] , ")" ;
 
 (* fit-content( <length-percentage> ) *)
-FitContentFn = fit_content , left_parenthesis_symbol , LengthPercentageType , right_parenthesis_symbol ;
+FitContentFn = "fit-content" , "(" , LengthPercentageType , ")" ;
 
 (* minmax( <inflexible-breadth> , <track-breadth> )
    <track-breadth>      = <length-percentage> | <flex> | min-content | max-content | auto
    <inflexible-breadth> = <length-percentage> | min-content | max-content | auto
    <fixed-breadth>      = <length-percentage> *)
-TrackBreadthType = LengthPercentageType | NonNegativeFlexType | min_content | max_content | auto ;
-InflexibleBreadthType = LengthPercentageType | min_content | max_content | auto ;
+TrackBreadthType = LengthPercentageType | NonNegativeFlexType | "min-content" | "max-content" | "auto" ;
+InflexibleBreadthType = LengthPercentageType | "min-content" | "max-content" | "auto" ;
 FixedBreadthType = LengthPercentageType ;
-MinmaxFn = minmax , left_parenthesis_symbol , ( InflexibleBreadthType | FixedBreadthType ) , comma_symbol , TrackBreadthType , right_parenthesis_symbol ;
+MinmaxFn = "minmax" , "(" , ( InflexibleBreadthType | FixedBreadthType ) , "," , TrackBreadthType , ")" ;
 
 (* repeat( ... ) — three forms for CSS Grid track lists
    track-repeat: repeat( <integer [1,∞]> , [ <line-names>? <track-size> ]+ <line-names>? )
@@ -435,53 +430,56 @@ MinmaxFn = minmax , left_parenthesis_symbol , ( InflexibleBreadthType | FixedBre
    <track-size>  = <track-breadth> | minmax(...) | fit-content(...)
    <line-names>  = '[' <custom-ident>* ']' *)
 TrackSizeType = TrackBreadthType | MinmaxFn | FitContentFn ;
-LineNamesType = left_square_bracket_symbol , { custom_ident_type } , right_square_bracket_symbol ;
-TrackRepeatFn = repeat , left_parenthesis_symbol , IntegerType , comma_symbol ,
-    { LineNamesType } , TrackSizeType , { [ LineNamesType ] , TrackSizeType } , { LineNamesType } , right_parenthesis_symbol ;
-AutoRepeatFn = repeat , left_parenthesis_symbol , ( auto_fill | auto_fit ) , comma_symbol ,
-    { LineNamesType } , TrackSizeType , { LineNamesType , TrackSizeType } , { LineNamesType } , right_parenthesis_symbol ;
-NameRepeatFn = repeat , left_parenthesis_symbol , ( IntegerType | auto_fill ) , comma_symbol , LineNamesType , { LineNamesType } , right_parenthesis_symbol ;
+(* <line-names> = '[' <custom-ident>* ']' — the empty "[ ]" form is pointless (it
+   equals no line-names, already covered by the surrounding optional), so require at
+   least one name; brackets then only ever appear WITH a value. *)
+LineNamesType = "[" , custom_ident_type , { custom_ident_type } , "]" ;
+TrackRepeatFn = "repeat" , "(" , IntegerType , "," ,
+    { LineNamesType } , TrackSizeType , { [ LineNamesType ] , TrackSizeType } , { LineNamesType } , ")" ;
+AutoRepeatFn = "repeat" , "(" , ( "auto-fill" | "auto-fit" ) , "," ,
+    { LineNamesType } , TrackSizeType , { LineNamesType , TrackSizeType } , { LineNamesType } , ")" ;
+NameRepeatFn = "repeat" , "(" , ( IntegerType | "auto-fill" ) , "," , LineNamesType , { LineNamesType } , ")" ;
 RepeatFn = TrackRepeatFn | AutoRepeatFn | NameRepeatFn ;
 
 (* scroll( [ <scroller> || <axis> ]? )
    <scroller> = root | nearest | self
    Note: || means one or both in any order *)
-ScrollerType = root | nearest | self ;
-ScrollFn = scroll , left_parenthesis_symbol , [ ScrollerType ] , [ AxisType ] , right_parenthesis_symbol ;
+ScrollerType = "root" | "nearest" | "self" ;
+ScrollFn = "scroll" , "(" , [ ScrollerType ] , [ AxisType ] , ")" ;
 
 (* view( [ <axis> || <view-timeline-inset> ]? )
    <view-timeline-inset> = [ auto | <length-percentage> ]{1,2}
    Note: || means one or both in any order *)
-ViewTimelineInsetType = ( auto | LengthPercentageType ) , [ auto | LengthPercentageType ] ;
-ViewFn = view , left_parenthesis_symbol , [ AxisType ] , [ ViewTimelineInsetType ] , right_parenthesis_symbol ;
+ViewTimelineInsetType = ( "auto" | LengthPercentageType ) , [ "auto" | LengthPercentageType ] ;
+ViewFn = "view" , "(" , [ AxisType ] , [ ViewTimelineInsetType ] , ")" ;
 
 
 (* ── Color functions ─────────────────────────────────────────────────────── *)
 
 (* dynamic-range-limit-mix( [ <'dynamic-range-limit'> && <percentage [0,100]> ]#{2,} )
    <dynamic-range-limit> = standard | no-limit | constrained | <dynamic-range-limit-mix()> *)
-DynamicRangeLimitType = standard | no_limit | constrained | DynamicRangeLimitMixFn ;
+DynamicRangeLimitType = "standard" | "no-limit" | "constrained" | DynamicRangeLimitMixFn ;
 DynamicRangeLimitMixItem = DynamicRangeLimitType , PercentageType ;
-DynamicRangeLimitMixFn = dynamic_range_limit_mix , left_parenthesis_symbol ,
-    DynamicRangeLimitMixItem , comma_symbol , DynamicRangeLimitMixItem ,
-    { comma_symbol , DynamicRangeLimitMixItem } ,
-  right_parenthesis_symbol ;
+DynamicRangeLimitMixFn = "dynamic-range-limit-mix" , "(" ,
+    DynamicRangeLimitMixItem , "," , DynamicRangeLimitMixItem ,
+    { "," , DynamicRangeLimitMixItem } ,
+  ")" ;
 
 (* light-dark( <color> , <color> )            — color variant *)
-LightDarkColorFn = light_dark , left_parenthesis_symbol , ColorType , comma_symbol , ColorType , right_parenthesis_symbol ;
+LightDarkColorFn = "light-dark" , "(" , ColorType , "," , ColorType , ")" ;
 
 (* light-dark( [ <image> | none ] , [ <image> | none ] ) — image variant *)
-LightDarkImageFn = light_dark , left_parenthesis_symbol , ( ImageType | none ) , comma_symbol , ( ImageType | none ) , right_parenthesis_symbol ;
+LightDarkImageFn = "light-dark" , "(" , ( ImageType | "none" ) , "," , ( ImageType | "none" ) , ")" ;
 
 (* palette-mix( <color-interpolation-method> , [ palette-entry && <percentage [0,100]>? ]#{2} )
    palette-entry = normal | light | dark | <palette-identifier> | <palette-mix()>
    <palette-identifier> = <dashed-ident>
    Note: && allows any order; grammar places entry before percentage *)
-PaletteEntryType = normal | light | dark | dashed_ident_type | PaletteMixFn ;
+PaletteEntryType = "normal" | "light" | "dark" | dashed_ident_type | PaletteMixFn ;
 PaletteMixItem = PaletteEntryType , [ PercentageType ] ;
-PaletteMixFn = palette_mix , left_parenthesis_symbol , ColorInterpolationMethodType , comma_symbol ,
-    PaletteMixItem , comma_symbol , PaletteMixItem ,
-  right_parenthesis_symbol ;
+PaletteMixFn = "palette-mix" , "(" , ColorInterpolationMethodType , "," ,
+    PaletteMixItem , "," , PaletteMixItem ,
+  ")" ;
 
 
 (* ── Content / value functions ───────────────────────────────────────────── *)
@@ -490,38 +488,38 @@ PaletteMixFn = palette_mix , left_parenthesis_symbol , ColorInterpolationMethodT
    <attr-name>  = [ <ident> '|' ]? <ident>
    <attr-type>  = type( <syntax> ) | raw-string | number | <custom-ident>
    <syntax>     = complex typed-OM syntax string; approximated as string_literal *)
-AttrNameType = [ ident_type , vertical_line_symbol ] , ident_type ;
-AttrTypeType = TypeFn | raw_string | number | custom_ident_type ;
-AttrFn = attr , left_parenthesis_symbol , AttrNameType , [ AttrTypeType ] , [ comma_symbol , DeclarationValueInParensType ] , right_parenthesis_symbol ;
+AttrNameType = [ ident_type , "|" ] , ident_type ;
+AttrTypeType = TypeFn | "raw-string" | "number" | custom_ident_type ;
+AttrFn = "attr" , "(" , AttrNameType , [ AttrTypeType ] , [ "," , DeclarationValueInParensType ] , ")" ;
 
 (* counter( <counter-name> , <counter-style>? )
    <counter-name>        = <custom-ident>
    <counter-style>       = <counter-style-name> | <symbols()>
    <counter-style-name>  = <custom-ident> *)
 CounterStyleType = custom_ident_type | SymbolsFn ;
-CounterFn = counter , left_parenthesis_symbol , custom_ident_type , [ comma_symbol , CounterStyleType ] , right_parenthesis_symbol ;
+CounterFn = "counter" , "(" , custom_ident_type , [ "," , CounterStyleType ] , ")" ;
 
 (* counters( <counter-name> , <string> , <counter-style>? ) *)
-CountersFn = counters , left_parenthesis_symbol , custom_ident_type , comma_symbol , string_type , [ comma_symbol , CounterStyleType ] , right_parenthesis_symbol ;
+CountersFn = "counters" , "(" , custom_ident_type , "," , string_type , [ "," , CounterStyleType ] , ")" ;
 
 (* layer( <layer-name> )
    <layer-name> = <ident> [ '.' <ident> ]* *)
-LayerNameType = ident_type , { full_stop_symbol , ident_type } ;
-LayerFn = layer , left_parenthesis_symbol , LayerNameType , right_parenthesis_symbol ;
+LayerNameType = ident_type , { "." , ident_type } ;
+LayerFn = "layer" , "(" , LayerNameType , ")" ;
 
 (* paint( <ident> , <declaration-value>? ) *)
-PaintFn = paint , left_parenthesis_symbol , ident_type , [ comma_symbol , DeclarationValueTokenType ] , right_parenthesis_symbol ;
+PaintFn = "paint" , "(" , ident_type , [ "," , DeclarationValueTokenType ] , ")" ;
 
 (* symbols( <symbols-type>? [ <string> | <image> ]+ )
    <symbols-type> = cyclic | numeric | alphabetic | symbolic | fixed *)
-SymbolsFn = symbols , left_parenthesis_symbol , [ cyclic | numeric | alphabetic | symbolic | fixed ] , ( string_type | ImageType ) , { string_type | ImageType } , right_parenthesis_symbol ;
+SymbolsFn = "symbols" , "(" , [ "cyclic" | "numeric" | "alphabetic" | "symbolic" | "fixed" ] , ( string_type | ImageType ) , { string_type | ImageType } , ")" ;
 
 (* type( <string> ) *)
-TypeFn = type , left_parenthesis_symbol , string_type , right_parenthesis_symbol ;
+TypeFn = "type" , "(" , string_type , ")" ;
 
 (* url( <string> <url-modifier>* ) | <url-token>
    url-modifier and url-token are low-level CSS token forms; simplified to string argument *)
-UrlFn = url , left_parenthesis_symbol , string_type , right_parenthesis_symbol ;
+UrlFn = "url" , "(" , string_type , ")" ;
 
 (* var( <custom-Property-name> , <declaration-value>? )
    <custom-Property-name> = --<ident>  (same form as <dashed-ident>) *)
@@ -529,20 +527,20 @@ UrlFn = url , left_parenthesis_symbol , string_type , right_parenthesis_symbol ;
    Per spec, <declaration-value> allows any token except ), ], }, ;, ! but types
    like ident, time, angle, and string produce invalid fallbacks for most properties. *)
 VarFallbackType = number_type | percentage_type | length_type | hex_color_type ;
-VarFn = var , left_parenthesis_symbol , dashed_ident_type , [ comma_symbol , VarFallbackType ] , right_parenthesis_symbol ;
+VarFn = "var" , "(" , dashed_ident_type , [ "," , VarFallbackType ] , ")" ;
 
 (* Typed var() wrappers — the fallback must be valid for the typed slot the var()
    sits in. The generic VarFn above used a number fallback (e.g. 0.5) which is
    invalid in length/integer/angle/time contexts (a bare number is not a length).
    These give var() a context-correct fallback so the declaration is never
    dropped when the custom property is undefined. *)
-LengthVarFn            = var , left_parenthesis_symbol , dashed_ident_type , [ comma_symbol , length_type ] , right_parenthesis_symbol ;
-LengthPercentageVarFn  = var , left_parenthesis_symbol , dashed_ident_type , [ comma_symbol , ( length_type | percentage_type ) ] , right_parenthesis_symbol ;
-PercentageVarFn        = var , left_parenthesis_symbol , dashed_ident_type , [ comma_symbol , percentage_type ] , right_parenthesis_symbol ;
-IntegerVarFn           = var , left_parenthesis_symbol , dashed_ident_type , [ comma_symbol , integer_type ] , right_parenthesis_symbol ;
-NumberVarFn            = var , left_parenthesis_symbol , dashed_ident_type , [ comma_symbol , number_type ] , right_parenthesis_symbol ;
-AngleVarFn             = var , left_parenthesis_symbol , dashed_ident_type , [ comma_symbol , angle_type ] , right_parenthesis_symbol ;
-TimeVarFn              = var , left_parenthesis_symbol , dashed_ident_type , [ comma_symbol , time_type ] , right_parenthesis_symbol ;
+LengthVarFn            = "var" , "(" , dashed_ident_type , [ "," , length_type ] , ")" ;
+LengthPercentageVarFn  = "var" , "(" , dashed_ident_type , [ "," , ( length_type | percentage_type ) ] , ")" ;
+PercentageVarFn        = "var" , "(" , dashed_ident_type , [ "," , percentage_type ] , ")" ;
+IntegerVarFn           = "var" , "(" , dashed_ident_type , [ "," , integer_type ] , ")" ;
+NumberVarFn            = "var" , "(" , dashed_ident_type , [ "," , number_type ] , ")" ;
+AngleVarFn             = "var" , "(" , dashed_ident_type , [ "," , angle_type ] , ")" ;
+TimeVarFn              = "var" , "(" , dashed_ident_type , [ "," , time_type ] , ")" ;
 
 
 (* ── Animation / motion functions ────────────────────────────────────────── *)
@@ -551,12 +549,12 @@ TimeVarFn              = var , left_parenthesis_symbol , dashed_ident_type , [ c
    <random-key>       = auto | <random-cache-key> | fixed <number [0,1]>
    <random-cache-key> = <dashed-ident> || element-scoped
                       || [ Property-scoped | Property-index-scoped | <custom-ident> ] *)
-RandomCacheKeyType = dashed_ident_type | element_scoped | property_scoped | property_index_scoped | custom_ident_type ;
-RandomKeyType = auto | RandomCacheKeyType | ( fixed , NumberType ) ;
-RandomFn = random , left_parenthesis_symbol , [ RandomKeyType , comma_symbol ] , CalcSumType , comma_symbol , CalcSumType , [ comma_symbol , CalcSumType ] , right_parenthesis_symbol ;
+RandomCacheKeyType = dashed_ident_type | "element-scoped" | "property-scoped" | "property-index-scoped" | custom_ident_type ;
+RandomKeyType = "auto" | RandomCacheKeyType | ( "fixed" , NumberType ) ;
+RandomFn = "random" , "(" , [ RandomKeyType , "," ] , CalcSumType , "," , CalcSumType , [ "," , CalcSumType ] , ")" ;
 
 (* ray( <angle> && <ray-size>? && contain? && [ at <position> ]? )
    <ray-size> = <radial-extent> | sides
    Note: && allows any order; grammar approximates angle-first canonical order *)
-RaySizeType = RadialExtentType | sides ;
-RayFn = ray , left_parenthesis_symbol , AngleType , [ RaySizeType ] , [ contain ] , [ at , PositionType ] , right_parenthesis_symbol ;
+RaySizeType = RadialExtentType | "sides" ;
+RayFn = "ray" , "(" , AngleType , [ RaySizeType ] , [ "contain" ] , [ "at" , PositionType ] , ")" ;

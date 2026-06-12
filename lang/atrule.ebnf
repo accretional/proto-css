@@ -50,7 +50,7 @@ QualifiedRuleListType   = CssStyleSheet ; (* e.g. @keyframes body *)
 
 MediaFeatureValueType = NumberType | DimensionType | ident_type | RatioType ;
 
-MediaFeaturePlainType  = ident_type , colon_symbol , MediaFeatureValueType ;
+MediaFeaturePlainType  = ident_type , ":" , MediaFeatureValueType ;
 MediaFeatureBooleanType = ident_type | dashed_ident_type ;
 MediaFeatureRangeType =
     ident_type , MfComparisonType , MediaFeatureValueType
@@ -61,52 +61,52 @@ MediaFeatureRangeType =
 MediaFeatureType = MediaFeaturePlainType | MediaFeatureRangeType | MediaFeatureBooleanType ;
 
 MediaInParensType =
-    left_parenthesis_symbol , MediaConditionType , right_parenthesis_symbol
-    | left_parenthesis_symbol , MediaFeatureType , right_parenthesis_symbol
+    "(" , MediaConditionType , ")"
+    | "(" , MediaFeatureType , ")"
     | GeneralEnclosedType ;
 
 MediaConditionType =
-    not , MediaInParensType
-    | MediaInParensType , { and , MediaInParensType }
-    | MediaInParensType , { or , MediaInParensType } ;
+    "not" , MediaInParensType
+    | MediaInParensType , { "and" , MediaInParensType }
+    | MediaInParensType , { "or" , MediaInParensType } ;
 
 MediaConditionWithoutOrType =
-    not , MediaInParensType
-    | MediaInParensType , { and , MediaInParensType } ;
+    "not" , MediaInParensType
+    | MediaInParensType , { "and" , MediaInParensType } ;
 
 MediaTypeType = ident_type ;
 
 MediaQueryType =
     MediaConditionType
-    | [ not | only ] , MediaTypeType , [ and , MediaConditionWithoutOrType ] ;
+    | [ "not" | "only" ] , MediaTypeType , [ "and" , MediaConditionWithoutOrType ] ;
 
-MediaQueryListType = MediaQueryType , { comma_symbol , MediaQueryType } ;
+MediaQueryListType = MediaQueryType , { "," , MediaQueryType } ;
 SelectorListType         = ComplexSelectorList ;   (* forward ref to selector.ebnf *)
 AnyValueType             = DeclarationValueInParensType ;  (* any CSS token sequence — no ) so structural parens are not consumed *)
 
 (* ── Shared: general-enclosed (used in container/supports queries) ───────── *)
 GeneralEnclosedType =
-    custom_ident_type , left_parenthesis_symbol , [ AnyValueType ] , right_parenthesis_symbol
-    | left_parenthesis_symbol , [ AnyValueType ] , right_parenthesis_symbol ;
+    custom_ident_type , "(" , [ AnyValueType ] , ")"
+    | "(" , [ AnyValueType ] , ")" ;
 
 (* ── Shared: @supports condition (used in @import and @supports) ─────────── *)
 FontTechAtruleType =
-    features_opentype | features_aat | features_graphite
-    | color_colrv0 | color_colrv1 | color_svg | color_sbix | color_cbdt
-    | variations | palettes | incremental ;
+    "features-opentype" | "features-aat" | "features-graphite"
+    | "color-COLRv0" | "color-COLRv1" | "color-SVG" | "color-sbix" | "color-CBDT"
+    | "variations" | "palettes" | "incremental" ;
 
 FontFormatAtruleType =
     string_type
-    | collection | embedded_opentype | opentype
-    | svg | truetype | woff | woff2 ;
+    | "collection" | "embedded-opentype" | "opentype"
+    | "svg" | "truetype" | "woff" | "woff2" ;
 
-SupportsSelectorFnType      = selector , left_parenthesis_symbol , AnyValueType , right_parenthesis_symbol ;
-SupportsFontTechFnType     = font_tech , left_parenthesis_symbol , FontTechAtruleType , right_parenthesis_symbol ;
-SupportsFontFormatFnType   = font_format , left_parenthesis_symbol , FontFormatAtruleType , right_parenthesis_symbol ;
-SupportsAtRuleFnType       = AtRule , left_parenthesis_symbol , custom_ident_type , right_parenthesis_symbol ;
-SupportsNamedFeatureFnType = named_feature , left_parenthesis_symbol , custom_ident_type , right_parenthesis_symbol ;
+SupportsSelectorFnType      = "selector" , "(" , AnyValueType , ")" ;
+SupportsFontTechFnType     = "font-tech" , "(" , FontTechAtruleType , ")" ;
+SupportsFontFormatFnType   = "font-format" , "(" , FontFormatAtruleType , ")" ;
+SupportsAtRuleFnType       = AtRule , "(" , custom_ident_type , ")" ;
+SupportsNamedFeatureFnType = "named-feature" , "(" , custom_ident_type , ")" ;
 SupportsEnvFnType           = EnvFn ;
-SupportsDeclType             = left_parenthesis_symbol , DeclarationValueInParensType , right_parenthesis_symbol ;
+SupportsDeclType             = "(" , DeclarationValueInParensType , ")" ;
 
 SupportsFeatureType =
     SupportsSelectorFnType
@@ -118,62 +118,62 @@ SupportsFeatureType =
     | SupportsDeclType ;
 
 SupportsInParensType =
-    left_parenthesis_symbol , SupportsConditionType , right_parenthesis_symbol
+    "(" , SupportsConditionType , ")"
     | SupportsFeatureType
     | GeneralEnclosedType ;
 
 SupportsConditionType =
-    not , SupportsInParensType
-    | SupportsInParensType , { and , SupportsInParensType }
-    | SupportsInParensType , { or , SupportsInParensType } ;
+    "not" , SupportsInParensType
+    | SupportsInParensType , { "and" , SupportsInParensType }
+    | SupportsInParensType , { "or" , SupportsInParensType } ;
 
 (* ── @charset ────────────────────────────────────────────────────────────── *)
 
 (* Common IANA charset names. Use custom_ident_type for any other valid value. *)
 CharsetNameType =
     (* Unicode *)
-    utf_8 | utf_16 | utf_16be | utf_16le
-    | utf_32 | utf_32be | utf_32le | utf_7
+    "UTF-8" | "UTF-16" | "UTF-16BE" | "UTF-16LE"
+    | "UTF-32" | "UTF-32BE" | "UTF-32LE" | "UTF-7"
     (* ASCII / Latin *)
-    | us_ascii
-    | iso_8859_1 | iso_8859_2 | iso_8859_3 | iso_8859_4
-    | iso_8859_5 | iso_8859_6 | iso_8859_7 | iso_8859_8
-    | iso_8859_9 | iso_8859_10 | iso_8859_11 | iso_8859_13
-    | iso_8859_14 | iso_8859_15 | iso_8859_16
+    | "US-ASCII"
+    | "ISO-8859-1" | "ISO-8859-2" | "ISO-8859-3" | "ISO-8859-4"
+    | "ISO-8859-5" | "ISO-8859-6" | "ISO-8859-7" | "ISO-8859-8"
+    | "ISO-8859-9" | "ISO-8859-10" | "ISO-8859-11" | "ISO-8859-13"
+    | "ISO-8859-14" | "ISO-8859-15" | "ISO-8859-16"
     (* Windows code pages *)
-    | windows_874 | windows_1250 | windows_1251 | windows_1252
-    | windows_1253 | windows_1254 | windows_1255 | windows_1256
-    | windows_1257 | windows_1258
+    | "windows-874" | "windows-1250" | "windows-1251" | "windows-1252"
+    | "windows-1253" | "windows-1254" | "windows-1255" | "windows-1256"
+    | "windows-1257" | "windows-1258"
     (* East Asian *)
-    | shift_jis | euc_jp | iso_2022_jp | iso_2022_jp_2
-    | euc_kr | iso_2022_kr
-    | gb2312 | gbk | gb18030
-    | big5 | big5_hkscs
+    | "Shift_JIS" | "EUC-JP" | "ISO-2022-JP" | "ISO-2022-JP-2"
+    | "EUC-KR" | "ISO-2022-KR"
+    | "GB2312" | "GBK" | "GB18030"
+    | "Big5" | "Big5-HKSCS"
     (* Cyrillic *)
-    | koi8_r | koi8_u
+    | "KOI8-R" | "KOI8-U"
     (* Other *)
-    | macintosh | tis_620 | ibm866 | ibm850
+    | "macintosh" | "TIS-620" | "IBM866" | "IBM850"
     (* Custom / non-standard *)
     | custom_ident_type ;
 
-AtCharset = commercial_at_symbol , charset , CharsetNameType , semicolon_symbol ;
+AtCharset = "@" , "charset" , CharsetNameType , ";" ;
 
 (* ── @color-profile ──────────────────────────────────────────────────────── *)
 
-AtColorProfile = commercial_at_symbol , color_profile , ( dashed_ident_type | device_cmyk ) , left_curly_bracket_symbol , DeclarationListType , right_curly_bracket_symbol ;
+AtColorProfile = "@" , "color-profile" , ( dashed_ident_type | "device-cmyk" ) , "{" , DeclarationListType , "}" ;
 
 (* ── @container ──────────────────────────────────────────────────────────── *)
 
-MfLtType         = [ less_than_sign_symbol ], equals_sign_symbol ;
-MfGtType         = [ greater_than_sign_symbol ], equals_sign_symbol ;
-MfComparisonType = MfLtType | MfGtType | equals_sign_symbol ;
+MfLtType         = [ "<" ], "=" ;
+MfGtType         = [ ">" ], "=" ;
+MfComparisonType = MfLtType | MfGtType | "=" ;
 
 SizeFeatureType         = DeclarationValueInParensType ;  (* defined with media features — no ) so structural paren is not consumed *)
 ScrollStateFeatureType = DeclarationValueInParensType ;  (* defined with scroll state *)
 StyleFeatureNameType   = custom_ident_type ;
 StyleFeatureValueType  = DeclarationValueInParensType ;
 
-StyleFeaturePlainType   = StyleFeatureNameType , colon_symbol , StyleFeatureValueType ;
+StyleFeaturePlainType   = StyleFeatureNameType , ":" , StyleFeatureValueType ;
 StyleFeatureBooleanType = StyleFeatureNameType ;
 StyleRangeValueType     = CustomPropertyNameType | StyleFeatureValueType ;
 StyleRangeType =
@@ -183,41 +183,41 @@ StyleRangeType =
 StyleFeatureType = StyleFeaturePlainType | StyleFeatureBooleanType | StyleRangeType ;
 
 StyleInParensType =
-    left_parenthesis_symbol , StyleQueryType , right_parenthesis_symbol
-    | left_parenthesis_symbol , StyleFeatureType , right_parenthesis_symbol
+    "(" , StyleQueryType , ")"
+    | "(" , StyleFeatureType , ")"
     | GeneralEnclosedType ;
 
 StyleQueryType =
-    not , StyleInParensType
-    | StyleInParensType , { and , StyleInParensType }
-    | StyleInParensType , { or , StyleInParensType }
+    "not" , StyleInParensType
+    | StyleInParensType , { "and" , StyleInParensType }
+    | StyleInParensType , { "or" , StyleInParensType }
     | StyleFeatureType ;
 
 ScrollStateInParensType =
-    left_parenthesis_symbol , ScrollStateQueryType , right_parenthesis_symbol
-    | left_parenthesis_symbol , ScrollStateFeatureType , right_parenthesis_symbol
+    "(" , ScrollStateQueryType , ")"
+    | "(" , ScrollStateFeatureType , ")"
     | GeneralEnclosedType ;
 
 ScrollStateQueryType =
-    not , ScrollStateInParensType
-    | ScrollStateInParensType , { and , ScrollStateInParensType }
-    | ScrollStateInParensType , { or , ScrollStateInParensType } ;
+    "not" , ScrollStateInParensType
+    | ScrollStateInParensType , { "and" , ScrollStateInParensType }
+    | ScrollStateInParensType , { "or" , ScrollStateInParensType } ;
 
 QueryInParensType =
-    left_parenthesis_symbol , ContainerQueryType , right_parenthesis_symbol
-    | left_parenthesis_symbol , SizeFeatureType , right_parenthesis_symbol
-    | style , left_parenthesis_symbol , StyleQueryType , right_parenthesis_symbol
-    | scroll_state , left_parenthesis_symbol , ScrollStateQueryType , right_parenthesis_symbol
+    "(" , ContainerQueryType , ")"
+    | "(" , SizeFeatureType , ")"
+    | "style" , "(" , StyleQueryType , ")"
+    | "scroll-state" , "(" , ScrollStateQueryType , ")"
     | GeneralEnclosedType ;
 
 ContainerQueryType =
-    not , QueryInParensType
-    | QueryInParensType , { and , QueryInParensType }
-    | QueryInParensType , { or , QueryInParensType } ;
+    "not" , QueryInParensType
+    | QueryInParensType , { "and" , QueryInParensType }
+    | QueryInParensType , { "or" , QueryInParensType } ;
 
 ContainerConditionType = [ custom_ident_type ] , ContainerQueryType ;
 
-AtContainer = commercial_at_symbol , container , ContainerConditionType , { comma_symbol , ContainerConditionType } , left_curly_bracket_symbol , BlockContentsType , right_curly_bracket_symbol ;
+AtContainer = "@" , "container" , ContainerConditionType , { "," , ContainerConditionType } , "{" , BlockContentsType , "}" ;
 
 (* ── @counter-style ──────────────────────────────────────────────────────── *)
 
@@ -226,37 +226,37 @@ CounterStyleSymbolType = string_type | ImageType | custom_ident_type ;
 
 CounterStyleAdditiveSymbolsType =
     IntegerType , CounterStyleSymbolType ,
-    { comma_symbol , IntegerType , CounterStyleSymbolType } ;
+    { "," , IntegerType , CounterStyleSymbolType } ;
 
 CounterStyleNegativeType = CounterStyleSymbolType , [ CounterStyleSymbolType ] ;
 CounterStylePadType      = IntegerType , CounterStyleSymbolType ;
-CounterStyleRangeValueType = IntegerType | infinite ;
+CounterStyleRangeValueType = IntegerType | "infinite" ;
 CounterStyleRangeType =
     CounterStyleRangeValueType , CounterStyleRangeValueType ,
-    { comma_symbol , CounterStyleRangeValueType , CounterStyleRangeValueType }
-    | auto ;
+    { "," , CounterStyleRangeValueType , CounterStyleRangeValueType }
+    | "auto" ;
 
 CounterStyleSpeakAsType =
-    auto | bullets | numbers | words | spell_out
+    "auto" | "bullets" | "numbers" | "words" | "spell-out"
     | CounterStyleNameType ;
 
 CounterStyleSystemType =
-    cyclic | numeric | alphabetic | symbolic | additive
-    | ( fixed , [ IntegerType ] )
-    | ( extends , CounterStyleNameType ) ;
+    "cyclic" | "numeric" | "alphabetic" | "symbolic" | "additive"
+    | ( "fixed" , [ IntegerType ] )
+    | ( "extends" , CounterStyleNameType ) ;
 
 (* @counter-style descriptor block — system/symbols/range/negative/pad/speak-as descriptors *)
-AtCounterStyleSystemDesc   = system   , colon_symbol , CounterStyleSystemType , semicolon_symbol ;
-AtCounterStyleSymbolsDesc  = symbols  , colon_symbol , CounterStyleSymbolType , { CounterStyleSymbolType } , semicolon_symbol ;
-AtCounterStyleRangeDesc    = range    , colon_symbol , CounterStyleRangeType , semicolon_symbol ;
-AtCounterStyleNegativeDesc = negative , colon_symbol , CounterStyleNegativeType , semicolon_symbol ;
-AtCounterStylePadDesc      = pad      , colon_symbol , CounterStylePadType , semicolon_symbol ;
-AtCounterStyleSpeakAsDesc  = speak_as , colon_symbol , CounterStyleSpeakAsType , semicolon_symbol ;
+AtCounterStyleSystemDesc   = "system"   , ":" , CounterStyleSystemType , ";" ;
+AtCounterStyleSymbolsDesc  = "symbols"  , ":" , CounterStyleSymbolType , { CounterStyleSymbolType } , ";" ;
+AtCounterStyleRangeDesc    = "range"    , ":" , CounterStyleRangeType , ";" ;
+AtCounterStyleNegativeDesc = "negative" , ":" , CounterStyleNegativeType , ";" ;
+AtCounterStylePadDesc      = "pad"      , ":" , CounterStylePadType , ";" ;
+AtCounterStyleSpeakAsDesc  = "speak-as" , ":" , CounterStyleSpeakAsType , ";" ;
 
-AtCounterStyleAdditiveSymbolsDesc = additive_symbols , colon_symbol , CounterStyleAdditiveSymbolsType , semicolon_symbol ;
-AtCounterStyleFallbackDesc        = fallback         , colon_symbol , CounterStyleNameType , semicolon_symbol ;
-AtCounterStyleSuffixDesc          = suffix           , colon_symbol , CounterStyleSymbolType , semicolon_symbol ;
-AtCounterStylePrefixDesc          = prefix           , colon_symbol , CounterStyleSymbolType , semicolon_symbol ;
+AtCounterStyleAdditiveSymbolsDesc = "additive-symbols" , ":" , CounterStyleAdditiveSymbolsType , ";" ;
+AtCounterStyleFallbackDesc        = "fallback"         , ":" , CounterStyleNameType , ";" ;
+AtCounterStyleSuffixDesc          = "suffix"           , ":" , CounterStyleSymbolType , ";" ;
+AtCounterStylePrefixDesc          = "prefix"           , ":" , CounterStyleSymbolType , ";" ;
 
 AtCounterStyleBlock = { Property | AtCounterStyleSystemDesc | AtCounterStyleSymbolsDesc
                       | AtCounterStyleRangeDesc | AtCounterStyleNegativeDesc
@@ -264,108 +264,108 @@ AtCounterStyleBlock = { Property | AtCounterStyleSystemDesc | AtCounterStyleSymb
                       | AtCounterStyleAdditiveSymbolsDesc | AtCounterStyleFallbackDesc
                       | AtCounterStyleSuffixDesc | AtCounterStylePrefixDesc } ;
 
-AtCounterStyle = commercial_at_symbol , counter_style , custom_ident_type , left_curly_bracket_symbol , AtCounterStyleBlock , right_curly_bracket_symbol ;
+AtCounterStyle = "@" , "counter-style" , custom_ident_type , "{" , AtCounterStyleBlock , "}" ;
 
 (* ── @custom-media ───────────────────────────────────────────────────────── *)
 
-AtCustomMedia = commercial_at_symbol , custom_media , dashed_ident_type , ( MediaQueryListType | true | false ) , semicolon_symbol ;
+AtCustomMedia = "@" , "custom-media" , dashed_ident_type , ( MediaQueryListType | "true" | "false" ) , ";" ;
 
 (* ── @font-face ──────────────────────────────────────────────────────────── *)
 
 FontFaceSrcType         = DeclarationValueTokenType ;  (* url() with optional format()/tech() hints *)
 UnicodeRangeTokenType   = custom_ident_type ;       (* e.g. U+0025, U+4??, U+0025-00FF *)
 
-FontFaceOverrideType    = normal | PercentageType ;   (* ascent/descent/line-gap override *)
-FontFaceDisplayType     = auto | block | swap | fallback | optional ;
+FontFaceOverrideType    = "normal" | PercentageType ;   (* ascent/descent/line-gap override *)
+FontFaceDisplayType     = "auto" | "block" | "swap" | "fallback" | "optional" ;
 
 FontFaceStyleDescType  =
-    auto | normal | italic | left | right
-    | ( oblique , [ angle_type , [ angle_type ] ] ) ;
+    "auto" | "normal" | "italic" | "left" | "right"
+    | ( "oblique" , [ angle_type , [ angle_type ] ] ) ;
 
 FontFaceWeightDescType =
-    auto | FontWeightAbsoluteType | ( FontWeightAbsoluteType , FontWeightAbsoluteType ) ;
+    "auto" | FontWeightAbsoluteType | ( FontWeightAbsoluteType , FontWeightAbsoluteType ) ;
 
-FontFaceWidthDescType  = auto | FontWidthCss3Type | ( FontWidthCss3Type , FontWidthCss3Type )
+FontFaceWidthDescType  = "auto" | FontWidthCss3Type | ( FontWidthCss3Type , FontWidthCss3Type )
                        | PercentageType | ( PercentageType , PercentageType ) ;
 
 (* OpentypeTagType: defined in Property.ebnf *)
-FontFaceFeatureTagValueType = OpentypeTagType , [ IntegerType | on | off ] ;
-FontFaceFeatureSettingsType = normal | FontFaceFeatureTagValueType , { comma_symbol , FontFaceFeatureTagValueType } ;
+FontFaceFeatureTagValueType = OpentypeTagType , [ IntegerType | "on" | "off" ] ;
+FontFaceFeatureSettingsType = "normal" | FontFaceFeatureTagValueType , { "," , FontFaceFeatureTagValueType } ;
 
 (* @font-face src descriptor: url() or local() with optional format()/tech() hints
    format() and tech() may appear in either order per spec *)
-AtFontFaceSrcFormatHint = format , left_parenthesis_symbol , FontFormatAtruleType , right_parenthesis_symbol ;
-AtFontFaceSrcTechHint   = tech   , left_parenthesis_symbol , FontTechAtruleType   , right_parenthesis_symbol ;
+AtFontFaceSrcFormatHint = "format" , "(" , FontFormatAtruleType , ")" ;
+AtFontFaceSrcTechHint   = "tech"   , "(" , FontTechAtruleType   , ")" ;
 AtFontFaceSrcItem =
     UrlType , [ AtFontFaceSrcFormatHint ] , [ AtFontFaceSrcTechHint ]
     | UrlType , [ AtFontFaceSrcTechHint ] , [ AtFontFaceSrcFormatHint ]
-    | local , left_parenthesis_symbol , ( string_type | ident_type ) , right_parenthesis_symbol ;
+    | "local" , "(" , ( string_type | ident_type ) , ")" ;
 
-AtFontFaceSrcDesc    = src        , colon_symbol , AtFontFaceSrcItem , { comma_symbol , AtFontFaceSrcItem } , semicolon_symbol ;
-AtFontFaceWeightDesc = font_weight , colon_symbol , FontFaceWeightDescType , semicolon_symbol ;
-AtFontFaceStyleDesc  = font_style  , colon_symbol , FontFaceStyleDescType  , semicolon_symbol ;
-AtFontFaceWidthDesc  = font_stretch , colon_symbol , FontFaceWidthDescType  , semicolon_symbol ;
-AtFontFaceDisplayDesc             = font_display      , colon_symbol , FontFaceDisplayType , semicolon_symbol ;
-AtFontFaceVariationSettingsDesc   = font_variation_settings , colon_symbol , FontFaceFeatureSettingsType , semicolon_symbol ;
-AtFontFaceSizeAdjustDesc          = size_adjust        , colon_symbol , ( normal | PercentageType ) , semicolon_symbol ;
-AtFontFaceUnicodeRangeDesc        = unicode_range       , colon_symbol , UnicodeRangeTokenType , { comma_symbol , UnicodeRangeTokenType } , semicolon_symbol ;
-AtFontFaceAscentOverrideDesc      = ascent_override     , colon_symbol , FontFaceOverrideType , semicolon_symbol ;
-AtFontFaceDescentOverrideDesc     = descent_override    , colon_symbol , FontFaceOverrideType , semicolon_symbol ;
-AtFontFaceLineGapOverrideDesc     = line_gap_override   , colon_symbol , FontFaceOverrideType , semicolon_symbol ;
+AtFontFaceSrcDesc    = "src"        , ":" , AtFontFaceSrcItem , { "," , AtFontFaceSrcItem } , ";" ;
+AtFontFaceWeightDesc = "font-weight" , ":" , FontFaceWeightDescType , ";" ;
+AtFontFaceStyleDesc  = "font-style"  , ":" , FontFaceStyleDescType  , ";" ;
+AtFontFaceWidthDesc  = "font-stretch" , ":" , FontFaceWidthDescType  , ";" ;
+AtFontFaceDisplayDesc             = "font-display"      , ":" , FontFaceDisplayType , ";" ;
+AtFontFaceVariationSettingsDesc   = "font-variation-settings" , ":" , FontFaceFeatureSettingsType , ";" ;
+AtFontFaceSizeAdjustDesc          = "size-adjust"        , ":" , ( "normal" | PercentageType ) , ";" ;
+AtFontFaceUnicodeRangeDesc        = "unicode-range"       , ":" , UnicodeRangeTokenType , { "," , UnicodeRangeTokenType } , ";" ;
+AtFontFaceAscentOverrideDesc      = "ascent-override"     , ":" , FontFaceOverrideType , ";" ;
+AtFontFaceDescentOverrideDesc     = "descent-override"    , ":" , FontFaceOverrideType , ";" ;
+AtFontFaceLineGapOverrideDesc     = "line-gap-override"   , ":" , FontFaceOverrideType , ";" ;
 
 AtFontFaceBlock = { Property | AtFontFaceSrcDesc | AtFontFaceWeightDesc | AtFontFaceStyleDesc | AtFontFaceWidthDesc
                   | AtFontFaceDisplayDesc | AtFontFaceVariationSettingsDesc | AtFontFaceSizeAdjustDesc
                   | AtFontFaceUnicodeRangeDesc | AtFontFaceAscentOverrideDesc | AtFontFaceDescentOverrideDesc
                   | AtFontFaceLineGapOverrideDesc } ;
 
-AtFontFace = commercial_at_symbol , font_face , left_curly_bracket_symbol , AtFontFaceBlock , right_curly_bracket_symbol ;
+AtFontFace = "@" , "font-face" , "{" , AtFontFaceBlock , "}" ;
 
 (* ── @font-feature-values ────────────────────────────────────────────────── *)
 
-AtFontFeatureValues = commercial_at_symbol , font_feature_values , FontFamilyNameType , { comma_symbol , FontFamilyNameType } , left_curly_bracket_symbol , AtFontFeatureValuesBlock , right_curly_bracket_symbol ;
+AtFontFeatureValues = "@" , "font-feature-values" , FontFamilyNameType , { "," , FontFamilyNameType } , "{" , AtFontFeatureValuesBlock , "}" ;
 
 AtFontFeatureValuesBlock = { AtFfvSwash | AtFfvAnnotation | AtFfvOrnaments | AtFfvStylistic | AtFfvStyleset | AtFfvCharacterVariant } ;
-AtFfvSwash            = commercial_at_symbol , swash            , left_curly_bracket_symbol , { AtFfvSingleValueDecl } , right_curly_bracket_symbol ;
-AtFfvAnnotation       = commercial_at_symbol , annotation       , left_curly_bracket_symbol , { AtFfvSingleValueDecl } , right_curly_bracket_symbol ;
-AtFfvOrnaments        = commercial_at_symbol , ornaments        , left_curly_bracket_symbol , { AtFfvSingleValueDecl } , right_curly_bracket_symbol ;
-AtFfvStylistic        = commercial_at_symbol , stylistic        , left_curly_bracket_symbol , { AtFfvSingleValueDecl } , right_curly_bracket_symbol ;
-AtFfvStyleset         = commercial_at_symbol , styleset         , left_curly_bracket_symbol , { AtFfvMultiValueDecl  } , right_curly_bracket_symbol ;
-AtFfvCharacterVariant = commercial_at_symbol , character_variant , left_curly_bracket_symbol , { AtFfvMultiValueDecl } , right_curly_bracket_symbol ;
+AtFfvSwash            = "@" , "swash"            , "{" , { AtFfvSingleValueDecl } , "}" ;
+AtFfvAnnotation       = "@" , "annotation"       , "{" , { AtFfvSingleValueDecl } , "}" ;
+AtFfvOrnaments        = "@" , "ornaments"        , "{" , { AtFfvSingleValueDecl } , "}" ;
+AtFfvStylistic        = "@" , "stylistic"        , "{" , { AtFfvSingleValueDecl } , "}" ;
+AtFfvStyleset         = "@" , "styleset"         , "{" , { AtFfvMultiValueDecl  } , "}" ;
+AtFfvCharacterVariant = "@" , "character-variant" , "{" , { AtFfvMultiValueDecl } , "}" ;
 (* single-value: ident: <integer>; — used by @swash, @annotation, @ornaments, @stylistic *)
-AtFfvSingleValueDecl  = ident_type , colon_symbol , NonNegativeIntegerType , semicolon_symbol ;
+AtFfvSingleValueDecl  = ident_type , ":" , NonNegativeIntegerType , ";" ;
 (* multi-value:  ident: <integer>+; — used by @styleset, @character-variant *)
-AtFfvMultiValueDecl   = ident_type , colon_symbol , NonNegativeIntegerType , { NonNegativeIntegerType } , semicolon_symbol ;
+AtFfvMultiValueDecl   = ident_type , ":" , NonNegativeIntegerType , { NonNegativeIntegerType } , ";" ;
 
 (* ── @font-palette-values ────────────────────────────────────────────────── *)
 
-FontPaletteBaseType = light | dark | IntegerType ;
-FontPaletteOverrideColorsType = IntegerType , ColorType , { comma_symbol , IntegerType , ColorType } ;
+FontPaletteBaseType = "light" | "dark" | IntegerType ;
+FontPaletteOverrideColorsType = IntegerType , ColorType , { "," , IntegerType , ColorType } ;
 
-AtFontPaletteValuesBasePaletteDesc    = base_palette    , colon_symbol , FontPaletteBaseType , semicolon_symbol ;
-AtFontPaletteValuesOverrideColorsDesc = override_colors , colon_symbol , FontPaletteOverrideColorsType , semicolon_symbol ;
+AtFontPaletteValuesBasePaletteDesc    = "base-palette"    , ":" , FontPaletteBaseType , ";" ;
+AtFontPaletteValuesOverrideColorsDesc = "override-colors" , ":" , FontPaletteOverrideColorsType , ";" ;
 
 AtFontPaletteValuesBlock = { Property | AtFontPaletteValuesBasePaletteDesc | AtFontPaletteValuesOverrideColorsDesc } ;
 
-AtFontPaletteValues = commercial_at_symbol , font_palette_values , dashed_ident_type , left_curly_bracket_symbol , AtFontPaletteValuesBlock , right_curly_bracket_symbol ;
+AtFontPaletteValues = "@" , "font-palette-values" , dashed_ident_type , "{" , AtFontPaletteValuesBlock , "}" ;
 
 (* ── @function ───────────────────────────────────────────────────────────── *)
 
 CustomPropertyNameType  = dashed_ident_type ;
 
 SyntaxTypeNameAtruleType =
-    angle | color | custom_ident | image | integer
-    | length | length_percentage | number | percentage
-    | resolution | string | time | url | transform_function ;
+    "angle" | "color" | "custom-ident" | "image" | "integer"
+    | "length" | "length-percentage" | "number" | "percentage"
+    | "resolution" | "string" | "time" | "url" | "transform-function" ;
 
-SyntaxMultiplierAtruleType  = number_sign_symbol | plus_sign_symbol ;
+SyntaxMultiplierAtruleType  = "#" | "+" ;
 (* SyntaxSingleComponentType, SyntaxComponentType: defined in Property.ebnf *)
 CssTypeAtruleType           = SyntaxComponentType | TypeFn ;
-FunctionParameterType        = CustomPropertyNameType , [ CssTypeAtruleType ] , [ colon_symbol , DeclarationValueInParensType ] ;
+FunctionParameterType        = CustomPropertyNameType , [ CssTypeAtruleType ] , [ ":" , DeclarationValueInParensType ] ;
 
 AtFunction =
-    commercial_at_symbol , function , custom_ident_type , left_parenthesis_symbol , [ FunctionParameterType , { comma_symbol , FunctionParameterType } ] , right_parenthesis_symbol ,
-    [ returns , CssTypeAtruleType ] ,
-    left_curly_bracket_symbol , DeclarationRuleListType , right_curly_bracket_symbol ;
+    "@" , "function" , custom_ident_type , "(" , [ FunctionParameterType , { "," , FunctionParameterType } ] , ")" ,
+    [ "returns" , CssTypeAtruleType ] ,
+    "{" , DeclarationRuleListType , "}" ;
 
 (* ── @import ─────────────────────────────────────────────────────────────── *)
 
@@ -373,59 +373,59 @@ ScopeStartType      = SelectorListType ;
 ScopeEndType        = SelectorListType ;
 (* [ ( <scope-start> ) ]? [ to ( <scope-end> ) ]? ]! : at least one of start or end must be present *)
 ScopeBoundariesType =
-    ( left_parenthesis_symbol , ScopeStartType , right_parenthesis_symbol ,
-      [ to , left_parenthesis_symbol , ScopeEndType , right_parenthesis_symbol ] )
-    | ( to , left_parenthesis_symbol , ScopeEndType , right_parenthesis_symbol ) ;
+    ( "(" , ScopeStartType , ")" ,
+      [ "to" , "(" , ScopeEndType , ")" ] )
+    | ( "to" , "(" , ScopeEndType , ")" ) ;
 
 SupportsImportConditionType =
-    supports , left_parenthesis_symbol , ( SupportsConditionType | DeclarationValueInParensType ) , right_parenthesis_symbol ;
+    "supports" , "(" , ( SupportsConditionType | DeclarationValueInParensType ) , ")" ;
 
-ImportLayerType = layer | LayerFn ;
-ImportScopeType = scope | ( scope , left_parenthesis_symbol , ( ScopeStartType | ScopeBoundariesType ) , right_parenthesis_symbol ) ;
+ImportLayerType = "layer" | LayerFn ;
+ImportScopeType = "scope" | ( "scope" , "(" , ( ScopeStartType | ScopeBoundariesType ) , ")" ) ;
 
 AtImport =
-    commercial_at_symbol , import , ( UrlType | string_type ) ,
+    "@" , "import" , ( UrlType | string_type ) ,
     [ ImportLayerType ] ,
     [ ImportScopeType ] ,
     [ SupportsImportConditionType ] ,
     [ MediaQueryListType ] ,
-    semicolon_symbol ;
+    ";" ;
 
 (* ── @keyframes ──────────────────────────────────────────────────────────── *)
 
 (* KeyframesNameType: defined in Property.ebnf *)
 
 (* <keyframe-selector>: from | to | <percentage> — comma-list is valid *)
-KeyframeSelectorType = from | to | PercentageType ;
+KeyframeSelectorType = "from" | "to" | PercentageType ;
 
 (* A single keyframe rule: one or more selectors, then a declaration block *)
-KeyframeRuleType = KeyframeSelectorType , { comma_symbol , KeyframeSelectorType } ,
-                   left_curly_bracket_symbol , RuleBody , right_curly_bracket_symbol ;
+KeyframeRuleType = KeyframeSelectorType , { "," , KeyframeSelectorType } ,
+                   "{" , RuleBody , "}" ;
 
 KeyframeBlockType = { KeyframeRuleType } ;
 
-AtKeyframes = commercial_at_symbol , keyframes , KeyframesNameType , left_curly_bracket_symbol , KeyframeBlockType , right_curly_bracket_symbol ;
+AtKeyframes = "@" , "keyframes" , KeyframesNameType , "{" , KeyframeBlockType , "}" ;
 
 (* ── @layer ──────────────────────────────────────────────────────────────── *)
 
 AtLayer =
-    ( commercial_at_symbol , layer , [ LayerNameType ] , left_curly_bracket_symbol , RuleListType , right_curly_bracket_symbol )
-    | ( commercial_at_symbol , layer , LayerNameType , { comma_symbol , LayerNameType } , semicolon_symbol ) ;
+    ( "@" , "layer" , [ LayerNameType ] , "{" , RuleListType , "}" )
+    | ( "@" , "layer" , LayerNameType , { "," , LayerNameType } , ";" ) ;
 
 (* ── @media ──────────────────────────────────────────────────────────────── *)
 
-AtMedia = commercial_at_symbol , media , MediaQueryListType , left_curly_bracket_symbol , RuleListType , right_curly_bracket_symbol ;
+AtMedia = "@" , "media" , MediaQueryListType , "{" , RuleListType , "}" ;
 
 (* ── @namespace ──────────────────────────────────────────────────────────── *)
 
 NamespacePrefixType = custom_ident_type ;
 
-AtNamespace = commercial_at_symbol , namespace , [ NamespacePrefixType ] , ( string_type | UrlType ) , semicolon_symbol ;
+AtNamespace = "@" , "namespace" , [ NamespacePrefixType ] , ( string_type | UrlType ) , ";" ;
 
 (* ── @page ───────────────────────────────────────────────────────────────── *)
 
 PseudoPageType =
-    colon_symbol , ( left | right | first | blank ) ;
+    ":" , ( "left" | "right" | "first" | "blank" ) ;
 
 (* [ <ident>? <pseudo-page>* ]! : at least one of ident or pseudo-page must be present *)
 PageSelectorType =
@@ -433,57 +433,57 @@ PageSelectorType =
     | PseudoPageType , { PseudoPageType } ;
 
 PageSizeType =
-    a5 | a4 | a3 | b5 | b4 | jis_b5 | jis_b4
-    | page_letter | legal | ledger ;
+    "a5" | "a4" | "a3" | "b5" | "b4" | "JIS-B5" | "JIS-B4"
+    | "letter" | "legal" | "ledger" ;
 
-PageOrientationType = upright | rotate_left | rotate_right ;
+PageOrientationType = "upright" | "rotate-left" | "rotate-right" ;
 
 PageSizeDescriptorType =
     length_type , [ length_type ]
-    | auto
+    | "auto"
     | PageSizeType
-    | PageSizeType , ( portrait | landscape )
-    | portrait | landscape ;
+    | PageSizeType , ( "portrait" | "landscape" )
+    | "portrait" | "landscape" ;
 
-AtPageSizeDesc        = size             , colon_symbol , PageSizeDescriptorType , semicolon_symbol ;
-AtPageOrientationDesc = page_orientation , colon_symbol , PageOrientationType , semicolon_symbol ;
+AtPageSizeDesc        = "size"             , ":" , PageSizeDescriptorType , ";" ;
+AtPageOrientationDesc = "page-orientation" , ":" , PageOrientationType , ";" ;
 
 (* @top-left, @top-center, @top-right, @bottom-*, @left-*, @right-* margin at-rules *)
-AtPageMarginBox = commercial_at_symbol , ident_type , left_curly_bracket_symbol , { Property } , right_curly_bracket_symbol ;
+AtPageMarginBox = "@" , ident_type , "{" , { Property } , "}" ;
 AtPageBlock = { Property | AtPageSizeDesc | AtPageOrientationDesc | AtPageMarginBox } ;
 
-AtPage = commercial_at_symbol , page , [ PageSelectorType , { comma_symbol , PageSelectorType } ] , left_curly_bracket_symbol , AtPageBlock , right_curly_bracket_symbol ;
+AtPage = "@" , "page" , [ PageSelectorType , { "," , PageSelectorType } ] , "{" , AtPageBlock , "}" ;
 
 (* ── @position-try ───────────────────────────────────────────────────────── *)
 
-AtPositionTry = commercial_at_symbol , position_try , dashed_ident_type , left_curly_bracket_symbol , DeclarationListType , right_curly_bracket_symbol ;
+AtPositionTry = "@" , "position-try" , dashed_ident_type , "{" , DeclarationListType , "}" ;
 
 (* ── @Property ───────────────────────────────────────────────────────────── *)
 
-AtPropertySyntaxDesc       = syntax        , colon_symbol , string_type , semicolon_symbol ;
-AtPropertyInheritsDesc     = inherits       , colon_symbol , ( true | false ) , semicolon_symbol ;
-AtPropertyInitialValueDesc = initial_value  , colon_symbol , DeclarationValueTokenType , semicolon_symbol ;
+AtPropertySyntaxDesc       = "syntax"        , ":" , string_type , ";" ;
+AtPropertyInheritsDesc     = "inherits"       , ":" , ( "true" | "false" ) , ";" ;
+AtPropertyInitialValueDesc = "initial-value"  , ":" , DeclarationValueTokenType , ";" ;
 
 AtPropertyBlock = { Property | AtPropertySyntaxDesc | AtPropertyInheritsDesc | AtPropertyInitialValueDesc } ;
 
-AtProperty = commercial_at_symbol , property_kw , CustomPropertyNameType , left_curly_bracket_symbol , AtPropertyBlock , right_curly_bracket_symbol ;
+AtProperty = "@" , "property" , CustomPropertyNameType , "{" , AtPropertyBlock , "}" ;
 
 (* ── @scope ──────────────────────────────────────────────────────────────── *)
 
-AtScope = commercial_at_symbol , scope , [ ScopeBoundariesType ] , left_curly_bracket_symbol , BlockContentsType , right_curly_bracket_symbol ;
+AtScope = "@" , "scope" , [ ScopeBoundariesType ] , "{" , BlockContentsType , "}" ;
 
 (* ── @starting-style ─────────────────────────────────────────────────────── *)
 
-AtStartingStyle = commercial_at_symbol , starting_style , left_curly_bracket_symbol , RuleListType , right_curly_bracket_symbol ;
+AtStartingStyle = "@" , "starting-style" , "{" , RuleListType , "}" ;
 
 (* ── @supports ───────────────────────────────────────────────────────────── *)
 
-AtSupports = commercial_at_symbol , supports , SupportsConditionType , left_curly_bracket_symbol , RuleListType , right_curly_bracket_symbol ;
+AtSupports = "@" , "supports" , SupportsConditionType , "{" , RuleListType , "}" ;
 
 (* ── @view-transition ────────────────────────────────────────────────────── *)
 
-AtViewTransitionNavigationDesc = navigation , colon_symbol , ( auto | none ) , semicolon_symbol ;
-AtViewTransitionTypesDesc       = types      , colon_symbol , ( none | custom_ident_type , { custom_ident_type } ) , semicolon_symbol ;
+AtViewTransitionNavigationDesc = "navigation" , ":" , ( "auto" | "none" ) , ";" ;
+AtViewTransitionTypesDesc       = "types"      , ":" , ( "none" | custom_ident_type , { custom_ident_type } ) , ";" ;
 AtViewTransitionBlock = { AtViewTransitionNavigationDesc | AtViewTransitionTypesDesc } ;
-AtViewTransition = commercial_at_symbol , view_transition , left_curly_bracket_symbol , AtViewTransitionBlock , right_curly_bracket_symbol ;
+AtViewTransition = "@" , "view-transition" , "{" , AtViewTransitionBlock , "}" ;
 

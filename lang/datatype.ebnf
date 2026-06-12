@@ -1,12 +1,12 @@
 (* <number> CSS type: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/number *)
 number_type = fraction , [ "e" , integer_type ] ;
-fraction = integer_type , [ full_stop_symbol , whole_number ] ;
+fraction = integer_type , [ "." , whole_number ] ;
 
 (* <integer> CSS type: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/integer*)
-integer_type = [ plus_sign_symbol | hyphen_symbol ], whole_number ;
+integer_type = [ "+" | "-" ], whole_number ;
 
 (* <percentage> CSS type: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/percentage *)
-percentage_type = number_type , percent_sign_symbol ;
+percentage_type = number_type , "%" ;
 
 (* <length> CSS type: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/length *)
 length_type = "0" | length_number ;
@@ -18,16 +18,16 @@ length_unit = font_relative_length_unit
             | container_query_length_unit
             | absolute_length_unit ;
 
-font_relative_length_unit = cap | ch | em | ex | ic | lh ;
+font_relative_length_unit = "cap" | "ch" | "em" | "ex" | "ic" | "lh" ;
 
-root_font_relative_length_unit = rcap | rch | rem | rex | ric | rlh ;
+root_font_relative_length_unit = "rcap" | "rch" | "rem" | "rex" | "ric" | "rlh" ;
 
 viewport_length_unit = default_viewport_length_unit
                      | small_viewport_length_unit
                      | large_viewport_length_unit
                      | dynamic_viewport_length_unit ;
 
-viewport_length_suffix = "h" | "w" | max | min | "b" | "i" ;
+viewport_length_suffix = "h" | "w" | "max" | "min" | "b" | "i" ;
 
 default_viewport_length_unit = "v" , viewport_length_suffix ;
 
@@ -37,13 +37,13 @@ large_viewport_length_unit   = "l" , "v" , viewport_length_suffix ;
 
 dynamic_viewport_length_unit = "d" , "v" , viewport_length_suffix ;
 
-container_query_length_unit = cqw | cqh | cqi | cqb | cqmin | cqmax ;
+container_query_length_unit = "cqw" | "cqh" | "cqi" | "cqb" | "cqmin" | "cqmax" ;
 
-absolute_length_unit = px | cm | mm | "Q" | in | pc | pt ;
+absolute_length_unit = "px" | "cm" | "mm" | "Q" | "in" | "pc" | "pt" ;
 
 (* <time> CSS type: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/time *)
 time_type = number_type , time_unit ;
-time_unit = "s" | ms ;
+time_unit = "s" | "ms" ;
 
 (* ── Range-qualified type aliases ───────────────────────────────────────────
    These parallel the base types above but encode the sign constraint from
@@ -60,30 +60,30 @@ time_unit = "s" | ms ;
    ──────────────────────────────────────────────────────────────────────── *)
 
 (* [0,∞] non-negative integer — <integer [0,∞]> *)
-non_negative_integer_type = [ plus_sign_symbol ] , whole_number ;
+non_negative_integer_type = [ "+" ] , whole_number ;
 
 (* [0,∞] non-negative number — <number [0,∞]> *)
-non_negative_fraction    = non_negative_integer_type , [ full_stop_symbol , whole_number ] ;
+non_negative_fraction    = non_negative_integer_type , [ "." , whole_number ] ;
 non_negative_number_type = non_negative_fraction , [ "e" , integer_type ] ;
 
 (* [0,∞] non-negative length — <length [0,∞]> *)
 non_negative_length_type = "0" | ( non_negative_number_type , length_unit ) ;
 
 (* [0,∞] non-negative percentage — <percentage [0,∞]> *)
-non_negative_percentage_type = non_negative_number_type , percent_sign_symbol ;
+non_negative_percentage_type = non_negative_number_type , "%" ;
 
 (* [0,∞] non-negative flex — <flex [0,∞]> *)
-non_negative_flex_type = non_negative_number_type , fr ;
+non_negative_flex_type = non_negative_number_type , "fr" ;
 
 (* [0s,∞] non-negative time — <time [0s,∞]> *)
 non_negative_time_type = non_negative_number_type , time_unit ;
 
 (* [1,∞] positive integer — <integer [1,∞]>
    natural_number (non_zero , { digit }) is defined in primitive.ebnf *)
-positive_integer_type = [ plus_sign_symbol ] , natural_number ;
+positive_integer_type = [ "+" ] , natural_number ;
 
 (* [-∞,-1] negative integer — <integer [-∞,-1]> *)
-negative_integer_type = hyphen_symbol , natural_number ;
+negative_integer_type = "-" , natural_number ;
 
 (* <length-percentage [0,∞]> — composite non-negative length-or-percentage.
    Math functions (calc, min, max, …) are included: their sign cannot be known
@@ -116,8 +116,26 @@ FlexType                = flex_type | VarFn ;
 LengthType              = length_type | LengthVarFn ;
 PercentageType          = percentage_type | PercentageVarFn ;
 
+(* Range-constrained scalar wrappers. The CFG cannot encode upper-bound ranges
+   (see the range note above), so these dedicated rules exist only to carry a
+   range-safe representative sample (defined in cmd/gen/reps.go): oblique angle
+   ∈ [-90deg,90deg], cubic-bezier control-point x ∈ [0,1], miterlimit ∈ [1,∞]. *)
+ObliqueAngleType        = angle_type ;
+CubicBezierProgressType = number_type ;
+MiterlimitType          = number_type ;
+(* initial-letter SIZE operand ∈ <number [1,∞]> — Chrome drops sizes < 1. *)
+InitialLetterSizeType   = number_type ;
+(* Dedicated <number> wrappers whose reps are VISIBLE (non-identity) samples, so the
+   generated value actually changes the render instead of collapsing to the default:
+   filter amounts (brightness(1)=identity → use 0.4/1.8), scale factors (scale(1)=
+   identity → 2/0.5), font-weight numbers (1..5 are all ~thin → 100..900). All remain
+   doc-valid <number>; only the representative sample differs (defined in cmd/gen/reps.go). *)
+FilterAmountType        = number_type ;
+ScaleFactorType         = number_type ;
+FontWeightNumberType    = number_type ;
+
 (* <absolute-size> CSS type: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/absolute-size *)
-AbsoluteSizeType = xx_small | x_small | small | medium | large | x_large | xx_large | xxx_large ;
+AbsoluteSizeType = "xx-small" | "x-small" | "small" | "medium" | "large" | "x-large" | "xx-large" | "xxx-large" ;
 
 (* <alpha-value> *)
 AlphaValueType = NumberType | PercentageType ;
@@ -126,19 +144,19 @@ AlphaValueType = NumberType | PercentageType ;
 AnglePercentageType = AngleType | PercentageType ;
 
 (* <axis> *)
-AxisType = block | inline | "x" | "y" ;
+AxisType = "block" | "inline" | "x" | "y" ;
 
 (* <blend-mode> *)
-BlendModeType = normal | darken | multiply | color_burn | lighten | screen | color_dodge | overlay | soft_light | hard_light | difference | exclusion | hue | saturation | color | luminosity ;
+BlendModeType = "normal" | "darken" | "multiply" | "color-burn" | "lighten" | "screen" | "color-dodge" | "overlay" | "soft-light" | "hard-light" | "difference" | "exclusion" | "hue" | "saturation" | "color" | "luminosity" ;
 
 (* <color> *)
-ColorType = ColorBaseType | currentcolor | SystemColorType | ContrastColorFn | DeviceCmykFn | LightDarkColorType | VarFn ;
+ColorType = ColorBaseType | "currentcolor" | SystemColorType | ContrastColorFn | DeviceCmykFn | LightDarkColorType | VarFn ;
 
 (* <color-base> *)
-ColorBaseType = hex_color_type | ColorFunctionType | NamedColorType | ColorMixFn | transparent ;
+ColorBaseType = hex_color_type | ColorFunctionType | NamedColorType | ColorMixFn | "transparent" ;
 
 (* <system-color> *)
-SystemColorType = accentcolor | accentcolortext | activetext | buttonborder | buttonface | buttontext | canvas | canvastext | field | fieldtext | graytext | highlight | highlighttext | linktext | mark | marktext | selecteditem | selecteditemtext | visitedtext | DeprecatedColorType ;
+SystemColorType = "accentcolor" | "accentcolortext" | "activetext" | "buttonborder" | "buttonface" | "buttontext" | "canvas" | "canvastext" | "field" | "fieldtext" | "graytext" | "highlight" | "highlighttext" | "linktext" | "mark" | "marktext" | "selecteditem" | "selecteditemtext" | "visitedtext" | DeprecatedColorType ;
 
 (* <light-dark-color> *)
 LightDarkColorType = LightDarkColorFn ;
@@ -154,56 +172,56 @@ ColorFunctionType = RgbFn | RgbaFn | HslFn | HslaFn | HwbFn | LabFn | LchFn | Ok
 UnimplementedColorFunctionType = IctcpFn | JzazbzFn | JzczhzFn | AlphaFn ;
 
 (* <named-color> *)
-NamedColorType = aliceblue | antiquewhite | aqua | aquamarine | azure | beige | bisque | black | blanchedalmond | blue | blueviolet | brown | burlywood | cadetblue | chartreuse | chocolate | coral | cornflowerblue | cornsilk | crimson | cyan | darkblue | darkcyan | darkgoldenrod | darkgray | darkgreen | darkgrey | darkkhaki | darkmagenta | darkolivegreen | darkorange | darkorchid | darkred | darksalmon | darkseagreen | darkslateblue | darkslategray | darkslategrey | darkturquoise | darkviolet | deeppink | deepskyblue | dimgray | dimgrey | dodgerblue | firebrick | floralwhite | forestgreen | fuchsia | gainsboro | ghostwhite | gold | goldenrod | gray | green | greenyellow | grey | honeydew | hotpink | indianred | indigo | ivory | khaki | lavender | lavenderblush | lawngreen | lemonchiffon | lightblue | lightcoral | lightcyan | lightgoldenrodyellow | lightgray | lightgreen | lightgrey | lightpink | lightsalmon | lightseagreen | lightskyblue | lightslategray | lightslategrey | lightsteelblue | lightyellow | lime | limegreen | linen | magenta | maroon | mediumaquamarine | mediumblue | mediumorchid | mediumpurple | mediumseagreen | mediumslateblue | mediumspringgreen | mediumturquoise | mediumvioletred | midnightblue | mintcream | mistyrose | moccasin | navajowhite | navy | oldlace | olive | olivedrab | orange | orangered | orchid | palegoldenrod | palegreen | paleturquoise | palevioletred | papayawhip | peachpuff | peru | pink | plum | powderblue | purple | rebeccapurple | red | rosybrown | royalblue | saddlebrown | salmon | sandybrown | seagreen | seashell | sienna | silver | skyblue | slateblue | slategray | slategrey | snow | springgreen | steelblue | tan | teal | thistle | tomato | turquoise | violet | wheat | white | whitesmoke | yellow | yellowgreen | transparent ;
+NamedColorType = "aliceblue" | "antiquewhite" | "aqua" | "aquamarine" | "azure" | "beige" | "bisque" | "black" | "blanchedalmond" | "blue" | "blueviolet" | "brown" | "burlywood" | "cadetblue" | "chartreuse" | "chocolate" | "coral" | "cornflowerblue" | "cornsilk" | "crimson" | "cyan" | "darkblue" | "darkcyan" | "darkgoldenrod" | "darkgray" | "darkgreen" | "darkgrey" | "darkkhaki" | "darkmagenta" | "darkolivegreen" | "darkorange" | "darkorchid" | "darkred" | "darksalmon" | "darkseagreen" | "darkslateblue" | "darkslategray" | "darkslategrey" | "darkturquoise" | "darkviolet" | "deeppink" | "deepskyblue" | "dimgray" | "dimgrey" | "dodgerblue" | "firebrick" | "floralwhite" | "forestgreen" | "fuchsia" | "gainsboro" | "ghostwhite" | "gold" | "goldenrod" | "gray" | "green" | "greenyellow" | "grey" | "honeydew" | "hotpink" | "indianred" | "indigo" | "ivory" | "khaki" | "lavender" | "lavenderblush" | "lawngreen" | "lemonchiffon" | "lightblue" | "lightcoral" | "lightcyan" | "lightgoldenrodyellow" | "lightgray" | "lightgreen" | "lightgrey" | "lightpink" | "lightsalmon" | "lightseagreen" | "lightskyblue" | "lightslategray" | "lightslategrey" | "lightsteelblue" | "lightyellow" | "lime" | "limegreen" | "linen" | "magenta" | "maroon" | "mediumaquamarine" | "mediumblue" | "mediumorchid" | "mediumpurple" | "mediumseagreen" | "mediumslateblue" | "mediumspringgreen" | "mediumturquoise" | "mediumvioletred" | "midnightblue" | "mintcream" | "mistyrose" | "moccasin" | "navajowhite" | "navy" | "oldlace" | "olive" | "olivedrab" | "orange" | "orangered" | "orchid" | "palegoldenrod" | "palegreen" | "paleturquoise" | "palevioletred" | "papayawhip" | "peachpuff" | "peru" | "pink" | "plum" | "powderblue" | "purple" | "rebeccapurple" | "red" | "rosybrown" | "royalblue" | "saddlebrown" | "salmon" | "sandybrown" | "seagreen" | "seashell" | "sienna" | "silver" | "skyblue" | "slateblue" | "slategray" | "slategrey" | "snow" | "springgreen" | "steelblue" | "tan" | "teal" | "thistle" | "tomato" | "turquoise" | "violet" | "wheat" | "white" | "whitesmoke" | "yellow" | "yellowgreen" | "transparent" ;
 ColorMixFnItem = ( ColorType , [ PercentageType ] ) ;
 
 (* <deprecated-color> *)
-DeprecatedColorType = activeborder | activecaption | appworkspace | background | buttonhighlight | buttonshadow | captiontext | inactiveborder | inactivecaption | inactivecaptiontext | infobackground | infotext | menu | menutext | scrollbar | threeddarkshadow | threedface | threedhighlight | threedlightshadow | threedshadow | window | windowframe | windowtext ;
+DeprecatedColorType = "activeborder" | "activecaption" | "appworkspace" | "background" | "buttonhighlight" | "buttonshadow" | "captiontext" | "inactiveborder" | "inactivecaption" | "inactivecaptiontext" | "infobackground" | "infotext" | "menu" | "menutext" | "scrollbar" | "threeddarkshadow" | "threedface" | "threedhighlight" | "threedlightshadow" | "threedshadow" | "window" | "windowframe" | "windowtext" ;
 
 (* <target-contrast> *)
 TargetContrastType = Wcag2Type ;
 
 (* <legacy-device-cmyk-syntax> *)
-LegacyDeviceCmykSyntaxType = device_cmyk , left_parenthesis_symbol , NumberType , comma_symbol , NumberType , comma_symbol , NumberType , comma_symbol , NumberType , right_parenthesis_symbol ;
+LegacyDeviceCmykSyntaxType = "device-cmyk" , "(" , NumberType , "," , NumberType , "," , NumberType , "," , NumberType , ")" ;
 
 (* <modern-device-cmyk-syntax> *)
-ModernDeviceCmykSyntaxType = device_cmyk , left_parenthesis_symbol , CmykComponentType , CmykComponentType , CmykComponentType , CmykComponentType , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
+ModernDeviceCmykSyntaxType = "device-cmyk" , "(" , CmykComponentType , CmykComponentType , CmykComponentType , CmykComponentType , [ "/" , ( AlphaValueType | "none" ) ] , ")" ;
 HdrColorFnItem = ( ColorType , [ NumberType ] ) ;
 
 (* <color-interpolation-method> *)
-ColorInterpolationMethodType = in , ( RectangularColorSpaceType | PolarColorSpaceType , [ HueInterpolationMethodType ] | CustomColorSpaceType ) ;
+ColorInterpolationMethodType = "in" , ( RectangularColorSpaceType | PolarColorSpaceType , [ HueInterpolationMethodType ] | CustomColorSpaceType ) ;
 
 (* <wcag2> *)
-Wcag2Type = wcag2 , [ left_parenthesis_symbol , ( NumberType | ( aa | aaa ) , [ large ] ) , right_parenthesis_symbol ] ;
+Wcag2Type = "wcag2" , [ "(" , ( NumberType | ( "aa" | "aaa" ) , [ "large" ] ) , ")" ] ;
 
 (* <cmyk-component> *)
-CmykComponentType = NumberType | PercentageType | none ;
+CmykComponentType = NumberType | PercentageType | "none" ;
 
 (* <legacy-rgb-syntax> *)
-LegacyRgbSyntaxType = rgb , left_parenthesis_symbol , PercentageType , comma_symbol , PercentageType , comma_symbol , PercentageType , comma_symbol , [ AlphaValueType ] , right_parenthesis_symbol | rgb , left_parenthesis_symbol , NumberType , comma_symbol , NumberType , comma_symbol , NumberType , comma_symbol , [ AlphaValueType ] , right_parenthesis_symbol ;
+LegacyRgbSyntaxType = "rgb" , "(" , PercentageType , "," , PercentageType , "," , PercentageType , "," , [ AlphaValueType ] , ")" | "rgb" , "(" , NumberType , "," , NumberType , "," , NumberType , "," , [ AlphaValueType ] , ")" ;
 
 (* <modern-rgb-syntax> *)
-ModernRgbSyntaxType = rgb , left_parenthesis_symbol , [ from , ColorType ] , ModernRgbSyntaxItem , ModernRgbSyntaxItem , ModernRgbSyntaxItem , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
-ModernRgbSyntaxItem = ( PercentageType | NumberType | none ) ;
+ModernRgbSyntaxType = "rgb" , "(" , [ "from" , ColorType ] , ModernRgbSyntaxItem , ModernRgbSyntaxItem , ModernRgbSyntaxItem , [ "/" , ( AlphaValueType | "none" ) ] , ")" ;
+ModernRgbSyntaxItem = ( PercentageType | NumberType | "none" ) ;
 
 (* <legacy-rgba-syntax> *)
-LegacyRgbaSyntaxType = rgba , left_parenthesis_symbol , PercentageType , comma_symbol , PercentageType , comma_symbol , PercentageType , comma_symbol , [ AlphaValueType ] , right_parenthesis_symbol | rgba , left_parenthesis_symbol , NumberType , comma_symbol , NumberType , comma_symbol , NumberType , comma_symbol , [ AlphaValueType ] , right_parenthesis_symbol ;
+LegacyRgbaSyntaxType = "rgba" , "(" , PercentageType , "," , PercentageType , "," , PercentageType , "," , [ AlphaValueType ] , ")" | "rgba" , "(" , NumberType , "," , NumberType , "," , NumberType , "," , [ AlphaValueType ] , ")" ;
 
 (* <modern-rgba-syntax> *)
-ModernRgbaSyntaxType = rgba , left_parenthesis_symbol , [ from , ColorType ] , ModernRgbaSyntaxItem , ModernRgbaSyntaxItem , ModernRgbaSyntaxItem , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
-ModernRgbaSyntaxItem = ( PercentageType | NumberType | none ) ;
+ModernRgbaSyntaxType = "rgba" , "(" , [ "from" , ColorType ] , ModernRgbaSyntaxItem , ModernRgbaSyntaxItem , ModernRgbaSyntaxItem , [ "/" , ( AlphaValueType | "none" ) ] , ")" ;
+ModernRgbaSyntaxItem = ( PercentageType | NumberType | "none" ) ;
 
 (* <legacy-hsl-syntax> *)
-LegacyHslSyntaxType = hsl , left_parenthesis_symbol , HueType , comma_symbol , PercentageType , comma_symbol , PercentageType , [ comma_symbol , AlphaValueType ] , right_parenthesis_symbol ;
+LegacyHslSyntaxType = "hsl" , "(" , HueType , "," , PercentageType , "," , PercentageType , [ "," , AlphaValueType ] , ")" ;
 
 (* <modern-hsl-syntax> *)
-ModernHslSyntaxType = hsl , left_parenthesis_symbol , [ from , ColorType ] , ( HueType | none ) , ( PercentageType | NumberType | none ) , ( PercentageType | NumberType | none ) , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
+ModernHslSyntaxType = "hsl" , "(" , [ "from" , ColorType ] , ( HueType | "none" ) , ( PercentageType | NumberType | "none" ) , ( PercentageType | NumberType | "none" ) , [ "/" , ( AlphaValueType | "none" ) ] , ")" ;
 
 (* <legacy-hsla-syntax> *)
-LegacyHslaSyntaxType = hsla , left_parenthesis_symbol , HueType , comma_symbol , PercentageType , comma_symbol , PercentageType , [ comma_symbol , AlphaValueType ] , right_parenthesis_symbol ;
+LegacyHslaSyntaxType = "hsla" , "(" , HueType , "," , PercentageType , "," , PercentageType , [ "," , AlphaValueType ] , ")" ;
 
 (* <modern-hsla-syntax> *)
-ModernHslaSyntaxType = hsla , left_parenthesis_symbol , [ from , ColorType ] , ( HueType | none ) , ( PercentageType | NumberType | none ) , ( PercentageType | NumberType | none ) , [ solidus_symbol , ( AlphaValueType | none ) ] , right_parenthesis_symbol ;
+ModernHslaSyntaxType = "hsla" , "(" , [ "from" , ColorType ] , ( HueType | "none" ) , ( PercentageType | NumberType | "none" ) , ( PercentageType | NumberType | "none" ) , [ "/" , ( AlphaValueType | "none" ) ] , ")" ;
 
 (* <hue> *)
 HueType = AngleType | NumberType ;
@@ -212,72 +230,74 @@ HueType = AngleType | NumberType ;
 ColorspaceParamsType = CustomParamsType | PredefinedRgbParamsType | XyzParamsType ;
 
 (* <rectangular-color-space> *)
-RectangularColorSpaceType = sRGB | srgb_linear | display_p3 | display_p3_linear | a98_rgb | prophoto_rgb | rec2020 | lab | oklab | XyzSpaceType ;
+RectangularColorSpaceType = "srgb" | "srgb-linear" | "display-p3" | "display-p3-linear" | "a98-rgb" | "prophoto-rgb" | "rec2020" | "lab" | "oklab" | XyzSpaceType ;
 
 (* <polar-color-space> *)
-PolarColorSpaceType = hsl | hwb | lch | oklch ;
+PolarColorSpaceType = "hsl" | "hwb" | "lch" | "oklch" ;
 
 (* <hue-interpolation-method> *)
-HueInterpolationMethodType = ( shorter | longer | increasing | decreasing | VarFn ) , hue ;
+HueInterpolationMethodType = ( "shorter" | "longer" | "increasing" | "decreasing" | VarFn ) , "hue" ;
 
 (* <custom-color-space> *)
 CustomColorSpaceType = dashed_ident_type ;
 
 (* <custom-params> *)
 CustomParamsType = dashed_ident_type , CustomParamsItem , { CustomParamsItem } ;
-CustomParamsItem = ( NumberType | PercentageType | none ) ;
+CustomParamsItem = ( NumberType | PercentageType | "none" ) ;
 
 (* <predefined-rgb-params> *)
 PredefinedRgbParamsType = PredefinedRgbType , PredefinedRgbParamsItem , PredefinedRgbParamsItem , PredefinedRgbParamsItem ;
-PredefinedRgbParamsItem = ( NumberType | PercentageType | none ) ;
+PredefinedRgbParamsItem = ( NumberType | PercentageType | "none" ) ;
 
 (* <xyz-params> *)
 XyzParamsType = XyzSpaceType , XyzParamsItem , XyzParamsItem , XyzParamsItem ;
-XyzParamsItem = ( NumberType | PercentageType | none ) ;
+XyzParamsItem = ( NumberType | PercentageType | "none" ) ;
 
 (* <xyz-space> *)
-XyzSpaceType = xyz | xyz_d50 | xyz_d65 ;
+XyzSpaceType = "xyz" | "xyz-d50" | "xyz-d65" ;
 
 (* <predefined-rgb> *)
-PredefinedRgbType = sRGB | srgb_linear | display_p3 | display_p3_linear | a98_rgb | prophoto_rgb | rec2020 | rec2100_pq | rec2100_hlg | rec2100_linear ;
+PredefinedRgbType = "srgb" | "srgb-linear" | "display-p3" | "display-p3-linear" | "a98-rgb" | "prophoto-rgb" | "rec2020" | "rec2100-pq" | "rec2100-hlg" | "rec2100-linear" ;
 
 (* <corner-shape-value> *)
-CornerShapeValueType = round | scoop | bevel | notch | square | squircle | SuperellipseFn ;
+CornerShapeValueType = "round" | "scoop" | "bevel" | "notch" | "square" | "squircle" | SuperellipseFn ;
 
 (* <display-box> *)
-DisplayBoxType = contents | none ;
+DisplayBoxType = "contents" | "none" ;
 
 (* <display-inside> *)
-DisplayInsideType = flow | flow_root | table | flex | grid | ruby ;
+DisplayInsideType = "flow" | "flow-root" | "table" | "flex" | "grid" | "ruby" ;
 
 (* <display-internal> *)
-DisplayInternalType = table_row_group | table_header_group | table_footer_group | table_row | table_cell | table_column_group | table_column | table_caption | ruby_base | ruby_text | ruby_base_container | ruby_text_container ;
+DisplayInternalType = "table-row-group" | "table-header-group" | "table-footer-group" | "table-row" | "table-cell" | "table-column-group" | "table-column" | "table-caption" | "ruby-base" | "ruby-text" | "ruby-base-container" | "ruby-text-container" ;
 
 (* <display-legacy> *)
-DisplayLegacyType = inline_block | inline_table | inline_flex | inline_grid ;
+DisplayLegacyType = "inline-block" | "inline-table" | "inline-flex" | "inline-grid" ;
 
 (* <display-listitem> *)
-DisplayListitemType = [ DisplayOutsideType ] , [ ( flow | flow_root ) ] , list_item ;
+DisplayListitemType = [ DisplayOutsideType ] , [ ( "flow" | "flow-root" ) ] , "list-item" ;
 
 (* <display-outside> *)
-DisplayOutsideType = block | inline | run_in ;
+DisplayOutsideType = "block" | "inline" | "run-in" ;
 
 (* <easing-function> *)
 EasingFunctionType = LinearEasingFunctionType | CubicBezierEasingFunctionType | StepEasingFunctionType ;
 
 (* <linear-easing-function> *)
-LinearEasingFunctionType = linear | LinearFn ;
+LinearEasingFunctionType = "linear" | LinearFn ;
 
 (* <cubic-bezier-easing-function> *)
-CubicBezierEasingFunctionType = ease | ease_in | ease_out | ease_in_out | CubicBezierFn ;
+CubicBezierEasingFunctionType = "ease" | "ease-in" | "ease-out" | "ease-in-out" | CubicBezierFn ;
 
 (* <step-easing-function> *)
-StepEasingFunctionType = step_start | step_end | StepsFn ;
+StepEasingFunctionType = "step-start" | "step-end" | StepsFn ;
 LinearFnItem = ( NumberType , [ PercentageType ] , [ PercentageType ] ) ;
-CubicBezierFnItem = NumberType , comma_symbol , NumberType ;
+(* cubic-bezier( <x1> <y1> , <x2> <y2> ) — the control-point x (first of each
+   pair) must be in [0,1]; y is unrestricted. *)
+CubicBezierFnItem = CubicBezierProgressType , "," , NumberType ;
 
 (* <step-position> *)
-StepPositionType = jump_start | jump_end | jump_none | jump_both | start | end ;
+StepPositionType = "jump-start" | "jump-end" | "jump-none" | "jump-both" | "start" | "end" ;
 
 (* <filter-function> *)
 FilterFunctionType = BlurFn | BrightnessFn | ContrastFn | DropShadowFn | GrayscaleFn | HueRotateFn | InvertFn | OpacityFn | SepiaFn | SaturateFn ;
@@ -286,59 +306,59 @@ FilterFunctionType = BlurFn | BrightnessFn | ContrastFn | DropShadowFn | Graysca
 FrequencyPercentageType = FrequencyType | PercentageType ;
 
 (* <generic-family> *)
-GenericFamilyType = serif | sans_serif | monospace | cursive | fantasy | system_ui | ui_serif | ui_sans_serif | ui_monospace | ui_rounded | math | fangsong ;
+GenericFamilyType = "serif" | "sans-serif" | "monospace" | "cursive" | "fantasy" | "system-ui" | "ui-serif" | "ui-sans-serif" | "ui-monospace" | "ui-rounded" | "math" | "fangsong" ;
 
 (* <gradient> *)
 GradientType = LinearGradientFn | RepeatingLinearGradientFn | RadialGradientFn | RepeatingRadialGradientFn | ConicGradientFn | RepeatingConicGradientFn ;
 
 (* <linear-gradient-syntax> *)
-LinearGradientDirection = AngleType | MathFunctionType | "0" | to , SideOrCornerType ;
+LinearGradientDirection = AngleType | MathFunctionType | "0" | "to" , SideOrCornerType ;
 LinearGradientSyntaxType =
     [ ( ( LinearGradientDirection , [ ColorInterpolationMethodType ]
         | ColorInterpolationMethodType , [ LinearGradientDirection ]
-        ) , comma_symbol )
+        ) , "," )
     ] , ColorStopListType ;
 
 (* <radial-gradient-syntax> *)
-RadialGradientHeader = ( [ RadialShapeType ] , [ RadialSizeType ] ) , [ at , PositionType ] ;
+RadialGradientHeader = ( [ RadialShapeType ] , [ RadialSizeType ] ) , [ "at" , PositionType ] ;
 RadialGradientSyntaxType =
     [ ( ( RadialGradientHeader , [ ColorInterpolationMethodType ]
         | ColorInterpolationMethodType , [ RadialGradientHeader ]
-        ) , comma_symbol )
+        ) , "," )
     ] , ColorStopListType ;
 
 (* <conic-gradient-syntax> *)
-ConicGradientHeader = [ from , ( AngleType | MathFunctionType | "0" ) ] , [ at , PositionType ] ;
+ConicGradientHeader = [ "from" , ( AngleType | MathFunctionType | "0" ) ] , [ "at" , PositionType ] ;
 ConicGradientSyntaxType =
     [ ( ( ConicGradientHeader , [ ColorInterpolationMethodType ]
         | ColorInterpolationMethodType , [ ConicGradientHeader ]
-        ) , comma_symbol )
+        ) , "," )
     ] , AngularColorStopListType ;
 
 (* <side-or-corner> *)
 SideOrCornerType =
-    ( left | right ) , [ ( top | bottom ) ]
-    | ( top | bottom ) , [ ( left | right ) ] ;
+    ( "left" | "right" ) , [ ( "top" | "bottom" ) ]
+    | ( "top" | "bottom" ) , [ ( "left" | "right" ) ] ;
 
 (* <color-stop-list> *)
-ColorStopListType = LinearColorStopType , { comma_symbol , [ LinearColorHintType , comma_symbol ] , LinearColorStopType } ;
-ColorStopListItem = [ LinearColorHintType , comma_symbol ] , LinearColorStopType ;
+ColorStopListType = LinearColorStopType , { "," , [ LinearColorHintType , "," ] , LinearColorStopType } ;
+ColorStopListItem = [ LinearColorHintType , "," ] , LinearColorStopType ;
 
 (* <radial-shape> *)
-RadialShapeType = circle | ellipse ;
+RadialShapeType = "circle" | "ellipse" ;
 
 (* <radial-size> *)
 RadialSizeType = RadialExtentType | LengthType | LengthPercentageType , LengthPercentageType ;
 
 (* <shape-radius> — for circle() and ellipse() *)
-ShapeRadiusType = NonNegativeLengthPercentageType | closest_side | farthest_side ;
+ShapeRadiusType = NonNegativeLengthPercentageType | "closest-side" | "farthest-side" ;
 
 (* <position> *)
 PositionType = PositionOneType | PositionTwoType | PositionFourType ;
 
 (* <angular-color-stop-list> *)
-AngularColorStopListType = AngularColorStopType , { comma_symbol , [ AngularColorHintType , comma_symbol ] , AngularColorStopType } ;
-AngularColorStopListItem = [ AngularColorHintType , comma_symbol ] , AngularColorStopType ;
+AngularColorStopListType = AngularColorStopType , { "," , [ AngularColorHintType , "," ] , AngularColorStopType } ;
+AngularColorStopListItem = [ AngularColorHintType , "," ] , AngularColorStopType ;
 
 (* <linear-color-stop> *)
 LinearColorStopType = ColorType , [ ColorStopLengthType ] ;
@@ -347,7 +367,7 @@ LinearColorStopType = ColorType , [ ColorStopLengthType ] ;
 LinearColorHintType = LengthPercentageType ;
 
 (* <radial-extent> *)
-RadialExtentType = closest_corner | closest_side | farthest_corner | farthest_side ;
+RadialExtentType = "closest-corner" | "closest-side" | "farthest-corner" | "farthest-side" ;
 
 (* Math functions valid where a <length>/<dimension> is expected: only the
    type-preserving / length-resolving ones. Per CSS Values 4 the trig/number
@@ -361,21 +381,21 @@ MathFunctionType = CalcFn | ClampFn | MinFn | MaxFn | RoundFn | AbsFn ;
 LengthPercentageType = length_type | percentage_type | MathFunctionType | LengthPercentageVarFn | EnvFn ;
 
 (* <position-one> *)
-PositionOneType = left | center | right | top | bottom | x_start | x_end | y_start | y_end | block_start | block_end | inline_start | inline_end | LengthPercentageType ;
+PositionOneType = "left" | "center" | "right" | "top" | "bottom" | "x-start" | "x-end" | "y-start" | "y-end" | "block-start" | "block-end" | "inline-start" | "inline-end" | LengthPercentageType ;
 
 (* <position-two> — horizontal then vertical, OR vertical then horizontal *)
 PositionTwoType =
-    ( left | center | right | x_start | x_end ) , ( top | center | bottom | y_start | y_end )
-    | ( top | center | bottom | y_start | y_end ) , ( left | center | right | x_start | x_end )
-    | ( left | center | right | x_start | x_end | LengthPercentageType ) , ( top | center | bottom | y_start | y_end | LengthPercentageType )
-    | ( top | center | bottom | y_start | y_end | LengthPercentageType ) , ( left | center | right | x_start | x_end | LengthPercentageType )
-    | ( block_start | center | block_end ) , ( inline_start | center | inline_end )
+    ( "left" | "center" | "right" | "x-start" | "x-end" ) , ( "top" | "center" | "bottom" | "y-start" | "y-end" )
+    | ( "top" | "center" | "bottom" | "y-start" | "y-end" ) , ( "left" | "center" | "right" | "x-start" | "x-end" )
+    | ( "left" | "center" | "right" | "x-start" | "x-end" | LengthPercentageType ) , ( "top" | "center" | "bottom" | "y-start" | "y-end" | LengthPercentageType )
+    | ( "top" | "center" | "bottom" | "y-start" | "y-end" | LengthPercentageType ) , ( "left" | "center" | "right" | "x-start" | "x-end" | LengthPercentageType )
+    | ( "block-start" | "center" | "block-end" ) , ( "inline-start" | "center" | "inline-end" )
     | PositionTwoItem , PositionTwoItem ;
-PositionTwoItem = ( start | center | end ) ;
+PositionTwoItem = ( "start" | "center" | "end" ) ;
 
 (* <position-four> *)
-PositionFourType = ( left | right | x_start | x_end ) , LengthPercentageType , ( top | bottom | y_start | y_end ) , LengthPercentageType | ( block_start | block_end ) , LengthPercentageType , ( inline_start | inline_end ) , LengthPercentageType | PositionFourItem , PositionFourItem ;
-PositionFourItem = ( start | end ) , LengthPercentageType ;
+PositionFourType = ( "left" | "right" | "x-start" | "x-end" ) , LengthPercentageType , ( "top" | "bottom" | "y-start" | "y-end" ) , LengthPercentageType | ( "block-start" | "block-end" ) , LengthPercentageType , ( "inline-start" | "inline-end" ) , LengthPercentageType | PositionFourItem , PositionFourItem ;
+PositionFourItem = ( "start" | "end" ) , LengthPercentageType ;
 
 (* <angular-color-stop> *)
 AngularColorStopType = ColorType , [ ColorStopAngleType ] ;
@@ -394,7 +414,7 @@ ColorStopAngleItem = ( AnglePercentageType | "0" ) ;
 ImageType = UrlType | ImageFn | ImageSetFn | CrossFadeFn | ElementFn | GradientType | LightDarkImageFn ;
 
 (* <image-tags> *)
-ImageTagsType = ltr | rtl ;
+ImageTagsType = "ltr" | "rtl" ;
 
 (* <image-src> *)
 ImageSrcType = UrlType | string_type ;
@@ -406,58 +426,58 @@ ImageSetOptionType = ( ImageType | string_type ) , [ ( [ ResolutionType ] , [ Ty
 CfImageType = ( ImageType | ColorType ) , [ PercentageType ] ;
 
 (* <id-selector> *)
-IdSelectorType = number_sign_symbol , ident_type ;
+IdSelectorType = "#" , ident_type ;
 
 (* <line-style> *)
-LineStyleType = solid | none | hidden | dotted | dashed | double | groove | ridge | inset | outset ;
+LineStyleType = "solid" | "none" | "hidden" | "dotted" | "dashed" | "double" | "groove" | "ridge" | "inset" | "outset" ;
 
 (* <ratio> *)
-RatioType = NumberType , [ solidus_symbol , NumberType ] ;
+RatioType = NumberType , [ "/" , NumberType ] ;
 
 (* <text-edge> *)
-TextEdgeType = ( text | ideographic | ideographic_ink ) | ( text | ideographic | ideographic_ink | cap | ex ) , ( text | ideographic | ideographic_ink | alphabetic ) ;
+TextEdgeType = ( "text" | "ideographic" | "ideographic-ink" ) | ( "text" | "ideographic" | "ideographic-ink" | "cap" | "ex" ) , ( "text" | "ideographic" | "ideographic-ink" | "alphabetic" ) ;
 
 (* <timeline-range-name> *)
-TimelineRangeNameType = cover | contain | entry | exit | entry_crossing | exit_crossing ;
+TimelineRangeNameType = "cover" | "contain" | "entry" | "exit" | "entry-crossing" | "exit-crossing" ;
 
 (* <time-percentage> *)
 TimePercentageType = TimeType | PercentageType ;
 
 (* <baseline-position> — [ first | last ]? && baseline *)
-BaselinePositionType = [ ( first | last ) ] , baseline ;
+BaselinePositionType = [ ( "first" | "last" ) ] , "baseline" ;
 
 (* <content-distribution> — space-between | space-around | space-evenly | stretch *)
-ContentDistributionType = space_between | space_around | space_evenly | stretch ;
+ContentDistributionType = "space-between" | "space-around" | "space-evenly" | "stretch" ;
 
 (* <content-position> — center | start | end | flex-start | flex-end *)
-ContentPositionType = center | start | end | flex_start | flex_end ;
+ContentPositionType = "center" | "start" | "end" | "flex-start" | "flex-end" ;
 
 (* <overflow-position> — unsafe | safe *)
-OverflowPositionType = unsafe | safe ;
+OverflowPositionType = "unsafe" | "safe" ;
 
 (* <overflow> — visible | hidden | clip | scroll | auto *)
-OverflowType = visible | hidden | clip | scroll | auto ;
+OverflowType = "visible" | "hidden" | "clip" | "scroll" | "auto" ;
 
 (* <relative-size> — smaller | larger *)
-RelativeSizeType = smaller | larger ;
+RelativeSizeType = "smaller" | "larger" ;
 
 (* <self-position> — center | start | end | self-start | self-end | flex-start | flex-end *)
-SelfPositionType = center | start | end | self_start | self_end | flex_start | flex_end ;
+SelfPositionType = "center" | "start" | "end" | "self-start" | "self-end" | "flex-start" | "flex-end" ;
 
 (* <url> — url( <string> ) *)
-UrlType = url , left_parenthesis_symbol , [ string_type ] , right_parenthesis_symbol ;
+UrlType = "url" , "(" , [ string_type ] , ")" ;
 
 (* <url-set> — restricted image-set() where <image> is limited to <url> strings only.
    Per CSS UI Level 4, support for the broader <image> type is "allowed but optional",
    so aliasing to ImageSetFn (which accepts the full image-set syntax) is within spec.
    No MDN page exists; defined in drafts.csswg.org/css-ui-4/#cursor. *)
 UrlSetType = ImageSetFn ;
-VisualBoxType   = content_box | padding_box | border_box ;
-ShapeBoxType    = VisualBoxType | margin_box ;
+VisualBoxType   = "content-box" | "padding-box" | "border-box" ;
+ShapeBoxType    = VisualBoxType | "margin-box" ;
 LayoutBoxType   = ShapeBoxType ;
-PaintBoxType    = VisualBoxType | fill_box | stroke_box ;
-CoordBoxType    = PaintBoxType | view_box ;
-GeometryBoxType = ShapeBoxType | fill_box | stroke_box | view_box ;
+PaintBoxType    = VisualBoxType | "fill-box" | "stroke-box" ;
+CoordBoxType    = PaintBoxType | "view-box" ;
+GeometryBoxType = ShapeBoxType | "fill-box" | "stroke-box" | "view-box" ;
 BoxEdgeType     = GeometryBoxType | CoordBoxType ;
 PositionAreaType =
     [ PositionAreaX ] , [ PositionAreaY ]
@@ -465,62 +485,62 @@ PositionAreaType =
   | [ PositionAreaSelfBlockKw ] , [ PositionAreaSelfInlineKw ] ;
 
 PositionAreaX =
-  left | center | right | span_left | span_right
-  | x_start | x_end | span_x_start | span_x_end
-  | self_x_start | self_x_end | span_self_x_start | span_self_x_end
-  | span_all ;
+  "left" | "center" | "right" | "span-left" | "span-right"
+  | "x-start" | "x-end" | "span-x-start" | "span-x-end"
+  | "self-x-start" | "self-x-end" | "span-self-x-start" | "span-self-x-end"
+  | "span-all" ;
 
 PositionAreaY =
-  top | center | bottom | span_top | span_bottom
-  | y_start | y_end | span_y_start | span_y_end
-  | self_y_start | self_y_end | span_self_y_start | span_self_y_end
-  | span_all ;
+  "top" | "center" | "bottom" | "span-top" | "span-bottom"
+  | "y-start" | "y-end" | "span-y-start" | "span-y-end"
+  | "self-y-start" | "self-y-end" | "span-self-y-start" | "span-self-y-end"
+  | "span-all" ;
 
 PositionAreaBlockKw =
-  block_start | center | block_end | span_block_start | span_block_end | span_all ;
+  "block-start" | "center" | "block-end" | "span-block-start" | "span-block-end" | "span-all" ;
 
 PositionAreaInlineKw =
-  inline_start | center | inline_end | span_inline_start | span_inline_end | span_all ;
+  "inline-start" | "center" | "inline-end" | "span-inline-start" | "span-inline-end" | "span-all" ;
 
 PositionAreaSelfBlockKw =
-  self_block_start | self_block_end | span_self_block_start | span_self_block_end | span_all ;
+  "self-block-start" | "self-block-end" | "span-self-block-start" | "span-self-block-end" | "span-all" ;
 
 PositionAreaSelfInlineKw =
-  self_inline_start | self_inline_end | span_self_inline_start | span_self_inline_end | span_all ;
+  "self-inline-start" | "self-inline-end" | "span-self-inline-start" | "span-self-inline-end" | "span-all" ;
 
 (* <angle> — <number> + angle unit; 0 is valid without unit *)
 angle_type      = "0" | angle_value ;
 angle_value = number_type , angle_unit ;
-angle_unit = deg | grad | rad | turn ;
+angle_unit = "deg" | "grad" | "rad" | "turn" ;
 
 (* <dimension> — <number> immediately followed by a unit identifier (generic) *)
 DimensionType = length_type | angle_type | time_type | frequency_type | resolution_type | flex_type ;
 
 (* <flex> — <number> fr *)
-flex_type = number_type , fr ;
+flex_type = number_type , "fr" ;
 
 (* <frequency> — <number> + Hz or kHz *)
 frequency_type      = number_type , frequency_unit ;
-frequency_unit = hz | khz ;
+frequency_unit = "Hz" | "kHz" ;
 
 (* <resolution> — strictly positive <number> + unit *)
 resolution_type      = number_type , resolution_unit ;
-resolution_unit = dpi | dpcm | dppx | "x" ;
+resolution_unit = "dpi" | "dpcm" | "dppx" | "x" ;
 
 (* <calc-keyword> — numeric constants usable in CSS math functions *)
-calc_keyword_type = "e" | pi | infinity | negative_infinity | NaN ;
+calc_keyword_type = "e" | "pi" | "infinity" | "-infinity" | "NaN" ;
 ident_type     = ident_start , { ident_continue } ;
-ident_start    = letter | low_line_symbol | "" ... "￿" | "𐀀" ... "􏿿" ;
-ident_continue = letter | digit | low_line_symbol | hyphen_symbol | "" ... "￿" | "𐀀" ... "􏿿" ;
+ident_start    = letter | "_" | "" ... "￿" | "𐀀" ... "􏿿" ;
+ident_continue = letter | digit | "_" | "-" | "" ... "￿" | "𐀀" ... "􏿿" ;
 
 (* <custom-ident> — user-defined, case-sensitive identifier (structurally same as ident) *)
 custom_ident_type = ident_type ;
 
 (* <dashed-ident> — custom Property name: two dashes followed by an identifier *)
-dashed_ident_type = double_hyphen_symbol , ident_type ;
+dashed_ident_type = "--" , ident_type ;
 
 (* <hex-color> — # followed by 3, 4, 6, or 8 hex digits (longest match first) *)
-hex_color_type   = number_sign_symbol , ( hex_color_8 | hex_color_6 | hex_color_4 | hex_color_3 ) ;
+hex_color_type   = "#" , ( hex_color_8 | hex_color_6 | hex_color_4 | hex_color_3 ) ;
 hex_color_3 = hex_digit , hex_digit , hex_digit ;
 hex_color_4 = hex_digit , hex_digit , hex_digit , hex_digit ;
 hex_color_6 = hex_digit , hex_digit , hex_digit , hex_digit , hex_digit , hex_digit ;
@@ -531,10 +551,10 @@ hex_color_8 = hex_digit , hex_digit , hex_digit , hex_digit
 string_type = string_literal ;
 
 (* <calc-sum> = <calc-product> [ [ '+' | '-' ] <calc-product> ]* *)
-CalcSumType = CalcProductType , { ( plus_sign_symbol | hyphen_symbol ) , CalcProductType } ;
+CalcSumType = CalcProductType , { ( "+" | "-" ) , CalcProductType } ;
 
 (* <calc-product> = <calc-value> [ [ '*' | '/' ] <calc-value> ]* *)
-CalcProductType = CalcValueType , { ( asterisk_symbol | solidus_symbol ) , CalcValueType } ;
+CalcProductType = CalcValueType , { ( "*" | "/" ) , CalcValueType } ;
 
 (* <calc-value> = <number> | <dimension> | <percentage> | <calc-keyword> | ( <calc-sum> )
    Browsers also allow var(), env(), anchor(), anchor-size(), and math functions as calc values
@@ -544,7 +564,7 @@ CalcProductType = CalcValueType , { ( asterisk_symbol | solidus_symbol ) , CalcV
    calc(1) — and the per-position cycling then varies the operands. *)
 CalcValueType = DimensionType | percentage_type | number_type | calc_keyword_type
               | MathFunctionType | VarFn | EnvFn | AnchorFn | AnchorSizeFn
-              | ( left_parenthesis_symbol , CalcSumType , right_parenthesis_symbol ) ;
+              | ( "(" , CalcSumType , ")" ) ;
 
 (* <transform-list> *)
 TransformListType = TransformFunctionType , { TransformFunctionType } ;
@@ -564,52 +584,52 @@ BasicShapeType =
   | PathFn | ShapeFn | RectFn | XywhFn ;
 
 (* Shared: fill-rule and border-radius *)
-FillRuleType = nonzero | evenodd ;
+FillRuleType = "nonzero" | "evenodd" ;
 
 (* <border-radius> = <length-percentage [0,∞]>{1,4} [ / <length-percentage [0,∞]>{1,4} ]? *)
 BorderRadiusType =
     NonNegativeLengthPercentageType , [ NonNegativeLengthPercentageType ] , [ NonNegativeLengthPercentageType ] , [ NonNegativeLengthPercentageType ]
-  , [ solidus_symbol , NonNegativeLengthPercentageType , [ NonNegativeLengthPercentageType ] , [ NonNegativeLengthPercentageType ] , [ NonNegativeLengthPercentageType ] ] ;
+  , [ "/" , NonNegativeLengthPercentageType , [ NonNegativeLengthPercentageType ] , [ NonNegativeLengthPercentageType ] , [ NonNegativeLengthPercentageType ] ] ;
 
 (* <shape-command> *)
 ShapeCommandType =
-    MoveCommandType | LineCommandType | close
+    MoveCommandType | LineCommandType | "close"
   | HorizontalLineCommandType | VerticalLineCommandType
   | CurveCommandType | SmoothCommandType | ArcCommandType ;
 
 (* move <command-end-point> *)
-MoveCommandType = move , CommandEndPointType ;
+MoveCommandType = "move" , CommandEndPointType ;
 
 (* line <command-end-point> *)
-LineCommandType = line , CommandEndPointType ;
+LineCommandType = "line" , CommandEndPointType ;
 
 (* <command-end-point> = to <position> | by <coordinate-pair> *)
-CommandEndPointType = ( to , PositionType ) | ( by , CoordinatePairType ) ;
+CommandEndPointType = ( "to" , PositionType ) | ( "by" , CoordinatePairType ) ;
 CoordinatePairType    = LengthPercentageType , LengthPercentageType ;
 
 (* hline [ to [ <length-percentage> | left | center | right | x-start | x-end ] | by <length-percentage> ] *)
-HorizontalLineCommandType = hline , (
-    ( to , ( LengthPercentageType | left | center | right | x_start | x_end ) )
-  | ( by , LengthPercentageType ) ) ;
+HorizontalLineCommandType = "hline" , (
+    ( "to" , ( LengthPercentageType | "left" | "center" | "right" | "x-start" | "x-end" ) )
+  | ( "by" , LengthPercentageType ) ) ;
 
 (* vline [ to [ <length-percentage> | top | center | bottom | y-start | y-end ] | by <length-percentage> ] *)
-VerticalLineCommandType = vline , (
-    ( to , ( LengthPercentageType | top | center | bottom | y_start | y_end ) )
-  | ( by , LengthPercentageType ) ) ;
-RelativeControlPointType = CoordinatePairType , [ from , ( start | end | origin ) ] ;
+VerticalLineCommandType = "vline" , (
+    ( "to" , ( LengthPercentageType | "top" | "center" | "bottom" | "y-start" | "y-end" ) )
+  | ( "by" , LengthPercentageType ) ) ;
+RelativeControlPointType = CoordinatePairType , [ "from" , ( "start" | "end" | "origin" ) ] ;
 ControlPointType          = PositionType | RelativeControlPointType ;
-CurveCommandType = curve , (
-    ( to , PositionType , with , ControlPointType , [ solidus_symbol , ControlPointType ] )
-  | ( by , CoordinatePairType , with , RelativeControlPointType , [ solidus_symbol , RelativeControlPointType ] ) ) ;
-SmoothCommandType = smooth , (
-    ( to , PositionType , [ with , ControlPointType ] )
-  | ( by , CoordinatePairType , [ with , RelativeControlPointType ] ) ) ;
-ArcSweepType = cw | ccw ;
-ArcSizeType  = large | small ;
+CurveCommandType = "curve" , (
+    ( "to" , PositionType , "with" , ControlPointType , [ "/" , ControlPointType ] )
+  | ( "by" , CoordinatePairType , "with" , RelativeControlPointType , [ "/" , RelativeControlPointType ] ) ) ;
+SmoothCommandType = "smooth" , (
+    ( "to" , PositionType , [ "with" , ControlPointType ] )
+  | ( "by" , CoordinatePairType , [ "with" , RelativeControlPointType ] ) ) ;
+ArcSweepType = "cw" | "ccw" ;
+ArcSizeType  = "large" | "small" ;
 
-ArcCommandType = arc , CommandEndPointType ,
-  [ [ of , LengthPercentageType , [ LengthPercentageType ] ] ,
+ArcCommandType = "arc" , CommandEndPointType ,
+  [ [ "of" , LengthPercentageType , [ LengthPercentageType ] ] ,
     [ ArcSweepType ] ,
     [ ArcSizeType ] ,
-    [ rotate , AngleType ] ] ;
+    [ "rotate" , AngleType ] ] ;
 

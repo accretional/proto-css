@@ -18,8 +18,8 @@ hex_digit = "0" ... "9" | "a" ... "f" | "A" ... "F" ;
    are not modelled here; they are legal per spec but rare in practice.
    Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/string *)
 string_literal       = double_quoted_string | single_quoted_string ;
-double_quoted_string = quotation_mark_symbol , { string_char_dq } , quotation_mark_symbol ;
-single_quoted_string = apostrophe_symbol     , { string_char_sq } , apostrophe_symbol ;
+double_quoted_string = '"' , { string_char_dq } , '"' ;
+single_quoted_string = "'"     , { string_char_sq } , "'" ;
 (* Printable ASCII 0x20–0x7E excluding " (0x22), plus Unicode U+0080–U+FFFF and U+10000–U+10FFFF *)
 string_char_dq = " " ... "!" | "#" ... "~" | "" ... "￿" | "𐀀" ... "􏿿" ;
 (* Printable ASCII 0x20–0x7E excluding ' (0x27), plus Unicode U+0080–U+FFFF and U+10000–U+10FFFF *)
