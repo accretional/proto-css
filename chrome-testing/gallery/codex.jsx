@@ -53,6 +53,13 @@ CODEX.families.forEach((f) => {
 // property in this gallery, otherwise to an absolute MDN URL (new tab).
 function localizeMdn(htmlStr) {
   if (!htmlStr) return htmlStr;
+  // The MDN descriptions open with "<prop> CSS property…", where "CSS" links to the
+  // generic /Web/CSS overview (not useful). Re-anchor it: link "<prop> CSS" to the
+  // property's OWN MDN doc page instead.
+  htmlStr = htmlStr.replace(
+    /<strong><code>([^<]+)<\/code><\/strong>(\s*)<a href="\/en-US\/docs\/Web\/CSS">CSS<\/a>/,
+    (_, prop, ws) => `<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/${encodeURIComponent(prop)}" target="_blank" rel="noopener noreferrer"><strong><code>${prop}</code></strong> CSS</a>${ws}`
+  );
   return htmlStr.replace(/href="(\/[^"]*)"/g, (_, href) => {
     const seg = decodeURIComponent(href.split("#")[0].split("?")[0].replace(/\/$/, "").split("/").pop() || "");
     const hit = PROP_BY_NAME[seg];
@@ -135,6 +142,24 @@ function initValue(property) {
 /* ============================================================
    THE SPECIMEN  (§5)
    ============================================================ */
+/* a notecard (styled like the experimental / deprecated MDN notes) listing the
+   property's values that are valid CSS but unimplemented in this Chrome build, so
+   they fall back to the default. Data: window.CODEX_UNIMPL (generated/unimplemented.js). */
+function UnimplementedNote({ property }) {
+  const u = (typeof window !== "undefined" && window.CODEX_UNIMPL && window.CODEX_UNIMPL[property.name]) || null;
+  if (!u || !u.length) return null;
+  const one = u.length === 1;
+  return (
+    <div className="mdn-note unimpl">
+      <strong>Unimplemented in Chrome.</strong> {one ? "This value is" : "These " + u.length + " values are"} valid
+      CSS per the grammar, but this Chrome build doesn't render {one ? "it" : "them"} — so {one ? "it falls" : "they fall"} back
+      to the property's default.
+      <span className="unimpl-vals">
+        {u.map((x, i) => <code key={i} title={x.why || "not implemented in this Chrome build"}>{x.value}</code>)}
+      </span>
+    </div>
+  );
+}
 function Specimen({ family, property }) {
   const [value, setValue] = useState(() => initValue(property));
   useEffect(() => { setValue(initValue(property)); }, [property.name, family.id]);
@@ -150,6 +175,7 @@ function Specimen({ family, property }) {
           <h1>{property.name}{statusBadges(property)}</h1>
           <p className="desc" dangerouslySetInnerHTML={{ __html: localizeMdn(property.description) }} />
           <MdnNotes property={property} />
+          <UnimplementedNote property={property} />
           <div className="spec-meta-tags">
             <button className="pill" onClick={() => go(`/family/${family.id}`)}>{family.title}</button>
             <span className="pill">{property.valueType}</span>
@@ -173,9 +199,7 @@ function Specimen({ family, property }) {
         <Demo key={family.id + property.name} property={property} family={family} value={value} onChange={onChange} />
       </div>
 
-      <DifferenceStrip property={property} family={family} activeValue={value.value} onPick={onChange} />
-
-      {value.css ? <CodeBlock css={value.css} /> : null}
+      <LivePlayground property={property} value={value} />
 
       <GrammarDrawer property={property} />
 
@@ -200,21 +224,48 @@ function Specimen({ family, property }) {
 /* ============================================================
    FRONTISPIECE (home)
    ============================================================ */
-const HERO_STEPS = [
-  { p: "rotate", v: "rotate(-14deg)", t: "transform: rotate(-14deg)" },
-  { p: "scale", v: "scale(1.18)", t: "transform: scale(1.18)" },
-  { p: "rotateY", v: "rotateY(46deg)", t: "transform: rotateY(46deg)" },
-  { p: "skew", v: "skewX(-12deg)", t: "transform: skewX(-12deg)" },
-  { p: "translate", v: "translateY(-14px) rotate(6deg)", t: "transform: translateY(-14px) rotate(6deg)" },
-];
+/* the hero rotates a few selected specimens — each is the REAL spec glass of that
+   property (an inline mirror of its playground); clicking opens that prop page. */
+/* standout specimens surfaced by the multimodal review of every value's
+   screenshot — each [familyId, prop, valueIndex] points at the single most
+   visually striking value of that property (not its default). */
+const HERO_PROPS = [
+  ["clip-mask", "clip-path", 25], ["effects", "mix-blend-mode", 10],
+  ["animations", "animation", 35], ["effects", "backdrop-filter", 1],
+  ["effects", "box-shadow", 4], ["clip-mask", "mask-image", 12],
+  ["animations", "animation-name", 2], ["borders", "corner-shape", 1],
+  ["backgrounds", "background-image", 9], ["offset", "offset", 0],
+  ["animations", "animation-direction", 2], ["columns", "column-rule", 0],
+  ["object-image", "object-view-box", 2], ["animations", "animation-timing-function", 9],
+  ["writing-mode", "writing-mode", 1], ["typography", "font-style", 6],
+].map(([fid, pn, vi]) => {
+  const f = CODEX.byId[fid];
+  const p = f && (f.properties || []).find((x) => x.name === pn);
+  if (!f || !p) return null;
+  const vals = p.values || [];
+  const src = vals[vi] || vals[0];
+  const v = src ? { value: src.value, css: src.css } : initValue(p);
+  return { f, p, v };
+}).filter(Boolean);
+function HeroSpec({ family, property, value0 }) {
+  const [value, setValue] = useState(() => value0 || initValue(property));
+  const Demo = resolveDemo(family, property);
+  return (
+    <div className="hero-spec-stage spec-stage">
+      <Demo property={property} family={family} value={value} onChange={setValue} />
+    </div>
+  );
+}
 function Frontispiece() {
   const [i, setI] = useState(0);
   useEffect(() => {
-    const id = setInterval(() => setI((x) => (x + 1) % HERO_STEPS.length), 2600);
+    if (HERO_PROPS.length < 2) return;
+    const id = setInterval(() => setI((x) => (x + 1) % HERO_PROPS.length), 3000);
     return () => clearInterval(id);
   }, []);
-  const step = HERO_STEPS[i];
-  const fams = CODEX.families.filter((f) => f.group !== "galleries");
+  const hero = HERO_PROPS.length ? HERO_PROPS[i % HERO_PROPS.length] : null;
+  // only families that actually have specimens; galleries are listed separately
+  const fams = CODEX.families.filter((f) => f.group !== "galleries" && (f.properties || []).length > 0);
   const galleries = CODEX.families.filter((f) => f.group === "galleries");
   return (
     <div className="wrap">
@@ -223,27 +274,27 @@ function Frontispiece() {
           <div className="eyebrow">A Specimen Atlas of the CSS Grammar</div>
           <h1>The CSS<br /><em>Codex</em></h1>
           <p className="lede">
-            Every property of the CSS language, catalogued like a specimen in a naturalist's
-            atlas — grouped into families, set under a viewing glass, and made to behave at your touch.
+            Every property of the CSS language catalogued like a specimen in a naturalist's
+            atlas: grouped into families, set under a viewing glass, and made to behave at your touch.
           </p>
           <div className="masthead-stats">
             <div className="stat"><div className="n">{CODEX.total}</div><div className="l">Properties</div></div>
             <div className="stat"><div className="n">{CODEX.familyCount}</div><div className="l">Families</div></div>
-            <div className="stat"><div className="n">{LIVE_COUNT}</div><div className="l">Live specimens</div></div>
           </div>
         </div>
-        <div className="hero-spec">
-          <div className="hero-spec-glass">
-            <div className="hero-card" style={{ transform: step.v }}>{step.p}</div>
+        {hero && (
+          <div className="hero-spec" style={{ cursor: "pointer" }} title={`Open ${hero.p.name}`}
+            onClick={() => go(`/p/${hero.f.id}/${encodeURIComponent(hero.p.name)}`)}>
+            <div className="hero-spec-glass">
+              <HeroSpec key={hero.f.id + hero.p.name} family={hero.f} property={hero.p} value0={hero.v} />
+            </div>
+            <div className="hero-spec-foot">
+              <span className="lbl">№ {String(hero.p.number).padStart(3, "0")} · {hero.p.name}</span>
+              <span className="val" title={hero.v.value}>{hero.p.name}: {(hero.v.value || "—").slice(0, 32)}</span>
+            </div>
           </div>
-          <div className="hero-spec-foot">
-            <span className="lbl">№ 211 · transform</span>
-            <span className="val">{step.t}</span>
-          </div>
-        </div>
+        )}
       </header>
-
-      <ProvenanceLedger />
 
       <div className="section-head">
         <h2>The Taxonomy</h2>
@@ -251,14 +302,6 @@ function Frontispiece() {
       </div>
       <div className="taxo-grid">
         {fams.map((f) => <FamilyCard key={f.id} f={f} />)}
-      </div>
-
-      <div className="section-head">
-        <h2>The Galleries</h2>
-        <span className="meta">beyond properties</span>
-      </div>
-      <div className="taxo-grid">
-        {galleries.map((f) => <FamilyCard key={f.id} f={f} />)}
       </div>
     </div>
   );
@@ -272,8 +315,6 @@ function ProvenanceLedger() {
       sub: "every value enumerated straight from the EBNF" },
     { n: s.assisted, tone: "#caa23a", label: "Path-walked · assisted leaves",
       sub: "structure walked; only open-ended leaves (length/colour/number…) sampled" },
-    { n: s.empty, tone: "var(--ink-3)", label: "Representational only",
-      sub: "no enumerable terminal values. Catalogued for reference" },
   ];
   const pctOf = (n) => (total ? Math.round((100 * n) / total) : 0);
   return (
@@ -299,14 +340,13 @@ function ProvenanceLedger() {
 }
 function FamilyCard({ f }) {
   return (
-    <button className={"family-card" + (familyHasLive(f) ? " is-focus" : "")} onClick={() => go(`/family/${f.id}`)}>
+    <button className="family-card" onClick={() => go(`/family/${f.id}`)}>
       <div className="fc-top">
         <span className="fc-sigil">{f.sigil}</span>
         <span className="fc-count">{f.gallery ? "gallery" : f.count + " spec"}</span>
       </div>
       <h3>{f.title}</h3>
       <div className="fc-blurb">{f.blurb.length > 96 ? f.blurb.slice(0, 94) + "…" : f.blurb}</div>
-      {familyHasLive(f) && <div className="fc-tag">Live demonstrator ◆</div>}
     </button>
   );
 }
@@ -323,10 +363,30 @@ function StageTeaser({ family, property }) {
     </div>
   );
 }
+/* a live preview card — runs the property's real demonstrator at its default
+   value (CSS animations keep running; the card click opens the full playground).
+   The demo's control rail is hidden by CSS so only the specimen glass shows. */
+function LiveSpecimenCard({ family, property }) {
+  const [value, setValue] = useState(() => initValue(property));
+  const Demo = resolveDemo(family, property);
+  return (
+    <button className="live-card" onClick={() => go(`/p/${family.id}/${encodeURIComponent(property.name)}`)}
+      title={`Open the ${property.name} playground`}>
+      <div className="live-card-stage spec-stage">
+        <Demo property={property} family={family} value={value} onChange={setValue} />
+      </div>
+      <div className="live-card-foot">
+        <span className="lcf-name">{property.name}{statusBadges(property)}</span>
+        <span className="lcf-go"><ArrowIcon /></span>
+      </div>
+    </button>
+  );
+}
 function FamilyView({ family }) {
   if (!family) return <NotFound />;
   const live = familyHasLive(family);
   const hero = family.properties.find((p) => isLive(p, family)) || family.properties[0];
+  const rest = family.properties.filter((p) => p !== hero);
   return (
     <div className="wrap">
       <header className="family-intro">
@@ -340,29 +400,27 @@ function FamilyView({ family }) {
         <p className="blurb">{family.blurb}</p>
       </header>
 
-      {hero && live && (
+      {hero && (
         <React.Fragment>
           <div className="section-head" style={{ marginBottom: "0" }}>
-            <h2 style={{ fontSize: "20px" }}>Live demonstrator</h2>
-            <span className="meta">{hero.name}</span>
+            <h2 style={{ fontSize: "20px" }}>Featured specimen</h2>
+            <button className="meta meta-link" onClick={() => go(`/p/${family.id}/${encodeURIComponent(hero.name)}`)}>{hero.name} — open playground →</button>
           </div>
-          <StageTeaser family={family} property={hero} />
+          {/* clicking the stage (anywhere but its controls) opens the full prop page,
+              like the live cards below; the chips/buttons still work in place. */}
+          <div className="featured-stage" style={{ cursor: "pointer" }}
+            onClick={(e) => { if (!e.target.closest(".controls, button, .chip, input, textarea, [contenteditable], a")) go(`/p/${family.id}/${encodeURIComponent(hero.name)}`); }}>
+            <StageTeaser family={family} property={hero} />
+          </div>
         </React.Fragment>
       )}
 
       <div className="section-head">
-        <h2 style={{ fontSize: "20px" }}>Specimen index</h2>
-        <span className="meta">{family.properties.length} of {family.gallery ? family.properties.length : family.count}</span>
+        <h2 style={{ fontSize: "20px" }}>Live specimens</h2>
+        <span className="meta">{rest.length} more — every one live; click to open its playground</span>
       </div>
-      <div className="specimen-index">
-        {family.properties.map((p) => (
-          <button key={p.name} className="spec-row" onClick={() => go(`/p/${family.id}/${encodeURIComponent(p.name)}`)}>
-            <span className="sr-num">№ {String(p.number).padStart(3, "0")}</span>
-            <span className="sr-name">{p.name}{statusBadges(p)}{isLive(p, family) && <span style={{ color: "var(--accent)", marginLeft: "7px", fontSize: "10px" }}>◆ live</span>}</span>
-            <span className="sr-desc">{plainText(p.description)}</span>
-            <span className="sr-go"><ArrowIcon /></span>
-          </button>
-        ))}
+      <div className="live-grid">
+        {rest.map((p) => <LiveSpecimenCard key={p.name} family={family} property={p} />)}
       </div>
     </div>
   );
@@ -424,7 +482,7 @@ function Rail({ activeFamily, onNavigate }) {
       onClick={() => { go(`/family/${f.id}`); onNavigate && onNavigate(); }}>
       <span className="rail-sigil">{f.sigil}</span>
       <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{f.title}</span>
-      <span className="rail-count">{f.focus ? "◆" : f.gallery ? "▤" : f.count}</span>
+      <span className="rail-count">{f.count}</span>
     </button>
   );
   return (

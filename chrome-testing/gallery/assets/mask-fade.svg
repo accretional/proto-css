@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- A SOFT radial ALPHA gradient: white center at full opacity fading to fully
+       transparent at the rim. Unlike a binary cut-out (mask-shape.svg's hard star)
+       or an opaque luminance ramp (mask-lum.svg, alpha=1 everywhere), every radius
+       here carries a DIFFERENT alpha. Used as a shape-outside:url() source so
+       shape-image-threshold cuts the wrap contour at a different alpha level per
+       value: 0.25 keeps a large disc, 0.75 a small one, 1 excludes everything. -->
+  <defs>
+    <radialGradient id="fade" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="55%"  stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="0" y="0" width="100" height="100" fill="url(#fade)"/>
+</svg>

@@ -37,31 +37,110 @@ function ValueControl({ property, value, onChange, presetsAsChips }) {
 function FlexDemo({ property, family, value, onChange }) {
   const [count, setCount] = useState(4);
   const itemLevel = property.name === "flex-grow" || property.name === "order";
+  const isAlignItems = property.name === "align-items";
+  const isPlaceContent = property.name === "place-content";
+  const isColumnGap = property.name === "column-gap" || property.name === "row-gap" || property.name === "gap";
+  // justify-content governs the MAIN axis: to make safe/unsafe + start/end pairs
+  // diverge we force OVERFLOW (wide items, no wrap) so unsafe alignments push
+  // items past the start edge (clipped) while safe ones clamp to start.
+  const isJustify = property.name === "justify-content";
   const ref = useRef(null);
+  const ref2 = useRef(null);
+  const [gapText, setGapText] = useState("");
   const heights = [44, 66, 34, 56, 48, 40];
 
   useEffect(() => {
     if (!ref.current) return;
     const base = itemLevel
       ? "display:flex;gap:14px;align-items:stretch;justify-content:flex-start;width:100%;height:100%;padding:26px;flex-wrap:nowrap;"
+      // justify-content: NOWRAP + clip so the (wide) items overflow the main axis;
+      // place-content: keep WRAP (for align-content) but clip so the over-wide row
+      // overflows on the main axis -> safe vs unsafe finally diverge.
+      : isJustify
+      ? "display:flex;gap:14px;flex-wrap:nowrap;overflow:hidden;align-items:center;justify-content:center;width:100%;height:100%;padding:26px;"
+      : isPlaceContent
+      ? "display:flex;gap:14px;flex-wrap:wrap;overflow:hidden;align-items:center;justify-content:center;align-content:center;width:100%;height:100%;padding:26px;"
       : "display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center;align-content:center;width:100%;height:100%;padding:26px;";
     ref.current.style.cssText = base + (itemLevel ? "" : value.css);
+    // place-content: mirror the same declaration onto an RTL twin strip so the
+    // physical `left`/`right` values pack to the opposite side from the logical
+    // `start`/`end`/`flex-start`/`flex-end` -> they stop colliding in LTR.
+    if (isPlaceContent && ref2.current) {
+      ref2.current.style.cssText =
+        "display:flex;direction:rtl;gap:14px;flex-wrap:wrap;overflow:hidden;align-items:center;justify-content:center;align-content:center;width:100%;height:100%;padding:26px;" +
+        value.css;
+    }
+    // justify-content: the MAIN strip (small items) has free space so the
+    // distribution values diverge; this twin strip deliberately OVERFLOWS
+    // (wide nowrap items) so `safe *` clamps the row to start (fully visible)
+    // while `unsafe *`/`center`/`end` let it overflow past the start edge
+    // (clipped) -> safe vs unsafe finally diverge.
+    if (isJustify && ref2.current) {
+      ref2.current.style.cssText =
+        "display:flex;gap:14px;flex-wrap:nowrap;overflow:hidden;align-items:center;justify-content:center;width:100%;height:100%;padding:26px;" +
+        value.css;
+    }
+    // Surface the REAL resolved gap so the line-width keywords thin/medium/thick
+    // (computed 1px/3px/5px) are legible even though the pixel gap itself is tiny.
+    if (isColumnGap) {
+      const cs = getComputedStyle(ref.current);
+      const g = property.name === "row-gap" ? cs.rowGap : cs.columnGap;
+      setGapText(g);
+    }
   });
 
+  // align-items / align-content govern the CROSS axis: items need an AUTO
+  // cross-size (so stretch/normal visibly fill the container) while keeping
+  // DIFFERING content heights (so start/center/end/baseline still read).
+  const crossAlign = property.name === "align-items" || property.name === "align-content";
   const items = Array.from({ length: count }, (_, i) => i);
   return (
     <React.Fragment>
       <div className="glass">
         <span className="glass-label">display: flex</span>
+        {isColumnGap && gapText ? (
+          <span className="glass-label" style={{ top: "auto", bottom: "12px", left: "auto", right: "14px", color: "var(--accent)" }}>
+            computed {property.name}: {gapText}
+          </span>
+        ) : null}
         <div ref={ref}>
           {items.map((i) => {
             const hi = itemLevel && i === 1;
+            // align-items: make the FIRST item taller than the container's cross
+            // size so `safe *` clamps it to stay visible while `unsafe *` lets it
+            // overflow past the edge -> safe vs unsafe finally diverge.
+            const overflowTall = isAlignItems && i === 0;
+            // place-content: make the FIRST item WIDER than a flex line so its row
+            // overflows the MAIN axis -> `safe center/end` clamp it to the start
+            // (fully visible) while `unsafe center/end`/`center` let it overflow
+            // past the start edge (clipped). Mirrors overflowTall on the cross axis.
+            const overflowWide = isPlaceContent && i === 0;
             const style = {
-              minWidth: itemLevel ? "52px" : "46px",
-              height: itemLevel ? "auto" : heights[i % heights.length] + "px",
+              // justify-content: wide, non-shrinking items so 3-4 of them overflow
+              // the container on the main axis and safe vs unsafe alignment differs.
+              minWidth: overflowWide ? "230%"
+                : itemLevel ? "52px"
+                : isJustify ? "72px"
+                : isColumnGap ? "150px"
+                : "46px",
+              // place-content: give items a wide basis + tall height so 4+ items
+              // WRAP into multiple flex lines -> align-content can actually move
+              // the rows (start/center/end/space-* stop collapsing into one row).
+              // gap: a wide basis forces wrapping into >=2 rows so the FIRST
+              // (row-gap) component of the shorthand produces a visible vertical gap.
+              flexBasis: isPlaceContent ? "40%" : isColumnGap ? "150px" : undefined,
+              height: overflowTall ? "320px"
+                : isPlaceContent ? "86px"
+                : (itemLevel || crossAlign) ? "auto"
+                : heights[i % heights.length] + "px",
               display: "grid", placeItems: "center",
-              borderRadius: "7px", fontFamily: "var(--mono)", fontSize: "12px",
-              padding: itemLevel ? "16px 18px" : "0 6px",
+              // place-content: pin each item's number to its START (left) edge so
+              // that when the over-wide row is shifted by `unsafe center/end`/`center`
+              // the leftmost label scrolls off (clipped) while `safe *` keeps it at the
+              // track's left edge -> the safe/unsafe pair stops looking identical.
+              justifyItems: isPlaceContent ? "start" : undefined,
+              borderRadius: "7px", fontFamily: "var(--mono)", fontSize: (crossAlign ? 12 + (i % 3) * 7 : 12) + "px",
+              padding: itemLevel ? "16px 18px" : isPlaceContent ? "0 0 0 9px" : (crossAlign ? (6 + (i % 3) * 12) + "px 8px" : "0 6px"),
               background: hi ? "var(--accent)" : "color-mix(in srgb, var(--accent) 16%, var(--bg-3))",
               color: hi ? "#fff" : "var(--ink-2)",
               border: "1px solid " + (hi ? "var(--accent)" : "var(--line)"),
@@ -71,6 +150,41 @@ function FlexDemo({ property, family, value, onChange }) {
             return <div key={i} style={style}>{hi ? value.value : i + 1}</div>;
           })}
         </div>
+        {isPlaceContent ? (
+          <React.Fragment>
+            <span className="glass-label" style={{ top: "auto", bottom: "calc(50% + 4px)", left: "14px", color: "var(--ink-3)" }}>ltr</span>
+            <span className="glass-label" style={{ top: "calc(50% + 6px)", left: "14px", color: "var(--accent)" }}>rtl</span>
+            <div ref={ref2} style={{ borderTop: "1px dashed var(--line)" }}>
+              {items.map((i) => (
+                <div key={i} style={{
+                  minWidth: i === 0 ? "230%" : "46px", flexBasis: "40%", height: "40px",
+                  display: "grid", placeItems: "center", justifyItems: "start",
+                  padding: "0 0 0 9px", borderRadius: "7px",
+                  fontFamily: "var(--mono)", fontSize: "12px",
+                  background: "color-mix(in srgb, var(--accent) 16%, var(--bg-3))",
+                  color: "var(--ink-2)", border: "1px solid var(--line)",
+                }}>{i + 1}</div>
+              ))}
+            </div>
+          </React.Fragment>
+        ) : isJustify ? (
+          <React.Fragment>
+            <span className="glass-label" style={{ top: "auto", bottom: "calc(50% + 4px)", left: "14px", color: "var(--ink-3)" }}>free space</span>
+            <span className="glass-label" style={{ top: "calc(50% + 6px)", left: "14px", color: "var(--accent)" }}>overflow</span>
+            <div ref={ref2} style={{ borderTop: "1px dashed var(--line)" }}>
+              {items.map((i) => (
+                <div key={i} style={{
+                  minWidth: "150px", height: "40px", flex: "none",
+                  display: "grid", placeItems: "center", justifyItems: "start",
+                  padding: "0 0 0 10px", borderRadius: "7px",
+                  fontFamily: "var(--mono)", fontSize: "12px",
+                  background: "color-mix(in srgb, var(--accent) 16%, var(--bg-3))",
+                  color: "var(--ink-2)", border: "1px solid var(--line)",
+                }}>{i + 1}</div>
+              ))}
+            </div>
+          </React.Fragment>
+        ) : null}
       </div>
       <div className="controls">
         <div className="controls-label">{property.name}</div>
@@ -104,19 +218,48 @@ function Transform3DDemo({ property, family, value, onChange }) {
     if (isPerspective) {
       const pv = value.value === "none" ? "none" : value.value;
       wrapRef.current.style.perspective = pv;
+      wrapRef.current.style.perspectiveOrigin = "50% 50%";
       cardRef.current.style.cssText = "transform: rotateY(38deg) rotateX(8deg);";
     } else {
-      wrapRef.current.style.perspective = "640px";
+      // Tighter perspective (260px vs 640px) strongly amplifies how Z depth reads:
+      // small Z offsets (translateZ(24px); translate's 8/16/24/48/64px Z) now scale and
+      // recede visibly instead of collapsing onto none. The off-center perspective-origin
+      // throws any pure-Z motion sideways (parallax), so Z-only-different values that used
+      // to land in the same spot now fan out to distinct screen positions.
+      // translate's Z steps are only 8/16/24/48/64px apart; at 260px focal length the
+      // size-scale between 8px and 16px is ~3% (barely readable in a thumbnail). A tight
+      // 150px focal length for `translate` more than doubles that foreshortening (Z=8 ->
+      // ~5.6% upscale, Z=16 -> ~11.9%) AND, paired with a strongly off-centre
+      // perspective-origin (12% 16%), throws each Z value far further up-and-left as a
+      // parallax shift so 24px 8px 8px vs 24px 8px 16px land at distinctly different
+      // size AND screen position.
+      wrapRef.current.style.perspective = property.name === "translate" ? "120px" : "260px";
+      // translate uses a much more off-centre perspective-origin so a pure-Z
+      // difference (8 vs 16 vs 24px) throws the card far further up-and-left as a
+      // parallax shift, on top of the size foreshortening — making adjacent Z
+      // steps land at clearly distinct positions instead of a few px apart.
+      wrapRef.current.style.perspectiveOrigin = property.name === "translate" ? "12% 16%" : "24% 30%";
       // keyword props (transform-origin/style) need a visible transform to read against
       const ambient = (property.name === "transform-origin" || property.name === "transform-style")
         ? "transform: rotateY(28deg);" : "";
-      cardRef.current.style.cssText = ambient + value.css;
+      // translate's percentage Y components resolve against the element's OWN height,
+      // so on the default 98px-tall card 30%/50%/65%/80% land only ~14-19px apart and
+      // collide at thumbnail scale (e.g. 24px 50% vs 24px 30% vs 24px 80%). Re-stage the
+      // card as a tall fixed box for translate so the same percentages resolve against a
+      // ~226px height: 30% -> 68px, 50% -> 113px, 65% -> 147px, 80% -> 181px — now
+      // 34-45px apart and clearly distinct rows. width/height are forced here (cssText
+      // replaces the inline style) so the staged box is deterministic regardless of
+      // React re-render timing; a narrower 110px width keeps the taller box inside the
+      // 380px stage and adds vertical headroom for the 80% offset.
+      const box = property.name === "translate"
+        ? "width: 110px; height: 226px; font-size: 12px; " : "";
+      cardRef.current.style.cssText = box + ambient + value.css;
     }
   });
 
   return (
     <React.Fragment>
-      <div className="glass" ref={wrapRef} style={{ perspective: "640px", transformStyle: "preserve-3d" }}>
+      <div className="glass" ref={wrapRef} style={{ perspective: "260px", perspectiveOrigin: "24% 30%", transformStyle: "preserve-3d" }}>
         <span className="glass-label">{isPerspective ? "perspective scene" : "transform-box"}</span>
         {/* floor grid for depth */}
         <div style={{
@@ -133,7 +276,20 @@ function Transform3DDemo({ property, family, value, onChange }) {
           fontFamily: "var(--mono)", fontSize: "11px", letterSpacing: "0.08em",
           boxShadow: "0 30px 50px -18px color-mix(in srgb, var(--accent) 55%, transparent)",
           transition: "transform 260ms var(--ease)", position: "relative", zIndex: 2,
+          transformStyle: "preserve-3d",
         }}>
+          {/* a real 3D-tilted inner face so transform-functions that only act on 3D
+              DESCENDANTS — notably transform: perspective(24px) — have something to bite on.
+              With the card flat (none), this panel just sits rotated; once perspective(24px)
+              is applied to the card the panel's rotateY is foreshortened by the 24px focal
+              length and reads dramatically different from none. */}
+          <div style={{
+            position: "absolute", inset: "14px", borderRadius: "7px",
+            background: "color-mix(in srgb, #fff 16%, transparent)",
+            border: "1px solid color-mix(in srgb, #fff 30%, transparent)",
+            transform: "rotateY(42deg)", transformOrigin: "left center",
+            display: "grid", placeItems: "center", pointerEvents: "none",
+          }} />
           {property.name}
         </div>
       </div>
@@ -380,18 +536,52 @@ function GenericDemo({ property, family, value, onChange }) {
     flex: "display:flex;gap:10px;padding:14px;",
   }[kind] || "width:150px;height:96px;border-radius:10px;background:var(--accent);";
 
+  // scroll-marker-group only does anything on a real scroll container whose
+  // children generate ::scroll-marker pseudo-elements: it controls whether the
+  // ::scroll-marker-group row of dots exists and whether it sits before/after
+  // the content. A bare box can never show this, so build a live snap carousel.
+  const isSmg = property.name === "scroll-marker-group";
+  const smgKeyword = isSmg ? (value.css || "").replace(/^scroll-marker-group:\s*/, "").replace(/;.*$/, "").trim() : "";
+
   useEffect(() => {
-    if (ref.current && has) ref.current.style.cssText = base + previewCss(property.name, value.css);
+    if (ref.current && has && !isSmg) ref.current.style.cssText = base + previewCss(property.name, value.css);
   });
+
+  const smgBody = isSmg ? (
+    <React.Fragment>
+      <style>{`
+        .cdx-smg{display:flex;gap:12px;width:230px;max-width:100%;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;padding:10px;border-radius:10px;background:var(--bg-3);anchor-name:none}
+        .cdx-smg>.cdx-smg-slide{flex:0 0 86%;height:86px;scroll-snap-align:center;border-radius:8px;display:grid;place-items:center;font-family:var(--mono);font-size:15px;color:#fff}
+        .cdx-smg>.cdx-smg-slide:nth-child(1){background:var(--accent)}
+        .cdx-smg>.cdx-smg-slide:nth-child(2){background:#3c7dc5}
+        .cdx-smg>.cdx-smg-slide:nth-child(3){background:#4c9a52}
+        .cdx-smg>.cdx-smg-slide:nth-child(4){background:#8a63d2}
+        .cdx-smg>.cdx-smg-slide::scroll-marker{content:"";width:11px;height:11px;border-radius:50%;border:2px solid var(--ink-3);margin:0 4px;background:transparent}
+        .cdx-smg>.cdx-smg-slide::scroll-marker:target-current{border-color:var(--accent);background:var(--accent)}
+        .cdx-smg::scroll-marker-group{display:flex;justify-content:center;align-items:center;padding:6px 0}
+      `}</style>
+      <div
+        className="cdx-smg"
+        style={{ scrollMarkerGroup: smgKeyword }}
+      >
+        <div className="cdx-smg-slide">1</div>
+        <div className="cdx-smg-slide">2</div>
+        <div className="cdx-smg-slide">3</div>
+        <div className="cdx-smg-slide">4</div>
+      </div>
+    </React.Fragment>
+  ) : null;
 
   return (
     <React.Fragment>
       <div className="glass">
         <span className="glass-label">{has ? "preview" : "specimen"}</span>
         {has ? (
-          kind === "text"
-            ? <p ref={ref}>The quick brown fox jumps over the lazy dog — 0123456789.</p>
-            : <div ref={ref} />
+          isSmg
+            ? smgBody
+            : kind === "text"
+              ? <p ref={ref}>The quick brown fox jumps over the lazy dog — 0123456789.</p>
+              : <div ref={ref} />
         ) : (
           <div className="ph-text" style={{ textAlign: "center", color: "var(--ink-3)" }}>
             <div style={{ fontFamily: "var(--mono)", fontSize: "13px", lineHeight: 1.7 }}>

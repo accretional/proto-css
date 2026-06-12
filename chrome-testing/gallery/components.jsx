@@ -115,6 +115,192 @@ function CodeBlock({ css, selector = ".specimen", title = "Generated CSS" }) {
   );
 }
 
+/* ---------- Live Playground: the REAL CSS applied to the specimen ----------
+   Reads the inline style off the live demo element(s) inside the glass (the
+   exact block the engine rendered, not just the generated declaration),
+   highlights the demonstrated property, exposes nested ("recursive") styled
+   children, and lets the viewer edit any block live — client-side only, like
+   tweaking styles in the browser inspector. No backend; the site stays static. */
+/* Some properties never surface in the live DOM under their own name: the engine
+   canonicalises legacy aliases (grid-gap→gap, word-wrap→overflow-wrap,
+   page-break-*→break-*, font-width→font-stretch) and collapses longhands into a
+   shorthand (border-bottom-width→border-width, contain-intrinsic-*→
+   contain-intrinsic-size, *-timeline-axis/name→*-timeline, mask-border-*→
+   -webkit-mask-box-image*). Map each to the name(s) its value actually appears
+   under so the Live CSS block still finds + highlights the demonstrated decl. */
+const SURFACE_AS = {
+  "grid-gap": ["gap"], "grid-row-gap": ["row-gap"], "grid-column-gap": ["column-gap"],
+  "word-wrap": ["overflow-wrap"],
+  "page-break-after": ["break-after"], "page-break-before": ["break-before"], "page-break-inside": ["break-inside"],
+  "font-width": ["font-stretch"],
+  "border-top-width": ["border-width"], "border-right-width": ["border-width"],
+  "border-bottom-width": ["border-width"], "border-left-width": ["border-width"],
+  "contain-intrinsic-width": ["contain-intrinsic-size"], "contain-intrinsic-height": ["contain-intrinsic-size"],
+  "overscroll-behavior-block": ["overscroll-behavior", "overscroll-behavior-y", "overscroll-behavior-x"],
+  "overscroll-behavior-inline": ["overscroll-behavior", "overscroll-behavior-x", "overscroll-behavior-y"],
+  "scroll-timeline-axis": ["scroll-timeline"], "scroll-timeline-name": ["scroll-timeline"],
+  "view-timeline-inset": ["view-timeline"],
+  "text-box-edge": ["text-box"], "text-box-trim": ["text-box"],
+  "font-synthesis-position": ["font-synthesis"],
+  "justify-items": ["place-items"],
+  "text-emphasis-position": ["text-emphasis"],
+  "mask-border-outset": ["-webkit-mask-box-image-outset", "-webkit-mask-box-image"],
+  "mask-border-repeat": ["-webkit-mask-box-image-repeat", "-webkit-mask-box-image"],
+  "mask-border-slice": ["-webkit-mask-box-image-slice", "-webkit-mask-box-image"],
+  "mask-border-width": ["-webkit-mask-box-image-width", "-webkit-mask-box-image"],
+};
+function surfaceNamesFor(propName) {
+  const names = [propName, "-webkit-" + propName, "-moz-" + propName];
+  (SURFACE_AS[propName] || []).forEach((n) => names.push(n));
+  // generic shorthand prefixes (margin-top→margin, border-bottom-width→border-bottom→border)
+  const segs = propName.split("-");
+  for (let i = segs.length - 1; i >= 1; i--) names.push(segs.slice(0, i).join("-"));
+  return names;
+}
+function styleHas(cssText, names) {
+  return names.some((n) => cssText.includes(n + ":") || cssText.includes(n + " :"));
+}
+function highlightDecls(cssText, propName, surfaceNames) {
+  const surf = surfaceNames || [propName, "-webkit-" + propName, "-moz-" + propName];
+  const decls = (cssText || "").split(";").map((d) => d.trim()).filter(Boolean);
+  return decls.map((d, i) => {
+    const ci = d.indexOf(":");
+    const prop = ci < 0 ? d : d.slice(0, ci).trim();
+    const val = ci < 0 ? "" : d.slice(ci + 1).trim();
+    const tested = surf.includes(prop);
+    return (
+      <React.Fragment key={i}>
+        {"  "}
+        <span className={"tok-prop" + (tested ? " tested" : "")}>{prop}</span>
+        {ci >= 0 && <span className="tok-punc">: </span>}
+        {ci >= 0 && <span className={"tok-val" + (tested ? " hi" : "")}>{val}</span>}
+        <span className="tok-punc">;</span>{"\n"}
+      </React.Fragment>
+    );
+  });
+}
+
+function PlayBlock({ block, propName, surfaceNames, editing, onToggle }) {
+  const decls = (block.css || "").split(";").map((d) => d.trim()).filter(Boolean);
+  // one declaration per line so the editor keeps the readable multi-line view
+  const pretty = decls.map((d) => d + ";").join("\n");
+  const copy = () => {
+    navigator.clipboard && navigator.clipboard.writeText(
+      `${block.selector} {\n${decls.map((d) => "  " + d + ";").join("\n")}\n}`);
+    toast("Copied to clipboard");
+  };
+  // live-apply edited text to the real element (newlines are fine in cssText)
+  const onEdit = (e) => { if (block.el) { try { block.el.style.cssText = e.target.value; } catch (err) { /* invalid mid-typing */ } } };
+  return (
+    <div className={"play-block" + (block.primary ? " primary" : "")}>
+      <div className="play-block-head">
+        <span className="tok-sel">{block.selector}</span>
+        <div className="play-actions">
+          <button className="copy-btn" onClick={onToggle} title="Edit this block live">
+            {editing ? "Done" : "Edit"}
+          </button>
+          <button className="copy-btn" onClick={copy}><CopyIcon /> Copy</button>
+        </div>
+      </div>
+      {editing ? (
+        <textarea className="play-edit" autoFocus spellCheck={false}
+          defaultValue={pretty}
+          onChange={onEdit}
+          rows={Math.min(18, Math.max(3, decls.length + 1))} />
+      ) : (
+        <div className="code-body play-code" onDoubleClick={onToggle} title="Double-click to edit live">
+          <span className="tok-punc">{"{"}</span>{"\n"}
+          {highlightDecls(block.css, propName, surfaceNames)}
+          <span className="tok-punc">{"}"}</span>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function LivePlayground({ property, value }) {
+  const [blocks, setBlocks] = useState([]);
+  const [editIdx, setEditIdx] = useState(-1);
+  const editRef = useRef(-1);
+  editRef.current = editIdx;
+  const propName = property.name;
+  const surf = surfaceNamesFor(propName);   // names the value may surface under (aliases/shorthands)
+  const exactNames = [propName, "-webkit-" + propName, "-moz-" + propName];
+  useEffect(() => {
+    setEditIdx(-1);
+    const glass = document.querySelector(".spec-stage .glass");
+    if (!glass) { setBlocks([]); return; }
+    const read = () => {
+      if (editRef.current >= 0) return;   // don't reshuffle blocks while the user is editing
+      const styled = Array.from(glass.querySelectorAll("[style]"))
+        .filter((el) => (el.getAttribute("style") || "").replace(/\s/g, "").length > 6);
+      // primary = the element carrying the demonstrated property. Prefer the exact
+      // name; if it never appears, fall back to the canonical/shorthand name the
+      // engine surfaces it under (grid-gap→gap, border-bottom-width→border-width,
+      // transition-*→transition, mask-border-*→-webkit-mask-box-image, …).
+      let prim = styled.filter((el) => styleHas(el.getAttribute("style") || "", exactNames));
+      if (!prim.length) prim = styled.filter((el) => styleHas(el.getAttribute("style") || "", surf));
+      // <style>-rule demos: some properties are only demonstrable through a rule
+      // (content via ::before, quotes, initial-letter via ::first-letter, all,
+      // interpolate-size) — their value lives in a <style> tag, not [style].
+      // Pull the matching CSSStyleRule(s) so the fed value still surfaces.
+      const ruleBlocks = [];
+      if (!prim.length) {
+        for (const st of Array.from(glass.querySelectorAll("style"))) {
+          let rules; try { rules = st.sheet && st.sheet.cssRules; } catch (e) { rules = null; }
+          if (!rules) continue;
+          for (const rule of Array.from(rules)) {
+            if (!rule.style) continue;
+            const ct = rule.style.cssText || "";
+            if (styleHas(ct, surf)) {
+              ruleBlocks.push({
+                el: { style: rule.style },               // CSSStyleDeclaration — editable live
+                css: ct,
+                primary: true,
+                selector: rule.selectorText || ".specimen",
+              });
+            }
+          }
+        }
+      }
+      const rest = styled.filter((el) => !prim.includes(el));
+      const seen = new Set(), uniq = [];                 // dedupe identically-styled children (flex items etc.)
+      for (const el of rest) { const s = el.getAttribute("style"); if (!seen.has(s)) { seen.add(s); uniq.push(el); } }
+      const els = [...(prim.length ? prim : (ruleBlocks.length ? [] : styled.slice(0, 1))), ...uniq].slice(0, 5);
+      const inlineBlocks = els.map((el, i) => {
+        const primary = prim.includes(el) || (i === 0 && prim.length === 0 && !ruleBlocks.length);
+        const tag = (el.tagName || "div").toLowerCase();
+        return {
+          el,
+          css: el.getAttribute("style") || "",
+          primary,
+          selector: primary ? ".specimen" : ".specimen " + tag,
+        };
+      });
+      setBlocks([...ruleBlocks, ...inlineBlocks].slice(0, 5));
+    };
+    read();
+    const obs = new MutationObserver(read);
+    obs.observe(glass, { attributes: true, attributeFilter: ["style", "class"], childList: true, subtree: true });
+    return () => obs.disconnect();
+  }, [propName, value && value.value]);
+
+  if (blocks.length === 0) return null;
+  return (
+    <div className="codeblock playground">
+      <div className="code-head">
+        <span className="t">Live CSS · the specimen's real style — edit it</span>
+        <span className="play-hint">double-click or Edit to tweak live</span>
+      </div>
+      {blocks.map((b, i) => (
+        <PlayBlock key={i} block={b} propName={propName} surfaceNames={surf}
+          editing={editIdx === i}
+          onToggle={() => setEditIdx((cur) => (cur === i ? -1 : i))} />
+      ))}
+    </div>
+  );
+}
+
 /* ---------- Grammar Drawer (EBNF / syntax / data types) ---------- */
 function GrammarDrawer({ property }) {
   const [open, setOpen] = useState(false);
@@ -368,6 +554,6 @@ function ArrowIcon() {
 }
 
 Object.assign(window, {
-  toast, ToastHost, MiniSample, CodeBlock, GrammarDrawer, DifferenceStrip,
+  toast, ToastHost, MiniSample, CodeBlock, LivePlayground, GrammarDrawer, DifferenceStrip,
   ProvenanceBanner, ValueChips, ScalarControl, Dial, CopyIcon, SearchIcon, MenuIcon, ArrowIcon,
 });

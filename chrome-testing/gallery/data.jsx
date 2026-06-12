@@ -372,7 +372,7 @@
         ["grid-area", "Places an item by line numbers or a named area.", null],
         ["place-items", "Shorthand for align-items and justify-items.", null],
       ] },
-    { id: "margin", sigil: "05", title: "Spacing — Margin", demo: "generic", sampleKind: "box", count: 11,
+    { id: "margin", sigil: "05", title: "Spacing:  Margin", demo: "generic", sampleKind: "box", count: 11,
       blurb: "Outer space that pushes neighbours away — physical and logical, including margin-trim.",
       props: [
         ["margin", "Shorthand for all four outer margins.", null],
@@ -380,7 +380,7 @@
         ["margin-inline", "Logical inline-axis margins (left/right in horizontal writing).", null],
         ["margin-trim", "Trims margins of children that meet the container's edge.", null],
       ] },
-    { id: "padding", sigil: "06", title: "Spacing — Padding", demo: "generic", sampleKind: "box", count: 9,
+    { id: "padding", sigil: "06", title: "Spacing:  Padding", demo: "generic", sampleKind: "box", count: 9,
       blurb: "Inner space between the content box and the border, physical and logical.",
       props: [
         ["padding", "Shorthand for all four inner paddings.", null],
