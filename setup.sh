@@ -53,6 +53,52 @@ if [[ $MISSING -ne 0 ]]; then
   exit 1
 fi
 
+# ── Deploy + validate + proto tooling (best-effort install, non-fatal) ──────
+# Needed for: deploying dist/ to Cloudflare Pages (deploy.sh), validating a
+# deployment via the chromerpc bidi pool (validate-deploy.sh), cloning the
+# private accretional repos, and regenerating proto/ (the gRPC service).
+# Idempotent: present tools are skipped; only missing ones are installed.
+
+HAVE_BREW=0; command -v brew &>/dev/null && HAVE_BREW=1
+HAVE_NPM=0;  command -v npm  &>/dev/null && HAVE_NPM=1
+HAVE_GO=0;   command -v go   &>/dev/null && HAVE_GO=1
+GOBIN_DIR="$( (go env GOPATH 2>/dev/null || echo "$HOME/go") )/bin"
+brew_or() { [[ $HAVE_BREW -eq 1 ]] && printf '%s' "$1"; }
+go_or()   { [[ $HAVE_GO   -eq 1 ]] && printf '%s' "$1"; }
+npm_or()  { [[ $HAVE_NPM  -eq 1 ]] && printf '%s' "$1"; }
+
+# ensure_cmd <name> <install-cmd (may be empty)> <manual-hint>  — never fatal
+ensure_cmd() {
+  local name="$1" install="$2" hint="$3"
+  if command -v "$name" &>/dev/null; then echo "  [ok] $name: $(command -v "$name")"; return 0; fi
+  if [[ -x "$GOBIN_DIR/$name" ]]; then echo "  [ok] $name: $GOBIN_DIR/$name (ensure on PATH)"; return 0; fi
+  if [[ -n "$install" ]]; then
+    echo "  [..] installing $name  ($install)"
+    eval "$install" >/dev/null 2>&1 || true
+    if command -v "$name" &>/dev/null || [[ -x "$GOBIN_DIR/$name" ]]; then
+      echo "  [ok] $name installed (add $GOBIN_DIR to PATH if it is a go tool)"; return 0
+    fi
+  fi
+  echo "  [warn] $name not available — $hint"
+  return 0
+}
+
+echo ""
+echo "--- Deploy + validate tooling ---"
+ensure_cmd node     "$(brew_or 'brew install node')"                                            "install Node.js — https://nodejs.org"
+ensure_cmd npm      "$(brew_or 'brew install node')"                                            "install Node.js — https://nodejs.org"
+HAVE_NPM=0; command -v npm &>/dev/null && HAVE_NPM=1
+ensure_cmd wrangler "$(npm_or 'npm install -g wrangler')"                                       "npm install -g wrangler"
+ensure_cmd grpcurl  "$(go_or 'go install github.com/fullstorydev/grpcurl/cmd/grpcurl@latest')"  "go install github.com/fullstorydev/grpcurl/cmd/grpcurl@latest"
+ensure_cmd gh       "$(brew_or 'brew install gh')"                                              "install GitHub CLI — https://cli.github.com (for the private accretional repos)"
+ensure_cmd gcloud   "$(brew_or 'brew install --cask google-cloud-sdk')"                         "install Google Cloud SDK — https://cloud.google.com/sdk ; then: gcloud auth login"
+
+echo ""
+echo "--- Proto toolchain (for regenerating proto/) ---"
+ensure_cmd protoc             "$(brew_or 'brew install protobuf')"                                            "install protobuf — https://grpc.io/docs/protoc-installation"
+ensure_cmd protoc-gen-go      "$(go_or 'go install google.golang.org/protobuf/cmd/protoc-gen-go@latest')"     "go install google.golang.org/protobuf/cmd/protoc-gen-go@latest"
+ensure_cmd protoc-gen-go-grpc "$(go_or 'go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest')"    "go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest"
+
 # ── Build chromerpc (for screenshots) ──────────────────────────────────────
 
 echo ""
@@ -107,15 +153,15 @@ fi
 echo ""
 echo "--- Checking EBNF generator builds ---"
 
-GEN_CMD="$ROOT/chrome-testing/cmd/generate"
+GEN_CMD="$ROOT/chrome-testing/cmd/gen"
 if [[ -d "$GEN_CMD" ]]; then
-  if (cd "$ROOT" && go build ./chrome-testing/cmd/generate/); then
-    echo "  [ok] EBNF generator builds successfully"
+  if (cd "$ROOT" && go build ./chrome-testing/cmd/gen/ ./chrome-testing/cmd/shoot/); then
+    echo "  [ok] EBNF generator + shoot build successfully"
   else
-    echo "  [FAIL] EBNF generator build failed" >&2
+    echo "  [FAIL] generator/shoot build failed" >&2
   fi
 else
-  echo "  [skip] No chrome-testing/cmd/generate/ directory found"
+  echo "  [skip] No chrome-testing/cmd/gen/ directory found"
 fi
 
 # ── Done ────────────────────────────────────────────────────────────────────
