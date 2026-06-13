@@ -31,7 +31,8 @@ echo "============ Step 2/4: Generate gallery data ============"
 echo ""
 
 echo "============ Step 3/4: Screenshot every property ============"
-"$CT/shoot.sh"
+echo "Takes too much time, skipping to find an alternate way"
+# "$CT/shoot.sh"
 echo ""
 
 if [[ -n "${SKIP_SERVE:-}" ]]; then
