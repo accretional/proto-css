@@ -102,7 +102,9 @@ func emit(props []Property, outDir string) {
 			fmt.Fprintf(&b, "          assists: %s,\n", assistsJS(p.Assists))
 			b.WriteString("          values: [\n")
 			for _, val := range vals {
-				css := p.Name + ": " + val + ";"
+				// Codec is the renderer of record: round-trip the declaration through
+				// the css codec (Parse->Render) so the applied CSS is codec-emitted.
+				css := checkDecl(p.Name, val)
 				fmt.Fprintf(&b, "            v(%s, %s),\n", js(val), js(css))
 			}
 			b.WriteString("          ],\n")
@@ -140,6 +142,14 @@ func emit(props []Property, outDir string) {
 	fmt.Printf("  pure-complete %d · pure-truncated %d · assisted %d · empty %d\n",
 		nPureComplete, nPureTrunc, nAssisted, nEmpty)
 	fmt.Printf("Wrote %s\n", manPath)
+
+	// The codec is the renderer of record: report every walked declaration it did
+	// not round-trip faithfully.
+	total := 0
+	for _, vs := range valuesByName {
+		total += len(vs)
+	}
+	codecReport(total, outDir)
 }
 
 // description is the MDN summary paragraph shown below the property name. The
