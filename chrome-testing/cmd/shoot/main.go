@@ -25,10 +25,10 @@ func main() {
 	base := flag.String("base", "", "gallery entry URL")
 	outdir := flag.String("outdir", "", "absolute screenshots output dir")
 	seq := flag.String("seq", "", "output textproto path prefix")
-	settle := flag.Int("settle", 2600, "ms after initial load")
-	navWait := flag.Int("navwait", 650, "ms after a hash change / embed navigation")
+	settle := flag.Int("settle", 2000, "ms after initial load")
+	navWait := flag.Int("navwait", 320, "ms after a hash change / embed navigation")
 	frameWait := flag.Int("framewait", 150, "ms between frames of a temporal capture")
-	perChunk := flag.Int("chunk", 20, "screenshots per chunk")
+	perChunk := flag.Int("chunk", 50, "screenshots per chunk")
 	only := flag.String("only", "", "comma-separated property names to limit to")
 	flag.Parse()
 	if *base == "" || *outdir == "" || *seq == "" {

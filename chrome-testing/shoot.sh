@@ -11,7 +11,7 @@ cd "$ROOT"   # go-run paths below are repo-root-relative; be CWD-independent
 CT="$ROOT/chrome-testing"
 SCREENS="$CT/screenshots"
 CHROMERPC_SRC="${CHROMERPC_SRC:-$HOME/Documents/chromerpc}"
-CACHE="/tmp/chromerpc-ct2"
+CACHE="/tmp/chromerpc-ct2${RUN_TAG:+-$RUN_TAG}"
 BIN="$CACHE/bin"
 ONLY="${ONLY:-}"
 RESUME="${RESUME:-}"
