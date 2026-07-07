@@ -39,7 +39,10 @@ free_port() { python3 -c "import socket;s=socket.socket();s.bind(('',0));print(s
 start_rpc() {
   [[ -n "$RPC_PID" ]] && kill "$RPC_PID" 2>/dev/null || true
   RPC_PORT="$(free_port)"
-  "$BIN/chromerpc" --headless --addr ":$RPC_PORT" &>"$CACHE/chromerpc.log" &
+  # HEADLESS=0 runs a visible browser — the in-browser Babel/React SPA paints its
+  # route-change embed views reliably headed, where headless can drop the frame.
+  local _hl="--headless"; [[ "${HEADLESS:-1}" == "0" ]] && _hl=""
+  "$BIN/chromerpc" $_hl --addr ":$RPC_PORT" &>"$CACHE/chromerpc.log" &
   RPC_PID=$!
   for i in $(seq 1 40); do
     if bash -c ">/dev/tcp/localhost/$RPC_PORT" 2>/dev/null; then return 0; fi
@@ -48,15 +51,22 @@ start_rpc() {
   echo "ERROR: chromerpc not ready"; cat "$CACHE/chromerpc.log"; return 1
 }
 
-# warm up: load the SPA once so later chunks need only set the hash (no reload)
+# warm up: load the SPA once so later chunks need only set the hash (no reload).
+# The gallery compiles its JSX in-browser via Babel, which is slow, so we give it
+# a generous fixed settle plus an embed-route render pass, then a second settle —
+# this ensures Babel has finished and the embed view is mounted before captures.
 warmup() {
   cat > "$CACHE/warmup.textproto" <<EOF
 name: "warmup"
 steps { set_viewport { width: 1280 height: 900 device_scale_factor: 2 } }
 steps { navigate { url: "$BASE" } }
-steps { wait { milliseconds: 3000 } }
+steps { wait { milliseconds: 9000 } }
+steps { evaluate_script { expression: "location.hash='#/embed/color-opacity/color/0';void 0" } }
+steps { wait { milliseconds: 2500 } }
+steps { evaluate_script { expression: "location.hash='#/';void 0" } }
+steps { wait { milliseconds: 1500 } }
 EOF
-  "$BIN/automate" -addr "localhost:$RPC_PORT" -input "$CACHE/warmup.textproto" -timeout 60s >/dev/null 2>&1
+  "$BIN/automate" -addr "localhost:$RPC_PORT" -input "$CACHE/warmup.textproto" -timeout 90s >/dev/null 2>&1
 }
 
 # ── build chromerpc + automate ────────────────────────────────────────────────

@@ -26,7 +26,7 @@ func main() {
 	outdir := flag.String("outdir", "", "absolute screenshots output dir")
 	seq := flag.String("seq", "", "output textproto path prefix")
 	settle := flag.Int("settle", 2600, "ms after initial load")
-	navWait := flag.Int("navwait", 240, "ms after a hash change / embed navigation")
+	navWait := flag.Int("navwait", 650, "ms after a hash change / embed navigation")
 	frameWait := flag.Int("framewait", 150, "ms between frames of a temporal capture")
 	perChunk := flag.Int("chunk", 20, "screenshots per chunk")
 	only := flag.String("only", "", "comma-separated property names to limit to")
@@ -64,8 +64,8 @@ func main() {
 	sortStrings(names)
 
 	prefix := strings.TrimSuffix(*seq, filepath.Ext(*seq))
-	w := &chunkWriter{navWait: *navWait, frameWait: *frameWait, prefix: prefix, perChunk: *perChunk}
-	_ = settle
+	w := &chunkWriter{navWait: *navWait, frameWait: *frameWait, prefix: prefix, perChunk: *perChunk,
+		base: *base, settle: *settle}
 	w.start()
 
 	// index page first (full page; the SPA is pre-loaded by shoot.sh's warmup).
@@ -183,6 +183,8 @@ type chunkWriter struct {
 	prefix             string
 	navWait, frameWait int
 	perChunk           int
+	base               string
+	settle             int
 	b                  strings.Builder
 	shots, nChunks     int
 }
@@ -192,6 +194,12 @@ func (w *chunkWriter) start() {
 	fmt.Fprintf(&w.b, "name: \"codex-shots-%03d\"\n", w.nChunks)
 	// embed view is framed at ~976x600 + 22px padding -> 1024x656 viewport.
 	fmt.Fprintf(&w.b, "steps { set_viewport { width: 1024 height: 656 device_scale_factor: 1 } }\n")
+	// Each chunk runs as its own automate invocation on its OWN browser tab, so it
+	// must load the gallery itself — the warmup ran on a different tab. Navigate and
+	// settle (the in-browser Babel/React SPA needs time to compile+mount) before any
+	// hash-routed embed capture, or every specimen screenshots a blank, app-less tab.
+	fmt.Fprintf(&w.b, "steps { navigate { url: %q } }\n", w.base)
+	fmt.Fprintf(&w.b, "steps { wait { milliseconds: %d } }\n", w.settle)
 }
 func (w *chunkWriter) line(s string) { w.b.WriteString(s); w.b.WriteByte('\n') }
 func (w *chunkWriter) rollover() {
@@ -212,11 +220,12 @@ func (w *chunkWriter) shot(expr, out string, fullPage bool) {
 	}
 	w.line(fmt.Sprintf("steps { evaluate_script { expression: %q } }", expr))
 	w.line(fmt.Sprintf("steps { wait { milliseconds: %d } }", w.navWait))
-	if fullPage {
-		w.line(fmt.Sprintf("steps { full_page_screenshot { output_path: %q format: \"png\" } }", out))
-	} else {
-		w.line(fmt.Sprintf("steps { screenshot { output_path: %q format: \"png\" } }", out))
-	}
+	// Use a full-page screenshot for every capture. chromerpc's viewport-only
+	// `screenshot` was producing blank frames for the SPA's route-change embed
+	// views (the index full-page shot rendered fine); full_page is reliable and
+	// the embed view is viewport-sized anyway.
+	_ = fullPage
+	w.line(fmt.Sprintf("steps { full_page_screenshot { output_path: %q format: \"png\" } }", out))
 	w.shots++
 }
 
