@@ -61,6 +61,7 @@ func main() {
 	prefixMapOut := flag.String("prefix-map", "proto/pb/css/prefix_map.go", "generated MessagePrefix map")
 	separatorMapOut := flag.String("separator-map", "proto/pb/css/separator_map.go", "generated FieldSeparator map")
 	requiredMapOut := flag.String("required-map", "proto/pb/css/required_map.go", "generated FieldRequired map")
+	scalarStopsOut := flag.String("scalar-stops-map", "proto/pb/css/scalar_stops_map.go", "generated ScalarStopChars map")
 	pkgName := flag.String("package", "css", "proto package name")
 	goPkg := flag.String("go-package", "github.com/accretional/proto-css/proto/pb/css;csspb", "go_package option")
 	flag.Parse()
@@ -103,6 +104,7 @@ func main() {
 	// 2. AST transforms.
 	ast.Root = compiler.CollapseCommaList(ast.Root)
 	ast.Root = compiler.NameSequence(ast.Root)
+	stopByRule := leafStopChars(ast.Root)
 	ast.Root = scalarizeLeaves(ast.Root)
 	var prunedRules []string
 	ast.Root, prunedRules = pruneUnreachable(ast.Root, "CssStyleSheet")
@@ -162,10 +164,21 @@ func main() {
 	ast.Root = compiler.StripKeywords(ast.Root)
 
 	requiredCand := map[string]bool{}
+	scalarStops := map[string]string{}
 	fdp, err := compiler.Compile(ast, compiler.Options{
 		Package:   *pkgName,
 		GoPackage: *goPkg,
 		FileName:  filepath.Base(*bundledOut),
+		OnMessage: func(fqn string, node *pb.ASTNode) {
+			if node.GetKind() != compiler.KindRule {
+				return
+			}
+			if chars, ok := stopByRule[node.GetValue()]; ok {
+				if _, dup := scalarStops[fqn]; !dup {
+					scalarStops[fqn] = chars
+				}
+			}
+		},
 		OnField: func(parent, name string, node *pb.ASTNode) {
 			if nodeRequired(node) {
 				requiredCand[parent+"."+name] = true
@@ -238,6 +251,11 @@ func main() {
 		log.Fatalf("write %s: %v", *requiredMapOut, err)
 	}
 	fmt.Printf("wrote %s (%d entries)\n", *requiredMapOut, len(required))
+
+	if err := os.WriteFile(*scalarStopsOut, []byte(formatScalarStopsMap("csspb", scalarStops)), 0o644); err != nil {
+		log.Fatalf("write %s: %v", *scalarStopsOut, err)
+	}
+	fmt.Printf("wrote %s (%d entries)\n", *scalarStopsOut, len(scalarStops))
 }
 
 // dedupeMessages removes duplicate top-level messages by name, keeping the
