@@ -258,11 +258,11 @@ AtCounterStyleFallbackDesc        = "fallback"         , ":" , CounterStyleNameT
 AtCounterStyleSuffixDesc          = "suffix"           , ":" , CounterStyleSymbolType , ";" ;
 AtCounterStylePrefixDesc          = "prefix"           , ":" , CounterStyleSymbolType , ";" ;
 
-AtCounterStyleBlock = { Property | AtCounterStyleSystemDesc | AtCounterStyleSymbolsDesc
+AtCounterStyleBlock = { DeclarationItem | AtCounterStyleSystemDesc | AtCounterStyleSymbolsDesc
                       | AtCounterStyleRangeDesc | AtCounterStyleNegativeDesc
                       | AtCounterStylePadDesc | AtCounterStyleSpeakAsDesc
                       | AtCounterStyleAdditiveSymbolsDesc | AtCounterStyleFallbackDesc
-                      | AtCounterStyleSuffixDesc | AtCounterStylePrefixDesc } ;
+                      | AtCounterStyleSuffixDesc | AtCounterStylePrefixDesc } , [ Declaration ] ;
 
 AtCounterStyle = "@" , "counter-style" , custom_ident_type , "{" , AtCounterStyleBlock , "}" ;
 
@@ -313,10 +313,10 @@ AtFontFaceAscentOverrideDesc      = "ascent-override"     , ":" , FontFaceOverri
 AtFontFaceDescentOverrideDesc     = "descent-override"    , ":" , FontFaceOverrideType , ";" ;
 AtFontFaceLineGapOverrideDesc     = "line-gap-override"   , ":" , FontFaceOverrideType , ";" ;
 
-AtFontFaceBlock = { Property | AtFontFaceSrcDesc | AtFontFaceWeightDesc | AtFontFaceStyleDesc | AtFontFaceWidthDesc
+AtFontFaceBlock = { DeclarationItem | AtFontFaceSrcDesc | AtFontFaceWeightDesc | AtFontFaceStyleDesc | AtFontFaceWidthDesc
                   | AtFontFaceDisplayDesc | AtFontFaceVariationSettingsDesc | AtFontFaceSizeAdjustDesc
                   | AtFontFaceUnicodeRangeDesc | AtFontFaceAscentOverrideDesc | AtFontFaceDescentOverrideDesc
-                  | AtFontFaceLineGapOverrideDesc } ;
+                  | AtFontFaceLineGapOverrideDesc } , [ Declaration ] ;
 
 AtFontFace = "@" , "font-face" , "{" , AtFontFaceBlock , "}" ;
 
@@ -344,7 +344,7 @@ FontPaletteOverrideColorsType = IntegerType , ColorType , { "," , IntegerType , 
 AtFontPaletteValuesBasePaletteDesc    = "base-palette"    , ":" , FontPaletteBaseType , ";" ;
 AtFontPaletteValuesOverrideColorsDesc = "override-colors" , ":" , FontPaletteOverrideColorsType , ";" ;
 
-AtFontPaletteValuesBlock = { Property | AtFontPaletteValuesBasePaletteDesc | AtFontPaletteValuesOverrideColorsDesc } ;
+AtFontPaletteValuesBlock = { DeclarationItem | AtFontPaletteValuesBasePaletteDesc | AtFontPaletteValuesOverrideColorsDesc } , [ Declaration ] ;
 
 AtFontPaletteValues = "@" , "font-palette-values" , dashed_ident_type , "{" , AtFontPaletteValuesBlock , "}" ;
 
@@ -449,8 +449,8 @@ AtPageSizeDesc        = "size"             , ":" , PageSizeDescriptorType , ";" 
 AtPageOrientationDesc = "page-orientation" , ":" , PageOrientationType , ";" ;
 
 (* @top-left, @top-center, @top-right, @bottom-*, @left-*, @right-* margin at-rules *)
-AtPageMarginBox = "@" , ident_type , "{" , { Property } , "}" ;
-AtPageBlock = { Property | AtPageSizeDesc | AtPageOrientationDesc | AtPageMarginBox } ;
+AtPageMarginBox = "@" , ident_type , "{" , { DeclarationItem } , [ Declaration ] , "}" ;
+AtPageBlock = { DeclarationItem | AtPageSizeDesc | AtPageOrientationDesc | AtPageMarginBox } , [ Declaration ] ;
 
 AtPage = "@" , "page" , [ PageSelectorType , { "," , PageSelectorType } ] , "{" , AtPageBlock , "}" ;
 
@@ -464,7 +464,7 @@ AtPropertySyntaxDesc       = "syntax"        , ":" , string_type , ";" ;
 AtPropertyInheritsDesc     = "inherits"       , ":" , ( "true" | "false" ) , ";" ;
 AtPropertyInitialValueDesc = "initial-value"  , ":" , DeclarationValueTokenType , ";" ;
 
-AtPropertyBlock = { Property | AtPropertySyntaxDesc | AtPropertyInheritsDesc | AtPropertyInitialValueDesc } ;
+AtPropertyBlock = { DeclarationItem | AtPropertySyntaxDesc | AtPropertyInheritsDesc | AtPropertyInitialValueDesc } , [ Declaration ] ;
 
 AtProperty = "@" , "property" , CustomPropertyNameType , "{" , AtPropertyBlock , "}" ;
 

@@ -20,6 +20,7 @@ func init() {
 		Prefix:       csspb.MessagePrefix,
 		Separator:    csspb.FieldSeparator,
 		Seam:         nil, // CSS has no outward seams yet (path()/d added later).
+		Required:     csspb.FieldRequired,
 		SmartSpacing: true, // CSS: convention-aware spacing, whitespace-insignificant.
 	})
 }

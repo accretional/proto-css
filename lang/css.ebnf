@@ -3,11 +3,18 @@ CssStyleSheet = { AtRule | CssRule } ;
 
 CssRule = ComplexSelectorList , "{" , RuleBody , "}" ;
 
-(* A rule body can be empty, can have Property or a nested rule *)
-RuleBody = { CustomPropertyDecl | Property | NestedCssRule | AtRule } ;
+(* A rule body can be empty, can have declarations, nested rules, or at-rules.
+   ";" is a declaration *terminator/separator* owned by the body, not by the
+   declaration itself: every declaration followed by more content carries its
+   ";" (DeclarationItem), and only the final declaration of the body may omit
+   it (the trailing [ Declaration ]). This accepts "a:1;b:2" and "a:1;b:2;"
+   but rejects "a:1 b:2". *)
+RuleBody = { DeclarationItem | NestedCssRule | AtRule } , [ Declaration ] ;
+Declaration = CustomPropertyDecl | Property ;
+DeclarationItem = Declaration , ";" ;
 
-(* --custom-property: value; — any CSS value, including important *)
-CustomPropertyDecl = dashed_ident_type , ":" , CustomPropertyValue , [ "!" , "important" ] , ";" ;
+(* --custom-property: value — any CSS value, including important *)
+CustomPropertyDecl = dashed_ident_type , ":" , CustomPropertyValue , [ "!" , "important" ] ;
 CustomPropertyValue = { ident_type | number_type | length_type | percentage_type | string_type | ColorType | "," | "/" | "(" | ")" } ;
 
 (* The nested rule is the same as a CSS rule, except the rule_name *)

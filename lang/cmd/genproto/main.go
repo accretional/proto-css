@@ -60,6 +60,7 @@ func main() {
 	fdsetOut := flag.String("fdset", "proto/css.fdset", "output FileDescriptorSet binary")
 	prefixMapOut := flag.String("prefix-map", "proto/pb/css/prefix_map.go", "generated MessagePrefix map")
 	separatorMapOut := flag.String("separator-map", "proto/pb/css/separator_map.go", "generated FieldSeparator map")
+	requiredMapOut := flag.String("required-map", "proto/pb/css/required_map.go", "generated FieldRequired map")
 	pkgName := flag.String("package", "css", "proto package name")
 	goPkg := flag.String("go-package", "github.com/accretional/proto-css/proto/pb/css;csspb", "go_package option")
 	flag.Parse()
@@ -160,10 +161,16 @@ func main() {
 	ast.Root = emptyKeywordRules(ast.Root)
 	ast.Root = compiler.StripKeywords(ast.Root)
 
+	requiredCand := map[string]bool{}
 	fdp, err := compiler.Compile(ast, compiler.Options{
 		Package:   *pkgName,
 		GoPackage: *goPkg,
 		FileName:  filepath.Base(*bundledOut),
+		OnField: func(parent, name string, node *pb.ASTNode) {
+			if nodeRequired(node) {
+				requiredCand[parent+"."+name] = true
+			}
+		},
 	})
 	if err != nil {
 		log.Fatalf("compiler.Compile: %v", err)
@@ -171,6 +178,7 @@ func main() {
 	dups := dedupeMessages(fdp)
 	dangling := dropDanglingFields(fdp)
 	renamed := uniquifyFields(fdp)
+	required := filterRequired(fdp, *pkgName, requiredCand)
 	fmt.Printf("compiled %d messages from %d rules\n", len(fdp.GetMessageType()), len(gd.GetRules()))
 	if len(dups) > 0 {
 		fmt.Printf("note: deduped %d colliding message name(s): %v\n", len(dups), dups)
@@ -225,6 +233,11 @@ func main() {
 		log.Fatalf("write %s: %v", *separatorMapOut, err)
 	}
 	fmt.Printf("wrote %s (%d entries)\n", *separatorMapOut, len(separators))
+
+	if err := os.WriteFile(*requiredMapOut, []byte(formatRequiredMap("csspb", required)), 0o644); err != nil {
+		log.Fatalf("write %s: %v", *requiredMapOut, err)
+	}
+	fmt.Printf("wrote %s (%d entries)\n", *requiredMapOut, len(required))
 }
 
 // dedupeMessages removes duplicate top-level messages by name, keeping the

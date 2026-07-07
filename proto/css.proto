@@ -29,17 +29,31 @@ message CssRule {
 message RuleBody {
   repeated Alt1 alt1 = 1;
 
+  Declaration declaration = 2;
+
   message Alt1 {
     oneof value {
-      CustomPropertyDecl custom_property_decl = 1;
+      DeclarationItem declaration_item = 1;
 
-      Property property = 2;
+      NestedCssRule nested_css_rule = 2;
 
-      NestedCssRule nested_css_rule = 3;
-
-      AtRule at_rule = 4;
+      AtRule at_rule = 3;
     }
   }
+}
+
+message Declaration {
+  oneof value {
+    CustomPropertyDecl custom_property_decl = 1;
+
+    Property property = 2;
+  }
+}
+
+message DeclarationItem {
+  Declaration declaration = 1;
+
+  SemicolonKeyword semicolon_keyword = 2;
 }
 
 message CustomPropertyDecl {
@@ -50,8 +64,6 @@ message CustomPropertyDecl {
   CustomPropertyValue custom_property_value = 3;
 
   ExclamationMarkImportant exclamation_mark_important = 4;
-
-  SemicolonKeyword semicolon_keyword = 5;
 
   message ExclamationMarkImportant {
   }
@@ -214,6 +226,22 @@ message CubicBezierProgressType {
 }
 
 message MiterlimitType {
+  NumberType number_type = 1;
+}
+
+message InitialLetterSizeType {
+  NumberType number_type = 1;
+}
+
+message FilterAmountType {
+  NumberType number_type = 1;
+}
+
+message ScaleFactorType {
+  NumberType number_type = 1;
+}
+
+message FontWeightNumberType {
   NumberType number_type = 1;
 }
 
@@ -3730,7 +3758,7 @@ message BrightnessFn {
 
   message Alt1 {
     oneof value {
-      NumberType number_type = 1;
+      FilterAmountType filter_amount_type = 1;
 
       PercentageType percentage_type = 2;
     }
@@ -3744,7 +3772,7 @@ message ContrastFn {
 
   message Alt1 {
     oneof value {
-      NumberType number_type = 1;
+      FilterAmountType filter_amount_type = 1;
 
       PercentageType percentage_type = 2;
     }
@@ -3792,7 +3820,7 @@ message GrayscaleFn {
 
   message Alt1 {
     oneof value {
-      NumberType number_type = 1;
+      FilterAmountType filter_amount_type = 1;
 
       PercentageType percentage_type = 2;
     }
@@ -3820,7 +3848,7 @@ message InvertFn {
 
   message Alt1 {
     oneof value {
-      NumberType number_type = 1;
+      FilterAmountType filter_amount_type = 1;
 
       PercentageType percentage_type = 2;
     }
@@ -3834,7 +3862,7 @@ message OpacityFn {
 
   message Alt1 {
     oneof value {
-      NumberType number_type = 1;
+      FilterAmountType filter_amount_type = 1;
 
       PercentageType percentage_type = 2;
     }
@@ -3848,7 +3876,7 @@ message SepiaFn {
 
   message Alt1 {
     oneof value {
-      NumberType number_type = 1;
+      FilterAmountType filter_amount_type = 1;
 
       PercentageType percentage_type = 2;
     }
@@ -3862,7 +3890,7 @@ message SaturateFn {
 
   message Alt1 {
     oneof value {
-      NumberType number_type = 1;
+      FilterAmountType filter_amount_type = 1;
 
       PercentageType percentage_type = 2;
     }
@@ -3964,7 +3992,7 @@ message Scale3dFn {
 
   message Alt1 {
     oneof value {
-      NumberType number_type = 1;
+      ScaleFactorType scale_factor_type = 1;
 
       PercentageType percentage_type = 2;
     }
@@ -3972,7 +4000,7 @@ message Scale3dFn {
 
   message Alt2 {
     oneof value {
-      NumberType number_type = 1;
+      ScaleFactorType scale_factor_type = 1;
 
       PercentageType percentage_type = 2;
     }
@@ -3980,7 +4008,7 @@ message Scale3dFn {
 
   message Alt3 {
     oneof value {
-      NumberType number_type = 1;
+      ScaleFactorType scale_factor_type = 1;
 
       PercentageType percentage_type = 2;
     }
@@ -3988,25 +4016,25 @@ message Scale3dFn {
 }
 
 message ScaleFn {
-  NumberType number_type = 1;
+  ScaleFactorType scale_factor_type = 1;
 
   Comma comma = 2;
 
   RightParenthesisKeyword right_parenthesis_keyword = 3;
 
   message Comma {
-    NumberType number_type = 1;
+    ScaleFactorType scale_factor_type = 1;
   }
 }
 
 message ScalexFn {
-  NumberType number_type = 1;
+  ScaleFactorType scale_factor_type = 1;
 
   RightParenthesisKeyword right_parenthesis_keyword = 2;
 }
 
 message ScaleyFn {
-  NumberType number_type = 1;
+  ScaleFactorType scale_factor_type = 1;
 
   RightParenthesisKeyword right_parenthesis_keyword = 2;
 }
@@ -4018,7 +4046,7 @@ message ScalezFn {
 
   message Alt1 {
     oneof value {
-      NumberType number_type = 1;
+      ScaleFactorType scale_factor_type = 1;
 
       PercentageType percentage_type = 2;
     }
@@ -4424,53 +4452,9 @@ message PathFn {
 }
 
 message LegacyRectSyntaxType {
-  Alt1 alt1 = 1;
+  ClipRectEdgesType clip_rect_edges_type = 1;
 
-  CommaKeyword comma_keyword = 2;
-
-  Alt2 alt2 = 3;
-
-  CommaKeyword comma_keyword_2 = 4;
-
-  Alt3 alt3 = 5;
-
-  CommaKeyword comma_keyword_3 = 6;
-
-  Alt4 alt4 = 7;
-
-  RightParenthesisKeyword right_parenthesis_keyword = 8;
-
-  message Alt1 {
-    oneof value {
-      LengthPercentageType length_percentage_type = 1;
-
-      AutoKeyword auto_keyword = 2;
-    }
-  }
-
-  message Alt2 {
-    oneof value {
-      LengthPercentageType length_percentage_type = 1;
-
-      AutoKeyword auto_keyword = 2;
-    }
-  }
-
-  message Alt3 {
-    oneof value {
-      LengthPercentageType length_percentage_type = 1;
-
-      AutoKeyword auto_keyword = 2;
-    }
-  }
-
-  message Alt4 {
-    oneof value {
-      LengthPercentageType length_percentage_type = 1;
-
-      AutoKeyword auto_keyword = 2;
-    }
-  }
+  RightParenthesisKeyword right_parenthesis_keyword = 2;
 }
 
 message RectFn {
@@ -4914,9 +4898,11 @@ message TrackSizeType {
 }
 
 message LineNamesType {
-  repeated CustomIdentType custom_ident_type = 1;
+  CustomIdentType custom_ident_type = 1;
 
-  RightSquareBracketKeyword right_square_bracket_keyword = 2;
+  repeated CustomIdentType custom_ident_type_2 = 2;
+
+  RightSquareBracketKeyword right_square_bracket_keyword = 3;
 }
 
 message TrackRepeatFn {
@@ -7630,8 +7616,6 @@ message AccentColorExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       AccentColorProp accent_color_prop = 1;
@@ -7648,8 +7632,6 @@ message AlignContentExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -7668,8 +7650,6 @@ message AlignItemsExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       AlignItemsProp align_items_prop = 1;
@@ -7686,8 +7666,6 @@ message AlignSelfExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -7706,8 +7684,6 @@ message AlignmentBaselineExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       AlignmentBaselineProp alignment_baseline_prop = 1;
@@ -7725,8 +7701,6 @@ message AllExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message ExclamationMarkImportant {
   }
 }
@@ -7735,8 +7709,6 @@ message AnchorNameExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -7755,8 +7727,6 @@ message AnchorScopeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       AnchorScopeProp anchor_scope_prop = 1;
@@ -7773,8 +7743,6 @@ message AnimationCompositionExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -7793,8 +7761,6 @@ message AnimationDelayExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       AnimationDelayProp animation_delay_prop = 1;
@@ -7811,8 +7777,6 @@ message AnimationDirectionExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -7831,8 +7795,6 @@ message AnimationDurationExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       AnimationDurationProp animation_duration_prop = 1;
@@ -7849,8 +7811,6 @@ message AnimationFillModeExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -7869,8 +7829,6 @@ message AnimationIterationCountExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       AnimationIterationCountProp animation_iteration_count_prop = 1;
@@ -7887,8 +7845,6 @@ message AnimationNameExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -7907,8 +7863,6 @@ message AnimationPlayStateExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       AnimationPlayStateProp animation_play_state_prop = 1;
@@ -7925,8 +7879,6 @@ message AnimationRangeEndExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -7945,8 +7897,6 @@ message AnimationRangeStartExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       AnimationRangeStartProp animation_range_start_prop = 1;
@@ -7963,8 +7913,6 @@ message AnimationRangeExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -7983,8 +7931,6 @@ message AnimationTimelineExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       AnimationTimelineProp animation_timeline_prop = 1;
@@ -8001,8 +7947,6 @@ message AnimationTimingFunctionExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -8021,8 +7965,6 @@ message AnimationExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       AnimationProp animation_prop = 1;
@@ -8039,8 +7981,6 @@ message AppearanceExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -8059,8 +7999,6 @@ message AspectRatioExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       AspectRatioProp aspect_ratio_prop = 1;
@@ -8077,8 +8015,6 @@ message BackdropFilterExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -8097,8 +8033,6 @@ message BackfaceVisibilityExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BackfaceVisibilityProp backface_visibility_prop = 1;
@@ -8115,8 +8049,6 @@ message BackgroundAttachmentExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -8135,8 +8067,6 @@ message BackgroundBlendModeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BackgroundBlendModeProp background_blend_mode_prop = 1;
@@ -8153,8 +8083,6 @@ message BackgroundClipExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -8173,8 +8101,6 @@ message BackgroundColorExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BackgroundColorProp background_color_prop = 1;
@@ -8191,8 +8117,6 @@ message BackgroundImageExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -8211,8 +8135,6 @@ message BackgroundOriginExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BackgroundOriginProp background_origin_prop = 1;
@@ -8229,8 +8151,6 @@ message BackgroundPositionXexpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -8249,8 +8169,6 @@ message BackgroundPositionYexpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BackgroundPositionYprop background_position_yprop = 1;
@@ -8267,8 +8185,6 @@ message BackgroundPositionExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -8287,8 +8203,6 @@ message BackgroundRepeatExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BackgroundRepeatProp background_repeat_prop = 1;
@@ -8305,8 +8219,6 @@ message BackgroundRepeatXexpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -8325,8 +8237,6 @@ message BackgroundRepeatYexpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BackgroundRepeatYprop background_repeat_yprop = 1;
@@ -8343,8 +8253,6 @@ message BackgroundSizeExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -8363,8 +8271,6 @@ message BackgroundExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BackgroundProp background_prop = 1;
@@ -8381,8 +8287,6 @@ message BaselineShiftExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -8401,8 +8305,6 @@ message BaselineSourceExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BaselineSourceProp baseline_source_prop = 1;
@@ -8419,8 +8321,6 @@ message BlockSizeExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -8439,8 +8339,6 @@ message BorderBlockColorExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderBlockColorProp border_block_color_prop = 1;
@@ -8457,8 +8355,6 @@ message BorderBlockEndColorExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -8477,8 +8373,6 @@ message BorderBlockEndStyleExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderBlockEndStyleProp border_block_end_style_prop = 1;
@@ -8495,8 +8389,6 @@ message BorderBlockEndWidthExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -8515,8 +8407,6 @@ message BorderBlockEndExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderBlockEndProp border_block_end_prop = 1;
@@ -8533,8 +8423,6 @@ message BorderBlockStartColorExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -8553,8 +8441,6 @@ message BorderBlockStartStyleExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderBlockStartStyleProp border_block_start_style_prop = 1;
@@ -8571,8 +8457,6 @@ message BorderBlockStartWidthExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -8591,8 +8475,6 @@ message BorderBlockStartExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderBlockStartProp border_block_start_prop = 1;
@@ -8609,8 +8491,6 @@ message BorderBlockStyleExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -8629,8 +8509,6 @@ message BorderBlockWidthExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderBlockWidthProp border_block_width_prop = 1;
@@ -8647,8 +8525,6 @@ message BorderBlockExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -8667,8 +8543,6 @@ message BorderBottomColorExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderBottomColorProp border_bottom_color_prop = 1;
@@ -8685,8 +8559,6 @@ message BorderBottomLeftRadiusExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -8705,8 +8577,6 @@ message BorderBottomRightRadiusExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderBottomRightRadiusProp border_bottom_right_radius_prop = 1;
@@ -8723,8 +8593,6 @@ message BorderBottomStyleExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -8743,8 +8611,6 @@ message BorderBottomWidthExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderBottomWidthProp border_bottom_width_prop = 1;
@@ -8761,8 +8627,6 @@ message BorderBottomExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -8781,8 +8645,6 @@ message BorderCollapseExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderCollapseProp border_collapse_prop = 1;
@@ -8799,8 +8661,6 @@ message BorderColorExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -8819,8 +8679,6 @@ message BorderEndEndRadiusExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderEndEndRadiusProp border_end_end_radius_prop = 1;
@@ -8837,8 +8695,6 @@ message BorderEndStartRadiusExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -8857,8 +8713,6 @@ message BorderImageOutsetExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderImageOutsetProp border_image_outset_prop = 1;
@@ -8875,8 +8729,6 @@ message BorderImageRepeatExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -8895,8 +8747,6 @@ message BorderImageSliceExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderImageSliceProp border_image_slice_prop = 1;
@@ -8913,8 +8763,6 @@ message BorderImageSourceExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -8933,8 +8781,6 @@ message BorderImageWidthExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderImageWidthProp border_image_width_prop = 1;
@@ -8951,8 +8797,6 @@ message BorderImageExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -8971,8 +8815,6 @@ message BorderInlineColorExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderInlineColorProp border_inline_color_prop = 1;
@@ -8989,8 +8831,6 @@ message BorderInlineEndColorExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -9009,8 +8849,6 @@ message BorderInlineEndStyleExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderInlineEndStyleProp border_inline_end_style_prop = 1;
@@ -9027,8 +8865,6 @@ message BorderInlineEndWidthExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -9047,8 +8883,6 @@ message BorderInlineEndExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderInlineEndProp border_inline_end_prop = 1;
@@ -9065,8 +8899,6 @@ message BorderInlineStartColorExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -9085,8 +8917,6 @@ message BorderInlineStartStyleExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderInlineStartStyleProp border_inline_start_style_prop = 1;
@@ -9103,8 +8933,6 @@ message BorderInlineStartWidthExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -9123,8 +8951,6 @@ message BorderInlineStartExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderInlineStartProp border_inline_start_prop = 1;
@@ -9141,8 +8967,6 @@ message BorderInlineStyleExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -9161,8 +8985,6 @@ message BorderInlineWidthExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderInlineWidthProp border_inline_width_prop = 1;
@@ -9179,8 +9001,6 @@ message BorderInlineExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -9199,8 +9019,6 @@ message BorderLeftColorExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderLeftColorProp border_left_color_prop = 1;
@@ -9217,8 +9035,6 @@ message BorderLeftStyleExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -9237,8 +9053,6 @@ message BorderLeftWidthExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderLeftWidthProp border_left_width_prop = 1;
@@ -9255,8 +9069,6 @@ message BorderLeftExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -9275,8 +9087,6 @@ message BorderRadiusExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderRadiusProp border_radius_prop = 1;
@@ -9293,8 +9103,6 @@ message BorderRightColorExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -9313,8 +9121,6 @@ message BorderRightStyleExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderRightStyleProp border_right_style_prop = 1;
@@ -9331,8 +9137,6 @@ message BorderRightWidthExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -9351,8 +9155,6 @@ message BorderRightExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderRightProp border_right_prop = 1;
@@ -9369,8 +9171,6 @@ message BorderSpacingExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -9389,8 +9189,6 @@ message BorderStartEndRadiusExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderStartEndRadiusProp border_start_end_radius_prop = 1;
@@ -9407,8 +9205,6 @@ message BorderStartStartRadiusExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -9427,8 +9223,6 @@ message BorderStyleExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderStyleProp border_style_prop = 1;
@@ -9445,8 +9239,6 @@ message BorderTopColorExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -9465,8 +9257,6 @@ message BorderTopLeftRadiusExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderTopLeftRadiusProp border_top_left_radius_prop = 1;
@@ -9483,8 +9273,6 @@ message BorderTopRightRadiusExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -9503,8 +9291,6 @@ message BorderTopStyleExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderTopStyleProp border_top_style_prop = 1;
@@ -9521,8 +9307,6 @@ message BorderTopWidthExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -9541,8 +9325,6 @@ message BorderTopExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderTopProp border_top_prop = 1;
@@ -9559,8 +9341,6 @@ message BorderWidthExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -9579,8 +9359,6 @@ message BorderExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BorderProp border_prop = 1;
@@ -9597,8 +9375,6 @@ message BottomExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -9617,8 +9393,6 @@ message BoxAlignExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BoxAlignProp box_align_prop = 1;
@@ -9635,8 +9409,6 @@ message BoxDecorationBreakExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -9655,8 +9427,6 @@ message BoxDirectionExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BoxDirectionProp box_direction_prop = 1;
@@ -9673,8 +9443,6 @@ message BoxFlexGroupExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -9693,8 +9461,6 @@ message BoxFlexExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BoxFlexProp box_flex_prop = 1;
@@ -9711,8 +9477,6 @@ message BoxLinesExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -9731,8 +9495,6 @@ message BoxOrdinalGroupExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BoxOrdinalGroupProp box_ordinal_group_prop = 1;
@@ -9749,8 +9511,6 @@ message BoxOrientExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -9769,8 +9529,6 @@ message BoxPackExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BoxPackProp box_pack_prop = 1;
@@ -9787,8 +9545,6 @@ message BoxShadowExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -9807,8 +9563,6 @@ message BoxSizingExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BoxSizingProp box_sizing_prop = 1;
@@ -9825,8 +9579,6 @@ message BreakAfterExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -9845,8 +9597,6 @@ message BreakBeforeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       BreakBeforeProp break_before_prop = 1;
@@ -9863,8 +9613,6 @@ message BreakInsideExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -9883,8 +9631,6 @@ message CaptionSideExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       CaptionSideProp caption_side_prop = 1;
@@ -9901,8 +9647,6 @@ message CaretAnimationExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -9921,8 +9665,6 @@ message CaretColorExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       CaretColorProp caret_color_prop = 1;
@@ -9939,8 +9681,6 @@ message CaretShapeExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -9959,8 +9699,6 @@ message CaretExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       CaretProp caret_prop = 1;
@@ -9977,8 +9715,6 @@ message ClearExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -9997,8 +9733,6 @@ message ClipPathExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ClipPathProp clip_path_prop = 1;
@@ -10015,8 +9749,6 @@ message ClipRuleExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -10035,8 +9767,6 @@ message ClipExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ClipProp clip_prop = 1;
@@ -10053,8 +9783,6 @@ message ColorInterpolationFiltersExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -10073,8 +9801,6 @@ message ColorInterpolationExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ColorInterpolationProp color_interpolation_prop = 1;
@@ -10091,8 +9817,6 @@ message ColorSchemeExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -10111,8 +9835,6 @@ message ColorExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ColorProp color_prop = 1;
@@ -10129,8 +9851,6 @@ message ColumnCountExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -10149,8 +9869,6 @@ message ColumnFillExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ColumnFillProp column_fill_prop = 1;
@@ -10167,8 +9885,6 @@ message ColumnGapExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -10187,8 +9903,6 @@ message ColumnHeightExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ColumnHeightProp column_height_prop = 1;
@@ -10205,8 +9919,6 @@ message ColumnRuleColorExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -10225,8 +9937,6 @@ message ColumnRuleStyleExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ColumnRuleStyleProp column_rule_style_prop = 1;
@@ -10243,8 +9953,6 @@ message ColumnRuleWidthExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -10263,8 +9971,6 @@ message ColumnRuleExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ColumnRuleProp column_rule_prop = 1;
@@ -10281,8 +9987,6 @@ message ColumnSpanExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -10301,8 +10005,6 @@ message ColumnWidthExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ColumnWidthProp column_width_prop = 1;
@@ -10319,8 +10021,6 @@ message ColumnWrapExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -10339,8 +10039,6 @@ message ColumnsExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ColumnsProp columns_prop = 1;
@@ -10357,8 +10055,6 @@ message ContainIntrinsicBlockSizeExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -10377,8 +10073,6 @@ message ContainIntrinsicHeightExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ContainIntrinsicHeightProp contain_intrinsic_height_prop = 1;
@@ -10395,8 +10089,6 @@ message ContainIntrinsicInlineSizeExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -10415,8 +10107,6 @@ message ContainIntrinsicSizeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ContainIntrinsicSizeProp contain_intrinsic_size_prop = 1;
@@ -10433,8 +10123,6 @@ message ContainIntrinsicWidthExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -10453,8 +10141,6 @@ message ContainExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ContainProp contain_prop = 1;
@@ -10471,8 +10157,6 @@ message ContainerNameExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -10491,8 +10175,6 @@ message ContainerTypeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ContainerTypeProp container_type_prop = 1;
@@ -10509,8 +10191,6 @@ message ContainerExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -10529,8 +10209,6 @@ message ContentVisibilityExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ContentVisibilityProp content_visibility_prop = 1;
@@ -10547,8 +10225,6 @@ message ContentExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -10567,8 +10243,6 @@ message CornerBlockEndShapeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       CornerBlockEndShapeProp corner_block_end_shape_prop = 1;
@@ -10585,8 +10259,6 @@ message CornerBlockStartShapeExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -10605,8 +10277,6 @@ message CornerBottomLeftShapeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       CornerBottomLeftShapeProp corner_bottom_left_shape_prop = 1;
@@ -10623,8 +10293,6 @@ message CornerBottomRightShapeExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -10643,8 +10311,6 @@ message CornerBottomShapeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       CornerBottomShapeProp corner_bottom_shape_prop = 1;
@@ -10661,8 +10327,6 @@ message CornerEndEndShapeExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -10681,8 +10345,6 @@ message CornerEndStartShapeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       CornerEndStartShapeProp corner_end_start_shape_prop = 1;
@@ -10699,8 +10361,6 @@ message CornerInlineEndShapeExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -10719,8 +10379,6 @@ message CornerInlineStartShapeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       CornerInlineStartShapeProp corner_inline_start_shape_prop = 1;
@@ -10737,8 +10395,6 @@ message CornerLeftShapeExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -10757,8 +10413,6 @@ message CornerRightShapeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       CornerRightShapeProp corner_right_shape_prop = 1;
@@ -10775,8 +10429,6 @@ message CornerShapeExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -10795,8 +10447,6 @@ message CornerStartEndShapeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       CornerStartEndShapeProp corner_start_end_shape_prop = 1;
@@ -10813,8 +10463,6 @@ message CornerStartStartShapeExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -10833,8 +10481,6 @@ message CornerTopLeftShapeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       CornerTopLeftShapeProp corner_top_left_shape_prop = 1;
@@ -10851,8 +10497,6 @@ message CornerTopRightShapeExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -10871,8 +10515,6 @@ message CornerTopShapeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       CornerTopShapeProp corner_top_shape_prop = 1;
@@ -10889,8 +10531,6 @@ message CounterIncrementExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -10909,8 +10549,6 @@ message CounterResetExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       CounterResetProp counter_reset_prop = 1;
@@ -10927,8 +10565,6 @@ message CounterSetExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -10947,8 +10583,6 @@ message CursorExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       CursorProp cursor_prop = 1;
@@ -10965,8 +10599,6 @@ message CxExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -10985,8 +10617,6 @@ message CyExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       CyProp cy_prop = 1;
@@ -11003,8 +10633,6 @@ message Dexpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -11023,8 +10651,6 @@ message DirectionExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       DirectionProp direction_prop = 1;
@@ -11041,8 +10667,6 @@ message DisplayExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -11061,8 +10685,6 @@ message DominantBaselineExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       DominantBaselineProp dominant_baseline_prop = 1;
@@ -11079,8 +10701,6 @@ message DynamicRangeLimitExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -11099,8 +10719,6 @@ message EmptyCellsExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       EmptyCellsProp empty_cells_prop = 1;
@@ -11117,8 +10735,6 @@ message FieldSizingExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -11137,8 +10753,6 @@ message FillOpacityExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       FillOpacityProp fill_opacity_prop = 1;
@@ -11155,8 +10769,6 @@ message FillRuleExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -11175,8 +10787,6 @@ message FillExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       FillProp fill_prop = 1;
@@ -11193,8 +10803,6 @@ message FilterExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -11213,8 +10821,6 @@ message FlexBasisExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       FlexBasisProp flex_basis_prop = 1;
@@ -11231,8 +10837,6 @@ message FlexDirectionExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -11251,8 +10855,6 @@ message FlexFlowExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       FlexFlowProp flex_flow_prop = 1;
@@ -11269,8 +10871,6 @@ message FlexGrowExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -11289,8 +10889,6 @@ message FlexShrinkExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       FlexShrinkProp flex_shrink_prop = 1;
@@ -11307,8 +10905,6 @@ message FlexWrapExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -11327,8 +10923,6 @@ message FlexExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       FlexProp flex_prop = 1;
@@ -11345,8 +10939,6 @@ message FloatExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -11365,8 +10957,6 @@ message FloodColorExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       FloodColorProp flood_color_prop = 1;
@@ -11383,8 +10973,6 @@ message FloodOpacityExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -11403,8 +10991,6 @@ message FontFamilyExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       FontFamilyProp font_family_prop = 1;
@@ -11421,8 +11007,6 @@ message FontFeatureSettingsExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -11441,8 +11025,6 @@ message FontKerningExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       FontKerningProp font_kerning_prop = 1;
@@ -11459,8 +11041,6 @@ message FontLanguageOverrideExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -11479,8 +11059,6 @@ message FontOpticalSizingExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       FontOpticalSizingProp font_optical_sizing_prop = 1;
@@ -11497,8 +11075,6 @@ message FontPaletteExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -11517,8 +11093,6 @@ message FontSizeAdjustExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       FontSizeAdjustProp font_size_adjust_prop = 1;
@@ -11535,8 +11109,6 @@ message FontSizeExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -11555,8 +11127,6 @@ message FontSmoothExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       FontSmoothProp font_smooth_prop = 1;
@@ -11573,8 +11143,6 @@ message FontStretchExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -11593,8 +11161,6 @@ message FontStyleExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       FontStyleProp font_style_prop = 1;
@@ -11611,8 +11177,6 @@ message FontSynthesisPositionExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -11631,8 +11195,6 @@ message FontSynthesisSmallCapsExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       FontSynthesisSmallCapsProp font_synthesis_small_caps_prop = 1;
@@ -11649,8 +11211,6 @@ message FontSynthesisStyleExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -11669,8 +11229,6 @@ message FontSynthesisWeightExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       FontSynthesisWeightProp font_synthesis_weight_prop = 1;
@@ -11687,8 +11245,6 @@ message FontSynthesisExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -11707,8 +11263,6 @@ message FontVariantAlternatesExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       FontVariantAlternatesProp font_variant_alternates_prop = 1;
@@ -11725,8 +11279,6 @@ message FontVariantCapsExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -11745,8 +11297,6 @@ message FontVariantEastAsianExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       FontVariantEastAsianProp font_variant_east_asian_prop = 1;
@@ -11763,8 +11313,6 @@ message FontVariantEmojiExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -11783,8 +11331,6 @@ message FontVariantLigaturesExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       FontVariantLigaturesProp font_variant_ligatures_prop = 1;
@@ -11801,8 +11347,6 @@ message FontVariantNumericExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -11821,8 +11365,6 @@ message FontVariantPositionExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       FontVariantPositionProp font_variant_position_prop = 1;
@@ -11839,8 +11381,6 @@ message FontVariantExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -11859,8 +11399,6 @@ message FontVariationSettingsExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       FontVariationSettingsProp font_variation_settings_prop = 1;
@@ -11877,8 +11415,6 @@ message FontWeightExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -11897,8 +11433,6 @@ message FontWidthExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       FontWidthProp font_width_prop = 1;
@@ -11915,8 +11449,6 @@ message FontExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -11935,8 +11467,6 @@ message ForcedColorAdjustExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ForcedColorAdjustProp forced_color_adjust_prop = 1;
@@ -11953,8 +11483,6 @@ message GapExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -11973,8 +11501,6 @@ message GridAreaExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       GridAreaProp grid_area_prop = 1;
@@ -11991,8 +11517,6 @@ message GridAutoColumnsExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -12011,8 +11535,6 @@ message GridAutoFlowExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       GridAutoFlowProp grid_auto_flow_prop = 1;
@@ -12029,8 +11551,6 @@ message GridAutoRowsExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -12049,8 +11569,6 @@ message GridColumnEndExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       GridColumnEndProp grid_column_end_prop = 1;
@@ -12067,8 +11585,6 @@ message GridColumnStartExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -12087,8 +11603,6 @@ message GridColumnExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       GridColumnProp grid_column_prop = 1;
@@ -12105,8 +11619,6 @@ message GridRowEndExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -12125,8 +11637,6 @@ message GridRowStartExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       GridRowStartProp grid_row_start_prop = 1;
@@ -12143,8 +11653,6 @@ message GridRowExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -12163,8 +11671,6 @@ message GridTemplateAreasExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       GridTemplateAreasProp grid_template_areas_prop = 1;
@@ -12181,8 +11687,6 @@ message GridTemplateColumnsExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -12201,8 +11705,6 @@ message GridTemplateRowsExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       GridTemplateRowsProp grid_template_rows_prop = 1;
@@ -12219,8 +11721,6 @@ message GridTemplateExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -12239,8 +11739,6 @@ message GridExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       GridProp grid_prop = 1;
@@ -12257,8 +11755,6 @@ message HangingPunctuationExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -12277,8 +11773,6 @@ message HeightExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       HeightProp height_prop = 1;
@@ -12295,8 +11789,6 @@ message HyphenateCharacterExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -12315,8 +11807,6 @@ message HyphenateLimitCharsExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       HyphenateLimitCharsProp hyphenate_limit_chars_prop = 1;
@@ -12333,8 +11823,6 @@ message HyphensExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -12353,8 +11841,6 @@ message ImageOrientationExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ImageOrientationProp image_orientation_prop = 1;
@@ -12371,8 +11857,6 @@ message ImageRenderingExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -12391,8 +11875,6 @@ message ImageResolutionExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ImageResolutionProp image_resolution_prop = 1;
@@ -12409,8 +11891,6 @@ message InitialLetterExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -12429,8 +11909,6 @@ message InlineSizeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       InlineSizeProp inline_size_prop = 1;
@@ -12447,8 +11925,6 @@ message InsetBlockEndExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -12467,8 +11943,6 @@ message InsetBlockStartExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       InsetBlockStartProp inset_block_start_prop = 1;
@@ -12485,8 +11959,6 @@ message InsetBlockExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -12505,8 +11977,6 @@ message InsetInlineEndExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       InsetInlineEndProp inset_inline_end_prop = 1;
@@ -12523,8 +11993,6 @@ message InsetInlineStartExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -12543,8 +12011,6 @@ message InsetInlineExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       InsetInlineProp inset_inline_prop = 1;
@@ -12561,8 +12027,6 @@ message InsetExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -12581,8 +12045,6 @@ message InteractivityExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       InteractivityProp interactivity_prop = 1;
@@ -12599,8 +12061,6 @@ message InterestDelayExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -12619,8 +12079,6 @@ message InterestDelayEndExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       InterestDelayEndProp interest_delay_end_prop = 1;
@@ -12637,8 +12095,6 @@ message InterestDelayStartExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -12657,8 +12113,6 @@ message InterpolateSizeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       InterpolateSizeProp interpolate_size_prop = 1;
@@ -12675,8 +12129,6 @@ message IsolationExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -12695,8 +12147,6 @@ message JustifyContentExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       JustifyContentProp justify_content_prop = 1;
@@ -12713,8 +12163,6 @@ message JustifyItemsExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -12733,8 +12181,6 @@ message JustifySelfExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       JustifySelfProp justify_self_prop = 1;
@@ -12751,8 +12197,6 @@ message LeftExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -12771,8 +12215,6 @@ message LetterSpacingExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       LetterSpacingProp letter_spacing_prop = 1;
@@ -12789,8 +12231,6 @@ message LightingColorExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -12809,8 +12249,6 @@ message LineBreakExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       LineBreakProp line_break_prop = 1;
@@ -12827,8 +12265,6 @@ message LineClampExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -12847,8 +12283,6 @@ message LineHeightStepExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       LineHeightStepProp line_height_step_prop = 1;
@@ -12865,8 +12299,6 @@ message LineHeightExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -12885,8 +12317,6 @@ message ListStyleImageExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ListStyleImageProp list_style_image_prop = 1;
@@ -12903,8 +12333,6 @@ message ListStylePositionExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -12923,8 +12351,6 @@ message ListStyleTypeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ListStyleTypeProp list_style_type_prop = 1;
@@ -12941,8 +12367,6 @@ message ListStyleExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -12961,8 +12385,6 @@ message MarginBlockEndExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       MarginBlockEndProp margin_block_end_prop = 1;
@@ -12979,8 +12401,6 @@ message MarginBlockStartExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -12999,8 +12419,6 @@ message MarginBlockExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       MarginBlockProp margin_block_prop = 1;
@@ -13017,8 +12435,6 @@ message MarginBottomExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -13037,8 +12453,6 @@ message MarginInlineEndExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       MarginInlineEndProp margin_inline_end_prop = 1;
@@ -13055,8 +12469,6 @@ message MarginInlineStartExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -13075,8 +12487,6 @@ message MarginInlineExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       MarginInlineProp margin_inline_prop = 1;
@@ -13093,8 +12503,6 @@ message MarginLeftExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -13113,8 +12521,6 @@ message MarginRightExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       MarginRightProp margin_right_prop = 1;
@@ -13131,8 +12537,6 @@ message MarginTopExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -13151,8 +12555,6 @@ message MarginTrimExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       MarginTrimProp margin_trim_prop = 1;
@@ -13169,8 +12571,6 @@ message MarginExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -13189,8 +12589,6 @@ message MarkerEndExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       MarkerEndProp marker_end_prop = 1;
@@ -13207,8 +12605,6 @@ message MarkerMidExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -13227,8 +12623,6 @@ message MarkerStartExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       MarkerStartProp marker_start_prop = 1;
@@ -13245,8 +12639,6 @@ message MarkerExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -13265,8 +12657,6 @@ message MaskBorderModeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       MaskBorderModeProp mask_border_mode_prop = 1;
@@ -13283,8 +12673,6 @@ message MaskBorderOutsetExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -13303,8 +12691,6 @@ message MaskBorderRepeatExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       MaskBorderRepeatProp mask_border_repeat_prop = 1;
@@ -13321,8 +12707,6 @@ message MaskBorderSliceExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -13341,8 +12725,6 @@ message MaskBorderSourceExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       MaskBorderSourceProp mask_border_source_prop = 1;
@@ -13359,8 +12741,6 @@ message MaskBorderWidthExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -13379,8 +12759,6 @@ message MaskBorderExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       MaskBorderProp mask_border_prop = 1;
@@ -13397,8 +12775,6 @@ message MaskClipExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -13417,8 +12793,6 @@ message MaskCompositeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       MaskCompositeProp mask_composite_prop = 1;
@@ -13435,8 +12809,6 @@ message MaskImageExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -13455,8 +12827,6 @@ message MaskModeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       MaskModeProp mask_mode_prop = 1;
@@ -13473,8 +12843,6 @@ message MaskOriginExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -13493,8 +12861,6 @@ message MaskPositionExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       MaskPositionProp mask_position_prop = 1;
@@ -13511,8 +12877,6 @@ message MaskRepeatExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -13531,8 +12895,6 @@ message MaskSizeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       MaskSizeProp mask_size_prop = 1;
@@ -13549,8 +12911,6 @@ message MaskTypeExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -13569,8 +12929,6 @@ message MaskExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       MaskProp mask_prop = 1;
@@ -13587,8 +12945,6 @@ message MathDepthExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -13607,8 +12963,6 @@ message MathShiftExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       MathShiftProp math_shift_prop = 1;
@@ -13625,8 +12979,6 @@ message MathStyleExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -13645,8 +12997,6 @@ message MaxBlockSizeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       MaxBlockSizeProp max_block_size_prop = 1;
@@ -13663,8 +13013,6 @@ message MaxHeightExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -13683,8 +13031,6 @@ message MaxInlineSizeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       MaxInlineSizeProp max_inline_size_prop = 1;
@@ -13701,8 +13047,6 @@ message MaxWidthExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -13721,8 +13065,6 @@ message MinBlockSizeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       MinBlockSizeProp min_block_size_prop = 1;
@@ -13739,8 +13081,6 @@ message MinHeightExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -13759,8 +13099,6 @@ message MinInlineSizeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       MinInlineSizeProp min_inline_size_prop = 1;
@@ -13777,8 +13115,6 @@ message MinWidthExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -13797,8 +13133,6 @@ message MixBlendModeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       MixBlendModeProp mix_blend_mode_prop = 1;
@@ -13815,8 +13149,6 @@ message ObjectFitExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -13835,8 +13167,6 @@ message ObjectPositionExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ObjectPositionProp object_position_prop = 1;
@@ -13853,8 +13183,6 @@ message ObjectViewBoxExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -13873,8 +13201,6 @@ message OffsetAnchorExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       OffsetAnchorProp offset_anchor_prop = 1;
@@ -13891,8 +13217,6 @@ message OffsetDistanceExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -13911,8 +13235,6 @@ message OffsetPathExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       OffsetPathProp offset_path_prop = 1;
@@ -13929,8 +13251,6 @@ message OffsetPositionExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -13949,8 +13269,6 @@ message OffsetRotateExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       OffsetRotateProp offset_rotate_prop = 1;
@@ -13967,8 +13285,6 @@ message OffsetExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -13987,8 +13303,6 @@ message OpacityExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       OpacityProp opacity_prop = 1;
@@ -14005,8 +13319,6 @@ message OrderExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -14025,8 +13337,6 @@ message OrphansExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       OrphansProp orphans_prop = 1;
@@ -14043,8 +13353,6 @@ message OutlineColorExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -14063,8 +13371,6 @@ message OutlineOffsetExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       OutlineOffsetProp outline_offset_prop = 1;
@@ -14081,8 +13387,6 @@ message OutlineStyleExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -14101,8 +13405,6 @@ message OutlineWidthExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       OutlineWidthProp outline_width_prop = 1;
@@ -14119,8 +13421,6 @@ message OutlineExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -14139,8 +13439,6 @@ message OverflowAnchorExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       OverflowAnchorProp overflow_anchor_prop = 1;
@@ -14157,8 +13455,6 @@ message OverflowBlockExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -14177,8 +13473,6 @@ message OverflowClipMarginExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       OverflowClipMarginProp overflow_clip_margin_prop = 1;
@@ -14195,8 +13489,6 @@ message OverflowInlineExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -14215,8 +13507,6 @@ message OverflowWrapExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       OverflowWrapProp overflow_wrap_prop = 1;
@@ -14233,8 +13523,6 @@ message WordWrapExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -14253,8 +13541,6 @@ message OverflowXexpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       OverflowXprop overflow_xprop = 1;
@@ -14271,8 +13557,6 @@ message OverflowYexpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -14291,8 +13575,6 @@ message OverflowExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       OverflowProp overflow_prop = 1;
@@ -14309,8 +13591,6 @@ message OverlayExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -14329,8 +13609,6 @@ message OverscrollBehaviorBlockExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       OverscrollBehaviorBlockProp overscroll_behavior_block_prop = 1;
@@ -14347,8 +13625,6 @@ message OverscrollBehaviorInlineExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -14367,8 +13643,6 @@ message OverscrollBehaviorXexpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       OverscrollBehaviorXprop overscroll_behavior_xprop = 1;
@@ -14385,8 +13659,6 @@ message OverscrollBehaviorYexpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -14405,8 +13677,6 @@ message OverscrollBehaviorExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       OverscrollBehaviorProp overscroll_behavior_prop = 1;
@@ -14423,8 +13693,6 @@ message PaddingBlockEndExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -14443,8 +13711,6 @@ message PaddingBlockStartExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       PaddingBlockStartProp padding_block_start_prop = 1;
@@ -14461,8 +13727,6 @@ message PaddingBlockExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -14481,8 +13745,6 @@ message PaddingBottomExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       PaddingBottomProp padding_bottom_prop = 1;
@@ -14499,8 +13761,6 @@ message PaddingInlineEndExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -14519,8 +13779,6 @@ message PaddingInlineStartExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       PaddingInlineStartProp padding_inline_start_prop = 1;
@@ -14537,8 +13795,6 @@ message PaddingInlineExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -14557,8 +13813,6 @@ message PaddingLeftExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       PaddingLeftProp padding_left_prop = 1;
@@ -14575,8 +13829,6 @@ message PaddingRightExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -14595,8 +13847,6 @@ message PaddingTopExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       PaddingTopProp padding_top_prop = 1;
@@ -14613,8 +13863,6 @@ message PaddingExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -14633,8 +13881,6 @@ message PageBreakAfterExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       PageBreakAfterProp page_break_after_prop = 1;
@@ -14651,8 +13897,6 @@ message PageBreakBeforeExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -14671,8 +13915,6 @@ message PageBreakInsideExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       PageBreakInsideProp page_break_inside_prop = 1;
@@ -14689,8 +13931,6 @@ message PageExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -14709,8 +13949,6 @@ message PaintOrderExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       PaintOrderProp paint_order_prop = 1;
@@ -14727,8 +13965,6 @@ message PerspectiveOriginExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -14747,8 +13983,6 @@ message PerspectiveExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       PerspectiveProp perspective_prop = 1;
@@ -14765,8 +13999,6 @@ message PlaceContentExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -14785,8 +14017,6 @@ message PlaceItemsExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       PlaceItemsProp place_items_prop = 1;
@@ -14803,8 +14033,6 @@ message PlaceSelfExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -14823,8 +14051,6 @@ message PointerEventsExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       PointerEventsProp pointer_events_prop = 1;
@@ -14841,8 +14067,6 @@ message PositionAnchorExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -14861,8 +14085,6 @@ message PositionAreaExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       PositionAreaProp position_area_prop = 1;
@@ -14879,8 +14101,6 @@ message PositionTryFallbacksExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -14899,8 +14119,6 @@ message PositionTryOrderExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       PositionTryOrderProp position_try_order_prop = 1;
@@ -14917,8 +14135,6 @@ message PositionTryExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -14937,8 +14153,6 @@ message PositionVisibilityExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       PositionVisibilityProp position_visibility_prop = 1;
@@ -14955,8 +14169,6 @@ message PositionExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -14975,8 +14187,6 @@ message PrintColorAdjustExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       PrintColorAdjustProp print_color_adjust_prop = 1;
@@ -14993,8 +14203,6 @@ message QuotesExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -15013,8 +14221,6 @@ message Rexpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       Rprop rprop = 1;
@@ -15031,8 +14237,6 @@ message ResizeExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -15051,8 +14255,6 @@ message RightExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       RightProp right_prop = 1;
@@ -15069,8 +14271,6 @@ message RotateExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -15089,8 +14289,6 @@ message RowGapExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       RowGapProp row_gap_prop = 1;
@@ -15107,8 +14305,6 @@ message RubyAlignExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -15127,8 +14323,6 @@ message RubyOverhangExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       RubyOverhangProp ruby_overhang_prop = 1;
@@ -15145,8 +14339,6 @@ message RubyPositionExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -15165,8 +14357,6 @@ message RxExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       RxProp rx_prop = 1;
@@ -15183,8 +14373,6 @@ message RyExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -15203,8 +14391,6 @@ message ScaleExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ScaleProp scale_prop = 1;
@@ -15221,8 +14407,6 @@ message ScrollBehaviorExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -15241,8 +14425,6 @@ message ScrollInitialTargetExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ScrollInitialTargetProp scroll_initial_target_prop = 1;
@@ -15259,8 +14441,6 @@ message ScrollMarginBlockEndExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -15279,8 +14459,6 @@ message ScrollMarginBlockStartExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ScrollMarginBlockStartProp scroll_margin_block_start_prop = 1;
@@ -15297,8 +14475,6 @@ message ScrollMarginBlockExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -15317,8 +14493,6 @@ message ScrollMarginBottomExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ScrollMarginBottomProp scroll_margin_bottom_prop = 1;
@@ -15335,8 +14509,6 @@ message ScrollMarginInlineEndExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -15355,8 +14527,6 @@ message ScrollMarginInlineStartExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ScrollMarginInlineStartProp scroll_margin_inline_start_prop = 1;
@@ -15373,8 +14543,6 @@ message ScrollMarginInlineExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -15393,8 +14561,6 @@ message ScrollMarginLeftExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ScrollMarginLeftProp scroll_margin_left_prop = 1;
@@ -15411,8 +14577,6 @@ message ScrollMarginRightExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -15431,8 +14595,6 @@ message ScrollMarginTopExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ScrollMarginTopProp scroll_margin_top_prop = 1;
@@ -15449,8 +14611,6 @@ message ScrollMarginExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -15469,8 +14629,6 @@ message ScrollMarkerGroupExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ScrollMarkerGroupProp scroll_marker_group_prop = 1;
@@ -15487,8 +14645,6 @@ message ScrollPaddingBlockEndExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -15507,8 +14663,6 @@ message ScrollPaddingBlockStartExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ScrollPaddingBlockStartProp scroll_padding_block_start_prop = 1;
@@ -15525,8 +14679,6 @@ message ScrollPaddingBlockExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -15545,8 +14697,6 @@ message ScrollPaddingBottomExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ScrollPaddingBottomProp scroll_padding_bottom_prop = 1;
@@ -15563,8 +14713,6 @@ message ScrollPaddingInlineEndExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -15583,8 +14731,6 @@ message ScrollPaddingInlineStartExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ScrollPaddingInlineStartProp scroll_padding_inline_start_prop = 1;
@@ -15601,8 +14747,6 @@ message ScrollPaddingInlineExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -15621,8 +14765,6 @@ message ScrollPaddingLeftExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ScrollPaddingLeftProp scroll_padding_left_prop = 1;
@@ -15639,8 +14781,6 @@ message ScrollPaddingRightExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -15659,8 +14799,6 @@ message ScrollPaddingTopExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ScrollPaddingTopProp scroll_padding_top_prop = 1;
@@ -15677,8 +14815,6 @@ message ScrollPaddingExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -15697,8 +14833,6 @@ message ScrollSnapAlignExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ScrollSnapAlignProp scroll_snap_align_prop = 1;
@@ -15715,8 +14849,6 @@ message ScrollSnapStopExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -15735,8 +14867,6 @@ message ScrollSnapTypeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ScrollSnapTypeProp scroll_snap_type_prop = 1;
@@ -15753,8 +14883,6 @@ message ScrollTargetGroupExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -15773,8 +14901,6 @@ message ScrollTimelineAxisExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ScrollTimelineAxisProp scroll_timeline_axis_prop = 1;
@@ -15791,8 +14917,6 @@ message ScrollTimelineNameExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -15811,8 +14935,6 @@ message ScrollTimelineExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ScrollTimelineProp scroll_timeline_prop = 1;
@@ -15829,8 +14951,6 @@ message ScrollbarColorExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -15849,8 +14969,6 @@ message ScrollbarGutterExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ScrollbarGutterProp scrollbar_gutter_prop = 1;
@@ -15867,8 +14985,6 @@ message ScrollbarWidthExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -15887,8 +15003,6 @@ message ShapeImageThresholdExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ShapeImageThresholdProp shape_image_threshold_prop = 1;
@@ -15905,8 +15019,6 @@ message ShapeMarginExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -15925,8 +15037,6 @@ message ShapeOutsideExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ShapeOutsideProp shape_outside_prop = 1;
@@ -15943,8 +15053,6 @@ message ShapeRenderingExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -15963,8 +15071,6 @@ message SpeakAsExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       SpeakAsProp speak_as_prop = 1;
@@ -15981,8 +15087,6 @@ message StopColorExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -16001,8 +15105,6 @@ message StopOpacityExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       StopOpacityProp stop_opacity_prop = 1;
@@ -16019,8 +15121,6 @@ message StrokeDasharrayExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -16039,8 +15139,6 @@ message StrokeDashoffsetExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       StrokeDashoffsetProp stroke_dashoffset_prop = 1;
@@ -16057,8 +15155,6 @@ message StrokeLinecapExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -16077,8 +15173,6 @@ message StrokeLinejoinExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       StrokeLinejoinProp stroke_linejoin_prop = 1;
@@ -16095,8 +15189,6 @@ message StrokeMiterlimitExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -16115,8 +15207,6 @@ message StrokeOpacityExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       StrokeOpacityProp stroke_opacity_prop = 1;
@@ -16133,8 +15223,6 @@ message StrokeWidthExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -16153,8 +15241,6 @@ message StrokeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       StrokeProp stroke_prop = 1;
@@ -16171,8 +15257,6 @@ message TabSizeExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -16191,8 +15275,6 @@ message TableLayoutExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       TableLayoutProp table_layout_prop = 1;
@@ -16209,8 +15291,6 @@ message TextAlignLastExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -16229,8 +15309,6 @@ message TextAlignExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       TextAlignProp text_align_prop = 1;
@@ -16247,8 +15325,6 @@ message TextAnchorExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -16267,8 +15343,6 @@ message TextAutospaceExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       TextAutospaceProp text_autospace_prop = 1;
@@ -16285,8 +15359,6 @@ message TextBoxEdgeExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -16305,8 +15377,6 @@ message TextBoxTrimExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       TextBoxTrimProp text_box_trim_prop = 1;
@@ -16323,8 +15393,6 @@ message TextBoxExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -16343,8 +15411,6 @@ message TextCombineUprightExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       TextCombineUprightProp text_combine_upright_prop = 1;
@@ -16361,8 +15427,6 @@ message TextDecorationColorExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -16381,8 +15445,6 @@ message TextDecorationInsetExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       TextDecorationInsetProp text_decoration_inset_prop = 1;
@@ -16399,8 +15461,6 @@ message TextDecorationLineExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -16419,8 +15479,6 @@ message TextDecorationSkipInkExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       TextDecorationSkipInkProp text_decoration_skip_ink_prop = 1;
@@ -16437,8 +15495,6 @@ message TextDecorationSkipExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -16457,8 +15513,6 @@ message TextDecorationStyleExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       TextDecorationStyleProp text_decoration_style_prop = 1;
@@ -16475,8 +15529,6 @@ message TextDecorationThicknessExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -16495,8 +15547,6 @@ message TextDecorationExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       TextDecorationProp text_decoration_prop = 1;
@@ -16513,8 +15563,6 @@ message TextEmphasisColorExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -16533,8 +15581,6 @@ message TextEmphasisPositionExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       TextEmphasisPositionProp text_emphasis_position_prop = 1;
@@ -16551,8 +15597,6 @@ message TextEmphasisStyleExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -16571,8 +15615,6 @@ message TextEmphasisExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       TextEmphasisProp text_emphasis_prop = 1;
@@ -16589,8 +15631,6 @@ message TextIndentExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -16609,8 +15649,6 @@ message TextJustifyExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       TextJustifyProp text_justify_prop = 1;
@@ -16627,8 +15665,6 @@ message TextOrientationExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -16647,8 +15683,6 @@ message TextOverflowExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       TextOverflowProp text_overflow_prop = 1;
@@ -16665,8 +15699,6 @@ message TextRenderingExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -16685,8 +15717,6 @@ message TextShadowExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       TextShadowProp text_shadow_prop = 1;
@@ -16703,8 +15733,6 @@ message TextSizeAdjustExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -16723,8 +15751,6 @@ message TextSpacingTrimExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       TextSpacingTrimProp text_spacing_trim_prop = 1;
@@ -16741,8 +15767,6 @@ message TextTransformExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -16761,8 +15785,6 @@ message TextUnderlineOffsetExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       TextUnderlineOffsetProp text_underline_offset_prop = 1;
@@ -16779,8 +15801,6 @@ message TextUnderlinePositionExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -16799,8 +15819,6 @@ message TextWrapModeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       TextWrapModeProp text_wrap_mode_prop = 1;
@@ -16817,8 +15835,6 @@ message TextWrapStyleExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -16837,8 +15853,6 @@ message TextWrapExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       TextWrapProp text_wrap_prop = 1;
@@ -16855,8 +15869,6 @@ message TimelineScopeExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -16875,8 +15887,6 @@ message TopExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       TopProp top_prop = 1;
@@ -16893,8 +15903,6 @@ message TouchActionExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -16913,8 +15921,6 @@ message TransformBoxExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       TransformBoxProp transform_box_prop = 1;
@@ -16931,8 +15937,6 @@ message TransformOriginExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -16951,8 +15955,6 @@ message TransformStyleExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       TransformStyleProp transform_style_prop = 1;
@@ -16969,8 +15971,6 @@ message TransformExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -16989,8 +15989,6 @@ message TransitionBehaviorExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       TransitionBehaviorProp transition_behavior_prop = 1;
@@ -17007,8 +16005,6 @@ message TransitionDelayExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -17027,8 +16023,6 @@ message TransitionDurationExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       TransitionDurationProp transition_duration_prop = 1;
@@ -17045,8 +16039,6 @@ message TransitionPropertyExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -17065,8 +16057,6 @@ message TransitionTimingFunctionExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       TransitionTimingFunctionProp transition_timing_function_prop = 1;
@@ -17083,8 +16073,6 @@ message TransitionExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -17103,8 +16091,6 @@ message TranslateExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       TranslateProp translate_prop = 1;
@@ -17121,8 +16107,6 @@ message UnicodeBidiExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -17141,8 +16125,6 @@ message UserModifyExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       UserModifyProp user_modify_prop = 1;
@@ -17159,8 +16141,6 @@ message UserSelectExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -17179,8 +16159,6 @@ message VectorEffectExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       VectorEffectProp vector_effect_prop = 1;
@@ -17197,8 +16175,6 @@ message VerticalAlignExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -17217,8 +16193,6 @@ message ViewTimelineAxisExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ViewTimelineAxisProp view_timeline_axis_prop = 1;
@@ -17235,8 +16209,6 @@ message ViewTimelineInsetExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -17255,8 +16227,6 @@ message ViewTimelineNameExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ViewTimelineNameProp view_timeline_name_prop = 1;
@@ -17273,8 +16243,6 @@ message ViewTimelineExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -17293,8 +16261,6 @@ message ViewTransitionClassExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ViewTransitionClassProp view_transition_class_prop = 1;
@@ -17311,8 +16277,6 @@ message ViewTransitionNameExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -17331,8 +16295,6 @@ message VisibilityExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       VisibilityProp visibility_prop = 1;
@@ -17349,8 +16311,6 @@ message WhiteSpaceCollapseExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -17369,8 +16329,6 @@ message WhiteSpaceExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       WhiteSpaceProp white_space_prop = 1;
@@ -17387,8 +16345,6 @@ message WidowsExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -17407,8 +16363,6 @@ message WidthExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       WidthProp width_prop = 1;
@@ -17425,8 +16379,6 @@ message WillChangeExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -17445,8 +16397,6 @@ message WordBreakExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       WordBreakProp word_break_prop = 1;
@@ -17463,8 +16413,6 @@ message WordSpacingExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -17483,8 +16431,6 @@ message WritingModeExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       WritingModeProp writing_mode_prop = 1;
@@ -17501,8 +16447,6 @@ message Xexpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -17521,8 +16465,6 @@ message Yexpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       Yprop yprop = 1;
@@ -17540,8 +16482,6 @@ message ZindexExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       ZindexProp zindex_prop = 1;
@@ -17558,8 +16498,6 @@ message ZoomExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -17709,40 +16647,84 @@ message SingleAnimationTimelineType {
   }
 }
 
-message SingleAnimationItem {
+message SingleAnimationType {
   oneof value {
+    NoneKeyword none_keyword = 1;
+
+    KeyframesNameType keyframes_name_type = 2;
+
+    Seq1 seq1 = 3;
+
+    Seq2 seq2 = 4;
+
+    Seq3 seq3 = 5;
+
+    Seq4 seq4 = 6;
+
+    Seq5 seq5 = 7;
+  }
+
+  message Seq1 {
     TimeType time_type = 1;
 
-    MathFunctionType math_function_type = 2;
-
-    EasingFunctionType easing_function_type = 3;
-
-    SingleAnimationIterationCountType single_animation_iteration_count_type = 4;
-
-    SingleAnimationDirectionType single_animation_direction_type = 5;
-
-    SingleAnimationFillModeType single_animation_fill_mode_type = 6;
-
-    SingleAnimationPlayStateType single_animation_play_state_type = 7;
-
-    SingleAnimationTimelineType single_animation_timeline_type = 8;
-
-    Alt1 alt1 = 9;
+    KeyframesNameType keyframes_name_type = 2;
   }
 
-  message Alt1 {
-    oneof value {
-      NoneKeyword none_keyword = 1;
+  message Seq2 {
+    TimeType time_type = 1;
 
-      KeyframesNameType keyframes_name_type = 2;
-    }
+    EaseHyphenMinusInHyphenMinusOutKeyword ease_hyphen_minus_in_hyphen_minus_out_keyword = 2;
+
+    KeyframesNameType keyframes_name_type = 3;
   }
-}
 
-message SingleAnimationType {
-  SingleAnimationItem single_animation_item = 1;
+  message Seq3 {
+    TimeType time_type = 1;
 
-  repeated SingleAnimationItem single_animation_item_2 = 2;
+    LinearKeyword linear_keyword = 2;
+
+    InfiniteKeyword infinite_keyword = 3;
+
+    AlternateKeyword alternate_keyword = 4;
+
+    KeyframesNameType keyframes_name_type = 5;
+  }
+
+  message Seq4 {
+    TimeType time_type = 1;
+
+    EaseKeyword ease_keyword = 2;
+
+    TimeType time_type_2 = 3;
+
+    DigitTwoKeyword digit_two_keyword = 4;
+
+    AlternateHyphenMinusReverseKeyword alternate_hyphen_minus_reverse_keyword = 5;
+
+    BothKeyword both_keyword = 6;
+
+    PausedKeyword paused_keyword = 7;
+
+    KeyframesNameType keyframes_name_type = 8;
+  }
+
+  message Seq5 {
+    TimeType time_type = 1;
+
+    EaseHyphenMinusInKeyword ease_hyphen_minus_in_keyword = 2;
+
+    TimeType time_type_2 = 3;
+
+    InfiniteKeyword infinite_keyword = 4;
+
+    NormalKeyword normal_keyword = 5;
+
+    ForwardsKeyword forwards_keyword = 6;
+
+    RunningKeyword running_keyword = 7;
+
+    KeyframesNameType keyframes_name_type = 8;
+  }
 }
 
 message CompatAutoType {
@@ -17957,48 +16939,6 @@ message BgSizeTypeItem {
   }
 }
 
-message BgLayerItem {
-  oneof value {
-    BgImageType bg_image_type = 1;
-
-    Seq1 seq1 = 2;
-
-    RepeatStyleType repeat_style_type = 3;
-
-    AttachmentType attachment_type = 4;
-
-    BgClipType bg_clip_type = 5;
-
-    VisualBoxType visual_box_type = 6;
-  }
-
-  message Seq1 {
-    BgPositionType bg_position_type = 1;
-
-    Solidus solidus = 2;
-
-    message Solidus {
-      BgSizeType bg_size_type = 1;
-    }
-  }
-}
-
-message BgLayerType {
-  repeated BgLayerItem bg_layer_item = 1;
-}
-
-message FinalBgLayerItem {
-  oneof value {
-    BgLayerItem bg_layer_item = 1;
-
-    ColorType color_type = 2;
-  }
-}
-
-message FinalBgLayerType {
-  repeated FinalBgLayerItem final_bg_layer_item = 1;
-}
-
 message Image1dType {
   StripesFn stripes_fn = 1;
 }
@@ -18036,21 +16976,7 @@ message LineWidthType {
 }
 
 message SpreadShadowType {
-  ColorType color_type = 1;
-
-  InsetKeyword inset_keyword = 2;
-
-  LengthType length_type = 3;
-
-  LengthType length_type_2 = 4;
-
-  Seq1 seq1 = 5;
-
-  message Seq1 {
-    LengthType length_type = 1;
-
-    LengthType length_type_2 = 2;
-  }
+  LengthType length_type = 1;
 }
 
 message ClipSourceType {
@@ -18922,15 +17848,7 @@ message FontWeightAbsoluteType {
 
     BoldKeyword bold_keyword = 2;
 
-    PositiveIntegerType positive_integer_type = 3;
-  }
-}
-
-message FontVariantCss2type {
-  oneof value {
-    NormalKeyword normal_keyword = 1;
-
-    SmallHyphenMinusCapsKeyword small_hyphen_minus_caps_keyword = 2;
+    FontWeightNumberType font_weight_number_type = 3;
   }
 }
 
@@ -19134,6 +18052,16 @@ message IsolationModeType {
   }
 }
 
+message BlockEllipsisType {
+  oneof value {
+    NoHyphenMinusEllipsisKeyword no_hyphen_minus_ellipsis_keyword = 1;
+
+    AutoKeyword auto_keyword = 2;
+
+    StringType string_type = 3;
+  }
+}
+
 message MarkerRefType {
   UrlType url_type = 1;
 }
@@ -19249,15 +18177,27 @@ message OutlineLineStyleType {
 }
 
 message TryTacticType {
-  FlipHyphenMinusBlockKeyword flip_hyphen_minus_block_keyword = 1;
+  oneof value {
+    FlipHyphenMinusBlockKeyword flip_hyphen_minus_block_keyword = 1;
 
-  FlipHyphenMinusInlineKeyword flip_hyphen_minus_inline_keyword = 2;
+    FlipHyphenMinusInlineKeyword flip_hyphen_minus_inline_keyword = 2;
 
-  FlipHyphenMinusStartKeyword flip_hyphen_minus_start_keyword = 3;
+    FlipHyphenMinusStartKeyword flip_hyphen_minus_start_keyword = 3;
 
-  FlipHyphenMinusXKeyword flip_hyphen_minus_x_keyword = 4;
+    FlipHyphenMinusXKeyword flip_hyphen_minus_x_keyword = 4;
 
-  FlipHyphenMinusYKeyword flip_hyphen_minus_y_keyword = 5;
+    FlipHyphenMinusYKeyword flip_hyphen_minus_y_keyword = 5;
+
+    FlipHyphenMinusBlockFlipHyphenMinusInline flip_hyphen_minus_block_flip_hyphen_minus_inline = 6;
+
+    FlipHyphenMinusStartFlipHyphenMinusX flip_hyphen_minus_start_flip_hyphen_minus_x = 7;
+  }
+
+  message FlipHyphenMinusBlockFlipHyphenMinusInline {
+  }
+
+  message FlipHyphenMinusStartFlipHyphenMinusX {
+  }
 }
 
 message TrySizeType {
@@ -19315,19 +18255,7 @@ message FadeFn {
 }
 
 message ShadowType {
-  ColorType color_type = 1;
-
-  LengthType length_type = 2;
-
-  LengthType length_type_2 = 3;
-
-  Seq1 seq1 = 4;
-
-  message Seq1 {
-    LengthType length_type = 1;
-
-    LengthType length_type_2 = 2;
-  }
+  LengthType length_type = 1;
 }
 
 message SpacingTrimType {
@@ -19367,22 +18295,50 @@ message SingleTransitionPropertyType {
 }
 
 message SingleTransitionType {
-  Alt1 alt1 = 1;
+  oneof value {
+    Seq1 seq1 = 1;
 
-  TimeType time_type = 2;
+    Seq2 seq2 = 2;
 
-  EasingFunctionType easing_function_type = 3;
+    Seq3 seq3 = 3;
 
-  TimeType time_type_2 = 4;
+    Seq4 seq4 = 4;
+  }
 
-  TransitionBehaviorValueType transition_behavior_value_type = 5;
+  message Seq1 {
+    SingleTransitionPropertyType single_transition_property_type = 1;
 
-  message Alt1 {
-    oneof value {
-      SingleTransitionPropertyType single_transition_property_type = 1;
+    DigitZeroFullStop4sKeyword digit_zero_full_stop_4s_keyword = 2;
+  }
 
-      NoneKeyword none_keyword = 2;
-    }
+  message Seq2 {
+    SingleTransitionPropertyType single_transition_property_type = 1;
+
+    DigitZeroFullStop4sKeyword digit_zero_full_stop_4s_keyword = 2;
+
+    EaseHyphenMinusInHyphenMinusOutKeyword ease_hyphen_minus_in_hyphen_minus_out_keyword = 3;
+  }
+
+  message Seq3 {
+    SingleTransitionPropertyType single_transition_property_type = 1;
+
+    DigitZeroFullStop6sKeyword digit_zero_full_stop_6s_keyword = 2;
+
+    LinearKeyword linear_keyword = 3;
+
+    DigitZeroFullStop1sKeyword digit_zero_full_stop_1s_keyword = 4;
+  }
+
+  message Seq4 {
+    SingleTransitionPropertyType single_transition_property_type = 1;
+
+    DigitZeroFullStop4sKeyword digit_zero_full_stop_4s_keyword = 2;
+
+    EaseKeyword ease_keyword = 3;
+
+    DigitZeroFullStop1sKeyword digit_zero_full_stop_1s_keyword = 4;
+
+    TransitionBehaviorValueType transition_behavior_value_type = 5;
   }
 }
 
@@ -19699,7 +18655,7 @@ message BackgroundAttachmentProp {
 }
 
 message BackgroundBlendModeProp {
-  repeated MixBlendModeProp mix_blend_mode_prop = 1;
+  repeated BlendModeType blend_mode_type = 1;
 }
 
 message BackgroundClipProp {
@@ -19803,14 +18759,64 @@ message BackgroundSizeProp {
 }
 
 message BackgroundProp {
-  repeated Seq1 seq1 = 1;
+  oneof value {
+    Seq1 seq1 = 1;
 
-  FinalBgLayerType final_bg_layer_type = 2;
+    Seq2 seq2 = 2;
+
+    Seq3 seq3 = 3;
+
+    Seq4 seq4 = 4;
+
+    BgImageType bg_image_type = 5;
+
+    HexColorType hex_color_type = 6;
+  }
 
   message Seq1 {
-    BgLayerType bg_layer_type = 1;
+    BgImageType bg_image_type = 1;
 
-    CommaKeyword comma_keyword = 2;
+    CenterKeyword center_keyword = 2;
+
+    SolidusKeyword solidus_keyword = 3;
+
+    CoverKeyword cover_keyword = 4;
+
+    NoHyphenMinusRepeatKeyword no_hyphen_minus_repeat_keyword = 5;
+
+    FixedKeyword fixed_keyword = 6;
+
+    PaddingHyphenMinusBoxKeyword padding_hyphen_minus_box_keyword = 7;
+
+    HexColorType hex_color_type = 8;
+  }
+
+  message Seq2 {
+    BgImageType bg_image_type = 1;
+
+    TopSpaceLeftKeyword top_space_left_keyword = 2;
+
+    SolidusKeyword solidus_keyword = 3;
+
+    ContainKeyword contain_keyword = 4;
+
+    RepeatHyphenMinusXKeyword repeat_hyphen_minus_x_keyword = 5;
+
+    ScrollKeyword scroll_keyword = 6;
+  }
+
+  message Seq3 {
+    BgImageType bg_image_type = 1;
+
+    CenterKeyword center_keyword = 2;
+
+    NoHyphenMinusRepeatKeyword no_hyphen_minus_repeat_keyword = 3;
+  }
+
+  message Seq4 {
+    HexColorType hex_color_type = 1;
+
+    BgImageType bg_image_type = 2;
   }
 }
 
@@ -20073,25 +19079,11 @@ message BorderEndStartRadiusProp {
 }
 
 message BorderImageOutsetProp {
-  BorderImageOutsetPropItem border_image_outset_prop_item = 1;
-
-  BorderImageOutsetPropItem border_image_outset_prop_item_2 = 2;
-
-  BorderImageOutsetPropItem border_image_outset_prop_item_3 = 3;
-
-  BorderImageOutsetPropItem border_image_outset_prop_item_4 = 4;
+  BorderImageOutsetList border_image_outset_list = 1;
 }
 
-message BorderImageOutsetPropItem {
-  Alt1 alt1 = 1;
-
-  message Alt1 {
-    oneof value {
-      LengthType length_type = 1;
-
-      NonNegativeNumberType non_negative_number_type = 2;
-    }
-  }
+message BorderImageOutsetList {
+  LengthType length_type = 1;
 }
 
 message BorderImageRepeatProp {
@@ -20117,27 +19109,13 @@ message BorderImageRepeatPropItem {
 }
 
 message BorderImageSliceProp {
-  BorderImageSlicePropItem border_image_slice_prop_item = 1;
+  BorderImageSliceList border_image_slice_list = 1;
 
-  BorderImageSlicePropItem border_image_slice_prop_item_2 = 2;
-
-  BorderImageSlicePropItem border_image_slice_prop_item_3 = 3;
-
-  BorderImageSlicePropItem border_image_slice_prop_item_4 = 4;
-
-  FillKeyword fill_keyword = 5;
+  FillKeyword fill_keyword = 2;
 }
 
-message BorderImageSlicePropItem {
-  Alt1 alt1 = 1;
-
-  message Alt1 {
-    oneof value {
-      NonNegativeNumberType non_negative_number_type = 1;
-
-      PercentageType percentage_type = 2;
-    }
-  }
+message BorderImageSliceList {
+  NonNegativeNumberType non_negative_number_type = 1;
 }
 
 message BorderImageSourceProp {
@@ -20149,27 +19127,11 @@ message BorderImageSourceProp {
 }
 
 message BorderImageWidthProp {
-  BorderImageWidthPropItem border_image_width_prop_item = 1;
-
-  BorderImageWidthPropItem border_image_width_prop_item_2 = 2;
-
-  BorderImageWidthPropItem border_image_width_prop_item_3 = 3;
-
-  BorderImageWidthPropItem border_image_width_prop_item_4 = 4;
+  BorderImageWidthList border_image_width_list = 1;
 }
 
-message BorderImageWidthPropItem {
-  Alt1 alt1 = 1;
-
-  message Alt1 {
-    oneof value {
-      NonNegativeLengthPercentageType non_negative_length_percentage_type = 1;
-
-      NonNegativeNumberType non_negative_number_type = 2;
-
-      AutoKeyword auto_keyword = 3;
-    }
-  }
+message BorderImageWidthList {
+  LengthType length_type = 1;
 }
 
 message BorderImageProp {
@@ -20301,25 +19263,11 @@ message BorderLeftProp {
 }
 
 message BorderRadiusProp {
+  BorderRadiusList border_radius_list = 1;
+}
+
+message BorderRadiusList {
   NonNegativeLengthPercentageType non_negative_length_percentage_type = 1;
-
-  NonNegativeLengthPercentageType non_negative_length_percentage_type_2 = 2;
-
-  NonNegativeLengthPercentageType non_negative_length_percentage_type_3 = 3;
-
-  NonNegativeLengthPercentageType non_negative_length_percentage_type_4 = 4;
-
-  Solidus solidus = 5;
-
-  message Solidus {
-    NonNegativeLengthPercentageType non_negative_length_percentage_type = 1;
-
-    NonNegativeLengthPercentageType non_negative_length_percentage_type_2 = 2;
-
-    NonNegativeLengthPercentageType non_negative_length_percentage_type_3 = 3;
-
-    NonNegativeLengthPercentageType non_negative_length_percentage_type_4 = 4;
-  }
 }
 
 message BorderRightColorProp {
@@ -20810,89 +19758,35 @@ message CaretShapeProp {
 
 message CaretProp {
   oneof value {
-    Seq1 seq1 = 1;
+    AutoKeyword auto_keyword = 1;
 
-    Seq2 seq2 = 2;
+    Seq1 seq1 = 2;
 
-    Seq3 seq3 = 3;
+    Manual manual = 3;
+
+    HexColorType hex_color_type = 4;
   }
 
   message Seq1 {
-    CaretColorProp caret_color_prop = 1;
+    Alt1 alt1 = 1;
 
-    Alt1 alt1 = 2;
+    ManualKeyword manual_keyword = 2;
+
+    HexColorType hex_color_type = 3;
 
     message Alt1 {
       oneof value {
-        Seq1 seq1 = 1;
+        BarKeyword bar_keyword = 1;
 
-        Seq2 seq2 = 2;
-      }
+        BlockKeyword block_keyword = 2;
 
-      message Seq1 {
-        CaretAnimationProp caret_animation_prop = 1;
-
-        CaretShapeProp caret_shape_prop = 2;
-      }
-
-      message Seq2 {
-        CaretShapeProp caret_shape_prop = 1;
-
-        CaretAnimationProp caret_animation_prop = 2;
+        UnderscoreKeyword underscore_keyword = 3;
       }
     }
   }
 
-  message Seq2 {
-    CaretAnimationProp caret_animation_prop = 1;
-
-    Alt1 alt1 = 2;
-
-    message Alt1 {
-      oneof value {
-        Seq1 seq1 = 1;
-
-        Seq2 seq2 = 2;
-      }
-
-      message Seq1 {
-        CaretColorProp caret_color_prop = 1;
-
-        CaretShapeProp caret_shape_prop = 2;
-      }
-
-      message Seq2 {
-        CaretShapeProp caret_shape_prop = 1;
-
-        CaretColorProp caret_color_prop = 2;
-      }
-    }
-  }
-
-  message Seq3 {
-    CaretShapeProp caret_shape_prop = 1;
-
-    Alt1 alt1 = 2;
-
-    message Alt1 {
-      oneof value {
-        Seq1 seq1 = 1;
-
-        Seq2 seq2 = 2;
-      }
-
-      message Seq1 {
-        CaretColorProp caret_color_prop = 1;
-
-        CaretAnimationProp caret_animation_prop = 2;
-      }
-
-      message Seq2 {
-        CaretAnimationProp caret_animation_prop = 1;
-
-        CaretColorProp caret_color_prop = 2;
-      }
-    }
+  message Manual {
+    HexColorType hex_color_type = 1;
   }
 }
 
@@ -22792,19 +21686,33 @@ message FontVariantNumericProp {
   oneof value {
     NormalKeyword normal_keyword = 1;
 
-    Seq1 seq1 = 2;
+    NumericFigureValuesType numeric_figure_values_type = 2;
+
+    NumericSpacingValuesType numeric_spacing_values_type = 3;
+
+    NumericFractionValuesType numeric_fraction_values_type = 4;
+
+    OrdinalKeyword ordinal_keyword = 5;
+
+    SlashedHyphenMinusZeroKeyword slashed_hyphen_minus_zero_keyword = 6;
+
+    Seq1 seq1 = 7;
+
+    Seq2 seq2 = 8;
   }
 
   message Seq1 {
     NumericFigureValuesType numeric_figure_values_type = 1;
 
-    NumericSpacingValuesType numeric_spacing_values_type = 2;
+    NumericFractionValuesType numeric_fraction_values_type = 2;
 
-    NumericFractionValuesType numeric_fraction_values_type = 3;
+    SlashedHyphenMinusZeroKeyword slashed_hyphen_minus_zero_keyword = 3;
+  }
 
-    OrdinalKeyword ordinal_keyword = 4;
+  message Seq2 {
+    NumericSpacingValuesType numeric_spacing_values_type = 1;
 
-    SlashedHyphenMinusZeroKeyword slashed_hyphen_minus_zero_keyword = 5;
+    OrdinalKeyword ordinal_keyword = 2;
   }
 }
 
@@ -22824,93 +21732,56 @@ message FontVariantProp {
 
     NoneKeyword none_keyword = 2;
 
-    Seq1 seq1 = 3;
+    CommonLigValuesType common_lig_values_type = 3;
+
+    Alt1 alt1 = 4;
+
+    NumericFigureValuesType numeric_figure_values_type = 5;
+
+    NumericFractionValuesType numeric_fraction_values_type = 6;
+
+    OrdinalKeyword ordinal_keyword = 7;
+
+    SlashedHyphenMinusZeroKeyword slashed_hyphen_minus_zero_keyword = 8;
+
+    RubyKeyword ruby_keyword = 9;
+
+    Alt2 alt2 = 10;
+
+    SmallHyphenMinusCapsOrdinal small_hyphen_minus_caps_ordinal = 11;
+
+    Seq1 seq1 = 12;
+  }
+
+  message Alt1 {
+    oneof value {
+      SmallHyphenMinusCapsKeyword small_hyphen_minus_caps_keyword = 1;
+
+      AllHyphenMinusSmallHyphenMinusCapsKeyword all_hyphen_minus_small_hyphen_minus_caps_keyword = 2;
+
+      PetiteHyphenMinusCapsKeyword petite_hyphen_minus_caps_keyword = 3;
+
+      TitlingHyphenMinusCapsKeyword titling_hyphen_minus_caps_keyword = 4;
+    }
+  }
+
+  message Alt2 {
+    oneof value {
+      SubKeyword sub_keyword = 1;
+
+      SuperKeyword super_keyword = 2;
+    }
+  }
+
+  message SmallHyphenMinusCapsOrdinal {
   }
 
   message Seq1 {
-    Seq1 seq1 = 1;
+    CommonLigValuesType common_lig_values_type = 1;
 
-    Alt1 alt1 = 2;
+    SmallHyphenMinusCapsKeyword small_hyphen_minus_caps_keyword = 2;
 
-    Seq2 seq2 = 3;
-
-    Seq3 seq3 = 4;
-
-    Seq4 seq4 = 5;
-
-    Alt2 alt2 = 6;
-
-    Alt3 alt3 = 7;
-
-    message Seq1 {
-      CommonLigValuesType common_lig_values_type = 1;
-
-      DiscretionaryLigValuesType discretionary_lig_values_type = 2;
-
-      HistoricalLigValuesType historical_lig_values_type = 3;
-
-      ContextualAltValuesType contextual_alt_values_type = 4;
-    }
-
-    message Alt1 {
-      oneof value {
-        SmallHyphenMinusCapsKeyword small_hyphen_minus_caps_keyword = 1;
-
-        AllHyphenMinusSmallHyphenMinusCapsKeyword all_hyphen_minus_small_hyphen_minus_caps_keyword = 2;
-
-        PetiteHyphenMinusCapsKeyword petite_hyphen_minus_caps_keyword = 3;
-
-        AllHyphenMinusPetiteHyphenMinusCapsKeyword all_hyphen_minus_petite_hyphen_minus_caps_keyword = 4;
-
-        UnicaseKeyword unicase_keyword = 5;
-
-        TitlingHyphenMinusCapsKeyword titling_hyphen_minus_caps_keyword = 6;
-      }
-    }
-
-    message Seq2 {
-      FontVariantAlternatesPropItem font_variant_alternates_prop_item = 1;
-
-      repeated FontVariantAlternatesPropItem font_variant_alternates_prop_item_2 = 2;
-    }
-
-    message Seq3 {
-      NumericFigureValuesType numeric_figure_values_type = 1;
-
-      NumericSpacingValuesType numeric_spacing_values_type = 2;
-
-      NumericFractionValuesType numeric_fraction_values_type = 3;
-
-      OrdinalKeyword ordinal_keyword = 4;
-
-      SlashedHyphenMinusZeroKeyword slashed_hyphen_minus_zero_keyword = 5;
-    }
-
-    message Seq4 {
-      EastAsianVariantValuesType east_asian_variant_values_type = 1;
-
-      EastAsianWidthValuesType east_asian_width_values_type = 2;
-
-      RubyKeyword ruby_keyword = 3;
-    }
-
-    message Alt2 {
-      oneof value {
-        SubKeyword sub_keyword = 1;
-
-        SuperKeyword super_keyword = 2;
-      }
-    }
-
-    message Alt3 {
-      oneof value {
-        TextKeyword text_keyword = 1;
-
-        EmojiKeyword emoji_keyword = 2;
-
-        UnicodeKeyword unicode_keyword = 3;
-      }
-    }
+    NumericFractionValuesType numeric_fraction_values_type = 3;
   }
 }
 
@@ -22966,35 +21837,97 @@ message FontWidthProp {
   }
 }
 
+message FontShortSizeType {
+  LengthType length_type = 1;
+}
+
+message FontShortLineHeightType {
+  NumberType number_type = 1;
+}
+
+message FontShortFamilyType {
+  oneof value {
+    SerifKeyword serif_keyword = 1;
+
+    SansHyphenMinusSerifKeyword sans_hyphen_minus_serif_keyword = 2;
+  }
+}
+
 message FontProp {
   oneof value {
-    Seq1 seq1 = 1;
+    SystemFontFamilyNameType system_font_family_name_type = 1;
 
-    SystemFontFamilyNameType system_font_family_name_type = 2;
+    ItalicSmallHyphenMinusCapsBoldCondensed italic_small_hyphen_minus_caps_bold_condensed = 2;
+
+    SmallHyphenMinusCapsBold small_hyphen_minus_caps_bold = 3;
+
+    ItalicLighter italic_lighter = 4;
+
+    ObliqueExpanded oblique_expanded = 5;
+
+    Bold bold = 6;
+
+    Seq1 seq1 = 7;
+
+    Seq2 seq2 = 8;
+  }
+
+  message ItalicSmallHyphenMinusCapsBoldCondensed {
+    FontShortSizeType font_short_size_type = 1;
+
+    SolidusKeyword solidus_keyword = 2;
+
+    FontShortLineHeightType font_short_line_height_type = 3;
+
+    FontShortFamilyType font_short_family_type = 4;
+  }
+
+  message SmallHyphenMinusCapsBold {
+    FontShortSizeType font_short_size_type = 1;
+
+    SolidusKeyword solidus_keyword = 2;
+
+    FontShortLineHeightType font_short_line_height_type = 3;
+
+    FontShortFamilyType font_short_family_type = 4;
+  }
+
+  message ItalicLighter {
+    FontShortSizeType font_short_size_type = 1;
+
+    FontShortFamilyType font_short_family_type = 2;
+  }
+
+  message ObliqueExpanded {
+    FontShortSizeType font_short_size_type = 1;
+
+    SolidusKeyword solidus_keyword = 2;
+
+    FontShortLineHeightType font_short_line_height_type = 3;
+
+    FontShortFamilyType font_short_family_type = 4;
+  }
+
+  message Bold {
+    FontShortSizeType font_short_size_type = 1;
+
+    FontShortFamilyType font_short_family_type = 2;
   }
 
   message Seq1 {
-    Seq1 seq1 = 1;
+    FontShortSizeType font_short_size_type = 1;
 
-    FontSizeProp font_size_prop = 2;
+    SolidusKeyword solidus_keyword = 2;
 
-    Solidus solidus = 3;
+    FontShortLineHeightType font_short_line_height_type = 3;
 
-    repeated FontFamilyProp font_family_prop = 4;
+    FontShortFamilyType font_short_family_type = 4;
+  }
 
-    message Seq1 {
-      FontStyleProp font_style_prop = 1;
+  message Seq2 {
+    FontShortSizeType font_short_size_type = 1;
 
-      FontVariantCss2type font_variant_css2type = 2;
-
-      FontWeightProp font_weight_prop = 3;
-
-      FontWidthCss3type font_width_css3type = 4;
-    }
-
-    message Solidus {
-      LineHeightProp line_height_prop = 1;
-    }
+    FontShortFamilyType font_short_family_type = 2;
   }
 }
 
@@ -23478,13 +22411,13 @@ message InitialLetterProp {
   }
 
   message Seq1 {
-    NumberType number_type = 1;
+    InitialLetterSizeType initial_letter_size_type = 1;
 
     IntegerType integer_type = 2;
   }
 
   message Seq2 {
-    NumberType number_type = 1;
+    InitialLetterSizeType initial_letter_size_type = 1;
 
     Alt1 alt1 = 2;
 
@@ -23757,7 +22690,7 @@ message LineClampProp {
     message Seq1 {
       IntegerType integer_type = 1;
 
-      BlockHyphenMinusEllipsisKeyword block_hyphen_minus_ellipsis_keyword = 2;
+      BlockEllipsisType block_ellipsis_type = 2;
     }
   }
 }
@@ -24702,39 +23635,31 @@ message OffsetRotateProp {
   }
 }
 
-message OffsetPathGroup {
-  OffsetPathProp offset_path_prop = 1;
+message OffsetProp {
+  oneof value {
+    Normal normal = 1;
 
-  Seq1 seq1 = 2;
+    Seq1 seq1 = 2;
+
+    OffsetPositionProp offset_position_prop = 3;
+  }
+
+  message Normal {
+    OffsetPathProp offset_path_prop = 1;
+
+    DigitFive0PercentSignKeyword digit_five_0_percent_sign_keyword = 2;
+
+    AutoSpace45degKeyword auto_space_45deg_keyword = 3;
+
+    SolidusKeyword solidus_keyword = 4;
+
+    CenterKeyword center_keyword = 5;
+  }
 
   message Seq1 {
-    OffsetDistanceProp offset_distance_prop = 1;
+    OffsetPathProp offset_path_prop = 1;
 
-    OffsetRotateProp offset_rotate_prop = 2;
-  }
-}
-
-message OffsetProp {
-  Alt1 alt1 = 1;
-
-  Solidus solidus = 2;
-
-  message Alt1 {
-    oneof value {
-      Seq1 seq1 = 1;
-
-      OffsetPathGroup offset_path_group = 2;
-    }
-
-    message Seq1 {
-      OffsetPositionProp offset_position_prop = 1;
-
-      OffsetPathGroup offset_path_group = 2;
-    }
-  }
-
-  message Solidus {
-    OffsetAnchorProp offset_anchor_prop = 1;
+    DigitFive0PercentSignKeyword digit_five_0_percent_sign_keyword = 2;
   }
 }
 
@@ -25358,71 +24283,26 @@ message PositionVisibilityProp {
   oneof value {
     AlwaysKeyword always_keyword = 1;
 
-    AnchorsHyphenMinusValid anchors_hyphen_minus_valid = 2;
+    AnchorsHyphenMinusValidKeyword anchors_hyphen_minus_valid_keyword = 2;
 
-    AnchorsHyphenMinusVisible anchors_hyphen_minus_visible = 3;
+    AnchorsHyphenMinusVisibleKeyword anchors_hyphen_minus_visible_keyword = 3;
 
-    NoHyphenMinusOverflow no_hyphen_minus_overflow = 4;
+    NoHyphenMinusOverflowKeyword no_hyphen_minus_overflow_keyword = 4;
+
+    AnchorsHyphenMinusValidAnchorsHyphenMinusVisible anchors_hyphen_minus_valid_anchors_hyphen_minus_visible = 5;
+
+    AnchorsHyphenMinusVisibleNoHyphenMinusOverflow anchors_hyphen_minus_visible_no_hyphen_minus_overflow = 6;
+
+    AnchorsHyphenMinusValidAnchorsHyphenMinusVisibleNoHyphenMinusOverflow anchors_hyphen_minus_valid_anchors_hyphen_minus_visible_no_hyphen_minus_overflow = 7;
   }
 
-  message AnchorsHyphenMinusValid {
-    Alt1 alt1 = 1;
-
-    message Alt1 {
-      oneof value {
-        AnchorsHyphenMinusVisible anchors_hyphen_minus_visible = 1;
-
-        NoHyphenMinusOverflow no_hyphen_minus_overflow = 2;
-      }
-
-      message AnchorsHyphenMinusVisible {
-        NoHyphenMinusOverflowKeyword no_hyphen_minus_overflow_keyword = 1;
-      }
-
-      message NoHyphenMinusOverflow {
-        AnchorsHyphenMinusVisibleKeyword anchors_hyphen_minus_visible_keyword = 1;
-      }
-    }
+  message AnchorsHyphenMinusValidAnchorsHyphenMinusVisible {
   }
 
-  message AnchorsHyphenMinusVisible {
-    Alt1 alt1 = 1;
-
-    message Alt1 {
-      oneof value {
-        AnchorsHyphenMinusValid anchors_hyphen_minus_valid = 1;
-
-        NoHyphenMinusOverflow no_hyphen_minus_overflow = 2;
-      }
-
-      message AnchorsHyphenMinusValid {
-        NoHyphenMinusOverflowKeyword no_hyphen_minus_overflow_keyword = 1;
-      }
-
-      message NoHyphenMinusOverflow {
-        AnchorsHyphenMinusValidKeyword anchors_hyphen_minus_valid_keyword = 1;
-      }
-    }
+  message AnchorsHyphenMinusVisibleNoHyphenMinusOverflow {
   }
 
-  message NoHyphenMinusOverflow {
-    Alt1 alt1 = 1;
-
-    message Alt1 {
-      oneof value {
-        AnchorsHyphenMinusValid anchors_hyphen_minus_valid = 1;
-
-        AnchorsHyphenMinusVisible anchors_hyphen_minus_visible = 2;
-      }
-
-      message AnchorsHyphenMinusValid {
-        AnchorsHyphenMinusVisibleKeyword anchors_hyphen_minus_visible_keyword = 1;
-      }
-
-      message AnchorsHyphenMinusVisible {
-        AnchorsHyphenMinusValidKeyword anchors_hyphen_minus_valid_keyword = 1;
-      }
-    }
+  message AnchorsHyphenMinusValidAnchorsHyphenMinusVisibleNoHyphenMinusOverflow {
   }
 }
 
@@ -25508,6 +24388,10 @@ message RightProp {
 
 message RotateAxisVectorType {
   NumberType number_type = 1;
+}
+
+message ClipRectEdgesType {
+  LengthPercentageType length_percentage_type = 1;
 }
 
 message RotateProp {
@@ -25610,28 +24494,12 @@ message ScaleProp {
   oneof value {
     NoneKeyword none_keyword = 1;
 
-    Seq1 seq1 = 2;
-  }
-
-  message Seq1 {
-    ScalePropItem scale_prop_item = 1;
-
-    ScalePropItem scale_prop_item_2 = 2;
-
-    ScalePropItem scale_prop_item_3 = 3;
+    ScaleList scale_list = 2;
   }
 }
 
-message ScalePropItem {
-  Alt1 alt1 = 1;
-
-  message Alt1 {
-    oneof value {
-      NumberType number_type = 1;
-
-      PercentageType percentage_type = 2;
-    }
-  }
+message ScaleList {
+  NumberType number_type = 1;
 }
 
 message ScrollBehaviorProp {
@@ -27453,20 +26321,12 @@ message TranslateProp {
   oneof value {
     NoneKeyword none_keyword = 1;
 
-    Seq1 seq1 = 2;
+    TranslateList translate_list = 2;
   }
+}
 
-  message Seq1 {
-    LengthPercentageType length_percentage_type = 1;
-
-    Seq1 seq1 = 2;
-
-    message Seq1 {
-      LengthPercentageType length_percentage_type = 1;
-
-      LengthType length_type = 2;
-    }
-  }
+message TranslateList {
+  LengthType length_type = 1;
 }
 
 message UnicodeBidiProp {
@@ -27822,8 +26682,6 @@ message GridGapExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       GridGapProp grid_gap_prop = 1;
@@ -27841,8 +26699,6 @@ message GridRowGapExpr {
 
   ExclamationMarkImportant exclamation_mark_important = 2;
 
-  SemicolonKeyword semicolon_keyword = 3;
-
   message Alt1 {
     oneof value {
       GridGapProp grid_gap_prop = 1;
@@ -27859,8 +26715,6 @@ message GridColumnGapExpr {
   Alt1 alt1 = 1;
 
   ExclamationMarkImportant exclamation_mark_important = 2;
-
-  SemicolonKeyword semicolon_keyword = 3;
 
   message Alt1 {
     oneof value {
@@ -28903,9 +27757,11 @@ message AtCounterStylePrefixDesc {
 message AtCounterStyleBlock {
   repeated Alt1 alt1 = 1;
 
+  Declaration declaration = 2;
+
   message Alt1 {
     oneof value {
-      Property property = 1;
+      DeclarationItem declaration_item = 1;
 
       AtCounterStyleSystemDesc at_counter_style_system_desc = 2;
 
@@ -29209,9 +28065,11 @@ message AtFontFaceLineGapOverrideDesc {
 message AtFontFaceBlock {
   repeated Alt1 alt1 = 1;
 
+  Declaration declaration = 2;
+
   message Alt1 {
     oneof value {
-      Property property = 1;
+      DeclarationItem declaration_item = 1;
 
       AtFontFaceSrcDesc at_font_face_src_desc = 2;
 
@@ -29371,9 +28229,11 @@ message AtFontPaletteValuesOverrideColorsDesc {
 message AtFontPaletteValuesBlock {
   repeated Alt1 alt1 = 1;
 
+  Declaration declaration = 2;
+
   message Alt1 {
     oneof value {
-      Property property = 1;
+      DeclarationItem declaration_item = 1;
 
       AtFontPaletteValuesBasePaletteDesc at_font_palette_values_base_palette_desc = 2;
 
@@ -29755,17 +28615,21 @@ message AtPageMarginBox {
 
   LeftCurlyBracketKeyword left_curly_bracket_keyword = 2;
 
-  repeated Property property = 3;
+  repeated DeclarationItem declaration_item = 3;
 
-  RightCurlyBracketKeyword right_curly_bracket_keyword = 4;
+  Declaration declaration = 4;
+
+  RightCurlyBracketKeyword right_curly_bracket_keyword = 5;
 }
 
 message AtPageBlock {
   repeated Alt1 alt1 = 1;
 
+  Declaration declaration = 2;
+
   message Alt1 {
     oneof value {
-      Property property = 1;
+      DeclarationItem declaration_item = 1;
 
       AtPageSizeDesc at_page_size_desc = 2;
 
@@ -29829,9 +28693,11 @@ message AtPropertyInitialValueDesc {
 message AtPropertyBlock {
   repeated Alt1 alt1 = 1;
 
+  Declaration declaration = 2;
+
   message Alt1 {
     oneof value {
-      Property property = 1;
+      DeclarationItem declaration_item = 1;
 
       AtPropertySyntaxDesc at_property_syntax_desc = 2;
 
@@ -30068,6 +28934,9 @@ message AutoHyphenMinusPhraseKeyword {
 message AutoKeyword {
 }
 
+message AutoSpace45degKeyword {
+}
+
 message AvoidHyphenMinusColumnKeyword {
 }
 
@@ -30150,9 +29019,6 @@ message BlinkKeyword {
 }
 
 message BlockHyphenMinusAxisKeyword {
-}
-
-message BlockHyphenMinusEllipsisKeyword {
 }
 
 message BlockHyphenMinusEndKeyword {
@@ -30522,6 +29388,21 @@ message DiagonalHyphenMinusFractionsKeyword {
 }
 
 message DifferenceKeyword {
+}
+
+message DigitFive0PercentSignKeyword {
+}
+
+message DigitTwoKeyword {
+}
+
+message DigitZeroFullStop1sKeyword {
+}
+
+message DigitZeroFullStop4sKeyword {
+}
+
+message DigitZeroFullStop6sKeyword {
 }
 
 message DigitZeroKeyword {
@@ -31565,6 +30446,9 @@ message NoHyphenMinusDiscretionaryHyphenMinusLigaturesKeyword {
 message NoHyphenMinusDropKeyword {
 }
 
+message NoHyphenMinusEllipsisKeyword {
+}
+
 message NoHyphenMinusHistoricalHyphenMinusLigaturesKeyword {
 }
 
@@ -32499,6 +31383,9 @@ message TomatoKeyword {
 }
 
 message TopKeyword {
+}
+
+message TopSpaceLeftKeyword {
 }
 
 message TraditionalKeyword {

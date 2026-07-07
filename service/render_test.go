@@ -26,19 +26,30 @@ func TestRender_ScalarLeaf(t *testing.T) {
 }
 
 // Keyword enum + full declaration: the property name, colon, keyword value and
-// trailing semicolon are all grammar-derived empty markers / prefixes.
+// terminating semicolon are all grammar-derived empty markers / prefixes. The
+// ";" belongs to the DeclarationItem (the rule-body separator), not the Expr.
 func TestRender_KeywordDeclaration(t *testing.T) {
-	expr := &csspb.FlexDirectionExpr{
-		Alt1: &csspb.FlexDirectionExpr_Alt1{
-			Value: &csspb.FlexDirectionExpr_Alt1_FlexDirectionProp{
-				FlexDirectionProp: &csspb.FlexDirectionProp{
-					Value: &csspb.FlexDirectionProp_RowKeyword{RowKeyword: &csspb.RowKeyword{}},
+	item := &csspb.DeclarationItem{
+		Declaration: &csspb.Declaration{
+			Value: &csspb.Declaration_Property{
+				Property: &csspb.Property{
+					Value: &csspb.Property_FlexDirectionExpr{
+						FlexDirectionExpr: &csspb.FlexDirectionExpr{
+							Alt1: &csspb.FlexDirectionExpr_Alt1{
+								Value: &csspb.FlexDirectionExpr_Alt1_FlexDirectionProp{
+									FlexDirectionProp: &csspb.FlexDirectionProp{
+										Value: &csspb.FlexDirectionProp_RowKeyword{RowKeyword: &csspb.RowKeyword{}},
+									},
+								},
+							},
+						},
+					},
 				},
 			},
 		},
 		SemicolonKeyword: &csspb.SemicolonKeyword{},
 	}
-	got := mustRender(t, expr)
+	got := mustRender(t, item)
 	if got != "flex-direction:row;" {
 		t.Errorf("flex-direction: got %q want %q", got, "flex-direction:row;")
 	}
