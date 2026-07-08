@@ -35,6 +35,10 @@ var leafTypes = normSet(
 	"resolution_type",
 	"ident_type", "custom_ident_type", "dashed_ident_type",
 	"hex_color_type",
+	// string_type scalarizes WITH its quotes: leafQuoteChars (stopchars.go)
+	// detects the delimited shape and the codec captures the whole literal
+	// (quotes included) as one token — stop tokens and spacing policy can't
+	// pair symmetric delimiters.
 	"string_type",
 	"dimension_type",
 )

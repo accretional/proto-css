@@ -1,6 +1,6 @@
 (* <number> CSS type: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/number *)
 number_type = fraction , [ "e" , integer_type ] ;
-fraction = integer_type , [ "." , whole_number ] ;
+fraction = integer_type , [ "." , whole_number ] | [ "+" | "-" ] , "." , whole_number ;   (* .5 and -.5 are legal *)
 
 (* <integer> CSS type: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/integer*)
 integer_type = [ "+" | "-" ], whole_number ;
@@ -63,7 +63,7 @@ time_unit = "s" | "ms" ;
 non_negative_integer_type = [ "+" ] , whole_number ;
 
 (* [0,∞] non-negative number — <number [0,∞]> *)
-non_negative_fraction    = non_negative_integer_type , [ "." , whole_number ] ;
+non_negative_fraction    = non_negative_integer_type , [ "." , whole_number ] | "." , whole_number ;
 non_negative_number_type = non_negative_fraction , [ "e" , integer_type ] ;
 
 (* [0,∞] non-negative length — <length [0,∞]> *)
@@ -465,7 +465,7 @@ RelativeSizeType = "smaller" | "larger" ;
 SelfPositionType = "center" | "start" | "end" | "self-start" | "self-end" | "flex-start" | "flex-end" ;
 
 (* <url> — url( <string> ) *)
-UrlType = "url" , "(" , [ string_type ] , ")" ;
+UrlType = "url" , "(" , [ string_type | url_token_type ] , ")" ;
 
 (* <url-set> — restricted image-set() where <image> is limited to <url> strings only.
    Per CSS UI Level 4, support for the broader <image> type is "allowed but optional",

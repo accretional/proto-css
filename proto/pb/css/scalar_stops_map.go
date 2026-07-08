@@ -7,27 +7,66 @@ package csspb
 // scalar capture before the first such character — the lexical boundary
 // that collapsing the rule to `string value = 1` erased.
 var ScalarStopChars = map[string]string{
-	".css.AngleType": " !\"#$%&'*/:;<=>?@[\\]^`{|}~",
+	".css.AngleType": " !\"#$%&'()*,/:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`bcfhijklmopqsvwxyz{|}~",
 	".css.CustomIdentType": " !\"#$%&'()*+,./:;<=>?@[\\]^`{|}~",
 	".css.DashedIdentType": " !\"#$%&'()*+,./:;<=>?@[\\]^`{|}~",
 	".css.Digit": " !\"#$%&'()*+,-./:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~",
 	".css.DimensionType": " !\"#$%&'()*,/:;<=>?@ABCDEFGIJKLMNOPRSTUVWXYZ[\\]^_`joy{|}~",
-	".css.FlexType": " !\"$&'*/:;<=>?@[\\]^`{|}~",
+	".css.FlexType": " !\"#$%&'()*,/:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdghijklmnopqstuvwxyz{|}~",
 	".css.FrequencyType": " !\"#$%&'()*,/:;<=>?@ABCDEFGIJKLMNOPQRSTUVWXYZ[\\]^_`abcdfghijlmnopqrstuvwxy{|}~",
 	".css.HexColorType": " !\"$%&'()*+,-./:;<=>?@GHIJKLMNOPQRSTUVWXYZ[\\]^_`ghijklmnopqrstuvwxyz{|}~",
 	".css.IdentType": " !\"#$%&'()*+,./:;<=>?@[\\]^`{|}~",
 	".css.IntegerType": " !\"#$%&'()*,./:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~",
 	".css.LengthType": " !\"#$%&'()*,/:;<=>?@ABCDEFGHIJKLMNOPRSTUVWXYZ[\\]^_`fgjkouyz{|}~",
-	".css.NegativeIntegerType": " !\"#$%&'()*+,./:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~",
-	".css.NonNegativeFlexType": " !\"$&'*/:;<=>?@[\\]^`{|}~",
-	".css.NonNegativeIntegerType": " !\"#$%&'*./:;<=>?@[\\]^`{|}~",
+	".css.NonNegativeFlexType": " !\"#$%&'()*,/:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdghijklmnopqstuvwxyz{|}~",
+	".css.NonNegativeIntegerType": " !\"#$%&'()*,-./:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~",
 	".css.NonNegativeLengthType": " !\"#$%&'()*,/:;<=>?@ABCDEFGHIJKLMNOPRSTUVWXYZ[\\]^_`fgjkouyz{|}~",
-	".css.NonNegativeNumberType": " !\"#$%&'*/:;<=>?@[\\]^`{|}~",
-	".css.NonNegativePercentageType": " !\"#$&'*/:;<=>?@[\\]^`{|}~",
-	".css.NonNegativeTimeType": " !\"#$%&'*/:;<=>?@[\\]^`{|}~",
+	".css.NonNegativeNumberType": " !\"#$%&'()*,/:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdfghijklmnopqrstuvwxyz{|}~",
+	".css.NonNegativePercentageType": " !\"#$&'()*,/:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdfghijklmnopqrstuvwxyz{|}~",
+	".css.NonNegativeTimeType": " !\"#$%&'()*,/:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdfghijklnopqrtuvwxyz{|}~",
 	".css.NumberType": " !\"#$%&'()*,/:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdfghijklmnopqrstuvwxyz{|}~",
 	".css.PercentageType": " !\"#$&'()*,/:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdfghijklmnopqrstuvwxyz{|}~",
 	".css.PositiveIntegerType": " !\"#$%&'()*,-./:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~",
-	".css.ResolutionType": " !\"$&'*/:;<=>?@[\\]^`{|}~",
+	".css.ResolutionType": " !\"#$%&'()*,/:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abfghjklnoqrstuvwyz{|}~",
+	".css.StringType": "()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~",
 	".css.TimeType": " !\"#$%&'()*,/:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdfghijklnopqrtuvwxyz{|}~",
+	".css.UrlTokenChar": " \"'()",
+}
+
+// ScalarStartChars maps a scalarized leaf's FQN to the printable ASCII
+// characters its rule can START with (the first-set); the parser rejects
+// captures beginning outside it.
+var ScalarStartChars = map[string]string{
+	".css.AngleType": "+-.0123456789",
+	".css.CommentText": "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~",
+	".css.CustomIdentType": "ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz",
+	".css.DashedIdentType": "-",
+	".css.Digit": "0123456789",
+	".css.DimensionType": "+-.0123456789",
+	".css.FlexType": "+-.0123456789",
+	".css.FrequencyType": "+-.0123456789",
+	".css.HexColorType": "#",
+	".css.IdentType": "ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz",
+	".css.IntegerType": "+-0123456789",
+	".css.LengthType": "+-.0123456789",
+	".css.NonNegativeFlexType": "+.0123456789",
+	".css.NonNegativeIntegerType": "+0123456789",
+	".css.NonNegativeLengthType": "+.0123456789",
+	".css.NonNegativeNumberType": "+.0123456789",
+	".css.NonNegativePercentageType": "+.0123456789",
+	".css.NonNegativeTimeType": "+.0123456789",
+	".css.NumberType": "+-.0123456789",
+	".css.PercentageType": "+-.0123456789",
+	".css.PositiveIntegerType": "+123456789",
+	".css.ResolutionType": "+-.0123456789",
+	".css.StringType": "\"'",
+	".css.TimeType": "+-.0123456789",
+	".css.UrlTokenChar": "!#$%&*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~",
+}
+
+// ScalarQuoteChars maps a quote-delimited scalarized leaf's FQN to its
+// possible delimiter characters; the parser captures the whole literal
+// (quotes included) as one token.
+var ScalarQuoteChars = map[string]string{
+	".css.StringType": "\"'",
 }

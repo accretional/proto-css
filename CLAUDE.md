@@ -1,4 +1,4 @@
-# CLAUDE.md — proto-css-new
+# CLAUDE.md — proto-css
 
 ## Development rules
 
@@ -7,6 +7,7 @@
 | What | Command |
 |---|---|
 | Setup | `./setup.sh` |
+| Grammar → proto schema + codec tables | `./tools/gen_proto.sh` |
 | EBNF to HTML generation | `./tools/gen.sh` |
 | Build (screenshots + galleries) | `./build.sh` |
 | Test | `./test.sh` |
@@ -38,10 +39,23 @@ Quick `go build ./...` or `go vet ./...` during development to catch compile err
 
 ## EBNF generation
 
-- 12 EBNF grammar files in `lang/` define CSS value syntax (~3900 rules).
+- The EBNF grammar files in `lang/` define CSS syntax (rules + selectors +
+  properties + at-rules). `css.ebnf` is the root (`CssStyleSheet`).
+- `./tools/gen_proto.sh` compiles the grammar via gluon v2 into
+  `proto/css.proto` + `proto/css.fdset` and the codec tables in
+  `proto/pb/css/`: `prefix_map`, `separator_map`, `required_map` (mandatory
+  fields), `scalar_stops_map` (characters a scalarized leaf can never
+  contain). The gluon codec (`../gluon/v2/codec`) parses/renders CSS entirely
+  from these tables; `service/` registers them.
+- Grammar shape to know: `;` is a declaration separator OWNED BY RuleBody
+  (`RuleBody = { DeclarationItem | NestedCssRule | AtRule } , [ Declaration ]`,
+  `DeclarationItem = Declaration , ";"`) — property Exprs carry no trailing
+  `;`, and only a block's final declaration may omit it.
 - `chrome-testing/cmd/generate/` parses grammars and generates CSS values.
 - Generated HTML clones hand-written templates with grammar-derived values swapped in.
 - Run via `./tools/gen.sh` or `./chrome-testing/run.sh --generated`.
+- Codec round-trip failures land in `chrome-testing/generated/_codec_failures.tsv`,
+  which must stay header-only (empty of failures).
 
 ## Screenshots
 

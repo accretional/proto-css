@@ -519,7 +519,11 @@ TypeFn = "type" , "(" , string_type , ")" ;
 
 (* url( <string> <url-modifier>* ) | <url-token>
    url-modifier and url-token are low-level CSS token forms; simplified to string argument *)
-UrlFn = "url" , "(" , string_type , ")" ;
+(* url() accepts a quoted <string> or an unquoted <url-token> (any printable
+   run without quotes, whitespace, or parens) — url(assets/photo.jpg). *)
+UrlFn = "url" , "(" , ( string_type | url_token_type ) , ")" ;
+url_token_type = url_token_char , { url_token_char } ;
+url_token_char = "!" | "#" ... "&" | "*" ... "~" ;
 
 (* var( <custom-Property-name> , <declaration-value>? )
    <custom-Property-name> = --<ident>  (same form as <dashed-ident>) *)

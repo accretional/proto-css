@@ -12,8 +12,20 @@ message CssStyleSheet {
       AtRule at_rule = 1;
 
       CssRule css_rule = 2;
+
+      CssComment css_comment = 3;
     }
   }
+}
+
+message CssComment {
+  CommentText comment_text = 1;
+
+  AsteriskSolidusKeyword asterisk_solidus_keyword = 2;
+}
+
+message CommentText {
+  string value = 1;
 }
 
 message CssRule {
@@ -38,6 +50,8 @@ message RuleBody {
       NestedCssRule nested_css_rule = 2;
 
       AtRule at_rule = 3;
+
+      CssComment css_comment = 4;
     }
   }
 }
@@ -166,10 +180,6 @@ message NonNegativeLengthType {
 }
 
 message PositiveIntegerType {
-  string value = 1;
-}
-
-message NegativeIntegerType {
   string value = 1;
 }
 
@@ -2584,9 +2594,17 @@ message SelfPositionType {
 }
 
 message UrlType {
-  StringType string_type = 1;
+  Alt1 alt1 = 1;
 
   RightParenthesisKeyword right_parenthesis_keyword = 2;
+
+  message Alt1 {
+    oneof value {
+      StringType string_type = 1;
+
+      UrlTokenType url_token_type = 2;
+    }
+  }
 }
 
 message UrlSetType {
@@ -5261,6 +5279,16 @@ message TypeFn {
   StringType string_type = 1;
 
   RightParenthesisKeyword right_parenthesis_keyword = 2;
+}
+
+message UrlTokenType {
+  UrlTokenChar url_token_char = 1;
+
+  repeated UrlTokenChar url_token_char_2 = 2;
+}
+
+message UrlTokenChar {
+  string value = 1;
 }
 
 message VarFallbackType {
@@ -16651,77 +16679,23 @@ message SingleAnimationType {
   oneof value {
     NoneKeyword none_keyword = 1;
 
-    KeyframesNameType keyframes_name_type = 2;
-
-    Seq1 seq1 = 3;
-
-    Seq2 seq2 = 4;
-
-    Seq3 seq3 = 5;
-
-    Seq4 seq4 = 6;
-
-    Seq5 seq5 = 7;
+    Seq1 seq1 = 2;
   }
 
   message Seq1 {
     TimeType time_type = 1;
 
-    KeyframesNameType keyframes_name_type = 2;
-  }
-
-  message Seq2 {
-    TimeType time_type = 1;
-
-    EaseHyphenMinusInHyphenMinusOutKeyword ease_hyphen_minus_in_hyphen_minus_out_keyword = 2;
-
-    KeyframesNameType keyframes_name_type = 3;
-  }
-
-  message Seq3 {
-    TimeType time_type = 1;
-
-    LinearKeyword linear_keyword = 2;
-
-    InfiniteKeyword infinite_keyword = 3;
-
-    AlternateKeyword alternate_keyword = 4;
-
-    KeyframesNameType keyframes_name_type = 5;
-  }
-
-  message Seq4 {
-    TimeType time_type = 1;
-
-    EaseKeyword ease_keyword = 2;
+    EasingFunctionType easing_function_type = 2;
 
     TimeType time_type_2 = 3;
 
-    DigitTwoKeyword digit_two_keyword = 4;
+    SingleAnimationIterationCountType single_animation_iteration_count_type = 4;
 
-    AlternateHyphenMinusReverseKeyword alternate_hyphen_minus_reverse_keyword = 5;
+    SingleAnimationDirectionType single_animation_direction_type = 5;
 
-    BothKeyword both_keyword = 6;
+    SingleAnimationFillModeType single_animation_fill_mode_type = 6;
 
-    PausedKeyword paused_keyword = 7;
-
-    KeyframesNameType keyframes_name_type = 8;
-  }
-
-  message Seq5 {
-    TimeType time_type = 1;
-
-    EaseHyphenMinusInKeyword ease_hyphen_minus_in_keyword = 2;
-
-    TimeType time_type_2 = 3;
-
-    InfiniteKeyword infinite_keyword = 4;
-
-    NormalKeyword normal_keyword = 5;
-
-    ForwardsKeyword forwards_keyword = 6;
-
-    RunningKeyword running_keyword = 7;
+    SingleAnimationPlayStateType single_animation_play_state_type = 7;
 
     KeyframesNameType keyframes_name_type = 8;
   }
@@ -16976,7 +16950,41 @@ message LineWidthType {
 }
 
 message SpreadShadowType {
-  LengthType length_type = 1;
+  InsetKeyword inset_keyword = 1;
+
+  Alt1 alt1 = 2;
+
+  message Alt1 {
+    oneof value {
+      Seq1 seq1 = 1;
+
+      Seq2 seq2 = 2;
+    }
+
+    message Seq1 {
+      ColorType color_type = 1;
+
+      LengthType length_type = 2;
+
+      LengthType length_type_2 = 3;
+
+      LengthType length_type_3 = 4;
+
+      LengthType length_type_4 = 5;
+    }
+
+    message Seq2 {
+      LengthType length_type = 1;
+
+      LengthType length_type_2 = 2;
+
+      LengthType length_type_3 = 3;
+
+      LengthType length_type_4 = 4;
+
+      ColorType color_type = 5;
+    }
+  }
 }
 
 message ClipSourceType {
@@ -17902,17 +17910,9 @@ message GridLineType {
   }
 
   message Seq1 {
-    Alt1 alt1 = 1;
+    IntegerType integer_type = 1;
 
     CustomIdentType custom_ident_type = 2;
-
-    message Alt1 {
-      oneof value {
-        PositiveIntegerType positive_integer_type = 1;
-
-        NegativeIntegerType negative_integer_type = 2;
-      }
-    }
   }
 
   message Span {
@@ -18255,7 +18255,35 @@ message FadeFn {
 }
 
 message ShadowType {
-  LengthType length_type = 1;
+  Alt1 alt1 = 1;
+
+  message Alt1 {
+    oneof value {
+      Seq1 seq1 = 1;
+
+      Seq2 seq2 = 2;
+    }
+
+    message Seq1 {
+      ColorType color_type = 1;
+
+      LengthType length_type = 2;
+
+      LengthType length_type_2 = 3;
+
+      LengthType length_type_3 = 4;
+    }
+
+    message Seq2 {
+      LengthType length_type = 1;
+
+      LengthType length_type_2 = 2;
+
+      LengthType length_type_3 = 3;
+
+      ColorType color_type = 4;
+    }
+  }
 }
 
 message SpacingTrimType {
@@ -18770,7 +18798,7 @@ message BackgroundProp {
 
     BgImageType bg_image_type = 5;
 
-    HexColorType hex_color_type = 6;
+    ColorType color_type = 6;
   }
 
   message Seq1 {
@@ -19083,7 +19111,21 @@ message BorderImageOutsetProp {
 }
 
 message BorderImageOutsetList {
-  LengthType length_type = 1;
+  BorderImageOutsetValueType border_image_outset_value_type = 1;
+
+  BorderImageOutsetValueType border_image_outset_value_type_2 = 2;
+
+  BorderImageOutsetValueType border_image_outset_value_type_3 = 3;
+
+  BorderImageOutsetValueType border_image_outset_value_type_4 = 4;
+}
+
+message BorderImageOutsetValueType {
+  oneof value {
+    LengthType length_type = 1;
+
+    NonNegativeNumberType non_negative_number_type = 2;
+  }
 }
 
 message BorderImageRepeatProp {
@@ -19115,7 +19157,21 @@ message BorderImageSliceProp {
 }
 
 message BorderImageSliceList {
-  NonNegativeNumberType non_negative_number_type = 1;
+  BorderImageSliceValueType border_image_slice_value_type = 1;
+
+  BorderImageSliceValueType border_image_slice_value_type_2 = 2;
+
+  BorderImageSliceValueType border_image_slice_value_type_3 = 3;
+
+  BorderImageSliceValueType border_image_slice_value_type_4 = 4;
+}
+
+message BorderImageSliceValueType {
+  oneof value {
+    NonNegativeNumberType non_negative_number_type = 1;
+
+    NonNegativePercentageType non_negative_percentage_type = 2;
+  }
 }
 
 message BorderImageSourceProp {
@@ -19131,7 +19187,23 @@ message BorderImageWidthProp {
 }
 
 message BorderImageWidthList {
-  LengthType length_type = 1;
+  BorderImageWidthValueType border_image_width_value_type = 1;
+
+  BorderImageWidthValueType border_image_width_value_type_2 = 2;
+
+  BorderImageWidthValueType border_image_width_value_type_3 = 3;
+
+  BorderImageWidthValueType border_image_width_value_type_4 = 4;
+}
+
+message BorderImageWidthValueType {
+  oneof value {
+    LengthPercentageType length_percentage_type = 1;
+
+    NonNegativeNumberType non_negative_number_type = 2;
+
+    AutoKeyword auto_keyword = 3;
+  }
 }
 
 message BorderImageProp {
@@ -19268,6 +19340,24 @@ message BorderRadiusProp {
 
 message BorderRadiusList {
   NonNegativeLengthPercentageType non_negative_length_percentage_type = 1;
+
+  NonNegativeLengthPercentageType non_negative_length_percentage_type_2 = 2;
+
+  NonNegativeLengthPercentageType non_negative_length_percentage_type_3 = 3;
+
+  NonNegativeLengthPercentageType non_negative_length_percentage_type_4 = 4;
+
+  Solidus solidus = 5;
+
+  message Solidus {
+    NonNegativeLengthPercentageType non_negative_length_percentage_type = 1;
+
+    NonNegativeLengthPercentageType non_negative_length_percentage_type_2 = 2;
+
+    NonNegativeLengthPercentageType non_negative_length_percentage_type_3 = 3;
+
+    NonNegativeLengthPercentageType non_negative_length_percentage_type_4 = 4;
+  }
 }
 
 message BorderRightColorProp {
@@ -21846,10 +21936,14 @@ message FontShortLineHeightType {
 }
 
 message FontShortFamilyType {
-  oneof value {
-    SerifKeyword serif_keyword = 1;
+  repeated FontShortFamilyItemType font_short_family_item_type = 1;
+}
 
-    SansHyphenMinusSerifKeyword sans_hyphen_minus_serif_keyword = 2;
+message FontShortFamilyItemType {
+  oneof value {
+    StringType string_type = 1;
+
+    CustomIdentType custom_ident_type = 2;
   }
 }
 
@@ -24274,9 +24368,17 @@ message PositionTryOrderProp {
 }
 
 message PositionTryProp {
-  PositionTryOrderProp position_try_order_prop = 1;
+  oneof value {
+    Seq1 seq1 = 1;
 
-  PositionTryFallbacksProp position_try_fallbacks_prop = 2;
+    PositionTryFallbacksProp position_try_fallbacks_prop = 2;
+  }
+
+  message Seq1 {
+    PositionTryOrderProp position_try_order_prop = 1;
+
+    PositionTryFallbacksProp position_try_fallbacks_prop = 2;
+  }
 }
 
 message PositionVisibilityProp {
@@ -24388,10 +24490,34 @@ message RightProp {
 
 message RotateAxisVectorType {
   NumberType number_type = 1;
+
+  NumberType number_type_2 = 2;
+
+  NumberType number_type_3 = 3;
 }
 
 message ClipRectEdgesType {
-  LengthPercentageType length_percentage_type = 1;
+  ClipRectEdgeValueType clip_rect_edge_value_type = 1;
+
+  CommaKeyword comma_keyword = 2;
+
+  ClipRectEdgeValueType clip_rect_edge_value_type_2 = 3;
+
+  CommaKeyword comma_keyword_2 = 4;
+
+  ClipRectEdgeValueType clip_rect_edge_value_type_3 = 5;
+
+  CommaKeyword comma_keyword_3 = 6;
+
+  ClipRectEdgeValueType clip_rect_edge_value_type_4 = 7;
+}
+
+message ClipRectEdgeValueType {
+  oneof value {
+    LengthType length_type = 1;
+
+    AutoKeyword auto_keyword = 2;
+  }
 }
 
 message RotateProp {
@@ -24499,7 +24625,35 @@ message ScaleProp {
 }
 
 message ScaleList {
-  NumberType number_type = 1;
+  Alt1 alt1 = 1;
+
+  Alt2 alt2 = 2;
+
+  Alt3 alt3 = 3;
+
+  message Alt1 {
+    oneof value {
+      NumberType number_type = 1;
+
+      PercentageType percentage_type = 2;
+    }
+  }
+
+  message Alt2 {
+    oneof value {
+      NumberType number_type = 1;
+
+      PercentageType percentage_type = 2;
+    }
+  }
+
+  message Alt3 {
+    oneof value {
+      NumberType number_type = 1;
+
+      PercentageType percentage_type = 2;
+    }
+  }
 }
 
 message ScrollBehaviorProp {
@@ -26326,7 +26480,11 @@ message TranslateProp {
 }
 
 message TranslateList {
-  LengthType length_type = 1;
+  LengthPercentageType length_percentage_type = 1;
+
+  LengthPercentageType length_percentage_type_2 = 2;
+
+  LengthType length_type = 3;
 }
 
 message UnicodeBidiProp {
@@ -28919,6 +29077,9 @@ message ArcsKeyword {
 message AsteriskKeyword {
 }
 
+message AsteriskSolidusKeyword {
+}
+
 message AutoHyphenMinusAddKeyword {
 }
 
@@ -29391,9 +29552,6 @@ message DifferenceKeyword {
 }
 
 message DigitFive0PercentSignKeyword {
-}
-
-message DigitTwoKeyword {
 }
 
 message DigitZeroFullStop1sKeyword {

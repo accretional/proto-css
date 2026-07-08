@@ -59,6 +59,7 @@ var FieldSeparator = map[string]string{
 	".css.FontFaceFeatureSettingsType.Seq1.font_face_feature_tag_value_type": ",",
 	".css.FontFamilyProp.font_family_prop_item": ",",
 	".css.FontFeatureSettingsProp.Seq1.feature_tag_value_type": ",",
+	".css.FontShortFamilyType.font_short_family_item_type": ",",
 	".css.FontVariantAlternatesCharacterVariantFn.font_feature_value_name_type": ",",
 	".css.FontVariantAlternatesStylesetFn.font_feature_value_name_type": ",",
 	".css.FontVariationSettingsProp.Seq1.font_variation_settings_prop_item": ",",

@@ -105,6 +105,8 @@ func main() {
 	ast.Root = compiler.CollapseCommaList(ast.Root)
 	ast.Root = compiler.NameSequence(ast.Root)
 	stopByRule := leafStopChars(ast.Root)
+	quoteByRule := leafQuoteChars(ast.Root)
+	startByRule := leafStartChars(ast.Root)
 	ast.Root = scalarizeLeaves(ast.Root)
 	var prunedRules []string
 	ast.Root, prunedRules = pruneUnreachable(ast.Root, "CssStyleSheet")
@@ -165,6 +167,8 @@ func main() {
 
 	requiredCand := map[string]bool{}
 	scalarStops := map[string]string{}
+	scalarQuotes := map[string]string{}
+	scalarStarts := map[string]string{}
 	fdp, err := compiler.Compile(ast, compiler.Options{
 		Package:   *pkgName,
 		GoPackage: *goPkg,
@@ -176,6 +180,16 @@ func main() {
 			if chars, ok := stopByRule[node.GetValue()]; ok {
 				if _, dup := scalarStops[fqn]; !dup {
 					scalarStops[fqn] = chars
+				}
+			}
+			if chars, ok := quoteByRule[node.GetValue()]; ok {
+				if _, dup := scalarQuotes[fqn]; !dup {
+					scalarQuotes[fqn] = chars
+				}
+			}
+			if chars, ok := startByRule[node.GetValue()]; ok {
+				if _, dup := scalarStarts[fqn]; !dup {
+					scalarStarts[fqn] = chars
 				}
 			}
 		},
@@ -252,7 +266,7 @@ func main() {
 	}
 	fmt.Printf("wrote %s (%d entries)\n", *requiredMapOut, len(required))
 
-	if err := os.WriteFile(*scalarStopsOut, []byte(formatScalarStopsMap("csspb", scalarStops)), 0o644); err != nil {
+	if err := os.WriteFile(*scalarStopsOut, []byte(formatScalarStopsMap("csspb", scalarStops, scalarQuotes, scalarStarts)), 0o644); err != nil {
 		log.Fatalf("write %s: %v", *scalarStopsOut, err)
 	}
 	fmt.Printf("wrote %s (%d entries)\n", *scalarStopsOut, len(scalarStops))

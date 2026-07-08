@@ -1,5 +1,9 @@
 (* Empty stylesheet is valid CSS *)
-CssStyleSheet = { AtRule | CssRule } ;
+CssStyleSheet = { AtRule | CssRule | CssComment } ;
+
+(* /* … */ — the body is one opaque token bounded by its closer *)
+CssComment   = "/*" , comment_text , "*/" ;
+comment_text = { " " ... "￿" } ;
 
 CssRule = ComplexSelectorList , "{" , RuleBody , "}" ;
 
@@ -9,7 +13,7 @@ CssRule = ComplexSelectorList , "{" , RuleBody , "}" ;
    ";" (DeclarationItem), and only the final declaration of the body may omit
    it (the trailing [ Declaration ]). This accepts "a:1;b:2" and "a:1;b:2;"
    but rejects "a:1 b:2". *)
-RuleBody = { DeclarationItem | NestedCssRule | AtRule } , [ Declaration ] ;
+RuleBody = { DeclarationItem | NestedCssRule | AtRule | CssComment } , [ Declaration ] ;
 Declaration = CustomPropertyDecl | Property ;
 DeclarationItem = Declaration , ";" ;
 

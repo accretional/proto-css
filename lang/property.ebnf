@@ -1805,14 +1805,14 @@ SingleAnimationTimelineType = "auto" | "none" | dashed_ident_type | ScrollFn | V
    NOTHING, so encode the documented canonical order as explicit representative
    subrules (duration easing delay iteration direction fill-mode play-state name),
    pinning the wide leading bits per row so each combination shows. *)
+(* <single-animation> in the canonical slot order the shorthand serializes to:
+   duration easing delay iteration-count direction fill-mode play-state name.
+   Every slot before the name is optional. *)
 SingleAnimationType =
     "none"
-    | KeyframesNameType
-    | TimeType , KeyframesNameType
-    | TimeType , "ease-in-out" , KeyframesNameType
-    | TimeType , "linear" , "infinite" , "alternate" , KeyframesNameType
-    | TimeType , "ease" , TimeType , "2" , "alternate-reverse" , "both" , "paused" , KeyframesNameType
-    | TimeType , "ease-in" , TimeType , "infinite" , "normal" , "forwards" , "running" , KeyframesNameType ;
+    | [ TimeType ] , [ EasingFunctionType ] , [ TimeType ] , [ SingleAnimationIterationCountType ] ,
+      [ SingleAnimationDirectionType ] , [ SingleAnimationFillModeType ] ,
+      [ SingleAnimationPlayStateType ] , KeyframesNameType ;
 
 (* <animation-duration> *)
 AnimationDurationType = AnimationDurationTypeItem , { "," , AnimationDurationTypeItem } ;
@@ -1936,7 +1936,10 @@ BorderImageRepeatTypeItem = ( "stretch" | "repeat" | "round" | "space" ) ;
 (* <spread-shadow> — [ <color>? && [ <length>{2,4} && inset? ] ] *)
 (* box-shadow item: color? inset? offX offY blur? spread? — identical lengths collapse
    to "24px 24px 24px"; supply varied curated shadows as one rep (cmd/gen/reps.go). *)
-SpreadShadowType = length_type ;
+(* <shadow> with spread: [inset?] color? x y blur? spread? | x y blur? spread? color? *)
+SpreadShadowType = [ "inset" ] ,
+    ( ColorType , length_type , length_type , [ length_type ] , [ length_type ]
+    | length_type , length_type , [ length_type ] , [ length_type ] , [ ColorType ] ) ;
 
 (* <box-shadow-color> *)
 BoxShadowColorType = ColorType , { "," , ColorType } ;
@@ -2266,7 +2269,9 @@ RowGapType = "normal" | LengthPercentageType | LineWidthType ;
 ColumnGapType = "normal" | LengthPercentageType | LineWidthType ;
 
 (* <grid-line> *)
-GridLineType = "auto" | custom_ident_type | ( ( positive_integer_type | negative_integer_type ) , [ custom_ident_type ] ) | ( "span" , ( [ positive_integer_type ] , [ custom_ident_type ] ) ) ;
+(* the signed integer is ONE token (sign folded into the scalarized leaf) so
+   "-1 my-ident" round-trips without a detached "-" keyword *)
+GridLineType = "auto" | custom_ident_type | ( integer_type , [ custom_ident_type ] ) | ( "span" , ( [ positive_integer_type ] , [ custom_ident_type ] ) ) ;
 
 (* <track-list> *)
 TrackListType = TrackListTypeItem , { TrackListTypeItem } , [ LineNamesType ] ;
@@ -2497,7 +2502,9 @@ FadeFn = "fade" , "(" , LengthPercentageType , ")" ;
 
 (* <shadow> — color may appear before or after the lengths *)
 (* text-shadow item: color? offX offY blur? — varied curated shadows as one rep. *)
-ShadowType = length_type ;
+(* <shadow> without spread: color? x y blur? | x y blur? color? *)
+ShadowType = ( ColorType , length_type , length_type , [ length_type ]
+    | length_type , length_type , [ length_type ] , [ ColorType ] ) ;
 
 (* <spacing-trim> *)
 SpacingTrimType = "space-all" | "normal" | "space-first" | "trim-start" | "trim-both" | "trim-all" ;
@@ -2700,7 +2707,7 @@ BackgroundProp =
   | BgImageType , "center" , "no-repeat"
   | hex_color_type , BgImageType
   | BgImageType
-  | hex_color_type ;
+  | ColorType ;
 
 (* baseline-shift *)
 BaselineShiftProp = LengthPercentageType | "sub" | "super" | "top" | "center" | "bottom" ;
@@ -2785,7 +2792,9 @@ BorderEndStartRadiusProp = NonNegativeLengthPercentageType , [ NonNegativeLength
    leaves collapses to one repeated default ("1 1 1 1"); supply varied 1-4 value
    tuples as one rep (cmd/gen/reps.go) so each card shows distinct edge values. *)
 BorderImageOutsetProp = BorderImageOutsetList ;
-BorderImageOutsetList = LengthType ;
+BorderImageOutsetList = BorderImageOutsetValueType , [ BorderImageOutsetValueType ] ,
+    [ BorderImageOutsetValueType ] , [ BorderImageOutsetValueType ] ;
+BorderImageOutsetValueType = length_type | NonNegativeNumberType ;
 
 (* border-image-repeat *)
 BorderImageRepeatProp = BorderImageRepeatPropItem , [ BorderImageRepeatPropItem ] ;
@@ -2794,7 +2803,9 @@ BorderImageRepeatPropItem = ( "stretch" | "repeat" | "round" | "space" ) ;
 (* border-image-slice — a <number-percentage>{1,4} list with optional fill. Varied
    1-4 value tuples come from one rep so the cards aren't all "1 1 1 X". *)
 BorderImageSliceProp = BorderImageSliceList , [ "fill" ] ;
-BorderImageSliceList = NonNegativeNumberType ;
+BorderImageSliceList = BorderImageSliceValueType , [ BorderImageSliceValueType ] ,
+    [ BorderImageSliceValueType ] , [ BorderImageSliceValueType ] ;
+BorderImageSliceValueType = NonNegativeNumberType | NonNegativePercentageType ;
 
 (* border-image-source *)
 BorderImageSourceProp = ImageType | "none" ;
@@ -2802,7 +2813,9 @@ BorderImageSourceProp = ImageType | "none" ;
 (* border-image-width — a [<length-percentage>|<number>|auto]{1,4} list. Varied
    1-4 value tuples (incl. auto) come from one rep instead of "1 1 1 X". *)
 BorderImageWidthProp = BorderImageWidthList ;
-BorderImageWidthList = LengthType ;
+BorderImageWidthList = BorderImageWidthValueType , [ BorderImageWidthValueType ] ,
+    [ BorderImageWidthValueType ] , [ BorderImageWidthValueType ] ;
+BorderImageWidthValueType = length_percentage_type | NonNegativeNumberType | "auto" ;
 
 (* border-image *)
 BorderImageProp = [ BorderImageSourceProp ] , [ BorderImageSliceProp , [ ( "/" , BorderImageWidthProp | "/" , [ BorderImageWidthProp ] , "/" , BorderImageOutsetProp ) ] ] , [ BorderImageRepeatProp ] ;
@@ -2860,7 +2873,11 @@ BorderLeftProp = [ LineWidthType ] , [ LineStyleType ] , [ ColorType ] ;
    {1,4} of identical leaves collapses to "24px 24px 24px 24px"; supply varied corner
    tuples (incl. the elliptical / form) as one rep so each corner differs. *)
 BorderRadiusProp = BorderRadiusList ;
-BorderRadiusList = NonNegativeLengthPercentageType ;
+BorderRadiusList =
+    NonNegativeLengthPercentageType , [ NonNegativeLengthPercentageType ] ,
+    [ NonNegativeLengthPercentageType ] , [ NonNegativeLengthPercentageType ] ,
+    [ "/" , NonNegativeLengthPercentageType , [ NonNegativeLengthPercentageType ] ,
+      [ NonNegativeLengthPercentageType ] , [ NonNegativeLengthPercentageType ] ] ;
 
 (* border-right-color *)
 BorderRightColorProp = ColorType | Image1dType ;
@@ -3383,7 +3400,9 @@ FontWidthProp = "normal" | PercentageType | "ultra-condensed" | "extra-condensed
    few generic families — so the cards read like real font declarations. *)
 FontShortSizeType       = length_type ;
 FontShortLineHeightType = number_type ;
-FontShortFamilyType     = "serif" | "sans-serif" ;
+(* the shorthand's family list: idents/strings, comma-separated *)
+FontShortFamilyType     = FontShortFamilyItemType , { "," , FontShortFamilyItemType } ;
+FontShortFamilyItemType = string_type | custom_ident_type ;
 (* explicit representative combinations (subrules), complex → simple, so each leading
    subset is shown — with the leading keywords pinned per row so the cap isn't drowned
    by one combinatorial alternative. An omitted component already means normal. *)
@@ -3909,7 +3928,7 @@ PositionTryFallbacksPropItem = ( ( [ dashed_ident_type ] , [ TryTacticType ] ) |
 PositionTryOrderProp = "normal" | TrySizeType ;
 
 (* position-try *)
-PositionTryProp = [ PositionTryOrderProp ] , PositionTryFallbacksProp ;
+PositionTryProp = PositionTryOrderProp , [ PositionTryFallbacksProp ] | PositionTryFallbacksProp ;
 
 (* position-visibility *)
 (* always | [ anchors-valid || anchors-visible || no-overflow ] — representative
@@ -3950,12 +3969,14 @@ RightProp = "auto" | LengthPercentageType | AnchorFn | AnchorSizeFn ;
    <number>{3} axis vector is a dedicated rule carrying a multi-token rep (a whole
    "1 1 1" triple, in reps.go): three identical adjacent <number> leaves otherwise
    collapse to one repeated proto field and emit a single number ("1 45deg"). *)
-RotateAxisVectorType = number_type ;
+RotateAxisVectorType = number_type , number_type , number_type ;
 (* clip's legacy rect( top, right, bottom, left ): four adjacent <length-percentage>
    leaves collapse to one repeated field (rect(8px,8px,8px,8px) — a degenerate, empty
    clip). Supply the whole comma-separated tuple as ONE multi-token rep so right>left
    and bottom>top form a real visible clip window (rep in cmd/gen/reps.go). *)
-ClipRectEdgesType = length_percentage_type ;
+ClipRectEdgesType = ClipRectEdgeValueType , "," , ClipRectEdgeValueType , "," ,
+    ClipRectEdgeValueType , "," , ClipRectEdgeValueType ;
+ClipRectEdgeValueType = length_type | "auto" ;
 RotateProp = "none" | AngleType | ( ( "x" | "y" | "z" | RotateAxisVectorType ) , AngleType ) ;
 
 (* row-gap *)
@@ -3979,7 +4000,7 @@ RyProp = LengthPercentageType | "auto" ;
 (* scale *)
 (* scale: sx [sy [sz]] — identical leaves collapse; varied tuples. *)
 ScaleProp = "none" | ScaleList ;
-ScaleList = number_type ;
+ScaleList = ( number_type | percentage_type ) , [ ( number_type | percentage_type ) ] , [ ( number_type | percentage_type ) ] ;
 
 (* scroll-behavior *)
 ScrollBehaviorProp = "auto" | "smooth" ;
@@ -4085,7 +4106,7 @@ ScrollTimelineProp = ScrollTimelinePropItem , { "," , ScrollTimelinePropItem } ;
 ScrollTimelinePropItem = ScrollTimelineNamePropItem , [ ScrollTimelineAxisPropItem ] ;
 
 (* scrollbar-color *)
-ScrollbarColorProp = "auto" | ColorType , ColorType ;
+ScrollbarColorProp = "auto" | ColorType , [ ColorType ] ;
 
 (* scrollbar-gutter *)
 ScrollbarGutterProp = "auto" | "stable" , [ "both-edges" ] ;
@@ -4329,7 +4350,7 @@ TransitionProp = SingleTransitionType , { "," , SingleTransitionType } ;
 (* translate *)
 (* translate: x [y [z]] — identical leaves collapse to "24px 24px 24px"; varied tuples. *)
 TranslateProp = "none" | TranslateList ;
-TranslateList = length_type ;
+TranslateList = length_percentage_type , [ length_percentage_type ] , [ length_type ] ;
 
 (* unicode-bidi *)
 UnicodeBidiProp = "normal" | "embed" | "isolate" | "bidi-override" | "isolate-override" | "plaintext" ;

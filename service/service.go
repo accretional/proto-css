@@ -22,7 +22,19 @@ func init() {
 		Seam:         nil, // CSS has no outward seams yet (path()/d added later).
 		Required:     csspb.FieldRequired,
 		ScalarStops:  csspb.ScalarStopChars,
+		ScalarQuotes: csspb.ScalarQuoteChars,
+		ScalarStarts: csspb.ScalarStartChars,
 		SmartSpacing: true, // CSS: convention-aware spacing, whitespace-insignificant.
+		// CSS's canonical token spacing (grammar-specific policy; gluon itself
+		// ships none): punctuation hugs its operand — "a,b" "fn(x)" "a:b"
+		// "!important" "#hex" "--var" "[line-name]" — while "/" keeps spaces on
+		// both sides ("50% / 0.5", "16 / 9").
+		NoSpaceBefore: map[string]bool{
+			",": true, "(": true, ")": true, ";": true, ":": true, ".": true, "]": true,
+		},
+		NoSpaceAfter: map[string]bool{
+			"(": true, ":": true, ".": true, "[": true, "!": true, "#": true, "@": true, "--": true,
+		},
 	})
 }
 

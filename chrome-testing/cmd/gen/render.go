@@ -8,9 +8,12 @@ import (
 )
 
 var (
-	collapseWS       = regexp.MustCompile(`\s+`)
-	spaceBeforePunct = regexp.MustCompile(`\s+([,)/])`)
-	spaceAfterOpen   = regexp.MustCompile(`([(#])\s+`)
+	collapseWS = regexp.MustCompile(`\s+`)
+	// These normalizations MUST mirror the codec's registered spacing policy
+	// (service/service.go): "," ")" "]" hug their left, "(" "#" "[" hug their
+	// right, and "/" keeps spaces on BOTH sides ("50% / 0.5").
+	spaceBeforePunct = regexp.MustCompile(`\s+([,)\]])`)
+	spaceAfterOpen   = regexp.MustCompile(`([(#\[])\s+`)
 )
 
 // Renderer walks the FileDescriptorProto message graph (proto reflection over
@@ -336,7 +339,11 @@ func joinProduct(parts [][]string, max int) []string {
 	return acc
 }
 
-// glue concatenates two value fragments with CSS-appropriate spacing.
+// glue concatenates two value fragments with CSS-appropriate spacing. The
+// conventions MUST mirror the codec's registered NoSpaceBefore/NoSpaceAfter
+// policy (service/service.go) — the codec is the renderer of record and every
+// walked value must round-trip through it byte-exact: "," ")" "]" hug their
+// left, "(" "[" hug their right, and "/" keeps spaces on both sides.
 func glue(a, b string) string {
 	if a == "" {
 		return b
@@ -344,10 +351,10 @@ func glue(a, b string) string {
 	if b == "" {
 		return a
 	}
-	if b == "," || b == "/" || b == ")" || b == "(" {
+	if b == "," || b == ")" || b == "]" || b == "(" {
 		return a + b
 	}
-	if strings.HasSuffix(a, "(") {
+	if strings.HasSuffix(a, "(") || strings.HasSuffix(a, "[") {
 		return a + b
 	}
 	return a + " " + b

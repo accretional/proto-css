@@ -1,30 +1,38 @@
 #!/usr/bin/env bash
-# build.sh — Generate HTML from EBNF, screenshot, and build gallery.
+# build.sh — The EBNF → proto → gallery build for proto-css.
 #
-# Runs the generated pipeline via chrome-testing/run.sh --generated:
-#   EBNF grammar → generated HTML → screenshots → gallery
+# Pipeline (the grammar is the source of truth):
+#   1. ./setup.sh               — prereqs + go mod tidy (idempotent)
+#   2. ./tools/gen_proto.sh     — compile lang/*.ebnf via gluon genproto into
+#                                 proto/css.proto, proto/css.fdset, and the
+#                                 codec tables in proto/pb/css/
+#   3. chrome-testing/gen.sh    — walk the grammar, emit the gallery data
+#                                 (codex-data.jsx + _codec_failures.tsv) and
+#                                 bundle the deployable gallery (dist/)
 #
-# To also build hand-written template screenshots:
-#   chrome-testing/run.sh --template
+# Screenshots are a separate, long-running flow: chrome-testing/shoot.sh.
 #
-# Idempotent: safe to re-run at any time.
+# Idempotent: safe to re-run; regenerates committed artifacts in place.
 
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")" && pwd)"
 
 echo "========================================="
-echo "  build.sh — Build"
+echo "  build.sh — EBNF -> proto -> gallery"
 echo "========================================="
 
-CHROME_TESTING="$ROOT/chrome-testing"
+echo ""
+echo "--- Step 1/3: setup ---"
+"$ROOT/setup.sh"
 
-if [[ -x "$CHROME_TESTING/run.sh" ]]; then
-  "$CHROME_TESTING/run.sh" --generated
-else
-  echo "ERROR: chrome-testing/run.sh not found or not executable" >&2
-  exit 1
-fi
+echo ""
+echo "--- Step 2/3: grammar -> proto (gen_proto) ---"
+"$ROOT/tools/gen_proto.sh"
+
+echo ""
+echo "--- Step 3/3: gallery data (chrome-testing/gen.sh) ---"
+"$ROOT/chrome-testing/gen.sh"
 
 echo ""
 echo "========================================="

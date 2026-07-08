@@ -15,11 +15,11 @@ echo "========================================="
 echo "  test.sh — Test & Validate"
 echo "========================================="
 
-# ── Full pipeline build (gen + screenshots + galleries) ────────────────────
+# ── Full pipeline build (setup -> gen_proto -> gallery data) ───────────────
 
 echo ""
 echo "--- Full pipeline build ---"
-"$ROOT/chrome-testing/run.sh"
+"$ROOT/build.sh"
 
 fail() {
   echo "  [FAIL] $1" >&2
@@ -29,6 +29,22 @@ fail() {
 pass() {
   echo "  [ok] $1"
 }
+
+# ── Codec round-trip (every walked gallery path must be faithful) ───────────
+
+echo ""
+echo "--- Codec round-trip ---"
+CODEC_TSV="$ROOT/chrome-testing/generated/_codec_failures.tsv"
+if [[ -f "$CODEC_TSV" ]]; then
+  CODEC_ROWS=$(( $(wc -l <"$CODEC_TSV") - 1 ))
+  if [[ "$CODEC_ROWS" -le 0 ]]; then
+    pass "codec round-trip: every walked gallery path renders faithfully"
+  else
+    fail "codec round-trip: $CODEC_ROWS failing path(s) — see $CODEC_TSV"
+  fi
+else
+  fail "codec failures report missing: $CODEC_TSV (build did not run the walk)"
+fi
 
 # ── Go vet ──────────────────────────────────────────────────────────────────
 
@@ -75,143 +91,57 @@ else
   echo "  [skip] No go.mod found yet"
 fi
 
-# ── Hand-written template validation ───────────────────────────────────────
+# ── Gallery app (the codex SPA) ─────────────────────────────────────────────
 
 echo ""
-echo "--- Hand-written template validation ---"
+echo "--- Gallery app ---"
 
-TEMPLATES_DIR="$ROOT/chrome-testing/html/template"
-PROPERTIES="$ROOT/chrome-testing/properties.txt"
+GALLERY_DIR="$ROOT/chrome-testing/gallery"
 
-if [[ -d "$TEMPLATES_DIR" ]]; then
-  TEMPLATE_COUNT=$(find "$TEMPLATES_DIR" -name '*.html' | wc -l | tr -d ' ')
-  if [[ "$TEMPLATE_COUNT" -gt 0 ]]; then
-    pass "$TEMPLATE_COUNT hand-written HTML templates found"
+check_nonempty() {
+  local path="$1" name="$2"
+  if [[ -s "$path" ]]; then
+    pass "$name exists and is non-empty"
   else
-    fail "No HTML templates in $TEMPLATES_DIR"
+    fail "$name missing or empty — run ./build.sh first"
   fi
+}
 
-  # Check that every template is well-formed (has <!DOCTYPE and closing </html>)
-  BAD_TEMPLATES=0
-  while IFS= read -r -d '' tmpl; do
-    if ! head -1 "$tmpl" | grep -qi 'doctype'; then
-      echo "    WARNING: $(basename "$tmpl") missing DOCTYPE" >&2
-      BAD_TEMPLATES=$((BAD_TEMPLATES + 1))
-    fi
-  done < <(find "$TEMPLATES_DIR" -name '*.html' -print0)
+check_nonempty "$GALLERY_DIR/index.html" "gallery/index.html"
+check_nonempty "$GALLERY_DIR/codex.jsx" "gallery/codex.jsx"
+check_nonempty "$GALLERY_DIR/data.jsx" "gallery/data.jsx"
+check_nonempty "$GALLERY_DIR/styles.css" "gallery/styles.css"
 
-  if [[ $BAD_TEMPLATES -eq 0 ]]; then
-    pass "All hand-written templates have DOCTYPE"
-  else
-    fail "$BAD_TEMPLATES hand-written template(s) missing DOCTYPE"
-  fi
-else
-  fail "Hand-written templates directory not found: $TEMPLATES_DIR"
-fi
-
-# Cross-check properties.txt against hand-written templates
-if [[ -f "$PROPERTIES" && -d "$TEMPLATES_DIR" ]]; then
-  MISSING_TEMPLATES=0
-  while IFS= read -r prop; do
-    prop="$(echo "$prop" | tr -d '[:space:]')"
-    [[ -z "$prop" ]] && continue
-    if [[ ! -f "$TEMPLATES_DIR/$prop.html" ]]; then
-      MISSING_TEMPLATES=$((MISSING_TEMPLATES + 1))
-    fi
-  done < "$PROPERTIES"
-
-  if [[ $MISSING_TEMPLATES -eq 0 ]]; then
-    pass "All properties in properties.txt have hand-written templates"
-  else
-    echo "  [warn] $MISSING_TEMPLATES properties in properties.txt lack hand-written templates (may be expected)"
-  fi
-fi
-
-# ── EBNF-generated template validation ─────────────────────────────────────
+# ── Generated gallery data (grammar walk output) ────────────────────────────
 
 echo ""
-echo "--- EBNF-generated template validation ---"
+echo "--- Generated gallery data ---"
 
-GEN_TEMPLATES_DIR="$ROOT/chrome-testing/html/generated"
+GEN_DIR="$ROOT/chrome-testing/generated"
 
-if [[ -d "$GEN_TEMPLATES_DIR" ]]; then
-  GEN_COUNT=$(find "$GEN_TEMPLATES_DIR" -name '*.html' | wc -l | tr -d ' ')
-  if [[ "$GEN_COUNT" -gt 0 ]]; then
-    pass "$GEN_COUNT EBNF-generated HTML templates found"
-  else
-    echo "  [warn] No generated templates in $GEN_TEMPLATES_DIR (run ./tools/gen.sh)"
-  fi
-else
-  echo "  [warn] Generated templates directory not found: $GEN_TEMPLATES_DIR (run ./tools/gen.sh)"
-fi
+check_nonempty "$GEN_DIR/codex-data.jsx" "generated/codex-data.jsx"
+check_nonempty "$GEN_DIR/manifest.tsv" "generated/manifest.tsv"
+check_nonempty "$GEN_DIR/values.json" "generated/values.json"
 
-# ── Hand-written screenshot validation (advisory) ─────────────────────────
+# ── Screenshot validation (advisory) ────────────────────────────────────────
 
 echo ""
-echo "--- Hand-written screenshot validation (advisory) ---"
+echo "--- Screenshots (advisory) ---"
 
-SCREENSHOTS_DIR="$ROOT/chrome-testing/screenshots/template"
+SCREENSHOTS_DIR="$ROOT/chrome-testing/screenshots"
 
 if [[ -d "$SCREENSHOTS_DIR" ]]; then
   SCREENSHOT_COUNT=$(find "$SCREENSHOTS_DIR" -name '*.png' | wc -l | tr -d ' ')
   if [[ "$SCREENSHOT_COUNT" -gt 0 ]]; then
-    pass "$SCREENSHOT_COUNT hand-written template screenshots found"
+    pass "$SCREENSHOT_COUNT screenshot(s) found"
   else
-    echo "  [warn] No screenshots in $SCREENSHOTS_DIR (run build.sh with --template to generate)"
+    echo "  [warn] No screenshots in $SCREENSHOTS_DIR (run chrome-testing/shoot.sh)"
   fi
 else
-  echo "  [warn] Hand-written screenshots directory not found: $SCREENSHOTS_DIR"
+  echo "  [warn] Screenshots directory not found: $SCREENSHOTS_DIR (run chrome-testing/shoot.sh)"
 fi
 
-# ── Generated screenshot validation ────────────────────────────────────────
-
-echo ""
-echo "--- Generated screenshot validation ---"
-
-GEN_SCREENSHOTS_DIR="$ROOT/chrome-testing/screenshots/generated"
-
-if [[ -d "$GEN_SCREENSHOTS_DIR" ]]; then
-  GEN_SS_COUNT=$(find "$GEN_SCREENSHOTS_DIR" -name '*.png' | wc -l | tr -d ' ')
-  if [[ "$GEN_SS_COUNT" -gt 0 ]]; then
-    pass "$GEN_SS_COUNT generated template screenshots found"
-  else
-    echo "  [warn] No generated screenshots in $GEN_SCREENSHOTS_DIR (run ./tools/gen.sh)"
-  fi
-else
-  echo "  [warn] Generated screenshots directory not found (run ./tools/gen.sh)"
-fi
-
-# ── Gallery validation ──────────────────────────────────────────────────────
-
-echo ""
-echo "--- Gallery validation ---"
-
-GALLERY_DIR="$ROOT/chrome-testing/html"
-
-check_gallery() {
-  local path="$1"
-  local name="$2"
-  if [[ -f "$path" ]]; then
-    if [[ -s "$path" ]]; then
-      pass "$name exists and is non-empty"
-    else
-      fail "$name exists but is empty"
-    fi
-  else
-    fail "$name not found — run ./build.sh first"
-  fi
-}
-
-check_gallery "$GALLERY_DIR/template_gallery.html" "template_gallery.html"
-
-# Generated gallery is optional (only exists after tools/gen.sh)
-if [[ -f "$GALLERY_DIR/generated_gallery.html" ]]; then
-  check_gallery "$GALLERY_DIR/generated_gallery.html" "generated_gallery.html"
-else
-  echo "  [warn] Generated gallery not found (run ./tools/gen.sh)"
-fi
-
-# ── Smoke test: serve gallery and check HTTP response ───────────────────────
+# ── Smoke test: serve the gallery and check HTTP response ───────────────────
 
 echo ""
 echo "--- Smoke test ---"
@@ -224,12 +154,10 @@ smoke_cleanup() {
 }
 trap smoke_cleanup EXIT
 
-GALLERY_FILE="$GALLERY_DIR/generated_gallery.html"
-
-if [[ -f "$GALLERY_FILE" ]]; then
+if [[ -f "$GALLERY_DIR/index.html" ]]; then
   SMOKE_PORT="$(python3 -c "import socket; s=socket.socket(); s.bind(('',0)); p=s.getsockname()[1]; s.close(); print(p)")"
 
-  python3 -m http.server "$SMOKE_PORT" --directory "$GALLERY_DIR" &>/dev/null &
+  python3 -m http.server "$SMOKE_PORT" --directory "$ROOT/chrome-testing" &>/dev/null &
   SMOKE_PID=$!
   disown "$SMOKE_PID"
 
@@ -242,17 +170,17 @@ if [[ -f "$GALLERY_FILE" ]]; then
   done
 
   # Check HTTP response
-  HTTP_STATUS="$(curl -s -o /dev/null -w '%{http_code}' "http://localhost:$SMOKE_PORT/generated_gallery.html" 2>/dev/null || echo "000")"
+  HTTP_STATUS="$(curl -s -o /dev/null -w '%{http_code}' "http://localhost:$SMOKE_PORT/gallery/index.html" 2>/dev/null || echo "000")"
   if [[ "$HTTP_STATUS" == "200" ]]; then
-    pass "Smoke test: generated_gallery.html served OK (HTTP $HTTP_STATUS)"
+    pass "Smoke test: gallery/index.html served OK (HTTP $HTTP_STATUS)"
   else
-    fail "Smoke test: generated_gallery.html returned HTTP $HTTP_STATUS"
+    fail "Smoke test: gallery/index.html returned HTTP $HTTP_STATUS"
   fi
 
   kill "$SMOKE_PID" 2>/dev/null || true
   SMOKE_PID=""
 else
-  echo "  [skip] No generated gallery to smoke-test"
+  echo "  [skip] No gallery to smoke-test"
 fi
 
 # ── Summary ─────────────────────────────────────────────────────────────────
