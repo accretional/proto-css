@@ -30,10 +30,10 @@ func init() {
 		// "!important" "#hex" "--var" "[line-name]" — while "/" keeps spaces on
 		// both sides ("50% / 0.5", "16 / 9").
 		NoSpaceBefore: map[string]bool{
-			",": true, "(": true, ")": true, ";": true, ":": true, ".": true, "]": true,
+			",": true, "(": true, ")": true, ";": true, ":": true, "::": true, ".": true, "]": true,
 		},
 		NoSpaceAfter: map[string]bool{
-			"(": true, ":": true, ".": true, "[": true, "!": true, "#": true, "@": true, "--": true,
+			"(": true, ":": true, "::": true, ".": true, "[": true, "!": true, "#": true, "@": true, "--": true,
 		},
 	})
 }
