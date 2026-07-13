@@ -19,6 +19,7 @@
 //	proto/css.fdset              serialized FileDescriptorSet
 //	proto/pb/css/prefix_map.go   MessagePrefix: FQN → leading terminal tokens
 //	proto/pb/css/separator_map.go FieldSeparator: parentFQN.field → list separator
+//	proto/css_service.proto      CssService gRPC surface (gluon servicegen)
 package main
 
 import (
@@ -38,8 +39,13 @@ import (
 	"github.com/accretional/gluon/v2/compiler"
 	metaparser "github.com/accretional/gluon/v2/metaparser"
 	pb "github.com/accretional/gluon/v2/pb"
+	"github.com/accretional/gluon/v2/servicegen"
 	"github.com/accretional/merge/descriptor"
 )
+
+// rootRule is the grammar's start symbol; the schema is pruned to what is
+// reachable from it and the service surface is rooted at it.
+const rootRule = "CssStyleSheet"
 
 // ebnfComment matches an EBNF (* ... *) comment, including multi-line, used to
 // scrub comments out of the parser input (see the note in main).
@@ -64,6 +70,8 @@ func main() {
 	scalarStopsOut := flag.String("scalar-stops-map", "proto/pb/css/scalar_stops_map.go", "generated ScalarStopChars map")
 	pkgName := flag.String("package", "css", "proto package name")
 	goPkg := flag.String("go-package", "github.com/accretional/proto-css/proto/pb/css;csspb", "go_package option")
+	serviceOut := flag.String("service-proto", "proto/css_service.proto", "generated CssService .proto (empty = skip)")
+	serviceGoPkg := flag.String("service-go-package", "github.com/accretional/proto-css/proto/pb/cssservice;cssservicepb", "go_package for the service proto")
 	flag.Parse()
 
 	// 1. Read + concatenate the grammar.
@@ -109,7 +117,7 @@ func main() {
 	startByRule := leafStartChars(ast.Root)
 	ast.Root = scalarizeLeaves(ast.Root)
 	var prunedRules []string
-	ast.Root, prunedRules = pruneUnreachable(ast.Root, "CssStyleSheet")
+	ast.Root, prunedRules = pruneUnreachable(ast.Root, rootRule)
 	fmt.Printf("pruned %d unreachable rules\n", len(prunedRules))
 
 	// 3. Prefix pass: collect leading-terminal prefixes and list separators
@@ -270,6 +278,26 @@ func main() {
 		log.Fatalf("write %s: %v", *scalarStopsOut, err)
 	}
 	fmt.Printf("wrote %s (%d entries)\n", *scalarStopsOut, len(scalarStops))
+
+	// 6. Emit the repo-owned CssService gRPC surface (Parse/Render/RenderStream
+	// rooted at the start symbol), compiled by gen_proto.sh into
+	// proto/pb/cssservice/.
+	if *serviceOut != "" {
+		svc, err := servicegen.Format(servicegen.Spec{
+			Package:   *pkgName,
+			Import:    filepath.Base(*bundledOut),
+			GoPackage: *serviceGoPkg,
+			Root:      rootRule,
+			RootField: "sheet",
+		})
+		if err != nil {
+			log.Fatalf("servicegen: %v", err)
+		}
+		if err := os.WriteFile(*serviceOut, []byte(svc), 0o644); err != nil {
+			log.Fatalf("write %s: %v", *serviceOut, err)
+		}
+		fmt.Printf("wrote %s\n", *serviceOut)
+	}
 }
 
 // dedupeMessages removes duplicate top-level messages by name, keeping the

@@ -46,7 +46,14 @@ Quick `go build ./...` or `go vet ./...` during development to catch compile err
   `proto/pb/css/`: `prefix_map`, `separator_map`, `required_map` (mandatory
   fields), `scalar_stops_map` (characters a scalarized leaf can never
   contain). The gluon codec (`../gluon/v2/codec`) parses/renders CSS entirely
-  from these tables; `service/` registers them.
+  from these tables; `service/` registers them. It also emits
+  `proto/css_service.proto` (gluon `v2/servicegen`): the repo-owned
+  `CssService` gRPC surface (Parse/Render/RenderStream rooted at
+  `CssStyleSheet`, with subtree parse/render via `ParseRequest.type` /
+  Any-packed `node`), compiled into `proto/pb/cssservice/` and implemented by
+  `service/server.go` (run via `service/cmd/server`, port :50051, gRPC
+  reflection on). The gallery gen round-trips every walked declaration
+  through this service.
 - Grammar shape to know: `;` is a declaration separator OWNED BY RuleBody
   (`RuleBody = { DeclarationItem | NestedCssRule | AtRule } , [ Declaration ]`,
   `DeclarationItem = Declaration , ";"`) — property Exprs carry no trailing

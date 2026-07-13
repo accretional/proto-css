@@ -1,12 +1,14 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"os"
 	"sort"
 	"strings"
 
-	svc "github.com/accretional/proto-css/service"
+	cssservicepb "github.com/accretional/proto-css/proto/pb/cssservice"
+	"github.com/accretional/proto-css/service"
 )
 
 // codecrender.go — make the gluon codec the RENDERER OF RECORD for the CSS
@@ -19,20 +21,27 @@ import (
 
 const declRoot = "css.DeclarationListType"
 
-// codecDecl round-trips one "property: value" declaration through the css codec,
-// returning the codec's canonical text. On any failure it returns the original
-// declaration and false.
+// cssService is the CssService the gallery renders through — the same server
+// service/cmd/server exposes over gRPC, driven in-process here so the gen
+// exercises the exact Parse/Render surface clients see.
+var cssService = service.NewServer()
+
+// codecDecl round-trips one "property: value" declaration through the
+// CssService (Parse with the declaration-list type -> Render of the Any-packed
+// node), returning the codec's canonical text. On any failure it returns the
+// original declaration and false.
 func codecDecl(prop, value string) (string, bool) {
 	in := prop + ":" + value
-	m, err := svc.ParseAs(in, declRoot)
+	ctx := context.Background()
+	parsed, err := cssService.Parse(ctx, &cssservicepb.ParseRequest{Css: in, Type: declRoot})
 	if err != nil {
 		return prop + ": " + value, false
 	}
-	out, err := svc.Render(m)
+	rendered, err := cssService.Render(ctx, &cssservicepb.RenderRequest{Node: parsed.GetNode()})
 	if err != nil {
 		return prop + ": " + value, false
 	}
-	return strings.TrimSpace(out), true
+	return strings.TrimSpace(rendered.GetCss()), true
 }
 
 // checkDecl round-trips a declaration and records a failure if the codec errors
